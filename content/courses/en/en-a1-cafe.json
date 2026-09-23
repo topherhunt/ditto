@@ -1,0 +1,66 @@
+{
+  "id": "en-a1-cafe",
+  "language": "en",
+  "level": "A1",
+  "order": 1,
+  "title": "At the café",
+  "description": "Ordering and paying at an American café",
+  "lexicon": {
+    "coffee": { "lemma": "coffee", "pos": "NOUN", "gloss": "coffee" },
+    "a": { "lemma": "a", "pos": "DET", "gloss": "indefinite article (an before a vowel sound)" },
+    "please": { "lemma": "please", "pos": "INTJ", "gloss": "polite request marker" },
+    "i'd": { "lemma": "I would", "pos": "PRON", "gloss": "contraction of I would" },
+    "like": { "lemma": "like", "pos": "VERB", "gloss": "want; I'd like = I would like" },
+    "tea": { "lemma": "tea", "pos": "NOUN", "gloss": "tea" },
+    "with": { "lemma": "with", "pos": "ADP", "gloss": "together with" },
+    "milk": { "lemma": "milk", "pos": "NOUN", "gloss": "milk (uncountable)" },
+    "can": { "lemma": "can", "pos": "AUX", "gloss": "be able to; also asks permission" },
+    "i": { "lemma": "I", "pos": "PRON", "gloss": "first person singular, always capitalized" },
+    "have": { "lemma": "have", "pos": "VERB", "gloss": "have, get" },
+    "muffin": { "lemma": "muffin", "pos": "NOUN", "gloss": "muffin" },
+    "too": { "lemma": "too", "pos": "ADV", "gloss": "also (not to or two)" },
+    "how": { "lemma": "how", "pos": "ADV", "gloss": "in what way; how much = what price" },
+    "much": { "lemma": "much", "pos": "ADV", "gloss": "a large amount" },
+    "is": { "lemma": "be", "pos": "AUX", "gloss": "is (3rd person singular of be)" },
+    "it": { "lemma": "it", "pos": "PRON", "gloss": "it" },
+    "it's": { "lemma": "it is", "pos": "PRON", "gloss": "contraction of it is (not its)" },
+    "three": { "lemma": "three", "pos": "NUM", "gloss": "3" },
+    "dollars": { "lemma": "dollar", "pos": "NOUN", "gloss": "dollars (plural)" },
+    "could": { "lemma": "can", "pos": "AUX", "gloss": "polite form of can" },
+    "we": { "lemma": "we", "pos": "PRON", "gloss": "first person plural" },
+    "get": { "lemma": "get", "pos": "VERB", "gloss": "receive, have brought" },
+    "the": { "lemma": "the", "pos": "DET", "gloss": "definite article" },
+    "check": { "lemma": "check", "pos": "NOUN", "gloss": "the bill at a restaurant (US)" },
+    "pay": { "lemma": "pay", "pos": "VERB", "gloss": "give money for something" },
+    "by": { "lemma": "by", "pos": "ADP", "gloss": "by means of; pay by card" },
+    "card": { "lemma": "card", "pos": "NOUN", "gloss": "credit or debit card" }
+  },
+  "lessons": [
+    {
+      "id": "en-a1-cafe-1",
+      "title": "A coffee, please",
+      "grammarFocus": ["a + noun", "I'd like = I would like"],
+      "units": [
+        { "id": "en-a1-cafe-1-u01", "rev": 1, "stage": "word", "text": "coffee" },
+        { "id": "en-a1-cafe-1-u02", "rev": 1, "stage": "phrase", "text": "a coffee" },
+        { "id": "en-a1-cafe-1-u03", "rev": 1, "stage": "sentence", "text": "A coffee, please." },
+        { "id": "en-a1-cafe-1-u04", "rev": 1, "stage": "chunk", "text": "I'd like", "variants": ["I would like"] },
+        { "id": "en-a1-cafe-1-u05", "rev": 1, "stage": "sentence", "text": "I'd like a tea with milk.", "variants": ["I would like a tea with milk."] },
+        { "id": "en-a1-cafe-1-u06", "rev": 1, "stage": "sentence", "text": "Can I have a muffin, too?" }
+      ]
+    },
+    {
+      "id": "en-a1-cafe-2",
+      "title": "How much is it?",
+      "grammarFocus": ["questions with how much", "it's = it is", "could for polite requests"],
+      "units": [
+        { "id": "en-a1-cafe-2-u01", "rev": 1, "stage": "phrase", "text": "how much" },
+        { "id": "en-a1-cafe-2-u02", "rev": 1, "stage": "sentence", "text": "How much is it?" },
+        { "id": "en-a1-cafe-2-u03", "rev": 1, "stage": "sentence", "text": "It's three dollars.", "variants": ["It is three dollars.", "It's 3 dollars.", "It is 3 dollars."] },
+        { "id": "en-a1-cafe-2-u04", "rev": 1, "stage": "phrase", "text": "the check" },
+        { "id": "en-a1-cafe-2-u05", "rev": 1, "stage": "sentence", "text": "Could we get the check, please?" },
+        { "id": "en-a1-cafe-2-u06", "rev": 1, "stage": "sentence", "text": "Can I pay by card?" }
+      ]
+    }
+  ]
+}

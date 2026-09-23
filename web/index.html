@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ditto</title>
+    <!-- Before first paint, so a light-theme user never sees a dark flash. Key matches THEME_KEY in theme.ts. -->
+    <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.bsTheme = "light"; } catch {}</script>
+  </head>
+  <body class="bg-body-tertiary">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

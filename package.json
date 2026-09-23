@@ -1,0 +1,39 @@
+{
+  "name": "ditto",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env server/index.ts & vite",
+    "dev:server": "node --watch --env-file-if-exists=.env server/index.ts",
+    "dev:web": "vite",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "content:validate": "node scripts/validate-content.ts",
+    "content:audio": "node scripts/build-audio.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "google-auth-library": "^11.1.0",
+    "hono": "^4.13.8",
+    "openai": "^7.23.0",
+    "ts-fsrs": "^5.4.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@solidjs/router": "^1.0.0",
+    "@types/node": "^26.6.2",
+    "bootstrap": "^5.3.8",
+    "solid-js": "^1.9.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-solid": "^2.11.14",
+    "vitest": "^5.0.1"
+  }
+}

@@ -1,0 +1,10 @@
+/* Letter-level feedback: the only colors that carry meaning. */
+.letter-delete { color: var(--bs-danger); text-decoration: line-through; }
+.letter-insert { color: var(--bs-success); text-decoration: underline; }
+.letter-accent { color: var(--bs-orange); font-weight: 700; }
+
+.font-mono { font-family: var(--bs-font-monospace); }
+
+/* Slot inputs size to their word (set --len inline) plus one spare character for typed punctuation. Pair with `px-2`: the 1rem is its padding, the 2px the border. */
+.slot { width: calc((var(--len) + 1) * 1ch + 1rem + 2px); min-width: 3rem; font-family: var(--bs-font-monospace); }
+.slot:read-only { background: var(--bs-success-bg-subtle); }

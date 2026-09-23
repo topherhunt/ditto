@@ -1,0 +1,17 @@
+import { defineConfig } from "@playwright/test";
+
+const PORT = 3100;
+
+export default defineConfig({
+  testDir: "tests/e2e",
+  fullyParallel: false,
+  workers: 1,
+  use: { baseURL: `http://127.0.0.1:${PORT}`, trace: "retain-on-failure" },
+  webServer: {
+    // Fresh DB per run; OPENAI_API_KEY is blanked so E2E can never spend money.
+    command: `rm -rf test-results/e2e-db && npx vite build && node server/index.ts`,
+    url: `http://127.0.0.1:${PORT}/api/config`,
+    reuseExistingServer: false,
+    env: { PORT: String(PORT), DEV_LOGIN: "1", DATABASE_PATH: "test-results/e2e-db/app.db", OPENAI_API_KEY: "", GOOGLE_CLIENT_ID: "" },
+  },
+});
