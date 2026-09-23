@@ -1,5 +1,5 @@
 import type { HintLevel } from "../../shared/api.ts";
-import type { DeterministicCategory, GradeResult } from "../../shared/grader.ts";
+import type { DeterministicCategory, GradeResult, WordResult } from "../../shared/grader.ts";
 
 export type Outcome = "clean" | "hinted" | "corrected" | "revealed";
 
@@ -23,24 +23,22 @@ export type SlotState = "open" | "correct" | "accent";
 
 /**
  * After a submission graded against the main text, rebuild the slots: correct and accent-only words are
- * locked in with their target spelling, wrong words keep what was typed, missing words become empty.
+ * locked in with their target spelling, wrong words keep what was typed, missing words become empty. Typed
+ * punctuation stays after its word; a wrong end mark keeps its slot open to fix.
  */
-export function slotsAfter(result: GradeResult, targetCount: number, prev: string[]): { values: string[]; states: SlotState[] } {
-  const values = Array.from({ length: targetCount }, (_, i) => prev[i] ?? "");
+export function slotsAfter(result: GradeResult, targetCount: number): { values: string[]; states: SlotState[] } {
+  const values = Array.from({ length: targetCount }, () => "");
   const states: SlotState[] = values.map(() => "open");
   for (const w of result.words) {
-    if (w.kind === "extra") continue;
-    if (w.kind === "correct" || w.kind === "accent") {
-      values[w.wordIndex] = w.target;
-      states[w.wordIndex] = w.kind;
-    } else if (w.kind === "wrong") {
-      values[w.wordIndex] = w.typed;
-    } else {
-      values[w.wordIndex] = "";
-    }
+    if (w.kind === "extra" || w.kind === "missing") continue;
+    values[w.wordIndex] = (w.kind === "wrong" ? w.typed : w.target) + w.after.map((m) => m.ch).join("");
+    if (w.kind !== "wrong" && w.after.every((m) => m.status !== "wrong")) states[w.wordIndex] = w.kind;
   }
   return { values, states };
 }
+
+/** Whether a graded word has anything to show under its slot: a spelling or accent fix, or flagged punctuation. */
+export const hasFeedback = (w: WordResult) => w.kind !== "correct" || w.after.some((m) => m.status !== "ok");
 
 export function mergeCategories(a: DeterministicCategory[], b: DeterministicCategory[]): DeterministicCategory[] {
   return [...new Set([...a, ...b])];

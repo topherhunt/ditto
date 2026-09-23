@@ -11,10 +11,9 @@ export const PrefsSchema = z.strictObject({
   hints: z.enum(HINT_LEVELS),
   autoplay: z.int().min(0).max(3),
   rate: z.number().min(0.5).max(1),
-  showTranslation: z.boolean(),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, showTranslation: true };
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1 };
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema });
 
@@ -31,7 +30,9 @@ export const AttemptSchema = z.strictObject({
   accentSlips: z.int().min(0),
   /** Every submitted answer, joined as free text, in order. */
   submissions: z.array(z.string()).max(50),
-  categories: z.array(z.enum(["spelling", "missing_word", "extra_word", "word_order"])),
+  categories: z.array(z.enum(["spelling", "missing_word", "extra_word", "word_order", "punctuation"])),
+  /** The meaning check after the dictation; null exactly when the unit has no translation. A wrong pick counts as a miss. */
+  meaningCorrect: z.boolean().nullable(),
   durationMs: z.int().min(0),
 });
 export type AttemptBody = z.infer<typeof AttemptSchema>;
@@ -45,6 +46,8 @@ export type Catalog = {
   courses: ServedCourse[];
   /** lessonId -> path -> progress */
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
+  /** Course and lesson ids the learner can start. */
+  unlocked: string[];
   dueCount: number;
   mistakesCount: number;
 };

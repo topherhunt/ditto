@@ -5,6 +5,9 @@
   "order": 1,
   "title": "In het café",
   "description": "Ordering and paying at a Dutch café",
+  "track": "main",
+  "requires": [],
+  "introduces": ["koffie", "een", "alstublieft", "ik", "willen", "graag", "thee", "met", "melk", "voor", "mij", "één", "broodje", "kaas", "de", "rekening", "mogen", "betalen", "kaart", "hoeveel", "kosten", "het", "drie", "euro", "dank", "u", "wel"],
   "lexicon": {
     "koffie": { "lemma": "koffie", "pos": "NOUN", "gloss": "coffee (de koffie)" },
     "een": { "lemma": "een", "pos": "DET", "gloss": "a, an (unstressed)" },
@@ -40,14 +43,14 @@
       "title": "Een koffie, alstublieft",
       "grammarFocus": ["een vs. één", "ik wil graag + noun"],
       "units": [
-        { "id": "nl-a1-cafe-1-u01", "rev": 1, "stage": "word", "text": "koffie", "translation": "coffee" },
-        { "id": "nl-a1-cafe-1-u02", "rev": 1, "stage": "phrase", "text": "een koffie", "translation": "a coffee" },
-        { "id": "nl-a1-cafe-1-u03", "rev": 1, "stage": "word", "text": "alstublieft", "translation": "please" },
-        { "id": "nl-a1-cafe-1-u04", "rev": 1, "stage": "sentence", "text": "Een koffie, alstublieft.", "translation": "A coffee, please." },
-        { "id": "nl-a1-cafe-1-u05", "rev": 1, "stage": "chunk", "text": "ik wil graag", "translation": "I would like" },
-        { "id": "nl-a1-cafe-1-u06", "rev": 1, "stage": "sentence", "text": "Ik wil graag een thee met melk.", "translation": "I'd like a tea with milk." },
-        { "id": "nl-a1-cafe-1-u07", "rev": 1, "stage": "phrase", "text": "één broodje", "translation": "one bread roll" },
-        { "id": "nl-a1-cafe-1-u08", "rev": 1, "stage": "sentence", "text": "Voor mij één broodje kaas.", "translation": "For me, one cheese roll." }
+        { "id": "nl-a1-cafe-1-u01", "rev": 1, "stage": "word", "text": "koffie", "translation": "coffee", "distractors": ["tea", "milk"] },
+        { "id": "nl-a1-cafe-1-u02", "rev": 1, "stage": "phrase", "text": "een koffie", "translation": "a coffee", "distractors": ["one coffee", "the coffee"] },
+        { "id": "nl-a1-cafe-1-u03", "rev": 1, "stage": "word", "text": "alstublieft", "translation": "please", "distractors": ["thank you", "excuse me"] },
+        { "id": "nl-a1-cafe-1-u04", "rev": 1, "stage": "sentence", "text": "Een koffie, alstublieft.", "translation": "A coffee, please.", "distractors": ["One coffee, thanks.", "A tea, please."] },
+        { "id": "nl-a1-cafe-1-u05", "rev": 1, "stage": "chunk", "text": "ik wil graag", "translation": "I would like", "distractors": ["I will pay", "I have to"] },
+        { "id": "nl-a1-cafe-1-u06", "rev": 1, "stage": "sentence", "text": "Ik wil graag een thee met melk.", "translation": "I'd like a tea with milk.", "distractors": ["I'd like a coffee with milk.", "I'd like a tea without milk."] },
+        { "id": "nl-a1-cafe-1-u07", "rev": 1, "stage": "phrase", "text": "één broodje", "translation": "one bread roll", "distractors": ["a bread roll", "one cheese"] },
+        { "id": "nl-a1-cafe-1-u08", "rev": 1, "stage": "sentence", "text": "Voor mij één broodje kaas.", "translation": "For me, one cheese roll.", "distractors": ["For me, a cheese sandwich and a tea.", "For you, one cheese roll."] }
       ]
     },
     {
@@ -55,13 +58,13 @@
       "title": "Mag ik betalen?",
       "grammarFocus": ["mag ik + infinitive at the end", "inversion in questions"],
       "units": [
-        { "id": "nl-a1-cafe-2-u01", "rev": 1, "stage": "phrase", "text": "de rekening", "translation": "the bill" },
-        { "id": "nl-a1-cafe-2-u02", "rev": 1, "stage": "sentence", "text": "Mag ik de rekening?", "translation": "Can I have the bill?" },
-        { "id": "nl-a1-cafe-2-u03", "rev": 1, "stage": "chunk", "text": "mag ik betalen", "translation": "may I pay" },
-        { "id": "nl-a1-cafe-2-u04", "rev": 1, "stage": "sentence", "text": "Mag ik met de kaart betalen?", "translation": "Can I pay by card?" },
-        { "id": "nl-a1-cafe-2-u05", "rev": 1, "stage": "sentence", "text": "Hoeveel kost het?", "translation": "How much is it?" },
-        { "id": "nl-a1-cafe-2-u06", "rev": 1, "stage": "sentence", "text": "Het kost drie euro.", "translation": "It costs three euros.", "variants": ["Het kost 3 euro."] },
-        { "id": "nl-a1-cafe-2-u07", "rev": 1, "stage": "sentence", "text": "Dank u wel!", "translation": "Thank you very much!" }
+        { "id": "nl-a1-cafe-2-u01", "rev": 1, "stage": "phrase", "text": "de rekening", "translation": "the bill", "distractors": ["the card", "the menu"] },
+        { "id": "nl-a1-cafe-2-u02", "rev": 1, "stage": "sentence", "text": "Mag ik de rekening?", "translation": "Can I have the bill?", "distractors": ["Can I pay by card?", "Where is the bill?"] },
+        { "id": "nl-a1-cafe-2-u03", "rev": 1, "stage": "chunk", "text": "mag ik betalen", "translation": "may I pay", "distractors": ["I want to pay", "may you pay"] },
+        { "id": "nl-a1-cafe-2-u04", "rev": 1, "stage": "sentence", "text": "Mag ik met de kaart betalen?", "translation": "Can I pay by card?", "distractors": ["Can I pay in cash?", "Can you pay by card?"] },
+        { "id": "nl-a1-cafe-2-u05", "rev": 1, "stage": "sentence", "text": "Hoeveel kost het?", "translation": "How much is it?", "distractors": ["How many are there?", "What is it?"] },
+        { "id": "nl-a1-cafe-2-u06", "rev": 1, "stage": "sentence", "text": "Het kost drie euro.", "translation": "It costs three euros.", "distractors": ["It costs two euros.", "It costs three dollars."], "variants": ["Het kost 3 euro."] },
+        { "id": "nl-a1-cafe-2-u07", "rev": 1, "stage": "sentence", "text": "Dank u wel!", "translation": "Thank you very much!", "distractors": ["You're welcome!", "Goodbye!"] }
       ]
     }
   ]

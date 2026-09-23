@@ -17,6 +17,7 @@ async function loadDeck(mode: Mode, lang: Language, lessonId: string | undefined
   const cat = await api.get<Catalog>(`/api/catalog?lang=${lang}`);
   const lesson = cat.courses.flatMap((c) => c.lessons).find((l) => l.id === lessonId);
   if (!lesson) throw new Error(`Unknown lesson ${lessonId}`);
+  if (!cat.unlocked.includes(lesson.id)) throw new Error(`Lesson "${lesson.title}" is locked: finish the lessons before it first`);
   const path = me()!.prefs[lang].path;
   const units = lesson.units.filter((u) => (PATHS[path] as readonly string[]).includes(u.stage));
   const next = cat.progress[lesson.id]?.[path]?.nextIndex ?? 0;

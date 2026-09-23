@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { grade } from "../../shared/grader.ts";
-import { words } from "../../shared/tokenize.ts";
-import { outcomeOf, placeholder, slotsAfter } from "../../web/src/practice.ts";
+import { hasFeedback, outcomeOf, placeholder, slotsAfter } from "../../web/src/practice.ts";
 
 describe("practice helpers", () => {
   it("rates a unit by its worst event", () => {
@@ -18,16 +17,24 @@ describe("practice helpers", () => {
     expect(placeholder("caffè", "none")).toBe("");
   });
 
-  it("locks correct and accent-fixed slots and keeps wrong ones editable", () => {
-    const r = grade(["vorrei", "un", "caffe", "per", "favor"], "Vorrei un caffè, per favore.", [], "slots");
-    const s = slotsAfter(r, 5, []);
-    expect(s.values).toEqual(["Vorrei", "un", "caffè", "per", "favor"]);
+  it("locks correct and accent-fixed slots, keeping typed punctuation, and keeps wrong ones editable", () => {
+    const r = grade({ mode: "slots", slots: ["vorrei", "un", "caffe,", "per", "favor"] }, { text: "Vorrei un caffè, per favore." });
+    const s = slotsAfter(r, 5);
+    expect(s.values).toEqual(["Vorrei", "un", "caffè,", "per", "favor"]);
     expect(s.states).toEqual(["correct", "correct", "accent", "correct", "open"]);
   });
 
+  it("keeps a slot with a wrong end mark open", () => {
+    const r = grade({ mode: "slots", slots: ["vorrei", "un", "caffè?"] }, { text: "Vorrei un caffè." });
+    const s = slotsAfter(r, 3);
+    expect(s.values).toEqual(["Vorrei", "un", "caffè?"]);
+    expect(s.states).toEqual(["correct", "correct", "open"]);
+    expect(r.words.map(hasFeedback)).toEqual([false, false, true]);
+  });
+
   it("maps a free-text answer onto slots, leaving missing words empty and dropping extras", () => {
-    const r = grade(words("io vorrei caffe"), "Vorrei un caffè", [], "free");
-    const s = slotsAfter(r, 3, []);
+    const r = grade({ mode: "free", text: "io vorrei caffe" }, { text: "Vorrei un caffè" });
+    const s = slotsAfter(r, 3);
     expect(s.values).toEqual(["Vorrei", "", "caffè"]);
     expect(s.states).toEqual(["correct", "open", "accent"]);
   });

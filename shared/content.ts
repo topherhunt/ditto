@@ -22,7 +22,11 @@ export const UnitSchema = z.strictObject({
   stage: z.enum(STAGES),
   text: z.string().min(1),
   translation: z.string().min(1).optional(),
+  /** Two wrong translations, offered with the real one in the meaning check. Required with a translation. */
+  distractors: z.tuple([z.string().min(1), z.string().min(1)]).optional(),
   variants: z.array(z.string().min(1)).optional(),
+  /** Word indices after which a comma (or semicolon) is accepted though the text has none. */
+  commas: z.array(z.int().min(0)).optional(),
   /** Word index -> lexicon sense suffix, for surfaces with several senses (key `lo#pron`). */
   senses: z.record(z.string().regex(/^\d+$/), z.string()).optional(),
 });
@@ -41,7 +45,13 @@ export const CourseSchema = z.strictObject({
   order: z.int(),
   title: z.string().min(1),
   description: z.string().min(1),
-  /** Lowercase surface form (or `surface#sense`) -> annotation. */
+  /** `optional` modules are specialized vocabulary: unlockable, never required by a main module. */
+  track: z.enum(["main", "optional"]),
+  /** Course ids that must be complete before this one unlocks. Their lexicons and lemmas are inherited. */
+  requires: z.array(z.string()),
+  /** Lemmas (non-PROPN) this course teaches; every other lemma it uses must come from a required course. */
+  introduces: z.array(z.string().min(1)),
+  /** Lowercase surface form (or `surface#sense`) -> annotation. Surfaces from required courses need no entry. */
   lexicon: z.record(z.string(), LexEntrySchema),
   lessons: z.array(LessonSchema).min(1),
 });
@@ -51,20 +61,28 @@ export type Course = z.infer<typeof CourseSchema>;
 export type Lesson = z.infer<typeof LessonSchema>;
 export type Unit = z.infer<typeof UnitSchema>;
 
-/** A unit as the API serves it: audio URLs resolved, per-word annotations attached. */
-export type ServedWord = LexEntry & { text: string; audio: string };
+/**
+ * A unit as the API serves it: audio URLs resolved, per-word annotations attached. `audio` lists one URL per
+ * voice of the language, in the same voice order for the unit and each of its words.
+ */
+export type ServedWord = LexEntry & { text: string; audio: string[] };
 export type ServedUnit = {
   id: string;
   rev: number;
   stage: Stage;
   text: string;
   translation?: string;
+  distractors?: [string, string];
   variants: string[];
+  commas: number[];
   language: Language;
   courseId: string;
   lessonId: string;
-  audio: string;
+  audio: string[];
   words: ServedWord[];
 };
 export type ServedLesson = { id: string; title: string; grammarFocus: string[]; units: ServedUnit[] };
-export type ServedCourse = { id: string; language: Language; level: string; order: number; title: string; description: string; lessons: ServedLesson[] };
+export type ServedCourse = {
+  id: string; language: Language; level: string; order: number; title: string; description: string;
+  track: "main" | "optional"; requires: string[]; lessons: ServedLesson[];
+};

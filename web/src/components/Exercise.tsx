@@ -1,13 +1,22 @@
 import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
 import type { AttemptBody, ExplanationOut, Mode, Prefs } from "../../../shared/api.ts";
 import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
-import { grade, type DeterministicCategory, type GradeResult, type WordResult } from "../../../shared/grader.ts";
+import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
-import { mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SlotState } from "../practice.ts";
-import { SentenceDiff, WordDiff } from "./WordDiff.tsx";
+import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SlotState } from "../practice.ts";
+import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
+
+function shuffle<T>(items: T[]): T[] {
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
 
 /** One dictation item. Mount it keyed by unit; it records the attempt when finished and calls onNext after. */
 export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; onFinished: (o: Outcome) => void; onNext: () => void }) {
@@ -30,14 +39,22 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
   const submissions: string[] = [];
   /** Word index -> letter positions whose accent was fixed, kept orange in the finished answer. */
   const accentWords = new Map<number, number[]>();
+  /** Word index -> punctuation typed after it that doesn't belong, shown struck through in the finished answer. */
+  const strayAfter = new Map<number, PunctMark[]>();
   let categories: DeterministicCategory[] = [];
   let replays = 0;
   let focused = 0;
   const started = Date.now();
   const inputs: HTMLInputElement[] = [];
   let freeInput: HTMLTextAreaElement | undefined;
+  /** The meaning check: the translation plus its distractors, shuffled. Null when the unit has no translation. */
+  const meaningOptions = unit.distractors ? shuffle([unit.translation!, ...unit.distractors]) : null;
+  const [meaningPick, setMeaningPick] = createSignal<string | null>(null);
+  let dictation: Omit<AttemptBody, "meaningCorrect"> | null = null;
 
-  const audio = new Audio(unit.audio);
+  /** One voice per item, so replays and word taps sound like the sentence. */
+  const voice = Math.floor(Math.random() * unit.audio.length);
+  const audio = new Audio(unit.audio[voice]);
   let autoplaysLeft = props.prefs.autoplay;
   const play = (rate = props.prefs.rate) => {
     audio.pause();
@@ -69,8 +86,8 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
     inputs[i >= 0 ? i : 0]?.focus();
   }
 
-  function applySlots(result: GradeResult, prev: string[]) {
-    const s = slotsAfter(result, target.length, prev);
+  function applySlots(result: GradeResult) {
+    const s = slotsAfter(result, target.length);
     const byIndex = new Map(result.words.flatMap((w) => (w.kind === "extra" ? [] : [[w.wordIndex, w] as const])));
     const old = feedback();
     setSlots(s.values);
@@ -78,21 +95,27 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
   }
 
   function submit() {
-    if (done()) return props.onNext();
-    const typed = free() ? words(freeText()) : slots().map((s) => s.trim());
-    if (typed.every((t) => t === "")) return;
+    if (done()) return settled() ? props.onNext() : undefined;
+    const answer: Answer = free() ? { mode: "free", text: freeText() } : { mode: "slots", slots: slots() };
+    if ((free() ? [freeText()] : slots()).every((t) => t.trim() === "")) return;
     submissions.push(free() ? freeText().trim() : slots().join(" "));
-    const r = grade(typed, unit.text, unit.variants, free() ? "free" : "slots");
+    const r = grade(answer, unit);
     if (r.against === unit.text) for (const w of r.words) if (w.kind === "accent") accentWords.set(w.wordIndex, w.accentPositions);
     if (r.passed) {
-      if (r.against === unit.text && !free()) applySlots(r, slots());
+      if (r.against === unit.text) {
+        for (const w of r.words) {
+          const stray = w.after.filter((m) => m.status === "stray");
+          if (w.kind !== "extra" && stray.length) strayAfter.set(w.wordIndex, stray);
+        }
+      }
+      if (r.against === unit.text && !free()) applySlots(r);
       else setFreeResult(r);
       return finish(Math.max(accentWords.size, r.accentSlips));
     }
     setWrongSubmissions((n) => n + 1);
     categories = mergeCategories(categories, r.categories);
     if (r.against === unit.text) {
-      applySlots(r, free() ? [] : slots());
+      applySlots(r);
       setFree(false);
       setFreeResult(null);
     } else {
@@ -121,17 +144,32 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
     finish(accentWords.size);
   }
 
+  /** The dictation is over; the attempt is recorded once the meaning check (if any) is answered too. */
   function finish(accentSlips: number) {
     setDone(true);
-    const outcome = outcomeOf({ revealed: revealed(), wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() });
-    props.onFinished(outcome);
-    const body: AttemptBody = {
-      unitId: unit.id, rev: unit.rev, mode: props.mode, path: props.prefs.path, hintsLevel: props.prefs.hints, outcome,
+    dictation = {
+      unitId: unit.id, rev: unit.rev, mode: props.mode, path: props.prefs.path, hintsLevel: props.prefs.hints,
+      outcome: outcomeOf({ revealed: revealed(), wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() }),
       wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed(), replays, accentSlips, submissions, categories,
       durationMs: Date.now() - started,
     };
+    if (!meaningOptions) record(null);
+  }
+
+  function pickMeaning(option: string) {
+    if (meaningPick() !== null) return;
+    setMeaningPick(option);
+    record(option === unit.translation);
+  }
+
+  function record(meaningCorrect: boolean | null) {
+    const body: AttemptBody = { ...dictation!, meaningCorrect };
+    props.onFinished(meaningCorrect === false && ["clean", "hinted"].includes(body.outcome) ? "corrected" : body.outcome);
     api.post("/api/attempts", body).catch((e: Error) => setSaveError(e.message));
   }
+
+  /** Next is available once nothing is left to answer. */
+  const settled = () => done() && (!meaningOptions || meaningPick() !== null);
 
   async function explain() {
     setExplainState("loading");
@@ -171,10 +209,6 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
           <span class="ms-auto badge text-bg-light text-uppercase">{unit.stage}</span>
         </div>
 
-        <Show when={props.prefs.showTranslation && unit.translation}>
-          <div class="qa-translation text-body-secondary fst-italic">{unit.translation}</div>
-        </Show>
-
         <Show
           when={!done()}
           fallback={
@@ -185,16 +219,19 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
                     t.type === "punct" ? (
                       <span>{t.text}</span>
                     ) : (
-                      <button type="button" class="qa-answer-word btn btn-link p-0 fs-4 text-decoration-none align-baseline"
-                        onClick={() => {
-                          const w = unit.words[t.wordIndex];
-                          setSelectedWord(w);
-                          new Audio(w.audio).play().catch(() => setAutoplayBlocked(true));
-                        }}>
-                        <For each={Array.from(t.text)}>
-                          {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(t.wordIndex)?.includes(k()) }}>{ch}</span>}
-                        </For>
-                      </button>
+                      <>
+                        <button type="button" class="qa-answer-word btn btn-link p-0 fs-4 text-decoration-none align-baseline"
+                          onClick={() => {
+                            const w = unit.words[t.wordIndex];
+                            setSelectedWord(w);
+                            new Audio(w.audio[voice]).play().catch(() => setAutoplayBlocked(true));
+                          }}>
+                          <For each={Array.from(t.text)}>
+                            {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(t.wordIndex)?.includes(k()) }}>{ch}</span>}
+                          </For>
+                        </button>
+                        <For each={strayAfter.get(t.wordIndex) ?? []}>{(m) => <PunctDiff mark={m} />}</For>
+                      </>
                     )
                   }
                 </For>
@@ -207,7 +244,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
                 )}
               </Show>
               <Show when={freeResult() && !freeResult()!.passed}>
-                <div class="small">Your answer: <SentenceDiff words={freeResult()!.words} /></div>
+                <div class="small">Your answer: <SentenceDiff result={freeResult()!} /></div>
               </Show>
             </div>
           }
@@ -232,7 +269,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
                         onInput={(e) => setSlots((s) => s.map((v, k) => (k === i ? e.currentTarget.value : v)))}
                         onKeyDown={(e) => onSlotKey(e, i)}
                       />
-                      <Show when={feedback()[i].word && feedback()[i].state !== "correct" && feedback()[i].word}>
+                      <Show when={feedback()[i].word && hasFeedback(feedback()[i].word!) && feedback()[i].word}>
                         {(w) => <small class="mt-1"><WordDiff word={w()} /></small>}
                       </Show>
                     </div>
@@ -258,7 +295,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
             />
           </Show>
           <Show when={freeResult()}>
-            {(r) => <div class="qa-free-diff small">Closest accepted answer: <SentenceDiff words={r().words} /></div>}
+            {(r) => <div class="qa-free-diff small">Closest accepted answer: <SentenceDiff result={r()} /></div>}
           </Show>
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>Check</button>
@@ -292,15 +329,49 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
               </Show>
             </div>
           </Show>
-          <div class="d-flex align-items-center gap-2">
-            <span class="qa-outcome text-body-secondary small">
-              {revealed() ? "Revealed" : wrongSubmissions() > 0 ? "Corrected" : hintsUsed() > 0 ? "Done with hints" : "Perfect"}
-              {accentWords.size > 0 ? " -- watch the accents" : ""}
-            </span>
-            <button type="button" class="qa-next btn btn-primary ms-auto" ref={(el) => queueMicrotask(() => el.focus())} onClick={() => props.onNext()}>
-              Next
-            </button>
-          </div>
+          <Show when={meaningOptions}>
+            {(options) => (
+              <div class="qa-meaning d-flex flex-column gap-2">
+                <div class="fw-semibold">What does it mean?</div>
+                {/* The group takes focus, not an option, so a reflexive Enter can't pick one. */}
+                <div class="d-flex flex-column gap-2" tabIndex={-1} ref={(el) => queueMicrotask(() => el.focus())} onKeyDown={(e) => {
+                  const k = Number(e.key);
+                  if (k >= 1 && k <= options().length) pickMeaning(options()[k - 1]);
+                  else if (e.key === "Escape") replay();
+                }}>
+                  <For each={options()}>
+                    {(option, i) => {
+                      const right = option === unit.translation;
+                      return (
+                        <button type="button" class="qa-meaning-option btn text-start"
+                          classList={{
+                            "btn-outline-secondary": meaningPick() === null || (!right && option !== meaningPick()),
+                            "btn-success qa-meaning-right": meaningPick() !== null && right,
+                            "btn-danger qa-meaning-wrong": meaningPick() === option && !right,
+                          }}
+                          disabled={meaningPick() !== null}
+                          onClick={() => pickMeaning(option)}>
+                          <span class="text-body-secondary me-2">{i() + 1}</span>{option}
+                        </button>
+                      );
+                    }}
+                  </For>
+                </div>
+              </div>
+            )}
+          </Show>
+          <Show when={settled()}>
+            <div class="d-flex align-items-center gap-2">
+              <span class="qa-outcome text-body-secondary small">
+                {revealed() ? "Revealed" : wrongSubmissions() > 0 ? "Corrected" : hintsUsed() > 0 ? "Done with hints" : "Perfect"}
+                {accentWords.size > 0 ? " -- watch the accents" : ""}
+                {meaningPick() !== null && meaningPick() !== unit.translation ? " -- check the meaning" : ""}
+              </span>
+              <button type="button" class="qa-next btn btn-primary ms-auto" ref={(el) => queueMicrotask(() => el.focus())} onClick={() => props.onNext()}>
+                Next
+              </button>
+            </div>
+          </Show>
         </Show>
       </div>
     </div>

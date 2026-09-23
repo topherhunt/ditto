@@ -6,7 +6,7 @@ import type { GradeResult } from "../shared/grader.ts";
 
 export const EXPLAIN_CATEGORIES = [
   "spelling", "mishearing", "homophone", "agreement", "conjugation", "article", "preposition",
-  "elision_contraction", "word_order", "missing_word", "extra_word", "vocabulary", "other",
+  "elision_contraction", "word_order", "missing_word", "extra_word", "vocabulary", "punctuation", "other",
 ] as const;
 
 export const ExplanationSchema = z.strictObject({
@@ -25,19 +25,20 @@ export interface Explainer {
 
 const INSTRUCTIONS = `You are a concise language tutor. A learner heard a recorded ${"{language}"} sentence and typed what they heard (a dictation exercise). Explain why their answer is wrong.
 - Pick every category that applies. "mishearing" means the typed words sound like the target but are different words; "homophone" means an identical-sounding word with a different spelling or meaning.
-- Missing or wrong accents are NOT errors in this app; never mention them.
+- Missing or wrong accents are NOT errors in this app; never mention them. The only punctuation error is a sentence end mark of the wrong kind (a question mark on a statement, or a period/exclamation mark on a question): explain it through the sentence's structure or intonation. Ignore all other punctuation.
 - summary: one short sentence naming the key mistake.
 - details: 2-4 sentences of plain text (no markdown) explaining the rule or the sound confusion, with the correct form. Write in English.`;
 
 export function buildPrompt({ unit, grammarFocus, answer, grade }: ExplainInput): { instructions: string; input: string } {
   const diff = grade.words
     .map((w) => {
+      const wrongMarks = w.after.flatMap((m) => (m.status === "wrong" ? [`; then "${m.ch}" where the sentence needs "${m.expected}"`] : []));
       switch (w.kind) {
-        case "correct": return `  ok: ${w.target}`;
-        case "accent": return `  ok (accent only): ${w.target}`;
-        case "wrong": return `  typed "${w.typed}" for "${w.target}"`;
+        case "correct": return `  ok: ${w.target}${wrongMarks.join("")}`;
+        case "accent": return `  ok (accent only): ${w.target}${wrongMarks.join("")}`;
+        case "wrong": return `  typed "${w.typed}" for "${w.target}"${wrongMarks.join("")}`;
         case "missing": return `  missing: "${w.target}"`;
-        case "extra": return `  extra: "${w.typed}"`;
+        case "extra": return `  extra: "${w.typed}"${wrongMarks.join("")}`;
       }
     })
     .join("\n");

@@ -1,20 +1,43 @@
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CourseSchema, LANGUAGES, type Course, type Language, type ServedCourse, type ServedUnit } from "../shared/content.ts";
-import { words } from "../shared/tokenize.ts";
+import { CourseSchema, LANGUAGES, type Course, type Language, type LexEntry, type ServedCourse, type ServedUnit } from "../shared/content.ts";
+import { tokenize, words } from "../shared/tokenize.ts";
 
-export const VOICES: Record<Language, string> = {
-  en: "en_US-amy-medium",
-  it: "it_IT-paola-medium",
-  nl: "nl_BE-nathalie-medium",
+export type Voice = { engine: "piper" | "kokoro"; model: string; speaker?: number; gender: "F" | "M" };
+
+/** Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch. */
+export const VOICES: Record<Language, Voice[]> = {
+  en: [
+    { engine: "piper", model: "en_US-amy-medium", gender: "F" },
+    { engine: "piper", model: "en_US-lessac-medium", gender: "F" },
+    { engine: "piper", model: "en_US-ryan-medium", gender: "M" },
+    { engine: "piper", model: "en_US-joe-medium", gender: "M" },
+  ],
+  it: [
+    { engine: "piper", model: "it_IT-paola-medium", gender: "F" },
+    { engine: "piper", model: "it_IT-serena-medium", gender: "F" },
+    { engine: "kokoro", model: "if_sara", gender: "F" },
+    { engine: "kokoro", model: "im_nicola", gender: "M" },
+  ],
+  nl: [
+    { engine: "piper", model: "nl_NL-pim-medium", gender: "M" },
+    { engine: "piper", model: "nl_NL-ronnie-medium", gender: "M" },
+    { engine: "piper", model: "nl_NL-mls-medium", speaker: 3, gender: "F" },
+    { engine: "piper", model: "nl_NL-mls-medium", speaker: 6, gender: "F" },
+  ],
 };
 
-export type AudioJob = { language: Language; voice: string; text: string; file: string };
+/** Bump to re-render every file after changing how audio is produced (padding, loudness). */
+const RENDER_VERSION = 2;
 
-/** Content-addressed: identical text in one language shares a file; changing the voice re-renders everything. */
-export function audioFile(language: Language, text: string): string {
-  const hash = createHash("sha1").update(`${language}|${VOICES[language]}|${text.normalize("NFC")}`).digest("hex").slice(0, 20);
+export const voiceId = (v: Voice) => `${v.engine}:${v.model}${v.speaker === undefined ? "" : `#${v.speaker}`}`;
+
+export type AudioJob = { language: Language; voice: Voice; text: string; file: string };
+
+/** Content-addressed: identical text in one language and voice shares a file. */
+export function audioFile(language: Language, voice: Voice, text: string): string {
+  const hash = createHash("sha1").update(`${RENDER_VERSION}|${language}|${voiceId(voice)}|${text.normalize("NFC")}`).digest("hex").slice(0, 20);
   return `${language}/${hash}.m4a`;
 }
 
@@ -33,55 +56,119 @@ function lexKey(word: string, sense: string | undefined): string {
   return sense ? `${key}#${sense}` : key;
 }
 
+const END_MARKS = /[.!?]\s*$/;
+
+/** Transitive `requires`, nearest first. Throws on unknown ids and cycles. */
+function ancestorsOf(id: string, byId: Map<string, { course: Course; file: string }>, trail: string[] = []): string[] {
+  const { course, file } = byId.get(id)!;
+  const out: string[] = [];
+  for (const req of course.requires) {
+    if (trail.includes(req) || req === id) fail(file, `requires cycle: ${[...trail, id, req].join(" -> ")}`);
+    if (!byId.has(req)) fail(file, `requires unknown course ${req}`);
+    for (const a of [req, ...ancestorsOf(req, byId, [...trail, id])]) if (!out.includes(a)) out.push(a);
+  }
+  return out;
+}
+
 export function loadContent(contentDir: string, audioDir: string, opts: { requireAudio: boolean }): Content {
   const courses: ServedCourse[] = [];
   const units = new Map<string, ServedUnit>();
   const jobs = new Map<string, AudioJob>();
   const lessonIds = new Set<string>();
-  const courseIds = new Set<string>();
 
-  const addAudio = (language: Language, text: string) => {
-    const file = audioFile(language, text);
-    if (!jobs.has(file)) jobs.set(file, { language, voice: VOICES[language], text, file });
-    return `/audio/${file}`;
-  };
+  const addAudio = (language: Language, text: string) =>
+    VOICES[language].map((voice) => {
+      const file = audioFile(language, voice, text);
+      if (!jobs.has(file)) jobs.set(file, { language, voice, text, file });
+      return `/audio/${file}`;
+    });
 
   for (const language of LANGUAGES) {
     const dir = join(contentDir, "courses", language);
     if (!existsSync(dir)) continue;
+    const byId = new Map<string, { course: Course; file: string }>();
     for (const name of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
       const file = join(dir, name);
       const parsed = CourseSchema.safeParse(JSON.parse(readFileSync(file, "utf8")));
       if (!parsed.success) fail(file, z_message(parsed.error));
       const course: Course = parsed.data;
       if (course.language !== language) fail(file, `language "${course.language}" but stored under ${language}/`);
-      if (courseIds.has(course.id)) fail(file, `duplicate course id ${course.id}`);
-      courseIds.add(course.id);
+      if ([...byId.keys(), ...courses.map((c) => c.id)].includes(course.id)) fail(file, `duplicate course id ${course.id}`);
+      byId.set(course.id, { course, file });
+    }
+
+    for (const [id, { course, file }] of byId) {
+      const ancestors = ancestorsOf(id, byId);
+      if (course.track === "main") {
+        const optional = course.requires.filter((r) => byId.get(r)!.course.track === "optional");
+        if (optional.length) fail(file, `main-track course requires optional ${optional.join(", ")}`);
+      }
+
+      /** Lemma -> id of the course that introduces it, over this course and its ancestors. */
+      const introducedBy = new Map<string, string>();
+      for (const a of ancestors) for (const l of byId.get(a)!.course.introduces) introducedBy.set(l, a);
+      for (const l of course.introduces) {
+        if (introducedBy.has(l)) fail(file, `introduces "${l}", already introduced by ${introducedBy.get(l)}`);
+        introducedBy.set(l, id);
+      }
+      const lookup = (key: string): LexEntry | undefined => {
+        if (course.lexicon[key]) return course.lexicon[key];
+        const found = ancestors.flatMap((a) => (byId.get(a)!.course.lexicon[key] ? [{ a, e: byId.get(a)!.course.lexicon[key] }] : []));
+        const kinds = new Set(found.map((f) => `${f.e.lemma}/${f.e.pos}`));
+        if (kinds.size > 1) fail(file, `"${key}" is ambiguous across ${found.map((f) => f.a).join(", ")}; add it to this lexicon`);
+        return found[0]?.e;
+      };
 
       const usedLex = new Set<string>();
-      const served: ServedCourse = { id: course.id, language, level: course.level, order: course.order, title: course.title, description: course.description, lessons: [] };
+      const usedLemmas = new Set<string>();
+      const served: ServedCourse = {
+        id: course.id, language, level: course.level, order: course.order, title: course.title, description: course.description,
+        track: course.track, requires: course.requires, lessons: [],
+      };
       for (const lesson of course.lessons) {
         if (lessonIds.has(lesson.id)) fail(file, `duplicate lesson id ${lesson.id}`);
         lessonIds.add(lesson.id);
         if (lesson.units.at(-1)!.stage !== "sentence") fail(file, `lesson ${lesson.id} must end with a sentence unit`);
         const servedUnits: ServedUnit[] = [];
         for (const unit of lesson.units) {
+          const where = `unit ${unit.id}`;
           if (units.has(unit.id)) fail(file, `duplicate unit id ${unit.id}`);
-          if (language !== "en" && !unit.translation) fail(file, `unit ${unit.id} needs a translation`);
+          if (language !== "en" && !unit.translation) fail(file, `${where} needs a translation`);
+          if (!!unit.translation !== !!unit.distractors) fail(file, `${where} needs distractors exactly when it has a translation`);
+          if (unit.stage === "sentence" && !END_MARKS.test(unit.text)) fail(file, `${where} is a sentence and must end with . ! or ?`);
+          if (unit.stage === "word" && END_MARKS.test(unit.text)) fail(file, `${where} is a word and must not end with . ! or ?`);
           const ws = words(unit.text);
-          if (ws.length === 0) fail(file, `unit ${unit.id} has no words`);
+          if (ws.length === 0) fail(file, `${where} has no words`);
           for (const idx of Object.keys(unit.senses ?? {}))
-            if (Number(idx) >= ws.length) fail(file, `unit ${unit.id} sense index ${idx} is out of range`);
+            if (Number(idx) >= ws.length) fail(file, `${where} sense index ${idx} is out of range`);
+
+          const gapHasComma = new Set<number>();
+          let wordIndex = -1;
+          for (const t of tokenize(unit.text)) {
+            if (t.type === "word") wordIndex = t.wordIndex;
+            else if (wordIndex >= 0 && /[,;]/.test(t.text)) gapHasComma.add(wordIndex);
+          }
+          const commas = unit.commas ?? [];
+          if (new Set(commas).size !== commas.length) fail(file, `${where} lists a comma position twice`);
+          for (const k of commas) {
+            if (k > ws.length - 2) fail(file, `${where} comma position ${k} is not between two words`);
+            if (gapHasComma.has(k)) fail(file, `${where} comma position ${k} already has a comma in the text`);
+          }
+
           const servedWords = ws.map((w, i) => {
             const key = lexKey(w, unit.senses?.[String(i)]);
-            const entry = course.lexicon[key];
-            if (!entry) fail(file, `unit ${unit.id}: no lexicon entry "${key}"`);
+            const entry = lookup(key);
+            if (!entry) fail(file, `${where}: no lexicon entry "${key}"`);
+            if (entry.pos !== "PROPN") {
+              if (!introducedBy.has(entry.lemma)) fail(file, `${where}: lemma "${entry.lemma}" ("${w}") is not introduced here or in a required course`);
+              usedLemmas.add(entry.lemma);
+            }
             usedLex.add(key);
             return { ...entry, text: w, audio: addAudio(language, w.toLowerCase()) };
           });
           const s: ServedUnit = {
-            id: unit.id, rev: unit.rev, stage: unit.stage, text: unit.text, translation: unit.translation,
-            variants: unit.variants ?? [], language, courseId: course.id, lessonId: lesson.id,
+            id: unit.id, rev: unit.rev, stage: unit.stage, text: unit.text, translation: unit.translation, distractors: unit.distractors,
+            variants: unit.variants ?? [], commas, language, courseId: course.id, lessonId: lesson.id,
             audio: addAudio(language, unit.text), words: servedWords,
           };
           units.set(unit.id, s);
@@ -91,6 +178,8 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
       }
       const unused = Object.keys(course.lexicon).filter((k) => !usedLex.has(k));
       if (unused.length) fail(file, `unused lexicon entries: ${unused.join(", ")}`);
+      const untaught = course.introduces.filter((l) => !usedLemmas.has(l));
+      if (untaught.length) fail(file, `introduces lemmas it never uses: ${untaught.join(", ")}`);
       courses.push(served);
     }
   }

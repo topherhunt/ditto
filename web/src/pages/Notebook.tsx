@@ -13,7 +13,10 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
   const [loading, setLoading] = createSignal(false);
   const diff = () => {
     const a = props.entry.lastAnswer;
-    return a && words(a).length ? grade(words(a), props.entry.unit.text, props.entry.unit.variants, "free").words : null;
+    if (!a || !words(a).length) return null;
+    // A passing answer means only the meaning was missed: nothing to diff or explain.
+    const r = grade({ mode: "free", text: a }, props.entry.unit);
+    return r.passed ? null : r;
   };
   const explain = async () => {
     setLoading(true);
@@ -29,13 +32,13 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
   return (
     <li class="qa-mistake list-group-item d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
-        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(props.entry.unit.audio).play()}>▶</button>
+        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(props.entry.unit.audio[Math.floor(Math.random() * props.entry.unit.audio.length)]).play()}>▶</button>
         <span class="qa-mistake-text fw-semibold me-auto">{props.entry.unit.text}</span>
         <span class="small text-body-secondary text-nowrap">missed {props.entry.wrongCount}×</span>
         <button type="button" class="qa-mistake-remove btn btn-sm btn-outline-secondary" onClick={props.onRemove}>Remove</button>
       </div>
       <Show when={props.entry.unit.translation}><div class="small text-body-secondary fst-italic">{props.entry.unit.translation}</div></Show>
-      <Show when={diff()}>{(d) => <div class="small">You wrote: <SentenceDiff words={d()} /></div>}</Show>
+      <Show when={diff()}>{(d) => <div class="small">You wrote: <SentenceDiff result={d()} /></div>}</Show>
       <div class="d-flex flex-wrap gap-1">
         <For each={props.entry.categories}>{(c) => <span class="badge text-bg-light">{c.replaceAll("_", " ")}</span>}</For>
         <Show when={props.entry.cleanStreak > 0}><span class="badge text-bg-success">{props.entry.cleanStreak} clean in a row</span></Show>

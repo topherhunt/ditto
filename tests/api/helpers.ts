@@ -8,7 +8,7 @@ import { openDb } from "../../server/db.ts";
 import type { Explainer, ExplainInput } from "../../server/explain.ts";
 
 const root = join(import.meta.dirname, "../..");
-const content = loadContent(join(root, "content"), join(root, "content/audio"), { requireAudio: false });
+const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { requireAudio: false });
 const ORIGIN = "http://app.test";
 
 export function fakeExplainer(): Explainer & { calls: ExplainInput[] } {
@@ -61,7 +61,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
       const unit = content.units.get(unitId)!;
       const body: AttemptBody = {
         unitId, rev: unit.rev, mode: "learn", path: "full", hintsLevel: "letters", outcome: "clean",
-        wrongSubmissions: 0, hintsUsed: 0, replays: 0, accentSlips: 0, submissions: [unit.text], categories: [], durationMs: 1000, ...over,
+        wrongSubmissions: 0, hintsUsed: 0, replays: 0, accentSlips: 0, submissions: [unit.text], categories: [], durationMs: 1000, meaningCorrect: unit.distractors ? true : null, ...over,
       };
       return req("POST", "/api/attempts", body);
     },

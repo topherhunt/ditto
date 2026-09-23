@@ -1,0 +1,24 @@
+{
+  "id": "it-a1-tea",
+  "language": "it",
+  "level": "A1",
+  "order": 2,
+  "title": "Il tè",
+  "description": "An optional module that requires Al bar",
+  "track": "optional",
+  "requires": ["it-a1-bar"],
+  "introduces": ["tè"],
+  "lexicon": {
+    "tè": { "lemma": "tè", "pos": "NOUN", "gloss": "tea (masculine)" }
+  },
+  "lessons": [
+    {
+      "id": "it-a1-tea-1",
+      "title": "Un tè",
+      "grammarFocus": [],
+      "units": [
+        { "id": "it-a1-tea-1-u01", "rev": 1, "stage": "sentence", "text": "Un tè, per favore.", "translation": "A tea, please.", "distractors": ["A coffee, please.", "The tea, thanks."] }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { grade, letterDiff } from "../../shared/grader.ts";
+import { grade, letterDiff, type GradeResult } from "../../shared/grader.ts";
 import { tokenize, words } from "../../shared/tokenize.ts";
 
-const free = (typed: string, text: string, variants: string[] = []) => grade(words(typed), text, variants, "free");
+const free = (typed: string, text: string, variants: string[] = [], commas: number[] = []) =>
+  grade({ mode: "free", text: typed }, { text, variants, commas });
+const slots = (typed: string[], text: string, variants: string[] = [], commas: number[] = []) =>
+  grade({ mode: "slots", slots: typed }, { text, variants, commas });
+/** Every typed mark as "ch:status" (plus ">expected" when wrong), in order. */
+const marks = (r: GradeResult) =>
+  [...r.leading, ...r.words.flatMap((w) => w.after)].map((m) => `${m.ch}:${m.status}${m.expected ? `>${m.expected}` : ""}`);
 
 describe("tokenize", () => {
   it("keeps apostrophes and hyphens inside words and separates punctuation", () => {
@@ -19,8 +25,8 @@ describe("tokenize", () => {
   });
 });
 
-describe("grade", () => {
-  it("passes an exact answer, ignoring case and punctuation", () => {
+describe("grade: words", () => {
+  it("passes an exact answer, ignoring case and omitted punctuation", () => {
     const r = free("sorry is there a pharmacy near the station", "Sorry, is there a pharmacy near the station?");
     expect(r.passed).toBe(true);
     expect(r.words.every((w) => w.kind === "correct")).toBe(true);
@@ -31,8 +37,7 @@ describe("grade", () => {
     const r = free("Vorrei un caffe", "Vorrei un caffè");
     expect(r.passed).toBe(true);
     expect(r.accentSlips).toBe(1);
-    const w = r.words[2];
-    expect(w).toMatchObject({ kind: "accent", target: "caffè", typed: "caffe", accentPositions: [4] });
+    expect(r.words[2]).toMatchObject({ kind: "accent", target: "caffè", typed: "caffe", accentPositions: [4] });
   });
 
   it("treats a wrong accent direction (é for è) and an extra accent as lenient too", () => {
@@ -46,8 +51,7 @@ describe("grade", () => {
     expect(r.passed).toBe(false);
     expect(r.categories).toEqual(["spelling"]);
     const w = r.words[4];
-    expect(w.kind).toBe("wrong");
-    if (w.kind !== "wrong") throw new Error("unreachable");
+    if (w.kind !== "wrong") throw new Error(`expected wrong, got ${w.kind}`);
     expect(w.ops.filter((o) => o.op === "insert").map((o) => o.ch)).toEqual(["e"]);
     expect(w.ops.filter((o) => o.op === "delete")).toEqual([]);
   });
@@ -71,8 +75,7 @@ describe("grade", () => {
   });
 
   it("prefers an extra plus a missing word over pairing unrelated words", () => {
-    const r = free("io vorrei caffe", "Vorrei un caffè");
-    expect(r.words.map((w) => w.kind)).toEqual(["extra", "correct", "missing", "accent"]);
+    expect(free("io vorrei caffe", "Vorrei un caffè").words.map((w) => w.kind)).toEqual(["extra", "correct", "missing", "accent"]);
   });
 
   it("detects swapped word order", () => {
@@ -82,26 +85,85 @@ describe("grade", () => {
   });
 
   it("grades slots position by position, with an empty slot all-insert", () => {
-    const r = grade(["vorrei", "", "caffè"], "Vorrei un caffè", [], "slots");
-    expect(r.words[1]).toMatchObject({ kind: "wrong", typed: "" });
-    expect(() => grade(["vorrei"], "Vorrei un caffè", [], "slots")).toThrow(/expects 3/);
-  });
-
-  it("ignores punctuation typed into a slot, wherever it is", () => {
-    const r = grade(["Per", "me,", "un'acqua", "frizzante,", "grazie."], "Per me, un'acqua frizzante, grazie.", [], "slots");
-    expect(r.passed).toBe(true);
-    expect(r.words.every((w) => w.kind === "correct")).toBe(true);
-    expect(grade(["vorrei,", "un", "caffè!"], "Vorrei un caffè", [], "slots").passed).toBe(true);
+    expect(slots(["vorrei", "", "caffè"], "Vorrei un caffè").words[1]).toMatchObject({ kind: "wrong", typed: "" });
+    expect(() => slots(["vorrei"], "Vorrei un caffè")).toThrow(/expects 3/);
   });
 
   it("accepts a variant, and compares slots against variants as free text", () => {
     expect(free("we have ten percent off", "We have 10% off", ["We have ten percent off"]).passed).toBe(true);
-    const r = grade(["I will", "take", "it"], "I'll take it", ["I will take it"], "slots");
+    const r = slots(["I will", "take", "it"], "I'll take it", ["I will take it"]);
     expect(r.passed).toBe(true);
     expect(r.against).toBe("I will take it");
   });
 
   it("does not accept a wrong apostrophe placement", () => {
     expect(free("Ill take it", "I'll take it").passed).toBe(false);
+  });
+});
+
+describe("grade: punctuation", () => {
+  const text = "Per me un'acqua frizzante, grazie.";
+
+  it("accepts canonical and optional commas silently, in either mode", () => {
+    const r = free("Per me, un'acqua frizzante, grazie.", text, [], [1]);
+    expect(r.passed).toBe(true);
+    expect(marks(r)).toEqual([",:ok", ",:ok", ".:ok"]);
+    expect(marks(slots(["Per", "me,", "un'acqua", "frizzante,", "grazie."], text, [], [1]))).toEqual([",:ok", ",:ok", ".:ok"]);
+  });
+
+  it("treats semicolons like commas", () => {
+    expect(marks(free("Per me; un'acqua frizzante; grazie", text, [], [1]))).toEqual([";:ok", ";:ok"]);
+  });
+
+  it("shows a comma where none belongs as stray, without failing", () => {
+    const r = free("Per, me un'acqua frizzante grazie", text);
+    expect(r.passed).toBe(true);
+    expect(r.categories).toEqual([]);
+    expect(r.words[0].after).toEqual([{ ch: ",", status: "stray" }]);
+  });
+
+  it("gives a slot's leading punctuation to the gap before it", () => {
+    const r = slots(["Per", "me", ",un'acqua", "frizzante", "grazie"], text, [], [1]);
+    expect(r.words[1].after).toEqual([{ ch: ",", status: "ok" }]);
+    expect(r.words[2].after).toEqual([]);
+  });
+
+  it("accepts . or ! at the end of a statement but fails a ?", () => {
+    expect(free("per me un'acqua frizzante grazie!", text).passed).toBe(true);
+    const r = free("per me un'acqua frizzante grazie?", text);
+    expect(r.passed).toBe(false);
+    expect(r.categories).toEqual(["punctuation"]);
+    expect(marks(r)).toEqual(["?:wrong>."]);
+  });
+
+  it("accepts only ? at the end of a question", () => {
+    const q = "Sorry, is there a pharmacy near the station?";
+    expect(free("sorry is there a pharmacy near the station?", q).passed).toBe(true);
+    for (const end of [".", "!"]) {
+      const r = slots(["sorry", "is", "there", "a", "pharmacy", "near", "the", `station${end}`], q);
+      expect(r.passed).toBe(false);
+      expect(marks(r)).toEqual([`${end}:wrong>?`]);
+    }
+  });
+
+  it("shows any end mark on a word or phrase without one as stray", () => {
+    for (const end of [".", "!", "?", ","]) {
+      const r = free(`caffè${end}`, "caffè");
+      expect(r.passed).toBe(true);
+      expect(marks(r)).toEqual([`${end}:stray`]);
+    }
+  });
+
+  it("fails punctuation inside a word", () => {
+    expect(free("Vorrei un caf,fè", "Vorrei un caffè").passed).toBe(false);
+    const r = slots(["Vorrei", "un", "caf,fè"], "Vorrei un caffè");
+    expect(r.passed).toBe(false);
+    expect(r.words[2]).toMatchObject({ kind: "wrong", typed: "caf,fè" });
+  });
+
+  it("grades variants against their own punctuation, without the main text's optional commas", () => {
+    const r = free("I will take it, thanks?", "I'll take it, thanks.", ["I will take it, thanks."], [1]);
+    expect(r.against).toBe("I will take it, thanks.");
+    expect(marks(r)).toEqual([",:ok", "?:wrong>."]);
   });
 });

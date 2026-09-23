@@ -55,11 +55,6 @@ export function Settings() {
           <option value="0.75">0.75×</option>
         </select>
       </label>
-      <div class="form-check">
-        <input id="show-translation" class="qa-settings-translation form-check-input" type="checkbox" checked={prefs().showTranslation}
-          onChange={(e) => save({ showTranslation: e.currentTarget.checked })} />
-        <label class="form-check-label" for="show-translation">Show the translation while typing</label>
-      </div>
       <Show when={status()}>{(s) => <div class="qa-settings-status small text-body-secondary">{s()}</div>}</Show>
     </div>
   );

@@ -1,0 +1,72 @@
+{
+  "id": "it-a1-bar",
+  "language": "it",
+  "level": "A1",
+  "order": 1,
+  "title": "Al bar",
+  "description": "Ordering coffee and paying at an Italian bar",
+  "track": "main",
+  "requires": [],
+  "introduces": ["caffè", "volere", "uno", "per", "favore", "cornetto", "e", "acqua", "frizzante", "me", "grazie", "quanto", "costare", "due", "euro", "il", "conto", "potere", "pagare", "con", "carta", "lo", "prendere"],
+  "lexicon": {
+    "caffè": { "lemma": "caffè", "pos": "NOUN", "gloss": "coffee (espresso); masculine, invariable plural" },
+    "vorrei": { "lemma": "volere", "pos": "VERB", "gloss": "I would like (conditional of volere)" },
+    "un": { "lemma": "uno", "pos": "DET", "gloss": "a, an (masculine)" },
+    "per": { "lemma": "per", "pos": "ADP", "gloss": "for" },
+    "favore": { "lemma": "favore", "pos": "NOUN", "gloss": "favor; per favore = please" },
+    "cornetto": { "lemma": "cornetto", "pos": "NOUN", "gloss": "croissant (masculine)" },
+    "e": { "lemma": "e", "pos": "CCONJ", "gloss": "and (è with an accent means is)" },
+    "un'acqua": { "lemma": "acqua", "pos": "NOUN", "gloss": "a water; un' is una elided before a vowel (feminine)" },
+    "frizzante": { "lemma": "frizzante", "pos": "ADJ", "gloss": "sparkling" },
+    "me": { "lemma": "me", "pos": "PRON", "gloss": "me (after a preposition)" },
+    "grazie": { "lemma": "grazie", "pos": "INTJ", "gloss": "thank you" },
+    "quanto": { "lemma": "quanto", "pos": "ADV", "gloss": "how much" },
+    "costa": { "lemma": "costare", "pos": "VERB", "gloss": "it costs (3rd person singular)" },
+    "due": { "lemma": "due", "pos": "NUM", "gloss": "two" },
+    "euro": { "lemma": "euro", "pos": "NOUN", "gloss": "euro; invariable, so due euro, not euri" },
+    "il": { "lemma": "il", "pos": "DET", "gloss": "the (masculine singular)" },
+    "conto": { "lemma": "conto", "pos": "NOUN", "gloss": "bill, check" },
+    "posso": { "lemma": "potere", "pos": "AUX", "gloss": "I can, may" },
+    "pagare": { "lemma": "pagare", "pos": "VERB", "gloss": "to pay" },
+    "con": { "lemma": "con", "pos": "ADP", "gloss": "with; con la carta = by card" },
+    "la": { "lemma": "il", "pos": "DET", "gloss": "the (feminine singular)" },
+    "carta": { "lemma": "carta", "pos": "NOUN", "gloss": "card; also paper" },
+    "lo#pron": { "lemma": "lo", "pos": "PRON", "gloss": "it, him (direct object, before the verb)" },
+    "prendo": { "lemma": "prendere", "pos": "VERB", "gloss": "I take, I'll have" }
+  },
+  "lessons": [
+    {
+      "id": "it-a1-bar-1",
+      "title": "Un caffè, per favore",
+      "grammarFocus": ["indefinite articles un / un'", "vorrei + noun"],
+      "units": [
+        { "id": "it-a1-bar-1-u01", "rev": 1, "stage": "word", "text": "caffè", "translation": "coffee", "distractors": ["tea", "milk"] },
+        { "id": "it-a1-bar-1-u02", "rev": 1, "stage": "word", "text": "vorrei", "translation": "I would like", "distractors": ["I would pay", "I would take"] },
+        { "id": "it-a1-bar-1-u03", "rev": 1, "stage": "phrase", "text": "un caffè", "translation": "a coffee", "distractors": ["the coffee", "a croissant"] },
+        { "id": "it-a1-bar-1-u04", "rev": 1, "stage": "phrase", "text": "per favore", "translation": "please", "distractors": ["thank you", "for me"] },
+        { "id": "it-a1-bar-1-u05", "rev": 1, "stage": "chunk", "text": "vorrei un caffè", "translation": "I'd like a coffee", "distractors": ["I'd like a tea", "I'll pay for a coffee"] },
+        { "id": "it-a1-bar-1-u06", "rev": 1, "stage": "sentence", "text": "Vorrei un caffè, per favore.", "translation": "I'd like a coffee, please.", "distractors": ["A coffee for me, thanks.", "I'd like the bill, please."] },
+        { "id": "it-a1-bar-1-u07", "rev": 1, "stage": "phrase", "text": "un cornetto", "translation": "a croissant", "distractors": ["a sandwich", "a coffee"] },
+        { "id": "it-a1-bar-1-u08", "rev": 1, "stage": "sentence", "text": "Vorrei un caffè e un cornetto.", "translation": "I'd like a coffee and a croissant.", "distractors": ["I'd like a coffee without a croissant.", "I'd like two coffees and a croissant."] },
+        { "id": "it-a1-bar-1-u09", "rev": 1, "stage": "phrase", "text": "un'acqua frizzante", "translation": "a sparkling water", "distractors": ["a still water", "a sparkling wine"] },
+        { "id": "it-a1-bar-1-u10", "rev": 1, "stage": "sentence", "text": "Per me, un'acqua frizzante, grazie.", "translation": "For me, a sparkling water, thanks.", "distractors": ["For me, a coffee, thanks.", "A sparkling water for you, thanks."] }
+      ]
+    },
+    {
+      "id": "it-a1-bar-2",
+      "title": "Quanto costa?",
+      "grammarFocus": ["definite articles il / la", "posso + infinitive", "object pronoun lo"],
+      "units": [
+        { "id": "it-a1-bar-2-u01", "rev": 1, "stage": "word", "text": "quanto", "translation": "how much", "distractors": ["how many", "how"] },
+        { "id": "it-a1-bar-2-u02", "rev": 1, "stage": "sentence", "text": "Quanto costa?", "translation": "How much is it?", "distractors": ["What is it?", "Can I pay?"] },
+        { "id": "it-a1-bar-2-u03", "rev": 1, "stage": "phrase", "text": "due euro", "translation": "two euros", "distractors": ["ten euros", "twelve euros"], "variants": ["2 euro"] },
+        { "id": "it-a1-bar-2-u04", "rev": 1, "stage": "sentence", "text": "Costa due euro.", "translation": "It costs two euros.", "distractors": ["It costs ten euros.", "It costs two dollars."], "variants": ["Costa 2 euro."] },
+        { "id": "it-a1-bar-2-u05", "rev": 1, "stage": "phrase", "text": "il conto", "translation": "the bill", "distractors": ["the card", "the menu"] },
+        { "id": "it-a1-bar-2-u06", "rev": 1, "stage": "sentence", "text": "Il conto, per favore.", "translation": "The bill, please.", "distractors": ["The menu, please.", "The card, thanks."] },
+        { "id": "it-a1-bar-2-u07", "rev": 1, "stage": "chunk", "text": "posso pagare", "translation": "can I pay", "distractors": ["I want to pay", "can you pay"] },
+        { "id": "it-a1-bar-2-u08", "rev": 1, "stage": "sentence", "text": "Posso pagare con la carta?", "translation": "Can I pay by card?", "distractors": ["Can I pay in cash?", "Can you pay by card?"] },
+        { "id": "it-a1-bar-2-u09", "rev": 1, "stage": "sentence", "text": "Lo prendo, grazie.", "translation": "I'll take it, thanks.", "distractors": ["I'll pay for it, thanks.", "I'll leave it, thanks."], "senses": {"0": "pron"} }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 
 ## Basic learning approach
 
-- **Hierarchy:** course (target language, level, localized titles) -> lessons -> an ordered list of units. Each unit has `kind` (`word` / `phrase` / `sentence`), `text`, `translations[]`, `answer_variants[]`, per-token `annotations[]` (surface, lemma, POS, IPA per accent, glosses), `syntax_context` (where a phrase sits in its target sentence), and `audio[]` (file URI, locale, voice key, provenance). Units carry a `revision` so progress survives content edits.
+- **Hierarchy:** course (a curriculum *module*: one situation, main or optional track) -> lessons -> an ordered list of units (one dictation item each). The curriculum and its unlock order are in [curriculum.md](curriculum.md); the schema is under Content model below.
 - **Order is fixed and scaffolded, not shuffled.** Units build up to each target sentence, then the next one starts: `Sorry` -> `is` -> `there` -> `a pharmacy` -> `is there a pharmacy` -> `Sorry, is there a pharmacy` -> `near` -> `the station` -> `near the station` -> **`Sorry, is there a pharmacy near the station?`**. Five target sentences take 36 units.
 - **Difficulty filters the scaffold:** easy = every stage (words, phrases, chunks, combined chunks, sentences); medium = chunks and up; hard = target sentences only.
 - **Hint level is a separate axis:** initials plus exact-length dots / first letter only / no clues. Answers go into per-word inputs.
@@ -16,20 +16,20 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 **Milestone 1 (build now)**
 
 - Google sign-in (the only login method), with an email allowlist.
-- A catalog per language: courses -> lessons, following the recommended order, with none locked.
-- Practice: audio autoplay, replay, and 0.75x speed; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
-- After each item: the full text, a translation (for `it`/`nl`), and tappable words that play word audio and show a gloss.
+- A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
+- Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
+- After each item (`it`/`nl`): a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - Mistakes notebook, with focused practice of notebook items.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
-- Seed content: one A1 course with 2 lessons per language, hand-authored, with audio from Piper.
+- Content: the full Italian A1+A2 curriculum (21 main and 7 optional modules, [curriculum-it.md](curriculum-it.md)); a one-module seed course for `en` and `nl`.
 
 **Later**
 
-- An LLM content-authoring pipeline and more decks.
+- English and Dutch A1+A2 content.
 - A stats page (accuracy, hint rate, streaks).
-- Better TTS voices.
 - Deploy automation.
+- The learning blind spots in [roadmap.md](roadmap.md).
 
 **Not doing:** content or audio generated on demand at runtime, CJK or right-to-left languages, other login methods.
 
@@ -70,11 +70,21 @@ Course JSON is loaded and validated at boot. Invalid content crashes startup wit
 
 ### Audio
 
-Filenames are content-addressed: `sha1(lang|voice|text)` -> `/audio/{lang}/{hash}.m4a` (AAC plays in every browser). Slow playback uses the browser's `playbackRate`, not a second render. Identical text across courses shares one file. Node serves the files with `Cache-Control: immutable`.
+Filenames are content-addressed: `sha1(renderVersion|lang|voice|text)` -> `/audio/{lang}/{hash}.m4a` (AAC plays in every browser). Bumping `RENDER_VERSION` in `server/content.ts` re-renders everything. Slow playback uses the browser's `playbackRate`, not a second render. Identical text across courses shares one file. Node serves the files with `Cache-Control: immutable`.
 
-The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Word audio comes from the same function, keyed on the lowercase surface form.
+The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Every unit and every word has one file per voice; the served `audio` arrays follow the voice order in `VOICES` (`server/content.ts`). Word audio is keyed on the lowercase surface form.
 
-`scripts/build-audio.ts` renders only missing files through a TTS adapter. The adapter pipes text to Piper (local neural TTS, installed in a gitignored `.venv`) and then `afconvert` turns the wav into m4a. Voices are female: `en` `en_US-amy-medium`, `it` `it_IT-paola-medium`, `nl` `nl_BE-nathalie-medium` (Piper has no clearly female Netherlands-Dutch voice). Voice models are downloaded into gitignored `tools/piper-voices/`.
+Voices, four per language, both genders:
+- `en`: Piper amy, lessac (F) and ryan, joe (M).
+- `it`: Piper paola, serena and Kokoro if_sara (F), plus Kokoro im_nicola (M). Kokoro has no other Italian voices.
+- `nl`: Piper pim, ronnie (M) and two speakers of the multi-speaker `nl_NL-mls` model (F, chosen by median pitch).
+
+`scripts/build-audio.ts` renders only missing files, with one `scripts/tts-render.py` process per voice in parallel. `--prune` also deletes files no content references. The renderer:
+1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`);
+2. trims silence, matches loudness (RMS 0.08, peak capped at 0.95) and pads 150ms at each end;
+3. encodes with `afconvert` into a `.part` file, then renames it, so an interrupted run never leaves a truncated file.
+
+Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 
 ## Content model
 
@@ -83,6 +93,7 @@ The server computes the URLs when it loads content, so there is no manifest. It 
 {
   "id": "it-a1-bar", "language": "it", "level": "A1", "order": 1,
   "title": "Al bar", "description": "Ordering coffee and snacks",
+  "track": "main", "requires": [], "introduces": ["volere", "il", "lo", "prendere", "grazie"],
   "lexicon": {
     "vorrei": { "lemma": "volere", "pos": "VERB", "gloss": "I would like (conditional)" },
     "lo":      { "lemma": "il", "pos": "DET", "gloss": "the (before s+consonant, z)" },
@@ -92,17 +103,23 @@ The server computes the URLs when it loads content, so there is no manifest. It 
     "id": "it-a1-bar-1", "title": "Un caffè, per favore",
     "grammarFocus": ["indefinite articles", "vorrei + noun"],
     "units": [
-      { "id": "it-a1-bar-1-u01", "rev": 1, "stage": "word", "text": "vorrei", "translation": "I would like" },
-      { "id": "it-a1-bar-1-u04", "rev": 1, "stage": "sentence", "text": "Lo prendo, grazie.",
-        "translation": "I'll take it, thanks.", "senses": { "0": "pron" } }
+      { "id": "it-a1-bar-1-u01", "rev": 1, "stage": "word", "text": "vorrei", "translation": "I would like",
+        "distractors": ["I would pay", "I can have"] },
+      { "id": "it-a1-bar-1-u04", "rev": 1, "stage": "sentence", "text": "Lo prendo grazie.",
+        "translation": "I'll take it, thanks.", "distractors": ["I'll pay for it, thanks.", "I'll leave it, thanks."],
+        "senses": { "0": "pron" }, "commas": [1] }
     ]
   }]
 }
 ```
 
-- `stage`: `word` | `phrase` | `chunk` | `sentence`. The units before each `sentence` scaffold toward it. A lesson must end with a `sentence`.
-- `lexicon`: one annotation per lowercase surface form in the course. A unit's `senses` maps a word index to a sense suffix when a surface is ambiguous (`lo` -> `lo#pron`). At load, the server attaches the entry and word audio to every token of `tokenize(text)`, so offsets are never stored. Missing and unused lexicon entries are load errors.
+- `track`: `main` or `optional`. `requires`: course ids that must be complete first. A main course never requires an optional one, and cycles are load errors.
+- `introduces`: the lemmas this course teaches. Every non-PROPN lemma a unit uses must be introduced by this course or one it requires, transitively. A lemma introduced twice along a chain, or introduced but never used, is a load error.
+- `stage`: `word` | `phrase` | `chunk` | `sentence`. The units before each `sentence` scaffold toward it. A lesson must end with a `sentence`. A sentence ends in `.`, `!` or `?`, and a word never does.
+- `lexicon`: one annotation per lowercase surface form in the course. Entries from required courses are inherited, and the course's own entry wins. A unit's `senses` maps a word index to a sense suffix when a surface is ambiguous (`lo` -> `lo#pron`). At load, the server attaches the entry and word audio to every token of `tokenize(text)`, so offsets are never stored. Missing and unused lexicon entries are load errors.
 - `variants[]`: other answers that are also accepted (numerals, contractions).
+- `commas[]`: word indices after which a comma or semicolon is accepted although the text has none.
+- `distractors`: two wrong translations for the meaning check. Required exactly when there is a `translation`.
 - Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which invalidates cached explanations.
 - There is no `translation` for `en` courses yet. The field becomes a locale map when a second support language is needed.
 
@@ -110,11 +127,15 @@ The server computes the URLs when it loads content, so there is no manifest. It 
 
 - **Path:** `full` (every stage) / `chunks` (chunk + sentence) / `sentences` (sentence only).
 - **Hints:** `letters` (first letter + a dot per letter) / `initial` (first letter only) / `none` (a single free-text box, so the word count isn't revealed either).
-- Also: autoplay count, playback rate, show translation.
+- Also: autoplay count, playback rate.
 
 ## Grader (`shared/grader.ts`, pure and exhaustively unit-tested)
 
-1. **Tokenize:** a word is a run of letters, digits and combining marks, plus internal `'` and `-` and a trailing `%`. Other punctuation is shown in place and never graded: whatever the learner types around a word, in a slot or free text, is stripped. Apostrophe variants (`’ ‘ ʼ`) normalize to `'`.
+1. **Tokenize:** a word is a run of letters, digits and combining marks, plus internal `'` and `-` and a trailing `%`. Apostrophe variants (`’ ‘ ʼ`) normalize to `'`. Each typed punctuation mark is attached to the word before it and judged:
+   - **ok:** the canonical text has it there. `.` and `!` count as the same mark. A comma or semicolon is also ok where the text has either one, or where the unit's `commas` allows it.
+   - **wrong:** the end mark is the wrong kind: `?` on a statement, or `.`/`!` on a question. This fails the attempt with category `punctuation`.
+   - **stray** (shown orange, not a mistake): anything else, including any end mark on a word unit.
+   Missing punctuation is never an error.
 2. **Compare key:** NFC, lowercase, diacritics stripped (NFD, then remove `\p{M}`). Case is ignored.
 3. **Align words:** in slot modes, word *i* aligns to slot *i*. In `none` mode, the typed words are aligned to the target words with an edit-distance DP whose substitution cost is twice the normalized letter distance (so an unrelated word costs the same as one extra plus one missing word). The result is match / substitute / missing word / extra word.
 4. **Per word:**
@@ -133,6 +154,8 @@ The server computes the URLs when it loads content, so there is no manifest. It 
 ## Learning flow
 
 - **Learn:** units play in lesson order, filtered by Path, and position is saved per lesson and path.
+- **Unlocks** (`server/unlocks.ts`): a course unlocks when every course it requires is complete (all lessons, on any path). Within it, a lesson unlocks when the one before is complete. A learn-mode attempt on a locked lesson gets a 403. Review and the notebook are never locked.
+- **Meaning check:** after the dictation, the learner picks the translation out of the translation and two distractors, in shuffled order. A wrong pick records the category `meaning`, adds a notebook entry, and schedules the card as a miss, even when the dictation was clean. `attempts.meaning_correct` is null for units without a translation.
 - **Mistakes notebook:**
   - An entry is created on the first wrong submission or reveal. It keeps first and last wrong dates, a wrong count, the last wrong answer, and categories.
   - Practice-mistakes mode drills the notebook entries.
@@ -146,7 +169,7 @@ The server computes the URLs when it loads content, so there is no manifest. It 
 
 - `POST /api/explain {unitId, rev, answer}`. The server loads the unit (text, words with lemma/POS, grammarFocus, language) and computes the grader diff.
 - It asks the model for structured output: `{ categories: [...], summary: string, details: string }`. Categories come from a fixed taxonomy: `spelling`, `mishearing`, `homophone`, `agreement`, `conjugation`, `article`, `preposition`, `elision_contraction`, `word_order`, `missing_word`, `extra_word`, `vocabulary`, `other`.
-- **Cache:** the `explanations` table, keyed by `(unit_id, rev, normalized answer, model)`. It is shared across users, so a repeated mistake is free.
+- **Cache:** the `explanations` table, keyed by `(unit_id, rev, answer key, model)`. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. It is shared across users, so a repeated mistake is free.
 - **Spend guards:**
   - The endpoint only runs when a user clicks "Why?".
   - A per-user daily cap (`EXPLAIN_DAILY_LIMIT`, default 50).
@@ -202,7 +225,8 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
   - Apostrophes: `l'uomo`, `I'll`, `auto's`.
   - Case, punctuation, alignment in `none` mode, variants.
 
-  Also tokenizer/`words` alignment, FSRS rating mapping, and the content validator run against the real content files.
+  Also tokenizer/`words` alignment, FSRS rating mapping, unlocks, and the content loader: its rules on small in-test courses, plus one load of the real content.
+- API and E2E tests run against the frozen fixture content in `tests/fixtures/content` (`CONTENT_DIR`), so curriculum edits don't break them.
 - **API:** `app.request()` against a temp DB. Covers auth gating, recording attempts that update notebook and cards, the review due list after the clock moves, explainer caching and the daily cap (fake model client).
 - **E2E (Playwright):** dev login -> Italian -> lesson -> type a wrong answer -> assert `qa-letter-delete` / `qa-letter-insert` -> fix -> type a word with a missing accent -> assert `qa-letter-accent` -> the notebook lists the entry.
 

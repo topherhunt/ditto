@@ -9,6 +9,12 @@ async function signIn(page: Page, email: string) {
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
 
+/** Answers the meaning check with the option whose text is exactly `meaning` (after its key number). */
+async function pickMeaning(page: Page, meaning: string) {
+  const exact = new RegExp(`^\\d${meaning.replace(/[.?]/g, "\\$&")}$`);
+  await page.locator(".qa-meaning-option").filter({ hasText: exact }).click();
+}
+
 test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebook", async ({ page }) => {
   await signIn(page, "learner1@example.com");
   await expect(page).toHaveURL(/\/it$/);
@@ -18,6 +24,9 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await slot(page, 0).fill("caffe");
   await slot(page, 0).press("Enter");
   await expect(page.locator(".qa-answer .qa-letter-accent")).toHaveText("è");
+  await expect(page.locator(".qa-next")).toHaveCount(0);
+  await pickMeaning(page, "coffee");
+  await expect(page.locator(".qa-meaning-right")).toContainText("coffee");
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
   await page.locator(".qa-next").click();
 
@@ -28,6 +37,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-answer")).toHaveCount(0);
   await slot(page, 0).fill("vorrei");
   await slot(page, 0).press("Enter");
+  await pickMeaning(page, "I would like");
   await expect(page.locator(".qa-outcome")).toContainText("Corrected");
   // No OPENAI_API_KEY in E2E: the explainer reports it is not configured.
   await page.locator(".qa-why").click();
@@ -40,12 +50,14 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(slot(page, 0)).toHaveValue("un");
   await slot(page, 1).fill("caffè");
   await slot(page, 1).press("Enter");
+  await pickMeaning(page, "a coffee");
   await expect(page.locator(".qa-outcome")).toContainText("hints");
   await page.locator(".qa-next").click();
 
   // "per favore": reveal.
   await page.locator(".qa-reveal").click();
   await expect(page.locator(".qa-answer")).toContainText("per favore");
+  await pickMeaning(page, "please");
   await expect(page.locator(".qa-outcome")).toContainText("Revealed");
 
   await page.locator(".qa-nav-notebook").click();
@@ -60,7 +72,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-mistakes-count")).toHaveText("1");
 });
 
-test("free-text mode on the sentences path: variants accepted, a miss converts to word slots", async ({ page }) => {
+test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {
   await signIn(page, "learner2@example.com");
   await page.locator(".qa-nav-settings").click();
   await page.locator(".qa-settings-path").selectOption("sentences");
@@ -68,26 +80,51 @@ test("free-text mode on the sentences path: variants accepted, a miss converts t
   await page.locator(".qa-settings-hints").selectOption("none");
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
 
-  await page.goto("/it/lesson/it-a1-bar-2");
-  await expect(page.locator(".qa-position")).toHaveText("1 / 5");
-  await page.locator(".qa-free-input").fill("quanto costa");
+  await page.goto("/it/lesson/it-a1-bar-1");
+  await expect(page.locator(".qa-position")).toHaveText("1 / 3");
+  // "Vorrei un caffè, per favore.": a semicolon for the comma and ! for the period are fine.
+  await page.locator(".qa-free-input").fill("vorrei un caffè; per favore!");
   await page.locator(".qa-free-input").press("Enter");
+  await pickMeaning(page, "I'd like a coffee, please.");
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
   await page.locator(".qa-next").click();
 
-  await page.locator(".qa-free-input").fill("costa 2 euro");
+  // "Vorrei un caffè e un cornetto.": the stray comma is only flagged; the question mark is an error.
+  await page.locator(".qa-free-input").fill("vorrei, un caffè e un cornetto?");
   await page.locator(".qa-free-input").press("Enter");
-  await expect(page.locator(".qa-outcome")).toContainText("Perfect");
-  await page.locator(".qa-next").click();
-
-  await page.locator(".qa-free-input").fill("il conto favore");
-  await page.locator(".qa-free-input").press("Enter");
-  await expect(page.locator(".qa-slot")).toHaveCount(4);
-  await expect(page.locator(".qa-word-missing")).toHaveText("per");
-  await expect(slot(page, 2)).toBeFocused();
-  await slot(page, 2).fill("per");
-  await slot(page, 2).press("Enter");
+  await expect(page.locator(".qa-slot")).toHaveCount(6);
+  await expect(page.locator(".qa-slots .qa-punct-stray")).toHaveText(",");
+  await expect(page.locator(".qa-slots .qa-punct-wrong")).toHaveText("?");
+  await expect(page.locator(".qa-slots .qa-punct-expected")).toHaveText(".");
+  await expect(slot(page, 5)).toBeFocused();
+  await slot(page, 5).fill("cornetto.");
+  await slot(page, 5).press("Enter");
+  await expect(page.locator(".qa-answer .qa-punct-stray")).toHaveText(",");
+  await pickMeaning(page, "I'd like a coffee and a croissant.");
   await expect(page.locator(".qa-outcome")).toContainText("Corrected");
+  await page.locator(".qa-next").click();
+
+  // "Per me, un'acqua frizzante, grazie.": a missing word converts to slots; then the wrong meaning.
+  await page.locator(".qa-free-input").fill("per me un'acqua grazie");
+  await page.locator(".qa-free-input").press("Enter");
+  await expect(page.locator(".qa-word-missing")).toHaveText("frizzante");
+  await expect(slot(page, 3)).toBeFocused();
+  await slot(page, 3).fill("frizzante");
+  await slot(page, 3).press("Enter");
+  await pickMeaning(page, "For me, a coffee, thanks.");
+  await expect(page.locator(".qa-meaning-wrong")).toContainText("For me, a coffee");
+  await expect(page.locator(".qa-meaning-right")).toContainText("a sparkling water");
+  await expect(page.locator(".qa-outcome")).toContainText("check the meaning");
+});
+
+test("later lessons and modules stay locked until the ones before are done", async ({ page }) => {
+  await signIn(page, "learner6@example.com");
+  await expect(page.locator(".qa-lesson-start")).toHaveCount(1);
+  await expect(page.locator(".qa-lesson-locked")).toHaveCount(1);
+  await expect(page.locator(".qa-course-locked")).toContainText("after Al bar");
+  await expect(page.locator(".qa-course-locked .qa-course-optional")).toBeVisible();
+  await page.goto("/it/lesson/it-a1-bar-2");
+  await expect(page.locator(".alert-danger")).toContainText("locked");
 });
 
 test("review is empty for a new learner", async ({ page }) => {
@@ -118,5 +155,6 @@ test("a slot shows its whole word plus trailing punctuation without scrolling", 
   const overflow = await slot(page, 0).evaluate((el: HTMLInputElement) => el.scrollWidth - el.clientWidth);
   expect(overflow).toBeLessThanOrEqual(0);
   await slot(page, 0).press("Enter");
+  await pickMeaning(page, "coffee");
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
 });

@@ -8,7 +8,7 @@ import {
 } from "../shared/api.ts";
 import { LANGUAGES, PATHS, type Language, type ServedLesson, type ServedUnit } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
-import { exactKey, words } from "../shared/tokenize.ts";
+import { exactKey } from "../shared/tokenize.ts";
 import {
   createSession, deleteSession, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
@@ -16,6 +16,7 @@ import type { Content } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { schedule } from "./srs.ts";
+import { unlockedIds } from "./unlocks.ts";
 
 export type AppDeps = {
   db: DB;
@@ -37,7 +38,8 @@ const GRADUATE_AFTER = 2;
 const REVIEW_BATCH = 50;
 
 const LangQuery = z.enum(LANGUAGES);
-const answerKey = (answer: string) => words(answer).map(exactKey).join(" ");
+/** Punctuation can make an answer wrong, so it is part of the key; case and spacing are not. */
+const answerKey = (answer: string) => exactKey(answer).replace(/\s+/g, " ").trim();
 
 export function createApp(deps: AppDeps) {
   const { db, content } = deps;
@@ -140,6 +142,10 @@ export function createApp(deps: AppDeps) {
       .get(userId, language) as { n: number }).n,
   });
 
+  const completedLessons = (userId: number) =>
+    new Set((db.prepare("SELECT DISTINCT lesson_id FROM lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL")
+      .all(userId) as { lesson_id: string }[]).map((r) => r.lesson_id));
+
   app.get("/api/catalog", (c) => {
     const language = lang(c);
     const userId = c.get("user").id;
@@ -149,25 +155,33 @@ export function createApp(deps: AppDeps) {
     }[];
     const progress: Catalog["progress"] = {};
     for (const r of rows) (progress[r.lesson_id] ??= {})[r.path] = { nextIndex: r.next_index, completedAt: r.completed_at };
-    return c.json<Catalog>({ courses, progress, ...counts(userId, language) });
+    const unlocked = [...unlockedIds(courses, completedLessons(userId))];
+    return c.json<Catalog>({ courses, progress, unlocked, ...counts(userId, language) });
   });
 
   app.post("/api/attempts", async (c) => {
     const a = AttemptSchema.parse(await c.req.json());
     const unit = unitOr404(a.unitId);
     if (a.rev !== unit.rev) throw new HTTPException(409, { message: `Unit ${unit.id} is now rev ${unit.rev}; reload` });
+    if ((a.meaningCorrect === null) !== !unit.distractors)
+      throw new HTTPException(400, { message: `Unit ${unit.id} ${unit.distractors ? "needs" : "has no"} a meaning check` });
     const userId = c.get("user").id;
+    if (a.mode === "learn" && !unlockedIds(content.courses, completedLessons(userId)).has(unit.lessonId))
+      throw new HTTPException(403, { message: `Lesson ${unit.lessonId} is locked` });
     const now = deps.now();
     const iso = now.toISOString();
-    const missed = a.outcome === "corrected" || a.outcome === "revealed";
+    const meaningMissed = a.meaningCorrect === false;
+    const missed = a.outcome === "corrected" || a.outcome === "revealed" || meaningMissed;
+    const categories = meaningMissed ? [...a.categories, "meaning"] : a.categories;
 
     transaction(db, () => {
       db.prepare(
         `INSERT INTO attempts (user_id, unit_id, unit_rev, course_id, lesson_id, mode, path, hints_level, outcome,
-           wrong_submissions, hints_used, replays, accent_slips, submissions, duration_ms, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+           wrong_submissions, hints_used, replays, accent_slips, submissions, meaning_correct, duration_ms, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       ).run(userId, unit.id, unit.rev, unit.courseId, unit.lessonId, a.mode, a.path, a.hintsLevel, a.outcome,
-        a.wrongSubmissions, a.hintsUsed, a.replays, a.accentSlips, JSON.stringify(a.submissions), a.durationMs, iso);
+        a.wrongSubmissions, a.hintsUsed, a.replays, a.accentSlips, JSON.stringify(a.submissions),
+        a.meaningCorrect === null ? null : Number(a.meaningCorrect), a.durationMs, iso);
 
       if (a.mode === "learn") {
         const pathUnits = lessons.get(unit.lessonId)!.units.filter((u) => (PATHS[a.path] as readonly string[]).includes(u.stage));
@@ -184,7 +198,7 @@ export function createApp(deps: AppDeps) {
         .get(userId, unit.id) as { categories: string; clean_streak: number } | undefined;
       if (missed) {
         const firstWrong = a.submissions[0] ?? null;
-        const cats = [...new Set([...(mistake ? (JSON.parse(mistake.categories) as string[]) : []), ...a.categories])];
+        const cats = [...new Set([...(mistake ? (JSON.parse(mistake.categories) as string[]) : []), ...categories])];
         db.prepare(
           `INSERT INTO mistakes (user_id, unit_id, language, first_wrong_at, last_wrong_at, wrong_count, last_answer, categories, clean_streak, removed_at)
            VALUES (?, ?, ?, ?, ?, 1, ?, ?, 0, NULL)
@@ -199,7 +213,7 @@ export function createApp(deps: AppDeps) {
 
       const card = db.prepare("SELECT card FROM review_cards WHERE user_id = ? AND unit_id = ?").get(userId, unit.id) as { card: string } | undefined;
       if (card || unit.stage === "sentence" || missed) {
-        const next = schedule(card?.card ?? null, a.outcome, now);
+        const next = schedule(card?.card ?? null, meaningMissed ? "corrected" : a.outcome, now);
         db.prepare(
           `INSERT INTO review_cards (user_id, unit_id, language, due, card) VALUES (?, ?, ?, ?, ?)
            ON CONFLICT DO UPDATE SET due = excluded.due, card = excluded.card`,
@@ -251,7 +265,7 @@ export function createApp(deps: AppDeps) {
   app.post("/api/explain", async (c) => {
     const { unitId, answer } = ExplainSchema.parse(await c.req.json());
     const unit = unitOr404(unitId);
-    const result = grade(words(answer), unit.text, unit.variants, "free");
+    const result = grade({ mode: "free", text: answer }, unit);
     if (result.passed) throw new HTTPException(400, { message: "That answer is correct" });
 
     const cached = cachedExplanation(unit, answer);

@@ -45,7 +45,7 @@ describe("prefs and catalog", () => {
   it("stores prefs per language", async () => {
     const t = setup();
     await t.login();
-    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75, showTranslation: false };
+    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75 };
     expect((await t.req("PUT", "/api/prefs", { language: "nl", prefs })).status).toBe(200);
     const me = await t.req("GET", "/api/me");
     expect(me.json.prefs.nl).toEqual(prefs);
@@ -57,8 +57,8 @@ describe("prefs and catalog", () => {
     await t.login();
     await t.attempt("it-a1-bar-1-u01");
     const cat = await t.req("GET", "/api/catalog?lang=it");
-    expect(cat.json.courses.map((c: { id: string }) => c.id)).toEqual(["it-a1-bar"]);
-    expect(cat.json.courses[0].lessons[0].units[0].audio).toMatch(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/);
+    expect(cat.json.courses.map((c: { id: string }) => c.id)).toEqual(["it-a1-bar", "it-a1-tea"]);
+    expect(cat.json.courses[0].lessons[0].units[0].audio).toEqual(Array(4).fill(expect.stringMatching(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/)));
     expect(cat.json.progress["it-a1-bar-1"].full).toEqual({ nextIndex: 1, completedAt: null });
     expect((await t.req("GET", "/api/catalog?lang=xx")).status).toBe(400);
   });
@@ -73,6 +73,30 @@ describe("prefs and catalog", () => {
     cat = await t.req("GET", "/api/catalog?lang=it");
     expect(cat.json.progress["it-a1-bar-1"].sentences).toEqual({ nextIndex: 3, completedAt: t.clock.now.toISOString() });
     expect((await t.attempt("it-a1-bar-1-u01", { path: "sentences" })).status).toBe(400);
+  });
+
+  it("unlocks the next lesson, then a required-by course, as lessons complete", async () => {
+    const t = setup();
+    await t.login();
+    let cat = await t.req("GET", "/api/catalog?lang=it");
+    expect(cat.json.unlocked.sort()).toEqual(["it-a1-bar", "it-a1-bar-1"]);
+    expect((await t.attempt("it-a1-bar-2-u02")).status).toBe(403);
+    expect((await t.attempt("it-a1-bar-2-u02", { mode: "review" })).status).toBe(200);
+
+    for (const u of ["u06", "u08", "u10"]) await t.attempt(`it-a1-bar-1-${u}`, { path: "sentences" });
+    cat = await t.req("GET", "/api/catalog?lang=it");
+    expect(cat.json.unlocked).toContain("it-a1-bar-2");
+    expect(cat.json.unlocked).not.toContain("it-a1-tea");
+
+    for (const u of ["u02", "u04", "u06", "u08", "u09"]) expect((await t.attempt(`it-a1-bar-2-${u}`, { path: "sentences" })).status).toBe(200);
+    cat = await t.req("GET", "/api/catalog?lang=it");
+    expect(cat.json.unlocked).toEqual(expect.arrayContaining(["it-a1-tea", "it-a1-tea-1"]));
+  });
+
+  it("requires a meaning answer exactly when the unit has a meaning check", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.attempt("it-a1-bar-1-u01", { meaningCorrect: null })).status).toBe(400);
   });
 
   it("rejects an attempt against a stale unit revision", async () => {
@@ -100,6 +124,16 @@ describe("mistakes notebook", () => {
     await t.attempt("it-a1-bar-1-u06", { mode: "mistakes" });
     expect((await t.req("GET", "/api/mistakes?lang=it")).json).toHaveLength(0);
     expect((await t.req("GET", "/api/catalog?lang=it")).json.mistakesCount).toBe(0);
+  });
+
+  it("records a clean dictation with a wrong meaning pick as a meaning mistake, scheduled like a miss", async () => {
+    const t = setup();
+    await t.login();
+    await t.attempt("it-a1-bar-1-u01", { meaningCorrect: false });
+    const nb = await t.req("GET", "/api/mistakes?lang=it");
+    expect(nb.json[0]).toMatchObject({ wrongCount: 1, categories: ["meaning"] });
+    const card = t.deps.db.prepare("SELECT due FROM review_cards WHERE unit_id = ?").get("it-a1-bar-1-u01") as { due: string } | undefined;
+    expect(card).toBeDefined();
   });
 
   it("lets the learner remove an entry and re-adds it on the next miss", async () => {
@@ -160,7 +194,7 @@ describe("explainer", () => {
     expect(explainer.calls[0].grammarFocus).toContain("vorrei + noun");
 
     await t.login("b@example.com");
-    const again = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u06", answer: "vorrei un caffe, per favor!" });
+    const again = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u06", answer: "vorrei  un caffe per favor " });
     expect(again.json.cached).toBe(true);
     expect(explainer.calls).toHaveLength(1);
   });
