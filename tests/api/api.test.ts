@@ -5,7 +5,7 @@ describe("auth", () => {
   it("rejects API calls without a session and accepts them after Google sign-in", async () => {
     const t = setup();
     expect((await t.req("GET", "/api/me")).status).toBe(401);
-    expect((await t.req("POST", "/api/auth/google", { credential: "ana" })).status).toBe(200);
+    expect((await t.req("POST", "/api/auth/google", { credential: "ana", locale: "en" })).status).toBe(200);
     const me = await t.req("GET", "/api/me");
     expect(me.json).toMatchObject({ email: "ana@example.com", prefs: { it: { path: "full", hints: "letters" } } });
   });
@@ -21,8 +21,8 @@ describe("auth", () => {
 
   it("enforces ALLOWED_EMAILS", async () => {
     const t = setup({ allowedEmails: new Set(["ok@example.com"]) });
-    expect((await t.req("POST", "/api/auth/google", { credential: "intruder" })).status).toBe(403);
-    expect((await t.req("POST", "/api/auth/google", { credential: "ok" })).status).toBe(200);
+    expect((await t.req("POST", "/api/auth/google", { credential: "intruder", locale: "en" })).status).toBe(403);
+    expect((await t.req("POST", "/api/auth/google", { credential: "ok", locale: "en" })).status).toBe(200);
   });
 
   it("does not expose dev login unless enabled", async () => {
@@ -242,5 +242,61 @@ describe("explainer", () => {
     const noKey = setup({ explainer: null });
     await noKey.login();
     expect((await noKey.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x" })).status).toBe(503);
+  });
+});
+
+describe("locale", () => {
+  it("stores the sign-in locale for a new user only, and changes it with PUT /api/locale", async () => {
+    const t = setup();
+    await t.login("ana@example.com", "es-419");
+    expect((await t.req("GET", "/api/me")).json.locale).toBe("es-419");
+    await t.login("ana@example.com", "nl");
+    expect((await t.req("GET", "/api/me")).json.locale).toBe("es-419");
+
+    expect((await t.req("PUT", "/api/locale", { locale: "it" })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.locale).toBe("it");
+    expect((await t.req("PUT", "/api/locale", { locale: "es" })).status).toBe(400);
+  });
+
+  it("serves translations, distractors, glosses and descriptions in the learner's support language", async () => {
+    const t = setup();
+    await t.login("ana@example.com", "es-419");
+    const course = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0];
+    const unit = course.lessons[0].units.find((u: { id: string }) => u.id === "it-a1-bar-1-u06");
+    expect(course.description).toBe("Pedir un café y pagar en un bar italiano");
+    expect(unit.translation).toBe("Quisiera un café, por favor.");
+    expect(unit.distractors).toEqual(["Un café para mí, gracias.", "Quisiera la cuenta, por favor."]);
+    expect(unit.words.find((w: { text: string }) => w.text === "caffè").gloss).toBe("café (masculino), invariable en plural");
+
+    await t.req("PUT", "/api/locale", { locale: "nl" });
+    await t.attempt("it-a1-bar-1-u06");
+    expect((await t.req("GET", "/api/review?lang=it")).json.units).toEqual([]);
+    t.clock.now = new Date("2026-09-30T10:00:00Z");
+    expect((await t.req("GET", "/api/review?lang=it")).json.units[0].translation).toBe("Ik wil graag een koffie, alsjeblieft.");
+  });
+
+  it("falls back to English for an Italian-interface learner of Italian", async () => {
+    const t = setup();
+    await t.login("ana@example.com", "it");
+    const unit = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0].lessons[0].units[0];
+    expect(unit.translation).toBe("coffee");
+  });
+
+  it("asks for and caches explanations per interface language", async () => {
+    const t = setup();
+    const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;
+    const body = { unitId: "it-a1-bar-1-u06", answer: "Vorrei un caffe per favor" };
+    await t.login("a@example.com", "nl");
+    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(false);
+    expect(explainer.calls[0]).toMatchObject({ locale: "nl", grammarFocus: ["onbepaalde lidwoorden un / un'", "vorrei + zelfstandig naamwoord"] });
+    expect(explainer.calls[0].unit.translation).toBe("Ik wil graag een koffie, alsjeblieft.");
+
+    await t.login("b@example.com", "en");
+    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(false);
+    expect(explainer.calls[1].locale).toBe("en");
+
+    await t.login("c@example.com", "nl");
+    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(true);
+    expect(explainer.calls).toHaveLength(2);
   });
 });

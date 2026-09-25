@@ -17,7 +17,7 @@ This doc covers the language-neutral structure, the ordering principles and the 
 - **Level:** A1, A2. The Home page groups modules by level.
 - **Module** (a `course` in the content schema): one situation or theme, about 6 lessons, and 40–80 new lemmas. It has a `track`, `main` or `optional`.
 - **Lesson:** 14–16 units that build toward 5–7 sentences. It ends on a sentence.
-- **Unit:** one dictation item with stage `word`, `phrase`, `chunk` or `sentence`. For `it` and `nl`, a unit has a translation and two distractors for the meaning check.
+- **Unit:** one dictation item with stage `word`, `phrase`, `chunk` or `sentence`. For `it` and `nl`, a unit has a translation and two distractors for the meaning check, one set per support language (`SUPPORT_LOCALES` in `shared/content.ts`).
 
 A typical lesson: 3–4 words, 3–4 phrases, 2–3 chunks and 5–6 sentences, interleaved so that each sentence follows the pieces it uses.
 
@@ -35,7 +35,7 @@ Placement (skipping ahead for learners who already know the basics) is on the [r
 - **Punctuation:** a sentence unit ends in `.`, `!` or `?`. A word unit never does; phrases and chunks don't either. `commas` lists extra word gaps where a comma or semicolon is also acceptable, and it should be liberal (after a vocative, before `ma`, around an interjection). Only a wrong end mark counts as an error. See `shared/grader.ts`.
 - **Numbers:** written as words in the text, with digit spellings in `variants` (`due euro` -> `2 euro`).
 - **Variants:** other correct spellings of the same audio, never paraphrases. The audio is rendered from `text` only.
-- **Distractors:** two wrong English translations of the same length and shape as the real one. Each differs in one or two key content points (a different item, person, time or polarity), so choosing needs real understanding. A distractor must never also be a correct translation. Avoid fixed patterns, such as the answer always being the longest option.
+- **Distractors:** two wrong translations per support language, of the same length and shape as the real one. Each differs in one or two key content points (a different item, person, time or polarity), so choosing needs real understanding. A distractor must never also be a correct translation. Avoid fixed patterns, such as the answer always being the longest option. Each support language gets its own distractors, not a translation of the English ones: a contrast English draws (he/she, you/they, if/when, by/of) can collapse in a pro-drop or differently split language, so pick a contrast that survives there.
 - **Lexicon:** each module carries a lexicon entry for every surface form it uses, so a module is self-contained to read. Glosses are short and learner-facing: meaning, then gender or irregularity when it matters.
 
 ## Modules

@@ -4,20 +4,22 @@
   "level": "A1",
   "order": 2,
   "title": "Il tè",
-  "description": "An optional module that requires Al bar",
+  "description": { "en": "An optional module that requires Al bar", "es-419": "Un módulo opcional que requiere Al bar", "nl": "Een optionele module die Al bar vereist" },
   "track": "optional",
   "requires": ["it-a1-bar"],
   "introduces": ["tè"],
   "lexicon": {
-    "tè": { "lemma": "tè", "pos": "NOUN", "gloss": "tea (masculine)" }
+    "tè": { "lemma": "tè", "pos": "NOUN", "gloss": {"en": "tea (masculine)", "es-419": "té (masculino)", "nl": "thee (mannelijk)"} }
   },
   "lessons": [
     {
       "id": "it-a1-tea-1",
       "title": "Un tè",
-      "grammarFocus": [],
+      "grammarFocus": { "en": [], "es-419": [], "nl": [] },
       "units": [
-        { "id": "it-a1-tea-1-u01", "rev": 1, "stage": "sentence", "text": "Un tè, per favore.", "translation": "A tea, please.", "distractors": ["A coffee, please.", "The tea, thanks."] }
+        { "id": "it-a1-tea-1-u01", "rev": 1, "stage": "sentence", "text": "Un tè, per favore.",
+          "translation": { "en": "A tea, please.", "es-419": "Un té, por favor.", "nl": "Een thee, alsjeblieft." },
+          "distractors": { "en": ["A coffee, please.", "The tea, thanks."], "es-419": ["Un café, por favor.", "El té, gracias."], "nl": ["Een koffie, alsjeblieft.", "De thee, bedankt."] } }
       ]
     }
   ]

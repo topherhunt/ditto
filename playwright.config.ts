@@ -6,7 +6,8 @@ export default defineConfig({
   testDir: "tests/e2e",
   fullyParallel: false,
   workers: 1,
-  use: { baseURL: `http://127.0.0.1:${PORT}`, trace: "retain-on-failure" },
+  // The UI language follows the browser's until a user picks one, so pin it.
+  use: { baseURL: `http://127.0.0.1:${PORT}`, trace: "retain-on-failure", locale: "en-US" },
   webServer: {
     // Fresh DB per run; OPENAI_API_KEY is blanked so E2E can never spend money.
     command: `rm -rf test-results/e2e-db && npx vite build && node server/index.ts`,

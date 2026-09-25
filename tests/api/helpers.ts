@@ -2,6 +2,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import type { AttemptBody } from "../../shared/api.ts";
+import type { Locale } from "../../shared/content.ts";
 import { createApp, type AppDeps } from "../../server/app.ts";
 import { loadContent } from "../../server/content.ts";
 import { openDb } from "../../server/db.ts";
@@ -56,9 +57,9 @@ export function setup(overrides: Partial<AppDeps> = {}) {
 
   return {
     app, deps, clock, req,
-    login: (email = "learner@example.com") => req("POST", "/api/auth/dev", { email }),
+    login: (email = "learner@example.com", locale: Locale = "en") => req("POST", "/api/auth/dev", { email, locale }),
     attempt: (unitId: string, over: Partial<AttemptBody> = {}) => {
-      const unit = content.units.get(unitId)!;
+      const unit = content.locales.en.units.get(unitId)!;
       const body: AttemptBody = {
         unitId, rev: unit.rev, mode: "learn", path: "full", hintsLevel: "letters", outcome: "clean",
         wrongSubmissions: 0, hintsUsed: 0, replays: 0, accentSlips: 0, submissions: [unit.text], categories: [], durationMs: 1000, meaningCorrect: unit.distractors ? true : null, ...over,

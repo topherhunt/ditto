@@ -19,10 +19,16 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
 - Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item (`it`/`nl`): a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
+- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` and `nl` have `en` only), else in English.
 - Mistakes notebook, with focused practice of notebook items.
 - "Report a problem" under each item (bad audio, wrong text, wrong meaning, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
+- Friends, found by exact email. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
+- Profiles, visible to yourself and your friends. A profile shows the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
+- A lesson any friend has started is playable out of sequence. Its done screen compares your latest run with friends who have played it.
+- Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
+- A 7-day leaderboard of you and your friends, and an in-app notifications bell (no email or push).
 - Content: the full Italian A1+A2 curriculum (21 main and 7 optional modules, [curriculum-it.md](curriculum-it.md)); a one-module seed course for `en` and `nl`.
 
 **Later**
@@ -93,21 +99,19 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 // content/courses/it/it-a1-bar.json
 {
   "id": "it-a1-bar", "language": "it", "level": "A1", "order": 1,
-  "title": "Al bar", "description": "Ordering coffee and snacks",
+  "title": "Al bar", "description": { "en": "Ordering coffee and snacks", "es-419": "…", "nl": "…" },
   "track": "main", "requires": [], "introduces": ["volere", "il", "lo", "prendere", "grazie"],
   "lexicon": {
-    "vorrei": { "lemma": "volere", "pos": "VERB", "gloss": "I would like (conditional)" },
-    "lo":      { "lemma": "il", "pos": "DET", "gloss": "the (before s+consonant, z)" },
-    "lo#pron": { "lemma": "lo", "pos": "PRON", "gloss": "it / him" }
+    "vorrei": { "lemma": "volere", "pos": "VERB", "gloss": { "en": "I would like (conditional)", "es-419": "quisiera (condicional)", "nl": "…" } },
+    "lo#pron": { "lemma": "lo", "pos": "PRON", "gloss": { "en": "it / him", "es-419": "lo", "nl": "het / hem" } }
   },
   "lessons": [{
     "id": "it-a1-bar-1", "title": "Un caffè, per favore",
-    "grammarFocus": ["indefinite articles", "vorrei + noun"],
+    "grammarFocus": { "en": ["indefinite articles", "vorrei + noun"], "es-419": ["…"], "nl": ["…"] },
     "units": [
-      { "id": "it-a1-bar-1-u01", "rev": 1, "stage": "word", "text": "vorrei", "translation": "I would like",
-        "distractors": ["I would pay", "I can have"] },
       { "id": "it-a1-bar-1-u04", "rev": 1, "stage": "sentence", "text": "Lo prendo grazie.",
-        "translation": "I'll take it, thanks.", "distractors": ["I'll pay for it, thanks.", "I'll leave it, thanks."],
+        "translation": { "en": "I'll take it, thanks.", "es-419": "Lo tomo, gracias.", "nl": "Ik neem het, bedankt." },
+        "distractors": { "en": ["I'll pay for it, thanks.", "I'll leave it, thanks."], "es-419": ["…", "…"], "nl": ["…", "…"] },
         "senses": { "0": "pron" }, "commas": [1] }
     ]
   }]
@@ -122,7 +126,8 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - `commas[]`: word indices after which a comma or semicolon is accepted although the text has none.
 - `distractors`: two wrong translations for the meaning check. Required exactly when there is a `translation`.
 - Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which invalidates cached explanations.
-- There is no `translation` for `en` courses yet. The field becomes a locale map when a second support language is needed.
+- **Localized fields** (`description`, `grammarFocus`, `gloss`, `translation`, `distractors`) are locale maps with exactly the course language's `SUPPORT_LOCALES`; a missing or extra locale is a load error. The loader builds one served copy of the content per UI locale. There is no `translation` for `en` courses yet.
+- New support languages are added as one patch per course and locale, checked and merged by `scripts/merge-locale.ts` (`--check` validates without writing).
 
 ## Practice settings (per user, per language)
 
@@ -169,8 +174,8 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 ## AI explainer
 
 - `POST /api/explain {unitId, rev, answer}`. The server loads the unit (text, words with lemma/POS, grammarFocus, language) and computes the grader diff.
-- It asks the model for structured output: `{ categories: [...], summary: string, details: string }`. Categories come from a fixed taxonomy: `spelling`, `mishearing`, `homophone`, `agreement`, `conjugation`, `article`, `preposition`, `elision_contraction`, `word_order`, `missing_word`, `extra_word`, `vocabulary`, `other`.
-- **Cache:** the `explanations` table, keyed by `(unit_id, rev, answer key, model)`. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. It is shared across users, so a repeated mistake is free.
+- It asks the model for structured output: `{ categories: [...], summary: string, details: string }`. Categories come from a fixed taxonomy: `spelling`, `mishearing`, `homophone`, `agreement`, `conjugation`, `article`, `preposition`, `elision_contraction`, `word_order`, `missing_word`, `extra_word`, `vocabulary`, `other`. It writes in the learner's UI locale.
+- **Cache:** the `explanations` table, keyed by `(unit_id, rev, answer key, model, locale)`. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. It is shared across users, so a repeated mistake is free.
 - **Spend guards:**
   - The endpoint only runs when a user clicks "Why?".
   - A per-user daily cap (`EXPLAIN_DAILY_LIMIT`, default 50).
@@ -180,7 +185,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 ## Data model (SQLite)
 
 ```sql
-users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, created_at)
+users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, locale, created_at)
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
          , path, hints_level, outcome, wrong_submissions, hints_used, replays, accent_slips,
@@ -190,12 +195,19 @@ mistakes(user_id, unit_id, first_wrong_at, last_wrong_at, wrong_count, last_answ
          categories JSON, clean_streak, removed_at, PK(user_id, unit_id))
 review_cards(user_id, unit_id, language, due, card JSON  -- ts-fsrs Card; `due` duplicated for the index
              , PK(user_id, unit_id))
-explanations(id PK, unit_id, unit_rev, answer_key, model, categories JSON, summary, details, created_at,
-             UNIQUE(unit_id, unit_rev, answer_key, model))
+explanations(id PK, unit_id, unit_rev, answer_key, model, locale, categories JSON, summary, details, created_at,
+             UNIQUE(unit_id, unit_rev, answer_key, model, locale))
 explain_usage(user_id, day, count, PK(user_id, day))
 reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
         , audio_file, kind  -- audio|text|translation|other
         , note, created_at, resolved_at)
+friendships(requester_id, addressee_id, status  -- pending|accepted|blocked
+            , created_at, responded_at, PK(requester_id, addressee_id))
+challenges(id PK, challenger_id, opponent_id, kind  -- most|first_to
+           , days, target, status  -- pending|active|declined|cancelled|finished
+           , created_at, started_at, ends_at, finished_at, winner_id  -- NULL on a draw
+           )
+notifications(id PK, user_id, kind, actor_id, challenge_id, created_at, read_at)
 ```
 
 Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA user_version`. Content lives in JSON, not the DB. The DB references units by `unit_id` only.
@@ -217,6 +229,17 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
 | POST | `/api/reports` | `{unitId, rev, voice, kind, note}`, where `voice` is the index into the unit's `audio` |
+| GET | `/api/friends` | Friends, incoming/outgoing/blocked requests, and the 7-day leaderboard |
+| GET | `/api/friends/search?email=` | Only whether the account exists and how you stand with it |
+| POST | `/api/friends/requests` | `{email}`. If they already asked you, this accepts their request |
+| POST | `/api/friends/:id/(accept\|decline\|block\|unblock\|unfriend)` | Unfriending cancels open races |
+| GET | `/api/profile/(:id\|me)` | Self or friends only; 404 otherwise |
+| GET | `/api/lessons/:lessonId/compare` | Your latest run of the lesson next to your friends' |
+| GET | `/api/challenges` | Settles due races; lists open ones and the past 30 days |
+| POST | `/api/challenges` | `{opponentId, kind: "most", days}` or `{opponentId, kind: "first_to", target}` |
+| POST | `/api/challenges/:id/(accept\|decline\|cancel)` | Only the opponent can accept or decline; only the challenger can cancel |
+| GET | `/api/notifications` | Settles due races; the last 20 notifications and the unread count |
+| POST | `/api/notifications/read` | |
 | GET | `/audio/*`, `/assets/*`, `/*` | Static files, and the SPA fallback to `index.html` |
 
 - Every `/api` route except auth requires a session.

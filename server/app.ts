@@ -3,10 +3,10 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutPrefsSchema, ReportSchema,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, ReportSchema,
   type Catalog, type Config, type ExplanationOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
-import { LANGUAGES, PATHS, type Language, type ServedLesson, type ServedUnit } from "../shared/content.ts";
+import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedLesson, type ServedUnit } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
 import { exactKey } from "../shared/tokenize.ts";
 import {
@@ -15,6 +15,7 @@ import {
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
+import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
 
@@ -43,11 +44,13 @@ const answerKey = (answer: string) => exactKey(answer).replace(/\s+/g, " ").trim
 
 export function createApp(deps: AppDeps) {
   const { db, content } = deps;
-  const lessons = new Map<string, ServedLesson>(content.courses.flatMap((c) => c.lessons.map((l) => [l.id, l] as const)));
+  /** Ids, stages and unlocks, which every locale shares. Text shown to a learner comes from `content.locales[user.locale]`. */
+  const structure = content.locales.en;
+  const lessons = new Map<string, ServedLesson>(structure.courses.flatMap((c) => c.lessons.map((l) => [l.id, l] as const)));
   const app = new Hono<{ Variables: { user: User } }>();
 
-  const unitOr404 = (id: string): ServedUnit => {
-    const u = content.units.get(id);
+  const unitOr404 = (locale: Locale, id: string): ServedUnit => {
+    const u = content.locales[locale].units.get(id);
     if (!u) throw new HTTPException(404, { message: `Unknown unit ${id}` });
     return u;
   };
@@ -71,11 +74,11 @@ export function createApp(deps: AppDeps) {
     await next();
   });
 
-  const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1]) => {
+  const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1], locale: Locale) => {
     if (deps.allowedEmails && !deps.allowedEmails.has(profile.email.toLowerCase()))
       throw new HTTPException(403, { message: `${profile.email} is not allowed` });
     const now = deps.now();
-    const token = createSession(db, upsertUser(db, profile, now), now);
+    const token = createSession(db, upsertUser(db, profile, locale, now), now);
     setCookie(c, SESSION_COOKIE, token, {
       httpOnly: true, secure: deps.secureCookies, sameSite: "Lax", path: "/", maxAge: SESSION_DAYS * 86_400,
     });
@@ -86,20 +89,20 @@ export function createApp(deps: AppDeps) {
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
-    const { credential } = z.strictObject({ credential: z.string() }).parse(await c.req.json());
+    const { credential, locale } = z.strictObject({ credential: z.string(), locale: z.enum(LOCALES) }).parse(await c.req.json());
     let profile;
     try {
       profile = await deps.verifyGoogle(credential);
     } catch (e) {
       throw new HTTPException(401, { message: `Google sign-in failed: ${(e as Error).message}` });
     }
-    return startSession(c, profile);
+    return startSession(c, profile, locale);
   });
 
   if (deps.devLogin) {
     app.post("/api/auth/dev", async (c) => {
-      const { email } = z.strictObject({ email: z.email() }).parse(await c.req.json());
-      return startSession(c, { sub: `dev:${email}`, email, name: email.split("@")[0], picture: null });
+      const { email, locale } = z.strictObject({ email: z.email(), locale: z.enum(LOCALES) }).parse(await c.req.json());
+      return startSession(c, { sub: `dev:${email}`, email, name: email.split("@")[0], picture: null }, locale);
     });
   }
 
@@ -125,7 +128,13 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/me", (c) => {
     const u = c.get("user");
-    return c.json<Me>({ email: u.email, name: u.name, picture: u.picture, prefs: prefsOf(u) });
+    return c.json<Me>({ email: u.email, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u) });
+  });
+
+  app.put("/api/locale", async (c) => {
+    const { locale } = PutLocaleSchema.parse(await c.req.json());
+    db.prepare("UPDATE users SET locale = ? WHERE id = ?").run(locale, c.get("user").id);
+    return c.json({ ok: true });
   });
 
   app.put("/api/prefs", async (c) => {
@@ -148,25 +157,28 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/catalog", (c) => {
     const language = lang(c);
-    const userId = c.get("user").id;
-    const courses = content.courses.filter((x) => x.language === language);
+    const { id: userId, locale } = c.get("user");
+    const courses = content.locales[locale].courses.filter((x) => x.language === language);
     const rows = db.prepare("SELECT lesson_id, path, next_index, completed_at FROM lesson_progress WHERE user_id = ?").all(userId) as {
       lesson_id: string; path: keyof typeof PATHS; next_index: number; completed_at: string | null;
     }[];
     const progress: Catalog["progress"] = {};
     for (const r of rows) (progress[r.lesson_id] ??= {})[r.path] = { nextIndex: r.next_index, completedAt: r.completed_at };
-    const unlocked = [...unlockedIds(courses, completedLessons(userId))];
-    return c.json<Catalog>({ courses, progress, unlocked, ...counts(userId, language) });
+    const unlocked = unlockedIds(courses, completedLessons(userId));
+    const lessonIds = new Set(courses.flatMap((x) => x.lessons.map((l) => l.id)));
+    const viaFriends = Object.fromEntries([...friendLessons(db, userId)].filter(([id]) => lessonIds.has(id) && !unlocked.has(id)));
+    return c.json<Catalog>({ courses, progress, unlocked: [...unlocked], viaFriends, ...counts(userId, language) });
   });
 
   app.post("/api/attempts", async (c) => {
     const a = AttemptSchema.parse(await c.req.json());
-    const unit = unitOr404(a.unitId);
+    const unit = unitOr404("en", a.unitId);
     if (a.rev !== unit.rev) throw new HTTPException(409, { message: `Unit ${unit.id} is now rev ${unit.rev}; reload` });
     if ((a.meaningCorrect === null) !== !unit.distractors)
       throw new HTTPException(400, { message: `Unit ${unit.id} ${unit.distractors ? "needs" : "has no"} a meaning check` });
     const userId = c.get("user").id;
-    if (a.mode === "learn" && !unlockedIds(content.courses, completedLessons(userId)).has(unit.lessonId))
+    // A lesson a friend has started is playable out of sequence.
+    if (a.mode === "learn" && !unlockedIds(structure.courses, completedLessons(userId)).has(unit.lessonId) && !friendLessons(db, userId).has(unit.lessonId))
       throw new HTTPException(403, { message: `Lesson ${unit.lessonId} is locked` });
     const now = deps.now();
     const iso = now.toISOString();
@@ -225,7 +237,7 @@ export function createApp(deps: AppDeps) {
 
   app.post("/api/reports", async (c) => {
     const r = ReportSchema.parse(await c.req.json());
-    const unit = unitOr404(r.unitId);
+    const unit = unitOr404("en", r.unitId);
     const url = unit.audio[r.voice];
     if (!url) throw new HTTPException(400, { message: `Unit ${unit.id} has no voice ${r.voice}` });
     // unit.audio is in VOICES order (see loadContent).
@@ -239,15 +251,16 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/review", (c) => {
     const language = lang(c);
-    const userId = c.get("user").id;
+    const { id: userId, locale } = c.get("user");
     const rows = db.prepare("SELECT unit_id FROM review_cards WHERE user_id = ? AND language = ? AND due <= ? ORDER BY due LIMIT ?")
       .all(userId, language, deps.now().toISOString(), REVIEW_BATCH) as { unit_id: string }[];
-    return c.json<ReviewOut>({ units: rows.map((r) => unitOr404(r.unit_id)), dueCount: counts(userId, language).dueCount });
+    return c.json<ReviewOut>({ units: rows.map((r) => unitOr404(locale, r.unit_id)), dueCount: counts(userId, language).dueCount });
   });
 
-  const cachedExplanation = (unit: ServedUnit, answer: string): ExplanationOut | null => {
-    const row = db.prepare("SELECT categories, summary, details FROM explanations WHERE unit_id = ? AND unit_rev = ? AND answer_key = ? AND model = ?")
-      .get(unit.id, unit.rev, answerKey(answer), deps.explainModel) as { categories: string; summary: string; details: string } | undefined;
+  const cachedExplanation = (unit: ServedUnit, answer: string, locale: Locale): ExplanationOut | null => {
+    const row = db.prepare(
+      "SELECT categories, summary, details FROM explanations WHERE unit_id = ? AND unit_rev = ? AND answer_key = ? AND model = ? AND locale = ?",
+    ).get(unit.id, unit.rev, answerKey(answer), deps.explainModel, locale) as { categories: string; summary: string; details: string } | undefined;
     return row ? { categories: JSON.parse(row.categories), summary: row.summary, details: row.details } : null;
   };
 
@@ -259,12 +272,13 @@ export function createApp(deps: AppDeps) {
     ).all(c.get("user").id, language) as {
       unit_id: string; wrong_count: number; last_wrong_at: string; last_answer: string | null; categories: string; clean_streak: number;
     }[];
+    const { locale } = c.get("user");
     return c.json<MistakeEntry[]>(rows.map((r) => {
-      const unit = unitOr404(r.unit_id);
+      const unit = unitOr404(locale, r.unit_id);
       return {
         unit, wrongCount: r.wrong_count, lastWrongAt: r.last_wrong_at, lastAnswer: r.last_answer,
         categories: JSON.parse(r.categories), cleanStreak: r.clean_streak,
-        explanation: r.last_answer ? cachedExplanation(unit, r.last_answer) : null,
+        explanation: r.last_answer ? cachedExplanation(unit, r.last_answer, locale) : null,
       };
     }));
   });
@@ -278,30 +292,33 @@ export function createApp(deps: AppDeps) {
 
   app.post("/api/explain", async (c) => {
     const { unitId, answer } = ExplainSchema.parse(await c.req.json());
-    const unit = unitOr404(unitId);
+    const { id: userId, locale } = c.get("user");
+    const unit = unitOr404(locale, unitId);
     const result = grade({ mode: "free", text: answer }, unit);
     if (result.passed) throw new HTTPException(400, { message: "That answer is correct" });
 
-    const cached = cachedExplanation(unit, answer);
+    const cached = cachedExplanation(unit, answer, locale);
     if (cached) return c.json({ ...cached, cached: true });
     if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENAI_API_KEY)" });
 
-    const userId = c.get("user").id;
     const day = deps.now().toISOString().slice(0, 10);
     const used = (db.prepare("SELECT count FROM explain_usage WHERE user_id = ? AND day = ?").get(userId, day) as { count: number } | undefined)?.count ?? 0;
     if (used >= deps.explainDailyLimit) throw new HTTPException(429, { message: `Daily explanation limit (${deps.explainDailyLimit}) reached` });
 
-    const lesson = lessons.get(unit.lessonId)!;
-    const ex = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result });
+    // The explainer sees the unit and grammar focus in the learner's support language, and writes in their UI language.
+    const lesson = content.locales[locale].courses.find((x) => x.id === unit.courseId)!.lessons.find((l) => l.id === unit.lessonId)!;
+    const ex = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result, locale });
     transaction(db, () => {
       db.prepare(
-        `INSERT INTO explanations (unit_id, unit_rev, answer_key, model, categories, summary, details, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`,
-      ).run(unit.id, unit.rev, answerKey(answer), deps.explainer!.model, JSON.stringify(ex.categories), ex.summary, ex.details, deps.now().toISOString());
+        `INSERT INTO explanations (unit_id, unit_rev, answer_key, model, locale, categories, summary, details, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`,
+      ).run(unit.id, unit.rev, answerKey(answer), deps.explainer!.model, locale, JSON.stringify(ex.categories), ex.summary, ex.details, deps.now().toISOString());
       db.prepare("INSERT INTO explain_usage (user_id, day, count) VALUES (?, ?, 1) ON CONFLICT DO UPDATE SET count = count + 1").run(userId, day);
     });
     return c.json({ ...ex, cached: false });
   });
+
+  registerSocial(app, deps);
 
   app.all("/api/*", () => {
     throw new HTTPException(404, { message: "Not found" });

@@ -1,12 +1,19 @@
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CourseSchema, LANGUAGES, type Course, type Language, type LexEntry, type ServedCourse, type ServedUnit } from "../shared/content.ts";
+import {
+  CourseSchema, LANGUAGES, LOCALES, SUPPORT_LOCALES, supportLocale,
+  type Course, type Language, type LexEntry, type Locale, type Localized, type ServedCourse, type ServedUnit,
+} from "../shared/content.ts";
 import { tokenize, words } from "../shared/tokenize.ts";
 
-export type Voice = { engine: "piper" | "kokoro"; model: string; speaker?: number; gender: "F" | "M" };
+/** For `elevenlabs`, `model` is the voice id; rendering it spends account credits (see scripts/build-audio.ts). */
+export type Voice = { engine: "piper" | "kokoro" | "elevenlabs"; model: string; speaker?: number; gender: "F" | "M" };
 
-/** Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch. */
+/**
+ * Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch.
+ * GA has only two voices because each one is paid for per character.
+ */
 export const VOICES: Record<Language, Voice[]> = {
   en: [
     { engine: "piper", model: "en_US-amy-medium", gender: "F" },
@@ -26,6 +33,10 @@ export const VOICES: Record<Language, Voice[]> = {
     { engine: "piper", model: "nl_NL-mls-medium", speaker: 3, gender: "F" },
     { engine: "piper", model: "nl_NL-mls-medium", speaker: 6, gender: "F" },
   ],
+  ga: [
+    { engine: "elevenlabs", model: "EXAVITQu4vr4xnSDxMaL", gender: "F" }, // Sarah
+    { engine: "elevenlabs", model: "JBFqnCBsd6RMkjVDRZzb", gender: "M" }, // George
+  ],
 };
 
 /** Bump to re-render every file after changing how audio is produced (padding, loudness). */
@@ -41,9 +52,12 @@ export function audioFile(language: Language, voice: Voice, text: string): strin
   return `${language}/${hash}.m4a`;
 }
 
+/** Every course and unit, localized into the support language `supportLocale` picks for the UI locale. */
+export type LocalizedContent = { courses: ServedCourse[]; units: Map<string, ServedUnit> };
+
 export type Content = {
-  courses: ServedCourse[];
-  units: Map<string, ServedUnit>;
+  /** Keyed by UI locale. Ids, text, audio and structure are the same in each; only support-language text differs. */
+  locales: Record<Locale, LocalizedContent>;
   audioJobs: AudioJob[];
 };
 
@@ -71,8 +85,9 @@ function ancestorsOf(id: string, byId: Map<string, { course: Course; file: strin
 }
 
 export function loadContent(contentDir: string, audioDir: string, opts: { requireAudio: boolean }): Content {
-  const courses: ServedCourse[] = [];
-  const units = new Map<string, ServedUnit>();
+  const locales = Object.fromEntries(LOCALES.map((l): [Locale, LocalizedContent] => [l, { courses: [], units: new Map() }])) as Record<Locale, LocalizedContent>;
+  const courseIds = new Set<string>();
+  const unitIds = new Set<string>();
   const jobs = new Map<string, AudioJob>();
   const lessonIds = new Set<string>();
 
@@ -93,9 +108,18 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
       if (!parsed.success) fail(file, z_message(parsed.error));
       const course: Course = parsed.data;
       if (course.language !== language) fail(file, `language "${course.language}" but stored under ${language}/`);
-      if ([...byId.keys(), ...courses.map((c) => c.id)].includes(course.id)) fail(file, `duplicate course id ${course.id}`);
+      if (courseIds.has(course.id)) fail(file, `duplicate course id ${course.id}`);
+      courseIds.add(course.id);
       byId.set(course.id, { course, file });
     }
+    /** Checks a localized field carries exactly this language's support locales. */
+    const complete = <T>(file: string, where: string, v: Localized<T>): Localized<T> => {
+      const want = SUPPORT_LOCALES[language];
+      const have = Object.keys(v);
+      if (have.length !== want.length || !want.every((l) => have.includes(l)))
+        fail(file, `${where} has locales [${have.join(", ")}], needs exactly [${want.join(", ")}]`);
+      return v;
+    };
 
     for (const [id, { course, file }] of byId) {
       const ancestors = ancestorsOf(id, byId);
@@ -119,22 +143,29 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
         return found[0]?.e;
       };
 
+      complete(file, "description", course.description);
+      for (const [key, e] of Object.entries(course.lexicon)) complete(file, `lexicon "${key}" gloss`, e.gloss);
+
       const usedLex = new Set<string>();
       const usedLemmas = new Set<string>();
-      const served: ServedCourse = {
-        id: course.id, language, level: course.level, order: course.order, title: course.title, description: course.description,
-        track: course.track, requires: course.requires, lessons: [],
+      type Built = Omit<ServedUnit, "translation" | "distractors" | "words"> & {
+        translation?: Localized<string>; distractors?: Localized<[string, string]>; words: (LexEntry & { text: string; audio: string[] })[];
       };
+      const built: { lesson: Course["lessons"][number]; units: Built[] }[] = [];
       for (const lesson of course.lessons) {
         if (lessonIds.has(lesson.id)) fail(file, `duplicate lesson id ${lesson.id}`);
         lessonIds.add(lesson.id);
         if (lesson.units.at(-1)!.stage !== "sentence") fail(file, `lesson ${lesson.id} must end with a sentence unit`);
-        const servedUnits: ServedUnit[] = [];
+        complete(file, `lesson ${lesson.id} grammarFocus`, lesson.grammarFocus);
+        const builtUnits: Built[] = [];
         for (const unit of lesson.units) {
           const where = `unit ${unit.id}`;
-          if (units.has(unit.id)) fail(file, `duplicate unit id ${unit.id}`);
+          if (unitIds.has(unit.id)) fail(file, `duplicate unit id ${unit.id}`);
+          unitIds.add(unit.id);
           if (language !== "en" && !unit.translation) fail(file, `${where} needs a translation`);
           if (!!unit.translation !== !!unit.distractors) fail(file, `${where} needs distractors exactly when it has a translation`);
+          if (unit.translation) complete(file, `${where} translation`, unit.translation);
+          if (unit.distractors) complete(file, `${where} distractors`, unit.distractors);
           if (unit.stage === "sentence" && !END_MARKS.test(unit.text)) fail(file, `${where} is a sentence and must end with . ! or ?`);
           if (unit.stage === "word" && END_MARKS.test(unit.text)) fail(file, `${where} is a word and must not end with . ! or ?`);
           const ws = words(unit.text);
@@ -166,21 +197,33 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
             usedLex.add(key);
             return { ...entry, text: w, audio: addAudio(language, w.toLowerCase()) };
           });
-          const s: ServedUnit = {
+          builtUnits.push({
             id: unit.id, rev: unit.rev, stage: unit.stage, text: unit.text, translation: unit.translation, distractors: unit.distractors,
             variants: unit.variants ?? [], commas, language, courseId: course.id, lessonId: lesson.id,
             audio: addAudio(language, unit.text), words: servedWords,
-          };
-          units.set(unit.id, s);
-          servedUnits.push(s);
+          });
         }
-        served.lessons.push({ id: lesson.id, title: lesson.title, grammarFocus: lesson.grammarFocus, units: servedUnits });
+        built.push({ lesson, units: builtUnits });
       }
       const unused = Object.keys(course.lexicon).filter((k) => !usedLex.has(k));
       if (unused.length) fail(file, `unused lexicon entries: ${unused.join(", ")}`);
       const untaught = course.introduces.filter((l) => !usedLemmas.has(l));
       if (untaught.length) fail(file, `introduces lemmas it never uses: ${untaught.join(", ")}`);
-      courses.push(served);
+
+      for (const locale of LOCALES) {
+        const s = supportLocale(language, locale);
+        const lessons = built.map(({ lesson, units }) => ({
+          id: lesson.id, title: lesson.title, grammarFocus: lesson.grammarFocus[s]!,
+          units: units.map((u): ServedUnit => ({
+            ...u, translation: u.translation?.[s], distractors: u.distractors?.[s], words: u.words.map((w) => ({ ...w, gloss: w.gloss[s]! })),
+          })),
+        }));
+        locales[locale].courses.push({
+          id: course.id, language, level: course.level, order: course.order, title: course.title, description: course.description[s]!,
+          track: course.track, requires: course.requires, lessons,
+        });
+        for (const l of lessons) for (const u of l.units) locales[locale].units.set(u.id, u);
+      }
     }
   }
 
@@ -191,8 +234,8 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
     if (opts.requireAudio) throw new Error(msg);
     console.warn(`WARNING: ${msg}`);
   }
-  courses.sort((a, b) => a.language.localeCompare(b.language) || a.order - b.order);
-  return { courses, units, audioJobs };
+  for (const l of LOCALES) locales[l].courses.sort((a, b) => a.language.localeCompare(b.language) || a.order - b.order);
+  return { locales, audioJobs };
 }
 
 function z_message(err: { issues: { path: PropertyKey[]; message: string }[] }): string {

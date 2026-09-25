@@ -1,9 +1,11 @@
 import { A, useLocation, type RouteSectionProps } from "@solidjs/router";
 import { createSignal, ErrorBoundary, For, Match, onCleanup, Switch } from "solid-js";
 import { LANGUAGES } from "../../../shared/content.ts";
+import { t } from "../i18n/index.ts";
 import { logout, me } from "../session.ts";
 import { theme, toggleTheme } from "../theme.ts";
 import { Login } from "./Login.tsx";
+import { Notifications } from "./Notifications.tsx";
 
 export const LAST_LANG_KEY = "lastLanguage";
 
@@ -23,7 +25,7 @@ export function Layout(props: RouteSectionProps) {
   return (
     <ErrorBoundary fallback={(err) => <div class="container py-4"><div class="alert alert-danger">{String(err)}</div></div>}>
       <Switch>
-        <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">Loading…</div></Match>
+        <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
         <Match when={me() === null}><Login /></Match>
         <Match when={me()}>
           {(user) => (
@@ -43,17 +45,18 @@ export function Layout(props: RouteSectionProps) {
                   </div>
                   {lang() && (
                     <ul class="navbar-nav">
-                      <li class="nav-item"><A class="qa-nav-learn nav-link" href={`/${lang()}`} end>Learn</A></li>
-                      <li class="nav-item"><A class="qa-nav-review nav-link" href={`/${lang()}/review`}>Review</A></li>
-                      <li class="nav-item"><A class="qa-nav-notebook nav-link" href={`/${lang()}/notebook`}>Notebook</A></li>
-                      <li class="nav-item"><A class="qa-nav-settings nav-link" href={`/${lang()}/settings`}>Settings</A></li>
+                      <li class="nav-item"><A class="qa-nav-learn nav-link" href={`/${lang()}`} end>{t("nav.learn")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-review nav-link" href={`/${lang()}/review`}>{t("nav.review")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-notebook nav-link" href={`/${lang()}/notebook`}>{t("nav.notebook")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-settings nav-link" href={`/${lang()}/settings`}>{t("nav.settings")}</A></li>
                     </ul>
                   )}
                   <div class="ms-auto d-flex align-items-center gap-2">
                     <button type="button" class="qa-theme-toggle btn btn-sm btn-outline-secondary" onClick={toggleTheme}
-                      aria-label={theme() === "dark" ? "Switch to light mode" : "Switch to dark mode"}>
+                      aria-label={theme() === "dark" ? t("nav.themeLight") : t("nav.themeDark")}>
                       {theme() === "dark" ? "☀" : "☾"}
                     </button>
+                    <Notifications />
                     <div class="dropdown" ref={menuRoot}>
                       <button type="button" class="qa-user btn btn-sm btn-outline-secondary dropdown-toggle" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
@@ -61,7 +64,10 @@ export function Layout(props: RouteSectionProps) {
                       </button>
                       {/* data-bs-popper="static" makes Bootstrap's CSS position the menu without its JS. */}
                       <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
-                        <li><button type="button" class="qa-logout dropdown-item" onClick={logout}>Sign out</button></li>
+                        <li><A href="/people/me" class="qa-nav-profile dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.profile")}</A></li>
+                        <li><A href="/friends" class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.friends")}</A></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><button type="button" class="qa-logout dropdown-item" onClick={logout}>{t("nav.signOut")}</button></li>
                       </ul>
                     </div>
                   </div>

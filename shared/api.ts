@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LANGUAGES, PATHS, type Language, type ServedCourse, type ServedUnit } from "./content.ts";
+import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedUnit } from "./content.ts";
 
 export const HINT_LEVELS = ["letters", "initial", "none"] as const;
 export type HintLevel = (typeof HINT_LEVELS)[number];
@@ -16,6 +16,7 @@ export type Prefs = z.infer<typeof PrefsSchema>;
 export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1 };
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema });
+export const PutLocaleSchema = z.strictObject({ locale: z.enum(LOCALES) });
 
 export const AttemptSchema = z.strictObject({
   unitId: z.string(),
@@ -48,9 +49,23 @@ export const ReportSchema = z.strictObject({
 });
 export type ReportBody = z.infer<typeof ReportSchema>;
 
+export const FriendRequestSchema = z.strictObject({ email: z.email() });
+export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
+
+export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
+/** High enough that nobody finishes a first-to race on its first day. */
+export const RACE_MIN_TARGET = 15;
+export const RACE_DEADLINE_DAYS = 30;
+export const ChallengeSchema = z.discriminatedUnion("kind", [
+  z.strictObject({ opponentId: z.int(), kind: z.literal("most"), days: z.union(RACE_DAYS.map((d) => z.literal(d))) }),
+  z.strictObject({ opponentId: z.int(), kind: z.literal("first_to"), target: z.int().min(RACE_MIN_TARGET).max(200) }),
+]);
+export type ChallengeBody = z.infer<typeof ChallengeSchema>;
+export const CHALLENGE_ACTIONS = ["accept", "decline", "cancel"] as const;
+
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
-export type Me = { email: string; name: string; picture: string | null; prefs: Record<Language, Prefs> };
+export type Me = { email: string; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
 export type Config = { googleClientId: string | null; devLogin: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 export type Catalog = {
@@ -59,6 +74,8 @@ export type Catalog = {
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
   /** Course and lesson ids the learner can start. */
   unlocked: string[];
+  /** Locked lessons a friend has started, which the learner may play anyway: lessonId -> friend names. */
+  viaFriends: Record<string, string[]>;
   dueCount: number;
   mistakesCount: number;
 };
@@ -73,3 +90,73 @@ export type MistakeEntry = {
   explanation: ExplanationOut | null;
 };
 export type ReviewOut = { units: ServedUnit[]; dueCount: number };
+
+export type Person = { id: number; name: string; email: string; picture: string | null };
+/** How the searcher stands with an account. A blocked requester sees `outgoing`. */
+export type Relation = "self" | "none" | "outgoing" | "incoming" | "friends" | "blocked";
+export type FriendSearchOut = { found: false } | { found: true; id: number; relation: Relation };
+export type FriendsOut = {
+  friends: Person[];
+  incoming: Person[];
+  outgoing: Person[];
+  blocked: Person[];
+  /** The learner and their friends by lessons completed in the last 7 days. */
+  leaderboard: { person: Person; lessons: number }[];
+};
+
+export type ActivityWindow = "day" | "week" | "month" | "year";
+export type Profile = {
+  person: Person;
+  isMe: boolean;
+  /** The smallest window with at least two lessons completed, else when the last one was. */
+  activity: { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
+  /** Latest learn attempt per item, over the last 10 lessons worked on. Percentages; null with no items. */
+  accuracy: { lessons: number; dictation: number | null; meaning: number | null };
+  /** Languages with any progress, most recent first. */
+  languages: LanguageProfile[];
+};
+export type LanguageProfile = {
+  language: Language;
+  /** The first main-track module not yet complete (1-based); null once all are. */
+  module: { number: number; of: number; title: string } | null;
+  optionalDone: number;
+  /** When each lesson was first completed, in order. */
+  completions: string[];
+  /** When each level's main track was completed. */
+  levelsDone: { level: string; at: string }[];
+  recent: { lessonId: string; lessonTitle: string; courseTitle: string; completed: boolean; lastAt: string }[];
+};
+
+export type CompareRow = {
+  person: Person;
+  isMe: boolean;
+  items: number;
+  /** Percent of items without correction or reveal; meaning is null when no item had a meaning check. */
+  dictation: number;
+  meaning: number | null;
+  hints: number;
+  durationMs: number;
+};
+
+export type ChallengeOut = {
+  id: number;
+  kind: "most" | "first_to";
+  days: number;
+  target: number | null;
+  status: "pending" | "active" | "declined" | "cancelled" | "finished";
+  challenger: Person;
+  opponent: Person;
+  /** The viewer sent this challenge. */
+  mine: boolean;
+  startedAt: string | null;
+  endsAt: string | null;
+  finishedAt: string | null;
+  winnerId: number | null;
+  /** Lessons each side has completed since the start (by the finish, once finished). */
+  scores: { challenger: number; opponent: number };
+};
+
+export type NotificationKind =
+  | "friend_request" | "friend_accepted" | "challenge_invite" | "challenge_accepted" | "challenge_declined" | "challenge_finished";
+export type NotificationOut = { id: number; kind: NotificationKind; actor: Person; challenge: ChallengeOut | null; createdAt: string; read: boolean };
+export type NotificationsOut = { unread: number; items: NotificationOut[] };

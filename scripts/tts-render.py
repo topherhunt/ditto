@@ -1,4 +1,5 @@
 """Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.
+The elevenlabs engine calls the paid API with ELEVENLABS_API_KEY from the environment.
 stdin: JSON lines {"text", "out"}. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
@@ -34,6 +35,33 @@ elif voice["engine"] == "kokoro":
 
     def synth(text: str) -> tuple[np.ndarray, int]:
         return model.create(text, voice=voice["model"], lang=language)
+elif voice["engine"] == "elevenlabs":
+    import os
+    import urllib.error
+    import urllib.request
+
+    key = os.environ.get("ELEVENLABS_API_KEY") or sys.exit("ELEVENLABS_API_KEY is not set (put it in .env)")
+
+    def synth(text: str) -> tuple[np.ndarray, int]:
+        # MP3 because PCM output needs a Pro plan; afconvert decodes it.
+        req = urllib.request.Request(
+            f"https://api.elevenlabs.io/v1/text-to-speech/{voice['model']}?output_format=mp3_44100_128",
+            data=json.dumps({"text": text, "model_id": "eleven_v3", "language_code": language, "seed": 1}).encode(),
+            headers={"xi-api-key": key, "Content-Type": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(req) as res:
+                mp3 = res.read()
+        except urllib.error.HTTPError as e:
+            sys.exit(f"ElevenLabs {e.code} for {text!r}: {e.read().decode()}")
+        with tempfile.TemporaryDirectory() as tmp:
+            src, dst = Path(tmp) / "in.mp3", Path(tmp) / "in.wav"
+            src.write_bytes(mp3)
+            subprocess.run(["afconvert", "-f", "WAVE", "-d", "LEI16", str(src), str(dst)], check=True)
+            with wave.open(str(dst)) as w:
+                if w.getnchannels() != 1:
+                    sys.exit(f"expected mono from ElevenLabs, got {w.getnchannels()} channels")
+                return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 

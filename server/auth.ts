@@ -1,10 +1,11 @@
 import { createHash, randomBytes } from "node:crypto";
 import { OAuth2Client } from "google-auth-library";
+import type { Locale } from "../shared/content.ts";
 import type { DB } from "./db.ts";
 
 export type GoogleProfile = { sub: string; email: string; name: string; picture: string | null };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
-export type User = { id: number; email: string; name: string; picture: string | null; prefs: string };
+export type User = { id: number; email: string; name: string; picture: string | null; prefs: string; locale: Locale };
 
 export const SESSION_COOKIE = "lp_session";
 export const SESSION_DAYS = 30;
@@ -22,14 +23,15 @@ export function googleVerifier(clientId: string): VerifyGoogle {
 
 const hashToken = (token: string) => createHash("sha256").update(token).digest("hex");
 
-export function upsertUser(db: DB, profile: GoogleProfile, now: Date): number {
+/** `locale` is the UI language at sign-in; it is stored for a new user only, so a saved choice wins. */
+export function upsertUser(db: DB, profile: GoogleProfile, locale: Locale, now: Date): number {
   const row = db
     .prepare(
-      `INSERT INTO users (google_sub, email, name, picture, created_at) VALUES (?, ?, ?, ?, ?)
+      `INSERT INTO users (google_sub, email, name, picture, locale, created_at) VALUES (?, ?, ?, ?, ?, ?)
        ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, name = excluded.name, picture = excluded.picture
        RETURNING id`,
     )
-    .get(profile.sub, profile.email, profile.name, profile.picture, now.toISOString()) as { id: number };
+    .get(profile.sub, profile.email, profile.name, profile.picture, locale, now.toISOString()) as { id: number };
   return row.id;
 }
 
@@ -44,7 +46,7 @@ export function createSession(db: DB, userId: number, now: Date): string {
 export function sessionUser(db: DB, token: string, now: Date): User | null {
   const row = db
     .prepare(
-      `SELECT u.id, u.email, u.name, u.picture, u.prefs FROM sessions s JOIN users u ON u.id = s.user_id
+      `SELECT u.id, u.email, u.name, u.picture, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
        WHERE s.token_hash = ? AND s.expires_at > ?`,
     )
     .get(hashToken(token), now.toISOString());

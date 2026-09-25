@@ -4,17 +4,13 @@ import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
+import { categoryName, t } from "../i18n/index.ts";
 import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SlotState } from "../practice.ts";
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
 
-const REPORT_LABELS: Record<ReportBody["kind"], string> = {
-  audio: "The audio sounds wrong",
-  text: "The text is wrong",
-  translation: "The meaning or its options are wrong",
-  other: "Something else",
-};
+const REPORT_KINDS: ReportBody["kind"][] = ["audio", "text", "translation", "other"];
 
 function shuffle<T>(items: T[]): T[] {
   const out = [...items];
@@ -27,9 +23,11 @@ function shuffle<T>(items: T[]): T[] {
 
 /**
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
- * it records the attempt when finished and calls onNext after.
+ * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
  */
-export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; onFinished: (o: Outcome) => void; onNext: () => void }) {
+export function Exercise(props: {
+  unit: ServedUnit; prefs: Prefs; mode: Mode; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
+}) {
   const unit = props.unit;
   const target = words(unit.text);
   const [free, setFree] = createSignal(props.prefs.hints === "none");
@@ -107,7 +105,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
   function submit() {
     if (done()) return settled() ? props.onNext() : undefined;
     const answer: Answer = free() ? { mode: "free", text: freeText() } : { mode: "slots", slots: slots() };
-    if ((free() ? [freeText()] : slots()).every((t) => t.trim() === "")) return;
+    if ((free() ? [freeText()] : slots()).every((s) => s.trim() === "")) return;
     submissions.push(free() ? freeText().trim() : slots().join(" "));
     const r = grade(answer, unit);
     if (r.against === unit.text) for (const w of r.words) if (w.kind === "accent") accentWords.set(w.wordIndex, w.accentPositions);
@@ -174,8 +172,9 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
 
   function record(meaningCorrect: boolean | null) {
     const body: AttemptBody = { ...dictation!, meaningCorrect };
-    props.onFinished(meaningCorrect === false && ["clean", "hinted"].includes(body.outcome) ? "corrected" : body.outcome);
-    api.post("/api/attempts", body).catch((e: Error) => setSaveError(e.message));
+    const saved = api.post("/api/attempts", body);
+    saved.catch((e: Error) => setSaveError(e.message));
+    props.onFinished(meaningCorrect === false && ["clean", "hinted"].includes(body.outcome) ? "corrected" : body.outcome, saved);
   }
 
   /** Next is available once nothing is left to answer. */
@@ -230,10 +229,10 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
     <div class="qa-exercise card shadow-sm">
       <div class="card-body d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <button type="button" class="qa-play btn btn-primary" onClick={() => replay()} title="Replay (Esc)">▶ Play</button>
-          <button type="button" class="qa-play-slow btn btn-outline-primary" onClick={() => replay(0.75)}>Slow</button>
-          <Show when={autoplayBlocked()}><span class="small text-body-secondary">Press play to listen</span></Show>
-          <span class="ms-auto badge text-bg-light text-uppercase">{unit.stage}</span>
+          <button type="button" class="qa-play btn btn-primary" onClick={() => replay()} title={t("exercise.replayTitle")}>{t("exercise.play")}</button>
+          <button type="button" class="qa-play-slow btn btn-outline-primary" onClick={() => replay(0.75)}>{t("exercise.slow")}</button>
+          <Show when={autoplayBlocked()}><span class="small text-body-secondary">{t("exercise.pressPlay")}</span></Show>
+          <span class="ms-auto badge text-bg-light text-uppercase">{t(`stage.${unit.stage}`)}</span>
         </div>
 
         <Show
@@ -242,22 +241,22 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
             <div class="d-flex flex-column gap-2">
               <div class="qa-answer fs-4">
                 <For each={tokenize(unit.text)}>
-                  {(t) =>
-                    t.type === "punct" ? (
-                      <span>{t.text}</span>
+                  {(tok) =>
+                    tok.type === "punct" ? (
+                      <span>{tok.text}</span>
                     ) : (
                       <>
                         <button type="button" class="qa-answer-word btn btn-link p-0 fs-4 text-decoration-none align-baseline"
                           onClick={() => {
-                            const w = unit.words[t.wordIndex];
+                            const w = unit.words[tok.wordIndex];
                             setSelectedWord(w);
                             new Audio(w.audio[voice]).play().catch(() => setAutoplayBlocked(true));
                           }}>
-                          <For each={Array.from(t.text)}>
-                            {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(t.wordIndex)?.includes(k()) }}>{ch}</span>}
+                          <For each={Array.from(tok.text)}>
+                            {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(tok.wordIndex)?.includes(k()) }}>{ch}</span>}
                           </For>
                         </button>
-                        <For each={strayAfter.get(t.wordIndex) ?? []}>{(m) => <PunctDiff mark={m} />}</For>
+                        <For each={strayAfter.get(tok.wordIndex) ?? []}>{(m) => <PunctDiff mark={m} />}</For>
                       </>
                     )
                   }
@@ -271,7 +270,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
                 )}
               </Show>
               <Show when={freeResult() && !freeResult()!.passed}>
-                <div class="small">Your answer: <SentenceDiff result={freeResult()!} /></div>
+                <div class="small">{t("exercise.yourAnswer")} <SentenceDiff result={freeResult()!} /></div>
               </Show>
             </div>
           }
@@ -310,7 +309,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
               class="qa-free-input form-control form-control-lg font-mono"
               rows="2"
               value={freeText()}
-              placeholder="Type what you hear"
+              placeholder={t("exercise.typeHere")}
               autocomplete="off" autocapitalize="off" spellcheck={false}
               onInput={(e) => setFreeText(e.currentTarget.value)}
               onKeyDown={(e) => {
@@ -322,29 +321,29 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
             />
           </Show>
           <Show when={freeResult()}>
-            {(r) => <div class="qa-free-diff small">Closest accepted answer: <SentenceDiff result={r()} /></div>}
+            {(r) => <div class="qa-free-diff small">{t("exercise.closest")} <SentenceDiff result={r()} /></div>}
           </Show>
           <div class="d-flex flex-wrap gap-2">
-            <button type="button" class="qa-check btn btn-success" onClick={submit}>Check</button>
-            <button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>Hint</button>
-            <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>Show answer</button>
+            <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
+            <button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button>
+            <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
           </div>
-          <div class="small text-body-secondary">Enter checks, Space moves to the next word, Esc replays.</div>
+          <div class="small text-body-secondary">{t("exercise.keys")}</div>
         </Show>
 
         <Show when={done()}>
-          <Show when={saveError()}>{(err) => <div class="alert alert-danger mb-0">Could not save progress: {err()}</div>}</Show>
+          <Show when={saveError()}>{(err) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: err() })}</div>}</Show>
           <Show when={submissions.length > 0 && (wrongSubmissions() > 0 || revealed())}>
             <div class="qa-explain">
               <Show when={explanation()} fallback={
                 <button type="button" class="qa-why btn btn-sm btn-outline-info" disabled={explainState() === "loading"} onClick={explain}>
-                  {explainState() === "loading" ? "Thinking…" : `Why was "${submissions[0]}" wrong?`}
+                  {explainState() === "loading" ? t("exercise.thinking") : t("exercise.whyWrong", { answer: submissions[0] })}
                 </button>
               }>
                 {(ex) => (
                   <div class="qa-explanation alert alert-info mb-0">
                     <div class="d-flex flex-wrap gap-1 mb-1">
-                      <For each={ex().categories}>{(c) => <span class="badge text-bg-info">{c.replaceAll("_", " ")}</span>}</For>
+                      <For each={ex().categories}>{(c) => <span class="badge text-bg-info">{categoryName(c)}</span>}</For>
                     </div>
                     <strong>{ex().summary}</strong>
                     <div>{ex().details}</div>
@@ -359,7 +358,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
           <Show when={meaningOptions}>
             {(options) => (
               <div class="qa-meaning d-flex flex-column gap-2">
-                <div class="fw-semibold">What does it mean?</div>
+                <div class="fw-semibold">{t("exercise.meaning")}</div>
                 {/* The group takes focus, not an option, so a reflexive Enter can't pick one. */}
                 <div class="d-flex flex-column gap-2" tabIndex={-1} ref={(el) => queueMicrotask(() => el.focus())} onKeyDown={(e) => {
                   const k = Number(e.key);
@@ -390,12 +389,12 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
           <Show when={settled()}>
             <div class="d-flex align-items-center gap-2">
               <span class="qa-outcome text-body-secondary small">
-                {revealed() ? "Revealed" : wrongSubmissions() > 0 ? "Corrected" : hintsUsed() > 0 ? "Done with hints" : "Perfect"}
-                {accentWords.size > 0 ? " -- watch the accents" : ""}
-                {meaningPick() !== null && meaningPick() !== unit.translation ? " -- check the meaning" : ""}
+                {t(revealed() ? "exercise.revealed" : wrongSubmissions() > 0 ? "exercise.corrected" : hintsUsed() > 0 ? "exercise.hinted" : "exercise.perfect")}
+                {accentWords.size > 0 ? ` -- ${t("exercise.watchAccents")}` : ""}
+                {meaningPick() !== null && meaningPick() !== unit.translation ? ` -- ${t("exercise.checkMeaning")}` : ""}
               </span>
               <button type="button" class="qa-next btn btn-primary ms-auto" ref={(el) => queueMicrotask(() => el.focus())} onClick={() => props.onNext()}>
-                Next
+                {t("exercise.next")}
               </button>
             </div>
           </Show>
@@ -406,28 +405,28 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
       when={reportOpen()}
       fallback={
         <button type="button" class="qa-report-open btn btn-link btn-sm p-0 ms-auto text-body-secondary" onClick={() => setReportOpen(true)}>
-          Report a problem
+          {t("report.open")}
         </button>
       }
     >
-      <Show when={reportState() !== "sent"} fallback={<div class="qa-report-sent small text-body-secondary ms-auto">Thanks, reported.</div>}>
+      <Show when={reportState() !== "sent"} fallback={<div class="qa-report-sent small text-body-secondary ms-auto">{t("report.sent")}</div>}>
         <form class="qa-report d-flex flex-column gap-2 small ms-auto" onSubmit={sendReport}>
-          <For each={Object.entries(REPORT_LABELS) as [ReportBody["kind"], string][]}>
-            {([kind, label]) => (
+          <For each={REPORT_KINDS}>
+            {(kind) => (
               <label class="form-check mb-0">
                 <input type="radio" name="report-kind" class={`qa-report-kind-${kind} form-check-input`} checked={reportKind() === kind} onChange={() => setReportKind(kind)} />
-                <span class="form-check-label">{label}</span>
+                <span class="form-check-label">{t(`report.${kind}`)}</span>
               </label>
             )}
           </For>
-          <textarea class="qa-report-note form-control form-control-sm" rows="2" maxLength={1000} placeholder="What's wrong? (optional)"
+          <textarea class="qa-report-note form-control form-control-sm" rows="2" maxLength={1000} placeholder={t("report.note")}
             value={reportNote()} onInput={(e) => setReportNote(e.currentTarget.value)} />
           <Show when={!["idle", "sending"].includes(reportState())}>
             <div class="alert alert-danger py-1 mb-0">{reportState()}</div>
           </Show>
           <div class="d-flex gap-2 justify-content-end">
-            <button type="button" class="qa-report-cancel btn btn-sm btn-outline-secondary" onClick={() => setReportOpen(false)}>Cancel</button>
-            <button type="submit" class="qa-report-send btn btn-sm btn-primary" disabled={!reportKind() || reportState() === "sending"}>Send</button>
+            <button type="button" class="qa-report-cancel btn btn-sm btn-outline-secondary" onClick={() => setReportOpen(false)}>{t("report.cancel")}</button>
+            <button type="submit" class="qa-report-send btn btn-sm btn-primary" disabled={!reportKind() || reportState() === "sending"}>{t("report.send")}</button>
           </div>
         </form>
       </Show>

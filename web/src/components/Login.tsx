@@ -1,6 +1,8 @@
-import { createResource, createSignal, onMount, Show } from "solid-js";
+import { createEffect, createResource, createSignal, For, onMount, Show } from "solid-js";
 import type { Config } from "../../../shared/api.ts";
+import { LOCALES, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
+import { locale, LOCALE_LABELS, setLocale, t } from "../i18n/index.ts";
 import { refetchMe } from "../session.ts";
 
 declare global {
@@ -18,21 +20,27 @@ declare global {
 
 function GoogleButton(props: { clientId: string; onError: (m: string) => void }) {
   let el!: HTMLDivElement;
+  const [loaded, setLoaded] = createSignal(false);
   onMount(() => {
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
-    script.onerror = () => props.onError("Could not load Google sign-in");
+    script.onerror = () => props.onError(t("login.googleFailed"));
     script.onload = () => {
-      const gis = window.google!.accounts.id;
-      gis.initialize({
+      window.google!.accounts.id.initialize({
         client_id: props.clientId,
         callback: ({ credential }) =>
-          api.post("/api/auth/google", { credential }).then(refetchMe, (e: Error) => props.onError(e.message)),
+          api.post("/api/auth/google", { credential, locale: locale() }).then(refetchMe, (e: Error) => props.onError(e.message)),
       });
-      gis.renderButton(el, { theme: "outline", size: "large", text: "signin_with" });
+      setLoaded(true);
     };
     document.head.append(script);
+  });
+  // Re-render on a locale change so the button's own label follows the picker.
+  createEffect(() => {
+    if (!loaded()) return;
+    el.replaceChildren();
+    window.google!.accounts.id.renderButton(el, { theme: "outline", size: "large", text: "signin_with", locale: locale() });
   });
   return <div ref={el} class="qa-google-signin" />;
 }
@@ -44,21 +52,27 @@ export function Login() {
 
   return (
     <div class="container py-5" style={{ "max-width": "28rem" }}>
-      <h1 class="h3 mb-3">Ditto</h1>
-      <p class="text-body-secondary">Listen, type what you hear, and learn from every mistake.</p>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h1 class="h3 mb-0">Ditto</h1>
+        <select class="qa-login-locale form-select form-select-sm w-auto" aria-label={t("login.language")} value={locale()}
+          onChange={(e) => setLocale(e.currentTarget.value as Locale)}>
+          <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
+        </select>
+      </div>
+      <p class="text-body-secondary">{t("login.tagline")}</p>
       <Show when={config()}>
         {(c) => (
           <div class="d-flex flex-column gap-3">
-            <Show when={c().googleClientId} fallback={<div class="alert alert-warning">Google sign-in is not configured.</div>}>
+            <Show when={c().googleClientId} fallback={<div class="alert alert-warning">{t("login.googleMissing")}</div>}>
               {(id) => <GoogleButton clientId={id()} onError={setError} />}
             </Show>
             <Show when={c().devLogin}>
               <form class="qa-dev-login d-flex gap-2" onSubmit={(e) => {
                 e.preventDefault();
-                api.post("/api/auth/dev", { email: email() }).then(refetchMe, (err: Error) => setError(err.message));
+                api.post("/api/auth/dev", { email: email(), locale: locale() }).then(refetchMe, (err: Error) => setError(err.message));
               }}>
                 <input class="qa-dev-email form-control" type="email" value={email()} onInput={(e) => setEmail(e.currentTarget.value)} />
-                <button class="qa-dev-submit btn btn-secondary text-nowrap" type="submit">Dev sign-in</button>
+                <button class="qa-dev-submit btn btn-secondary text-nowrap" type="submit">{t("login.dev")}</button>
               </form>
             </Show>
           </div>

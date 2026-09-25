@@ -1,5 +1,6 @@
 // Renders every missing audio file referenced by content, one Python process per voice in parallel.
 // `--prune` also deletes files no content references (e.g. after a RENDER_VERSION bump).
+// Paid (ElevenLabs) files need `--spend`; `--limit=N` renders at most N files.
 import { spawn } from "node:child_process";
 import { existsSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
@@ -25,8 +26,19 @@ if (process.argv.includes("--prune")) {
   console.log(`Pruned ${pruned} unreferenced files`);
 }
 
-const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file)));
+const limitArg = process.argv.find((a) => a.startsWith("--limit="));
+const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file))).slice(0, limitArg ? Number(limitArg.slice(8)) : undefined);
 console.log(`${missing.length} of ${audioJobs.length} audio files to render`);
+
+// eleven_v3 bills one credit per character.
+const paid = missing.filter((j) => j.voice.engine === "elevenlabs");
+if (paid.length) {
+  console.log(`${paid.length} of them are ElevenLabs files: ${paid.reduce((n, j) => n + j.text.length, 0)} characters = credits`);
+  if (!process.argv.includes("--spend")) {
+    console.error("Not rendering: pass --spend to use ElevenLabs credits (--limit=N caps how many files render)");
+    process.exit(1);
+  }
+}
 
 const byVoice = new Map<string, AudioJob[]>();
 for (const j of missing) byVoice.set(`${j.language}|${voiceId(j.voice)}`, [...(byVoice.get(`${j.language}|${voiceId(j.voice)}`) ?? []), j]);
