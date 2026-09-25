@@ -5,7 +5,7 @@ import { buildPrompt } from "../../server/explain.ts";
 import { grade } from "../../shared/grader.ts";
 
 const root = join(import.meta.dirname, "../..");
-const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { requireAudio: false });
+const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
 
 describe("explainer prompt", () => {
   it("asks for the explanation in the learner's interface language and shows the unit in their support language", () => {

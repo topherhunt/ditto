@@ -10,7 +10,7 @@ echo "==> Local checks + build"
 
 remote_sudo "test -f '${ENV_FILE}'" || { echo "ERROR: ${ENV_FILE} is missing on the host. Run devops/push-env.sh first." >&2; exit 1; }
 
-echo "==> rsync -> ${DEPLOY_HOST}:${APP_DIR}"
+echo "==> rsync -> ${DEPLOY_HOST}:${APP_DIR} (silent; the first upload of content/audio takes a while, later ones send only changes)"
 if [ "${DEPLOY_USER}" = root ]; then RSYNC_PATH=rsync; else RSYNC_PATH="sudo rsync"; fi
 # Allow-list: rsync ignores .gitignore, so .env, data/, tools/ etc. must never be reachable by an include.
 # Excluded paths (node_modules on the host) are also protected from --delete.

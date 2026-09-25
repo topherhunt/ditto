@@ -10,7 +10,7 @@ function loadCourses(...courses: object[]) {
   const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
   mkdirSync(join(dir, "courses/it"), { recursive: true });
   courses.forEach((c, i) => writeFileSync(join(dir, `courses/it/c${i}.json`), JSON.stringify(c)));
-  return loadContent(dir, join(dir, "audio"), { requireAudio: false });
+  return loadContent(dir, join(dir, "audio"), { audio: "skip" });
 }
 
 /** Every localized field in the Italian test courses carries exactly en, es-419 and nl. */
@@ -38,12 +38,12 @@ const child = (over: object = {}) => ({
 
 describe("content loading", () => {
   it("loads the real content for every language", () => {
-    const c = loadContent(join(root, "content"), join(root, "content/audio"), { requireAudio: false });
+    const c = loadContent(join(root, "content"), join(root, "content/audio"), { audio: "skip" });
     expect(new Set(c.locales.en.courses.map((x) => x.language))).toEqual(new Set(["en", "it", "nl", "ga"]));
   });
 
   it("serves one audio URL per voice for the unit and each word, in voice order", () => {
-    const c = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { requireAudio: false });
+    const c = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
     const u = c.locales.en.units.get("it-a1-bar-2-u09")!;
     expect(u.words.map((w) => `${w.text}:${w.pos}`)).toEqual(["Lo:PRON", "prendo:VERB", "grazie:INTJ"]);
     expect(u.audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "Lo prendo, grazie.")}`));
@@ -148,14 +148,25 @@ describe("content loading", () => {
 
   it("fails when audio is required and missing", () => {
     const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
-    expect(() => loadContent(join(root, "tests/fixtures/content"), dir, { requireAudio: true })).toThrow(/audio files missing/);
+    expect(() => loadContent(join(root, "tests/fixtures/content"), dir, { audio: "require" })).toThrow(/audio files missing/);
+  });
+
+  it("says nothing about missing audio when the check is skipped", () => {
+    const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      expect(loadContent(join(root, "tests/fixtures/content"), dir, { audio: "skip" }).audioJobs.length).toBeGreaterThan(0);
+      expect(warn).not.toHaveBeenCalled();
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it("prints a red banner with the missing count, example files and the fix when audio is optional and missing", () => {
     const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     try {
-      const c = loadContent(join(root, "tests/fixtures/content"), dir, { requireAudio: false });
+      const c = loadContent(join(root, "tests/fixtures/content"), dir, { audio: "warn" });
       const out = warn.mock.calls.map((a) => a.join(" ")).join("\n");
       expect(out).toContain("\x1b[31m");
       expect(out).toContain(`${c.audioJobs.length} of ${c.audioJobs.length} audio files missing`);

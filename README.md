@@ -1,6 +1,8 @@
 # Ditto
 
-Ditto is a dictation trainer for language learners. You listen to a word, phrase or sentence in the language you're learning, type what you hear, and get letter-level feedback. Then a quick meaning check makes sure you understood it, not just spelled it. It runs at https://ditto.topherhunt.com.
+**Live at [ditto.topherhunt.com](https://ditto.topherhunt.com/)**
+
+Ditto is a dictation trainer for language learners. You listen to a word, phrase or sentence in the language you're learning, type what you hear, and get letter-level feedback. Then a quick meaning check makes sure you understood it, not just spelled it.
 
 ## Features
 

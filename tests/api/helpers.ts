@@ -9,7 +9,7 @@ import { openDb } from "../../server/db.ts";
 import type { Explainer, ExplainInput } from "../../server/explain.ts";
 
 const root = join(import.meta.dirname, "../..");
-const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { requireAudio: false });
+const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
 const ORIGIN = "http://app.test";
 
 export function fakeExplainer(): Explainer & { calls: ExplainInput[] } {

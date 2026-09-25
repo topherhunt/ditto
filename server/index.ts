@@ -23,7 +23,7 @@ const explainModel = env.EXPLAIN_MODEL || "gpt-6-luna";
 const audioDir = env.AUDIO_DIR || join(root, "content/audio");
 const webDir = join(root, "dist/web");
 
-const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { requireAudio: production });
+const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn" });
 const app = createApp({
   db: openDb(env.DATABASE_PATH || join(root, "data/app.db")),
   content,

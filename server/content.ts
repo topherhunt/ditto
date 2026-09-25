@@ -84,7 +84,10 @@ function ancestorsOf(id: string, byId: Map<string, { course: Course; file: strin
   return out;
 }
 
-export function loadContent(contentDir: string, audioDir: string, opts: { requireAudio: boolean }): Content {
+/** Missing audio files: throw, print a red banner, or say nothing (test fixtures, which have no audio by design). */
+export type AudioCheck = "require" | "warn" | "skip";
+
+export function loadContent(contentDir: string, audioDir: string, opts: { audio: AudioCheck }): Content {
   const locales = Object.fromEntries(LOCALES.map((l): [Locale, LocalizedContent] => [l, { courses: [], units: new Map() }])) as Record<Locale, LocalizedContent>;
   const courseIds = new Set<string>();
   const unitIds = new Set<string>();
@@ -229,9 +232,9 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
 
   const audioJobs = [...jobs.values()];
   const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file)));
-  if (missing.length) {
+  if (missing.length && opts.audio !== "skip") {
     const msg = `${missing.length} of ${audioJobs.length} audio files missing in ${audioDir} (run npm run content:audio), e.g. "${missing[0].text}"`;
-    if (opts.requireAudio) throw new Error(msg);
+    if (opts.audio === "require") throw new Error(msg);
     const examples = new Map<string, AudioJob>();
     for (const j of missing) if (examples.size < 5 && !examples.has(j.text)) examples.set(j.text, j);
     const bar = "!".repeat(72);

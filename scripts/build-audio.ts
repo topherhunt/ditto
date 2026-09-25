@@ -12,7 +12,7 @@ const audioDir = process.env.AUDIO_DIR ?? join(root, "content/audio");
 const python = join(root, ".venv/bin/python");
 if (!existsSync(python)) throw new Error(`TTS venv not found at ${python}; see docs/plan.md (Audio)`);
 
-const { audioJobs } = loadContent(process.env.CONTENT_DIR ?? join(root, "content"), audioDir, { requireAudio: false });
+const { audioJobs } = loadContent(process.env.CONTENT_DIR ?? join(root, "content"), audioDir, { audio: "skip" });
 
 if (process.argv.includes("--prune")) {
   const wanted = new Set(audioJobs.map((j) => j.file));

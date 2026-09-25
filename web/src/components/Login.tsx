@@ -42,7 +42,8 @@ function GoogleButton(props: { clientId: string; onError: (m: string) => void })
     el.replaceChildren();
     window.google!.accounts.id.renderButton(el, { theme: "outline", size: "large", text: "signin_with", locale: locale() });
   });
-  return <div ref={el} class="qa-google-signin" />;
+  // Google's iframe declares no color-scheme, so under our dark scheme the browser paints it an opaque white backdrop.
+  return <div ref={el} class="qa-google-signin" style={{ "color-scheme": "light" }} />;
 }
 
 export function Login() {
