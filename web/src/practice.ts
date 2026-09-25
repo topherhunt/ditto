@@ -1,5 +1,8 @@
-import type { HintLevel } from "../../shared/api.ts";
+import type { HintLevel, Mode } from "../../shared/api.ts";
 import type { DeterministicCategory, GradeResult, WordResult } from "../../shared/grader.ts";
+
+/** A level test is a session mode of its own whose answers are never recorded as attempts. */
+export type SessionMode = Mode | "test";
 
 export type Outcome = "clean" | "hinted" | "corrected" | "revealed";
 

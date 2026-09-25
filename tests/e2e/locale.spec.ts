@@ -6,14 +6,19 @@ test("switching the interface language localizes the UI and the meaning check, a
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await signIn(page, "locale1@example.com");
 
+  await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
   await page.locator(".qa-settings-locale").selectOption("es-419");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
+  await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Guardado");
   await expect(page.locator("html")).toHaveAttribute("lang", "es-419");
-  await expect(page.locator(".qa-nav-learn")).toHaveText("Aprender");
-  await page.locator(".qa-settings-path").selectOption("sentences");
-  await page.locator(".qa-settings-hints").selectOption("none");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
+  await expect(page.locator(".qa-settings-title")).toHaveText("Ajustes");
+  const italian = page.locator(".qa-settings-lang-it");
+  await expect(italian.locator("summary")).toHaveText("Práctica de Italiano");
+  await italian.locator("summary").click();
+  await italian.locator(".qa-settings-path").selectOption("sentences");
+  await expect(italian.locator(".qa-settings-status")).toHaveText("Guardado");
+  await italian.locator(".qa-settings-hints").selectOption("none");
+  await expect(italian.locator(".qa-settings-status")).toHaveText("Guardado");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await page.locator(".qa-free-input").fill("Vorrei un caffè, per favore.");
@@ -42,6 +47,7 @@ test("a language picked before sign-in becomes a new account's interface languag
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-user")).toHaveText("locale2");
   await expect(page.locator(".qa-nav-review")).toHaveText("Herhalen");
+  await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-settings-locale")).toHaveValue("nl");
 });

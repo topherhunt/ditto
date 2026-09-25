@@ -1,7 +1,7 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { audioFile, loadContent, VOICES } from "../../server/content.ts";
 
 const root = join(import.meta.dirname, "../..");
@@ -149,5 +149,21 @@ describe("content loading", () => {
   it("fails when audio is required and missing", () => {
     const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
     expect(() => loadContent(join(root, "tests/fixtures/content"), dir, { requireAudio: true })).toThrow(/audio files missing/);
+  });
+
+  it("prints a red banner with the missing count, example files and the fix when audio is optional and missing", () => {
+    const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const c = loadContent(join(root, "tests/fixtures/content"), dir, { requireAudio: false });
+      const out = warn.mock.calls.map((a) => a.join(" ")).join("\n");
+      expect(out).toContain("\x1b[31m");
+      expect(out).toContain(`${c.audioJobs.length} of ${c.audioJobs.length} audio files missing`);
+      expect(out).toContain(c.audioJobs[0].file);
+      expect(out).toContain("npm run content:audio");
+      expect(out.split("\n").length).toBeGreaterThan(3);
+    } finally {
+      warn.mockRestore();
+    }
   });
 });

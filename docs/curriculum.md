@@ -28,14 +28,14 @@ A typical lesson: 3–4 words, 3–4 phrases, 2–3 chunks and 5–6 sentences, 
 - Main-track modules form a chain: each one requires the previous main module. Optional modules require the main module that supplies their prerequisite vocabulary and grammar. A main module never requires an optional one.
 - Review and the mistakes notebook are never locked.
 
-Placement (skipping ahead for learners who already know the basics) is on the [roadmap](roadmap.md).
+- A level test skips a whole level: 10 random sentences from the longer half of the level's main-track modules (`server/level-test.ts`). Passing takes every one clean: no wrong check, no accent slip, the right meaning; the first miss ends the test. A pass counts every module of the level as complete for unlocking and opens all its lessons in any order, but marks no lesson complete. Retakes are unlimited and test answers are not recorded.
 
 ## Content rules
 
 - **Punctuation:** a sentence unit ends in `.`, `!` or `?`. A word unit never does; phrases and chunks don't either. `commas` lists extra word gaps where a comma or semicolon is also acceptable, and it should be liberal (after a vocative, before `ma`, around an interjection). Only a wrong end mark counts as an error. See `shared/grader.ts`.
 - **Numbers:** written as words in the text, with digit spellings in `variants` (`due euro` -> `2 euro`).
 - **Variants:** other correct spellings of the same audio, never paraphrases. The audio is rendered from `text` only.
-- **Distractors:** two wrong translations per support language, of the same length and shape as the real one. Each differs in one or two key content points (a different item, person, time or polarity), so choosing needs real understanding. A distractor must never also be a correct translation. Avoid fixed patterns, such as the answer always being the longest option. Each support language gets its own distractors, not a translation of the English ones: a contrast English draws (he/she, you/they, if/when, by/of) can collapse in a pro-drop or differently split language, so pick a contrast that survives there.
+- **Distractors:** two wrong translations per support language, of the same length and shape as the real one. Each differs in one or two key content points (a different item, person, time or polarity), so choosing needs real understanding. A distractor must never also be a correct translation: English "you" also covers formal (usted/Lei) and plural addressees, so never contrast on those; and learners don't see `senses`, so a single-word unit's distractor must not be another common sense of the word (`light` -> `claro`). Avoid fixed patterns, such as the answer always being the longest option. Each support language gets its own distractors, not a translation of the English ones: a contrast English draws (he/she, you/they, if/when, by/of) can collapse in a pro-drop or differently split language, so pick a contrast that survives there.
 - **Lexicon:** each module carries a lexicon entry for every surface form it uses, so a module is self-contained to read. Glosses are short and learner-facing: meaning, then gender or irregularity when it matters.
 
 ## Modules

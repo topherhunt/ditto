@@ -58,17 +58,16 @@ export function Layout(props: RouteSectionProps) {
                       <li class="nav-item"><A class="qa-nav-learn nav-link" href={`/${lang()}`} end>{t("nav.learn")}</A></li>
                       <li class="nav-item"><A class="qa-nav-review nav-link" href={`/${lang()}/review`}>{t("nav.review")}</A></li>
                       <li class="nav-item"><A class="qa-nav-notebook nav-link" href={`/${lang()}/notebook`}>{t("nav.notebook")}</A></li>
-                      <li class="nav-item"><A class="qa-nav-settings nav-link" href={`/${lang()}/settings`}>{t("nav.settings")}</A></li>
                     </ul>
                   )}
                   <div class="ms-auto d-flex align-items-center gap-2">
-                    <button type="button" class="qa-theme-toggle btn btn-sm btn-outline-secondary" onClick={toggleTheme}
+                    <button type="button" class="qa-theme-toggle btn btn-sm btn-outline-info" onClick={toggleTheme}
                       aria-label={theme() === "dark" ? t("nav.themeLight") : t("nav.themeDark")}>
                       {theme() === "dark" ? "☀" : "☾"}
                     </button>
                     <Notifications />
                     <div class="dropdown" ref={menuRoot}>
-                      <button type="button" class="qa-user btn btn-sm btn-outline-secondary dropdown-toggle" aria-expanded={menuOpen()}
+                      <button type="button" class="qa-user btn btn-sm btn-outline-info dropdown-toggle" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
                         {user().username}
                       </button>
@@ -77,7 +76,7 @@ export function Layout(props: RouteSectionProps) {
                         <li><A href="/people/me" class="qa-nav-profile dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.profile")}</A></li>
                         <li><A href="/friends" class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.friends")}</A></li>
                         <li><A href="/leaderboard" class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.leaderboard")}</A></li>
-                        <li><A href="/account" class="qa-nav-account dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.account")}</A></li>
+                        <li><A href="/settings" class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.settings")}</A></li>
                         <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.about")}</A></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item" onClick={logout}>{t("nav.signOut")}</button></li>

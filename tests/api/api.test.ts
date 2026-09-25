@@ -113,6 +113,42 @@ describe("prefs and catalog", () => {
   });
 });
 
+describe("level tests", () => {
+  it("serves distinct main-track sentences with a meaning check, and 404s for a level the language lacks", async () => {
+    const t = setup();
+    await t.login();
+    const res = await t.req("GET", "/api/level-test?lang=it&level=A1");
+    const units = res.json.units as { id: string; courseId: string; stage: string; distractors?: string[] }[];
+    // The fixture's only main A1 course has 8 sentences, fewer than a full test.
+    expect(units).toHaveLength(8);
+    expect(new Set(units.map((u) => u.id)).size).toBe(8);
+    expect(units.every((u) => u.courseId === "it-a1-bar" && u.stage === "sentence" && u.distractors?.length === 2)).toBe(true);
+    expect((await t.req("GET", "/api/level-test?lang=it&level=B1")).status).toBe(404);
+    expect((await t.req("POST", "/api/level-test/pass", { language: "it", level: "B1" })).status).toBe(404);
+  });
+
+  it("a pass unlocks every lesson of the level without completing any, and lets their attempts through", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.attempt("it-a1-tea-1-u01")).status).toBe(403);
+    expect((await t.req("POST", "/api/level-test/pass", { language: "it", level: "A1" })).status).toBe(200);
+    expect((await t.req("POST", "/api/level-test/pass", { language: "it", level: "A1" })).status).toBe(200);
+    const cat = await t.req("GET", "/api/catalog?lang=it");
+    expect(cat.json.passedLevels).toEqual(["A1"]);
+    expect(cat.json.unlocked.sort()).toEqual(["it-a1-bar", "it-a1-bar-1", "it-a1-bar-2", "it-a1-tea", "it-a1-tea-1"]);
+    expect(cat.json.progress).toEqual({});
+    expect((await t.attempt("it-a1-tea-1-u01")).status).toBe(200);
+  });
+
+  it("keeps a pass to the learner who earned it", async () => {
+    const t = setup();
+    await t.login("a@example.com");
+    await t.req("POST", "/api/level-test/pass", { language: "it", level: "A1" });
+    await t.login("b@example.com");
+    expect((await t.req("GET", "/api/catalog?lang=it")).json.passedLevels).toEqual([]);
+  });
+});
+
 describe("problem reports", () => {
   it("stores the unit, its text, and the voice and file of the clip that played", async () => {
     const t = setup();

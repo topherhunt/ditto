@@ -1,11 +1,11 @@
 import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
-import type { AttemptBody, ExplanationOut, Mode, Prefs, ReportBody } from "../../../shared/api.ts";
+import type { AttemptBody, ExplanationOut, Prefs, ReportBody } from "../../../shared/api.ts";
 import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
 import { categoryName, t } from "../i18n/index.ts";
-import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SlotState } from "../practice.ts";
+import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
@@ -24,13 +24,16 @@ function shuffle<T>(items: T[]): T[] {
 /**
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
  * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
+ * In a level test there are no hints, the first wrong answer ends the item, an accent slip counts as a miss,
+ * and nothing is recorded.
  */
 export function Exercise(props: {
-  unit: ServedUnit; prefs: Prefs; mode: Mode; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
+  unit: ServedUnit; prefs: Prefs; mode: SessionMode; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
 }) {
   const unit = props.unit;
   const target = words(unit.text);
-  const [free, setFree] = createSignal(props.prefs.hints === "none");
+  const test = props.mode === "test";
+  const [free, setFree] = createSignal(test || props.prefs.hints === "none");
   const [freeText, setFreeText] = createSignal("");
   const [slots, setSlots] = createSignal<string[]>(target.map(() => ""));
   const [feedback, setFeedback] = createSignal<SlotFeedback[]>(target.map(() => ({ state: "open" })));
@@ -58,7 +61,7 @@ export function Exercise(props: {
   /** The meaning check: the translation plus its distractors, shuffled. Null when the unit has no translation. */
   const meaningOptions = unit.distractors ? shuffle([unit.translation!, ...unit.distractors]) : null;
   const [meaningPick, setMeaningPick] = createSignal<string | null>(null);
-  let dictation: Omit<AttemptBody, "meaningCorrect"> | null = null;
+  let dictation: Omit<AttemptBody, "meaningCorrect" | "mode"> | null = null;
 
   /** One voice per item, so replays and word taps sound like the sentence. */
   const voice = Math.floor(Math.random() * unit.audio.length);
@@ -122,6 +125,10 @@ export function Exercise(props: {
     }
     setWrongSubmissions((n) => n + 1);
     categories = mergeCategories(categories, r.categories);
+    if (test) {
+      setFreeResult(r);
+      return finish(accentWords.size);
+    }
     if (r.against === unit.text) {
       applySlots(r);
       setFree(false);
@@ -156,7 +163,7 @@ export function Exercise(props: {
   function finish(accentSlips: number) {
     setDone(true);
     dictation = {
-      unitId: unit.id, rev: unit.rev, mode: props.mode, path: props.prefs.path, hintsLevel: props.prefs.hints,
+      unitId: unit.id, rev: unit.rev, path: props.prefs.path, hintsLevel: props.prefs.hints,
       outcome: outcomeOf({ revealed: revealed(), wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() }),
       wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed(), replays, accentSlips, submissions, categories,
       durationMs: Date.now() - started,
@@ -171,10 +178,12 @@ export function Exercise(props: {
   }
 
   function record(meaningCorrect: boolean | null) {
-    const body: AttemptBody = { ...dictation!, meaningCorrect };
-    const saved = api.post("/api/attempts", body);
+    const d = dictation!;
+    const mode = props.mode;
+    const saved = mode === "test" ? Promise.resolve() : api.post("/api/attempts", { ...d, mode, meaningCorrect } satisfies AttemptBody);
     saved.catch((e: Error) => setSaveError(e.message));
-    props.onFinished(meaningCorrect === false && ["clean", "hinted"].includes(body.outcome) ? "corrected" : body.outcome, saved);
+    const missed = meaningCorrect === false || (test && d.accentSlips > 0);
+    props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, saved);
   }
 
   /** Next is available once nothing is left to answer. */
@@ -325,7 +334,7 @@ export function Exercise(props: {
           </Show>
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
-            <button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button>
+            <Show when={!test}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button></Show>
             <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
           </div>
           <div class="small text-body-secondary">{t("exercise.keys")}</div>

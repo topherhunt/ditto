@@ -24,8 +24,8 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
 
 ## Placement and skipping ahead
 
-- **Gap:** unlocks are strictly sequential. A learner who already knows A1 has to complete every earlier module first.
-- **Idea:** a placement test per level that samples sentences from each module and unlocks the modules it passes. Also a "test out" option per module.
+- **Gap:** a level test skips a whole level or nothing. A learner who knows half of A2 still starts at its first module.
+- **Idea:** a "test out" option per module, built on the level test.
 
 ## Speaking and pronunciation
 

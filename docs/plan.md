@@ -163,7 +163,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 ## Learning flow
 
 - **Learn:** units play in lesson order, filtered by Path, and position is saved per lesson and path.
-- **Unlocks** (`server/unlocks.ts`): a course unlocks when every course it requires is complete (all lessons, on any path). Within it, a lesson unlocks when the one before is complete. A learn-mode attempt on a locked lesson gets a 403. Review and the notebook are never locked.
+- **Unlocks** (`server/unlocks.ts`): a course unlocks when every course it requires is complete (all lessons, on any path) or its level is passed (`level_passes`, see the level test in [curriculum.md](curriculum.md)). Within it, a lesson unlocks when the one before is complete, or at once in a passed level. A learn-mode attempt on a locked lesson gets a 403. Review and the notebook are never locked.
 - **Meaning check:** after the dictation, the learner picks the translation out of the translation and two distractors, in shuffled order. A wrong pick records the category `meaning`, adds a notebook entry, and schedules the card as a miss, even when the dictation was clean. `attempts.meaning_correct` is null for units without a translation.
 - **Mistakes notebook:**
   - An entry is created on the first wrong submission or reveal. It keeps first and last wrong dates, a wrong count, the last wrong answer, and categories.

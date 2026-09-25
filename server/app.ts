@@ -3,8 +3,8 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
-  type Catalog, type Config, type ExplanationOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
+  type Catalog, type Config, type ExplanationOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
 import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedLesson, type ServedUnit } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
@@ -15,6 +15,7 @@ import {
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
+import { levelTestUnits } from "./level-test.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
@@ -170,6 +171,9 @@ export function createApp(deps: AppDeps) {
   const completedLessons = (userId: number) =>
     new Set((db.prepare("SELECT DISTINCT lesson_id FROM lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL")
       .all(userId) as { lesson_id: string }[]).map((r) => r.lesson_id));
+  const passedLevels = (userId: number, language: Language) =>
+    new Set((db.prepare("SELECT level FROM level_passes WHERE user_id = ? AND language = ?")
+      .all(userId, language) as { level: string }[]).map((r) => r.level));
 
   app.get("/api/catalog", (c) => {
     const language = lang(c);
@@ -180,10 +184,33 @@ export function createApp(deps: AppDeps) {
     }[];
     const progress: Catalog["progress"] = {};
     for (const r of rows) (progress[r.lesson_id] ??= {})[r.path] = { nextIndex: r.next_index, completedAt: r.completed_at };
-    const unlocked = unlockedIds(courses, completedLessons(userId));
+    const passed = passedLevels(userId, language);
+    const unlocked = unlockedIds(courses, completedLessons(userId), passed);
     const lessonIds = new Set(courses.flatMap((x) => x.lessons.map((l) => l.id)));
     const viaFriends = Object.fromEntries([...friendLessons(db, userId)].filter(([id]) => lessonIds.has(id) && !unlocked.has(id)));
-    return c.json<Catalog>({ courses, progress, unlocked: [...unlocked], viaFriends, ...counts(userId, language) });
+    return c.json<Catalog>({ courses, progress, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
+  });
+
+  const levelOr404 = (language: Language, level: string) => {
+    if (!structure.courses.some((x) => x.language === language && x.level === level))
+      throw new HTTPException(404, { message: `No ${level} courses for ${language}` });
+  };
+
+  // Test answers are not recorded as attempts: only a pass is, so retakes never touch progress, mistakes or reviews.
+  app.get("/api/level-test", (c) => {
+    const language = lang(c);
+    const level = z.string().parse(c.req.query("level"));
+    levelOr404(language, level);
+    const courses = content.locales[c.get("user").locale].courses.filter((x) => x.language === language);
+    return c.json<LevelTestOut>({ units: levelTestUnits(courses, level) });
+  });
+
+  app.post("/api/level-test/pass", async (c) => {
+    const { language, level } = LevelPassSchema.parse(await c.req.json());
+    levelOr404(language, level);
+    db.prepare("INSERT INTO level_passes (user_id, language, level, passed_at) VALUES (?, ?, ?, ?) ON CONFLICT DO NOTHING")
+      .run(c.get("user").id, language, level, deps.now().toISOString());
+    return c.json({ ok: true });
   });
 
   app.post("/api/attempts", async (c) => {
@@ -194,7 +221,8 @@ export function createApp(deps: AppDeps) {
       throw new HTTPException(400, { message: `Unit ${unit.id} ${unit.distractors ? "needs" : "has no"} a meaning check` });
     const userId = c.get("user").id;
     // A lesson a friend has started is playable out of sequence.
-    if (a.mode === "learn" && !unlockedIds(structure.courses, completedLessons(userId)).has(unit.lessonId) && !friendLessons(db, userId).has(unit.lessonId))
+    const unlocked = () => unlockedIds(structure.courses.filter((x) => x.language === unit.language), completedLessons(userId), passedLevels(userId, unit.language));
+    if (a.mode === "learn" && !unlocked().has(unit.lessonId) && !friendLessons(db, userId).has(unit.lessonId))
       throw new HTTPException(403, { message: `Lesson ${unit.lessonId} is locked` });
     const now = deps.now();
     const iso = now.toISOString();

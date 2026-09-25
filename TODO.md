@@ -1,1 +1,3 @@
+- [ ] Finish generating the EN audio
+- [ ] Finish generating the Gaelic audio
 - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.

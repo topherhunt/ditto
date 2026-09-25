@@ -36,7 +36,7 @@ export function Notifications() {
 
   return (
     <div class="dropdown" ref={root}>
-      <button type="button" class="qa-notifications btn btn-sm btn-outline-secondary position-relative" aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
+      <button type="button" class="qa-notifications btn btn-sm btn-outline-info position-relative" aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
         🔔
         <Show when={data() && data()!.unread > 0}>
           <span class="qa-notifications-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">{data()!.unread}</span>

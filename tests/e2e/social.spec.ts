@@ -145,11 +145,11 @@ test("a new account picks a username, finds a stranger on the leaderboard, sees 
   await expect(page.locator(".qa-profile-sent")).toBeVisible();
 
   await page.locator(".qa-user").click();
-  await page.locator(".qa-nav-account").click();
-  await expect(page).toHaveURL(/\/account$/);
+  await page.locator(".qa-nav-settings").click();
+  await expect(page).toHaveURL(/\/settings$/);
   await expect(page.locator(".qa-username")).toHaveValue("wren");
   await page.locator(".qa-username").fill("wren.b");
   await page.locator(".qa-username-save").click();
-  await expect(page.locator(".qa-account-status")).toBeVisible();
+  await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
   await expect(page.locator(".qa-user")).toHaveText("wren.b");
 });

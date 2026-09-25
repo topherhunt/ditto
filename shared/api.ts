@@ -68,6 +68,8 @@ export const ChallengeSchema = z.discriminatedUnion("kind", [
 export type ChallengeBody = z.infer<typeof ChallengeSchema>;
 export const CHALLENGE_ACTIONS = ["accept", "decline", "cancel"] as const;
 
+export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), level: z.string() });
+
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
@@ -79,6 +81,8 @@ export type Catalog = {
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
   /** Course and lesson ids the learner can start. */
   unlocked: string[];
+  /** Levels the learner tested out of. */
+  passedLevels: string[];
   /** Locked lessons a friend has started, which the learner may play anyway: lessonId -> those friends. */
   viaFriends: Record<string, Person[]>;
   dueCount: number;
@@ -95,6 +99,7 @@ export type MistakeEntry = {
   explanation: ExplanationOut | null;
 };
 export type ReviewOut = { units: ServedUnit[]; dueCount: number };
+export type LevelTestOut = { units: ServedUnit[] };
 
 /** Everything anyone may see about an account. `username` is null until they pick one. */
 export type Person = { id: number; username: string | null };

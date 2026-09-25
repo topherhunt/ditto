@@ -232,7 +232,16 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
   if (missing.length) {
     const msg = `${missing.length} of ${audioJobs.length} audio files missing in ${audioDir} (run npm run content:audio), e.g. "${missing[0].text}"`;
     if (opts.requireAudio) throw new Error(msg);
-    console.warn(`WARNING: ${msg}`);
+    const examples = new Map<string, AudioJob>();
+    for (const j of missing) if (examples.size < 5 && !examples.has(j.text)) examples.set(j.text, j);
+    const bar = "!".repeat(72);
+    console.warn([
+      "", bar,
+      `!!  WARNING: ${missing.length} of ${audioJobs.length} audio files missing in ${audioDir}`,
+      ...[...examples.values()].map((j) => `!!    ${j.file}  "${j.text}"`),
+      "!!  Fix: npm run content:audio",
+      bar, "",
+    ].map((l) => `\x1b[31m${l}\x1b[0m`).join("\n"));
   }
   for (const l of LOCALES) locales[l].courses.sort((a, b) => a.language.localeCompare(b.language) || a.order - b.order);
   return { locales, audioJobs };

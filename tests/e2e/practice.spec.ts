@@ -69,11 +69,17 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {
   await signIn(page, "learner2@example.com");
+  await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await page.locator(".qa-settings-path").selectOption("sentences");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
-  await page.locator(".qa-settings-hints").selectOption("none");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await expect(page).toHaveURL(/\/settings$/);
+  // Each course's settings start collapsed.
+  const italian = page.locator(".qa-settings-lang-it");
+  await expect(italian.locator(".qa-settings-path")).toBeHidden();
+  await italian.locator("summary").click();
+  await italian.locator(".qa-settings-path").selectOption("sentences");
+  await expect(italian.locator(".qa-settings-status")).toHaveText("Saved");
+  await italian.locator(".qa-settings-hints").selectOption("none");
+  await expect(italian.locator(".qa-settings-status")).toHaveText("Saved");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-position")).toHaveText("1 / 3");

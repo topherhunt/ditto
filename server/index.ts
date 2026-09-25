@@ -23,9 +23,10 @@ const explainModel = env.EXPLAIN_MODEL || "gpt-6-luna";
 const audioDir = env.AUDIO_DIR || join(root, "content/audio");
 const webDir = join(root, "dist/web");
 
+const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { requireAudio: production });
 const app = createApp({
   db: openDb(env.DATABASE_PATH || join(root, "data/app.db")),
-  content: loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { requireAudio: production }),
+  content,
   now: () => new Date(),
   googleClientId,
   verifyGoogle: googleClientId ? googleVerifier(googleClientId) : null,
@@ -47,7 +48,14 @@ app.use("/audio/*", serveStatic({
     c.header("Cache-Control", "public, max-age=31536000, immutable");
   },
 }));
-app.all("/audio/*", (c) => c.text("Not found", 404));
+const audioText = new Map(content.audioJobs.map((j) => [j.file, j.text]));
+app.all("/audio/*", (c) => {
+  if (!production) {
+    const file = c.req.path.replace(/^\/audio\//, "");
+    console.warn(`\x1b[31mMissing audio: ${file}${audioText.has(file) ? ` "${audioText.get(file)}"` : " (not referenced by content)"} -- run npm run content:audio\x1b[0m`);
+  }
+  return c.text("Not found", 404);
+});
 app.use("/assets/*", serveStatic({
   root: webDir,
   onFound: (_path, c) => c.header("Cache-Control", "public, max-age=31536000, immutable"),
