@@ -55,6 +55,9 @@ function Session(props: { deck: Deck; mode: Mode; lang: Language }) {
         keyed
         fallback={
           <div class="qa-session-done card"><div class="card-body d-flex flex-column gap-2">
+            <Show when={props.deck.units.length > 0}>
+              <div class="text-center" style={{ "font-size": "5rem" }}><span class="qa-tada tilt" aria-hidden="true">🎉</span></div>
+            </Show>
             <h2 class="h5">{props.deck.units.length === 0 ? "Nothing to practice right now." : "Done!"}</h2>
             <Show when={props.deck.units.length > 0}>
               <p class="mb-0">
@@ -62,7 +65,8 @@ function Session(props: { deck: Deck; mode: Mode; lang: Language }) {
               </p>
             </Show>
             <div class="d-flex gap-2">
-              <A href={`/${props.lang}`} class="qa-back btn btn-primary">Back to lessons</A>
+              {/* Focused so Enter goes straight back. */}
+              <A href={`/${props.lang}`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>Back to lessons</A>
               <Show when={props.mode === "learn"}>
                 <button type="button" class="qa-restart btn btn-outline-primary" onClick={() => setIndex(0)}>Practice again</button>
               </Show>

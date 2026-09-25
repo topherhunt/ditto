@@ -1,5 +1,5 @@
 import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
-import type { AttemptBody, ExplanationOut, Mode, Prefs } from "../../../shared/api.ts";
+import type { AttemptBody, ExplanationOut, Mode, Prefs, ReportBody } from "../../../shared/api.ts";
 import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
@@ -8,6 +8,13 @@ import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type 
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
+
+const REPORT_LABELS: Record<ReportBody["kind"], string> = {
+  audio: "The audio sounds wrong",
+  text: "The text is wrong",
+  translation: "The meaning or its options are wrong",
+  other: "Something else",
+};
 
 function shuffle<T>(items: T[]): T[] {
   const out = [...items];
@@ -18,7 +25,10 @@ function shuffle<T>(items: T[]): T[] {
   return out;
 }
 
-/** One dictation item. Mount it keyed by unit; it records the attempt when finished and calls onNext after. */
+/**
+ * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
+ * it records the attempt when finished and calls onNext after.
+ */
 export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; onFinished: (o: Outcome) => void; onNext: () => void }) {
   const unit = props.unit;
   const target = words(unit.text);
@@ -181,6 +191,22 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
     }
   }
 
+  const [reportOpen, setReportOpen] = createSignal(false);
+  const [reportKind, setReportKind] = createSignal<ReportBody["kind"] | null>(null);
+  const [reportNote, setReportNote] = createSignal("");
+  const [reportState, setReportState] = createSignal<"idle" | "sending" | "sent" | string>("idle");
+
+  async function sendReport(e: SubmitEvent) {
+    e.preventDefault();
+    setReportState("sending");
+    try {
+      await api.post("/api/reports", { unitId: unit.id, rev: unit.rev, voice, kind: reportKind()!, note: reportNote() } satisfies ReportBody);
+      setReportState("sent");
+    } catch (err) {
+      setReportState((err as Error).message);
+    }
+  }
+
   function onSlotKey(e: KeyboardEvent, i: number) {
     const input = e.currentTarget as HTMLInputElement;
     if (e.key === "Enter") {
@@ -200,6 +226,7 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
   const locked = (i: number) => done() || feedback()[i].state !== "open";
 
   return (
+    <>
     <div class="qa-exercise card shadow-sm">
       <div class="card-body d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
@@ -375,5 +402,36 @@ export function Exercise(props: { unit: ServedUnit; prefs: Prefs; mode: Mode; on
         </Show>
       </div>
     </div>
+    <Show
+      when={reportOpen()}
+      fallback={
+        <button type="button" class="qa-report-open btn btn-link btn-sm p-0 ms-auto text-body-secondary" onClick={() => setReportOpen(true)}>
+          Report a problem
+        </button>
+      }
+    >
+      <Show when={reportState() !== "sent"} fallback={<div class="qa-report-sent small text-body-secondary ms-auto">Thanks, reported.</div>}>
+        <form class="qa-report d-flex flex-column gap-2 small ms-auto" onSubmit={sendReport}>
+          <For each={Object.entries(REPORT_LABELS) as [ReportBody["kind"], string][]}>
+            {([kind, label]) => (
+              <label class="form-check mb-0">
+                <input type="radio" name="report-kind" class={`qa-report-kind-${kind} form-check-input`} checked={reportKind() === kind} onChange={() => setReportKind(kind)} />
+                <span class="form-check-label">{label}</span>
+              </label>
+            )}
+          </For>
+          <textarea class="qa-report-note form-control form-control-sm" rows="2" maxLength={1000} placeholder="What's wrong? (optional)"
+            value={reportNote()} onInput={(e) => setReportNote(e.currentTarget.value)} />
+          <Show when={!["idle", "sending"].includes(reportState())}>
+            <div class="alert alert-danger py-1 mb-0">{reportState()}</div>
+          </Show>
+          <div class="d-flex gap-2 justify-content-end">
+            <button type="button" class="qa-report-cancel btn btn-sm btn-outline-secondary" onClick={() => setReportOpen(false)}>Cancel</button>
+            <button type="submit" class="qa-report-send btn btn-sm btn-primary" disabled={!reportKind() || reportState() === "sending"}>Send</button>
+          </div>
+        </form>
+      </Show>
+    </Show>
+    </>
   );
 }

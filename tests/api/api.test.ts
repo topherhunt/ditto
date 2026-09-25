@@ -106,6 +106,27 @@ describe("prefs and catalog", () => {
   });
 });
 
+describe("problem reports", () => {
+  it("stores the unit, its text, and the voice and file of the clip that played", async () => {
+    const t = setup();
+    await t.login();
+    const unit = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0].lessons[0].units[0];
+    const res = await t.req("POST", "/api/reports", { unitId: unit.id, rev: unit.rev, voice: 2, kind: "audio", note: " sounds like sri-le " });
+    expect(res.status).toBe(200);
+    const row = t.deps.db.prepare("SELECT unit_id, unit_rev, language, text, voice, audio_file, kind, note, resolved_at FROM reports").get();
+    expect(row).toEqual({
+      unit_id: unit.id, unit_rev: unit.rev, language: "it", text: unit.text, voice: "kokoro:if_sara",
+      audio_file: unit.audio[2].replace("/audio/", ""), kind: "audio", note: "sounds like sri-le", resolved_at: null,
+    });
+  });
+
+  it("rejects a voice the unit doesn't have", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.req("POST", "/api/reports", { unitId: "it-a1-bar-1-u01", rev: 1, voice: 9, kind: "audio", note: "" })).status).toBe(400);
+  });
+});
+
 describe("mistakes notebook", () => {
   it("records a missed unit, then graduates it after two consecutive clean attempts", async () => {
     const t = setup();

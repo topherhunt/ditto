@@ -3,7 +3,7 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutPrefsSchema,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutPrefsSchema, ReportSchema,
   type Catalog, type Config, type ExplanationOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
 import { LANGUAGES, PATHS, type Language, type ServedLesson, type ServedUnit } from "../shared/content.ts";
@@ -12,7 +12,7 @@ import { exactKey } from "../shared/tokenize.ts";
 import {
   createSession, deleteSession, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
-import type { Content } from "./content.ts";
+import { VOICES, voiceId, type Content } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { schedule } from "./srs.ts";
@@ -220,6 +220,20 @@ export function createApp(deps: AppDeps) {
         ).run(userId, unit.id, unit.language, next.due.toISOString(), JSON.stringify(next));
       }
     });
+    return c.json({ ok: true });
+  });
+
+  app.post("/api/reports", async (c) => {
+    const r = ReportSchema.parse(await c.req.json());
+    const unit = unitOr404(r.unitId);
+    const url = unit.audio[r.voice];
+    if (!url) throw new HTTPException(400, { message: `Unit ${unit.id} has no voice ${r.voice}` });
+    // unit.audio is in VOICES order (see loadContent).
+    db.prepare(
+      `INSERT INTO reports (user_id, unit_id, unit_rev, language, text, voice, audio_file, kind, note, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).run(c.get("user").id, unit.id, r.rev, unit.language, unit.text, voiceId(VOICES[unit.language][r.voice]),
+      url.replace(/^\/audio\//, ""), r.kind, r.note.trim(), deps.now().toISOString());
     return c.json({ ok: true });
   });
 

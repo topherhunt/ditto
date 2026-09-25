@@ -127,6 +127,39 @@ test("later lessons and modules stay locked until the ones before are done", asy
   await expect(page.locator(".alert-danger")).toContainText("locked");
 });
 
+test("report a problem with an item: pick a kind, add a note, send", async ({ page }) => {
+  await signIn(page, "learner7@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+  await page.locator(".qa-report-open").click();
+  await expect(page.locator(".qa-report-send")).toBeDisabled();
+  await page.locator(".qa-report-kind-audio").check();
+  await page.locator(".qa-report-note").fill("garbled");
+  await page.locator(".qa-report-send").click();
+  await expect(page.locator(".qa-report-sent")).toBeVisible();
+
+  // The item itself is unaffected, and the next item starts with a closed link.
+  await slot(page, 0).fill("caffè");
+  await slot(page, 0).press("Enter");
+  await pickMeaning(page, "coffee");
+  await page.locator(".qa-next").click();
+  await expect(page.locator(".qa-report-open")).toBeVisible();
+});
+
+test("finishing a lesson celebrates, and Enter goes back to the lessons", async ({ page }) => {
+  await signIn(page, "learner8@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+  await expect(page.locator(".qa-exercise")).toBeVisible();
+  while (await page.locator(".qa-exercise").count()) {
+    await page.locator(".qa-reveal").click();
+    await page.locator(".qa-meaning-option").first().click();
+    await page.locator(".qa-next").click();
+  }
+  await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
+  await expect(page.locator(".qa-back")).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".qa-lesson-start").first()).toBeVisible();
+});
+
 test("review is empty for a new learner", async ({ page }) => {
   await signIn(page, "learner3@example.com");
   await page.locator(".qa-review-link").click();

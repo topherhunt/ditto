@@ -37,7 +37,18 @@ export const AttemptSchema = z.strictObject({
 });
 export type AttemptBody = z.infer<typeof AttemptSchema>;
 
-export const ExplainSchema = z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
+export const REPORT_KINDS = ["audio", "text", "translation", "other"] as const;
+export const ReportSchema = z.strictObject({
+  unitId: z.string(),
+  rev: z.int().positive(),
+  /** Index into the unit's `audio`: the voice that played. */
+  voice: z.int().min(0),
+  kind: z.enum(REPORT_KINDS),
+  note: z.string().max(1000),
+});
+export type ReportBody = z.infer<typeof ReportSchema>;
+
+export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
 export type Me = { email: string; name: string; picture: string | null; prefs: Record<Language, Prefs> };
 export type Config = { googleClientId: string | null; devLogin: boolean };

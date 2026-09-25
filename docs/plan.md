@@ -20,6 +20,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item (`it`/`nl`): a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - Mistakes notebook, with focused practice of notebook items.
+- "Report a problem" under each item (bad audio, wrong text, wrong meaning, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
 - Content: the full Italian A1+A2 curriculum (21 main and 7 optional modules, [curriculum-it.md](curriculum-it.md)); a one-module seed course for `en` and `nl`.
@@ -183,7 +184,7 @@ users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, created_at)
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
          , path, hints_level, outcome, wrong_submissions, hints_used, replays, accent_slips,
-         submissions JSON, duration_ms, created_at)
+         submissions JSON, meaning_correct, duration_ms, created_at)
 lesson_progress(user_id, lesson_id, path, next_index, completed_at, PK(user_id, lesson_id, path))
 mistakes(user_id, unit_id, first_wrong_at, last_wrong_at, wrong_count, last_answer,
          categories JSON, clean_streak, removed_at, PK(user_id, unit_id))
@@ -192,6 +193,9 @@ review_cards(user_id, unit_id, language, due, card JSON  -- ts-fsrs Card; `due` 
 explanations(id PK, unit_id, unit_rev, answer_key, model, categories JSON, summary, details, created_at,
              UNIQUE(unit_id, unit_rev, answer_key, model))
 explain_usage(user_id, day, count, PK(user_id, day))
+reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
+        , audio_file, kind  -- audio|text|translation|other
+        , note, created_at, resolved_at)
 ```
 
 Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA user_version`. Content lives in JSON, not the DB. The DB references units by `unit_id` only.
@@ -212,6 +216,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and cached explanations |
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
+| POST | `/api/reports` | `{unitId, rev, voice, kind, note}`, where `voice` is the index into the unit's `audio` |
 | GET | `/audio/*`, `/assets/*`, `/*` | Static files, and the SPA fallback to `index.html` |
 
 - Every `/api` route except auth requires a session.

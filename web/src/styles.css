@@ -9,3 +9,8 @@
 /* Slot inputs size to their word (set --len inline) plus one spare character for typed punctuation. Pair with `px-2`: the 1rem is its padding, the 2px the border. */
 .slot { width: calc((var(--len) + 1) * 1ch + 1rem + 2px); min-width: 3rem; font-family: var(--bs-font-monospace); }
 .slot:read-only { background: var(--bs-success-bg-subtle); }
+
+/* A gentle side-to-side tilt, for celebrations. */
+.tilt { display: inline-block; animation: tilt 1.2s ease-in-out infinite; }
+@keyframes tilt { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
+@media (prefers-reduced-motion: reduce) { .tilt { animation: none; } }
