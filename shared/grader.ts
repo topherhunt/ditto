@@ -1,3 +1,5 @@
+import type { Language } from "./content.ts";
+import { canonicalize } from "./equivalents.ts";
 import { baseKey, exactKey, tokenize } from "./tokenize.ts";
 
 /** One letter of a wrong word's correction view. `ch` is the target letter for keep/insert, the typed letter for delete. */
@@ -35,7 +37,7 @@ export type GradeResult = {
 export type Answer = { mode: "free"; text: string } | { mode: "slots"; slots: string[] };
 
 /** `commas`: word indices after which a comma or semicolon is optional (main text only). */
-export type GradeTarget = { text: string; variants?: string[]; commas?: number[] };
+export type GradeTarget = { language: Language; text: string; variants?: string[]; commas?: number[] };
 
 const END_MARKS = ".!?";
 const COMMA_LIKE = ",;";
@@ -239,7 +241,7 @@ function errorWeight(r: GradeResult): number {
 }
 
 /**
- * Grade an answer against the main text and its accepted variants.
+ * Grade an answer against the main text and its accepted variants, then against their canonical forms.
  * Slots: one per word of the main text; variants are then compared against the slots joined as free text.
  * Returns the first passing comparison, else the one with the fewest errors.
  */
@@ -254,10 +256,20 @@ export function grade(answer: Answer, target: GradeTarget): GradeResult {
     main = gradeFree(parse(answer.text), target.text, commas);
   }
   if (main.passed) return main;
-  const typed = parse(answer.mode === "slots" ? answer.slots.join(" ") : answer.text);
+  const text = answer.mode === "slots" ? answer.slots.join(" ") : answer.text;
+  const typed = parse(text);
   let best = main;
   for (const v of target.variants ?? []) {
     const r = gradeFree(typed, v, new Set());
+    if (r.passed) return r;
+    if (errorWeight(r) < errorWeight(best)) best = r;
+  }
+  // Equivalent spellings (I'd / I would, $100 / 100 dollars): compared in canonical form, which `against` then holds.
+  const canonTyped = canonicalize(text, target.language);
+  for (const accepted of [target.text, ...(target.variants ?? [])]) {
+    const canon = canonicalize(accepted, target.language);
+    if (canon === accepted && canonTyped === text) continue;
+    const r = gradeFree(parse(canonTyped), canon, new Set());
     if (r.passed) return r;
     if (errorWeight(r) < errorWeight(best)) best = r;
   }

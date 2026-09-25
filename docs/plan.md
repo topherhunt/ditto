@@ -19,9 +19,9 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
 - Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
-- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` and `ga` have `en` only), else in the course's first support language.
+- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
-- "Report a problem" under each item (bad audio, wrong text, wrong meaning, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
+- "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
 - Friends, added by exact email or from a profile. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
@@ -31,11 +31,10 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
 - A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
 - An in-app notifications bell (no email or push).
-- Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 and A2 for Spanish and Italian speakers (21 main and 7 optional modules, [curriculum-en.md](curriculum-en.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)); a one-module seed course for `nl`.
+- Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 to B1 for Spanish and Italian speakers (31 main and 10 optional modules, [curriculum-en.md](curriculum-en.md)); Dutch A1 to B1 for English and Spanish speakers (31 main and 10 optional modules, [curriculum-nl.md](curriculum-nl.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)).
 
 **Later**
 
-- Dutch A1+A2 content.
 - A stats page (accuracy, hint rate, streaks).
 - Deploy automation.
 - The learning blind spots in [roadmap.md](roadmap.md).
@@ -151,7 +150,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
    - Keys equal and exact text equal: **correct**.
    - Keys equal but diacritics differ (missing, wrong, or extra accent): **accent-fixed**. The word is replaced with the correct form, the affected letters turn **orange**, and it is not a mistake. This counts toward `accentSlips` only.
    - Keys differ: **wrong**. A letter-level diff (LCS on the key) marks letters to delete (red strikethrough) and letters to insert (green). The learner must edit and resubmit.
-5. **Variants:** the answer passes if it matches the main text or any variant under the same rules.
+5. **Variants:** the answer passes if it matches the main text or any variant under the same rules. Failing that, both sides are compared in canonical form (`shared/equivalents.ts`), so common equivalent spellings pass silently. English: contractions both ways (`I'd` = `I would`/`I had` from the next word), `$100` = `100 dollars`, `60,000` = `60000`, hyphen = space, and a list of joined compounds (`cellphone`, `email`, `alright`). Italian, Dutch and Irish: the euro sign on either side of the amount. There is no other spacing leniency outside English.
 6. **Unit outcome** for an attempt:
    - `clean`: no wrong submissions and no hints.
    - `hinted`: no wrong submissions, but at least one hint.
@@ -204,7 +203,8 @@ explanations(id PK, unit_id, unit_rev, answer_key, model, locale, categories JSO
              UNIQUE(unit_id, unit_rev, answer_key, model, locale))
 explain_usage(user_id, day, count, PK(user_id, day))
 reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
-        , audio_file, kind  -- audio|text|translation|other
+        , audio_file, kind  -- audio|text|translation|accept|other
+        , answer  -- accept only: the typed answer that was graded wrong
         , note, created_at, resolved_at)
 friendships(requester_id, addressee_id, status  -- pending|accepted|blocked
             , created_at, responded_at, PK(requester_id, addressee_id))
@@ -234,7 +234,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and cached explanations |
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
-| POST | `/api/reports` | `{unitId, rev, voice, kind, note}`, where `voice` is the index into the unit's `audio` |
+| POST | `/api/reports` | `{unitId, rev, voice, kind, answer?, note}` (`answer` only and always for `accept`), where `voice` is the index into the unit's `audio` |
 | GET | `/api/friends` | Friends and incoming/outgoing/blocked requests |
 | GET | `/api/leaderboard?window=(day\|week\|month)&scope=(everyone\|friends)` | `{rows, me}`; `me` is your row when it's outside the top 20 |
 | GET | `/api/friends/search?email=` | Only whether the account exists and how you stand with it |

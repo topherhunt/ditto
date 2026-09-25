@@ -146,6 +146,24 @@ test("report a problem with an item: pick a kind, add a note, send", async ({ pa
   await expect(page.locator(".qa-report-open")).toBeVisible();
 });
 
+test("an answer graded wrong can be reported as one that should be accepted", async ({ page }) => {
+  await signIn(page, "learner15@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+  await page.locator(".qa-report-open").click();
+  await expect(page.locator(".qa-report-kind-accept")).toHaveCount(0);
+  await page.locator(".qa-report-cancel").click();
+
+  await slot(page, 0).fill("cafe latte");
+  await slot(page, 0).press("Enter");
+  await page.locator(".qa-report-open").click();
+  await expect(page.locator(".qa-report-answer")).toHaveText("cafe latte");
+  const sent = page.waitForRequest((r) => r.url().endsWith("/api/reports"));
+  await page.locator(".qa-report-kind-accept").check();
+  await page.locator(".qa-report-send").click();
+  expect((await sent).postDataJSON()).toMatchObject({ kind: "accept", answer: "cafe latte" });
+  await expect(page.locator(".qa-report-sent")).toBeVisible();
+});
+
 test("finishing a lesson celebrates, and Enter goes back to the lessons", async ({ page }) => {
   await signIn(page, "learner8@example.com");
   await page.locator(".qa-lesson-start").first().click();

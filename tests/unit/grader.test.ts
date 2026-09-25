@@ -3,9 +3,9 @@ import { grade, letterDiff, type GradeResult } from "../../shared/grader.ts";
 import { tokenize, words } from "../../shared/tokenize.ts";
 
 const free = (typed: string, text: string, variants: string[] = [], commas: number[] = []) =>
-  grade({ mode: "free", text: typed }, { text, variants, commas });
+  grade({ mode: "free", text: typed }, { language: "en", text, variants, commas });
 const slots = (typed: string[], text: string, variants: string[] = [], commas: number[] = []) =>
-  grade({ mode: "slots", slots: typed }, { text, variants, commas });
+  grade({ mode: "slots", slots: typed }, { language: "en", text, variants, commas });
 /** Every typed mark as "ch:status" (plus ">expected" when wrong), in order. */
 const marks = (r: GradeResult) =>
   [...r.leading, ...r.words.flatMap((w) => w.after)].map((m) => `${m.ch}:${m.status}${m.expected ? `>${m.expected}` : ""}`);

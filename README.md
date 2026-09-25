@@ -19,9 +19,9 @@ Ditto is a dictation trainer for language learners. You listen to a word, phrase
 | Language | Content | Support languages |
 |---|---|---|
 | Italian (`it`) | A1 to B1 curriculum, [docs/curriculum-it.md](docs/curriculum-it.md) | English, Spanish, Dutch |
-| English (`en`) | A1 and A2, [docs/curriculum-en.md](docs/curriculum-en.md) | Spanish, Italian |
+| English (`en`) | A1 to B1 curriculum, [docs/curriculum-en.md](docs/curriculum-en.md) | Spanish, Italian |
+| Dutch (`nl`) | A1 to B1 curriculum, [docs/curriculum-nl.md](docs/curriculum-nl.md) | English, Spanish |
 | Irish (`ga`) | A1, [docs/curriculum-ga.md](docs/curriculum-ga.md) | English |
-| Dutch (`nl`) | One seed module | English |
 
 Course content is JSON in `content/courses/{lang}/`, validated at boot. The schema and rules are in [docs/plan.md](docs/plan.md#content-model).
 

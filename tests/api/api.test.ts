@@ -163,6 +163,16 @@ describe("problem reports", () => {
     });
   });
 
+  it("keeps the answer an accept report says should pass, and requires it only there", async () => {
+    const t = setup();
+    await t.login();
+    const body = { unitId: "it-a1-bar-1-u01", rev: 1, voice: 0, note: "" };
+    expect((await t.req("POST", "/api/reports", { ...body, kind: "accept", answer: "caffe" })).status).toBe(200);
+    expect((await t.req("POST", "/api/reports", { ...body, kind: "accept" })).status).toBe(400);
+    expect((await t.req("POST", "/api/reports", { ...body, kind: "audio", answer: "caffe" })).status).toBe(400);
+    expect(t.deps.db.prepare("SELECT kind, answer FROM reports").all()).toEqual([{ kind: "accept", answer: "caffe" }]);
+  });
+
   it("rejects a voice the unit doesn't have", async () => {
     const t = setup();
     await t.login();

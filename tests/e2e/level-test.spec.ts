@@ -31,11 +31,19 @@ test("next lesson button, then a level test: fail on the first miss, retry, pass
   await page.locator(".qa-next").click();
   await expect(page.locator(".qa-test-failed")).toBeVisible();
 
+  // Accents are optional, as in exercises: left out, they pass and show in orange.
   units = await startTest(page, () => page.locator(".qa-test-retry").click());
+  let slipped = 0;
   for (const u of units) {
-    await answer(page, u.text, u.translation!);
+    const bare = u.text.normalize("NFD").replace(/\p{M}/gu, "");
+    await answer(page, bare, u.translation!);
+    if (bare !== u.text.normalize("NFD")) {
+      slipped++;
+      await expect(page.locator(".qa-letter-accent").first()).toBeVisible();
+    }
     await page.locator(".qa-next").click();
   }
+  expect(slipped).toBeGreaterThan(0);
   await expect(page.locator(".qa-test-passed")).toBeVisible();
 
   await page.locator(".qa-back").click();

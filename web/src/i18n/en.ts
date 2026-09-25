@@ -117,6 +117,7 @@ export const en = {
   "report.audio": "The audio sounds wrong",
   "report.text": "The text is wrong",
   "report.translation": "The meaning or its options are wrong",
+  "report.accept": "My answer should be accepted:",
   "report.other": "Something else",
   "report.note": "What's wrong? (optional)",
   "report.cancel": "Cancel",

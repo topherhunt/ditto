@@ -1,6 +1,6 @@
 # Curriculum: A1 to B1
 
-This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md), [curriculum-en.md](curriculum-en.md) (A1 and A2) and [curriculum-ga.md](curriculum-ga.md) (A1). Dutch comes later and reuses the same modules and themes, with its own grammar order.
+This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md), [curriculum-en.md](curriculum-en.md), [curriculum-nl.md](curriculum-nl.md) and [curriculum-ga.md](curriculum-ga.md) (A1).
 
 ## Principles
 
@@ -28,7 +28,7 @@ A typical lesson: 3–4 words, 3–4 phrases, 2–3 chunks and 5–6 sentences, 
 - Main-track modules form a chain: each one requires the previous main module. Optional modules require the main module that supplies their prerequisite vocabulary and grammar. A main module never requires an optional one.
 - Review and the mistakes notebook are never locked.
 
-- A level test skips a whole level: 10 random sentences from the longer half of the level's main-track modules (`server/level-test.ts`). Passing takes every one clean: no wrong check, no accent slip, the right meaning; the first miss ends the test. A pass counts every module of the level as complete for unlocking and opens all its lessons in any order, but marks no lesson complete. Retakes are unlimited and test answers are not recorded.
+- A level test skips a whole level: 10 random sentences from the longer half of the level's main-track modules (`server/level-test.ts`). Passing takes every one clean: no wrong check and the right meaning (accent slips pass, as everywhere); the first miss ends the test. A pass counts every module of the level as complete for unlocking and opens all its lessons in any order, but marks no lesson complete. Retakes are unlimited and test answers are not recorded.
 
 ## Content rules
 

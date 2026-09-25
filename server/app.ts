@@ -286,10 +286,10 @@ export function createApp(deps: AppDeps) {
     if (!url) throw new HTTPException(400, { message: `Unit ${unit.id} has no voice ${r.voice}` });
     // unit.audio is in VOICES order (see loadContent).
     db.prepare(
-      `INSERT INTO reports (user_id, unit_id, unit_rev, language, text, voice, audio_file, kind, note, created_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO reports (user_id, unit_id, unit_rev, language, text, voice, audio_file, kind, answer, note, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     ).run(c.get("user").id, unit.id, r.rev, unit.language, unit.text, voiceId(VOICES[unit.language][r.voice]),
-      url.replace(/^\/audio\//, ""), r.kind, r.note.trim(), deps.now().toISOString());
+      url.replace(/^\/audio\//, ""), r.kind, r.answer ?? null, r.note.trim(), deps.now().toISOString());
     return c.json({ ok: true });
   });
 

@@ -38,15 +38,17 @@ export const AttemptSchema = z.strictObject({
 });
 export type AttemptBody = z.infer<typeof AttemptSchema>;
 
-export const REPORT_KINDS = ["audio", "text", "translation", "other"] as const;
+export const REPORT_KINDS = ["audio", "text", "translation", "accept", "other"] as const;
 export const ReportSchema = z.strictObject({
   unitId: z.string(),
   rev: z.int().positive(),
   /** Index into the unit's `audio`: the voice that played. */
   voice: z.int().min(0),
   kind: z.enum(REPORT_KINDS),
+  /** `accept` only: the answer the learner believes should have passed. */
+  answer: z.string().min(1).max(1000).optional(),
   note: z.string().max(1000),
-});
+}).refine((r) => (r.kind === "accept") === (r.answer !== undefined), { message: "answer is required for accept reports and only for them" });
 export type ReportBody = z.infer<typeof ReportSchema>;
 
 /** Letters, digits and `_ . -`, ASCII only so lookalike letters can't imitate a taken name. Unique ignoring case. */

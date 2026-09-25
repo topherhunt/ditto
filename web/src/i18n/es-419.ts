@@ -118,6 +118,7 @@ export const es419: Dictionary = {
   "report.audio": "El audio suena mal",
   "report.text": "El texto está mal",
   "report.translation": "El significado o sus opciones están mal",
+  "report.accept": "Mi respuesta debería aceptarse:",
   "report.other": "Otra cosa",
   "report.note": "¿Qué está mal? (opcional)",
   "report.cancel": "Cancelar",

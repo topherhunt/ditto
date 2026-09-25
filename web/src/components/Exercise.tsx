@@ -1,5 +1,5 @@
 import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
-import type { AttemptBody, ExplanationOut, Prefs, ReportBody } from "../../../shared/api.ts";
+import { REPORT_KINDS, type AttemptBody, type ExplanationOut, type Prefs, type ReportBody } from "../../../shared/api.ts";
 import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
@@ -9,8 +9,6 @@ import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type 
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
-
-const REPORT_KINDS: ReportBody["kind"][] = ["audio", "text", "translation", "other"];
 
 function shuffle<T>(items: T[]): T[] {
   const out = [...items];
@@ -24,8 +22,8 @@ function shuffle<T>(items: T[]): T[] {
 /**
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
  * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
- * In a level test there are no hints, the first wrong answer ends the item, an accent slip counts as a miss,
- * and nothing is recorded.
+ * In a level test there are no hints, the first wrong answer ends the item, and nothing is recorded.
+ * Accent slips pass, shown in orange, as in every mode.
  */
 export function Exercise(props: {
   unit: ServedUnit; prefs: Prefs; mode: SessionMode; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
@@ -182,7 +180,7 @@ export function Exercise(props: {
     const mode = props.mode;
     const saved = mode === "test" ? Promise.resolve() : api.post("/api/attempts", { ...d, mode, meaningCorrect } satisfies AttemptBody);
     saved.catch((e: Error) => setSaveError(e.message));
-    const missed = meaningCorrect === false || (test && d.accentSlips > 0);
+    const missed = meaningCorrect === false;
     props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, saved);
   }
 
@@ -208,7 +206,9 @@ export function Exercise(props: {
     e.preventDefault();
     setReportState("sending");
     try {
-      await api.post("/api/reports", { unitId: unit.id, rev: unit.rev, voice, kind: reportKind()!, note: reportNote() } satisfies ReportBody);
+      const kind = reportKind()!;
+      const answer = kind === "accept" ? submissions[0] : undefined;
+      await api.post("/api/reports", { unitId: unit.id, rev: unit.rev, voice, kind, answer, note: reportNote() } satisfies ReportBody);
       setReportState("sent");
     } catch (err) {
       setReportState((err as Error).message);
@@ -420,11 +420,15 @@ export function Exercise(props: {
     >
       <Show when={reportState() !== "sent"} fallback={<div class="qa-report-sent small text-body-secondary ms-auto">{t("report.sent")}</div>}>
         <form class="qa-report d-flex flex-column gap-2 small ms-auto" onSubmit={sendReport}>
-          <For each={REPORT_KINDS}>
+          {/* The first submission is the one graded wrong: a pass ends the dictation. */}
+          <For each={REPORT_KINDS.filter((k) => k !== "accept" || wrongSubmissions() > 0)}>
             {(kind) => (
               <label class="form-check mb-0">
                 <input type="radio" name="report-kind" class={`qa-report-kind-${kind} form-check-input`} checked={reportKind() === kind} onChange={() => setReportKind(kind)} />
-                <span class="form-check-label">{t(`report.${kind}`)}</span>
+                <span class="form-check-label">
+                  {t(`report.${kind}`)}
+                  <Show when={kind === "accept"}> <q class="qa-report-answer">{submissions[0]}</q></Show>
+                </span>
               </label>
             )}
           </For>

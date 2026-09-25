@@ -118,6 +118,7 @@ export const it: Dictionary = {
   "report.audio": "L'audio non suona bene",
   "report.text": "Il testo è sbagliato",
   "report.translation": "Il significato o le opzioni sono sbagliati",
+  "report.accept": "La mia risposta dovrebbe essere accettata:",
   "report.other": "Altro",
   "report.note": "Che cosa non va? (facoltativo)",
   "report.cancel": "Annulla",

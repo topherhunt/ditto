@@ -304,6 +304,140 @@ Every localized field carries exactly `es-419` and `it` (`SUPPORT_LOCALES.en`). 
   6. A problem
 - **Introduces:** mind, seat, line, hold, wrong, problem, advice, suggest, question, information, explain, bother, worry, careful, attention, complaint, return, refund, rather, apologize, sir, ma'am, fix
 
+## B1
+
+B1 sentences run longer (up to about 16 words) and chain clauses, but each lesson still builds them from words, phrases and chunks. A B1 module never uses grammar that a later module introduces: no passive before module 28, no second or third conditional before module 29, no backshifted reported speech before module 30. Where Italian needs the congiuntivo (modules 25, 26, 29, 31), the English modules teach the structure English uses instead, and the glosses flag the contrast.
+
+### 22. Travel trouble -- `en-b1-trouble`
+
+- **Requires:** `en-a2-polite`.
+- **Grammar:** the past perfect (`I had already booked`, `the plane had left`); `by the time`, `as soon as`, `after` and `before` with an earlier event; `end up` + `-ing`; `It turned out that...`.
+- **Lessons:**
+  1. I had already booked
+  2. The flight had already left
+  3. Lost luggage
+  4. The strike
+  5. As soon as I landed
+  6. What an adventure!
+- **Introduces:** trouble, miss, airline, luggage, claim, strike, insurance, rental, customs, border, passenger, board, land, shuttle, layover, delay, schedule, warn, patience, adventure, backpack, compensation, pilot, terminal
+
+### 23. Can you do me a favor? -- `en-b1-favors`
+
+- **Requires:** `en-b1-trouble`.
+- **Grammar:** separable phrasal verbs with a pronoun in the middle (`give it back`, `pay me back`) vs. inseparable ones (`look after it`); three-part phrasal verbs (`run out of`, `look forward to` + `-ing`, `get along with`, `count on`); `lend` vs. `borrow`; reflexive pronouns (`I did it myself`) and `each other`; possessive pronouns (`mine`, `yours`).
+- **Lessons:**
+  1. Can you lend me...?
+  2. I'll give it back tomorrow
+  3. Could you look after my plants?
+  4. We ran out of milk
+  5. I did it myself
+  6. You can count on me
+- **Introduces:** favor, lend, owe, promise, trust, count, rely, forward, along, other, another, each, mine, yours, myself, yourself, himself, herself, ourselves, themselves, drill, ladder, tool, plant, appreciate, kindness
+
+### 24. Looking for a job -- `en-b1-career`
+
+- **Requires:** `en-b1-favors`.
+- **Grammar:** the present perfect continuous with `for` and `since` (`I've been looking for work for months`); the `-ing` form as subject and after prepositions (`good at`, `interested in`, `before` + `-ing`); `be about to` + verb.
+- **Lessons:**
+  1. I've been looking for work
+  2. My résumé
+  3. The interview
+  4. I'm about to quit
+  5. Learning by doing
+  6. The first day
+- **Introduces:** career, ad, apply, application, interview, résumé, experience, skill, training, internship, hire, contract, salary, unemployed, industry, employee, employer, role, requirement, ability, quit, promotion, ambition, flexible, full-time, part-time, challenge, deal, confident, strength, weakness, position
+
+### 25. In my opinion -- `en-b1-opinions`
+
+- **Requires:** `en-b1-career`.
+- **Grammar:** opinions with the plain indicative (`I think it's true`, where Italian needs the congiuntivo); `I don't think` + positive clause (not `I think... not`); `I doubt (that)`, `I'm not sure whether`; `agree with` and `disagree` (a verb, not `be agree`); `be right` / `be wrong` (Spanish `tener razón`, Italian `avere ragione`); `it depends on`; modals of deduction `must`, `might`, `may`, `could` and `can't` + `be`.
+- **Lessons:**
+  1. I think it's true
+  2. I don't think so
+  3. It must be
+  4. You're right
+  5. It depends
+  6. A point of view
+- **Introduces:** opinion, doubt, convince, discuss, discussion, argue, argument, point, view, support, criticize, exaggerate, society, social, elderly, generation, solution, topic, obvious, clear, false, true, judge, prejudice, against, depend, must, might, may, whether, agree, disagree, reason, fact, completely, definitely, actually, honestly
+
+### 26. Feelings -- `en-b1-feelings`
+
+- **Requires:** `en-b1-opinions`.
+- **Grammar:** `-ed` vs. `-ing` adjectives (`bored`/`boring`, `excited`/`exciting`); adjective + preposition (`proud of`, `angry with`, `worried about`, `jealous of`); `want`, `expect` and `ask` + person + `to` (`I want you to know`, where Spanish and Italian use the subjunctive); `make` + person + adjective or verb (`It makes me happy`); `glad (that)` and `hope (that)` + present.
+- **Lessons:**
+  1. I hope you're well
+  2. I'm so glad you came
+  3. I'm worried about him
+  4. Fighting and making up
+  5. I trust you
+  6. I want you to know
+- **Introduces:** feeling, emotion, angry, upset, jealous, disappointed, proud, nervous, worried, excited, embarrassed, glad, relieved, lonely, bored, annoyed, calm, mood, relationship, couple, fight, forgive, lie, hug, kiss, honest, expect
+
+### 27. Books and movies -- `en-b1-books`
+
+- **Requires:** `en-b1-feelings`.
+- **Grammar:** relative clauses with `who`, `which`, `that`, `whose`, `where` and `when`; the object relative left out (`the book I'm reading`); the preposition at the end (`the friend I told you about`); `what` = the thing that (`What I liked most was...`); `be about` and `be set in`.
+- **Lessons:**
+  1. The book I'm reading
+  2. The friend I told you about
+  3. The city where it's set
+  4. The author whose book everyone reads
+  5. What I liked most
+  6. A review
+- **Introduces:** whose, plot, character, author, genre, chapter, page, series, episode, review, scene, ending, moving, exciting, publish, subtitle, dub, version, original, success, bookstore, cover, set, fiction, science, reader, audience
+
+### 28. The environment -- `en-b1-environment`
+
+- **Requires:** `en-b1-books`.
+- **Grammar:** the passive in the present and past (`Glass is recycled here`, `It was built in 1990`, `made of` / `made from`); the passive with modals (`It must be recycled`, `It can't be thrown away`); impersonal `you` and `they` (`You can't park here`, `They say...`, where Spanish uses `se` and Italian `si`).
+- **Lessons:**
+  1. Glass is recycled here
+  2. Sorting the trash
+  3. We waste too much
+  4. It's made of plastic
+  5. It has to be respected
+  6. The planet
+- **Introduces:** environment, pollution, pollute, trash, garbage, waste, recycle, throw, plastic, paper, bin, energy, reduce, renewable, protect, planet, earth, law, allow, rule, citizen, sustainable, produce, solar, electricity, respect, resource, destroy
+
+### 29. If I could... -- `en-b1-dreams`
+
+- **Requires:** `en-b1-environment`.
+- **Grammar:** the second conditional (`If I had time, I'd travel`, `If I were you`), where Spanish and Italian use the imperfect subjunctive; `wish` + past (`I wish I had more time`); `as if`; the third conditional and regrets with `should have`, `would have` and `could have` + participle (`I should have studied`, `It would have been better`).
+- **Lessons:**
+  1. If I had time
+  2. If I won the lottery
+  3. I wish I could
+  4. I should have
+  5. It would have been better
+  6. My dream
+- **Introduces:** lottery, win, rich, poor, million, billion, achieve, desire, regret, chance, courage, risk, island, entire, choice, imagine, afford, perfect, ideal, mistake, decision
+
+### 30. The news -- `en-b1-news`
+
+- **Requires:** `en-b1-dreams`.
+- **Grammar:** reported speech with the tense shift (`She says she's tired` -> `She said she was tired`, `had`, `would`); `say` vs. `tell` (`tell` needs a person); reported questions with statement word order (`He asked me if I was ready`, `She asked where I lived`); reported commands and requests (`She told me to wait`, `He asked us not to call`); `according to`.
+- **Lessons:**
+  1. She said that
+  2. He asked me if
+  3. He promised he would come
+  4. The evening news
+  5. An interview
+  6. On social media
+- **Introduces:** journalist, reporter, newspaper, article, headline, announce, declare, report, election, government, politician, president, mayor, inform, share, comment, public, media, deny, source, according, vote, crime, fake, spread
+
+### 31. Living in the US -- `en-b1-abroad`
+
+- **Requires:** `en-b1-news`.
+- **Grammar:** linking words: contrast with `although`, `even though`, `though`, `however` and `despite` / `in spite of` + noun or `-ing`; purpose with `so (that)` and `in order to`; condition with `unless` and `as long as`; `since` = because, `therefore`, `on the other hand`; `be used to` and `get used to` + `-ing` vs. `used to` + verb.
+- **Lessons:**
+  1. Even though
+  2. Despite the weather
+  3. So that everyone understands
+  4. Unless
+  5. I'm used to it
+  6. Pros and cons
+- **Introduces:** although, though, even, despite, spite, however, unless, therefore, culture, habit, adapt, homesick, emigrate, immigrant, accent, advantage, disadvantage, quality, system, pace, citizenship, mindset, pro, con
+
 ## Optional modules
 
 The lemma lists here are suggestions within the theme. The author settles the final list, which must not repeat a lemma any of the module's ancestors introduce.
@@ -317,3 +451,6 @@ The lemma lists here are suggestions within the theme. The author settles the fi
 | Technology | `en-a2-tech` | A2 | `en-a2-story` | 105 | My phone · The computer · I forgot my password · Download the app · The internet is down · A video call | computer, laptop, screen, keyboard, app, password, account, internet, wi-fi, website, download, upload, install, update, delete, save, log, battery, charger, video, file, connection, user, click |
 | Arts and culture | `en-a2-arts` | A2 | `en-a2-happened` | 106 | At the museum · A famous painting · Old buildings · A concert · At the theater · A little history | art, artist, painting, painter, paint, sculpture, statue, exhibit, century, architecture, building, ruin, guide, famous, ancient, modern, show, actor, director, novel, writer, poem, stage, history |
 | Paperwork | `en-a2-paperwork` | A2 | `en-a2-polite` | 107 | At the post office · At the bank · The form · The driver's license · Your ID, please · An appointment | mail, package, ship, stamp, envelope, account, checking, savings, transfer, deposit, withdraw, form, fill, signature, document, license, driver, social, security, address, certificate, expire, renew, visa, ID |
+| Once upon a time | `en-b1-tales` | B1 | `en-b1-books` | 108 | The king and the queen · In the forest · The witch · The prince set off · The treasure · Happily ever after | The simple past of story verbs for reading (`flew`, `fought`, `rode`, `fell`, `woke`), `once upon a time`, `turn into`. upon, queen, king, prince, princess, castle, dragon, witch, wizard, fairy, wolf, forest, knight, magic, sword, treasure, farmer, tower, fly, rescue, brave, clever, happily, moral, giant, frog, poison |
+| Money | `en-b1-money` | B1 | `en-b1-career` | 109 | My bank account · Saving up · Taxes · The mortgage · Everything costs more · Investing | mortgage, tax, invest, investment, interest, loan, debt, credit, earn, income, raise, increase, inflation, crisis, economy, budget, ATM, account, withdraw, pension, savings, rich |
+| Wellbeing | `en-b1-wellbeing` | B1 | `en-b1-feelings` | 110 | I'm stressed · Sleeping well · Eating healthy · Getting in shape · Relaxing · Finding balance | well-being, stress, stressed, diet, nutrition, healthy, insomnia, meditation, weight, gain, vitamin, fat, protein, anxiety, balance, therapist, therapy, exercise, yoga, mental, physical, routine |

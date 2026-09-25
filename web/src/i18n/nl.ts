@@ -118,6 +118,7 @@ export const nl: Dictionary = {
   "report.audio": "De audio klinkt niet goed",
   "report.text": "De tekst klopt niet",
   "report.translation": "De betekenis of de opties kloppen niet",
+  "report.accept": "Mijn antwoord zou goedgekeurd moeten worden:",
   "report.other": "Iets anders",
   "report.note": "Wat klopt er niet? (optioneel)",
   "report.cancel": "Annuleren",
