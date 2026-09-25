@@ -7,6 +7,7 @@ import { Exercise } from "../components/Exercise.tsx";
 import { t } from "../i18n/index.ts";
 import type { Outcome } from "../practice.ts";
 import { me } from "../session.ts";
+import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
 
 type Deck = { title: string; units: ServedUnit[]; start: number; lessonId: string | null };
@@ -47,7 +48,7 @@ function Comparison(props: { lessonId: string; saves: Promise<unknown>[] }) {
           <For each={rows()}>
             {(r) => (
               <tr class="qa-compare-row" classList={{ "fw-semibold": r.isMe }}>
-                <td>{r.isMe ? t("compare.you") : r.person.name}</td>
+                <td>{r.isMe ? t("compare.you") : displayName(r.person)}</td>
                 <td class="text-end">{r.dictation}%</td>
                 <td class="text-end">{r.meaning === null ? "--" : `${r.meaning}%`}</td>
                 <td class="text-end">{r.hints}</td>

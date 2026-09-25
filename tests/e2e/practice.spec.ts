@@ -1,11 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { signIn } from "./helpers.ts";
 
-async function signIn(page: Page, email: string) {
-  await page.goto("/");
-  await page.locator(".qa-dev-email").fill(email);
-  await page.locator(".qa-dev-submit").click();
-  await expect(page.locator(".qa-user")).toHaveText(email);
-}
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
 

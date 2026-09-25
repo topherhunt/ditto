@@ -49,7 +49,12 @@ export const ReportSchema = z.strictObject({
 });
 export type ReportBody = z.infer<typeof ReportSchema>;
 
-export const FriendRequestSchema = z.strictObject({ email: z.email() });
+/** Letters, digits and `_ . -`, ASCII only so lookalike letters can't imitate a taken name. Unique ignoring case. */
+export const UsernameSchema = z.string().trim().regex(/^[A-Za-z0-9_.-]{3,20}$/);
+export const PutUsernameSchema = z.strictObject({ username: UsernameSchema });
+
+/** By email from the Friends page, or by id from a profile. */
+export const FriendRequestSchema = z.union([z.strictObject({ email: z.email() }), z.strictObject({ userId: z.int() })]);
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
 
 export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
@@ -65,7 +70,7 @@ export const CHALLENGE_ACTIONS = ["accept", "decline", "cancel"] as const;
 
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
-export type Me = { email: string; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
+export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
 export type Config = { googleClientId: string | null; devLogin: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 export type Catalog = {
@@ -74,8 +79,8 @@ export type Catalog = {
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
   /** Course and lesson ids the learner can start. */
   unlocked: string[];
-  /** Locked lessons a friend has started, which the learner may play anyway: lessonId -> friend names. */
-  viaFriends: Record<string, string[]>;
+  /** Locked lessons a friend has started, which the learner may play anyway: lessonId -> those friends. */
+  viaFriends: Record<string, Person[]>;
   dueCount: number;
   mistakesCount: number;
 };
@@ -91,7 +96,8 @@ export type MistakeEntry = {
 };
 export type ReviewOut = { units: ServedUnit[]; dueCount: number };
 
-export type Person = { id: number; name: string; email: string; picture: string | null };
+/** Everything anyone may see about an account. `username` is null until they pick one. */
+export type Person = { id: number; username: string | null };
 /** How the searcher stands with an account. A blocked requester sees `outgoing`. */
 export type Relation = "self" | "none" | "outgoing" | "incoming" | "friends" | "blocked";
 export type FriendSearchOut = { found: false } | { found: true; id: number; relation: Relation };
@@ -100,20 +106,36 @@ export type FriendsOut = {
   incoming: Person[];
   outgoing: Person[];
   blocked: Person[];
-  /** The learner and their friends by lessons completed in the last 7 days. */
-  leaderboard: { person: Person; lessons: number }[];
 };
 
+/** Rolling windows, in days. */
+export const LEADERBOARD_WINDOWS = { day: 1, week: 7, month: 30 } as const;
+export type LeaderboardWindow = keyof typeof LEADERBOARD_WINDOWS;
+export const LEADERBOARD_SCOPES = ["everyone", "friends"] as const;
+export type LeaderboardScope = (typeof LEADERBOARD_SCOPES)[number];
+export const LEADERBOARD_SIZE = 20;
+/** Tied lesson counts share a rank. */
+export type LeaderboardRow = { rank: number; person: Person; lessons: number; isMe: boolean; isFriend: boolean };
+/** `everyone` lists learners with a username and a lesson in the window; `friends` lists the viewer and all friends. `me` is the viewer's row when it falls outside `rows`. */
+export type LeaderboardOut = { rows: LeaderboardRow[]; me: LeaderboardRow | null };
+
 export type ActivityWindow = "day" | "week" | "month" | "year";
+/** Anyone's profile shows activity volume; `details` is for yourself and friends only. */
 export type Profile = {
   person: Person;
-  isMe: boolean;
+  relation: Relation;
   /** The smallest window with at least two lessons completed, else when the last one was. */
   activity: { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
-  /** Latest learn attempt per item, over the last 10 lessons worked on. Percentages; null with no items. */
-  accuracy: { lessons: number; dictation: number | null; meaning: number | null };
-  /** Languages with any progress, most recent first. */
-  languages: LanguageProfile[];
+  lessons: Record<LeaderboardWindow, number>;
+  details: {
+    name: string;
+    email: string;
+    picture: string | null;
+    /** Latest learn attempt per item, over the last 10 lessons worked on. Percentages; null with no items. */
+    accuracy: { lessons: number; dictation: number | null; meaning: number | null };
+    /** Languages with any progress, most recent first. */
+    languages: LanguageProfile[];
+  } | null;
 };
 export type LanguageProfile = {
   language: Language;

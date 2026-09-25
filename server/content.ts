@@ -7,12 +7,12 @@ import {
 } from "../shared/content.ts";
 import { tokenize, words } from "../shared/tokenize.ts";
 
-/** For `elevenlabs`, `model` is the voice id; rendering it spends account credits (see scripts/build-audio.ts). */
-export type Voice = { engine: "piper" | "kokoro" | "elevenlabs"; model: string; speaker?: number; gender: "F" | "M" };
+/** For `abair`, `model` is an ABAIR voice name; see scripts/tts-render.py. */
+export type Voice = { engine: "piper" | "kokoro" | "abair"; model: string; speaker?: number; gender: "F" | "M" };
 
 /**
  * Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch.
- * GA has only two voices because each one is paid for per character.
+ * GA uses ABAIR's Munster voices, to match the Munster forms in the course (Conas atá tú?, Táim).
  */
 export const VOICES: Record<Language, Voice[]> = {
   en: [
@@ -34,8 +34,8 @@ export const VOICES: Record<Language, Voice[]> = {
     { engine: "piper", model: "nl_NL-mls-medium", speaker: 6, gender: "F" },
   ],
   ga: [
-    { engine: "elevenlabs", model: "EXAVITQu4vr4xnSDxMaL", gender: "F" }, // Sarah
-    { engine: "elevenlabs", model: "JBFqnCBsd6RMkjVDRZzb", gender: "M" }, // George
+    { engine: "abair", model: "ga_MU_nnc_piper", gender: "F" }, // Neasa
+    { engine: "abair", model: "ga_MU_cmg_piper", gender: "M" }, // Colm
   ],
 };
 
@@ -162,7 +162,7 @@ export function loadContent(contentDir: string, audioDir: string, opts: { requir
           const where = `unit ${unit.id}`;
           if (unitIds.has(unit.id)) fail(file, `duplicate unit id ${unit.id}`);
           unitIds.add(unit.id);
-          if (language !== "en" && !unit.translation) fail(file, `${where} needs a translation`);
+          if (!unit.translation) fail(file, `${where} needs a translation`);
           if (!!unit.translation !== !!unit.distractors) fail(file, `${where} needs distractors exactly when it has a translation`);
           if (unit.translation) complete(file, `${where} translation`, unit.translation);
           if (unit.distractors) complete(file, `${where} distractors`, unit.distractors);

@@ -5,6 +5,7 @@ import { PATHS, type ServedCourse, type ServedLesson } from "../../../shared/con
 import { api } from "../api.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { me } from "../session.ts";
+import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
 
 export function Home() {
@@ -77,12 +78,15 @@ export function Home() {
                                           <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm btn-success">{label()}</A>
                                         </Match>
                                         <Match when={cat().viaFriends[lesson.id]}>
-                                          {(names) => (
+                                          {(friends) => {
+                                            const names = () => friends().map(displayName);
+                                            return (
                                             <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap"
                                               title={t("home.unlockedBy", { names: names().join(", ") })}>
                                               {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
                                             </A>
-                                          )}
+                                            );
+                                          }}
                                         </Match>
                                       </Switch>
                                     </li>

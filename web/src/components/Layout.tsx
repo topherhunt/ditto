@@ -6,6 +6,7 @@ import { logout, me } from "../session.ts";
 import { theme, toggleTheme } from "../theme.ts";
 import { Login } from "./Login.tsx";
 import { Notifications } from "./Notifications.tsx";
+import { UsernameForm } from "./UsernameForm.tsx";
 
 export const LAST_LANG_KEY = "lastLanguage";
 
@@ -27,6 +28,15 @@ export function Layout(props: RouteSectionProps) {
       <Switch>
         <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
         <Match when={me() === null}><Login /></Match>
+        {/* A new account has no username yet, and the leaderboard and profiles need one. */}
+        <Match when={me() && me()!.username === null}>
+          <div class="qa-choose-username container py-5" style={{ "max-width": "28rem" }}>
+            <h1 class="h4">{t("username.title")}</h1>
+            <p class="text-body-secondary">{t("username.intro")}</p>
+            <UsernameForm initial={null} submitLabel={t("username.continue")} />
+            <button type="button" class="qa-logout btn btn-link btn-sm px-0 mt-3" onClick={logout}>{t("nav.signOut")}</button>
+          </div>
+        </Match>
         <Match when={me()}>
           {(user) => (
             <>
@@ -60,12 +70,15 @@ export function Layout(props: RouteSectionProps) {
                     <div class="dropdown" ref={menuRoot}>
                       <button type="button" class="qa-user btn btn-sm btn-outline-secondary dropdown-toggle" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
-                        {user().email}
+                        {user().username}
                       </button>
                       {/* data-bs-popper="static" makes Bootstrap's CSS position the menu without its JS. */}
                       <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
                         <li><A href="/people/me" class="qa-nav-profile dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.profile")}</A></li>
                         <li><A href="/friends" class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.friends")}</A></li>
+                        <li><A href="/leaderboard" class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.leaderboard")}</A></li>
+                        <li><A href="/account" class="qa-nav-account dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.account")}</A></li>
+                        <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.about")}</A></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item" onClick={logout}>{t("nav.signOut")}</button></li>
                       </ul>

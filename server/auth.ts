@@ -5,7 +5,7 @@ import type { DB } from "./db.ts";
 
 export type GoogleProfile = { sub: string; email: string; name: string; picture: string | null };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
-export type User = { id: number; email: string; name: string; picture: string | null; prefs: string; locale: Locale };
+export type User = { id: number; email: string; username: string | null; name: string; picture: string | null; prefs: string; locale: Locale };
 
 export const SESSION_COOKIE = "lp_session";
 export const SESSION_DAYS = 30;
@@ -46,7 +46,7 @@ export function createSession(db: DB, userId: number, now: Date): string {
 export function sessionUser(db: DB, token: string, now: Date): User | null {
   const row = db
     .prepare(
-      `SELECT u.id, u.email, u.name, u.picture, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
+      `SELECT u.id, u.email, u.username, u.name, u.picture, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
        WHERE s.token_hash = ? AND s.expires_at > ?`,
     )
     .get(hashToken(token), now.toISOString());

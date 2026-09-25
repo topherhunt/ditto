@@ -11,7 +11,7 @@ export type Locale = (typeof LOCALES)[number];
 export const LOCALE_NAMES: Record<Locale, string> = { en: "English", "es-419": "Latin American Spanish", nl: "Dutch", it: "Italian" };
 
 /** Support languages each target language's content carries, in fallback order: every localized field has exactly these. */
-export const SUPPORT_LOCALES: Record<Language, readonly Locale[]> = { en: ["en"], it: ["en", "es-419", "nl"], nl: ["en"], ga: ["en"] };
+export const SUPPORT_LOCALES: Record<Language, readonly Locale[]> = { en: ["es-419", "it"], it: ["en", "es-419", "nl"], nl: ["en"], ga: ["en"] };
 
 /** The support language a learner with UI `locale` gets for `language`: their own when the content has it, else the first. */
 export const supportLocale = (language: Language, locale: Locale): Locale =>

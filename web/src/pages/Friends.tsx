@@ -7,7 +7,7 @@ import {
 import { api } from "../api.ts";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
-import { dayCount, daysLeft, lessonCount, raceLabel } from "../social.ts";
+import { dayCount, daysLeft, displayName, raceLabel } from "../social.ts";
 
 /** What a search says about an account; `none` and `incoming` show a button instead. */
 const SEARCH_RESULT: Record<Exclude<Relation, "none" | "incoming">, Key> = {
@@ -102,29 +102,13 @@ export function Friends() {
               </section>
             </Show>
 
-            <Show when={f().friends.length > 0}>
-              <section class="d-flex flex-column gap-2">
-                <h2 class="h5 mb-0">{t("friends.thisWeek")}</h2>
-                <ol class="qa-leaderboard list-group list-group-numbered">
-                  <For each={f().leaderboard}>
-                    {(row) => (
-                      <li class="qa-leader list-group-item d-flex gap-2">
-                        <span class="me-auto">{row.person.name}</span>
-                        <span class="qa-leader-lessons text-body-secondary">{lessonCount(row.lessons)}</span>
-                      </li>
-                    )}
-                  </For>
-                </ol>
-              </section>
-            </Show>
-
             <section class="d-flex flex-column gap-2">
               <h2 class="h5 mb-0">{t("friends.yours")}</h2>
               <For each={f().friends} fallback={<p class="text-body-secondary mb-0">{t("friends.none")}</p>}>
                 {(p) => <FriendRow person={p} racing={(races() ?? []).some((r) => ["pending", "active"].includes(r.status) && [r.challenger.id, r.opponent.id].includes(p.id))} onRaced={refresh} />}
               </For>
               <Show when={f().outgoing.length > 0}>
-                <p class="qa-outgoing small text-body-secondary mb-0">{t("friends.waitingFor", { names: f().outgoing.map((p) => p.name).join(", ") })}</p>
+                <p class="qa-outgoing small text-body-secondary mb-0">{t("friends.waitingFor", { names: f().outgoing.map(displayName).join(", ") })}</p>
               </Show>
             </section>
 
@@ -150,10 +134,7 @@ export function Friends() {
 
 function PersonLabel(props: { person: Person }) {
   return (
-    <div class="me-auto">
-      <div class="fw-semibold">{props.person.name}</div>
-      <div class="small text-body-secondary">{props.person.email}</div>
-    </div>
+    <A href={`/people/${props.person.id}`} class="qa-person-link me-auto fw-semibold text-decoration-none">{displayName(props.person)}</A>
   );
 }
 
@@ -182,8 +163,7 @@ function FriendRow(props: { person: Person; racing: boolean; onRaced: () => unkn
     <div class="qa-friend card"><div class="card-body d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
         <A href={`/people/${props.person.id}`} class="qa-friend-link me-auto text-decoration-none">
-          <div class="fw-semibold">{props.person.name}</div>
-          <div class="small text-body-secondary">{props.person.email}</div>
+          <div class="fw-semibold">{displayName(props.person)}</div>
         </A>
         <Show when={!props.racing}>
           <button type="button" class="qa-race-open btn btn-sm btn-outline-primary" onClick={() => setOpen(!open())}>{t("race.open")}</button>
@@ -222,16 +202,16 @@ function Race(props: { race: ChallengeOut; onAction: (id: number, action: string
   return (
     <div class="qa-race card" classList={{ "border-primary": r().status === "active" }}><div class="card-body d-flex flex-wrap align-items-center gap-2">
       <div class="me-auto">
-        <div class="fw-semibold">{t("race.title", { a: r().challenger.name, b: r().opponent.name, race: raceLabel(r()) })}</div>
+        <div class="fw-semibold">{t("race.title", { a: displayName(r().challenger), b: displayName(r().opponent), race: raceLabel(r()) })}</div>
         <div class="qa-race-status small text-body-secondary">
           <Switch>
-            <Match when={r().status === "pending"}>{isMine() ? t("race.waitingForThem", { name: r().opponent.name }) : t("race.waitingForYou")}</Match>
+            <Match when={r().status === "pending"}>{isMine() ? t("race.waitingForThem", { name: displayName(r().opponent) }) : t("race.waitingForYou")}</Match>
             <Match when={r().status === "active"}>
               {t("race.score", { a: r().scores.challenger, b: r().scores.opponent })} · {t("race.left", { days: dayCount(daysLeft(r().endsAt!)) })}
             </Match>
             <Match when={r().status === "finished"}>
               {t("race.score", { a: r().scores.challenger, b: r().scores.opponent })} ·{" "}
-              {r().winnerId === null ? t("race.draw") : t("race.won", { name: r().winnerId === r().challenger.id ? r().challenger.name : r().opponent.name })}
+              {r().winnerId === null ? t("race.draw") : t("race.won", { name: displayName(r().winnerId === r().challenger.id ? r().challenger : r().opponent) })}
             </Match>
             <Match when={r().status === "declined"}>{t("race.declined")}</Match>
             <Match when={r().status === "cancelled"}>{t("race.cancelled")}</Match>

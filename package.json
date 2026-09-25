@@ -15,7 +15,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "content:validate": "node scripts/validate-content.ts",
-    "content:audio": "node --env-file-if-exists=.env scripts/build-audio.ts"
+    "content:audio": "node scripts/build-audio.ts"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",

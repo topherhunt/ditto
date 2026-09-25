@@ -3,7 +3,7 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, ReportSchema,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
   type Catalog, type Config, type ExplanationOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
 import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedLesson, type ServedUnit } from "../shared/content.ts";
@@ -85,6 +85,11 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   };
 
+  app.get("/health", (c) => {
+    db.prepare("SELECT 1").get();
+    return c.json({ ok: true });
+  });
+
   app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin }));
 
   app.post("/api/auth/google", async (c) => {
@@ -128,12 +133,23 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/me", (c) => {
     const u = c.get("user");
-    return c.json<Me>({ email: u.email, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u) });
+    return c.json<Me>({ email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u) });
   });
 
   app.put("/api/locale", async (c) => {
     const { locale } = PutLocaleSchema.parse(await c.req.json());
     db.prepare("UPDATE users SET locale = ? WHERE id = ?").run(locale, c.get("user").id);
+    return c.json({ ok: true });
+  });
+
+  app.put("/api/username", async (c) => {
+    const { username } = PutUsernameSchema.parse(await c.req.json());
+    const me = c.get("user").id;
+    transaction(db, () => {
+      if (db.prepare("SELECT 1 FROM users WHERE username = ? COLLATE NOCASE AND id != ?").get(username, me))
+        throw new HTTPException(409, { message: `The username ${username} is taken` });
+      db.prepare("UPDATE users SET username = ? WHERE id = ?").run(username, me);
+    });
     return c.json({ ok: true });
   });
 

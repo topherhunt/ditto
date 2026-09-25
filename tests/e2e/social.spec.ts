@@ -1,17 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { signIn, signOut } from "./helpers.ts";
 
-async function signIn(page: Page, email: string) {
-  await page.goto("/");
-  await page.locator(".qa-dev-email").fill(email);
-  await page.locator(".qa-dev-submit").click();
-  await expect(page.locator(".qa-user")).toHaveText(email);
-}
-
-async function signOut(page: Page) {
-  await page.locator(".qa-user").click();
-  await page.locator(".qa-logout").click();
-  await expect(page.locator(".qa-dev-email")).toBeVisible();
-}
 
 async function openFriends(page: Page) {
   await page.locator(".qa-user").click();
@@ -115,5 +104,52 @@ test("a race invite shows in the bell and starts once accepted", async ({ page }
   await page.locator(".qa-race-accept").click();
   await expect(page.locator(".qa-race .qa-race-status")).toContainText("0 to 0");
   await expect(page.locator(".qa-race .qa-race-status")).toContainText("30 days left");
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-leaderboard").click();
+  await page.locator(".qa-board-scope-friends").click();
   await expect(page.locator(".qa-leader")).toHaveCount(2);
+});
+
+test("a new account picks a username, finds a stranger on the leaderboard, sees only their counts, asks to be friends, and renames itself", async ({ page }) => {
+  const stranger = "learner13@example.com";
+  await signIn(page, stranger);
+  await page.goto("/it/lesson/it-a1-bar-1");
+  await finishLesson(page);
+  await signOut(page);
+
+  await page.locator(".qa-dev-email").fill("learner14@example.com");
+  await page.locator(".qa-dev-submit").click();
+  await expect(page.locator(".qa-choose-username")).toBeVisible();
+  await expect(page.locator(".qa-user")).toHaveCount(0);
+  await page.locator(".qa-username").fill("LEARNER13");
+  await page.locator(".qa-username-save").click();
+  await expect(page.locator(".qa-username-error")).toBeVisible();
+  await page.locator(".qa-username").fill("wren");
+  await page.locator(".qa-username-save").click();
+  await expect(page.locator(".qa-user")).toHaveText("wren");
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-leaderboard").click();
+  await expect(page).toHaveURL(/\/leaderboard$/);
+  const row = page.locator(".qa-leader").filter({ hasText: "learner13" });
+  await expect(row.locator(".qa-leader-lessons")).toHaveText("1 lesson");
+  await row.locator(".qa-leader-link").click();
+  await expect(page).toHaveURL(/\/people\/\d+$/);
+  await expect(page.locator(".qa-profile-name")).toHaveText("learner13");
+  await expect(page.locator(".qa-profile-lessons-week")).toHaveText("1");
+  await expect(page.locator(".qa-profile-private")).toBeVisible();
+  await expect(page.locator(".qa-profile-language")).toHaveCount(0);
+  await expect(page.locator(".qa-accuracy")).toHaveCount(0);
+  await page.locator(".qa-profile-befriend").click();
+  await expect(page.locator(".qa-profile-sent")).toBeVisible();
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-account").click();
+  await expect(page).toHaveURL(/\/account$/);
+  await expect(page.locator(".qa-username")).toHaveValue("wren");
+  await page.locator(".qa-username").fill("wren.b");
+  await page.locator(".qa-username-save").click();
+  await expect(page.locator(".qa-account-status")).toBeVisible();
+  await expect(page.locator(".qa-user")).toHaveText("wren.b");
 });

@@ -1,6 +1,6 @@
-# Curriculum: A1 and A2
+# Curriculum: A1 to B1
 
-This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md) (written). English and Dutch come later and reuse the same modules and themes, with their own grammar order.
+This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md), [curriculum-en.md](curriculum-en.md) (A1 and A2) and [curriculum-ga.md](curriculum-ga.md) (A1). Dutch comes later and reuses the same modules and themes, with its own grammar order.
 
 ## Principles
 
@@ -14,10 +14,10 @@ This doc covers the language-neutral structure, the ordering principles and the 
 
 ## Structure
 
-- **Level:** A1, A2. The Home page groups modules by level.
+- **Level:** A1, A2, B1. The Home page groups modules by level.
 - **Module** (a `course` in the content schema): one situation or theme, about 6 lessons, and 40–80 new lemmas. It has a `track`, `main` or `optional`.
 - **Lesson:** 14–16 units that build toward 5–7 sentences. It ends on a sentence.
-- **Unit:** one dictation item with stage `word`, `phrase`, `chunk` or `sentence`. For `it` and `nl`, a unit has a translation and two distractors for the meaning check, one set per support language (`SUPPORT_LOCALES` in `shared/content.ts`).
+- **Unit:** one dictation item with stage `word`, `phrase`, `chunk` or `sentence`. A unit has a translation and two distractors for the meaning check, one set per support language (`SUPPORT_LOCALES` in `shared/content.ts`).
 
 A typical lesson: 3–4 words, 3–4 phrases, 2–3 chunks and 5–6 sentences, interleaved so that each sentence follows the pieces it uses.
 
@@ -40,7 +40,7 @@ Placement (skipping ahead for learners who already know the basics) is on the [r
 
 ## Modules
 
-The same 21 main modules and 7 optional modules apply in every language. Titles below are the Italian ones. The grammar column is the Italian sequence; the language plans own the details.
+The same 31 main modules and 10 optional modules apply in every language. Titles below are the Italian ones. The grammar column is the Italian sequence; the language plans own the details.
 
 ### A1 (main track)
 
@@ -73,6 +73,21 @@ The same 21 main modules and 7 optional modules apply in every language. Titles 
 | 20 | Meglio o peggio | Compare places, people and things | comparatives, relative superlative, `-issimo`, `migliore/meglio` |
 | 21 | Per cortesia | Make polite requests, give advice, handle a phone call | condizionale presente, informal and formal imperative |
 
+### B1 (main track)
+
+| # | Module | Can-do | Italian grammar |
+|---|---|---|---|
+| 22 | Imprevisti di viaggio | Handle cancellations, strikes and lost luggage; tell what had already happened | trapassato prossimo, `appena`, `dopo che`, `ormai` |
+| 23 | Me lo presti? | Ask for and do favors, lend, borrow and return things | combined pronouns, `andarsene`, `farcela`, `tenerci` |
+| 24 | Cerco lavoro | Look for a job, talk about a CV, get through an interview | `stare` + gerundio, gerundio, `stare per` |
+| 25 | Secondo me | Give and ask for opinions, agree, disagree, hedge | congiuntivo presente after opinion verbs; indicative after `secondo me` |
+| 26 | Sentimenti | Talk about feelings and relationships, wish, worry, make up | congiuntivo after wishes, emotions and impersonal expressions; congiuntivo passato |
+| 27 | Libri e film | Describe and recommend books, films and series | relative pronouns `che`, `cui`, `il quale`, `chi`, `quello che` |
+| 28 | L'ambiente | Talk about recycling, rules and the environment | impersonal and passive `si`, passive with `essere`/`venire`/`andare` |
+| 29 | Se potessi... | Imagine, dream and express regrets | congiuntivo imperfetto, hypothetical `se`, `come se`, condizionale passato |
+| 30 | Le notizie | Report what others said and asked, follow the news | reported speech, indirect questions, future in the past |
+| 31 | Vivere in Italia | Weigh pros and cons of life abroad, argue a point | conjunctions with the congiuntivo vs. the indicative |
+
 ### Optional modules
 
 | Module | Requires | Adds |
@@ -84,7 +99,10 @@ The same 21 main modules and 7 optional modules apply in every language. Titles 
 | Tecnologia | 13 La mia storia | Phones, computers, apps, accounts and passwords |
 | Arte e cultura | 15 Cos'è successo? | Museums, painting, architecture, music, theater, history |
 | Burocrazia | 21 Per cortesia | Documents, forms, the post office, the bank, residence permits |
+| C'era una volta | 27 Libri e film | Fairy tales, and the passato remoto for reading |
+| Soldi | 24 Cerco lavoro | Saving, taxes, loans, mortgages, prices and the economy |
+| Benessere | 26 Sentimenti | Stress, sleep, diet, fitness and balance |
 
 ## Coverage and gaps
 
-A1+A2 as specified by CEFR also covers listening to connected speech, short conversations and reading. Dictation of single sentences covers recognition, spelling and core grammar. It does not cover discourse, interaction or speaking. [roadmap.md](roadmap.md) lists these blind spots and ideas to close them.
+A1 to B1 as specified by CEFR also covers listening to connected speech, short conversations and reading. Dictation of single sentences covers recognition, spelling and core grammar. It does not cover discourse, interaction or speaking. [roadmap.md](roadmap.md) lists these blind spots and ideas to close them.

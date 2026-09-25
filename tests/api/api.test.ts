@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { setup } from "./helpers.ts";
 
+describe("health", () => {
+  it("answers ok without a session once the database responds", async () => {
+    const t = setup();
+    expect(await t.req("GET", "/health")).toMatchObject({ status: 200, json: { ok: true } });
+  });
+});
+
 describe("auth", () => {
   it("rejects API calls without a session and accepts them after Google sign-in", async () => {
     const t = setup();

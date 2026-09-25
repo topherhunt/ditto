@@ -1,11 +1,10 @@
 import { expect, test } from "@playwright/test";
+import { signIn } from "./helpers.ts";
 
 test("switching the interface language localizes the UI and the meaning check, and survives a reload", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await page.locator(".qa-dev-email").fill("locale1@example.com");
-  await page.locator(".qa-dev-submit").click();
-  await expect(page.locator(".qa-user")).toHaveText("locale1@example.com");
+  await signIn(page, "locale1@example.com");
 
   await page.locator(".qa-nav-settings").click();
   await page.locator(".qa-settings-locale").selectOption("es-419");
@@ -38,7 +37,10 @@ test("a language picked before sign-in becomes a new account's interface languag
   await expect(page.locator(".qa-dev-submit")).toHaveText("Dev-login");
   await page.locator(".qa-dev-email").fill("locale2@example.com");
   await page.locator(".qa-dev-submit").click();
-  await expect(page.locator(".qa-user")).toHaveText("locale2@example.com");
+  await expect(page.locator(".qa-choose-username h1")).toHaveText("Kies een gebruikersnaam");
+  await page.locator(".qa-username").fill("locale2");
+  await page.locator(".qa-username-save").click();
+  await expect(page.locator(".qa-user")).toHaveText("locale2");
   await expect(page.locator(".qa-nav-review")).toHaveText("Herhalen");
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-settings-locale")).toHaveValue("nl");

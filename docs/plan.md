@@ -18,22 +18,24 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Google sign-in (the only login method), with an email allowlist.
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
 - Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
-- After each item (`it`/`nl`): a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
-- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` and `nl` have `en` only), else in English.
+- After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
+- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` and `ga` have `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
 - "Report a problem" under each item (bad audio, wrong text, wrong meaning, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
-- Friends, found by exact email. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
-- Profiles, visible to yourself and your friends. A profile shows the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
+- Friends, added by exact email or from a profile. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
+- Usernames: picked on a blocking screen right after first sign-in, changeable under Account settings (`/account`). ASCII `[A-Za-z0-9_.-]{3,20}`, unique regardless of capitals. Lists, races, notifications and leaderboards show only the username.
+- Profiles. Anyone sees the username, the activity line and lessons completed in the past day/week/month, with an Add friend button. Only you and your friends see the name, email and the rest: the current module per language the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
 - A lesson any friend has started is playable out of sequence. Its done screen compares your latest run with friends who have played it.
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
-- A 7-day leaderboard of you and your friends, and an in-app notifications bell (no email or push).
-- Content: the full Italian A1+A2 curriculum (21 main and 7 optional modules, [curriculum-it.md](curriculum-it.md)); a one-module seed course for `en` and `nl`.
+- A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
+- An in-app notifications bell (no email or push).
+- Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 and A2 for Spanish and Italian speakers (21 main and 7 optional modules, [curriculum-en.md](curriculum-en.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)); a one-module seed course for `nl`.
 
 **Later**
 
-- English and Dutch A1+A2 content.
+- Dutch A1+A2 content.
 - A stats page (accuracy, hint rate, streaks).
 - Deploy automation.
 - The learning blind spots in [roadmap.md](roadmap.md).
@@ -81,13 +83,14 @@ Filenames are content-addressed: `sha1(renderVersion|lang|voice|text)` -> `/audi
 
 The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Every unit and every word has one file per voice; the served `audio` arrays follow the voice order in `VOICES` (`server/content.ts`). Word audio is keyed on the lowercase surface form.
 
-Voices, four per language, both genders:
+Voices, both genders, four per language except `ga`:
 - `en`: Piper amy, lessac (F) and ryan, joe (M).
 - `it`: Piper paola, serena and Kokoro if_sara (F), plus Kokoro im_nicola (M). Kokoro has no other Italian voices.
 - `nl`: Piper pim, ronnie (M) and two speakers of the multi-speaker `nl_NL-mls` model (F, chosen by median pitch).
+- `ga`: ABAIR's Munster voices Neasa (F) and Colm (M), matching the course's Munster forms. ABAIR (Trinity College Dublin) is a free public service; credit it wherever Irish audio ships.
 
-`scripts/build-audio.ts` renders only missing files, with one `scripts/tts-render.py` process per voice in parallel. `--prune` also deletes files no content references. The renderer:
-1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`);
+`scripts/build-audio.ts` renders only missing files, with one `scripts/tts-render.py` process per voice in parallel, except ABAIR voices, which run one at a time with a 1s pause per request. `--prune` also deletes files no content references. The renderer:
+1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`), or fetches from ABAIR's web reader endpoint;
 2. trims silence, matches loudness (RMS 0.08, peak capped at 0.95) and pads 150ms at each end;
 3. encodes with `afconvert` into a `.part` file, then renames it, so an interrupted run never leaves a truncated file.
 
@@ -126,7 +129,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - `commas[]`: word indices after which a comma or semicolon is accepted although the text has none.
 - `distractors`: two wrong translations for the meaning check. Required exactly when there is a `translation`.
 - Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which invalidates cached explanations.
-- **Localized fields** (`description`, `grammarFocus`, `gloss`, `translation`, `distractors`) are locale maps with exactly the course language's `SUPPORT_LOCALES`; a missing or extra locale is a load error. The loader builds one served copy of the content per UI locale. There is no `translation` for `en` courses yet.
+- **Localized fields** (`description`, `grammarFocus`, `gloss`, `translation`, `distractors`) are locale maps with exactly the course language's `SUPPORT_LOCALES`; a missing or extra locale is a load error. The loader builds one served copy of the content per UI locale. Every unit needs a `translation`.
 - New support languages are added as one patch per course and locale, checked and merged by `scripts/merge-locale.ts` (`--check` validates without writing).
 
 ## Practice settings (per user, per language)
@@ -185,7 +188,9 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 ## Data model (SQLite)
 
 ```sql
-users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, locale, created_at)
+users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, locale, created_at,
+      username  -- NULL until picked; UNIQUE COLLATE NOCASE
+      )
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
          , path, hints_level, outcome, wrong_submissions, hints_used, replays, accent_slips,
@@ -220,7 +225,8 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`), checks `ALLOWED_EMAILS`, and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
 | POST | `/api/auth/dev` | Enabled only when `DEV_LOGIN=1`. Used by E2E tests |
 | POST | `/api/auth/logout` | |
-| GET | `/api/me` | User and prefs |
+| GET | `/api/me` | User, username and prefs |
+| PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
 | PUT | `/api/prefs` | |
 | GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress, plus review-due and notebook counts |
 | POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction |
@@ -229,11 +235,12 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
 | POST | `/api/reports` | `{unitId, rev, voice, kind, note}`, where `voice` is the index into the unit's `audio` |
-| GET | `/api/friends` | Friends, incoming/outgoing/blocked requests, and the 7-day leaderboard |
+| GET | `/api/friends` | Friends and incoming/outgoing/blocked requests |
+| GET | `/api/leaderboard?window=(day\|week\|month)&scope=(everyone\|friends)` | `{rows, me}`; `me` is your row when it's outside the top 20 |
 | GET | `/api/friends/search?email=` | Only whether the account exists and how you stand with it |
-| POST | `/api/friends/requests` | `{email}`. If they already asked you, this accepts their request |
+| POST | `/api/friends/requests` | `{email}` or `{userId}`. If they already asked you, this accepts their request |
 | POST | `/api/friends/:id/(accept\|decline\|block\|unblock\|unfriend)` | Unfriending cancels open races |
-| GET | `/api/profile/(:id\|me)` | Self or friends only; 404 otherwise |
+| GET | `/api/profile/(:id\|me)` | Anyone: person, relation, activity, lesson counts. `details` is null unless self or friends |
 | GET | `/api/lessons/:lessonId/compare` | Your latest run of the lesson next to your friends' |
 | GET | `/api/challenges` | Settles due races; lists open ones and the past 30 days |
 | POST | `/api/challenges` | `{opponentId, kind: "most", days}` or `{opponentId, kind: "first_to", target}` |
@@ -265,7 +272,6 @@ Every selector used in tests is a `qa-*` class.
 - `npm run build` builds the SPA into `dist/web`.
 - systemd runs `node server/index.ts` with `NODE_ENV=production` and the env vars in `.env.example`. In production, boot fails if `GOOGLE_CLIENT_ID` is unset, if `DEV_LOGIN=1`, or if any audio file is missing.
 - Audio is rendered locally (`npm run content:audio`, macOS: needs `afconvert`) and rsynced separately.
-- Caddy config: `lang.example.com { reverse_proxy localhost:3000 }`.
-- Backup: a nightly `sqlite3 app.db ".backup ..."`.
+- Scripts, host layout, secrets and nightly backups: [`devops/README.md`](../devops/README.md).
 
 **Setup you do:** create a Google OAuth web client ID, with authorized JavaScript origins for `http://localhost:5173` and `https://ditto.topherhunt.com`.

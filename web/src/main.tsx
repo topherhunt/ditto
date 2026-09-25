@@ -5,8 +5,11 @@ import { render } from "solid-js/web";
 import { LANGUAGES } from "../../shared/content.ts";
 import { LAST_LANG_KEY, Layout } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
+import { About } from "./pages/About.tsx";
+import { Account } from "./pages/Account.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
+import { Leaderboard } from "./pages/Leaderboard.tsx";
 import { Notebook } from "./pages/Notebook.tsx";
 import { Practice } from "./pages/Practice.tsx";
 import { Profile } from "./pages/Profile.tsx";
@@ -24,7 +27,10 @@ render(
   () => (
     <Router root={Layout}>
       <Route path="/" component={() => <Navigate href={`/${lastLanguage()}`} />} />
+      <Route path="/about" component={About} />
       <Route path="/friends" component={Friends} />
+      <Route path="/leaderboard" component={Leaderboard} />
+      <Route path="/account" component={Account} />
       <Route path="/people/:id" component={Profile} />
       <Route path="/:lang" component={Home} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />

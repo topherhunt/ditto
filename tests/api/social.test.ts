@@ -1,17 +1,19 @@
 import { describe, expect, it } from "vitest";
+import { LEADERBOARD_SIZE } from "../../shared/api.ts";
 import { setup } from "./helpers.ts";
 
 type T = ReturnType<typeof setup>;
 const A = "ana@example.com";
-const B = "bo@example.com";
-const C = "cy@example.com";
+const B = "bob@example.com";
+const C = "cyd@example.com";
 const DAY = 86_400_000;
 
-/** Signs in each email once so the accounts exist; returns their ids. */
+/** Signs in each email once so the accounts exist, named after the email's local part; returns their ids. */
 async function accounts(t: T, ...emails: string[]) {
   const ids: number[] = [];
   for (const e of emails) {
     await t.login(e);
+    expect((await t.req("PUT", "/api/username", { username: e.split("@")[0] })).status).toBe(200);
     ids.push((t.deps.db.prepare("SELECT id FROM users WHERE email = ?").get(e) as { id: number }).id);
   }
   return ids;
@@ -40,7 +42,7 @@ describe("friend requests", () => {
     const [ana, bo] = await accounts(t, A, B);
     await t.login(A);
     expect((await t.req("GET", "/api/friends/search?email=nobody@example.com")).json).toEqual({ found: false });
-    expect((await t.req("GET", "/api/friends/search?email=BO@example.com")).json).toEqual({ found: true, id: bo, relation: "none" });
+    expect((await t.req("GET", "/api/friends/search?email=BOB@example.com")).json).toEqual({ found: true, id: bo, relation: "none" });
     expect((await t.req("GET", `/api/friends/search?email=${A}`)).json.relation).toBe("self");
     expect((await t.req("POST", "/api/friends/requests", { email: B })).json).toEqual({ relation: "outgoing" });
     expect((await t.req("GET", "/api/friends")).json.outgoing.map((p: { id: number }) => p.id)).toEqual([bo]);
@@ -48,7 +50,7 @@ describe("friend requests", () => {
     await t.login(B);
     const notes = (await t.req("GET", "/api/notifications")).json;
     expect(notes.unread).toBe(1);
-    expect(notes.items[0]).toMatchObject({ kind: "friend_request", actor: { id: ana, email: A }, read: false });
+    expect(notes.items[0]).toMatchObject({ kind: "friend_request", actor: { id: ana, username: "ana" }, read: false });
     expect((await t.req("GET", "/api/friends")).json.incoming.map((p: { id: number }) => p.id)).toEqual([ana]);
     expect((await t.req("POST", `/api/friends/${ana}/accept`, {})).status).toBe(200);
     expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ id: ana }], incoming: [] });
@@ -56,6 +58,15 @@ describe("friend requests", () => {
     await t.login(A);
     expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ id: bo }], outgoing: [] });
     expect((await t.req("GET", "/api/notifications")).json.items[0]).toMatchObject({ kind: "friend_accepted", actor: { id: bo } });
+  });
+
+  it("can be sent by account id, as from a profile", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B);
+    await t.login(A);
+    expect((await t.req("POST", "/api/friends/requests", { userId: bo })).json).toEqual({ relation: "outgoing" });
+    expect((await t.req("POST", "/api/friends/requests", { userId: ana + bo + 100 })).status).toBe(404);
+    expect((await t.req("POST", "/api/friends/requests", { userId: bo, email: B })).status).toBe(400);
   });
 
   it("asking someone who already asked you accepts their request", async () => {
@@ -104,18 +115,97 @@ describe("friend requests", () => {
   });
 });
 
+describe("usernames", () => {
+  it("start unset, must be well-formed, and are unique regardless of capitals", async () => {
+    const t = setup();
+    await accounts(t, A);
+    await t.login(B);
+    expect((await t.req("GET", "/api/me")).json.username).toBeNull();
+    for (const bad of ["bo", "bo bo", "bö", "b".repeat(21)]) expect((await t.req("PUT", "/api/username", { username: bad })).status).toBe(400);
+    expect((await t.req("PUT", "/api/username", { username: "ANA" })).status).toBe(409);
+    expect((await t.req("PUT", "/api/username", { username: " bob.b-1_ " })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.username).toBe("bob.b-1_");
+
+    await t.login(A);
+    expect((await t.req("PUT", "/api/username", { username: "Ana" })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.username).toBe("Ana");
+  });
+});
+
+describe("leaderboard", () => {
+  const board = async (t: T, window: string, scope: string) => (await t.req("GET", `/api/leaderboard?window=${window}&scope=${scope}`)).json;
+  const summary = (rows: { rank: number; person: { username: string }; lessons: number }[]) =>
+    rows.map((r) => [r.rank, r.person.username, r.lessons]);
+
+  it("ranks lessons first completed in the past day, week or month; ties share a rank; unnamed accounts are left out", async () => {
+    const t = setup();
+    const [ana] = await accounts(t, A, B, C);
+    await befriend(t, A, B);
+    await t.login(A);
+    await completeBar1(t);
+    later(t, 3 * DAY);
+    await completeBar2(t);
+    await t.login(B);
+    await completeBar1(t);
+    await t.login("unnamed@example.com");
+    await completeBar1(t);
+
+    await t.login(C);
+    expect(summary((await board(t, "day", "everyone")).rows)).toEqual([[1, "ana", 1], [1, "bob", 1]]);
+    expect(await board(t, "week", "everyone")).toMatchObject({ rows: [{ rank: 1, lessons: 2, isMe: false, isFriend: false }, { rank: 2 }], me: null });
+    expect(summary((await board(t, "month", "friends")).rows)).toEqual([[1, "cyd", 0]]);
+    expect((await t.req("GET", "/api/leaderboard?window=year&scope=everyone")).status).toBe(400);
+
+    await t.login(B);
+    expect((await board(t, "week", "friends")).rows).toEqual([
+      { rank: 1, person: { id: ana, username: "ana" }, lessons: 2, isMe: false, isFriend: true },
+      expect.objectContaining({ rank: 2, lessons: 1, isMe: true, isFriend: false }),
+    ]);
+    later(t, 31 * DAY);
+    await t.login(B);
+    expect((await board(t, "month", "everyone")).rows).toEqual([]);
+  });
+
+  it("adds your own row below the top 20 when you're not in it", async () => {
+    const t = setup();
+    await accounts(t, "zed@example.com");
+    for (let i = 0; i < LEADERBOARD_SIZE; i++) {
+      const email = `u${String(i).padStart(2, "0")}@example.com`;
+      await accounts(t, email);
+      await completeBar1(t);
+    }
+    await t.login("zed@example.com");
+    await completeBar1(t);
+    const b = await board(t, "week", "everyone");
+    expect(b.rows).toHaveLength(LEADERBOARD_SIZE);
+    expect(b.rows.every((r: { rank: number; isMe: boolean }) => r.rank === 1 && !r.isMe)).toBe(true);
+    expect(b.me).toMatchObject({ rank: 1, person: { username: "zed" }, lessons: 1, isMe: true });
+  });
+});
+
 describe("profiles", () => {
-  it("are visible to yourself and friends only", async () => {
+  it("show strangers only lesson counts; details are for yourself and friends", async () => {
     const t = setup();
     const [ana, bo, cy] = await accounts(t, A, B, C);
     await befriend(t, A, B);
+    await t.login(A);
+    await completeBar1(t);
+    later(t, 3 * DAY);
+    await completeBar2(t);
+
     await t.login(C);
     await t.req("POST", "/api/friends/requests", { email: A });
-    expect((await t.req("GET", `/api/profile/${cy}`)).json.isMe).toBe(true);
-    expect((await t.req("GET", "/api/profile/me")).json).toMatchObject({ isMe: true, person: { id: cy } });
-    expect((await t.req("GET", `/api/profile/${ana}`)).status).toBe(404);
+    expect((await t.req("GET", "/api/profile/me")).json).toMatchObject({ relation: "self", person: { id: cy, username: "cyd" }, details: { email: C } });
+    const stranger = (await t.req("GET", `/api/profile/${ana}`)).json;
+    expect(stranger).toEqual({
+      person: { id: ana, username: "ana" }, relation: "outgoing", activity: { window: "week", lessons: 2 },
+      lessons: { day: 1, week: 2, month: 2 }, details: null,
+    });
+
     await t.login(B);
-    expect((await t.req("GET", `/api/profile/${ana}`)).json).toMatchObject({ isMe: false, person: { id: ana } });
+    expect((await t.req("GET", `/api/profile/${ana}`)).json).toMatchObject({
+      relation: "friends", details: { name: "ana", email: A, accuracy: { lessons: 2 } },
+    });
     expect((await t.req("GET", `/api/profile/${bo + cy + 100}`)).status).toBe(404);
   });
 
@@ -124,7 +214,7 @@ describe("profiles", () => {
     const [ana] = await accounts(t, A);
     await t.login(A);
     let p = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(p).toMatchObject({ activity: null, accuracy: { lessons: 0, dictation: null, meaning: null }, languages: [] });
+    expect(p).toMatchObject({ activity: null, details: { accuracy: { lessons: 0, dictation: null, meaning: null }, languages: [] } });
 
     const first = t.clock.now.toISOString();
     await completeBar1(t);
@@ -141,14 +231,14 @@ describe("profiles", () => {
     p = (await t.req("GET", `/api/profile/${ana}`)).json;
     expect(p.activity).toEqual({ window: "week", lessons: 2 });
     // 8 items: 7 without a reveal; 7 of 8 meaning checks right.
-    expect(p.accuracy).toEqual({ lessons: 2, dictation: 88, meaning: 88 });
-    expect(p.languages).toHaveLength(1);
-    expect(p.languages[0]).toMatchObject({
+    expect(p.details.accuracy).toEqual({ lessons: 2, dictation: 88, meaning: 88 });
+    expect(p.details.languages).toHaveLength(1);
+    expect(p.details.languages[0]).toMatchObject({
       language: "it", module: null, optionalDone: 0, completions: [first, t.clock.now.toISOString()],
       levelsDone: [{ level: "A1", at: t.clock.now.toISOString() }],
     });
-    expect(p.languages[0].recent.map((r: { lessonId: string }) => r.lessonId)).toEqual(["it-a1-bar-2", "it-a1-bar-1"]);
-    expect(p.languages[0].recent[0]).toMatchObject({ lessonTitle: expect.any(String), courseTitle: "Al bar", completed: true });
+    expect(p.details.languages[0].recent.map((r: { lessonId: string }) => r.lessonId)).toEqual(["it-a1-bar-2", "it-a1-bar-1"]);
+    expect(p.details.languages[0].recent[0]).toMatchObject({ lessonTitle: expect.any(String), courseTitle: "Al bar", completed: true });
   });
 
   it("names the first unfinished main-track module", async () => {
@@ -157,15 +247,15 @@ describe("profiles", () => {
     await t.login(A);
     await completeBar1(t);
     const p = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(p.languages[0].module).toEqual({ number: 1, of: 1, title: "Al bar" });
-    expect(p.languages[0].levelsDone).toEqual([]);
+    expect(p.details.languages[0].module).toEqual({ number: 1, of: 1, title: "Al bar" });
+    expect(p.details.languages[0].levelsDone).toEqual([]);
   });
 });
 
 describe("playing a friend's lessons", () => {
   it("unlocks lessons a friend has started, for friends only", async () => {
     const t = setup();
-    await accounts(t, A, B, C);
+    const [ana] = await accounts(t, A, B, C);
     await t.login(A);
     await completeBar1(t);
     await t.attempt("it-a1-bar-2-u02", { path: "sentences" });
@@ -174,7 +264,7 @@ describe("playing a friend's lessons", () => {
     await t.login(B);
     const cat = (await t.req("GET", "/api/catalog?lang=it")).json;
     expect(cat.unlocked).not.toContain("it-a1-bar-2");
-    expect(cat.viaFriends).toEqual({ "it-a1-bar-2": ["ana"] });
+    expect(cat.viaFriends).toEqual({ "it-a1-bar-2": [{ id: ana, username: "ana" }] });
     expect((await t.attempt("it-a1-bar-2-u02")).status).toBe(200);
 
     await t.login(C);

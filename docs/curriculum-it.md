@@ -295,6 +295,140 @@ The lemma lists are the core-vocabulary plan and decide ordering. A module autho
   6. Un problema
 - **Introduces:** cortesia, permesso, accomodarsi, richiamare, lasciare, linea, passare, sbagliare, problema, funzionare, consiglio, suggerire, domanda, informazione, spiegare, disturbare, figurarsi, tenere, resto, attenzione, preoccuparsi, accordo, reclamo, restituire, risposta
 
+## B1
+
+B1 sentences run longer (up to about 16 words) and chain clauses, but each lesson still builds them from words, phrases and chunks. A B1 module never uses grammar that a later module introduces; in particular, no congiuntivo before module 25.
+
+### 22. Imprevisti di viaggio -- `it-b1-imprevisti`
+
+- **Requires:** `it-a2-cortesia`.
+- **Grammar:** trapassato prossimo with `avere` and `essere` (`avevo prenotato`, `era già partito`); `quando`, `dopo che` and `appena` with an earlier event; `ormai`; `mi è capitato di` + infinitive.
+- **Lessons:**
+  1. Avevo già prenotato
+  2. Il volo era già partito
+  3. Il bagaglio smarrito
+  4. Lo sciopero
+  5. Appena ero arrivato
+  6. Che avventura!
+- **Introduces:** imprevisto, volo, bagaglio, smarrire, smarrito, coincidenza, sciopero, annullare, cancellare, rimborso, assicurazione, noleggiare, guasto, dogana, coda, appena, ormai, avvisare, capitare, avventura, zaino, passeggero, bordo, atterrare, decollare, navetta, scalo, disagio, pazienza
+
+### 23. Me lo presti? -- `it-b1-favori`
+
+- **Requires:** `it-b1-imprevisti`.
+- **Grammar:** combined pronouns (`me lo`, `te la`, `ce ne`, `glielo`), with participle agreement (`te l'ho data`), modals (`te lo posso prestare / posso prestartelo`) and the imperative (`dammelo`, `me lo dia`); pronominal verbs `andarsene`, `farcela` (`ce la faccio`), `tenerci`.
+- **Lessons:**
+  1. Me lo presti?
+  2. Te lo porto domani
+  3. Glielo dico io
+  4. Ce n'è ancora?
+  5. Me ne vado
+  6. Ce la faccio
+- **Introduces:** prestare, prestito, promettere, promessa, fidarsi, andarsene, farcela, te, glielo, attrezzo, trapano, ombrello, caricatore, passaggio, annaffiare, pianta, occuparsi, approfittare, riportare, tenerci, contare, disturbo, gentilezza, ricambiare, dimenticarsi
+
+### 24. Cerco lavoro -- `it-b1-carriera`
+
+- **Requires:** `it-b1-favori`.
+- **Grammar:** `stare` + gerundio, present and past (`sto cercando`, `stavo lavorando`); the gerundio for manner, time and cause (`lavorando qui ho imparato molto`); `stare per` + infinitive.
+- **Lessons:**
+  1. Sto cercando lavoro
+  2. Il curriculum
+  3. Il colloquio
+  4. Sto per cambiare
+  5. Imparando si cresce
+  6. Il primo giorno
+- **Introduces:** carriera, annuncio, candidatura, candidarsi, colloquio, curriculum, esperienza, competenza, formazione, tirocinio, assumere, contratto, stipendio, disoccupato, settore, dipendente, ruolo, requisito, capacità, licenziarsi, dimissioni, crescita, capo, ambizione, flessibile, pieno, parziale, affrontare, sfida
+
+### 25. Secondo me -- `it-b1-opinioni`
+
+- **Requires:** `it-b1-carriera`.
+- **Grammar:** congiuntivo presente, regular and irregular (`sia`, `abbia`, `faccia`, `vada`, `possa`, `debba`, `voglia`, `sappia`, `venga`, `stia`, `dia`, `dica`), after `penso che`, `credo che`, `mi sembra che`, `non sono sicuro che`, `dubito che`; the indicative after `secondo me` and `sono sicuro che`; `avere ragione/torto`; `dipendere da`.
+- **Lessons:**
+  1. Penso che sia vero
+  2. Non credo
+  3. Mi sembra che
+  4. Hai ragione
+  5. Dipende
+  6. Un punto di vista
+- **Introduces:** opinione, dubbio, dubitare, convincere, discutere, discussione, argomento, ragione, torto, vista, sostenere, criticare, esagerare, società, sociale, anziano, generazione, soluzione, tema, parere, evidente, chiaro, falso, ritenere, giudicare, pregiudizio, favorevole, contrario, dipendere
+
+### 26. Sentimenti -- `it-b1-sentimenti`
+
+- **Requires:** `it-b1-opinioni`.
+- **Grammar:** the congiuntivo after wishes (`voglio che`, `spero che`), emotions (`sono contento che`, `mi dispiace che`, `ho paura che`) and impersonal expressions (`è importante che`, `è meglio che`, `bisogna che`); congiuntivo passato (`sono felice che tu sia venuto`); `di` + infinitive with the same subject (`spero di vederti`).
+- **Lessons:**
+  1. Spero che tu stia bene
+  2. Sono contento che
+  3. Ho paura che
+  4. Litigare e fare pace
+  5. Mi fido di te
+  6. È importante che
+- **Introduces:** sentimento, emozione, amore, amare, odiare, geloso, arrabbiarsi, arrabbiato, offendere, deluso, orgoglioso, nervoso, preoccupato, emozionato, rapporto, relazione, coppia, lasciarsi, litigare, pace, perdonare, fiducia, sincero, bugia, mentire, abbracciare, baciare, vergognarsi, temere
+
+### 27. Libri e film -- `it-b1-libri`
+
+- **Requires:** `it-b1-sentimenti`.
+- **Grammar:** relative pronouns: `che`, `cui` after a preposition (`di cui`, `in cui`, `con cui`), formal `il quale`, `chi` (`chi legge...`), `quello che / ciò che`; `trattare di`, `essere ambientato`.
+- **Lessons:**
+  1. Il libro che leggo
+  2. La persona di cui parlo
+  3. Il film in cui
+  4. Chi legge
+  5. Quello che mi piace
+  6. Una recensione
+- **Introduces:** cui, ciò, trama, personaggio, protagonista, autore, genere, racconto, capitolo, pagina, serie, puntata, recensione, scena, finale, emozionante, commovente, trattare, ambientare, pubblicare, sottotitolo, doppiare, versione, originale, successo, libreria, copertina
+
+### 28. L'ambiente -- `it-b1-ambiente`
+
+- **Requires:** `it-b1-libri`.
+- **Grammar:** impersonal `si` (`qui si ricicla`, `non si può`); passive `si` (`si vendono`); the passive with `essere` and `venire` (`viene prodotto`); `andare` + participle for obligation (`la plastica va buttata qui`).
+- **Lessons:**
+  1. Qui si ricicla
+  2. La raccolta differenziata
+  3. Si consuma troppo
+  4. Viene prodotto
+  5. Va rispettato
+  6. Il pianeta
+- **Introduces:** ambiente, inquinamento, inquinare, rifiuto, spazzatura, raccolta, differenziato, riciclare, buttare, plastica, vetro, organico, bidone, energia, sprecare, spreco, consumare, consumo, rinnovabile, cambiamento, climatico, proteggere, pianeta, terra, legge, vietato, multa, rispettare, regola, cittadino, sostenibile, produrre
+
+### 29. Se potessi... -- `it-b1-sogni`
+
+- **Requires:** `it-b1-ambiente`.
+- **Grammar:** congiuntivo imperfetto (regular, plus `fossi`, `avessi`, `facessi`, `stessi`, `dessi`, `dicessi`); hypothetical `se` (`se avessi tempo, viaggerei`); `come se`; `magari` + congiuntivo imperfetto; condizionale passato for regrets (`avrei voluto`, `sarebbe stato meglio`).
+- **Lessons:**
+  1. Se avessi tempo
+  2. Se vincessi alla lotteria
+  3. Come se
+  4. Avrei voluto
+  5. Sarebbe stato meglio
+  6. Il mio sogno
+- **Introduces:** lotteria, vincere, ricco, povero, milione, realizzare, desiderio, rimpianto, rimpiangere, pentirsi, occasione, fortunato, coraggio, rischiare, rischio, isola, intero, scelta, immaginare, permettersi, perfetto, ideale, sbaglio, decisione, mollare
+
+### 30. Le notizie -- `it-b1-notizie`
+
+- **Requires:** `it-b1-sogni`.
+- **Grammar:** reported speech with the tense shift (`dice che è` -> `ha detto che era`, `ha detto che aveva...`, `ha detto che sarebbe venuto`); indirect questions (`mi ha chiesto se / dove / quando`); reported commands with `di` + infinitive; `secondo` + a source.
+- **Lessons:**
+  1. Ha detto che
+  2. Mi ha chiesto se
+  3. Ha promesso che sarebbe venuto
+  4. Il telegiornale
+  5. Un'intervista
+  6. Sui social
+- **Introduces:** giornalista, telegiornale, articolo, titolo, intervista, intervistare, annunciare, dichiarare, riferire, avvertire, elezione, governo, politico, presidente, sindaco, cronaca, informare, condividere, commento, commentare, pubblico, social, affermare, smentire, fonte
+
+### 31. Vivere in Italia -- `it-b1-italia`
+
+- **Requires:** `it-b1-notizie`.
+- **Grammar:** conjunctions that take the congiuntivo (`benché`, `sebbene`, `nonostante`, `affinché`, `perché` = so that, `prima che`, `senza che`, `purché`) against those that take the indicative (`anche se`, `siccome`, `perciò`, `comunque`, `eppure`); `prima di` + infinitive vs. `prima che` + congiuntivo.
+- **Lessons:**
+  1. Anche se
+  2. Benché sia difficile
+  3. Affinché tutti capiscano
+  4. Prima che parta
+  5. Siccome
+  6. Pro e contro
+- **Introduces:** benché, sebbene, nonostante, affinché, purché, siccome, perciò, comunque, eppure, cultura, abitudine, integrarsi, adattarsi, abituarsi, nostalgia, emigrare, accogliere, dialetto, burocrazia, vantaggio, svantaggio, qualità, costo, sistema, ritmo, cittadinanza, mentalità
+
 ## Optional modules
 
 The lemma lists here are suggestions within the theme. The author settles the final list, which must not repeat a lemma any of the module's ancestors introduce.
@@ -308,3 +442,6 @@ The lemma lists here are suggestions within the theme. The author settles the fi
 | Tecnologia | `it-a2-tecnologia` | A2 | `it-a2-storia` | 105 | Il telefono · Il computer · Password dimenticata · Scaricare un'app · Internet non funziona · Una videochiamata | computer, schermo, tastiera, app, password, account, internet, rete, sito, scaricare, caricare, installare, aggiornare, cancellare, salvare, collegarsi, batteria, caricabatterie, videochiamata, file, chiavetta, stampare, connessione, utente |
 | Arte e cultura | `it-a2-arte` | A2 | `it-a2-successo` | 106 | Al museo · Un quadro famoso · Le chiese · Un concerto · A teatro · Un po' di storia | arte, artista, quadro, pittore, dipingere, scultura, statua, mostra, opera, secolo, affresco, architettura, palazzo, rovina, biglietteria, guida, famoso, antico, moderno, spettacolo, attore, regista, romanzo, scrittore, poesia |
 | Burocrazia | `it-a2-burocrazia` | A2 | `it-a2-cortesia` | 107 | All'ufficio postale · In banca · Il modulo · Il permesso di soggiorno · Il codice fiscale · Il comune | posta, pacco, spedire, francobollo, raccomandata, corrente, bonifico, sportello, modulo, compilare, firma, documento, identità, codice, fiscale, residenza, comune, anagrafe, certificato, fila, scadere, rinnovare |
+| C'era una volta | `it-b1-fiabe` | B1 | `it-b1-libri` | 108 | Il re e la regina · Nel bosco · La strega · Il principe partì · Il tesoro · E vissero felici | Passato remoto for reading stories (third person, regular plus `fu`, `ebbe`, `fece`, `disse`, `vide`, `prese`, `venne`, `visse`). re, regina, principe, principessa, castello, drago, strega, mago, fata, lupo, bosco, cavaliere, magia, magico, incantesimo, trasformare, spada, tesoro, contadino, torre, volare, liberare, coraggioso, astuto, felicemente, morale |
+| Soldi | `it-b1-soldi` | B1 | `it-b1-carriera` | 109 | Il conto in banca · Risparmiare · Le tasse · Il mutuo · Tutto aumenta · Investire | risparmio, mutuo, tassa, investire, investimento, interesse, rata, debito, credito, guadagnare, guadagno, aumentare, aumento, inflazione, crisi, economia, bilancio, prelevare, bancomat, bonifico, corrente |
+| Benessere | `it-b1-benessere` | B1 | `it-b1-sentimenti` | 110 | Sono stressato · Dormire bene · Mangiare sano · In forma · Rilassarsi · Un equilibrio | benessere, stress, stressato, dieta, alimentazione, sano, salutare, sonno, insonnia, rilassarsi, meditazione, peso, dimagrire, ingrassare, vitamina, grasso, proteina, movimento, ansia, calmo, equilibrio, psicologo, terapia |

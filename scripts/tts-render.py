@@ -1,6 +1,4 @@
-"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.
-The elevenlabs engine calls the paid API with ELEVENLABS_API_KEY from the environment.
-stdin: JSON lines {"text", "out"}. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.stdin: JSON lines {"text", "out"}. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -35,33 +33,31 @@ elif voice["engine"] == "kokoro":
 
     def synth(text: str) -> tuple[np.ndarray, int]:
         return model.create(text, voice=voice["model"], lang=language)
-elif voice["engine"] == "elevenlabs":
-    import os
+elif voice["engine"] == "abair":
+    # ABAIR (Trinity College Dublin) serves this free endpoint for its web reader. Be a polite guest:
+    # one request at a time (build-audio.ts runs abair voices sequentially) with a pause after each, and an honest
+    # User-Agent (Cloudflare rejects Python's default one with error 1010).
+    import base64
+    import io
+    import time
     import urllib.error
+    import urllib.parse
     import urllib.request
 
-    key = os.environ.get("ELEVENLABS_API_KEY") or sys.exit("ELEVENLABS_API_KEY is not set (put it in .env)")
-
     def synth(text: str) -> tuple[np.ndarray, int]:
-        # MP3 because PCM output needs a Pro plan; afconvert decodes it.
-        req = urllib.request.Request(
-            f"https://api.elevenlabs.io/v1/text-to-speech/{voice['model']}?output_format=mp3_44100_128",
-            data=json.dumps({"text": text, "model_id": "eleven_v3", "language_code": language, "seed": 1}).encode(),
-            headers={"xi-api-key": key, "Content-Type": "application/json"},
-        )
+        query = urllib.parse.urlencode({"input": text, "voice": voice["model"], "normalise": "true"})
+        req = urllib.request.Request(f"https://synthesis.abair.ie/api/synthesise?{query}", headers={"Accept": "application/json", "User-Agent": "Ditto/1.0 (dictation trainer; +https://github.com/topherhunt/ditto)"})
         try:
-            with urllib.request.urlopen(req) as res:
-                mp3 = res.read()
+            with urllib.request.urlopen(req, timeout=30) as res:
+                wav_bytes = base64.b64decode(json.load(res)["audioContent"])
         except urllib.error.HTTPError as e:
-            sys.exit(f"ElevenLabs {e.code} for {text!r}: {e.read().decode()}")
-        with tempfile.TemporaryDirectory() as tmp:
-            src, dst = Path(tmp) / "in.mp3", Path(tmp) / "in.wav"
-            src.write_bytes(mp3)
-            subprocess.run(["afconvert", "-f", "WAVE", "-d", "LEI16", str(src), str(dst)], check=True)
-            with wave.open(str(dst)) as w:
-                if w.getnchannels() != 1:
-                    sys.exit(f"expected mono from ElevenLabs, got {w.getnchannels()} channels")
-                return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
+            sys.exit(f"ABAIR {e.code} for {text!r}: {e.read().decode()}")
+        finally:
+            time.sleep(1)
+        with wave.open(io.BytesIO(wav_bytes)) as w:
+            if w.getnchannels() != 1 or w.getsampwidth() != 2:
+                sys.exit(f"expected 16-bit mono from ABAIR, got {w.getnchannels()} channels, {w.getsampwidth()} bytes")
+            return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 
