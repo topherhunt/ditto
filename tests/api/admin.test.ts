@@ -36,11 +36,11 @@ describe("report triage", () => {
     });
   });
 
-  it("moves a report to triaged with a decision and note, and requires the note unless dismissing", async () => {
+  it("moves a report to triaged with a decision and an optional note", async () => {
     const t = setup();
     await report(t);
     const [{ id }] = await list(t, "new");
-    expect((await t.req("PUT", `/api/admin/reports/${id}/triage`, { decision: "fix_audio", note: " " })).status).toBe(400);
+    expect((await t.req("PUT", `/api/admin/reports/${id}/triage`, { decision: "fix_audio", note: " " })).json).toMatchObject({ status: "triaged", adminNote: null });
     const res = await t.req("PUT", `/api/admin/reports/${id}/triage`, { decision: "fix_audio", note: " stress on the wrong syllable " });
     expect(res.json).toMatchObject({ status: "triaged", decision: "fix_audio", adminNote: "stress on the wrong syllable", triagedAt: "2026-09-01T10:00:00.000Z" });
     expect(await list(t, "new")).toEqual([]);

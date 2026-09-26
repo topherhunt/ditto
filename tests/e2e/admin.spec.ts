@@ -19,7 +19,7 @@ test("an admin triages a report, reviews the fix, and non-admins can't reach the
   const report = page.locator(".qa-admin-report").filter({ has: page.locator(".qa-admin-note", { hasText: "e2e-triage" }) });
   await expect(report.locator(".qa-play-reported")).toBeVisible();
 
-  await expect(report.locator(".qa-decide-fix_audio")).toBeDisabled();
+  await expect(report.locator(".qa-reporter-says")).toContainText("e2e-triage");
   await report.locator(".qa-triage-note").fill("stress on the wrong syllable");
   await report.locator(".qa-decide-fix_audio").click();
   await expect(report).toHaveCount(0);

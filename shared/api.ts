@@ -51,11 +51,10 @@ export const ReportSchema = z.strictObject({
 }).refine((r) => (r.kind === "accept") === (r.answer !== undefined), { message: "answer is required for accept reports and only for them" });
 export type ReportBody = z.infer<typeof ReportSchema>;
 
-/** What the admin wants done about a report. Every decision but `dismiss` needs a note; `dismiss` also closes the report. */
+/** What the admin wants done about a report, with an optional note; `dismiss` also closes the report. */
 export const REPORT_DECISIONS = ["dismiss", "fix_audio", "fix_text", "fix_translation", "accept_answer", "discuss"] as const;
 export type ReportDecision = (typeof REPORT_DECISIONS)[number];
-export const TriageSchema = z.strictObject({ decision: z.enum(REPORT_DECISIONS), note: z.string().trim().max(2000) })
-  .refine((r) => r.decision === "dismiss" || r.note !== "", { message: "A note is required unless dismissing" });
+export const TriageSchema = z.strictObject({ decision: z.enum(REPORT_DECISIONS), note: z.string().trim().max(2000) });
 /** The admin's verdict on a proposed fix; a rejection needs a note saying what's still wrong. */
 export const ReviewSchema = z.strictObject({ review: z.enum(["approved", "rejected"]), note: z.string().trim().max(2000) })
   .refine((r) => r.review === "approved" || r.note !== "", { message: "A note is required when rejecting" });

@@ -47,8 +47,13 @@ function Report(props: { report: AdminReport; onChange: () => void }) {
         <span class="badge text-bg-secondary">{r().kind}</span>
         <span class="text-body-secondary">{r().reporter.username ?? r().reporter.email} · {r().createdAt.slice(0, 16).replace("T", " ")} · {r().voice}</span>
       </div>
-      <Show when={r().answer}><div class="small">Answer they want accepted: <q class="qa-admin-answer">{r().answer}</q></div></Show>
-      <Show when={r().note}><div class="qa-admin-note small fst-italic">“{r().note}”</div></Show>
+      {/* The reporter's own words are what triage decides on, so they lead. */}
+      <div class="qa-reporter-says border-start border-4 border-warning bg-warning-subtle rounded-end px-3 py-2">
+        <Show when={r().answer}><div>Answer they want accepted: <q class="qa-admin-answer fw-semibold">{r().answer}</q></div></Show>
+        <Show when={r().note} fallback={<Show when={!r().answer}><div class="text-body-secondary fst-italic">No comment</div></Show>}>
+          <div class="qa-admin-note fs-6 fw-semibold" style={{ "white-space": "pre-wrap" }}>{r().note}</div>
+        </Show>
+      </div>
       <div class="d-flex flex-wrap gap-2">
         <Clip url={r().audioUrl} label="Reported clip" qa="qa-play-reported" />
         <Show when={currentClip() && currentClip() !== r().audioUrl}>
@@ -57,14 +62,13 @@ function Report(props: { report: AdminReport; onChange: () => void }) {
       </div>
 
       <Show when={r().status !== "closed"}>
-        <textarea class="qa-triage-note form-control form-control-sm" rows="2" placeholder="Your note (required unless dismissing)"
+        <textarea class="qa-triage-note form-control form-control-sm" rows="2" placeholder="Your note (optional)"
           value={note()} onInput={(e) => setNote(e.currentTarget.value)} />
         <div class="d-flex flex-wrap gap-1">
           <For each={REPORT_DECISIONS}>
             {(d) => (
               <button type="button" class={`qa-decide-${d} btn btn-sm`}
                 classList={{ "btn-primary": r().decision === d, "btn-outline-secondary": r().decision !== d }}
-                disabled={d !== "dismiss" && !note().trim()}
                 onClick={() => act(() => api.put(`/api/admin/reports/${r().id}/triage`, { decision: d, note: note() }))}>
                 {DECISION_LABELS[d]}
               </button>
