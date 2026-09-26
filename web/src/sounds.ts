@@ -7,7 +7,8 @@ const click = new Audio(clickUrl);
 const correct = new Audio(correctUrl);
 const wrong = new Audio(wrongUrl);
 const victory = new Audio(victoryUrl);
-for (const a of [click, correct, wrong, victory]) a.volume = 0.5;
+for (const a of [click, correct, wrong]) a.volume = 0.5;
+victory.volume = 0.25;
 
 function play(audio: HTMLAudioElement) {
   audio.currentTime = 0;

@@ -206,6 +206,7 @@ export function Exercise(props: {
   const [reportKind, setReportKind] = createSignal<ReportBody["kind"] | null>(null);
   const [reportNote, setReportNote] = createSignal("");
   const [reportState, setReportState] = createSignal<"idle" | "sending" | "sent" | string>("idle");
+  const sendDisabled = () => !reportKind() || reportState() === "sending";
 
   async function sendReport(e: SubmitEvent) {
     e.preventDefault();
@@ -438,13 +439,19 @@ export function Exercise(props: {
             )}
           </For>
           <textarea class="qa-report-note form-control form-control-sm" rows="2" maxLength={1000} placeholder={t("report.note")}
-            value={reportNote()} onInput={(e) => setReportNote(e.currentTarget.value)} />
+            value={reportNote()} onInput={(e) => setReportNote(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key !== "Enter" || e.shiftKey) return;
+              e.preventDefault();
+              // requestSubmit() ignores the send button's disabled state, so check it here.
+              if (!sendDisabled()) e.currentTarget.form!.requestSubmit();
+            }} />
           <Show when={!["idle", "sending"].includes(reportState())}>
             <div class="alert alert-danger py-1 mb-0">{reportState()}</div>
           </Show>
           <div class="d-flex gap-2 justify-content-end">
             <button type="button" class="qa-report-cancel btn btn-sm btn-outline-secondary" onClick={() => setReportOpen(false)}>{t("report.cancel")}</button>
-            <button type="submit" class="qa-report-send btn btn-sm btn-primary" disabled={!reportKind() || reportState() === "sending"}>{t("report.send")}</button>
+            <button type="submit" class="qa-report-send btn btn-sm btn-primary" disabled={sendDisabled()}>{t("report.send")}</button>
           </div>
         </form>
       </Show>

@@ -14,11 +14,16 @@ async function recordSounds(page: Page) {
   });
 }
 
-/** The UI sounds played since the last call, by name; item audio is ignored. */
+const VOLUMES: Record<string, number> = { click: 0.5, correct: 0.5, wrong: 0.5, victory: 0.25 };
+
+/** The UI sounds played since the last call, by name, each checked against its volume; item audio is ignored. */
 async function played(page: Page): Promise<string[]> {
   const sounds = await page.evaluate(() => (window as unknown as { sounds: string[] }).sounds.splice(0));
-  for (const s of sounds) expect(s).toMatch(/ 0\.5$/);
-  return sounds.map((s) => s.split(" ")[0]);
+  return sounds.map((s) => {
+    const [name, volume] = s.split(" ");
+    expect(Number(volume), name).toBe(VOLUMES[name]);
+    return name;
+  });
 }
 
 test("buttons click at half volume, a pass sounds correct once, and wrong answers or a reveal sound wrong", async ({ page }) => {
@@ -63,7 +68,7 @@ test("buttons click at half volume, a pass sounds correct once, and wrong answer
   expect(await played(page)).toEqual(["click", "wrong"]);
 });
 
-test("finishing a lesson plays the victory sound at half volume", async ({ page }) => {
+test("finishing a lesson plays the victory sound at a quarter volume", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds2@example.com");
   await page.locator(".qa-lesson-start").first().click();

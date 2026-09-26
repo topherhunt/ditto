@@ -64,6 +64,21 @@ describe("equivalent spellings", () => {
     expect(passes(language, "Ecco 20€, tenga il resto.", "Ecco venti euro, tenga il resto.", ["Ecco 20 euro, tenga il resto."])).toBe(true);
   });
 
+  it.each([
+    ["it", "Mi chiamo Marko.", "Mi chiamo Marco."],
+    ["it", "Ana e Sarah sono a Roma.", "Anna e Sara sono a Roma."],
+    ["en", "My sister's name is Ana.", "My sister's name is Anna."],
+    ["en", "sara lives in Chicago.", "Sarah lives in Chicago."],
+    ["nl", "Pieter Janssen woont in Delft.", "Peter Jansen woont in Delft."],
+  ] as const)("%s: name variant %s passes for %s", (language, typed, text) => {
+    expect(passes(language, typed, text)).toBe(true);
+  });
+
+  it("keeps names distinct from each other", () => {
+    expect(passes("it", "Mi chiamo Mark.", "Mi chiamo Marco.")).toBe(false);
+    expect(passes("en", "My name is Marko.", "My name is Mark.")).toBe(false);
+  });
+
   it("keeps spacing and contractions strict outside English", () => {
     expect(passes("nl", "Ik drink een koffie-melk.", "Ik drink een koffiemelk.")).toBe(false);
     expect(passes("it", "Vorrei un caffè-latte.", "Vorrei un caffè latte.")).toBe(false);

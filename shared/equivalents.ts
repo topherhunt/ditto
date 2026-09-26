@@ -72,7 +72,23 @@ function euro(s: string): string {
   return s.replace(new RegExp(`€\\s?${AMOUNT}|${AMOUNT}\\s?€`, "gu"), (_, a?: string, b?: string) => `${a ?? b} euro`);
 }
 
-const RULES: Record<Language, (s: string) => string> = { en: english, it: euro, nl: euro, ga: euro };
+// Spellings of the curriculum's names, the curriculum's own first. Accent-only differences already pass as accent slips.
+const NAME_VARIANTS: string[][] = [
+  ["anna", "ana"], ["marco", "marko"], ["mark", "marc"], ["sara", "sarah"], ["luca", "luka"], ["matteo", "mateo"],
+  ["marta", "martha"], ["elena", "helena"], ["paolo", "paulo"], ["paola", "paula"], ["lisa", "liza"], ["emma", "ema"],
+  ["sofie", "sophie"], ["peter", "pieter"], ["frida", "frieda"], ["jansen", "janssen"],
+];
+const NAME_OF = new Map(NAME_VARIANTS.flatMap(([name, ...rest]) => rest.map((v) => [v, name])));
+const NAME_RE = word(`(${[...NAME_OF.keys()].join("|")})`);
+
+function names(s: string): string {
+  return s.replace(NAME_RE, (m) => caseAs(m, NAME_OF.get(m.toLowerCase())!));
+}
+
+// Not applied to Irish, where `ana` is a word and the names only vary by accent.
+const RULES: Record<Language, (s: string) => string> = {
+  en: (s) => names(english(s)), it: (s) => names(euro(s)), nl: (s) => names(euro(s)), ga: euro,
+};
 
 /** The canonical spelling of `text` in `language`: equal canonical forms are the same answer. */
 export function canonicalize(text: string, language: Language): string {

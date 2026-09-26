@@ -2,7 +2,7 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import type { Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
-import { levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
+import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { me } from "../session.ts";
 import { displayName } from "../social.ts";
@@ -12,7 +12,7 @@ export function Home() {
   const lang = useLang();
   const [catalog] = createResource(lang, (l) => api.get<Catalog>(`/api/catalog?lang=${l}`));
   const path = () => me()!.prefs[lang()].path;
-  /** Level -> folded, for levels the learner opened or closed by hand; the rest are folded once done or passed. */
+  /** Level or course id -> folded, for ones the learner opened or closed by hand; the rest fold once done (a level also once passed). */
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
 
   return (
@@ -62,19 +62,31 @@ export function Home() {
                         const titleOf = (id: string) => cat().courses.find((c) => c.id === id)!.title;
                         /** A locked course lists only the lessons friends have started. */
                         const listed = () => (open() ? course.lessons : course.lessons.filter((l) => l.id in cat().viaFriends));
+                        /** Only a finished course folds. */
+                        const done = () => course.lessons.every((l) => lessonDone(cat(), l.id));
+                        const folded = () => done() && (toggled()[course.id] ?? true);
                         return (
-                          <section class="qa-course card" classList={{ "qa-course-locked opacity-50": !open() }}>
+                          <section class={`qa-course qa-course-${course.id} card`} classList={{ "qa-course-locked opacity-50": !open(), "qa-course-folded": folded() }}>
                             <div class="card-body">
                               <div class="d-flex align-items-baseline gap-2">
-                                <h3 class="h5 mb-1">{course.title}</h3>
+                                <h3 class="h5 mb-0">
+                                  <Show when={done()} fallback={course.title}>
+                                    <button type="button" class="qa-course-toggle btn btn-link p-0 fs-5 fw-medium text-reset text-decoration-none" aria-expanded={!folded()}
+                                      onClick={() => setToggled((m) => ({ ...m, [course.id]: !folded() }))}>
+                                      <span aria-hidden="true" class="small">{folded() ? "▸" : "▾"}</span> {course.title}
+                                    </button>
+                                  </Show>
+                                </h3>
                                 <Show when={course.track === "optional"}><span class="qa-course-optional badge text-bg-info">{t("home.optional")}</span></Show>
                                 <Show when={!open()}><span class="badge text-bg-secondary">{t("home.locked")}</span></Show>
                               </div>
-                              <p class="text-body-secondary small mb-0">
-                                {course.description}
-                                <Show when={!open()}> -- {t("home.after", { courses: course.requires.map(titleOf).join(", ") })}</Show>
-                              </p>
-                              <Show when={listed().length > 0}>
+                              <Show when={!folded()}>
+                                <p class="text-body-secondary small mt-1 mb-0">
+                                  {course.description}
+                                  <Show when={!open()}> -- {t("home.after", { courses: course.requires.map(titleOf).join(", ") })}</Show>
+                                </p>
+                              </Show>
+                              <Show when={!folded() && listed().length > 0}>
                                 <ul class="list-group mt-3">
                                   <For each={listed()}>
                                     {(lesson) => {

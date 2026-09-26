@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import type { AttemptBody, LessonOut } from "../../shared/api.ts";
 import { signIn } from "./helpers.ts";
 
 
@@ -118,6 +119,35 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await expect(page.locator(".qa-outcome")).toContainText("check the meaning");
 });
 
+/** Completes the lesson on the sentences path through the API, answering every item cleanly. */
+async function completeLesson(page: Page, lessonId: string) {
+  const lesson = (await (await page.request.get(`/api/lessons/${lessonId}?lang=it`)).json()) as LessonOut;
+  for (const u of lesson.units.filter((x) => x.stage === "sentence")) {
+    const data: AttemptBody = {
+      unitId: u.id, rev: u.rev, mode: "learn", path: "sentences", hintsLevel: "letters", outcome: "clean", wrongSubmissions: 0, hintsUsed: 0,
+      replays: 0, accentSlips: 0, submissions: [u.text], categories: [], meaningCorrect: u.distractors ? true : null, durationMs: 1000,
+    };
+    expect((await page.request.post("/api/attempts", { data })).ok()).toBe(true);
+  }
+}
+
+test("a finished course folds to its title, and opens on click", async ({ page }) => {
+  await signIn(page, "folds1@example.com");
+  await completeLesson(page, "it-a1-bar-1");
+  await completeLesson(page, "it-a1-bar-2");
+  await page.reload();
+  // Al bar is A1's only main-track course, so the level folds too.
+  await page.locator(".qa-level-toggle").click();
+  const bar = page.locator(".qa-course-it-a1-bar");
+  await expect(bar).toHaveClass(/qa-course-folded/);
+  await expect(bar.locator(".qa-lesson")).toHaveCount(0);
+  await expect(page.locator(".qa-course-it-a1-tea .qa-lesson")).toHaveCount(1);
+
+  await bar.locator(".qa-course-toggle").click();
+  await expect(bar.locator(".qa-course-toggle")).toHaveAttribute("aria-expanded", "true");
+  await expect(bar.locator(".qa-lesson")).toHaveCount(2);
+});
+
 test("later lessons and modules stay locked until the ones before are done", async ({ page }) => {
   await signIn(page, "learner6@example.com");
   await expect(page.locator(".qa-lesson-start")).toHaveCount(1);
@@ -128,14 +158,21 @@ test("later lessons and modules stay locked until the ones before are done", asy
   await expect(page.locator(".alert-danger")).toContainText("locked");
 });
 
-test("report a problem with an item: pick a kind, add a note, send", async ({ page }) => {
+test("report a problem with an item: pick a kind, add a note, send with Enter", async ({ page }) => {
   await signIn(page, "learner7@example.com");
   await page.locator(".qa-lesson-start").first().click();
   await page.locator(".qa-report-open").click();
   await expect(page.locator(".qa-report-send")).toBeDisabled();
+  const note = page.locator(".qa-report-note");
+  await note.fill("garbled");
+  await note.press("Enter");
+  await expect(page.locator(".qa-report")).toBeVisible();
   await page.locator(".qa-report-kind-audio").check();
-  await page.locator(".qa-report-note").fill("garbled");
-  await page.locator(".qa-report-send").click();
+  await note.press("Shift+Enter");
+  await note.pressSequentially("noise");
+  const sent = page.waitForRequest((r) => r.url().endsWith("/api/reports"));
+  await note.press("Enter");
+  expect((await sent).postDataJSON()).toMatchObject({ kind: "audio", note: "garbled\nnoise" });
   await expect(page.locator(".qa-report-sent")).toBeVisible();
 
   // The item itself is unaffected, and the next item starts with a closed link.
