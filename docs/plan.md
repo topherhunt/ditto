@@ -21,7 +21,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
-- "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss), optionally with a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh close "<resolution>" <id>...` closes the reports on production.
+- "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss), optionally with a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh push` closes on production every report approved or closed in the dev DB, then `pull` brings the closures back.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
 - Friends, added by exact email or from a profile. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
@@ -214,7 +214,7 @@ reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro
         , answer  -- accept only: the typed answer that was graded wrong
         , note, created_at
         , decision, admin_note, triaged_at  -- set by triage; decision: dismiss|fix_audio|fix_text|fix_translation|accept_answer|discuss
-        , resolved_at, resolution  -- closed: by a dismissal or by devops/reports.sh close
+        , resolved_at, resolution  -- closed: by a dismissal or by devops/reports.sh push
         , review, review_note  -- approved|rejected: the admin's verdict on a proposed fix, on the dev DB mirror
         )
 friendships(requester_id, addressee_id, status  -- pending|accepted|blocked

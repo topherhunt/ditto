@@ -13,6 +13,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import OpenAI, { toFile } from "openai";
 import { OpenAIRealtimeWebSocket } from "openai/realtime/websocket";
+import { Agent } from "undici";
 import { z } from "zod";
 import { LANGUAGE_NAMES } from "../shared/content.ts";
 import { loadContent } from "../server/content.ts";
@@ -56,7 +57,8 @@ function fail(msg: string): never {
   throw new Error(msg);
 }
 
-const client = new OpenAI();
+// Node 26's built-in fetch reuses destroyed HTTP/2 sessions to api.openai.com (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
+const client = new OpenAI({ fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
 // USD per 1M tokens (as of 2026-09); gpt-transcribe is billed per minute.
 const PRICES = {
   "gpt-audio-1.5": { text: 2.5, audio: 32, out: 10 },
@@ -165,12 +167,17 @@ async function recognize(): Promise<Phonemes[]> {
 }
 
 // The transcript shows whether speech-to-text writes a slip as a different real word (the fato-for-fatto trap).
+// Skipped when only the free judge runs.
 let transcribeCost = 0;
-const transcripts = await Promise.all(clips.map(async (c, i) => {
-  const res = await client.audio.transcriptions.create({ model: "gpt-transcribe", language: c.lang, file: await toFile(readFileSync(wavs[i]), `${i}.wav`) });
-  transcribeCost += (seconds(wavs[i]) / 60) * TRANSCRIBE_PER_MIN;
-  return res.text;
-}));
+let transcripts: string[] | null = null;
+if (!judges.every((j) => j === "phonemes")) {
+  transcripts = [];
+  for (const [i, c] of clips.entries()) {
+    const res = await client.audio.transcriptions.create({ model: "gpt-transcribe", language: c.lang, file: await toFile(readFileSync(wavs[i]), `${i}.wav`) });
+    transcribeCost += (seconds(wavs[i]) / 60) * TRANSCRIBE_PER_MIN;
+    transcripts.push(res.text);
+  }
+}
 
 const phonemes = judges.includes("phonemes") || judges.includes("audio+ipa") ? await recognize() : null;
 
@@ -206,7 +213,7 @@ if (phonemes) lines.push(``, `Phoneme recognizer: no verdict of its own; PER (ph
 for (const [i, clip] of clips.entries()) {
   lines.push(``, `## ${i + 1}. ${clip.expect.toUpperCase()}: ${clip.text}${clip.tts ? " (course TTS)" : ""}`, ``);
   if (clip.note) lines.push(`Deliberate error: ${clip.note}`, ``);
-  lines.push(`- Transcript: ${transcripts[i]}`);
+  if (transcripts) lines.push(`- Transcript: ${transcripts[i]}`);
   if (phonemes) lines.push(`- Phonemes: PER ${phonemes[i].per.toFixed(2)}, heard /${phonemes[i].heard}/, want /${phonemes[i].want}/`);
   for (const [judge, perClip] of results)
     for (const o of perClip[i])

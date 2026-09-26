@@ -4,10 +4,13 @@ import { DatabaseSync } from "node:sqlite";
 // Moves problem reports between production and a dev DB; devops/reports.sh wraps it. Usage:
 //   node scripts/reports.ts export <db>                   every report with its reporter, as JSON on stdout
 //   node scripts/reports.ts import <db> <file>            make the dev DB's reports mirror an export, keeping local reviews
-//   node scripts/reports.ts close <db> <resolution> <id>...  close triaged reports once their fix is deployed
+//   node scripts/reports.ts closures <db>                 the dev DB's approved or closed reports, as JSON on stdout
+//   node scripts/reports.ts close <db> <closures JSON>    close those on production once their fix is deployed
 // import and close need a migrated DB: start the app against it once first.
 
 type Exported = Record<string, unknown> & { id: number; reporter: { google_sub: string; email: string; name: string; username: string | null } };
+/** unit_id and created_at confirm the id names the same report on both sides. */
+type Closure = { id: number; unit_id: string; created_at: string; resolution: string };
 const REPORT_COLUMNS = [
   "id", "unit_id", "unit_rev", "language", "text", "voice", "audio_file", "kind", "answer", "note", "created_at",
   "decision", "admin_note", "triaged_at", "resolved_at", "resolution",
@@ -54,26 +57,40 @@ if (command === "export") {
     db.exec("ROLLBACK");
     throw e;
   }
+} else if (command === "closures") {
+  // Approved reports close with a stock resolution; reports closed locally keep theirs. Ones closed by an earlier
+  // pull are listed too, and close skips them.
+  const db = new DatabaseSync(dbPath, { readOnly: true });
+  const rows = db.prepare(
+    `SELECT id, unit_id, created_at, COALESCE(resolution, 'Fixed; the new version was approved in review') AS resolution FROM reports
+     WHERE resolved_at IS NOT NULL OR review = 'approved' ORDER BY id`,
+  ).all();
+  console.log(JSON.stringify(rows));
 } else if (command === "close") {
-  const [resolution, ...idArgs] = rest;
-  const ids = idArgs.map(Number);
-  if (!resolution || !ids.length || !ids.every(Number.isInteger)) throw new Error("Usage: node scripts/reports.ts close <db> <resolution> <id>...");
+  const closures = JSON.parse(rest[0] ?? "null") as Closure[] | null;
+  if (!Array.isArray(closures)) throw new Error("Usage: node scripts/reports.ts close <db> <closures JSON>");
   const db = new DatabaseSync(dbPath);
   db.exec("PRAGMA busy_timeout = 5000; BEGIN IMMEDIATE");
   try {
-    const find = db.prepare("SELECT triaged_at, resolved_at FROM reports WHERE id = ?");
-    for (const id of ids) {
-      const row = find.get(id) as { triaged_at: string | null; resolved_at: string | null } | undefined;
-      if (!row?.triaged_at || row.resolved_at) throw new Error(`Report ${id} is ${!row ? "missing" : row.resolved_at ? "already closed" : "not triaged"}`);
+    const find = db.prepare("SELECT unit_id, created_at, triaged_at, resolved_at FROM reports WHERE id = ?");
+    const open: Closure[] = [];
+    const skipped: number[] = [];
+    for (const c of closures) {
+      const row = find.get(c.id) as { unit_id: string; created_at: string; triaged_at: string | null; resolved_at: string | null } | undefined;
+      if (!row) throw new Error(`Report ${c.id} is missing`);
+      if (row.unit_id !== c.unit_id || row.created_at !== c.created_at) throw new Error(`Report ${c.id} on production is a different report; pull first`);
+      if (row.resolved_at) skipped.push(c.id);
+      else if (!row.triaged_at) throw new Error(`Report ${c.id} is not triaged`);
+      else open.push(c);
     }
     const close = db.prepare("UPDATE reports SET resolved_at = ?, resolution = ? WHERE id = ?");
-    for (const id of ids) close.run(new Date().toISOString(), resolution, id);
+    for (const c of open) close.run(new Date().toISOString(), c.resolution, c.id);
     db.exec("COMMIT");
-    console.log(`Closed reports ${ids.join(", ")}: ${resolution}`);
+    console.log(`Closed ${open.map((c) => c.id).join(", ") || "none"}; already closed ${skipped.join(", ") || "none"}`);
   } catch (e) {
     db.exec("ROLLBACK");
     throw e;
   }
 } else {
-  throw new Error(`Unknown command ${command}; expected export, import or close`);
+  throw new Error(`Unknown command ${command}; expected export, import, closures or close`);
 }

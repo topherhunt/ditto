@@ -49,15 +49,33 @@ describe("scripts/reports.ts", () => {
     ]);
   });
 
-  it("closes triaged reports, and refuses the whole batch if any is untriaged or already closed", () => {
+  it("closes on production the reports approved or closed in the dev DB, skipping ones already closed there", () => {
+    const dir = mkdtempSync(join(tmpdir(), "reports-"));
+    const prod = makeDb(dir, "prod", "g-1", "topher");
+    for (const unit of ["u-a", "u-b", "u-c", "u-d"]) addReport(prod.db, unit, true);
+    prod.db.prepare("UPDATE reports SET resolved_at = '2026-01-03', resolution = 'dismissed' WHERE id = 4").run();
+    const dev = makeDb(dir, "dev", "dev:me", "topher");
+    const file = join(dir, "export.json");
+    writeFileSync(file, run("export", prod.path));
+    run("import", dev.path, file);
+    dev.db.prepare("UPDATE reports SET review = 'approved' WHERE id = 1").run();
+    dev.db.prepare("UPDATE reports SET review = 'rejected' WHERE id = 2").run();
+    dev.db.prepare("UPDATE reports SET resolved_at = '2026-01-04', resolution = 'voice dropped' WHERE id = 3").run();
+
+    expect(run("close", prod.path, run("closures", dev.path))).toContain("Closed 1, 3; already closed 4");
+    expect(prod.db.prepare("SELECT id, resolution FROM reports WHERE resolved_at IS NOT NULL ORDER BY id").all()).toEqual([
+      { id: 1, resolution: "Fixed; the new version was approved in review" }, { id: 3, resolution: "voice dropped" }, { id: 4, resolution: "dismissed" },
+    ]);
+  });
+
+  it("refuses the whole batch if a report is untriaged or is a different report on production", () => {
     const dir = mkdtempSync(join(tmpdir(), "reports-"));
     const prod = makeDb(dir, "prod", "g-1", "topher");
     addReport(prod.db, "u-a");
     addReport(prod.db, "u-b", true);
-    expect(() => run("close", prod.path, "fixed", "2", "1")).toThrow(/Report 1 is not triaged/);
-    expect(prod.db.prepare("SELECT resolved_at FROM reports WHERE id = 2").get()).toEqual({ resolved_at: null });
-    run("close", prod.path, "re-rendered with a stress hint", "2");
-    expect(prod.db.prepare("SELECT resolution FROM reports WHERE id = 2").get()).toEqual({ resolution: "re-rendered with a stress hint" });
-    expect(() => run("close", prod.path, "again", "2")).toThrow(/already closed/);
+    const closure = (id: number, unit_id: string) => ({ id, unit_id, created_at: "2026-01-01", resolution: "fixed" });
+    expect(() => run("close", prod.path, JSON.stringify([closure(2, "u-b"), closure(1, "u-a")]))).toThrow(/Report 1 is not triaged/);
+    expect(() => run("close", prod.path, JSON.stringify([closure(2, "u-other")]))).toThrow(/Report 2 on production is a different report/);
+    expect(prod.db.prepare("SELECT count(*) AS n FROM reports WHERE resolved_at IS NOT NULL").get()).toEqual({ n: 0 });
   });
 });
