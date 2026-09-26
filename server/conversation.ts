@@ -5,11 +5,12 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
+import { stream } from "hono/streaming";
 import { z } from "zod";
 import {
   HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SpeakAttemptSchema, SpeakReportSchema,
-  type AdminSpeakReport, type AdminSpendOut, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
-  type HowOut, type MoveOnResult, type Reliance, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
+  type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
+  type HowOut, type MoveOnResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
 import { supportLocale, type Language, type Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
@@ -48,7 +49,7 @@ type TurnRow = {
   source: TurnSource | null; level: string | null;
 };
 type AttemptRow = {
-  id: number; conversation_id: number; target: string; transcript: string; heard: string; want: string; native: string; verdict: string;
+  id: number; conversation_id: number; target: string; transcript: string; verdict: string;
   passed: number; audio_file: string; target_audio_file: string | null; turn_id: number;
 };
 
@@ -137,7 +138,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const failures = (turnId: number, target: string) =>
     (db.prepare("SELECT count(*) AS n FROM conversation_attempts WHERE turn_id = ? AND target = ? AND passed = 0").get(turnId, target) as { n: number }).n;
   const toAttempt = (r: AttemptRow): SpeakAttemptOut => ({
-    id: r.id, passed: r.passed === 1, target: r.target, transcript: r.transcript, heard: r.heard, native: r.native,
+    id: r.id, passed: r.passed === 1, target: r.target, transcript: r.transcript,
     verdict: JSON.parse(r.verdict) as CoachVerdict, failures: failures(r.turn_id, r.target), audioUrl: audioUrl(r.conversation_id, r.audio_file),
     targetAudioUrl: r.target_audio_file === null ? null : audioUrl(r.conversation_id, r.target_audio_file),
   });
@@ -199,7 +200,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   });
 
   // A reply is judged against the retry target when there is one, else against its own transcript; the coach's
-  // `meant` becomes the target of the retries that follow a failure.
+  // `meant` becomes the target of the retries that follow a failure. Once checking starts the response streams
+  // SpeakAttemptEvent lines, so later failures arrive as an {error, status} line under HTTP 200.
   app.post("/api/conversations/:id/attempts", async (c) => {
     const body = SpeakAttemptSchema.parse(await c.req.json());
     const { ai, speech, audioDir } = speak();
@@ -210,30 +212,45 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const file = saveAudio(conv.id, EXT[body.mime], Buffer.from(body.audio, "base64"));
     const path = join(audioDir, file);
 
-    const [{ heard, seconds }, transcript] = await Promise.all([speech.listen(path), ai.transcribe(path, conv.language)]);
-    paid(userId, conv.id, "transcribe", ai.transcribeUsage(seconds));
-    if (!transcript.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
-    const { want, native } = await speech.reference(body.target ?? transcript, conv.language);
-    const coached = await ai.coach({ ...setting(conv), partnerLine: turn.text, target: body.target, transcript, heard, want, native });
-    paid(userId, conv.id, "coach", coached.usage);
-    const verdict = coached.result;
-    const passed = verdict.grammarOk && verdict.pronunciationOk;
-    const target = body.target ?? verdict.meant;
-    const targetFile = passed ? null : await targetAudio(conv, turn.id, target);
+    const check = async (step: (s: CheckStep) => Promise<unknown>): Promise<SpeakAttemptResult> => {
+      await step("listening");
+      const [{ seconds }, transcript] = await Promise.all([speech.duration(path), ai.transcribe(path, conv.language)]);
+      paid(userId, conv.id, "transcribe", ai.transcribeUsage(seconds));
+      if (!transcript.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
+      await step("judging");
+      const coached = await ai.coach({ ...setting(conv), partnerLine: turn.text, target: body.target, transcript });
+      paid(userId, conv.id, "coach", coached.usage);
+      const verdict = coached.result;
+      const passed = verdict.grammarOk;
+      const target = body.target ?? verdict.meant;
+      const targetFile = passed ? null : await targetAudio(conv, turn.id, target);
 
-    const attemptId = Number(db.prepare(
-      `INSERT INTO conversation_attempts (conversation_id, turn_id, retry, target, transcript, heard, want, native, verdict, passed, audio_file, target_audio_file, created_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ).run(conv.id, turn.id, Number(body.target !== null), target, transcript, heard, want, native, JSON.stringify(verdict), Number(passed), file, targetFile, deps.now().toISOString())
-      .lastInsertRowid);
-    const turns: TurnOut[] = [];
-    if (passed) {
-      const suggested = (JSON.parse(turn.suggestions!) as Chunk[][]).some((s) => spoken(joinChunks(s)) === spoken(target));
-      turns.push(learnerTurn(conv, target, body.usedHow ? "how" : suggested ? "suggestion" : "own", verdict.level, body.taps, file));
-      turns.push(await partnerTurn(conv, userId));
-    }
-    const attempt = toAttempt(db.prepare("SELECT * FROM conversation_attempts WHERE id = ?").get(attemptId) as AttemptRow);
-    return c.json<SpeakAttemptResult>({ attempt, turns, reliance: reliance(conv.id), spend: spend(userId, conv.id) });
+      const attemptId = Number(db.prepare(
+        `INSERT INTO conversation_attempts (conversation_id, turn_id, retry, target, transcript, verdict, passed, audio_file, target_audio_file, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ).run(conv.id, turn.id, Number(body.target !== null), target, transcript, JSON.stringify(verdict), Number(passed), file, targetFile, deps.now().toISOString())
+        .lastInsertRowid);
+      const turns: TurnOut[] = [];
+      if (passed) {
+        await step("answering");
+        const suggested = (JSON.parse(turn.suggestions!) as Chunk[][]).some((s) => spoken(joinChunks(s)) === spoken(target));
+        turns.push(learnerTurn(conv, target, body.usedHow ? "how" : suggested ? "suggestion" : "own", verdict.level, body.taps, file));
+        turns.push(await partnerTurn(conv, userId));
+      }
+      const attempt = toAttempt(db.prepare("SELECT * FROM conversation_attempts WHERE id = ?").get(attemptId) as AttemptRow);
+      return { attempt, turns, reliance: reliance(conv.id), spend: spend(userId, conv.id) };
+    };
+
+    c.header("Content-Type", "application/x-ndjson");
+    return stream(c, async (s) => {
+      const send = (e: SpeakAttemptEvent) => s.write(JSON.stringify(e) + "\n");
+      try {
+        await send({ result: await check((step) => send({ step })) });
+      } catch (e) {
+        if (!(e instanceof HTTPException)) console.error(e);
+        await send(e instanceof HTTPException ? { error: e.message, status: e.status } : { error: "Internal error", status: 500 });
+      }
+    });
   });
 
   app.post("/api/conversations/:id/move-on", async (c) => {
@@ -325,7 +342,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     ).all() as (AttemptRow & { language: Language; email: string; username: string | null; partner_line: string; report_note: string; reported_at: string })[];
     return c.json<AdminSpeakReport[]>(rows.map((r) => ({
       ...toAttempt(r), conversationId: r.conversation_id, language: r.language, reporter: { email: r.email, username: r.username },
-      note: r.report_note, reportedAt: r.reported_at, partnerLine: r.partner_line, want: r.want,
+      note: r.report_note, reportedAt: r.reported_at, partnerLine: r.partner_line,
     })));
   });
 }

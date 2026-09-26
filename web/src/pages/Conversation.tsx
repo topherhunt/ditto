@@ -1,7 +1,7 @@
 import { A, useParams } from "@solidjs/router";
 import { createResource, createSignal, For, onCleanup, Show } from "solid-js";
 import {
-  MOVE_ON_AFTER, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type SpeakAttemptOut, type SpeakAttemptResult, type TurnOut,
+  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type SpeakAttemptOut, type SpeakAttemptResult, type TurnOut,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
@@ -70,6 +70,8 @@ export function Conversation() {
   /** Chunks tapped since the learner's last turn; their count is sent as `taps`. */
   const [revealed, setRevealed] = createSignal(new Set<string>());
   const [recState, setRecState] = createSignal<RecState>("idle");
+  /** Where the server is in checking a reply; "sending" until its first step arrives. */
+  const [step, setStep] = createSignal<CheckStep | "sending">("sending");
   const [attempt, setAttempt] = createSignal<SpeakAttemptOut | null>(null);
   const [how, setHow] = createSignal<HowOut | null>(null);
   const [howText, setHowText] = createSignal("");
@@ -120,10 +122,11 @@ export function Conversation() {
 
   const send = (audio: string, mime: "audio/webm" | "audio/mp4") => run(async () => {
     setRecState("checking");
+    setStep("sending");
     try {
-      const res = await api.post<SpeakAttemptResult>(`/api/conversations/${c().id}/attempts`, {
+      const res = await api.postStream<SpeakAttemptResult, { step: CheckStep }>(`/api/conversations/${c().id}/attempts`, {
         audio, mime, target: attempt()?.target ?? null, usedHow: how() !== null, taps: revealed().size,
-      });
+      }, (e) => setStep(e.step));
       if (res.attempt.passed) advance(res.turns, { reliance: res.reliance, spend: res.spend });
       else {
         update({ spend: res.spend });
@@ -236,15 +239,19 @@ export function Conversation() {
               {(a) => <Retry attempt={a} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
             </Show>
 
-            <div class="d-flex align-items-center gap-2">
-              <button type="button" class="qa-record btn btn-lg" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
-                disabled={busy() || recState() === "starting" || recState() === "checking"}
+            <Show when={recState() === "checking"} fallback={
+              <button type="button" class="qa-record btn btn-lg align-self-start" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
+                disabled={busy() || recState() === "starting"}
                 onClick={() => (recState() === "recording" ? recorder!.stop() : void record())}>
                 <i class={`bi ${recState() === "recording" ? "bi-stop-fill" : "bi-mic-fill"} me-1`} aria-hidden="true" />
                 {recState() === "recording" ? t("speak.stop") : attempt() ? t("speak.recordAgain") : t("speak.record")}
               </button>
-              <Show when={recState() === "checking"}><span class="qa-checking text-body-secondary">{t("speak.checking")}</span></Show>
-            </div>
+            }>
+              <div class="qa-checking d-flex align-items-center gap-2 text-body-secondary" role="status">
+                <span class="spinner-border spinner-border-sm" aria-hidden="true" />
+                <span class={`qa-checking-${step()}`}>{t(`speak.step.${step()}`)}</span>
+              </div>
+            </Show>
           </div>
         </Show>
 
@@ -277,7 +284,6 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
       setError((e as Error).message);
     }
   };
-  const badWords = () => a().verdict.words.filter((w) => !w.ok);
   return (
     <div class="qa-retry d-flex flex-column gap-2">
       <div>
@@ -288,7 +294,10 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
           </Show>
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>
-        <div class="qa-retry-heard small text-body-secondary">{t("speak.youSaid", { text: a().transcript })}</div>
+        <div class="d-flex align-items-center gap-2 small text-body-secondary">
+          <button type="button" class="qa-retry-play-own btn btn-sm btn-outline-secondary" aria-label={t("speak.play")} onClick={() => void play(a().audioUrl)}>▶</button>
+          <span class="qa-retry-heard">{t("speak.youSaid", { text: a().transcript })}</span>
+        </div>
       </div>
       <div class="qa-retry-feedback">{a().verdict.feedback}</div>
       <Show when={a().verdict.fixes.length}>
@@ -301,24 +310,6 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
           </ul>
         </div>
       </Show>
-      <Show when={badWords().length}>
-        <div>
-          <div class="small fw-semibold">{t("speak.sounds")}</div>
-          <ul class="mb-0">
-            <For each={badWords()}>
-              {(w) => <li class="qa-retry-sound"><span class="fw-semibold">{w.word}:</span> {w.hint}</li>}
-            </For>
-          </ul>
-        </div>
-      </Show>
-      <details class="small">
-        <summary>{t("speak.details")}</summary>
-        <div class="d-flex flex-column gap-1 mt-1">
-          <div><span class="fw-semibold">{t("speak.heard")}:</span> <span class="qa-retry-ipa-heard font-mono">{a().heard}</span></div>
-          <div><span class="fw-semibold">{t("speak.native")}:</span> <span class="font-mono">{a().native}</span></div>
-          <button type="button" class="btn btn-sm btn-outline-secondary align-self-start" onClick={() => void play(a().audioUrl)}>▶ {t("speak.play")}</button>
-        </div>
-      </details>
       <div class="d-flex flex-wrap gap-2">
         <button type="button" class="qa-retry-else btn btn-sm btn-link" onClick={props.onElse}>{t("speak.else")}</button>
         <button type="button" class="qa-retry-report-open btn btn-sm btn-link" onClick={() => setReportOpen(!reportOpen())}>{t("speak.report")}</button>

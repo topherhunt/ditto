@@ -13,13 +13,19 @@ async function speak(overrides: Partial<AppDeps> = {}) {
   const t = setup({ conversation, ...overrides });
   await t.login();
   const start = async () => (await t.req("POST", "/api/conversations", { language: "it", level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json;
-  const reply = (id: number, over: Record<string, unknown> = {}) =>
-    t.req("POST", `/api/conversations/${id}/attempts`, { audio, mime: "audio/webm", target: null, usedHow: false, taps: 0, ...over });
+  // The route streams step events then a result or error; `status` is an in-stream error's, else the HTTP status.
+  const reply = async (id: number, over: Record<string, unknown> = {}) => {
+    const res = await t.req("POST", `/api/conversations/${id}/attempts`, { audio, mime: "audio/webm", target: null, usedHow: false, taps: 0, ...over });
+    if (res.status !== 200) return { ...res, steps: [] };
+    const events = (res.json as string).trim().split("\n").map((l) => JSON.parse(l));
+    const end = events.at(-1);
+    return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
+  };
   return { ...t, ai: conversation.ai, start, reply };
 }
 
 const passFirstTry = (meant: string) => async () => ({
-  result: { meant, level: "B1" as const, grammarOk: true, pronunciationOk: true, fixes: [], words: [], feedback: "Good." },
+  result: { meant, level: "B1" as const, grammarOk: true, fixes: [], feedback: "Good." },
   usage: { model: "fake", inputTokens: 1, outputTokens: 1, audioSeconds: 0, costUsd: FAKE_COST },
 });
 
@@ -51,18 +57,22 @@ describe("conversation mode", () => {
     expect((await t.req("GET", "/api/conversations?lang=nl")).json.conversations).toEqual([]);
   });
 
-  it("fails a first try with the coach's meant sentence as the retry target, then passes the retry and the partner answers", async () => {
+  it("fails a first try with the coach's meant sentence as the retry target, then passes the retry and the partner answers, streaming each checking step", async () => {
     const t = await speak();
     const conv = await t.start();
-    const first = (await t.reply(conv.id)).json;
+    const firstRes = await t.reply(conv.id);
+    expect(firstRes.steps).toEqual(["listening", "judging"]);
+    const first = firstRes.json;
     expect(first.attempt).toMatchObject({ passed: false, transcript: "Vorrei un caffè", target: "Vorrei un caffè, per favore.", failures: 1 });
-    expect(first.attempt.verdict.words.find((w: { word: string }) => w.word === "caffè")).toMatchObject({ ok: false, hint: "Hold the double f." });
+    expect(first.attempt.verdict.fixes).toEqual([{ wrong: "Vorrei un caffè", right: "Vorrei un caffè, per favore", why: "Add \"per favore\" to be polite." }]);
     expect(first.turns).toEqual([]);
     const said = await t.req("GET", first.attempt.targetAudioUrl);
     expect(said.status).toBe(200);
     expect(said.headers.get("content-type")).toBe("audio/wav");
 
-    const retry = (await t.reply(conv.id, { target: first.attempt.target, taps: 2 })).json;
+    const retryRes = await t.reply(conv.id, { target: first.attempt.target, taps: 2 });
+    expect(retryRes.steps).toEqual(["listening", "judging", "answering"]);
+    const retry = retryRes.json;
     expect(retry.attempt.passed).toBe(true);
     expect(retry.turns.map((x: { role: string; text: string }) => [x.role, x.text])).toEqual([["learner", "Vorrei un caffè, per favore."], ["partner", "Certo! Altro?"]]);
     expect(retry.turns[0]).toMatchObject({ source: "suggestion", level: "A2" });
@@ -176,7 +186,7 @@ describe("conversation mode", () => {
     await t.login("admin@example.com");
     const reports = (await t.req("GET", "/api/admin/speak-reports")).json;
     expect(reports).toHaveLength(1);
-    expect(reports[0]).toMatchObject({ id: attempt.id, note: "I said it right", partnerLine: "Buongiorno! Cosa prende?", reporter: { email: "learner@example.com" }, heard: "v o r ɛ i u n k a f ɛ" });
+    expect(reports[0]).toMatchObject({ id: attempt.id, note: "I said it right", partnerLine: "Buongiorno! Cosa prende?", reporter: { email: "learner@example.com" }, transcript: "Vorrei un caffè" });
 
     const spend = (await t.req("GET", "/api/admin/spend?days=7")).json;
     expect(spend.days).toHaveLength(7);

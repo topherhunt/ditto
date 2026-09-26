@@ -19,8 +19,6 @@ const CoachSchema = z.strictObject({
   level: z.enum(CEFR_LEVELS),
   grammarOk: z.boolean(),
   fixes: z.array(z.strictObject({ wrong: z.string(), right: z.string(), why: z.string() })),
-  words: z.array(z.strictObject({ word: z.string(), ok: z.boolean(), heard: z.string(), hint: z.string() })),
-  pronunciationOk: z.boolean(),
   feedback: z.string(),
 });
 const HowSchema = z.strictObject({ chunks: z.array(ChunkSchema).min(1) });
@@ -34,15 +32,12 @@ export type CoachIn = Setting & {
   /** The sentence a retry is judged against; null on a first try. */
   target: string | null;
   transcript: string;
-  heard: string;
-  want: string;
-  native: string;
 };
 export type Paid<T> = { result: T; usage: Usage };
 
 export interface ConversationAI {
   transcribe(file: string, language: Language): Promise<string>;
-  /** Transcription is billed by audio length, which the speech worker measures alongside it. */
+  /** Transcription is billed by audio length, which the speech worker measures. */
   transcribeUsage(seconds: number): Usage;
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
@@ -63,26 +58,14 @@ Scenario: ${s.scenario}
 - suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way.
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
-const COACH_INSTRUCTIONS = `You are a strict pronunciation and grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. The learner recorded a spoken reply. You get:
-- transcript: speech-to-text of the recording. It auto-corrects toward real words, so it can hide mispronunciations.
-- heard: IPA phones a phoneme recognizer (wav2vec2 espeak) heard in the recording. This is the evidence for pronunciation.
-- native: the same recognizer's IPA for a native text-to-speech voice saying the reference sentence. It shares the recognizer's blind spots, so compare heard against native first.
-- want: espeak's dictionary IPA for the reference sentence, a second opinion (espeak's Dutch is sometimes wrong).
+const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged.
 
-Grammar: meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {locale}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
-Register (formal vs informal address, e.g. tu/Lei, je/u) is the learner's choice, and they need not match the partner's: keep it in meant, don't list it as a fix, and don't let it fail grammarOk. The only exceptions are the learner's own reply addressing one person both ways ("come stai? Cosa desidera?") or a choice that would be a faux pas anywhere. If their register differs from what is usual here, you may say so briefly in feedback.
+meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {locale}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
+Register (informal vs formal address: tu/Lei, je/u, and the verb forms that go with them) is always the learner's choice. Keep the learner's register in meant, never list it in fixes, never let it fail grammarOk, and never mention it in feedback. The partner addressing the learner formally while the learner answers informally (or the reverse) is normal and is not inconsistency, whoever the partner is (waiter, stranger, receptionist).
 
-Pronunciation: judge heard against the reference sentence (the target on a retry, else the transcript). Go word by word through the reference; words lists each word with heard (the matching slice of heard IPA), ok, and a hint for every word that is not ok, else "". Fail a word (ok false) for any substituted, missing or added consonant or vowel, including a single consonant where native has a double, a wrong vowel quality, or an English r or vowel. Tolerate what the recognizer cannot tell apart or what native also shows:
-- voiced/voiceless pairs of affricates and stops at a word start (tʃ/dʒ, k/g) when the rest of the word matches;
-- vowel length marks (ː) and stress marks, except in Dutch where aa/a, ee/e, oo/o differ (kaas/kas);
-- e/ɛ and o/ɔ in Italian;
-- recognizer noise that appears in native too, and small differences at word boundaries (elision, linking).
-pronunciationOk is true only if every word is ok. Never pass a reply because you understood it: a false pass is the worst failure.
-
-The learner can't read IPA or phonetics jargon. Hints, fixes and feedback are in {locale}, short and plain, with no IPA symbols and no terms like "vowel quality" or "phone". A hint says what you heard and what it should sound like, both respelled the way a {locale} speaker would read them, e.g. "I heard 'vorrai' (vor-EYE), but it should sound like 'vor-RAY'." or "I heard 'cafe' with one f; hold the f: 'caf-fè'."
-
+The learner can't read linguistics jargon. Fixes and feedback are in {locale}, short and plain.
 level: the CEFR level of meant as a reply in this conversation (vocabulary, grammar and length).
-feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if everything passed.`;
+feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.`;
 
 const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation.
 ${CHUNKING}`;
@@ -122,9 +105,6 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
         `Partner said: ${c.partnerLine}`,
         c.target ? `Retry. Target: ${c.target}` : "First try (no target).",
         `transcript: ${c.transcript}`,
-        `heard: ${c.heard}`,
-        `native: ${c.native}`,
-        `want: ${c.want}`,
       ].join("\n");
       const { result, usage } = await parse(CoachSchema, "coach", fill(COACH_INSTRUCTIONS, c), input);
       return { result: { ...result, meant: c.target ?? result.meant }, usage };

@@ -27,10 +27,14 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
 - **Gap:** a level test skips a whole level or nothing. A learner who knows half of A2 still starts at its first module.
 - **Idea:** a "test out" option per module, built on the level test.
 
-## Speaking and pronunciation
+## Pronunciation
 
-- **Gap:** no speaking at all.
-- **Idea:** the pronunciation coach in [conversation.md](conversation.md).
+- **Gap:** conversation mode trains fluency and judges grammar only; nothing tells a learner which sounds they get wrong.
+- **Idea:** a separate pronunciation practice, so it never interrupts the conversation. Commit 88c3776 built a version inside conversation mode:
+  - A phone recognizer (wav2vec2 `facebook/wav2vec2-xlsr-53-espeak-cv-ft`) heard the learner as IPA. A text model compared it with espeak's IPA for the sentence and gave respelled hints ("vor-RAY").
+  - The recognizer is noisy even on native speech (drops glides and unstressed vowels, merges doubles). The judge had to be lenient: fail only a clearly different sound, an extra or missing consonant or stressed vowel, or a wrong Italian final vowel.
+  - It holds ~1 GB on CPU, too much for the production VPS, so it needs GPU or serverless hosting (Modal, Replicate, RunPod).
+  - The dev-only `/admin/pronunciation` recorder and `scripts/pronunciation-poc.ts` still score candidate judges.
 
 ## Reading and writing beyond the sentence
 

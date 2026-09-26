@@ -55,7 +55,8 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     });
     const set = res.headers.get("set-cookie");
     if (set) cookie = set.split(";")[0];
-    const json = res.headers.get("content-type")?.includes("json") ? await res.json() : await res.text();
+    // NDJSON streams come back as text.
+    const json = res.headers.get("content-type")?.startsWith("application/json") ? await res.json() : await res.text();
     return { status: res.status, json: json as any, headers: res.headers };
   }
 

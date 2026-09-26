@@ -3,14 +3,13 @@ import type { Readable, Writable } from "node:stream";
 import { createInterface } from "node:readline";
 import type { Language } from "../shared/content.ts";
 
-/** Local speech for conversation mode; server/speech-worker.py documents each call. IPA strings are space-separated phones. */
+/** Local speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
-  listen(file: string): Promise<{ heard: string; seconds: number }>;
-  reference(text: string, language: Language): Promise<{ want: string; native: string }>;
+  duration(file: string): Promise<{ seconds: number }>;
   say(text: string, language: Language, out: string): Promise<{ seconds: number }>;
 }
 
-/** The partner's voice, which also renders the native reference each reply is compared with. */
+/** The partner's voice. */
 const PIPER_VOICES: Partial<Record<Language, string>> = { it: "it_IT-paola-medium", nl: "nl_NL-pim-medium", en: "en_US-amy-medium" };
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
@@ -22,7 +21,7 @@ const voiceOf = (language: Language) => {
 };
 
 /**
- * Starts the worker on first use (it loads its models for about 10 s, holding ~1.2 GB) and again after it dies;
+ * Starts the worker on first use (it loads a Piper voice on first use, holding ~100 MB per voice) and again after it dies;
  * requests in flight when it dies fail. It exits when this process closes its stdin.
  */
 export function speechWorker(python: string, script: string, toolsDir: string): Speech {
@@ -62,8 +61,7 @@ export function speechWorker(python: string, script: string, toolsDir: string): 
   };
 
   return {
-    listen: (file) => call({ op: "listen", file }),
-    reference: (text, language) => call({ op: "reference", text, lang: language, voice: voiceOf(language) }),
+    duration: (file) => call({ op: "duration", file }),
     say: (text, language, out) => call({ op: "say", text, voice: voiceOf(language), out }),
   };
 }

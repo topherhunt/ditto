@@ -38,7 +38,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - A stats page (accuracy, hint rate, streaks).
 - Deploy automation.
 - The learning blind spots in [roadmap.md](roadmap.md).
-- Conversation mode, a spoken track with a pronunciation coach: [conversation.md](conversation.md).
+- Conversation mode, a spoken role-play with a grammar coach: [conversation.md](conversation.md).
 
 **Not doing:** content or audio generated on demand at runtime, CJK or right-to-left languages, other login methods.
 

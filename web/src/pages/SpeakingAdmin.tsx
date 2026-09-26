@@ -23,9 +23,6 @@ function SpeakReport(props: { report: AdminSpeakReport }) {
       <div class="small"><span class="text-body-secondary">Target:</span> {r().target}</div>
       <div class="small"><span class="text-body-secondary">Transcript:</span> {r().transcript}</div>
       <div class="small"><span class="text-body-secondary">Coach:</span> {r().verdict.feedback}</div>
-      <div class="small font-mono"><span class="text-body-secondary">heard </span>{r().heard}</div>
-      <div class="small font-mono"><span class="text-body-secondary">native </span>{r().native}</div>
-      <div class="small font-mono"><span class="text-body-secondary">want </span>{r().want}</div>
     </li>
   );
 }

@@ -20,8 +20,7 @@ function silentWav(): Buffer {
 
 export function fakeSpeech(): Speech {
   return {
-    listen: async () => ({ heard: "v o r ɛ i u n k a f ɛ", seconds: 2 }),
-    reference: async () => ({ want: "vorˈrɛi un kafˈfɛ", native: "v o r r ɛ i u n k a f f ɛ" }),
+    duration: async () => ({ seconds: 2 }),
     say: async (_text, _language, out) => {
       writeFileSync(out, silentWav());
       return { seconds: 0.1 };
@@ -52,13 +51,9 @@ export function fakeAI(): ConversationAI {
       const meant = c.target ?? "Vorrei un caffè, per favore.";
       return {
         result: {
-          meant, level: "A2", grammarOk: passed, pronunciationOk: passed,
+          meant, level: "A2", grammarOk: passed,
           fixes: passed ? [] : [{ wrong: "Vorrei un caffè", right: "Vorrei un caffè, per favore", why: "Add \"per favore\" to be polite." }],
-          words: [
-            { word: "Vorrei", ok: true, heard: "v o r ɛ i", hint: "" },
-            { word: "caffè", ok: passed, heard: "k a f ɛ", hint: passed ? "" : "Hold the double f." },
-          ],
-          feedback: passed ? "Well said." : "Hold the double f in caffè.",
+          feedback: passed ? "Well said." : "Add \"per favore\" to be polite.",
         },
         usage: usage(),
       };

@@ -162,15 +162,16 @@ export type CoachVerdict = {
   level: (typeof CEFR_LEVELS)[number];
   grammarOk: boolean;
   fixes: { wrong: string; right: string; why: string }[];
-  words: { word: string; ok: boolean; heard: string; hint: string }[];
-  pronunciationOk: boolean;
   feedback: string;
 };
 /** `failures`: failed tries at this target so far, this one included. `targetAudioUrl`: the partner voice saying the target, on a failed attempt. */
 export type SpeakAttemptOut = {
-  id: number; passed: boolean; target: string; transcript: string; heard: string; native: string; verdict: CoachVerdict; failures: number; audioUrl: string;
+  id: number; passed: boolean; target: string; transcript: string; verdict: CoachVerdict; failures: number; audioUrl: string;
   targetAudioUrl: string | null;
 };
+/** The attempts route streams these as NDJSON: each step as it starts, then the result or an error. */
+export type CheckStep = "listening" | "judging" | "answering";
+export type SpeakAttemptEvent = { step: CheckStep } | { result: SpeakAttemptResult } | { error: string; status: number };
 /** USD. `today` resets at midnight UTC; nothing paid starts once it reaches `cap`. */
 export type Spend = { today: number; cap: number; conversation: number };
 /** Learner turns that leaned on a suggestion, "How do I say...?" or moving on, out of all learner turns. */
@@ -192,7 +193,7 @@ export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend 
 export type HowOut = { sentence: string; chunks: Chunk[]; spend: Spend };
 export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };
 export type AdminSpeakReport = SpeakAttemptOut & {
-  conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string; want: string;
+  conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string;
 };
 
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };

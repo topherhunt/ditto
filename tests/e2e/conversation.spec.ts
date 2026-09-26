@@ -28,11 +28,23 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-gloss")).toHaveCount(0);
   await expect(page.locator(".qa-suggestion")).toHaveCount(3);
 
+  // Hold the first reply's response so the checking state can be seen: a spinner and step instead of the record button.
+  let release!: () => void;
+  const held = new Promise<void>((r) => (release = r));
+  await page.route("**/attempts", async (route) => {
+    await held;
+    await route.continue();
+  }, { times: 1 });
   await record(page);
+  await expect(page.locator(".qa-checking-sending")).toBeVisible();
+  await expect(page.locator(".qa-record")).toHaveCount(0);
+  release();
   await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
+  await expect(page.locator(".qa-checking")).toHaveCount(0);
   await expect(page.locator(".qa-retry-play-target")).toBeVisible();
   await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");
-  await expect(page.locator(".qa-retry-sound")).toContainText("Hold the double f.");
+  await expect(page.locator(".qa-retry-fix")).toContainText("per favore");
+  await expect(page.locator(".qa-retry-play-own")).toBeVisible();
   await expect(page.locator(".qa-move-on")).toHaveCount(0);
 
   await page.locator(".qa-retry-report-open").click();
@@ -70,7 +82,7 @@ test("an admin sees reported judgments and spend", async ({ page }) => {
   await page.locator(".qa-nav-speaking").click();
   const report = page.locator(".qa-admin-speak-report").filter({ hasText: "admin's own report" });
   await expect(report).toContainText("Buongiorno! Cosa prende?");
-  await expect(report).toContainText("v o r ɛ i u n k a f ɛ");
+  await expect(report).toContainText("Vorrei un caffè");
   // Opening line, transcription and coach, at the fake's $0.001 each.
   await expect(page.locator(".qa-admin-spend-user").filter({ hasText: "admin" })).toContainText("$0.003");
 });

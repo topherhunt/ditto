@@ -18,21 +18,13 @@ The call that writes the partner's line and the suggestions also returns their t
 
 ## Coach
 
-Each reply is heard three ways, and a text model (`CONVERSATION_MODEL`, default `gpt-6-luna`, reasoning effort `CONVERSATION_EFFORT`, default `low`) makes sense of them. At effort `none` the coach answers in about 3.5 s instead of 5–8 s but missed a wrong final vowel that `low` caught:
+The conversation trains fluency and vocabulary, not pronunciation (a separate pronunciation practice is on the [roadmap](roadmap.md#pronunciation)). OpenAI `gpt-transcribe`, forced to the conversation's language, writes down what was said, and a text model (`CONVERSATION_MODEL`, default `gpt-6-luna`, reasoning effort `CONVERSATION_EFFORT`, default `low`) judges the transcript's grammar. It returns the sentence it thinks was meant (corrected), the fixes, and a CEFR grade. A reply passes when the transcript already is that sentence; on a retry, the target. The learner's formal or informal address is theirs to choose and is never corrected or remarked on. The model's floor is ~0.7 s to first token; the rest of a coach call is output tokens.
 
-- **transcript**: OpenAI `gpt-transcribe`, what words were said.
-- **heard**: a local phone recognizer (wav2vec2 `facebook/wav2vec2-xlsr-53-espeak-cv-ft`) on the learner's audio, as space-separated IPA.
-- **want / native**: the target sentence as eSpeak IPA, and the same recognizer run on a Piper rendering of it. `native` shows which differences are recognizer noise rather than learner error.
+The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The target is the retry screen's sentence on a retry, else the transcript. The coach returns the sentence it thinks was meant (corrected), grammar fixes, a per-word sound verdict with hints, and a CEFR grade. A reply passes only if grammar and pronunciation both pass. The learner's formal or informal address is never corrected unless their own reply mixes both or it would be a faux pas anywhere. Hints and feedback are plain words in the support language with sounds respelled ("vor-RAY"), never IPA. The prompt (`server/conversation-ai.ts`) is maximally strict and says a false pass is the worst failure; it tolerates only tʃ/dʒ and k/g at word start, length and stress marks (except Dutch aa/a, ee/e, oo/o), Italian e/ɛ and o/ɔ, and differences `native` shows too. A single consonant where native has a double fails.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process: Piper voices the partner, and ffmpeg measures each recording's length for transcription billing. With one voice loaded it holds about 180 MB. It needs `.venv` with Piper, the voices in `tools/piper-voices`, and ffmpeg.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that loads its models on first use (about 10 s). On CPU it holds about 1.6 GB: torch ~400 MB, the wav2vec2 recognizer ~0.7–1.2 GB, Kokoro (loaded only for its phonemizer) ~500 MB, a Piper voice ~100 MB. Warm, the local steps of a reply take about 0.5 s; the OpenAI calls take the rest. It needs `.venv` with the phonemizer, the recognizer and Piper, the voices in `tools/piper-voices`, and ffmpeg.
-
-The dev-only admin page `/admin/pronunciation` (`server/poc.ts`) records correct and deliberately mispronounced takes to `data/poc/`, and `scripts/pronunciation-poc.ts` scores judges against them.
-
-Trap: a mispronunciation that makes a different real word (*fato* for *fatto*) may be transcribed as that word. The phone recognizer and the grammar check are the backstops.
-
-- The retry screen shows the sentence to say with a button to hear it in the partner's voice, grammar fixes, notes on the flagged sounds, what was heard, and (collapsed) the raw IPA.
+- The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.
 - After 5 failed tries at one sentence the coach offers to move on and records the phrase as a weak one.
 - A report button on the retry screen stores the note on the attempt (`conversation_attempts.report_note`; the `reports` table needs a unit). Admins review them with spend on `/admin/speaking`.
