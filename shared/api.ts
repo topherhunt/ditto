@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedUnit } from "./content.ts";
+import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedLesson, type ServedUnit, type Stage } from "./content.ts";
 
 export const HINT_LEVELS = ["letters", "initial", "none"] as const;
 export type HintLevel = (typeof HINT_LEVELS)[number];
@@ -77,8 +77,11 @@ export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.strin
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
 export type Config = { googleClientId: string | null; devLogin: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
+/** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
+export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };
+export type CatalogCourse = Omit<ServedCourse, "lessons"> & { lessons: CatalogLesson[] };
 export type Catalog = {
-  courses: ServedCourse[];
+  courses: CatalogCourse[];
   /** lessonId -> path -> progress */
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
   /** Course and lesson ids the learner can start. */
@@ -100,6 +103,8 @@ export type MistakeEntry = {
   cleanStreak: number;
   explanation: ExplanationOut | null;
 };
+/** `playable` is false for a lesson that is neither unlocked nor started by a friend; its attempts are refused. */
+export type LessonOut = ServedLesson & { playable: boolean; progress: Catalog["progress"][string] };
 export type ReviewOut = { units: ServedUnit[]; dueCount: number };
 export type LevelTestOut = { units: ServedUnit[] };
 

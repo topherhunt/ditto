@@ -1,9 +1,8 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import type { Catalog } from "../../../shared/api.ts";
-import { PATHS, type ServedLesson } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { levelDone, levels, nextLesson } from "../curriculum.ts";
+import { levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { me } from "../session.ts";
 import { displayName } from "../social.ts";
@@ -13,7 +12,6 @@ export function Home() {
   const lang = useLang();
   const [catalog] = createResource(lang, (l) => api.get<Catalog>(`/api/catalog?lang=${l}`));
   const path = () => me()!.prefs[lang()].path;
-  const pathUnits = (lesson: ServedLesson) => lesson.units.filter((u) => (PATHS[path()] as readonly string[]).includes(u.stage)).length;
   /** Level -> folded, for levels the learner opened or closed by hand; the rest are folded once done or passed. */
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
 
@@ -81,7 +79,7 @@ export function Home() {
                                   <For each={listed()}>
                                     {(lesson) => {
                                       const progress = () => cat().progress[lesson.id]?.[path()];
-                                      const total = () => pathUnits(lesson);
+                                      const total = () => pathUnits(lesson, path());
                                       const label = () => t(!progress() ? "home.start" : progress()!.nextIndex >= total() ? "home.again" : "home.continue");
                                       return (
                                         <li class="qa-lesson list-group-item d-flex align-items-center gap-3">

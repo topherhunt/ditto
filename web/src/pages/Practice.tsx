@@ -1,6 +1,6 @@
 import { A, useParams } from "@solidjs/router";
 import { createResource, createSignal, For, onMount, Show } from "solid-js";
-import type { Catalog, CompareRow, LevelTestOut, MistakeEntry, ReviewOut } from "../../../shared/api.ts";
+import type { CompareRow, LessonOut, LevelTestOut, MistakeEntry, ReviewOut } from "../../../shared/api.ts";
 import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { Exercise } from "../components/Exercise.tsx";
@@ -23,14 +23,11 @@ async function loadDeck(mode: SessionMode, lang: Language, lessonId: string | un
     const units = (await api.get<MistakeEntry[]>(`/api/mistakes?lang=${lang}`)).map((m) => m.unit);
     return { title: t("practice.mistakes"), units, start: 0, lessonId: null };
   }
-  const cat = await api.get<Catalog>(`/api/catalog?lang=${lang}`);
-  const lesson = cat.courses.flatMap((c) => c.lessons).find((l) => l.id === lessonId);
-  if (!lesson) throw new Error(`Unknown lesson ${lessonId}`);
-  if (!cat.unlocked.includes(lesson.id) && !(lesson.id in cat.viaFriends))
-    throw new Error(t("practice.locked", { title: lesson.title }));
+  const lesson = await api.get<LessonOut>(`/api/lessons/${encodeURIComponent(lessonId!)}?lang=${lang}`);
+  if (!lesson.playable) throw new Error(t("practice.locked", { title: lesson.title }));
   const path = me()!.prefs[lang].path;
   const units = lesson.units.filter((u) => (PATHS[path] as readonly string[]).includes(u.stage));
-  const next = cat.progress[lesson.id]?.[path]?.nextIndex ?? 0;
+  const next = lesson.progress[path]?.nextIndex ?? 0;
   return { title: lesson.title, units, start: next < units.length ? next : 0, lessonId: lesson.id };
 }
 

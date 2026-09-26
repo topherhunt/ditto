@@ -4,9 +4,9 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
-  type Catalog, type Config, type ExplanationOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
+  type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
-import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedLesson, type ServedUnit } from "../shared/content.ts";
+import { LANGUAGES, LOCALES, PATHS, STAGES, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
 import { exactKey } from "../shared/tokenize.ts";
 import {
@@ -174,6 +174,10 @@ export function createApp(deps: AppDeps) {
   const passedLevels = (userId: number, language: Language) =>
     new Set((db.prepare("SELECT level FROM level_passes WHERE user_id = ? AND language = ?")
       .all(userId, language) as { level: string }[]).map((r) => r.level));
+  /** Unlocked, or started by a friend, which makes a lesson playable out of sequence. */
+  const playable = (userId: number, language: Language, lessonId: string) =>
+    unlockedIds(structure.courses.filter((x) => x.language === language), completedLessons(userId), passedLevels(userId, language)).has(lessonId)
+    || friendLessons(db, userId).has(lessonId);
 
   app.get("/api/catalog", (c) => {
     const language = lang(c);
@@ -188,7 +192,26 @@ export function createApp(deps: AppDeps) {
     const unlocked = unlockedIds(courses, completedLessons(userId), passed);
     const lessonIds = new Set(courses.flatMap((x) => x.lessons.map((l) => l.id)));
     const viaFriends = Object.fromEntries([...friendLessons(db, userId)].filter(([id]) => lessonIds.has(id) && !unlocked.has(id)));
-    return c.json<Catalog>({ courses, progress, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
+    const listed = courses.map((x): CatalogCourse => ({
+      ...x,
+      lessons: x.lessons.map(({ units, ...l }) => ({
+        ...l, stages: Object.fromEntries(STAGES.map((s) => [s, units.filter((u) => u.stage === s).length])) as Record<Stage, number>,
+      })),
+    }));
+    return c.json<Catalog>({ courses: listed, progress, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
+  });
+
+  app.get("/api/lessons/:lessonId", (c) => {
+    const language = lang(c);
+    const lessonId = c.req.param("lessonId");
+    const { id: userId, locale } = c.get("user");
+    const lesson = content.locales[locale].courses.filter((x) => x.language === language).flatMap((x) => x.lessons).find((l) => l.id === lessonId);
+    if (!lesson) throw new HTTPException(404, { message: `Unknown ${language} lesson ${lessonId}` });
+    const rows = db.prepare("SELECT path, next_index, completed_at FROM lesson_progress WHERE user_id = ? AND lesson_id = ?").all(userId, lessonId) as {
+      path: keyof typeof PATHS; next_index: number; completed_at: string | null;
+    }[];
+    const progress = Object.fromEntries(rows.map((r) => [r.path, { nextIndex: r.next_index, completedAt: r.completed_at }]));
+    return c.json<LessonOut>({ ...lesson, playable: playable(userId, language, lessonId), progress });
   });
 
   const levelOr404 = (language: Language, level: string) => {
@@ -220,9 +243,7 @@ export function createApp(deps: AppDeps) {
     if ((a.meaningCorrect === null) !== !unit.distractors)
       throw new HTTPException(400, { message: `Unit ${unit.id} ${unit.distractors ? "needs" : "has no"} a meaning check` });
     const userId = c.get("user").id;
-    // A lesson a friend has started is playable out of sequence.
-    const unlocked = () => unlockedIds(structure.courses.filter((x) => x.language === unit.language), completedLessons(userId), passedLevels(userId, unit.language));
-    if (a.mode === "learn" && !unlocked().has(unit.lessonId) && !friendLessons(db, userId).has(unit.lessonId))
+    if (a.mode === "learn" && !playable(userId, unit.language, unit.lessonId))
       throw new HTTPException(403, { message: `Lesson ${unit.lessonId} is locked` });
     const now = deps.now();
     const iso = now.toISOString();

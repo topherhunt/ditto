@@ -265,10 +265,12 @@ describe("playing a friend's lessons", () => {
     const cat = (await t.req("GET", "/api/catalog?lang=it")).json;
     expect(cat.unlocked).not.toContain("it-a1-bar-2");
     expect(cat.viaFriends).toEqual({ "it-a1-bar-2": [{ id: ana, username: "ana" }] });
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-2?lang=it")).json.playable).toBe(true);
     expect((await t.attempt("it-a1-bar-2-u02")).status).toBe(200);
 
     await t.login(C);
     expect((await t.req("GET", "/api/catalog?lang=it")).json.viaFriends).toEqual({});
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-2?lang=it")).json.playable).toBe(false);
     expect((await t.attempt("it-a1-bar-2-u02")).status).toBe(403);
   });
 

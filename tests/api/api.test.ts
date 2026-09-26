@@ -59,15 +59,31 @@ describe("prefs and catalog", () => {
     expect(me.json.prefs.it.path).toBe("full");
   });
 
-  it("serves the language's courses with audio URLs and lesson progress", async () => {
+  it("lists the language's courses with unit counts per stage instead of units, and lesson progress", async () => {
     const t = setup();
     await t.login();
     await t.attempt("it-a1-bar-1-u01");
     const cat = await t.req("GET", "/api/catalog?lang=it");
     expect(cat.json.courses.map((c: { id: string }) => c.id)).toEqual(["it-a1-bar", "it-a1-tea"]);
-    expect(cat.json.courses[0].lessons[0].units[0].audio).toEqual(Array(4).fill(expect.stringMatching(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/)));
+    const lesson = cat.json.courses[0].lessons[0];
+    expect(lesson.stages).toEqual({ word: 2, phrase: 4, chunk: 1, sentence: 3 });
+    expect(lesson.units).toBeUndefined();
     expect(cat.json.progress["it-a1-bar-1"].full).toEqual({ nextIndex: 1, completedAt: null });
     expect((await t.req("GET", "/api/catalog?lang=xx")).status).toBe(400);
+  });
+
+  it("serves one lesson's units with audio URLs and the learner's progress on it", async () => {
+    const t = setup();
+    await t.login();
+    await t.attempt("it-a1-bar-1-u06", { path: "sentences" });
+    const lesson = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json;
+    expect(lesson.title).toBe("Un caffè, per favore");
+    expect(lesson.units).toHaveLength(10);
+    expect(lesson.units[0].audio).toEqual(Array(4).fill(expect.stringMatching(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/)));
+    expect(lesson.progress).toEqual({ sentences: { nextIndex: 1, completedAt: null } });
+    expect(lesson.playable).toBe(true);
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-1?lang=nl")).status).toBe(404);
+    expect((await t.req("GET", "/api/lessons/it-a1-nope-1?lang=it")).status).toBe(404);
   });
 
   it("indexes progress within the chosen path and marks completion at the last unit", async () => {
@@ -94,6 +110,8 @@ describe("prefs and catalog", () => {
     cat = await t.req("GET", "/api/catalog?lang=it");
     expect(cat.json.unlocked).toContain("it-a1-bar-2");
     expect(cat.json.unlocked).not.toContain("it-a1-tea");
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-2?lang=it")).json.playable).toBe(true);
+    expect((await t.req("GET", "/api/lessons/it-a1-tea-1?lang=it")).json.playable).toBe(false);
 
     for (const u of ["u02", "u04", "u06", "u08", "u09"]) expect((await t.attempt(`it-a1-bar-2-${u}`, { path: "sentences" })).status).toBe(200);
     cat = await t.req("GET", "/api/catalog?lang=it");
@@ -153,7 +171,7 @@ describe("problem reports", () => {
   it("stores the unit, its text, and the voice and file of the clip that played", async () => {
     const t = setup();
     await t.login();
-    const unit = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0].lessons[0].units[0];
+    const unit = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0];
     const res = await t.req("POST", "/api/reports", { unitId: unit.id, rev: unit.rev, voice: 2, kind: "audio", note: " sounds like sri-le " });
     expect(res.status).toBe(200);
     const row = t.deps.db.prepare("SELECT unit_id, unit_rev, language, text, voice, audio_file, kind, note, resolved_at FROM reports").get();
@@ -315,7 +333,7 @@ describe("locale", () => {
     const t = setup();
     await t.login("ana@example.com", "es-419");
     const course = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0];
-    const unit = course.lessons[0].units.find((u: { id: string }) => u.id === "it-a1-bar-1-u06");
+    const unit = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units.find((u: { id: string }) => u.id === "it-a1-bar-1-u06");
     expect(course.description).toBe("Pedir un café y pagar en un bar italiano");
     expect(unit.translation).toBe("Quisiera un café, por favor.");
     expect(unit.distractors).toEqual(["Un café para mí, gracias.", "Quisiera la cuenta, por favor."]);
@@ -331,7 +349,7 @@ describe("locale", () => {
   it("falls back to English for an Italian-interface learner of Italian", async () => {
     const t = setup();
     await t.login("ana@example.com", "it");
-    const unit = (await t.req("GET", "/api/catalog?lang=it")).json.courses[0].lessons[0].units[0];
+    const unit = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0];
     expect(unit.translation).toBe("coffee");
   });
 
