@@ -1,11 +1,13 @@
 import clickUrl from "./sounds/click.mp3";
 import correctUrl from "./sounds/correct.mp3";
+import victoryUrl from "./sounds/victory.mp3";
 import wrongUrl from "./sounds/wrong.mp3";
 
 const click = new Audio(clickUrl);
 const correct = new Audio(correctUrl);
 const wrong = new Audio(wrongUrl);
-for (const a of [click, correct, wrong]) a.volume = 0.5;
+const victory = new Audio(victoryUrl);
+for (const a of [click, correct, wrong, victory]) a.volume = 0.5;
 
 function play(audio: HTMLAudioElement) {
   audio.currentTime = 0;
@@ -17,6 +19,12 @@ function play(audio: HTMLAudioElement) {
 export function playResult(ok: boolean) {
   click.pause();
   play(ok ? correct : wrong);
+}
+
+/** A finished session's sound; it cuts off the click of the Next button that ended it. */
+export function playVictory() {
+  click.pause();
+  play(victory);
 }
 
 /**

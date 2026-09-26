@@ -1,6 +1,19 @@
 import { expect, test, type Page } from "@playwright/test";
 import { signIn } from "./helpers.ts";
 
+/** Records each UI sound instead of playing it, as "name volume". */
+async function recordSounds(page: Page) {
+  await page.addInitScript(() => {
+    const sounds: string[] = [];
+    (window as unknown as { sounds: string[] }).sounds = sounds;
+    HTMLMediaElement.prototype.play = function () {
+      const name = this.src.match(/\/(click|correct|wrong|victory)-[\w-]+\.mp3$/)?.[1];
+      if (name) sounds.push(`${name} ${this.volume}`);
+      return Promise.resolve();
+    };
+  });
+}
+
 /** The UI sounds played since the last call, by name; item audio is ignored. */
 async function played(page: Page): Promise<string[]> {
   const sounds = await page.evaluate(() => (window as unknown as { sounds: string[] }).sounds.splice(0));
@@ -9,15 +22,7 @@ async function played(page: Page): Promise<string[]> {
 }
 
 test("buttons click at half volume, a pass sounds correct once, and wrong answers or a reveal sound wrong", async ({ page }) => {
-  await page.addInitScript(() => {
-    const sounds: string[] = [];
-    (window as unknown as { sounds: string[] }).sounds = sounds;
-    HTMLMediaElement.prototype.play = function () {
-      const name = this.src.match(/\/(click|correct|wrong)-[\w-]+\.mp3$/)?.[1];
-      if (name) sounds.push(`${name} ${this.volume}`);
-      return Promise.resolve();
-    };
-  });
+  await recordSounds(page);
   await signIn(page, "sounds1@example.com");
   await played(page);
 
@@ -56,4 +61,20 @@ test("buttons click at half volume, a pass sounds correct once, and wrong answer
   expect(await played(page)).toEqual(["click"]);
   await page.locator(".qa-reveal").click();
   expect(await played(page)).toEqual(["click", "wrong"]);
+});
+
+test("finishing a lesson plays the victory sound at half volume", async ({ page }) => {
+  await recordSounds(page);
+  await signIn(page, "sounds2@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+  await expect(page.locator(".qa-exercise")).toBeVisible();
+  while (await page.locator(".qa-exercise").count()) {
+    await page.locator(".qa-reveal").click();
+    await page.locator(".qa-meaning-option").first().click();
+    await expect(page.locator(".qa-next")).toBeVisible();
+    await played(page);
+    await page.locator(".qa-next").click();
+  }
+  await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
+  expect(await played(page)).toEqual(["click", "victory"]);
 });

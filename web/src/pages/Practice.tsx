@@ -1,5 +1,5 @@
 import { A, useParams } from "@solidjs/router";
-import { createResource, createSignal, For, Show } from "solid-js";
+import { createResource, createSignal, For, onMount, Show } from "solid-js";
 import type { Catalog, CompareRow, LevelTestOut, MistakeEntry, ReviewOut } from "../../../shared/api.ts";
 import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
@@ -7,6 +7,7 @@ import { Exercise } from "../components/Exercise.tsx";
 import { t } from "../i18n/index.ts";
 import type { Outcome, SessionMode } from "../practice.ts";
 import { me } from "../session.ts";
+import { playVictory } from "../sounds.ts";
 import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
 
@@ -77,6 +78,11 @@ export function Practice(props: { mode: SessionMode }) {
   );
 }
 
+function Tada() {
+  onMount(playVictory);
+  return <div class="text-center" style={{ "font-size": "5rem" }}><span class="qa-tada tilt" aria-hidden="true">🎉</span></div>;
+}
+
 /** A level test's end: passed only when every item was clean, which also records the pass. */
 function TestResult(props: { lang: Language; level: string; passed: boolean; right: number; total: number; onRetry: () => void }) {
   const [saved] = createResource(() => props.passed || undefined, () => api.post("/api/level-test/pass", { language: props.lang, level: props.level }));
@@ -88,7 +94,7 @@ function TestResult(props: { lang: Language; level: string; passed: boolean; rig
           <p class="mb-0">{t("test.failedBody", { right: props.right, total: props.total })}</p>
         </>
       }>
-        <div class="text-center" style={{ "font-size": "5rem" }}><span class="qa-tada tilt" aria-hidden="true">🎉</span></div>
+        <Tada />
         <h2 class="qa-test-passed h5">{t("test.passed", { level: props.level })}</h2>
         <p class="mb-0">{t("test.passedBody", { level: props.level })}</p>
         <Show when={saved.error}>{(e) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: (e() as Error).message })}</div>}</Show>
@@ -130,7 +136,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
         ) : (
           <div class="qa-session-done card"><div class="card-body d-flex flex-column gap-2">
             <Show when={props.deck.units.length > 0}>
-              <div class="text-center" style={{ "font-size": "5rem" }}><span class="qa-tada tilt" aria-hidden="true">🎉</span></div>
+              <Tada />
             </Show>
             <h2 class="h5">{props.deck.units.length === 0 ? t("practice.nothing") : t("practice.done")}</h2>
             <Show when={props.deck.units.length > 0}>
