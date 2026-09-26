@@ -11,6 +11,11 @@ import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
 
+/** Extra words typed between two slots, struck through; the lg padding lines them up with the slot text. */
+function ExtraWords(props: { words: WordResult[] }) {
+  return <For each={props.words}>{(w) => <span class="qa-slot-extra form-control-lg px-0"><WordDiff word={w} /></span>}</For>;
+}
+
 function shuffle<T>(items: T[]): T[] {
   const out = [...items];
   for (let i = out.length - 1; i > 0; i--) {
@@ -36,6 +41,7 @@ export function Exercise(props: {
   const [freeText, setFreeText] = createSignal("");
   const [slots, setSlots] = createSignal<string[]>(target.map(() => ""));
   const [feedback, setFeedback] = createSignal<SlotFeedback[]>(target.map(() => ({ state: "open" })));
+  const [extras, setExtras] = createSignal<WordResult[][]>(target.map(() => []).concat([[]]));
   const [freeResult, setFreeResult] = createSignal<GradeResult | null>(null);
   const [wrongSubmissions, setWrongSubmissions] = createSignal(0);
   const [hintsUsed, setHintsUsed] = createSignal(0);
@@ -101,6 +107,7 @@ export function Exercise(props: {
     const byIndex = new Map(result.words.flatMap((w) => (w.kind === "extra" ? [] : [[w.wordIndex, w] as const])));
     const old = feedback();
     setSlots(s.values);
+    setExtras(s.extras);
     setFeedback(s.states.map((state, i) => (old[i]?.state === "hinted" ? old[i] : { state, word: byIndex.get(i) })));
   }
 
@@ -296,6 +303,8 @@ export function Exercise(props: {
               <div class="qa-slots d-flex flex-wrap gap-2 align-items-start fs-5">
                 <Index each={target}>
                   {(word, i) => (
+                    <>
+                    <ExtraWords words={extras()[i]} />
                     <div class="d-flex flex-column align-items-center">
                       <input
                         ref={(el) => (inputs[i] = el)}
@@ -314,8 +323,10 @@ export function Exercise(props: {
                         {(w) => <small class="mt-1"><WordDiff word={w()} /></small>}
                       </Show>
                     </div>
+                    </>
                   )}
                 </Index>
+                <ExtraWords words={extras()[target.length]} />
               </div>
             }
           >

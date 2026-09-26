@@ -32,10 +32,18 @@ describe("practice helpers", () => {
     expect(r.words.map(hasFeedback)).toEqual([false, false, true]);
   });
 
-  it("maps a free-text answer onto slots, leaving missing words empty and dropping extras", () => {
+  it("maps a free-text answer onto slots, leaving missing words empty and placing extras in the gap they were typed in", () => {
     const r = grade({ mode: "free", text: "io vorrei caffe" }, { language: "it", text: "Vorrei un caffè" });
     const s = slotsAfter(r, 3);
     expect(s.values).toEqual(["Vorrei", "", "caffè"]);
     expect(s.states).toEqual(["correct", "open", "accent"]);
+    expect(s.extras.map((g) => g.map((w) => w.kind === "extra" && w.typed))).toEqual([["io"], [], [], []]);
+  });
+
+  it("places an extra word typed after the last slot at the end", () => {
+    const r = grade({ mode: "free", text: "vorrei caffè grazie" }, { language: "it", text: "Vorrei un caffè" });
+    const s = slotsAfter(r, 3);
+    expect(r.words.map((w) => w.kind)).toEqual(["correct", "missing", "correct", "extra"]);
+    expect(s.extras.map((g) => g.map((w) => w.kind === "extra" && w.typed))).toEqual([[], [], [], ["grazie"]]);
   });
 });

@@ -106,10 +106,13 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await expect(page.locator(".qa-outcome")).toContainText("Corrected");
   await page.locator(".qa-next").click();
 
-  // "Per me, un'acqua frizzante, grazie.": a missing word converts to slots; then the wrong meaning.
-  await page.locator(".qa-free-input").fill("per me un'acqua grazie");
+  // "Per me, un'acqua frizzante, grazie.": a missing word converts to slots, an extra one shows struck through
+  // between them; then the wrong meaning.
+  await page.locator(".qa-free-input").fill("per me io un'acqua grazie");
   await page.locator(".qa-free-input").press("Enter");
   await expect(page.locator(".qa-word-missing")).toHaveText("frizzante");
+  await expect(page.locator(".qa-slots > *").nth(2)).toHaveClass(/qa-slot-extra/);
+  await expect(page.locator(".qa-slot-extra .qa-word-extra")).toHaveText("io");
   await expect(slot(page, 3)).toBeFocused();
   await slot(page, 3).fill("frizzante");
   await slot(page, 3).press("Enter");
