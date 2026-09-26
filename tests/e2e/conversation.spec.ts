@@ -1,0 +1,76 @@
+import { expect, test } from "@playwright/test";
+import { signIn } from "./helpers.ts";
+
+// Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
+test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"] } });
+
+async function record(page: import("@playwright/test").Page) {
+  await page.locator(".qa-record").click();
+  await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
+  await page.waitForTimeout(300);
+  await page.locator(".qa-record").click();
+}
+
+test("a learner starts a café conversation, fails a reply, retries the coach's sentence and gets an answer", async ({ page }) => {
+  await signIn(page, "speaker@example.com");
+  await page.goto("/it");
+  await page.locator(".qa-nav-speak").click();
+  await page.locator(".qa-speak-starter-cafe").click();
+
+  await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
+  const opening = page.locator(".qa-turn-partner").first();
+  await expect(opening.locator(".qa-chunk")).toHaveText(["Buongiorno!", "Cosa prende?"]);
+  await opening.locator(".qa-chunk").first().click();
+  await expect(page.locator(".qa-gloss")).toHaveText("Good morning!");
+  await opening.locator(".qa-chunk").nth(1).click();
+  await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
+  await page.locator(".qa-conversation-title").click();
+  await expect(page.locator(".qa-gloss")).toHaveCount(0);
+  await expect(page.locator(".qa-suggestion")).toHaveCount(3);
+
+  await record(page);
+  await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
+  await expect(page.locator(".qa-retry-play-target")).toBeVisible();
+  await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");
+  await expect(page.locator(".qa-retry-sound")).toContainText("Hold the double f.");
+  await expect(page.locator(".qa-move-on")).toHaveCount(0);
+
+  await page.locator(".qa-retry-report-open").click();
+  await page.locator(".qa-retry-report-note").fill("I held the f");
+  await page.locator(".qa-retry-report-send").click();
+  await expect(page.locator(".qa-retry-reported")).toBeVisible();
+
+  await record(page);
+  await expect(page.locator(".qa-turn-learner .qa-turn-text")).toHaveText("Vorrei un caffè, per favore.");
+  await expect(page.locator(".qa-turn-learner .qa-turn-level")).toHaveText("A2");
+  await expect(page.locator(".qa-turn-partner").nth(1).locator(".qa-chunk")).toHaveText(["Certo!", "Altro?"]);
+  await expect(page.locator(".qa-retry")).toHaveCount(0);
+  await expect(page.locator(".qa-reliance")).toContainText("1 of 1");
+  await expect(page.locator(".qa-cost")).toContainText("$0.006");
+
+  await page.locator(".qa-conversation-hard").check();
+  await expect(page.locator(".qa-suggestion")).toHaveCount(0);
+  await expect(page.locator(".qa-how-open")).toBeVisible();
+
+  await page.goto("/it/speak");
+  await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
+});
+
+test("an admin sees reported judgments and spend", async ({ page }) => {
+  await signIn(page, "admin@example.com");
+  await page.goto("/it/speak");
+  await page.locator(".qa-speak-starter-cafe").click();
+  await record(page);
+  await page.locator(".qa-retry-report-open").click();
+  await page.locator(".qa-retry-report-note").fill("admin's own report");
+  await page.locator(".qa-retry-report-send").click();
+  await expect(page.locator(".qa-retry-reported")).toBeVisible();
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-speaking").click();
+  const report = page.locator(".qa-admin-speak-report").filter({ hasText: "admin's own report" });
+  await expect(report).toContainText("Buongiorno! Cosa prende?");
+  await expect(report).toContainText("v o r ɛ i u n k a f ɛ");
+  // Opening line, transcription and coach, at the fake's $0.001 each.
+  await expect(page.locator(".qa-admin-spend-user").filter({ hasText: "admin" })).toContainText("$0.003");
+});

@@ -1,6 +1,6 @@
 import { A, useLocation, type RouteSectionProps } from "@solidjs/router";
 import { createResource, createSignal, ErrorBoundary, For, Match, onCleanup, Show, Switch } from "solid-js";
-import type { Config } from "../../../shared/api.ts";
+import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
@@ -84,6 +84,9 @@ export function Layout(props: RouteSectionProps) {
                   </div>
                   <ul class="navbar-nav">
                     <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
+                    <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>
+                      <li class="nav-item"><A class="qa-nav-speak nav-link" href={`/${navLang()}/speak`}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
+                    </Show>
                   </ul>
                   <div class="ms-auto d-flex align-items-center gap-2">
                     <Notifications />
@@ -102,6 +105,7 @@ export function Layout(props: RouteSectionProps) {
                         {/* Admin-only, so not translated. */}
                         {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-bug me-2" aria-hidden="true" />Reports</A></li>}
                         {user().admin && config()?.poc && <li><A href="/admin/pronunciation" class="qa-nav-poc dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-mic me-2" aria-hidden="true" />Pronunciation POC</A></li>}
+                        {user().admin && <li><A href="/admin/speaking" class="qa-nav-speaking dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-chat-dots me-2" aria-hidden="true" />Speaking</A></li>}
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item text-danger" onClick={logout}><i class="bi bi-power me-2" aria-hidden="true" />{t("nav.signOut")}</button></li>
                       </ul>

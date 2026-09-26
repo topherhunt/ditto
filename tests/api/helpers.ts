@@ -40,6 +40,8 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     explainDailyLimit: 3,
     secureCookies: false,
     pocDir: null,
+    conversation: null,
+    dailySpendCap: 5,
     ...overrides,
   };
   const app = createApp(deps);

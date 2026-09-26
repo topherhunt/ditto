@@ -117,9 +117,87 @@ export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), lev
 
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
+/** Conversation mode (docs/conversation.md). Irish is out until live Irish TTS exists. */
+export const SPEAK_LANGUAGES = ["it", "nl", "en"] as const satisfies readonly Language[];
+export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
+export const LEARNER_LEVELS = ["A1", "A2", "B1", "B2"] as const;
+export const STARTERS = ["cafe", "directions", "hotel", "meeting", "market", "weekend"] as const;
+export type Starter = (typeof STARTERS)[number];
+/** Failed tries at one sentence before the coach offers to move on. */
+export const MOVE_ON_AFTER = 5;
+export const AUDIO_MIMES = ["audio/webm", "audio/mp4"] as const;
+
+export const NewConversationSchema = z.strictObject({
+  language: z.enum(SPEAK_LANGUAGES),
+  level: z.enum(LEARNER_LEVELS),
+  scenario: z.union([z.strictObject({ starter: z.enum(STARTERS) }), z.strictObject({ topic: z.string().trim().min(1).max(300) }), z.strictObject({ surprise: z.literal(true) })]),
+  hardMode: z.boolean(),
+});
+export const PutConversationSchema = z.strictObject({ hardMode: z.boolean() });
+/** `target`: the retry screen's sentence, null on a first try. `taps`: chunks translated before this reply. */
+export const SpeakAttemptSchema = z.strictObject({
+  audio: z.string().min(1), mime: z.enum(AUDIO_MIMES), target: z.string().min(1).max(500).nullable(), usedHow: z.boolean(), taps: z.int().min(0),
+});
+export const MoveOnSchema = z.strictObject({ target: z.string().min(1).max(500), taps: z.int().min(0) });
+export const HowSchema = z.strictObject({ text: z.string().trim().min(1).max(500) });
+export const SpeakReportSchema = z.strictObject({ note: z.string().trim().max(1000) });
+
+export type Chunk = { text: string; gloss: string };
+export type TurnSource = "suggestion" | "own" | "how" | "moved_on";
+export type TurnOut = {
+  id: number;
+  role: "partner" | "learner";
+  text: string;
+  /** Partner turns only. */
+  chunks: Chunk[] | null;
+  suggestions: Chunk[][] | null;
+  audioUrl: string | null;
+  /** Learner turns only. */
+  source: TurnSource | null;
+  level: string | null;
+};
+export type CoachVerdict = {
+  /** The sentence the coach thinks was meant, corrected; the target on a retry. */
+  meant: string;
+  level: (typeof CEFR_LEVELS)[number];
+  grammarOk: boolean;
+  fixes: { wrong: string; right: string; why: string }[];
+  words: { word: string; ok: boolean; heard: string; hint: string }[];
+  pronunciationOk: boolean;
+  feedback: string;
+};
+/** `failures`: failed tries at this target so far, this one included. `targetAudioUrl`: the partner voice saying the target, on a failed attempt. */
+export type SpeakAttemptOut = {
+  id: number; passed: boolean; target: string; transcript: string; heard: string; native: string; verdict: CoachVerdict; failures: number; audioUrl: string;
+  targetAudioUrl: string | null;
+};
+/** USD. `today` resets at midnight UTC; nothing paid starts once it reaches `cap`. */
+export type Spend = { today: number; cap: number; conversation: number };
+/** Learner turns that leaned on a suggestion, "How do I say...?" or moving on, out of all learner turns. */
+export type Reliance = { leaned: number; of: number };
+export type ConversationOut = {
+  id: number; language: Language; level: string; title: string; hardMode: boolean; createdAt: string;
+  turns: TurnOut[]; reliance: Reliance; spend: Spend;
+};
+export type ConversationSummary = {
+  id: number; language: Language; level: string; title: string; createdAt: string; updatedAt: string;
+  /** CEFR grades of the learner's replies, in order. */
+  levels: string[];
+  reliance: Reliance;
+};
+export type ConversationsOut = { conversations: ConversationSummary[]; weakPhrases: { text: string; createdAt: string }[]; spend: Omit<Spend, "conversation"> };
+/** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
+export type SpeakAttemptResult = { attempt: SpeakAttemptOut; turns: TurnOut[]; reliance: Reliance; spend: Spend };
+export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend };
+export type HowOut = { sentence: string; chunks: Chunk[]; spend: Spend };
+export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };
+export type AdminSpeakReport = SpeakAttemptOut & {
+  conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string; want: string;
+};
+
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };
-/** `poc`: the pronunciation proof-of-concept recorder is on (development only). */
-export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean };
+/** `poc`: the pronunciation proof-of-concept recorder is on (development only). `speak`: conversation mode is configured. */
+export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
 export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };

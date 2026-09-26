@@ -14,6 +14,7 @@ import {
   createSession, deleteSession, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
 import { VOICES, voiceId, type Content } from "./content.ts";
+import { registerConversation, type ConversationDeps } from "./conversation.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { levelTestUnits } from "./level-test.ts";
@@ -40,6 +41,10 @@ export type AppDeps = {
   secureCookies: boolean;
   /** Where the pronunciation proof-of-concept recorder saves takes; null (always in production) disables it. */
   pocDir: string | null;
+  /** Conversation mode's AI, local speech and audio dir; null refuses its paid calls. */
+  conversation: ConversationDeps | null;
+  /** USD per user per UTC day, across conversation mode's paid calls. */
+  dailySpendCap: number;
 };
 
 const GRADUATE_AFTER = 2;
@@ -97,7 +102,7 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
-  app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null }));
+  app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null, speak: deps.conversation !== null }));
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
@@ -391,6 +396,7 @@ export function createApp(deps: AppDeps) {
 
   registerSocial(app, deps);
   registerAdmin(app, deps);
+  registerConversation(app, deps);
   if (deps.pocDir) registerPoc(app, content, deps.pocDir);
 
   app.all("/api/*", () => {
