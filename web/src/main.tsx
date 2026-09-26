@@ -13,6 +13,9 @@ import { Notebook } from "./pages/Notebook.tsx";
 import { Practice } from "./pages/Practice.tsx";
 import { Profile } from "./pages/Profile.tsx";
 import { Settings } from "./pages/Settings.tsx";
+import { installClickSound } from "./sounds.ts";
+
+installClickSound();
 
 function lastLanguage(): string {
   try {

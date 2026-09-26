@@ -1,3 +1,5 @@
-- [ ] Finish generating the EN audio
-- [ ] Finish generating the Gaelic audio
+- [x] Finish generating the EN audio
+- [x] Finish generating the Gaelic audio
+- [ ] Track my total OpenAI API token spend. Is there a way to do that via the an API request from the token itself, or do I need to track it in the database per request somehow?  
 - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.
+- [ ] Also plan out & build a fully-voice-convo based mode, that's fully AI driven conversation trees.

@@ -6,6 +6,7 @@ import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
 import { categoryName, t } from "../i18n/index.ts";
 import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
+import { playResult } from "../sounds.ts";
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
 type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
@@ -109,6 +110,7 @@ export function Exercise(props: {
     if ((free() ? [freeText()] : slots()).every((s) => s.trim() === "")) return;
     submissions.push(free() ? freeText().trim() : slots().join(" "));
     const r = grade(answer, unit);
+    playResult(r.passed);
     if (r.against === unit.text) for (const w of r.words) if (w.kind === "accent") accentWords.set(w.wordIndex, w.accentPositions);
     if (r.passed) {
       if (r.against === unit.text) {
@@ -153,6 +155,7 @@ export function Exercise(props: {
   }
 
   function reveal() {
+    playResult(false);
     setRevealed(true);
     finish(accentWords.size);
   }
@@ -172,6 +175,8 @@ export function Exercise(props: {
   function pickMeaning(option: string) {
     if (meaningPick() !== null) return;
     setMeaningPick(option);
+    // A right pick stays quiet: the dictation already played its sound.
+    if (option !== unit.translation) playResult(false);
     record(option === unit.translation);
   }
 
@@ -413,13 +418,13 @@ export function Exercise(props: {
     <Show
       when={reportOpen()}
       fallback={
-        <button type="button" class="qa-report-open btn btn-link btn-sm p-0 ms-auto text-body-secondary" onClick={() => setReportOpen(true)}>
+        <button type="button" data-silent class="qa-report-open btn btn-link btn-sm p-0 ms-auto text-body-secondary" onClick={() => setReportOpen(true)}>
           {t("report.open")}
         </button>
       }
     >
       <Show when={reportState() !== "sent"} fallback={<div class="qa-report-sent small text-body-secondary ms-auto">{t("report.sent")}</div>}>
-        <form class="qa-report d-flex flex-column gap-2 small ms-auto" onSubmit={sendReport}>
+        <form data-silent class="qa-report d-flex flex-column gap-2 small ms-auto" onSubmit={sendReport}>
           {/* The first submission is the one graded wrong: a pass ends the dictation. */}
           <For each={REPORT_KINDS.filter((k) => k !== "accept" || wrongSubmissions() > 0)}>
             {(kind) => (
