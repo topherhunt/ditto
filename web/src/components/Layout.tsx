@@ -78,6 +78,8 @@ export function Layout(props: RouteSectionProps) {
                         <li><A href="/leaderboard" class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.leaderboard")}</A></li>
                         <li><A href="/settings" class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.settings")}</A></li>
                         <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}>{t("nav.about")}</A></li>
+                        {/* Admin-only, so not translated. */}
+                        {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}>Reports</A></li>}
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item" onClick={logout}>{t("nav.signOut")}</button></li>
                       </ul>

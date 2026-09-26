@@ -21,7 +21,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
-- "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. There is no review UI yet: query the `reports` table.
+- "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss) and add a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh close "<resolution>" <id>...` closes the reports on production.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
 - Friends, added by exact email or from a profile. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
@@ -205,7 +205,11 @@ explain_usage(user_id, day, count, PK(user_id, day))
 reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
         , audio_file, kind  -- audio|text|translation|accept|other
         , answer  -- accept only: the typed answer that was graded wrong
-        , note, created_at, resolved_at)
+        , note, created_at
+        , decision, admin_note, triaged_at  -- set by triage; decision: dismiss|fix_audio|fix_text|fix_translation|accept_answer|discuss
+        , resolved_at, resolution  -- closed: by a dismissal or by devops/reports.sh close
+        , review, review_note  -- approved|rejected: the admin's verdict on a proposed fix, on the dev DB mirror
+        )
 friendships(requester_id, addressee_id, status  -- pending|accepted|blocked
             , created_at, responded_at, PK(requester_id, addressee_id))
 challenges(id PK, challenger_id, opponent_id, kind  -- most|first_to
@@ -225,7 +229,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`), checks `ALLOWED_EMAILS`, and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
 | POST | `/api/auth/dev` | Enabled only when `DEV_LOGIN=1`. Used by E2E tests |
 | POST | `/api/auth/logout` | |
-| GET | `/api/me` | User, username and prefs |
+| GET | `/api/me` | User, username, prefs, and whether they're an admin |
 | PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
 | PUT | `/api/prefs` | |
 | GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress, plus review-due and notebook counts |
@@ -235,6 +239,10 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
 | POST | `/api/reports` | `{unitId, rev, voice, kind, answer?, note}` (`answer` only and always for `accept`), where `voice` is the index into the unit's `audio` |
+| GET | `/api/admin/reports?status=(new\|triaged\|closed)` | Admins only (403 otherwise), like every `/api/admin` route. Each report with its reporter, reported clip, and the unit as the running content has it |
+| PUT | `/api/admin/reports/:id/triage` | `{decision, note}`; the note is required unless dismissing, which also closes the report. 409 if closed |
+| PUT | `/api/admin/reports/:id/review` | `{review: "approved"\|"rejected", note}`; the note is required to reject. Triaged reports only |
+| POST | `/api/admin/reports/:id/reopen` | A dismissed report goes back to new, any other back to triaged |
 | GET | `/api/friends` | Friends and incoming/outgoing/blocked requests |
 | GET | `/api/leaderboard?window=(day\|week\|month)&scope=(everyone\|friends)` | `{rows, me}`; `me` is your row when it's outside the top 20 |
 | GET | `/api/friends/search?email=` | Only whether the account exists and how you stand with it |

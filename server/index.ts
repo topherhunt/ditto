@@ -31,6 +31,7 @@ const app = createApp({
   googleClientId,
   verifyGoogle: googleClientId ? googleVerifier(googleClientId) : null,
   allowedEmails: env.ALLOWED_EMAILS ? new Set(env.ALLOWED_EMAILS.split(",").map((e) => e.trim().toLowerCase())) : null,
+  adminEmails: new Set((env.ADMIN_EMAILS || "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean)),
   devLogin: env.DEV_LOGIN === "1",
   explainer: env.OPENAI_API_KEY ? openAIExplainer(env.OPENAI_API_KEY, explainModel) : null,
   explainModel,

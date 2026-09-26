@@ -33,6 +33,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     googleClientId: "test-client",
     verifyGoogle: async (credential) => ({ sub: `g-${credential}`, email: `${credential}@example.com`, name: credential, picture: null }),
     allowedEmails: null,
+    adminEmails: new Set(["admin@example.com"]),
     devLogin: true,
     explainer: fakeExplainer(),
     explainModel: "fake-model",

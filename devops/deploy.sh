@@ -19,7 +19,7 @@ rsync -az --delete --delay-updates --rsync-path="${RSYNC_PATH}" -e "ssh -p ${SSH
   --include='/package.json' --include='/package-lock.json' \
   --include='/server/***' --include='/shared/***' --include='/content/***' \
   --include='/dist/' --include='/dist/web/***' \
-  --include='/scripts/' --include='/scripts/backup-db.ts' \
+  --include='/scripts/' --include='/scripts/backup-db.ts' --include='/scripts/reports.ts' \
   --exclude='*' \
   "${REPO_ROOT}/" "${DEPLOY_USER}@${DEPLOY_HOST}:${APP_DIR}/"
 

@@ -214,6 +214,7 @@ test("finishing a lesson celebrates, and Enter goes back to the lessons", async 
     await page.locator(".qa-next").click();
   }
   await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
+  await expect(page.locator(".qa-session-done .qa-tada-spark")).toHaveCount(10);
   await expect(page.locator(".qa-back")).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page.locator(".qa-lesson-start").first()).toBeVisible();

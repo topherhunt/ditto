@@ -9,6 +9,7 @@ import {
 import { LANGUAGES, LOCALES, PATHS, STAGES, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
 import { exactKey } from "../shared/tokenize.ts";
+import { isAdmin, registerAdmin } from "./admin.ts";
 import {
   createSession, deleteSession, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
@@ -28,6 +29,8 @@ export type AppDeps = {
   verifyGoogle: VerifyGoogle | null;
   /** Lowercased; null allows any verified Google account. */
   allowedEmails: Set<string> | null;
+  /** Lowercased; may see and triage problem reports. */
+  adminEmails: Set<string>;
   devLogin: boolean;
   explainer: Explainer | null;
   /** Model whose cached explanations are shown, even when the explainer is disabled. */
@@ -134,7 +137,7 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/me", (c) => {
     const u = c.get("user");
-    return c.json<Me>({ email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u) });
+    return c.json<Me>({ email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u), admin: isAdmin(deps, u) });
   });
 
   app.put("/api/locale", async (c) => {
@@ -384,6 +387,7 @@ export function createApp(deps: AppDeps) {
   });
 
   registerSocial(app, deps);
+  registerAdmin(app, deps);
 
   app.all("/api/*", () => {
     throw new HTTPException(404, { message: "Not found" });

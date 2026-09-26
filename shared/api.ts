@@ -51,6 +51,42 @@ export const ReportSchema = z.strictObject({
 }).refine((r) => (r.kind === "accept") === (r.answer !== undefined), { message: "answer is required for accept reports and only for them" });
 export type ReportBody = z.infer<typeof ReportSchema>;
 
+/** What the admin wants done about a report. Every decision but `dismiss` needs a note; `dismiss` also closes the report. */
+export const REPORT_DECISIONS = ["dismiss", "fix_audio", "fix_text", "fix_translation", "accept_answer", "discuss"] as const;
+export type ReportDecision = (typeof REPORT_DECISIONS)[number];
+export const TriageSchema = z.strictObject({ decision: z.enum(REPORT_DECISIONS), note: z.string().trim().max(2000) })
+  .refine((r) => r.decision === "dismiss" || r.note !== "", { message: "A note is required unless dismissing" });
+/** The admin's verdict on a proposed fix; a rejection needs a note saying what's still wrong. */
+export const ReviewSchema = z.strictObject({ review: z.enum(["approved", "rejected"]), note: z.string().trim().max(2000) })
+  .refine((r) => r.review === "approved" || r.note !== "", { message: "A note is required when rejecting" });
+export const REPORT_STATUSES = ["new", "triaged", "closed"] as const;
+export type ReportStatus = (typeof REPORT_STATUSES)[number];
+export type AdminReport = {
+  id: number;
+  status: ReportStatus;
+  createdAt: string;
+  reporter: { email: string; username: string | null };
+  kind: ReportBody["kind"];
+  note: string;
+  answer: string | null;
+  unitId: string;
+  unitRev: number;
+  language: Language;
+  /** As reported, with the clip that played. */
+  text: string;
+  voice: string;
+  audioUrl: string;
+  decision: ReportDecision | null;
+  adminNote: string | null;
+  triagedAt: string | null;
+  resolvedAt: string | null;
+  resolution: string | null;
+  review: "approved" | "rejected" | null;
+  reviewNote: string | null;
+  /** The unit in the content this server runs, with the same voice's clip; null if the unit is gone. */
+  current: { rev: number; text: string; translation: string | null; audioUrl: string | null } | null;
+};
+
 /** Letters, digits and `_ . -`, ASCII only so lookalike letters can't imitate a taken name. Unique ignoring case. */
 export const UsernameSchema = z.string().trim().regex(/^[A-Za-z0-9_.-]{3,20}$/);
 export const PutUsernameSchema = z.strictObject({ username: UsernameSchema });
@@ -74,7 +110,7 @@ export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), lev
 
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
-export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs> };
+export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };
 export type Config = { googleClientId: string | null; devLogin: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */

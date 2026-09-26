@@ -26,4 +26,14 @@
 /* A gentle side-to-side tilt, for celebrations. */
 .tilt { display: inline-block; animation: tilt 1.2s ease-in-out infinite; }
 @keyframes tilt { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
-@media (prefers-reduced-motion: reduce) { .tilt { animation: none; } }
+/* A slow size pulse. Animates `scale`, not `transform`, so it composes with .tilt on the same element. */
+.tilt.breathe { animation: tilt 1.2s ease-in-out infinite, breathe 3s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { scale: 1; } 50% { scale: 1.15; } }
+
+/* A small emoji thrown from the center to (--dx, --dy) over --dur, fading out. The outer span carries x and the inner y, with different easings, so the path curves; the inner's extra drop at the end is gravity. */
+.spark { position: absolute; left: 50%; top: 50%; font-size: 1.5rem; line-height: 1; pointer-events: none; translate: -50% -50%; animation: spark-x var(--dur) ease-out forwards; }
+.spark > span { display: inline-block; animation: spark-y var(--dur) cubic-bezier(.2, .8, .4, 1) forwards; }
+@keyframes spark-x { to { transform: translateX(var(--dx)); } }
+@keyframes spark-y { 0% { transform: translateY(0) scale(.4); opacity: 1; } 70% { transform: translateY(var(--dy)) scale(1); } 100% { transform: translateY(calc(var(--dy) + 1.5rem)) scale(1); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) { .tilt, .tilt.breathe { animation: none; } .spark { display: none; } }

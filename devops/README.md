@@ -6,7 +6,7 @@ Unlike the games, Ditto keeps state and secrets, and needs Node 24:
 
 | Path on host | What | Touched by deploy? |
 | --- | --- | --- |
-| `/srv/ditto/app` | `server/`, `shared/`, `content/` (incl. audio), `dist/web`, `scripts/backup-db.ts` | Replaced (rsync `--delete`, allow-list in `deploy.sh`) |
+| `/srv/ditto/app` | `server/`, `shared/`, `content/` (incl. audio), `dist/web`, `scripts/backup-db.ts`, `scripts/reports.ts` | Replaced (rsync `--delete`, allow-list in `deploy.sh`) |
 | `/srv/ditto/app/node_modules` | Production deps, installed on the host | Reinstalled only when `package-lock.json` changed |
 | `/srv/ditto/data/app.db` | SQLite (WAL). Migrations run on boot. | Never |
 | `/srv/ditto/backups` | Nightly `VACUUM INTO` snapshots, newest 14 kept (`ditto-backup.timer`) | Never |
@@ -32,6 +32,7 @@ The shared host setup (`host-setup.sh`: Caddy, system Node, `/srv/registry`) is 
 
 - `bash devops/status.sh`: unit state, socket, local + public health, latest backups, host memory/disk.
 - `bash devops/logs.sh [--since "1 hour ago"]`: tail journald.
+- `bash devops/reports.sh pull`: save production's problem reports to `data/reports.json` and mirror them into the dev DB (start the dev server once first so it's migrated). `bash devops/reports.sh close "<resolution>" <id>...`: close triaged reports on production after their fix ships.
 - `bash devops/restart.sh`: restart without deploying.
 - `bash devops/push-env.sh`: update secrets; restarts the app if it is running.
 - Backup now: `ssh racknerd1 systemctl start ditto-backup.service`. Pull one: `scp racknerd1:/srv/ditto/backups/<file> .`

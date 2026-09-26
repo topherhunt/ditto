@@ -13,6 +13,6 @@ export default defineConfig({
     command: `rm -rf test-results/e2e-db && npx vite build && node server/index.ts`,
     url: `http://127.0.0.1:${PORT}/api/config`,
     reuseExistingServer: false,
-    env: { PORT: String(PORT), CONTENT_DIR: "tests/fixtures/content", DEV_LOGIN: "1", DATABASE_PATH: "test-results/e2e-db/app.db", OPENAI_API_KEY: "", GOOGLE_CLIENT_ID: "" },
+    env: { PORT: String(PORT), CONTENT_DIR: "tests/fixtures/content", DEV_LOGIN: "1", ADMIN_EMAILS: "admin@example.com", DATABASE_PATH: "test-results/e2e-db/app.db", OPENAI_API_KEY: "", GOOGLE_CLIENT_ID: "" },
   },
 });
