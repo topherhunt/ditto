@@ -1,9 +1,9 @@
 import { createSignal, For, onCleanup } from "solid-js";
-import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
+import { LOCALES, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { createSaver, LanguagePrefs } from "../components/LanguagePrefs.tsx";
+import { createSaver } from "../components/LanguagePrefs.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
-import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
+import { LOCALE_LABELS, t } from "../i18n/index.ts";
 import { me } from "../session.ts";
 import { chooseTheme, theme, type Theme } from "../theme.ts";
 
@@ -24,7 +24,6 @@ export function Settings() {
         <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={markSaved} />
         <Status />
       </div>
-      <For each={LANGUAGES}>{(lang) => <LanguageSettings lang={lang} />}</For>
     </div>
   );
 }
@@ -63,14 +62,5 @@ function ThemePicker() {
         </ul>
       </div>
     </div>
-  );
-}
-
-function LanguageSettings(props: { lang: Language }) {
-  return (
-    <details class={`qa-settings-lang-${props.lang} border rounded px-3 py-2`}>
-      <summary class="h6 mb-0">{t("settings.course", { language: languageName(props.lang) })}</summary>
-      <div class="mt-3 mb-2"><LanguagePrefs lang={props.lang} /></div>
-    </details>
   );
 }

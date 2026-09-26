@@ -12,13 +12,13 @@ test("switching the interface language localizes the UI and the meaning check, a
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Guardado");
   await expect(page.locator("html")).toHaveAttribute("lang", "es-419");
   await expect(page.locator(".qa-settings-title")).toHaveText("Ajustes");
-  const italian = page.locator(".qa-settings-lang-it");
-  await expect(italian.locator("summary")).toHaveText("Práctica de Italiano");
-  await italian.locator("summary").click();
-  await italian.locator(".qa-settings-path").selectOption("sentences");
-  await expect(italian.locator(".qa-settings-status")).toHaveText("Guardado");
-  await italian.locator(".qa-settings-hints").selectOption("none");
-  await expect(italian.locator(".qa-settings-status")).toHaveText("Guardado");
+  await page.goto("/it");
+  await page.locator(".qa-home-settings").click();
+  await expect(page.locator(".qa-course-settings-title")).toHaveText("Ajustes de práctica de Italiano");
+  await page.locator(".qa-settings-path").selectOption("sentences");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
+  await page.locator(".qa-settings-hints").selectOption("none");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await page.locator(".qa-free-input").fill("Vorrei un caffè, per favore.");

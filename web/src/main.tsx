@@ -6,6 +6,7 @@ import { render } from "solid-js/web";
 import { Layout, lastLanguage } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
 import { About } from "./pages/About.tsx";
+import { CourseSettings } from "./pages/CourseSettings.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
@@ -29,6 +30,7 @@ render(
       <Route path="/people/:id" component={Profile} />
       <Route path="/admin/reports" component={Reports} />
       <Route path="/:lang" component={Home} />
+      <Route path="/:lang/settings" component={CourseSettings} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />
       <Route path="/:lang/test/:level" component={() => <Practice mode="test" />} />
       <Route path="/:lang/review" component={() => <Practice mode="review" />} />

@@ -141,6 +141,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - **Path:** `full` (every stage) / `chunks` (chunk + sentence) / `sentences` (sentence only).
 - **Hints:** `letters` (first letter + a dot per letter) / `initial` (first letter only) / `none` (a single free-text box, so the word count isn't revealed either).
 - Also: autoplay count, playback rate.
+- Edited only on `/:lang/settings`. The catalog summarizes them in one line that links there; account Settings doesn't show them.
 
 ## Grader (`shared/grader.ts`, pure and exhaustively unit-tested)
 

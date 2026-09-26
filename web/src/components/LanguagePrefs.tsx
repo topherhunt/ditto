@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import { createEffect, createSignal, onCleanup, Show, type JSX } from "solid-js";
+import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
 import type { Prefs } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
@@ -28,66 +28,73 @@ export function createSaver() {
   };
   const text = (s: NonNullable<SaveStatus>) => (s === "saving" ? t("settings.saving") : s === "saved" ? t("settings.saved") : t("settings.saveFailed", s));
   const Status = () => <Show when={status()}>{(s) => <div class="qa-settings-status small text-body-secondary">{text(s())}</div>}</Show>;
-  return { save, status, markSaved: () => setStatus("saved"), Status };
+  return { save, markSaved: () => setStatus("saved"), Status };
 }
 
-/** A labeled select: stacked under its label, or compact with an icon standing in for the label. */
-function Field(props: { label: string; icon: string; compact: boolean; children: JSX.Element }) {
+type Field = keyof Prefs;
+
+/** Each pref's label and options, shared by the form and the catalog's summary line. */
+const FIELDS: { field: Field; label: () => string; parse: (v: string) => Prefs[Field]; options: [value: string, label: () => string][] }[] = [
+  { field: "path", label: () => t("settings.path"), parse: (v) => v as Prefs["path"], options: [
+    ["full", () => t("settings.pathFull")], ["chunks", () => t("settings.pathChunks")], ["sentences", () => t("settings.pathSentences")],
+  ] },
+  { field: "hints", label: () => t("settings.hints"), parse: (v) => v as Prefs["hints"], options: [
+    ["letters", () => t("settings.hintsLetters")], ["initial", () => t("settings.hintsInitial")], ["none", () => t("settings.hintsNone")],
+  ] },
+  { field: "autoplay", label: () => t("settings.autoplay"), parse: Number, options: [
+    ["0", () => t("settings.autoplay0")], ["1", () => t("settings.autoplay1")], ["2", () => t("settings.autoplay2")], ["3", () => t("settings.autoplay3")],
+  ] },
+  { field: "rate", label: () => t("settings.rate"), parse: Number, options: [
+    ["1", () => t("settings.rateNormal")], ["0.9", () => "0.9×"], ["0.75", () => "0.75×"],
+  ] },
+];
+
+/** One language's practice prefs as a form, saved on change. */
+export function LanguagePrefs(props: { lang: Language }) {
+  const { save, Status } = createSaver();
+  const prefs = () => me()!.prefs[props.lang];
+  const savePrefs = (patch: Partial<Prefs>) => save(() => api.put("/api/prefs", { language: props.lang, prefs: { ...prefs(), ...patch } }));
   return (
-    <Show when={props.compact} fallback={<label class="form-label mb-0">{props.label}{props.children}</label>}>
-      <label class="d-flex align-items-center gap-1 mb-0" title={props.label}>
-        <i class={`bi ${props.icon} text-body-secondary`} aria-hidden="true" />
-        <span class="visually-hidden">{props.label}</span>
-        {props.children}
-      </label>
-    </Show>
+    <div class="d-flex flex-column gap-3">
+      <For each={FIELDS}>
+        {(f) => (
+          <label class="form-label mb-0">
+            {f.label()}
+            <select class={`qa-settings-${f.field} form-select`} value={String(prefs()[f.field])}
+              onChange={(e) => savePrefs({ [f.field]: f.parse(e.currentTarget.value) })}>
+              <For each={f.options}>{([value, label]) => <option value={value}>{label()}</option>}</For>
+            </select>
+          </label>
+        )}
+      </For>
+      <Status />
+    </div>
   );
 }
 
-/** One language's practice prefs, saved on change. Compact fits them on one row, with short names for the long options. */
-export function LanguagePrefs(props: { lang: Language; compact?: boolean }) {
-  const { save, status, Status } = createSaver();
-  const compact = () => !!props.compact;
+/** A link to change the language's practice prefs, followed by a one-line recap of them. */
+export function LanguagePrefsSummary(props: { lang: Language }) {
   const prefs = () => me()!.prefs[props.lang];
-  const savePrefs = (patch: Partial<Prefs>) => save(() => api.put("/api/prefs", { language: props.lang, prefs: { ...prefs(), ...patch } }));
-  const select = (qa: string) => `${qa} form-select${compact() ? " form-select-sm w-auto" : ""}`;
+  const valueLabel = (f: (typeof FIELDS)[number]) => {
+    const option = f.options.find(([value]) => value === String(prefs()[f.field]));
+    if (!option) throw new Error(`No option for ${f.field} = ${prefs()[f.field]}`);
+    return option[1]();
+  };
   return (
-    <div class={compact() ? "d-flex flex-wrap align-items-center gap-3" : "d-flex flex-column gap-3"}>
-      <Field label={t("settings.path")} icon="bi-signpost-split" compact={compact()}>
-        <select class={select("qa-settings-path")} value={prefs().path} onChange={(e) => savePrefs({ path: e.currentTarget.value as Prefs["path"] })}>
-          <option value="full">{t(compact() ? "settings.pathFullShort" : "settings.pathFull")}</option>
-          <option value="chunks">{t("settings.pathChunks")}</option>
-          <option value="sentences">{t("settings.pathSentences")}</option>
-        </select>
-      </Field>
-      <Field label={t("settings.hints")} icon="bi-lightbulb" compact={compact()}>
-        <select class={select("qa-settings-hints")} value={prefs().hints} onChange={(e) => savePrefs({ hints: e.currentTarget.value as Prefs["hints"] })}>
-          <option value="letters">{t(compact() ? "settings.hintsLettersShort" : "settings.hintsLetters")}</option>
-          <option value="initial">{t(compact() ? "settings.hintsInitialShort" : "settings.hintsInitial")}</option>
-          <option value="none">{t(compact() ? "settings.hintsNoneShort" : "settings.hintsNone")}</option>
-        </select>
-      </Field>
-      <Field label={t("settings.autoplay")} icon="bi-play-circle" compact={compact()}>
-        <select class={select("qa-settings-autoplay")} value={prefs().autoplay} onChange={(e) => savePrefs({ autoplay: Number(e.currentTarget.value) })}>
-          <option value="0">{t("settings.autoplay0")}</option>
-          <option value="1">{t("settings.autoplay1")}</option>
-          <option value="2">{t("settings.autoplay2")}</option>
-          <option value="3">{t("settings.autoplay3")}</option>
-        </select>
-      </Field>
-      <Field label={t("settings.rate")} icon="bi-speedometer2" compact={compact()}>
-        <select class={select("qa-settings-rate")} value={prefs().rate} onChange={(e) => savePrefs({ rate: Number(e.currentTarget.value) })}>
-          <option value="1">{t("settings.rateNormal")}</option>
-          <option value="0.9">0.9×</option>
-          <option value="0.75">0.75×</option>
-        </select>
-      </Field>
-      {/* In the row, the status takes the Settings link's place at the end while it shows. */}
-      <Show when={compact()} fallback={<Status />}>
-        <div class="ms-auto">
-          <Show when={status()} fallback={<A href="/settings" class="qa-home-settings small">{t("nav.settings")}</A>}><Status /></Show>
-        </div>
-      </Show>
+    <div class="d-flex align-items-center gap-2">
+      <A href={`/${props.lang}/settings`} class="qa-home-settings btn btn-sm btn-outline-secondary flex-shrink-0">
+        <i class="bi bi-sliders me-1" aria-hidden="true" />{t("home.practiceSettings")}
+      </A>
+      <div class="small">
+        <For each={FIELDS}>
+          {(f, i) => (
+            <>
+              <Show when={i() > 0}><span class="text-body-secondary" aria-hidden="true"> · </span></Show>
+              <span class={`qa-prefs-summary-${f.field}`}><span class="text-body-secondary">{f.label()}:</span> {valueLabel(f)}</span>
+            </>
+          )}
+        </For>
+      </div>
     </div>
   );
 }

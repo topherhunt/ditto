@@ -73,17 +73,11 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {
   await signIn(page, "learner2@example.com");
-  await page.locator(".qa-user").click();
-  await page.locator(".qa-nav-settings").click();
-  await expect(page).toHaveURL(/\/settings$/);
-  // Each course's settings start collapsed.
-  const italian = page.locator(".qa-settings-lang-it");
-  await expect(italian.locator(".qa-settings-path")).toBeHidden();
-  await italian.locator("summary").click();
-  await italian.locator(".qa-settings-path").selectOption("sentences");
-  await expect(italian.locator(".qa-settings-status")).toHaveText("Saved");
-  await italian.locator(".qa-settings-hints").selectOption("none");
-  await expect(italian.locator(".qa-settings-status")).toHaveText("Saved");
+  await page.goto("/it/settings");
+  await page.locator(".qa-settings-path").selectOption("sentences");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await page.locator(".qa-settings-hints").selectOption("none");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-position")).toHaveText("1 / 3");
@@ -284,27 +278,35 @@ test("the language picker switches the catalog, and Type returns to it from othe
   await expect(page).toHaveURL(/\/nl$/);
 });
 
-test("the catalog's prefs row changes the course's settings inline; Saved briefly replaces its Settings link", async ({ page }) => {
+test("the catalog's prefs line describes the course's settings and links to the page that changes them", async ({ page }) => {
   await signIn(page, "prefsrow1@example.com");
   await expect(page).toHaveURL(/\/it$/);
   const row = page.locator(".qa-home-prefs");
-  await expect(row.locator(".qa-settings-path")).toHaveValue("full");
-  await expect(row.locator(".qa-home-settings")).toBeVisible();
+  await expect(row.locator(".qa-prefs-summary-path")).toContainText("Full: words, phrases, chunks, sentences");
+  await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Once");
   const progress = page.locator(".qa-lesson-progress").first();
   const fullTotal = (await progress.innerText()).split("/")[1].trim();
-  await row.locator(".qa-settings-path").selectOption("sentences");
-  await expect(row.locator(".qa-settings-status")).toHaveText("Saved");
-  await expect(row.locator(".qa-home-settings")).toHaveCount(0);
-  await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));
-  await expect(row.locator(".qa-settings-status")).toHaveCount(0, { timeout: 5000 });
-  await expect(row.locator(".qa-home-settings")).toBeVisible();
-  await row.locator(".qa-settings-autoplay").selectOption("0");
-  await expect(row.locator(".qa-settings-status")).toHaveText("Saved");
 
-  await row.locator(".qa-home-settings").click({ timeout: 5000 });
-  await expect(page).toHaveURL(/\/settings$/);
-  const italian = page.locator(".qa-settings-lang-it");
-  await italian.locator("summary").click();
-  await expect(italian.locator(".qa-settings-path")).toHaveValue("sentences");
-  await expect(italian.locator(".qa-settings-autoplay")).toHaveValue("0");
+  await row.locator(".qa-home-settings").click();
+  await expect(page).toHaveURL(/\/it\/settings$/);
+  await expect(page.locator(".qa-course-settings-title")).toHaveText("Italian practice settings");
+  await expect(page.locator(".qa-settings-path")).toHaveValue("full");
+  await page.locator(".qa-settings-path").selectOption("sentences");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await page.locator(".qa-settings-autoplay").selectOption("0");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+
+  await page.locator(".qa-course-settings-back").click();
+  await expect(page).toHaveURL(/\/it$/);
+  await expect(row.locator(".qa-prefs-summary-path")).toContainText("Sentences only");
+  await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Off");
+  await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));
+});
+
+test("account settings no longer hold any course's practice settings", async ({ page }) => {
+  await signIn(page, "prefsrow2@example.com");
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-settings-locale")).toBeVisible();
+  await expect(page.locator(".qa-settings-path")).toHaveCount(0);
 });
