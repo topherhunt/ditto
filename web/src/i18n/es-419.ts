@@ -112,6 +112,7 @@ export const es419: Dictionary = {
   "category.extra_word": "palabra de más",
   "category.vocabulary": "vocabulario",
   "category.punctuation": "puntuación",
+  "category.meaning": "significado",
   "category.other": "otro",
 
   "report.open": "Reportar un problema",

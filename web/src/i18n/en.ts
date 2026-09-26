@@ -111,6 +111,7 @@ export const en = {
   "category.extra_word": "extra word",
   "category.vocabulary": "vocabulary",
   "category.punctuation": "punctuation",
+  "category.meaning": "meaning",
   "category.other": "other",
 
   "report.open": "Report a problem",

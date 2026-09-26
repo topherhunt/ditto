@@ -112,6 +112,7 @@ export const nl: Dictionary = {
   "category.extra_word": "woord te veel",
   "category.vocabulary": "woordenschat",
   "category.punctuation": "leestekens",
+  "category.meaning": "betekenis",
   "category.other": "overig",
 
   "report.open": "Probleem melden",

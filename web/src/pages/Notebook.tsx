@@ -41,7 +41,7 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
       <Show when={props.entry.unit.translation}><div class="small text-body-secondary fst-italic">{props.entry.unit.translation}</div></Show>
       <Show when={diff()}>{(d) => <div class="small">{t("notebook.youWrote")} <SentenceDiff result={d()} /></div>}</Show>
       <div class="d-flex flex-wrap gap-1">
-        <For each={props.entry.categories}>{(c) => <span class="badge text-bg-light">{categoryName(c)}</span>}</For>
+        <For each={props.entry.categories}>{(c) => <span class="qa-mistake-category badge text-bg-light">{categoryName(c)}</span>}</For>
         <Show when={props.entry.cleanStreak > 0}><span class="badge text-bg-success">{t("notebook.streak", { n: props.entry.cleanStreak })}</span></Show>
       </div>
       <Show

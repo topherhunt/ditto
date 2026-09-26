@@ -112,6 +112,7 @@ export const it: Dictionary = {
   "category.extra_word": "parola in più",
   "category.vocabulary": "lessico",
   "category.punctuation": "punteggiatura",
+  "category.meaning": "significato",
   "category.other": "altro",
 
   "report.open": "Segnala un problema",

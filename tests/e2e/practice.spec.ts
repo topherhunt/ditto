@@ -120,6 +120,10 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await expect(page.locator(".qa-meaning-wrong")).toContainText("For me, a coffee");
   await expect(page.locator(".qa-meaning-right")).toContainText("a sparkling water");
   await expect(page.locator(".qa-outcome")).toContainText("check the meaning");
+
+  await page.locator(".qa-nav-notebook").click();
+  const entry = page.locator(".qa-mistake").filter({ hasText: "frizzante" });
+  await expect(entry.locator(".qa-mistake-category")).toContainText(["meaning"]);
 });
 
 /** Completes the lesson on the sentences path through the API, answering every item cleanly. */
