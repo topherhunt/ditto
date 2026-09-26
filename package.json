@@ -15,10 +15,12 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "content:validate": "node scripts/validate-content.ts",
-    "content:audio": "node scripts/build-audio.ts"
+    "content:audio": "node scripts/build-audio.ts",
+    "content:check-audio": "node scripts/check-audio.ts"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",
+    "bootstrap-icons": "^1.13.1",
     "google-auth-library": "^11.1.0",
     "hono": "^4.13.8",
     "openai": "^7.23.0",

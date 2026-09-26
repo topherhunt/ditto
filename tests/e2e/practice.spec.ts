@@ -26,10 +26,12 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
   await page.locator(".qa-next").click();
 
-  // vorrei misspelled: letter-level correction, then fixed by the learner.
+  // vorrei misspelled: letter-level correction and a retry prompt, then fixed by the learner.
+  await expect(page.locator(".qa-retry")).toHaveCount(0);
   await slot(page, 0).fill("vorei");
   await slot(page, 0).press("Enter");
   await expect(page.locator(".qa-slots .qa-letter-insert")).toHaveText("r");
+  await expect(page.locator(".qa-retry")).toBeVisible();
   await expect(page.locator(".qa-answer")).toHaveCount(0);
   await slot(page, 0).fill("vorrei");
   await slot(page, 0).press("Enter");
@@ -56,14 +58,15 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await pickMeaning(page, "please");
   await expect(page.locator(".qa-outcome")).toContainText("Revealed");
 
-  await page.locator(".qa-nav-notebook").click();
+  await page.locator(".qa-nav-type").click();
+  await page.locator(".qa-notebook-link").click();
   await expect(page.locator(".qa-mistake-text")).toHaveText(["per favore", "vorrei"]);
   await expect(page.locator(".qa-mistake").filter({ hasText: "vorrei" }).locator(".qa-letter-insert")).toHaveText("r");
 
   await page.locator(".qa-mistake").filter({ hasText: "per favore" }).locator(".qa-mistake-remove").click();
   await expect(page.locator(".qa-mistake-text")).toHaveText(["vorrei"]);
 
-  await page.locator(".qa-nav-learn").click();
+  await page.locator(".qa-nav-type").click();
   await expect(page.locator(".qa-lesson-progress").first()).toContainText("4 / 10");
   await expect(page.locator(".qa-mistakes-count")).toHaveText("1");
 });
@@ -121,7 +124,8 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await expect(page.locator(".qa-meaning-right")).toContainText("a sparkling water");
   await expect(page.locator(".qa-outcome")).toContainText("check the meaning");
 
-  await page.locator(".qa-nav-notebook").click();
+  await page.locator(".qa-nav-type").click();
+  await page.locator(".qa-notebook-link").click();
   const entry = page.locator(".qa-mistake").filter({ hasText: "frizzante" });
   await expect(entry.locator(".qa-mistake-category")).toContainText(["meaning"]);
 });
@@ -230,11 +234,16 @@ test("review is empty for a new learner", async ({ page }) => {
   await expect(page.locator(".qa-session-done")).toContainText("Nothing to practice");
 });
 
-test("dark by default with a persistent toggle; sign out from the account menu", async ({ page }) => {
+test("dark by default with a persistent theme setting; sign out from the account menu", async ({ page }) => {
   await signIn(page, "learner4@example.com");
   const html = page.locator("html");
   await expect(html).toHaveAttribute("data-bs-theme", "dark");
-  await page.locator(".qa-theme-toggle").click();
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-settings-theme .bi-moon-fill")).toBeVisible();
+  await page.locator(".qa-settings-theme").click();
+  await page.locator(".qa-settings-theme-light").click();
+  await expect(page.locator(".qa-settings-theme .bi-sun-fill")).toBeVisible();
   await expect(html).toHaveAttribute("data-bs-theme", "light");
   await page.reload();
   await expect(html).toHaveAttribute("data-bs-theme", "light");
@@ -254,4 +263,48 @@ test("a slot shows its whole word plus trailing punctuation without scrolling", 
   await slot(page, 0).press("Enter");
   await pickMeaning(page, "coffee");
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
+});
+
+test("the language picker switches the catalog, and Type returns to it from other pages", async ({ page }) => {
+  await signIn(page, "picker1@example.com");
+  await expect(page).toHaveURL(/\/it$/);
+  await expect(page.locator(".qa-lang-picker")).toContainText("🇮🇹");
+  await page.locator(".qa-lang-picker").click();
+  await expect(page.locator(".qa-lang-it")).toHaveClass(/active/);
+  await expect(page.locator(".qa-lang-nl")).toHaveText("🇳🇱 Dutch");
+  await page.locator(".qa-lang-nl").click();
+  await expect(page).toHaveURL(/\/nl$/);
+  await expect(page.locator(".qa-lang-picker")).toContainText("🇳🇱");
+  await expect(page.locator(".qa-lang-nl")).toBeHidden();
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-lang-picker")).toContainText("🇳🇱");
+  await page.locator(".qa-nav-type").click();
+  await expect(page).toHaveURL(/\/nl$/);
+});
+
+test("the catalog's prefs row changes the course's settings inline; Saved briefly replaces its Settings link", async ({ page }) => {
+  await signIn(page, "prefsrow1@example.com");
+  await expect(page).toHaveURL(/\/it$/);
+  const row = page.locator(".qa-home-prefs");
+  await expect(row.locator(".qa-settings-path")).toHaveValue("full");
+  await expect(row.locator(".qa-home-settings")).toBeVisible();
+  const progress = page.locator(".qa-lesson-progress").first();
+  const fullTotal = (await progress.innerText()).split("/")[1].trim();
+  await row.locator(".qa-settings-path").selectOption("sentences");
+  await expect(row.locator(".qa-settings-status")).toHaveText("Saved");
+  await expect(row.locator(".qa-home-settings")).toHaveCount(0);
+  await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));
+  await expect(row.locator(".qa-settings-status")).toHaveCount(0, { timeout: 5000 });
+  await expect(row.locator(".qa-home-settings")).toBeVisible();
+  await row.locator(".qa-settings-autoplay").selectOption("0");
+  await expect(row.locator(".qa-settings-status")).toHaveText("Saved");
+
+  await row.locator(".qa-home-settings").click({ timeout: 5000 });
+  await expect(page).toHaveURL(/\/settings$/);
+  const italian = page.locator(".qa-settings-lang-it");
+  await italian.locator("summary").click();
+  await expect(italian.locator(".qa-settings-path")).toHaveValue("sentences");
+  await expect(italian.locator(".qa-settings-autoplay")).toHaveValue("0");
 });

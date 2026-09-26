@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { z } from "zod";
 import {
   CourseSchema, LANGUAGES, LOCALES, SUPPORT_LOCALES, supportLocale,
   type Course, type Language, type LexEntry, type Locale, type Localized, type ServedCourse, type ServedUnit,
@@ -44,12 +45,24 @@ const RENDER_VERSION = 2;
 
 export const voiceId = (v: Voice) => `${v.engine}:${v.model}${v.speaker === undefined ? "" : `#${v.speaker}`}`;
 
-export type AudioJob = { language: Language; voice: Voice; text: string; file: string };
+/**
+ * A fix for one clip that renders badly: what the engine reads instead of the text (`say`, or Kokoro `phonemes`),
+ * and a `take` to bump for a fresh Piper render, which is random on each run.
+ */
+const AudioFixSchema = z.strictObject({
+  say: z.string().min(1).optional(), phonemes: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),
+})
+  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" });
+export type AudioFix = z.infer<typeof AudioFixSchema>;
+/** content/audio-fixes.json: language -> voice id -> text (as rendered, so lowercase for word audio) -> fix. */
+const AudioFixesSchema = z.partialRecord(z.enum(LANGUAGES), z.record(z.string(), z.record(z.string(), AudioFixSchema)));
 
-/** Content-addressed: identical text in one language and voice shares a file. */
-export function audioFile(language: Language, voice: Voice, text: string): string {
-  const hash = createHash("sha1").update(`${RENDER_VERSION}|${language}|${voiceId(voice)}|${text.normalize("NFC")}`).digest("hex").slice(0, 20);
-  return `${language}/${hash}.m4a`;
+export type AudioJob = { language: Language; voice: Voice; text: string; fix?: AudioFix; file: string };
+
+/** Content-addressed: identical text in one language and voice shares a file. A fix changes the hash. */
+export function audioFile(language: Language, voice: Voice, text: string, fix?: AudioFix): string {
+  const key = `${RENDER_VERSION}|${language}|${voiceId(voice)}|${text.normalize("NFC")}${fix ? `|${JSON.stringify(fix)}` : ""}`;
+  return `${language}/${createHash("sha1").update(key).digest("hex").slice(0, 20)}.m4a`;
 }
 
 /** Every course and unit, localized into the support language `supportLocale` picks for the UI locale. */
@@ -94,12 +107,38 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
   const jobs = new Map<string, AudioJob>();
   const lessonIds = new Set<string>();
 
-  const addAudio = (language: Language, text: string) =>
-    VOICES[language].map((voice) => {
-      const file = audioFile(language, voice, text);
-      if (!jobs.has(file)) jobs.set(file, { language, voice, text, file });
-      return `/audio/${file}`;
-    });
+  const fixesPath = join(contentDir, "audio-fixes.json");
+  const fixes = existsSync(fixesPath) ? AudioFixesSchema.safeParse(JSON.parse(readFileSync(fixesPath, "utf8"))) : { success: true as const, data: {} };
+  if (!fixes.success) fail(fixesPath, z_message(fixes.error));
+  const unusedFixes = new Set<string>();
+  for (const [language, byVoice] of Object.entries(fixes.data))
+    for (const [id, byText] of Object.entries(byVoice)) {
+      const voice = VOICES[language as Language].find((v) => voiceId(v) === id);
+      if (!voice) fail(fixesPath, `unknown ${language} voice ${id}`);
+      for (const [text, fix] of Object.entries(byText)) {
+        if (fix.phonemes && voice.engine !== "kokoro") fail(fixesPath, `${id} "${text}": phonemes need a kokoro voice`);
+        unusedFixes.add(`${language}|${id}|${text}`);
+      }
+    }
+
+  // Words recur across thousands of units; hashing each occurrence dominated boot on the VPS.
+  const audioUrls = new Map<string, string>();
+  const clip = (language: Language, voice: Voice, text: string) => {
+    const key = `${language}|${voiceId(voice)}|${text}`;
+    let url = audioUrls.get(key);
+    if (!url) {
+      const fix = fixes.data[language]?.[voiceId(voice)]?.[text];
+      unusedFixes.delete(key);
+      const file = audioFile(language, voice, text, fix);
+      if (!jobs.has(file)) jobs.set(file, { language, voice, text, fix, file });
+      url = `/audio/${file}`;
+      audioUrls.set(key, url);
+    }
+    return url;
+  };
+  const addAudio = (language: Language, text: string) => VOICES[language].map((voice) => clip(language, voice, text));
+  const unitAudio = (language: Language, text: string, speaker: "F" | "M" | undefined) =>
+    VOICES[language].map((voice) => (!speaker || voice.gender === speaker ? clip(language, voice, text) : null));
 
   for (const language of LANGUAGES) {
     const dir = join(contentDir, "courses", language);
@@ -203,7 +242,7 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
           builtUnits.push({
             id: unit.id, rev: unit.rev, stage: unit.stage, text: unit.text, translation: unit.translation, distractors: unit.distractors,
             variants: unit.variants ?? [], commas, language, courseId: course.id, lessonId: lesson.id,
-            audio: addAudio(language, unit.text), words: servedWords,
+            audio: unitAudio(language, unit.text, unit.speaker), words: servedWords,
           });
         }
         built.push({ lesson, units: builtUnits });
@@ -230,8 +269,15 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
     }
   }
 
+  if (unusedFixes.size) fail(fixesPath, `fixes for text no content renders: ${[...unusedFixes].join(", ")}`);
   const audioJobs = [...jobs.values()];
-  const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file)));
+  // One directory listing per language instead of a stat per file. Keys match audioFile's `<language>/<hash>.m4a`.
+  const present = new Set<string>();
+  for (const language of LANGUAGES) {
+    const dir = join(audioDir, language);
+    if (existsSync(dir)) for (const name of readdirSync(dir)) present.add(`${language}/${name}`);
+  }
+  const missing = audioJobs.filter((j) => !present.has(j.file));
   if (missing.length && opts.audio !== "skip") {
     const msg = `${missing.length} of ${audioJobs.length} audio files missing in ${audioDir} (run npm run content:audio), e.g. "${missing[0].text}"`;
     if (opts.audio === "require") throw new Error(msg);

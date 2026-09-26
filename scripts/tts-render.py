@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.stdin: JSON lines {"text", "out"}. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -23,7 +23,7 @@ if voice["engine"] == "piper":
     model = PiperVoice.load(tools / "piper-voices" / f"{voice['model']}.onnx")
     config = SynthesisConfig(speaker_id=voice.get("speaker"))
 
-    def synth(text: str) -> tuple[np.ndarray, int]:
+    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
         chunks = list(model.synthesize(text, config))
         return np.concatenate([c.audio_float_array for c in chunks]), chunks[0].sample_rate
 elif voice["engine"] == "kokoro":
@@ -31,7 +31,9 @@ elif voice["engine"] == "kokoro":
 
     model = Kokoro(str(tools / "kokoro" / "kokoro-v1.0.onnx"), str(tools / "kokoro" / "voices-v1.0.bin"))
 
-    def synth(text: str) -> tuple[np.ndarray, int]:
+    def synth(text: str, phonemes: str | None) -> tuple[np.ndarray, int]:
+        if phonemes:
+            return model.create(phonemes, voice=voice["model"], lang=language, is_phonemes=True)
         return model.create(text, voice=voice["model"], lang=language)
 elif voice["engine"] == "abair":
     # ABAIR (Trinity College Dublin) serves this free endpoint for its web reader. Be a polite guest:
@@ -44,7 +46,7 @@ elif voice["engine"] == "abair":
     import urllib.parse
     import urllib.request
 
-    def synth(text: str) -> tuple[np.ndarray, int]:
+    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
         query = urllib.parse.urlencode({"input": text, "voice": voice["model"], "normalise": "true"})
         req = urllib.request.Request(f"https://synthesis.abair.ie/api/synthesise?{query}", headers={"Accept": "application/json", "User-Agent": "Ditto/1.0 (dictation trainer; +https://github.com/topherhunt/ditto)"})
         try:
@@ -62,11 +64,15 @@ else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 
 
-def finish(samples: np.ndarray, rate: int) -> np.ndarray:
+def finish(samples: np.ndarray, rate: int, cut: float) -> np.ndarray:
     voiced = np.flatnonzero(np.abs(samples) > SILENCE)
     if voiced.size == 0:
         raise SystemExit("rendered silence")
     samples = samples[voiced[0] : voiced[-1] + 1]
+    if cut:
+        samples = samples[: len(samples) - int(rate * cut)].copy()
+        fade = min(len(samples), int(rate * 0.03))
+        samples[len(samples) - fade :] *= np.linspace(1, 0, fade, dtype=np.float32)
     rms = np.sqrt(np.mean(samples[np.abs(samples) > SILENCE] ** 2))
     samples = samples * min(TARGET_RMS / rms, PEAK / np.max(np.abs(samples)))
     pad = np.zeros(int(rate * PAD_SECONDS), dtype=np.float32)
@@ -77,8 +83,8 @@ with tempfile.TemporaryDirectory() as tmp:
     wav_path = Path(tmp) / "out.wav"
     for line in sys.stdin:
         job = json.loads(line)
-        samples, rate = synth(job["text"])
-        pcm = (finish(np.asarray(samples, dtype=np.float32), rate) * 32767).astype(np.int16)
+        samples, rate = synth(job["text"], job.get("phonemes"))
+        pcm = (finish(np.asarray(samples, dtype=np.float32), rate, job.get("cut") or 0) * 32767).astype(np.int16)
         with wave.open(str(wav_path), "wb") as wav:
             wav.setnchannels(1)
             wav.setsampwidth(2)

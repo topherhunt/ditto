@@ -2,6 +2,7 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import type { Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { LanguagePrefs } from "../components/LanguagePrefs.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { me } from "../session.ts";
@@ -35,6 +36,7 @@ export function Home() {
               {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
             </A>
           </div>
+          <div class="qa-home-prefs"><LanguagePrefs lang={lang()} compact /></div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>
             {([level, courses]) => {
               const passed = () => cat().passedLevels.includes(level);

@@ -8,8 +8,7 @@ const root = document.documentElement;
 const [theme, setTheme] = createSignal<Theme>(root.dataset.bsTheme === "light" ? "light" : "dark");
 export { theme };
 
-export function toggleTheme() {
-  const next: Theme = theme() === "dark" ? "light" : "dark";
+export function chooseTheme(next: Theme) {
   root.dataset.bsTheme = next;
   try { localStorage.setItem(THEME_KEY, next); } catch { /* storage unavailable: theme lasts this page load */ }
   setTheme(next);

@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./styles.css";
 import { Navigate, Route, Router } from "@solidjs/router";
 import { render } from "solid-js/web";
-import { LANGUAGES } from "../../shared/content.ts";
-import { LAST_LANG_KEY, Layout } from "./components/Layout.tsx";
+import { Layout, lastLanguage } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
 import { About } from "./pages/About.tsx";
 import { Friends } from "./pages/Friends.tsx";
@@ -17,14 +17,6 @@ import { Settings } from "./pages/Settings.tsx";
 import { installClickSound } from "./sounds.ts";
 
 installClickSound();
-
-function lastLanguage(): string {
-  try {
-    const l = localStorage.getItem(LAST_LANG_KEY);
-    if (l && (LANGUAGES as readonly string[]).includes(l)) return l;
-  } catch { /* storage unavailable: use the default */ }
-  return "it";
-}
 
 render(
   () => (

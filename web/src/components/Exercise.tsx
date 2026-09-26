@@ -1,6 +1,6 @@
 import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
 import { REPORT_KINDS, type AttemptBody, type ExplanationOut, type Prefs, type ReportBody } from "../../../shared/api.ts";
-import type { ServedUnit, ServedWord } from "../../../shared/content.ts";
+import { pickVoice, type ServedUnit, type ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
@@ -69,8 +69,8 @@ export function Exercise(props: {
   let dictation: Omit<AttemptBody, "meaningCorrect" | "mode"> | null = null;
 
   /** One voice per item, so replays and word taps sound like the sentence. */
-  const voice = Math.floor(Math.random() * unit.audio.length);
-  const audio = new Audio(unit.audio[voice]);
+  const voice = pickVoice(unit.audio);
+  const audio = new Audio(unit.audio[voice]!);
   let autoplaysLeft = props.prefs.autoplay;
   const play = (rate = props.prefs.rate) => {
     audio.pause();
@@ -354,7 +354,9 @@ export function Exercise(props: {
             <Show when={!test}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button></Show>
             <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
           </div>
-          <div class="small text-body-secondary">{t("exercise.keys")}</div>
+          <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary">{t("exercise.keys")}</div>}>
+            <div class="qa-retry small text-danger">{t("exercise.retry")}</div>
+          </Show>
         </Show>
 
         <Show when={done()}>

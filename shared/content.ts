@@ -46,6 +46,8 @@ export const UnitSchema = z.strictObject({
   commas: z.array(z.int().min(0)).optional(),
   /** Word index -> lexicon sense suffix, for surfaces with several senses (key `lo#pron`). */
   senses: z.record(z.string().regex(/^\d+$/), z.string()).optional(),
+  /** The speaker's gender when the text gives it away ("sono stanca", "I'm Maria"); only voices of that gender read it. */
+  speaker: z.enum(["F", "M"]).optional(),
 });
 
 export const LessonSchema = z.strictObject({
@@ -81,6 +83,7 @@ export type Unit = z.infer<typeof UnitSchema>;
 /**
  * A unit as the API serves it: audio URLs resolved, per-word annotations attached, localized text in one support
  * language. `audio` lists one URL per voice of the language, in the same voice order for the unit and each of its words.
+ * A unit's entry is null for a voice that doesn't match its `speaker`; words have every voice.
  */
 export type ServedWord = Omit<LexEntry, "gloss"> & { gloss: string; text: string; audio: string[] };
 export type ServedUnit = {
@@ -95,9 +98,16 @@ export type ServedUnit = {
   language: Language;
   courseId: string;
   lessonId: string;
-  audio: string[];
+  audio: (string | null)[];
   words: ServedWord[];
 };
+
+/** A random voice index among those that read the unit. */
+export function pickVoice(audio: (string | null)[]): number {
+  const voiced = audio.flatMap((url, i) => (url ? [i] : []));
+  if (!voiced.length) throw new Error("unit has no audio");
+  return voiced[Math.floor(Math.random() * voiced.length)];
+}
 export type ServedLesson = { id: string; title: string; grammarFocus: string[]; units: ServedUnit[] };
 export type ServedCourse = {
   id: string; language: Language; level: string; order: number; title: string; description: string;

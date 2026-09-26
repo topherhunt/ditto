@@ -1,15 +1,21 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { audioFile, loadContent, VOICES } from "../../server/content.ts";
+import { pickVoice } from "../../shared/content.ts";
 
 const root = join(import.meta.dirname, "../..");
 
 function loadCourses(...courses: object[]) {
+  return loadWithFixes(null, ...courses);
+}
+
+function loadWithFixes(fixes: object | null, ...courses: object[]) {
   const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
   mkdirSync(join(dir, "courses/it"), { recursive: true });
   courses.forEach((c, i) => writeFileSync(join(dir, `courses/it/c${i}.json`), JSON.stringify(c)));
+  if (fixes) writeFileSync(join(dir, "audio-fixes.json"), JSON.stringify(fixes));
   return loadContent(dir, join(dir, "audio"), { audio: "skip" });
 }
 
@@ -55,6 +61,37 @@ describe("content loading", () => {
     const c = loadCourses(base);
     expect(c.locales.en.units.get("it-test-1-u01")!.words[0].lemma).toBe("lo");
     expect(new Set(c.audioJobs.map((j) => j.file)).size).toBe(c.audioJobs.length);
+  });
+
+  it("renders an audio fix into a new file for that voice and text only, including word audio", () => {
+    const fix = { say: "Lo." };
+    const c = loadWithFixes({ it: { "kokoro:if_sara": { lo: fix } } }, base);
+    const u = c.locales.en.units.get("it-test-1-u01")!;
+    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.model === "if_sara" ? fix : undefined)}`));
+    expect(u.words[0].audio[2]).not.toBe(`/audio/${audioFile("it", VOICES.it[2], "lo")}`);
+    expect(u.audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "Lo prendo.")}`));
+    expect(c.audioJobs.find((j) => `/audio/${j.file}` === u.words[0].audio[2])).toMatchObject({ text: "lo", fix });
+  });
+
+  it("reads a unit with a speaker only in voices of that gender, renders nothing for the others, and keeps every voice for its words", () => {
+    const course = structuredClone(base);
+    course.lessons[0].units[0].speaker = "M";
+    const c = loadCourses(course);
+    const u = c.locales.en.units.get("it-test-1-u01")!;
+    expect(u.audio).toEqual(VOICES.it.map((v) => (v.gender === "M" ? `/audio/${audioFile("it", v, "Lo prendo.")}` : null)));
+    expect(u.audio.filter(Boolean).length).toBeGreaterThan(0);
+    expect(c.audioJobs.filter((j) => j.text === "Lo prendo.").map((j) => j.voice.gender)).toEqual(VOICES.it.filter((v) => v.gender === "M").map((v) => v.gender));
+    expect(u.words[0].audio.every(Boolean)).toBe(true);
+    for (let i = 0; i < 50; i++) expect(u.audio[pickVoice(u.audio)]).not.toBeNull();
+    expect(() => pickVoice([null, null])).toThrow(/no audio/);
+  });
+
+  it("rejects audio fixes for an unknown voice, phonemes on a non-Kokoro voice, and text nothing renders", () => {
+    expect(() => loadWithFixes({ it: { "kokoro:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice kokoro:nobody/);
+    expect(() => loadWithFixes({ it: { "piper:it_IT-paola-medium": { lo: { phonemes: "lo" } } } }, base)).toThrow(/phonemes need a kokoro voice/);
+    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|kokoro:if_sara\|gone/);
+    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: {} } } }, base)).toThrow(/empty fix/);
+    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
   });
 
   it("rejects a word without a lexicon entry, an unused entry, and a lesson not ending in a sentence", () => {
@@ -149,6 +186,16 @@ describe("content loading", () => {
   it("fails when audio is required and missing", () => {
     const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
     expect(() => loadContent(join(root, "tests/fixtures/content"), dir, { audio: "require" })).toThrow(/audio files missing/);
+  });
+
+  it("counts only the absent files as missing when some audio is present", () => {
+    const dir = mkdtempSync(join(tmpdir(), "lp-content-"));
+    const { audioJobs } = loadContent(join(root, "tests/fixtures/content"), dir, { audio: "skip" });
+    const present = audioJobs[0].file;
+    mkdirSync(join(dir, dirname(present)), { recursive: true });
+    writeFileSync(join(dir, present), "");
+    expect(() => loadContent(join(root, "tests/fixtures/content"), dir, { audio: "require" }))
+      .toThrow(`${audioJobs.length - 1} of ${audioJobs.length} audio files missing`);
   });
 
   it("says nothing about missing audio when the check is skipped", () => {

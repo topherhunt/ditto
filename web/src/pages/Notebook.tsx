@@ -1,6 +1,7 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
 import type { ExplanationOut, MistakeEntry } from "../../../shared/api.ts";
+import { pickVoice } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
@@ -33,7 +34,7 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
   return (
     <li class="qa-mistake list-group-item d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
-        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(props.entry.unit.audio[Math.floor(Math.random() * props.entry.unit.audio.length)]).play()}>▶</button>
+        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(props.entry.unit.audio[pickVoice(props.entry.unit.audio)]!).play()}>▶</button>
         <span class="qa-mistake-text fw-semibold me-auto">{props.entry.unit.text}</span>
         <span class="small text-body-secondary text-nowrap">{t("notebook.missed", { n: props.entry.wrongCount })}</span>
         <button type="button" class="qa-mistake-remove btn btn-sm btn-outline-secondary" onClick={props.onRemove}>{t("notebook.remove")}</button>

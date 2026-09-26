@@ -46,8 +46,26 @@ test("a language picked before sign-in becomes a new account's interface languag
   await page.locator(".qa-username").fill("locale2");
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-user")).toHaveText("locale2");
-  await expect(page.locator(".qa-nav-review")).toHaveText("Herhalen");
+  await expect(page.locator(".qa-nav-type")).toHaveText("Typen");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-settings-locale")).toHaveValue("nl");
+});
+
+test("a new account picks its interface language alongside its username", async ({ page }) => {
+  await page.goto("/");
+  await page.locator(".qa-login-locale").selectOption("en");
+  await page.locator(".qa-dev-email").fill("locale3@example.com");
+  await page.locator(".qa-dev-submit").click();
+  await expect(page.locator(".qa-choose-locale")).toHaveValue("en");
+  await page.locator(".qa-choose-locale").selectOption("it");
+  await expect(page.locator(".qa-choose-username h1")).toHaveText("Scegli un nome utente");
+  await page.locator(".qa-username").fill("locale3");
+  await page.locator(".qa-username-save").click();
+  await expect(page.locator(".qa-user")).toHaveText("locale3");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("lang", "it");
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-settings-locale")).toHaveValue("it");
 });

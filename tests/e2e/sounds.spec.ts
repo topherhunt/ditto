@@ -83,3 +83,25 @@ test("finishing a lesson plays the victory sound at a quarter volume", async ({ 
   await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
   expect(await played(page)).toEqual(["click", "victory"]);
 });
+
+test("the navbar and the settings page are silent", async ({ page }) => {
+  await recordSounds(page);
+  await signIn(page, "sounds3@example.com");
+  await played(page);
+
+  await page.locator(".qa-lang-picker").click();
+  await page.locator(".qa-lang-nl").click();
+  await page.locator(".qa-notifications").click();
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await page.locator(".qa-settings-theme").click();
+  await page.locator(".qa-settings-theme-light").click();
+  await page.locator(".qa-username-save").click();
+  await page.locator(".qa-nav-type").click();
+  await expect(page).toHaveURL(/\/nl$/);
+  expect(await played(page)).toEqual([]);
+
+  // Buttons on the page itself still click.
+  await page.locator(".qa-review-link").click();
+  expect(await played(page)).toEqual(["click"]);
+});

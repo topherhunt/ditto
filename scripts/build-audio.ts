@@ -44,7 +44,7 @@ const render = (jobs: AudioJob[]) =>
     });
     proc.on("error", reject);
     proc.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${voiceId(jobs[0].voice)} renderer exited with ${code}`))));
-    proc.stdin.end(jobs.map((j) => JSON.stringify({ text: j.text, out: join(audioDir, j.file) })).join("\n") + "\n");
+    proc.stdin.end(jobs.map((j) => JSON.stringify({ text: j.fix?.say ?? j.text, phonemes: j.fix?.phonemes, cut: j.fix?.cut, out: join(audioDir, j.file) })).join("\n") + "\n");
   });
 
 const groups = [...byVoice.values()];

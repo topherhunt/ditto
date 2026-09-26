@@ -59,6 +59,9 @@ function Report(props: { report: AdminReport; onChange: () => void }) {
         <Show when={currentClip() && currentClip() !== r().audioUrl}>
           <Clip url={currentClip()!} label="Current clip" qa="qa-play-current" />
         </Show>
+        <Show when={r().current && !currentClip()}>
+          <span class="qa-voice-dropped small text-body-secondary align-self-center">This voice no longer reads this unit</span>
+        </Show>
       </div>
 
       <Show when={r().status !== "closed"}>

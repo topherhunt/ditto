@@ -17,7 +17,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 
 - Google sign-in (the only login method), with an email allowlist.
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
-- Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit; per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
+- Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit (among those matching its `speaker`); per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
@@ -78,9 +78,11 @@ Course JSON is loaded and validated at boot. Invalid content crashes startup wit
 
 ### Audio
 
-Filenames are content-addressed: `sha1(renderVersion|lang|voice|text)` -> `/audio/{lang}/{hash}.m4a` (AAC plays in every browser). Bumping `RENDER_VERSION` in `server/content.ts` re-renders everything. Slow playback uses the browser's `playbackRate`, not a second render. Identical text across courses shares one file. Node serves the files with `Cache-Control: immutable`.
+Filenames are content-addressed: `sha1(renderVersion|lang|voice|text[|fix])` -> `/audio/{lang}/{hash}.m4a` (AAC plays in every browser). Bumping `RENDER_VERSION` in `server/content.ts` re-renders everything. Slow playback uses the browser's `playbackRate`, not a second render. Identical text across courses shares one file. Node serves the files with `Cache-Control: immutable`.
 
-The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Every unit and every word has one file per voice; the served `audio` arrays follow the voice order in `VOICES` (`server/content.ts`). Word audio is keyed on the lowercase surface form.
+The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Every word, and every unit without a `speaker`, has one file per voice; the served `audio` arrays follow the voice order in `VOICES` (`server/content.ts`), with `null` for voices that don't match a unit's `speaker`. Word audio is keyed on the lowercase surface form.
+
+`content/audio-fixes.json` fixes single clips that render badly, keyed by language, voice id and text as rendered (lowercase for word audio): `say` is what the engine reads instead (a respelling or punctuation), `phonemes` feeds Kokoro IPA directly (a space or `pʰ` can break a slurred cluster or a p heard as b), `cut` drops seconds off the end after trimming (a breath the silence trim keeps), and `take` forces a fresh render, since Piper output is random per run. To keep a Piper candidate you've already checked, copy it to its fix's file (`audioFile()`) before rendering. A fix joins the hash, so the fixed clip gets a new file and the old one stays until `--prune` (don't prune while reports on it are under review). A fix for text nothing renders is a load error.
 
 Voices, both genders, four per language except `ga`:
 - `en`: Piper amy, lessac (F) and ryan, joe (M).
@@ -94,6 +96,8 @@ Voices, both genders, four per language except `ga`:
 3. encodes with `afconvert` into a `.part` file, then renames it, so an interrupted run never leaves a truncated file.
 
 Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
+
+**Sanity check after rendering:** `npm run content:check-audio` (`scripts/check-audio.ts`; pass flags after `--`) runs a phoneme recognizer (`facebook/wav2vec2-xlsr-53-espeak-cv-ft`, language-independent IPA, via torch and transformers in `.venv`, downloaded to the Hugging Face cache on first run) over clips of 1-2 word texts, compares what it heard with espeak's IPA for the text, and writes `data/audio-check.html`: clips ranked by phoneme error rate (PER) with play buttons. `--all`, `--lang`, `--voice` and `--text` change the scope; results are cached per clip in `data/audio-check.jsonl`, so later runs score only new renders (the first pass over every short clip takes about an hour on Apple silicon). It is a ranker for listening, not a verdict: its "heard" column matched every complaint in the first batch of reports (si-ye, nosey, bosso, shee-trah), but PER alone doesn't separate good from bad (approved clips scored up to 0.5, and o/ɔ is folded, so an open-vowel error scores 0). When fixing a clip, render candidates with `scripts/tts-render.py`, score them with `scripts/audio-phonemes.py`, and pick one whose heard phonemes carry no extra glide, trailing θ/s, b for p or ʃ for tʃ; then listen. Text-level ASR (Whisper) is not a substitute: it guesses the intended word and passed clips that people rejected.
 
 ## Content model
 
@@ -127,6 +131,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - `variants[]`: other answers that are also accepted (numerals, contractions).
 - `commas[]`: word indices after which a comma or semicolon is accepted although the text has none.
 - `distractors`: two wrong translations for the meaning check. Required exactly when there is a `translation`.
+- `speaker`: `F` or `M` when the text gives the speaker's gender away ("sono stanca", "I'm Maria"); only voices of that gender read the unit. Its words keep every voice.
 - Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which invalidates cached explanations.
 - **Localized fields** (`description`, `grammarFocus`, `gloss`, `translation`, `distractors`) are locale maps with exactly the course language's `SUPPORT_LOCALES`; a missing or extra locale is a load error. The loader builds one served copy of the content per UI locale. Every unit needs a `translation`.
 - New support languages are added as one patch per course and locale, checked and merged by `scripts/merge-locale.ts` (`--check` validates without writing).

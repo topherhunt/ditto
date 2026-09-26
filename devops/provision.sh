@@ -106,7 +106,11 @@ cat > "/etc/caddy/sites/${SERVICE_NAME}.caddy" <<CADDY
 # ${SERVICE_NAME}: one Node process serves the SPA, API and audio.
 ${DOMAIN} {
 	encode zstd gzip
-	reverse_proxy 127.0.0.1:${APP_PORT}
+	# Hold requests while the app restarts instead of returning 502.
+	reverse_proxy 127.0.0.1:${APP_PORT} {
+		lb_try_duration 30s
+		lb_try_interval 250ms
+	}
 }
 CADDY
 cat > "${REGISTRY_DIR}/${SERVICE_NAME}.app" <<MANIFEST
