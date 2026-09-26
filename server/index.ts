@@ -37,6 +37,7 @@ const app = createApp({
   explainModel,
   explainDailyLimit: Number(env.EXPLAIN_DAILY_LIMIT || 50),
   secureCookies: production,
+  pocDir: production ? null : env.POC_DIR || join(root, "data/poc"),
 });
 if (production && !env.ALLOWED_EMAILS) console.warn("WARNING: ALLOWED_EMAILS is unset; any Google account can sign in");
 

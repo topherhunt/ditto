@@ -1,5 +1,6 @@
 import { A, useLocation, type RouteSectionProps } from "@solidjs/router";
-import { createSignal, ErrorBoundary, For, Match, onCleanup, Show, Switch } from "solid-js";
+import { createResource, createSignal, ErrorBoundary, For, Match, onCleanup, Show, Switch } from "solid-js";
+import type { Config } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
@@ -29,6 +30,7 @@ export function Layout(props: RouteSectionProps) {
   /** The language the nav points at: the current route's, else the last one picked. */
   const navLang = () => lang() ?? lastLanguage();
   const [menuOpen, setMenuOpen] = createSignal(false);
+  const [config] = createResource(() => api.get<Config>("/api/config"));
   const [langMenuOpen, setLangMenuOpen] = createSignal(false);
   let menuRoot: HTMLDivElement | undefined;
   let langMenuRoot: HTMLDivElement | undefined;
@@ -99,6 +101,7 @@ export function Layout(props: RouteSectionProps) {
                         <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
                         {/* Admin-only, so not translated. */}
                         {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-bug me-2" aria-hidden="true" />Reports</A></li>}
+                        {user().admin && config()?.poc && <li><A href="/admin/pronunciation" class="qa-nav-poc dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-mic me-2" aria-hidden="true" />Pronunciation POC</A></li>}
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item text-danger" onClick={logout}><i class="bi bi-power me-2" aria-hidden="true" />{t("nav.signOut")}</button></li>
                       </ul>

@@ -47,12 +47,15 @@ export const voiceId = (v: Voice) => `${v.engine}:${v.model}${v.speaker === unde
 
 /**
  * A fix for one clip that renders badly: what the engine reads instead of the text (`say`, or Kokoro `phonemes`),
- * and a `take` to bump for a fresh Piper render, which is random on each run.
+ * seconds to `cut` off the end, a paid `openrouter` voice to render it instead of the slot's own engine, and a `take`
+ * to bump for a fresh render from a random engine (Piper, OpenRouter).
  */
-const AudioFixSchema = z.strictObject({
+export const AudioFixSchema = z.strictObject({
   say: z.string().min(1).optional(), phonemes: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),
+  openrouter: z.strictObject({ model: z.string().min(1), voice: z.string().min(1), style: z.string().min(1).optional() }).optional(),
 })
-  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" });
+  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" })
+  .refine((f) => !(f.openrouter && f.phonemes), { message: "phonemes need a kokoro voice, not openrouter" });
 export type AudioFix = z.infer<typeof AudioFixSchema>;
 /** content/audio-fixes.json: language -> voice id -> text (as rendered, so lowercase for word audio) -> fix. */
 const AudioFixesSchema = z.partialRecord(z.enum(LANGUAGES), z.record(z.string(), z.record(z.string(), AudioFixSchema)));

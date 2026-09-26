@@ -6,8 +6,8 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "node --watch --env-file-if-exists=.env server/index.ts & vite",
-    "dev:server": "node --watch --env-file-if-exists=.env server/index.ts",
+    "dev": "npm run dev:server & vite",
+    "dev:server": "node --watch-path=server --watch-path=shared --watch-path=content/courses --watch-path=content/audio-fixes.json --env-file-if-exists=.env server/index.ts",
     "dev:web": "vite",
     "build": "vite build",
     "start": "node --env-file-if-exists=.env server/index.ts",
@@ -15,8 +15,9 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "content:validate": "node scripts/validate-content.ts",
-    "content:audio": "node scripts/build-audio.ts",
-    "content:check-audio": "node scripts/check-audio.ts"
+    "content:audio": "node --env-file-if-exists=.env scripts/build-audio.ts",
+    "content:check-audio": "node scripts/check-audio.ts",
+    "content:audio-candidates": "node --env-file-if-exists=.env scripts/audio-candidates.ts"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",

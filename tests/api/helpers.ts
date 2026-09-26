@@ -39,6 +39,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     explainModel: "fake-model",
     explainDailyLimit: 3,
     secureCookies: false,
+    pocDir: null,
     ...overrides,
   };
   const app = createApp(deps);

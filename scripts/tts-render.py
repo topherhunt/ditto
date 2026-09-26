@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?}, language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?} (openrouter: {engine, model, voice, style?}), language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -60,6 +60,32 @@ elif voice["engine"] == "abair":
             if w.getnchannels() != 1 or w.getsampwidth() != 2:
                 sys.exit(f"expected 16-bit mono from ABAIR, got {w.getnchannels()} channels, {w.getsampwidth()} bytes")
             return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
+elif voice["engine"] == "openrouter":
+    # Paid fallback for single clips the free engines can't get right (see audio-fixes.json). Output varies per call.
+    import os
+    import re
+    import urllib.error
+    import urllib.request
+
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        raise SystemExit("OPENROUTER_API_KEY is not set (put it in .env)")
+
+    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
+        body = {"model": voice["model"], "input": text, "voice": voice["voice"], "response_format": "pcm"}
+        if voice.get("style"):
+            body["provider"] = {"options": {"google": {"speech_metadata": {"style": voice["style"]}}}}
+        req = urllib.request.Request("https://openrouter.ai/api/v1/audio/speech", data=json.dumps(body).encode(),
+                                     headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as res:
+                kind, pcm = res.headers["Content-Type"], res.read()
+        except urllib.error.HTTPError as e:
+            sys.exit(f"OpenRouter {e.code} for {text!r}: {e.read().decode()}")
+        rate = re.search(r"rate=(\d+)", kind)
+        if not kind.startswith("audio/pcm") or not rate or "channels=1" not in kind:
+            sys.exit(f"expected mono PCM with a rate from OpenRouter, got {kind}")
+        return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, int(rate.group(1))
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 

@@ -20,7 +20,7 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
 ## Interaction
 
 - **Gap:** there is no turn-taking. Learners never choose or write a fitting reply to a question.
-- **Idea:** reply units. The learner hears a question, types an answer, and the answer is checked against accepted replies, or by the AI explainer for open replies (a paid call, so it needs a spend guard like the explainer's).
+- **Idea:** spoken conversation mode, designed in [conversation.md](conversation.md).
 
 ## Placement and skipping ahead
 
@@ -30,7 +30,7 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
 ## Speaking and pronunciation
 
 - **Gap:** no speaking at all.
-- **Idea:** shadowing mode: record the learner repeating the audio, then score it with ASR (Whisper or a browser speech API) against `text`. Pronunciation feedback per word comes later.
+- **Idea:** the pronunciation coach in [conversation.md](conversation.md).
 
 ## Reading and writing beyond the sentence
 

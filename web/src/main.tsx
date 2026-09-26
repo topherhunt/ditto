@@ -12,6 +12,7 @@ import { Home } from "./pages/Home.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
 import { Notebook } from "./pages/Notebook.tsx";
 import { Practice } from "./pages/Practice.tsx";
+import { PocRecorder } from "./pages/PocRecorder.tsx";
 import { Profile } from "./pages/Profile.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
@@ -29,6 +30,7 @@ render(
       <Route path="/settings" component={Settings} />
       <Route path="/people/:id" component={Profile} />
       <Route path="/admin/reports" component={Reports} />
+      <Route path="/admin/pronunciation" component={PocRecorder} />
       <Route path="/:lang" component={Home} />
       <Route path="/:lang/settings" component={CourseSettings} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />

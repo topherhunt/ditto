@@ -71,7 +71,7 @@ Irish audio comes from ABAIR's online service rather than a local model, so it n
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Server (with `--watch`) and Vite dev server |
+| `npm run dev` | Server and Vite dev server; the server restarts when `server/`, `shared/`, `content/courses/` or `content/audio-fixes.json` change |
 | `npm run build` | Builds the SPA into `dist/web` |
 | `npm start` | Runs the server |
 | `npm run typecheck` | `tsc --noEmit` |

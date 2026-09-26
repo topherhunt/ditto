@@ -17,6 +17,7 @@ import { VOICES, voiceId, type Content } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { levelTestUnits } from "./level-test.ts";
+import { registerPoc } from "./poc.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
@@ -37,6 +38,8 @@ export type AppDeps = {
   explainModel: string;
   explainDailyLimit: number;
   secureCookies: boolean;
+  /** Where the pronunciation proof-of-concept recorder saves takes; null (always in production) disables it. */
+  pocDir: string | null;
 };
 
 const GRADUATE_AFTER = 2;
@@ -94,7 +97,7 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
-  app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin }));
+  app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null }));
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
@@ -388,6 +391,7 @@ export function createApp(deps: AppDeps) {
 
   registerSocial(app, deps);
   registerAdmin(app, deps);
+  if (deps.pocDir) registerPoc(app, content, deps.pocDir);
 
   app.all("/api/*", () => {
     throw new HTTPException(404, { message: "Not found" });

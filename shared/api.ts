@@ -58,6 +58,14 @@ export const TriageSchema = z.strictObject({ decision: z.enum(REPORT_DECISIONS),
 /** The admin's verdict on a proposed fix; a rejection needs a note saying what's still wrong. */
 export const ReviewSchema = z.strictObject({ review: z.enum(["approved", "rejected"]), note: z.string().trim().max(2000) })
   .refine((r) => r.review === "approved" || r.note !== "", { message: "A note is required when rejecting" });
+/** A take recorded for the pronunciation judge proof of concept (dev only). `expect: "fail"` is a deliberate mispronunciation. */
+export const PocTakeSchema = z.strictObject({
+  file: z.string(), sentence: z.string(), expect: z.enum(["pass", "fail"]), mime: z.enum(["audio/webm", "audio/mp4"]), note: z.string().trim().max(500),
+});
+export type PocTake = z.infer<typeof PocTakeSchema>;
+export const PocNoteSchema = z.strictObject({ note: z.string().trim().max(500) });
+export type PocSentence = { id: string; lang: Language; text: string; suggestion: string; ttsUrl: string | null };
+export type PocData = { sentences: PocSentence[]; takes: PocTake[] };
 export const REPORT_STATUSES = ["new", "triaged", "closed"] as const;
 export type ReportStatus = (typeof REPORT_STATUSES)[number];
 export type AdminReport = {
@@ -110,7 +118,8 @@ export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), lev
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };
-export type Config = { googleClientId: string | null; devLogin: boolean };
+/** `poc`: the pronunciation proof-of-concept recorder is on (development only). */
+export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
 export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };

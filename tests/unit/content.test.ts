@@ -86,9 +86,13 @@ describe("content loading", () => {
     expect(() => pickVoice([null, null])).toThrow(/no audio/);
   });
 
-  it("rejects audio fixes for an unknown voice, phonemes on a non-Kokoro voice, and text nothing renders", () => {
+  it("rejects audio fixes for an unknown voice, phonemes on a non-Kokoro voice or with OpenRouter, a partial OpenRouter voice, and text nothing renders", () => {
     expect(() => loadWithFixes({ it: { "kokoro:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice kokoro:nobody/);
     expect(() => loadWithFixes({ it: { "piper:it_IT-paola-medium": { lo: { phonemes: "lo" } } } }, base)).toThrow(/phonemes need a kokoro voice/);
+    const openrouter = { model: "google/gemini-3.8-flash-tts", voice: "Kore" };
+    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { phonemes: "lo", openrouter } } } }, base)).toThrow(/not openrouter/);
+    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { openrouter: { model: openrouter.model } } } } }, base)).toThrow(/voice/);
+    expect(loadWithFixes({ it: { "kokoro:if_sara": { lo: { openrouter } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ openrouter });
     expect(() => loadWithFixes({ it: { "kokoro:if_sara": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|kokoro:if_sara\|gone/);
     expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: {} } } }, base)).toThrow(/empty fix/);
     expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
