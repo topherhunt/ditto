@@ -1,11 +1,10 @@
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import type { AppDeps } from "../../server/app.ts";
 import { voiceId } from "../../server/content.ts";
 import { FAKE_COST, fakeAI, fakeSpeech } from "../../server/conversation-fake.ts";
-import { partnerVoices } from "../../server/speech.ts";
 import { setup } from "./helpers.ts";
 
 const audio = Buffer.from("fake recording").toString("base64");
@@ -176,18 +175,13 @@ describe("conversation mode", () => {
     expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.turns.at(-1)).toMatchObject({ role: "learner", chunks: null });
   });
 
-  it("speaks a whole conversation in one voice, picked at random from the language's Piper voices", async () => {
+  it("speaks every line of every conversation in the language's one partner voice", async () => {
     const t = await speak();
-    const voices = partnerVoices("it").map(voiceId);
-    const random = vi.spyOn(Math, "random").mockReturnValue(0.99);
     const conv = await t.start();
     await t.reply(conv.id); // fails, so the target is spoken
     await t.reply(conv.id, { target: "Vorrei un caffè, per favore." }); // passes, so the partner answers
-    expect(t.voices).toEqual([voices.at(-1), voices.at(-1), voices.at(-1)]);
-    random.mockReturnValue(0);
     await t.start();
-    expect(t.voices.at(-1)).toBe(voices[0]);
-    random.mockRestore();
+    expect(t.voices).toEqual(Array(4).fill("piper:it_IT-paola-medium"));
   });
 
   it("keeps hard mode per conversation", async () => {

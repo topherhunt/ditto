@@ -167,6 +167,20 @@ export function Conversation() {
     }
   };
 
+  const toggleRecord = () => (recState() === "recording" ? recorder!.stop() : void record());
+  const canRecord = () => conv() !== undefined && last().role === "partner" && !busy() && (recState() === "idle" || recState() === "recording");
+  // Space works the record button except while typing. A focused button or checkbox is blurred first, or space would
+  // also click it on keyup (replaying a line after its ▶ was tapped).
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key !== " " || e.repeat || !canRecord()) return;
+    if ((e.target as Element).closest("textarea, select, [contenteditable], input:not([type=checkbox], [type=radio])")) return;
+    e.preventDefault();
+    (document.activeElement as HTMLElement | null)?.blur();
+    toggleRecord();
+  };
+  document.addEventListener("keydown", onKey);
+  onCleanup(() => document.removeEventListener("keydown", onKey));
+
   const askHow = () => run(async () => {
     const res = await api.post<HowOut>(`/api/conversations/${c().id}/how`, { text: howText() });
     setHow(res);
@@ -247,8 +261,7 @@ export function Conversation() {
 
             <Show when={recState() === "checking"} fallback={
               <button type="button" class="qa-record btn btn-lg align-self-start" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
-                disabled={busy() || recState() === "starting"}
-                onClick={() => (recState() === "recording" ? recorder!.stop() : void record())}>
+                disabled={!canRecord()} onClick={toggleRecord}>
                 <i class={`bi ${recState() === "recording" ? "bi-stop-fill" : "bi-mic-fill"} me-1`} aria-hidden="true" />
                 {recState() === "recording" ? t("speak.stop") : attempt() ? t("speak.recordAgain") : t("speak.record")}
               </button>
@@ -265,9 +278,7 @@ export function Conversation() {
 
         <div class="d-flex flex-wrap gap-3 small text-body-secondary border-top pt-2">
           <span class="qa-cost">{t("speak.cost", { cost: usd(c().spend.conversation), today: usd(c().spend.today), cap: usd(c().spend.cap) })}</span>
-          <Show when={c().reliance.of > 0}>
-            <span class="qa-reliance">{t("speak.reliance", { n: c().reliance.leaned, of: c().reliance.of })}</span>
-          </Show>
+          <span class="qa-replies">{t(c().reliance.of === 1 ? "speak.replies.one" : "speak.replies.other", { n: c().reliance.of })}</span>
         </div>
       </div>
     </Show>

@@ -17,8 +17,7 @@ import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
-import { voiceId } from "./content.ts";
-import { partnerVoice, partnerVoices, type Speech } from "./speech.ts";
+import { partnerVoice, type Speech } from "./speech.ts";
 import { recordUsage, spentToday, type Usage } from "./usage.ts";
 
 export type ConversationDeps = { ai: ConversationAI; speech: Speech; audioDir: string };
@@ -42,7 +41,7 @@ const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 const spoken = (s: string) => s.toLowerCase().replace(/[\p{P}\p{S}]/gu, " ").replace(/\s+/g, " ").trim();
 
 type ConversationRow = {
-  id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number; voice: string;
+  id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number;
   created_at: string; updated_at: string;
 };
 type TurnRow = {
@@ -116,7 +115,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (learner && !result.learnerLine) throw new Error("The partner model returned no chunks for the learner's line");
     const text = joinChunks(result.line);
     const file = saveAudio(conv.id, "wav");
-    await speech.say(text, partnerVoice(conv.language, conv.voice), join(audioDir, file));
+    await speech.say(text, partnerVoice(conv.language), join(audioDir, file));
     const now = deps.now().toISOString();
     transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
@@ -155,7 +154,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
     const file = saveAudio(conv.id, "wav");
-    await speak().speech.say(target, partnerVoice(conv.language, conv.voice), join(speak().audioDir, file));
+    await speak().speech.say(target, partnerVoice(conv.language), join(speak().audioDir, file));
     return file;
   };
 
@@ -186,12 +185,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const user = c.get("user");
     underCapOr429(user.id);
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
-    const voices = partnerVoices(body.language);
-    const voice = voiceId(voices[Math.floor(Math.random() * voices.length)]);
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
-      "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, voice, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?, ?)",
-    ).run(user.id, body.language, supportLocale(body.language, user.locale), body.level, scenario, Number(body.hardMode), voice, now, now).lastInsertRowid);
+      "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?)",
+    ).run(user.id, body.language, supportLocale(body.language, user.locale), body.level, scenario, Number(body.hardMode), now, now).lastInsertRowid);
     await partnerTurn(conversationOr404(id, user.id), user.id);
     return c.json(conversationOut(conversationOr404(id, user.id), user.id));
   });

@@ -1,11 +1,11 @@
 import { join } from "node:path";
 import { setTimeout as sleep } from "node:timers/promises";
 import { describe, expect, it } from "vitest";
-import { partnerVoices, speechWorker } from "../../server/speech.ts";
+import { partnerVoice, speechWorker } from "../../server/speech.ts";
 
 const echo = join(import.meta.dirname, "../fixtures/echo-worker.mjs");
 // The echo worker answers with its pid, so a changed answer means a new process.
-const pid = async (speech: ReturnType<typeof speechWorker>) => (await speech.say("x", partnerVoices("it")[0], "out.wav")).seconds;
+const pid = async (speech: ReturnType<typeof speechWorker>) => (await speech.say("x", partnerVoice("it"), "out.wav")).seconds;
 const alive = (p: number) => { try { process.kill(p, 0); return true; } catch { return false; } };
 
 describe("speech worker", () => {

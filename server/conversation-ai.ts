@@ -50,7 +50,7 @@ export const joinChunks = (chunks: Chunk[]) => chunks.map((c) => c.text).join(" 
 
 const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", C1: "C2", C2: "C2" };
 
-const CHUNKING = `Split every sentence into chunks: the smallest runs of words that translate as a unit ("ci vediamo" = "see you", not word by word). A chunk is usually one to three words and never a whole sentence or clause, unless the sentence is one fixed expression ("Buongiorno!"). The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
+const CHUNKING = `Split every sentence into chunks for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ("ci vediamo" = "see you", "per favore" = "please"), an object pronoun or article with the word it belongs to ("Le porto" = "I'll bring you", "il conto" = "the bill"), and compound verb forms ("ho preso" = "I took"). "Le porto tutto subito." is "Le porto" / "tutto" / "subito.", never one chunk. The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
 
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
 Scenario: ${s.scenario}

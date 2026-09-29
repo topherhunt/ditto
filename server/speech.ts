@@ -9,15 +9,15 @@ export interface Speech {
   say(text: string, voice: Voice, out: string): Promise<{ seconds: number }>;
 }
 
-/** The lessons' Piper voices; each conversation's partner speaks in one, picked at random. */
-export const partnerVoices = (language: Language) => {
-  const voices = VOICES[language].filter((v) => v.engine === "piper");
-  if (!voices.length) throw new Error(`No conversation voice for ${language}`);
-  return voices;
+/** The partner's one Piper voice per language, from the lessons' voices; one each keeps the worker to one loaded voice per language. */
+const PARTNER_VOICES: Partial<Record<Language, string>> = {
+  it: "piper:it_IT-paola-medium",
+  nl: "piper:nl_NL-pim-medium",
+  en: "piper:en_US-amy-medium",
 };
-export const partnerVoice = (language: Language, id: string) => {
-  const voice = partnerVoices(language).find((v) => voiceId(v) === id);
-  if (!voice) throw new Error(`No ${language} conversation voice ${id}`);
+export const partnerVoice = (language: Language) => {
+  const voice = VOICES[language].find((v) => voiceId(v) === PARTNER_VOICES[language]);
+  if (!voice || voice.engine !== "piper") throw new Error(`No Piper conversation voice for ${language}`);
   return voice;
 };
 

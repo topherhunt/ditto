@@ -3,8 +3,9 @@
 - [x] Also plan out & build a fully-voice-convo based mode, that's fully AI driven conversation trees.
 - [ ] Polish up the Talk feature
   - [x] When you start a convo, it should speak out the speaker's words.
-  - [ ] When you're in a conversation, you should be able to press `space` to trigger the "Record reply" and "Stop" and "Re-record" buttons. So you can progress the convo without needing to click on buttons. (Most users will be on their phones, so we don't need any visual hint to indicate this.)
-  - [ ] Remove the "Leaned on help in N of N replies" text, it's not a useful metric because it's a false negative if you alter anything about the word order. Or do you think it would be easy to use the LLM to determine whether you whether your reply was substantially influenced or substantially similar to one of the stock replies? but anyway, this text is less important than the more key metric, which is how many replies you've done. Can you please instead state the total # of replies, and then we can think separately about whether we want a 2nd number for # where you used a hint sentence?
+  - [x] When you're in a conversation, you should be able to press `space` to trigger the "Record reply" and "Stop" and "Re-record" buttons. So you can progress the convo without needing to click on buttons. (Most users will be on their phones, so we don't need any visual hint to indicate this.)
+  - [x] Replace the "Leaned on help in N of N replies" text with the total # of replies.
+  - [ ] Decide whether to show a 2nd number for replies that used a hint sentence, judged by the coach (substantially similar to a suggestion) instead of exact match.
 - [ ] Polish up the current featureset (Type and Talk)
 - [ ] Polish up the onboarding & settings user flow
 - [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection.
@@ -22,3 +23,6 @@
 
 - [ ] Track my total OpenAI API token spend. Is there a way to do that via the an API request from the token itself, or do I need to track it in the database per request somehow?
 - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.
+
+- Instrumentation
+  - Track metrics: # users active per day, max # concurrent users, basic APM (rps per hour bucket, etc)

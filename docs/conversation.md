@@ -4,7 +4,7 @@ A speaking track separate from dictation: a spoken back-and-forth with an AI par
 
 ## Turn loop
 
-1. The partner speaks a line (local Piper TTS, in one of the lessons' Piper voices for the language, picked at random per conversation); it plays by itself and its transcript shows.
+1. The partner speaks a line (local Piper TTS, in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`); it plays by itself and its transcript shows.
 2. Suggested replies: three plausible replies, each steering the conversation a different way. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
 4. The coach judges it (below). A failure pauses the conversation on the retry screen.
@@ -12,7 +12,7 @@ A speaking track separate from dictation: a spoken back-and-forth with an AI par
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks (*ci vediamo* = "see you", not word by word), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation; on hover a chunk gets a background color and a pointer cursor.
+The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation; on hover a chunk gets a background color and a pointer cursor. Space works the record button (not while typing).
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 
@@ -22,7 +22,7 @@ The conversation trains fluency and vocabulary, not pronunciation (a separate pr
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process in which Piper voices the partner. It starts on first use (about 1 s), keeps one voice loaded (a conversation speaks in one; switching reloads in ~0.5 s), and holds 170-250 MB, so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with Piper and the voices in `tools/piper-voices`; production installs these with `devops/provision.sh`.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process in which Piper voices the partner. It starts on first use (about 1 s), keeps each voice it has used loaded (one per language, 60-120 MB each, ~0.5 s to load), and holds 170-250 MB with one, so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with Piper and the voices in `tools/piper-voices`; production installs these with `devops/provision.sh`.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.
@@ -31,7 +31,7 @@ The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is o
 
 ## Scaffolding and progress
 
-- Each learner turn records whether it came from a suggestion (exact match after normalizing), "How do I say...?", moving on, or the learner's own words, plus chunks tapped and the coach's CEFR grade. Reliance shows subtly on screen; it never hides the suggestions. Paraphrasing a suggestion counts as the learner's own.
+- Each learner turn records whether it came from a suggestion (exact match after normalizing), "How do I say...?", moving on, or the learner's own words, plus chunks tapped and the coach's CEFR grade. The page shows the number of replies; reliance (`leaned`) is computed but not shown, since paraphrasing a suggestion counts as the learner's own.
 - A scenario is a starter (café, directions, hotel, meeting, market, weekend), any typed topic, or "surprise me". Level comes from the learner, and the partner speaks one notch above it.
 
 ## Spend

@@ -61,14 +61,22 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await page.locator(".qa-retry-report-send").click();
   await expect(page.locator(".qa-retry-reported")).toBeVisible();
 
-  await record(page);
+  // Space records and stops, even with a play button focused from a tap.
+  await page.locator(".qa-retry-play-target").click();
+  const plays = () => page.evaluate(() => (window as unknown as { played: string[] }).played.length);
+  const before = await plays();
+  await page.keyboard.press(" ");
+  await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
+  expect(await plays()).toBe(before);
+  await page.waitForTimeout(300);
+  await page.keyboard.press(" ");
   await expect(page.locator(".qa-turn-learner .qa-chunk")).toHaveText(["Vorrei", "un", "caffè,", "per", "favore."]);
   await page.locator(".qa-turn-learner .qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("(Vorrei)");
   await expect(page.locator(".qa-turn-learner .qa-turn-level")).toHaveText("A2");
   await expect(page.locator(".qa-turn-partner").nth(1).locator(".qa-chunk")).toHaveText(["Certo!", "Altro?"]);
   await expect(page.locator(".qa-retry")).toHaveCount(0);
-  await expect(page.locator(".qa-reliance")).toContainText("1 of 1");
+  await expect(page.locator(".qa-replies")).toContainText("1");
   await expect(page.locator(".qa-cost")).toContainText("$0.006");
 
   await page.locator(".qa-conversation-hard").check();
