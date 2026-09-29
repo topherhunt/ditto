@@ -41,13 +41,14 @@ test("the homepage offers only the courses translated into the language the visi
   await expect(page.locator(".qa-learn-en")).toBeVisible();
   await expect(page.locator(".qa-learn-it")).toHaveCount(0);
   await expect(page.locator(".qa-learn-nl")).toHaveCount(0);
+  await expect(page.locator(".qa-learn-ga")).toBeVisible();
   await expect(page.locator(".qa-request-language")).toHaveAttribute("href", /^https:\/\/docs\.google\.com\/forms\//);
 
   await page.locator(".qa-welcome-speak-nl").click();
   await expect(page.locator(".qa-learn-en")).toBeVisible();
   await expect(page.locator(".qa-learn-it")).toBeVisible();
   await expect(page.locator(".qa-learn-nl")).toHaveCount(0);
-  await expect(page.locator(".qa-learn-ga")).toHaveCount(0);
+  await expect(page.locator(".qa-learn-ga")).toBeVisible();
 });
 
 test("the course picked before sign-in is saved to the new account, which then lands in that course", async ({ page }) => {

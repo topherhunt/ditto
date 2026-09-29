@@ -361,7 +361,6 @@ export const en = {
   "speak.history": "Past conversations",
   "speak.noHistory": "No conversations yet.",
   "speak.weak": "Phrases to work on",
-  "speak.cost": "This conversation {cost} · today {today} of {cap}",
   "speak.replies.one": "{n} reply",
   "speak.replies.other": "{n} replies",
   "speak.hints.one": "used {n} hint",

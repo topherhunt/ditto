@@ -77,7 +77,7 @@ fromSuggestion: true if the learner's reply is substantially one of the suggeste
 const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
 ${CHUNKING}`;
 
-const GLOSS_INSTRUCTIONS = `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive lines of a role-play conversation, one per input line. Return one entry per line, in the same order, splitting each line, exactly as written, into chunks.
+const GLOSS_INSTRUCTIONS = `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive numbered lines of a role-play conversation. Return exactly one entry per numbered line, in the same order, even when a line has several sentences, splitting each line, exactly as written, into chunks.
 ${CHUNKING}`;
 
 const fill = (t: string, s: Setting) =>
@@ -128,8 +128,11 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
       return { result: result.chunks, usage };
     },
     async gloss(setting, lines) {
-      const { result, usage } = await parse(GlossSchema, "gloss", fill(GLOSS_INSTRUCTIONS, setting), lines.join("\n"));
-      if (result.lines.length !== lines.length) throw new Error(`${model} glossed ${result.lines.length} of ${lines.length} lines`);
+      const { result, usage } = await parse(GlossSchema, "gloss", fill(GLOSS_INSTRUCTIONS, setting),
+        `${lines.length} lines:\n${lines.map((l, i) => `${i + 1}. ${l}`).join("\n")}`);
+      if (result.lines.length !== lines.length) {
+        throw new Error(`${model} glossed ${lines.length} lines as ${result.lines.length}: ${JSON.stringify(result.lines.map((l) => joinChunks(l.chunks)))}`);
+      }
       return { result: result.lines.map((l) => l.chunks), usage };
     },
   };

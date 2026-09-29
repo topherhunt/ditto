@@ -10,7 +10,6 @@ import { useLang } from "./lang.ts";
 import { playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
 import { autoplay } from "./player.ts";
-import { usd } from "../spend.ts";
 
 /** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
 function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string, text: string) => void; class?: string }) {
@@ -284,7 +283,6 @@ export function Conversation() {
         <Show when={error()}>{(m) => <div class="qa-conversation-error alert alert-danger mb-0">{m()}</div>}</Show>
 
         <div class="d-flex flex-wrap gap-3 small text-body-secondary border-top pt-2">
-          <span class="qa-cost">{t("speak.cost", { cost: usd(c().spend.conversation), today: usd(c().spend.today), cap: usd(c().spend.cap) })}</span>
           <span class="qa-replies">{t(c().reliance.of === 1 ? "speak.replies.one" : "speak.replies.other", { n: c().reliance.of })}</span>
           <span class="qa-hints">{t(c().reliance.leaned === 1 ? "speak.hints.one" : "speak.hints.other", { n: c().reliance.leaned })}</span>
         </div>

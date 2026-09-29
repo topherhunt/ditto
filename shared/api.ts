@@ -116,8 +116,8 @@ export const PutProfileVisibilitySchema = z.strictObject({ public: z.boolean() }
 /** An account's id in URLs and the API: random, so accounts can't be enumerated. The numeric row id never leaves the server. */
 export const PublicIdSchema = z.string().regex(/^[A-Za-z0-9_-]{10}$/);
 
-/** By id from a search result or a profile. The app only sends ids; `email` remains for scripts and tests. */
-export const FriendRequestSchema = z.union([z.strictObject({ email: z.email() }), z.strictObject({ userId: PublicIdSchema })]);
+/** By id, from a search result or a profile. */
+export const FriendRequestSchema = z.strictObject({ userId: PublicIdSchema });
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
 
 export const RACE_DAYS = [1, 3, 7, 14, 30] as const;

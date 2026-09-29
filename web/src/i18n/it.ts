@@ -362,7 +362,6 @@ export const it: Dictionary = {
   "speak.history": "Conversazioni passate",
   "speak.noHistory": "Ancora nessuna conversazione.",
   "speak.weak": "Frasi da esercitare",
-  "speak.cost": "Questa conversazione {cost} · oggi {today} su {cap}",
   "speak.replies.one": "{n} risposta",
   "speak.replies.other": "{n} risposte",
   "speak.hints.one": "{n} aiuto usato",

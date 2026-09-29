@@ -19,15 +19,18 @@ async function accounts(t: T, ...emails: string[]) {
   return ids;
 }
 
+const idOf = (t: T, email: string) => (t.deps.db.prepare("SELECT public_id FROM users WHERE email = ?").get(email) as { public_id: string }).public_id;
+/** Sends a friend request, or accepts theirs. */
+const request = (t: T, email: string) => t.req("POST", "/api/friends/requests", { userId: idOf(t, email) });
 const rowId = (t: T, publicId: string) => (t.deps.db.prepare("SELECT id FROM users WHERE public_id = ?").get(publicId) as { id: number }).id;
 /** Well-formed, but no account has it. */
 const NOBODY = "0000000000";
 
 async function befriend(t: T, from: string, to: string) {
   await t.login(from);
-  await t.req("POST", "/api/friends/requests", { email: to });
+  await request(t, to);
   await t.login(to);
-  await t.req("POST", "/api/friends/requests", { email: from });
+  await request(t, from);
 }
 
 const later = (t: T, ms: number) => { t.clock.now = new Date(t.clock.now.getTime() + ms); };
@@ -90,15 +93,15 @@ describe("friend requests", () => {
     const t = setup();
     const [ana] = await accounts(t, A, B);
     await t.login(A);
-    await t.req("POST", "/api/friends/requests", { email: B });
+    await request(t, B);
     await t.login(B);
     expect((await t.req("POST", `/api/friends/${ana}/block`, {})).status).toBe(200);
     expect((await t.req("GET", "/api/friends")).json).toMatchObject({ incoming: [], blocked: [{ id: ana }] });
-    expect((await t.req("POST", "/api/friends/requests", { email: A })).status).toBe(409);
+    expect((await request(t, A)).status).toBe(409);
 
     await t.login(A);
     expect((await t.req("GET", `/api/friends/search?q=${B}`)).json.relation).toBe("outgoing");
-    expect((await t.req("POST", "/api/friends/requests", { email: B })).json.relation).toBe("outgoing");
+    expect((await request(t, B)).json.relation).toBe("outgoing");
     await t.login(B);
     expect((await t.req("GET", "/api/notifications")).json.items).toHaveLength(1);
 
@@ -110,7 +113,7 @@ describe("friend requests", () => {
     const t = setup();
     const [ana, bo] = await accounts(t, A, B);
     await t.login(A);
-    await t.req("POST", "/api/friends/requests", { email: B });
+    await request(t, B);
     await t.login(B);
     expect((await t.req("POST", `/api/friends/${ana}/decline`, {})).status).toBe(200);
     expect((await t.req("POST", `/api/friends/${ana}/accept`, {})).status).toBe(404);
@@ -205,7 +208,7 @@ describe("profiles", () => {
     await completeBar2(t);
 
     await t.login(C);
-    await t.req("POST", "/api/friends/requests", { email: A });
+    await request(t, A);
     const own = (await t.req("GET", "/api/profile/me")).json;
     expect(own).toMatchObject({ relation: "self", person: { id: cy, username: "cyd" } });
     expect(JSON.stringify(own)).not.toContain(C);
@@ -413,7 +416,7 @@ describe("notifications", () => {
     const t = setup();
     await accounts(t, A, B);
     await t.login(A);
-    await t.req("POST", "/api/friends/requests", { email: B });
+    await request(t, B);
     await t.login(B);
     expect((await t.req("POST", "/api/notifications/read", {})).status).toBe(200);
     const notes = (await t.req("GET", "/api/notifications")).json;

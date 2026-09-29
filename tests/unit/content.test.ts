@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { audioFile, loadContent, VOICES } from "../../server/content.ts";
-import { pickVoice } from "../../shared/content.ts";
+import { pickVoice, type Locale } from "../../shared/content.ts";
 
 const root = join(import.meta.dirname, "../..");
 
@@ -43,9 +43,11 @@ const child = (over: object = {}) => ({
 });
 
 describe("content loading", () => {
-  it("loads the real content for every language", () => {
+  it("loads the real content for every language, with Irish translated for every locale", () => {
     const c = loadContent(join(root, "content"), join(root, "content/audio"), { audio: "skip" });
     expect(new Set(c.locales.en.courses.map((x) => x.language))).toEqual(new Set(["en", "it", "nl", "ga"]));
+    const irish = (l: Locale) => c.locales[l].units.get("ga-a1-failte-1-u02")!.translation;
+    expect([irish("en"), irish("es-419"), irish("nl"), irish("it")]).toEqual(["Hello, Áine.", "Hola, Áine.", "Hallo, Áine.", "Ciao, Áine."]);
   });
 
   it("serves one audio URL per voice for the unit and each word, in voice order", () => {

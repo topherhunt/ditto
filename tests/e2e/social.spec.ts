@@ -83,11 +83,16 @@ test("a race invite shows in the bell and starts once accepted", async ({ page }
   const di = "learner12@example.com";
   await signIn(page, di);
   await signOut(page);
+  /** Finds the account by email, then sends a friend request or accepts theirs. */
+  const befriend = async (email: string) => {
+    const { person } = await (await page.request.get(`/api/friends/search?q=${encodeURIComponent(email)}`)).json();
+    expect((await page.request.post("/api/friends/requests", { data: { userId: person.id } })).ok()).toBe(true);
+  };
   await signIn(page, cy);
-  expect((await page.request.post("/api/friends/requests", { data: { email: di } })).ok()).toBe(true);
+  await befriend(di);
   await signOut(page);
   await signIn(page, di);
-  expect((await page.request.post("/api/friends/requests", { data: { email: cy } })).ok()).toBe(true);
+  await befriend(cy);
 
   await openFriends(page);
   await page.locator(".qa-friend .qa-race-open").click();

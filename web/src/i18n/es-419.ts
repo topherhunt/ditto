@@ -361,7 +361,6 @@ export const es419: Dictionary = {
   "speak.history": "Conversaciones anteriores",
   "speak.noHistory": "Todavía no hay conversaciones.",
   "speak.weak": "Frases para practicar",
-  "speak.cost": "Esta conversación {cost} · hoy {today} de {cap}",
   "speak.replies.one": "{n} respuesta",
   "speak.replies.other": "{n} respuestas",
   "speak.hints.one": "{n} pista usada",

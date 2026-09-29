@@ -361,7 +361,6 @@ export const nl: Dictionary = {
   "speak.history": "Eerdere gesprekken",
   "speak.noHistory": "Nog geen gesprekken.",
   "speak.weak": "Zinnen om te oefenen",
-  "speak.cost": "Dit gesprek {cost} · vandaag {today} van {cap}",
   "speak.replies.one": "{n} antwoord",
   "speak.replies.other": "{n} antwoorden",
   "speak.hints.one": "{n} hint gebruikt",

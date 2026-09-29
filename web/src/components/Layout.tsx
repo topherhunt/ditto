@@ -113,7 +113,7 @@ export function Layout(props: RouteSectionProps) {
         </a>
         <Show when={me()}><A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A></Show>
         <Show when={me() && spend()}>
-          {(s) => <span class="qa-spend-today" style={{ color: "rgba(var(--bs-body-color-rgb), 0.85)" }}>{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
+          {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
         </Show>
       </footer>
     </ErrorBoundary>

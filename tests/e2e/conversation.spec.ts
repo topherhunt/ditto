@@ -84,7 +84,6 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry")).toHaveCount(0);
   await expect(page.locator(".qa-replies")).toContainText("1");
   await expect(page.locator(".qa-hints")).toContainText("1");
-  await expect(page.locator(".qa-cost")).toContainText("$0.008");
 
   await page.locator(".qa-conversation-hard").check();
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);

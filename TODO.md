@@ -27,6 +27,7 @@
 ### For after launch
 
 - Cache / store glossed / tooltipped audio so it plays faster & avoids extra GPT-4o calls?
+- Support direct messaging friends. (but only in the language you're learning!! to force you to really practice. It can be translated for them if need be.) With some prompting/recoms of what to send them.
 - Social & leaderboard rethink:
   - [x] Limit the leaderboard to you and your friends. No leaderboard of strangers' gobbledygook names. Friends of friends are dropped for good; the matching service below covers meeting new people.
   - [ ] Make the leaderboard more in-depth and rich qua content & comparisons & details about each person. Brainstorm w Claude.

@@ -167,21 +167,19 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
   });
 
   app.post("/api/friends/requests", async (c) => {
-    const body = FriendRequestSchema.parse(await c.req.json());
-    const other = "email" in body ? userByEmail(body.email) : { id: userId(body.userId) };
-    if (!other) throw new HTTPException(404, { message: "No such account" });
+    const other = userId(FriendRequestSchema.parse(await c.req.json()).userId);
     const me = c.get("user").id;
-    const rel = relation(me, other.id);
+    const rel = relation(me, other);
     if (rel === "self") throw new HTTPException(400, { message: "That's you" });
     if (rel === "blocked") throw new HTTPException(409, { message: "You blocked them; unblock them first" });
     transaction(db, () => {
       if (rel === "none") {
-        db.prepare("INSERT INTO friendships (requester_id, addressee_id, status, created_at) VALUES (?, ?, 'pending', ?)").run(me, other.id, iso());
-        notify(other.id, "friend_request", me);
+        db.prepare("INSERT INTO friendships (requester_id, addressee_id, status, created_at) VALUES (?, ?, 'pending', ?)").run(me, other, iso());
+        notify(other, "friend_request", me);
       }
-      if (rel === "incoming") accept(other.id, me);
+      if (rel === "incoming") accept(other, me);
     });
-    return c.json({ relation: relation(me, other.id) });
+    return c.json({ relation: relation(me, other) });
   });
 
   app.post("/api/friends/:id/:action", (c) => {

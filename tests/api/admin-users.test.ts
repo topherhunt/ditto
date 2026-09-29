@@ -42,7 +42,7 @@ describe("admin user list", () => {
     await t.login("ana@example.com");
     await t.attempt("it-a1-bar-1-u02");
     await t.req("POST", "/api/reports", { unitId: "it-a1-bar-1-u01", rev: 1, voice: 0, kind: "audio", note: "mumbled" });
-    await t.req("POST", "/api/friends/requests", { email: "bob@example.com" });
+    await t.req("POST", "/api/friends/requests", { userId: publicId(t, "bob@example.com") });
     await t.login("bob@example.com");
     await t.req("POST", `/api/friends/${publicId(t, "ana@example.com")}/block`, {});
     later(t, DAY);
@@ -68,9 +68,9 @@ describe("admin user detail", () => {
     await t.attempt("it-a1-bar-1-u01");
     await t.attempt("it-a1-bar-1-u02");
     await t.req("POST", "/api/reports", { unitId: "it-a1-bar-1-u01", rev: 1, voice: 0, kind: "text", note: "typo" });
-    await t.req("POST", "/api/friends/requests", { email: "bob@example.com" });
+    await t.req("POST", "/api/friends/requests", { userId: publicId(t, "bob@example.com") });
     await t.login("bob@example.com");
-    await t.req("POST", "/api/friends/requests", { email: "ana@example.com" });
+    await t.req("POST", "/api/friends/requests", { userId: publicId(t, "ana@example.com") });
     await t.login("admin@example.com");
 
     const res = await t.req("GET", `/api/admin/users/${publicId(t, "ana@example.com")}`);

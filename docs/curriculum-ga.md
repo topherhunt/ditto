@@ -1,6 +1,6 @@
 # Irish curriculum plan
 
-The Irish instance of [curriculum.md](curriculum.md): the 11 A1 main modules, about 1,030 units, for English speakers. There are no A2 or optional modules yet. Each module's `introduces` list in its JSON is the lemma plan.
+The Irish instance of [curriculum.md](curriculum.md): the 11 A1 main modules, about 1,030 units, for learners whose support language is English (`en`), Latin American Spanish (`es-419`), Dutch (`nl`) or Italian (`it`). Every localized field carries all four (`SUPPORT_LOCALES.ga`). There are no A2 or optional modules yet. Each module's `introduces` list in its JSON is the lemma plan.
 
 The content was written by a non-native author and checked with the Gramadóir grammar checker (see Checking below). It has not had a native speaker's review; that is the most valuable next step.
 
