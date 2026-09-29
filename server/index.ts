@@ -10,6 +10,7 @@ import { openDb } from "./db.ts";
 import { openAIConversation } from "./conversation-ai.ts";
 import { fakeAI, fakeSpeech } from "./conversation-fake.ts";
 import { openAIExplainer } from "./explain.ts";
+import { rollUpMetrics } from "./metrics.ts";
 import { speechWorker } from "./speech.ts";
 
 const root = join(import.meta.dirname, "..");
@@ -42,9 +43,14 @@ const conversation = env.FAKE_CONVERSATION === "1"
     : null;
 if (!conversation) console.warn(`Conversation mode is off: it needs OPENAI_API_KEY and ${speechPython}`);
 
+const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
+// Per-learner engaged time past METRICS_KEEP_DAYS becomes anonymous totals (docs/metrics.md).
+rollUpMetrics(db, new Date());
+setInterval(() => rollUpMetrics(db, new Date()), 3_600_000);
+
 const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn" });
 const app = createApp({
-  db: openDb(env.DATABASE_PATH || join(root, "data/app.db")),
+  db,
   content,
   now: () => new Date(),
   googleClientId,

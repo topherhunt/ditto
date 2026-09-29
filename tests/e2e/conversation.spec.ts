@@ -20,8 +20,8 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
     HTMLMediaElement.prototype.play = function () { w.played.push(this.src); return play.call(this); };
   });
   await signIn(page, "speaker@example.com");
-  await page.goto("/it");
   await page.locator(".qa-nav-speak").click();
+  await expect(page).toHaveURL(/\/it\/talk$/);
   await page.locator(".qa-speak-starter-cafe").click();
 
   await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
@@ -90,7 +90,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);
   await expect(page.locator(".qa-how-open")).toBeVisible();
 
-  await page.goto("/it/speak");
+  await page.goto("/it/talk");
   await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
 });
 
@@ -102,7 +102,7 @@ test("a playing line's play button turns into a stop button that stops it", asyn
   wav.writeUInt32LE(rate, 24); wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write("data", 36); wav.writeUInt32LE(data, 40);
   await page.route("**/audio/*.wav", (route) => route.fulfill({ contentType: "audio/wav", body: wav }));
   await signIn(page, "stopper@example.com");
-  await page.goto("/it/speak");
+  await page.goto("/it/talk");
   await page.locator(".qa-speak-starter-cafe").click();
 
   // The opening line autoplays, so its button starts as a stop button.
@@ -118,7 +118,7 @@ test("a playing line's play button turns into a stop button that stops it", asyn
 
 test("an admin sees reported judgments and spend", async ({ page }) => {
   await signIn(page, "admin@example.com");
-  await page.goto("/it/speak");
+  await page.goto("/it/talk");
   await page.locator(".qa-speak-starter-cafe").click();
   await record(page);
   await page.locator(".qa-retry-report-open").click();

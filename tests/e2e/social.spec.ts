@@ -34,12 +34,14 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await signOut(page);
 
   await signIn(page, bo);
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-lesson-start")).toHaveCount(1);
   await expect(page.locator(".qa-lesson-friend")).toHaveCount(0);
   await openFriends(page);
-  await page.locator(".qa-friend-email").fill("nobody@example.com");
+  await page.locator(".qa-friend-query").fill("nobody@example.com");
   await page.locator(".qa-friend-search").click();
   await expect(page.locator(".qa-friend-result")).toContainText("No account");
-  await page.locator(".qa-friend-email").fill(ana);
+  await page.locator(".qa-friend-query").fill(ana);
   await page.locator(".qa-friend-search").click();
   await page.locator(".qa-friend-add").click();
   await expect(page.locator(".qa-friend-result")).toContainText("sent");
@@ -68,7 +70,7 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await expect(page.locator(".qa-recent")).toHaveCount(2);
 
   // Ana's second lesson is now playable for Bo from the lesson list, and the done screen compares them.
-  await page.goto("/it");
+  await page.goto("/it/type");
   await expect(page.locator(".qa-lesson-friend")).toHaveCount(1);
   await page.locator(".qa-lesson-friend").click();
   await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-2$/);
@@ -107,11 +109,11 @@ test("a race invite shows in the bell and starts once accepted", async ({ page }
 
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-leaderboard").click();
-  await page.locator(".qa-board-scope-friends").click();
+  await expect(page.locator(".qa-board-note")).toBeVisible();
   await expect(page.locator(".qa-leader")).toHaveCount(2);
 });
 
-test("a new account picks a username, finds a stranger on the leaderboard, sees only their counts, asks to be friends, and renames itself", async ({ page }) => {
+test("a new account picks a username, finds a stranger by username, sees only their counts, asks to be friends, and renames itself", async ({ page }) => {
   const stranger = "learner13@example.com";
   await signIn(page, stranger);
   await page.goto("/it/lesson/it-a1-bar-1");
@@ -122,6 +124,7 @@ test("a new account picks a username, finds a stranger on the leaderboard, sees 
   await page.locator(".qa-dev-submit").click();
   await expect(page.locator(".qa-choose-username")).toBeVisible();
   await expect(page.locator(".qa-user")).toHaveCount(0);
+  await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("LEARNER13");
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-username-error")).toBeVisible();
@@ -132,9 +135,13 @@ test("a new account picks a username, finds a stranger on the leaderboard, sees 
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-leaderboard").click();
   await expect(page).toHaveURL(/\/leaderboard$/);
-  const row = page.locator(".qa-leader").filter({ hasText: "learner13" });
-  await expect(row.locator(".qa-leader-lessons")).toHaveText("1 lesson");
-  await row.locator(".qa-leader-link").click();
+  await expect(page.locator(".qa-leader")).toHaveCount(1);
+  await expect(page.locator(".qa-leader")).toContainText("wren");
+
+  await openFriends(page);
+  await page.locator(".qa-friend-query").fill("@Learner13");
+  await page.locator(".qa-friend-search").click();
+  await page.locator(".qa-friend-result .qa-person-link").click();
   await expect(page).toHaveURL(/\/people\/[A-Za-z0-9_-]{10}$/);
   await expect(page.locator(".qa-profile-name")).toHaveText("learner13");
   await expect(page.locator(".qa-profile-studying")).toContainText("Italian");

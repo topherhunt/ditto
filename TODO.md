@@ -1,7 +1,7 @@
-- [ ] Polish up the onboarding & settings user flow
+
 - [ ] Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way. Subprocessors: OpenAI (AI speech & tutoring features), RackNerd (server host).
 - [ ] Publish the Google Oauth app so people aren't blocked from accessing.
-- [ ] 
+- \[ \]
 
 - Talk:
   - Conversation history should be compacted in a scrollable & hidable div so you don't have trouble getting back up to the top of the page. Or, Talk with Claude to think through what is the best way to do this on mobile. Maybe chats older than the most recent 3 are hidden under a "See chat history" modal that you can easily X out of. But that also introduces friction.... I'd like to hear your suggestions. Maybe just a "Skip to top" button on the left side or sth.
@@ -28,7 +28,11 @@
 ### For after launch
 
 - Social & leaderboard rethink:
-  - [ ] Limit the leaderboard to your friends and their friends (2nd degree), and make it in-depth and rich. No leaderboard of strangers' gobbledygook names.
+  - [x] Limit the leaderboard to you and your friends. No leaderboard of strangers' gobbledygook names. Friends of friends are dropped for good; the matching service below covers meeting new people.
+  - [ ] Make the leaderboard more in-depth and rich qua content & comparisons & details about each person. Brainstorm w Claude.
+    - Combined activity score. 
+    - encouraging and giving kudos. 
+    - Sending challenges to friends. "Ghost races" and similar.
   - [ ] Score a general proxy for activity across Type, Talk and Quiz, not just typed lessons.
   - [ ] Empty state: when you have no friends yet, prompt you to invite some.
   - [ ] "Match me with another learner" button that pairs you with someone studying the same language.

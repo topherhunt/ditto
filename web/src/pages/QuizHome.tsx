@@ -2,6 +2,7 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
 import { QUIZ_GRADUATE_SHARE, QUIZ_TEST_SIZE, type QuizHomeOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { dayKey, deckName, Donut, Sparkline } from "../components/QuizCharts.tsx";
 import { languageName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
@@ -34,10 +35,7 @@ export function QuizHome() {
         const peak = () => Math.max(0, ...[...counts().values()].flat());
         return (
           <div class="d-flex flex-column gap-4">
-            <div>
-              <h1 class="h3">{t("quiz.title", { language: languageName(lang()) })}</h1>
-              <p class="text-body-secondary mb-0">{t("quiz.intro")}</p>
-            </div>
+            <ActivityHeader activity="quiz" lang={lang()} fresh={h().activity.length === 0} />
             <For each={h().levels} fallback={<p class="qa-quiz-none text-body-secondary">{t("quiz.none", { language: languageName(lang()) })}</p>}>
               {(l, i) => {
                 const folded = () => toggled()[l.level] ?? (l.passed !== null || !l.unlocked);

@@ -2,7 +2,7 @@ import type { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FriendRequestSchema, LEADERBOARD_SCOPES, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
+  CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
   PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile,
   type Relation,
@@ -146,24 +146,24 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.get("/api/leaderboard", (c) => {
     const window = z.enum(Object.keys(LEADERBOARD_WINDOWS) as [LeaderboardWindow]).parse(c.req.query("window"));
-    const scope = z.enum(LEADERBOARD_SCOPES).parse(c.req.query("scope"));
     const me = c.get("user").id;
-    const friends = new Set(friendIds(db, me));
     const counts = lessonsSince(daysAgo(LEADERBOARD_WINDOWS[window]));
-    const isPublic = (id: number) => (db.prepare("SELECT profile_public FROM users WHERE id = ?").get(id) as { profile_public: number }).profile_public === 1;
-    const ids = scope === "friends" ? [me, ...friends] : [...counts.keys()].filter((id) => id === me || isPublic(id));
-    const ranked = ids.map((id) => ({ id, person: person(id), lessons: counts.get(id) ?? 0 }))
+    const ranked = [me, ...friendIds(db, me)].map((id) => ({ id, person: person(id), lessons: counts.get(id) ?? 0 }))
       .sort((a, b) => b.lessons - a.lessons || byName(a.person, b.person));
     const rows: LeaderboardRow[] = ranked.map(({ id, ...r }) => ({
-      rank: ranked.findIndex((x) => x.lessons === r.lessons) + 1, ...r, isMe: id === me, isFriend: friends.has(id),
+      rank: ranked.findIndex((x) => x.lessons === r.lessons) + 1, ...r, isMe: id === me,
     }));
     const shown = rows.slice(0, LEADERBOARD_SIZE);
     return c.json<LeaderboardOut>({ rows: shown, me: shown.some((r) => r.isMe) ? null : (rows.find((r) => r.isMe) ?? null) });
   });
 
   app.get("/api/friends/search", (c) => {
-    const other = userByEmail(z.email().parse(c.req.query("email")));
-    return c.json<FriendSearchOut>(other ? { found: true, id: person(other.id).id, relation: relation(c.get("user").id, other.id) } : { found: false });
+    // Usernames can't contain "@", so any "@" means an email, except a lone leading one ("@ana").
+    const q = z.string().trim().min(1).parse(c.req.query("q")).replace(/^@(?=[^@]+$)/, "");
+    const other = q.includes("@")
+      ? userByEmail(z.email().parse(q))
+      : db.prepare("SELECT id FROM users WHERE username = ? COLLATE NOCASE").get(q) as { id: number } | undefined;
+    return c.json<FriendSearchOut>(other ? { found: true, person: person(other.id), relation: relation(c.get("user").id, other.id) } : { found: false });
   });
 
   app.post("/api/friends/requests", async (c) => {

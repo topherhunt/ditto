@@ -24,7 +24,7 @@ test("a paid call refused at the cap sends the learner to the congratulations pa
       body: JSON.stringify({ error: "Daily AI budget ($1.00) reached; it resets at midnight UTC" }),
     })
     : route.continue());
-  await page.goto("/it/speak");
+  await page.goto("/it/talk");
   await page.locator(".qa-speak-starter-cafe").click();
 
   await expect(page).toHaveURL(/\/cap$/);

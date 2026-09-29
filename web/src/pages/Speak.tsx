@@ -1,28 +1,21 @@
 import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
+import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type LearnerLevel, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
-import { languageName, t } from "../i18n/index.ts";
+import { ActivityHeader } from "../components/ActivityHeader.tsx";
+import { t } from "../i18n/index.ts";
+import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
-
-type Level = (typeof LEARNER_LEVELS)[number];
-const LEVEL_KEY = "speakLevel";
-
-function savedLevel(): Level {
-  try {
-    const l = localStorage.getItem(LEVEL_KEY);
-    if (l && (LEARNER_LEVELS as readonly string[]).includes(l)) return l as Level;
-  } catch { /* storage unavailable: use the default */ }
-  return "A2";
-}
 
 export function Speak() {
   const lang = useLang();
   const navigate = useNavigate();
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const [data] = createResource(lang, (l) => api.get<ConversationsOut>(`/api/conversations?lang=${l}`));
-  const [level, setLevel] = createSignal<Level>(savedLevel());
+  const prefs = () => me()!.prefs[lang()];
+  /** The learner's self-rated level, which the dashboard asks for; A1 until they answer. */
+  const level = () => prefs().level ?? "A1";
   const [hardMode, setHardMode] = createSignal(false);
   const [topic, setTopic] = createSignal("");
   const [starting, setStarting] = createSignal(false);
@@ -35,20 +28,25 @@ export function Speak() {
     unlockPlayer();
     try {
       const conv = await api.post<ConversationOut>("/api/conversations", { language: lang(), level: level(), scenario, hardMode: hardMode() });
-      navigate(`/${lang()}/speak/${conv.id}`, { state: { opened: true } });
+      navigate(`/${lang()}/talk/${conv.id}`, { state: { opened: true } });
     } catch (e) {
       setError((e as Error).message);
       setStarting(false);
     }
   };
-  const pickLevel = (l: Level) => {
-    setLevel(l);
-    try { localStorage.setItem(LEVEL_KEY, l); } catch { /* storage unavailable */ }
+  const pickLevel = async (l: LearnerLevel) => {
+    setError(null);
+    try {
+      await api.put("/api/prefs", { language: lang(), prefs: { ...prefs(), level: l } });
+      await refetchMe();
+    } catch (e) {
+      setError((e as Error).message);
+    }
   };
 
   return (
     <div class="d-flex flex-column gap-4">
-      <h1 class="h3 mb-0">{t("speak.title", { language: languageName(lang()) })}</h1>
+      <Show when={data()}>{(d) => <ActivityHeader activity="talk" lang={lang()} fresh={d().conversations.length === 0} />}</Show>
       <Show when={config() && (!config()!.speak || !supported())}>
         <div class="qa-speak-off alert alert-secondary mb-0">{t("speak.off")}</div>
       </Show>
@@ -57,7 +55,7 @@ export function Speak() {
           <div class="d-flex flex-wrap align-items-center gap-3">
             <label class="d-flex align-items-center gap-2">
               {t("speak.level")}
-              <select class="qa-speak-level form-select form-select-sm w-auto" value={level()} onChange={(e) => pickLevel(e.currentTarget.value as Level)}>
+              <select class="qa-speak-level form-select form-select-sm w-auto" value={level()} onChange={(e) => void pickLevel(e.currentTarget.value as LearnerLevel)}>
                 <For each={LEARNER_LEVELS}>{(l) => <option value={l}>{l}</option>}</For>
               </select>
             </label>
@@ -96,7 +94,7 @@ export function Speak() {
                   <For each={d().conversations}>
                     {(c) => (
                       <li class="qa-speak-history list-group-item d-flex flex-wrap align-items-center gap-2">
-                        <A href={`/${lang()}/speak/${c.id}`} class="me-auto">{c.title}</A>
+                        <A href={`/${lang()}/talk/${c.id}`} class="me-auto">{c.title}</A>
                         <For each={c.levels.slice(-3)}>{(l) => <span class="badge text-bg-secondary">{l}</span>}</For>
                         <span class="small text-body-secondary">{new Date(c.updatedAt).toLocaleDateString()}</span>
                       </li>

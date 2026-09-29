@@ -30,6 +30,7 @@ async function played(page: Page): Promise<string[]> {
 test("buttons click at half volume, a pass sounds correct once, and wrong answers or a reveal sound wrong", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds1@example.com");
+  await page.goto("/it/type");
   await played(page);
 
   await page.locator(".qa-lesson-start").first().click();
@@ -72,6 +73,7 @@ test("buttons click at half volume, a pass sounds correct once, and wrong answer
 test("finishing a lesson plays the victory sound at a quarter volume", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds2@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
@@ -124,11 +126,11 @@ test("the navbar and the settings page are silent", async ({ page }) => {
   await page.locator(".qa-settings-theme-light").click();
   await page.locator(".qa-username-save").click();
   await page.locator(".qa-nav-type").click();
-  await expect(page).toHaveURL(/\/nl$/);
+  await expect(page).toHaveURL(/\/nl\/type$/);
   expect(await played(page)).toEqual([]);
 
   // Buttons on the page itself still click.
-  await page.locator(".qa-review-link").click();
+  await page.locator(".qa-help-toggle").click();
   expect(await played(page)).toEqual(["click"]);
 });
 
@@ -156,6 +158,7 @@ async function recordBursts(page: Page) {
 test("a pass bursts one emoji per pass in a row, and a wrong answer starts the count over", async ({ page }) => {
   const bursts = await recordBursts(page);
   await signIn(page, "sounds4@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
 
   await page.locator(".qa-slot").first().fill("caffè");
@@ -212,6 +215,7 @@ test("a typing burst starts from the center of the exercise card, and a quiz bur
     return { left: expect.closeTo(box.x + box.width / 2, 0), top: expect.closeTo(box.y + box.height / 2, 0) };
   };
   await signIn(page, "sounds7@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await page.locator(".qa-slot").first().fill("caffè");
   // Measured before the pass, which reshapes the card to show the finished answer.

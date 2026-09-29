@@ -229,6 +229,19 @@ describe("conversation mode", () => {
     expect(t.paces).toEqual([["Buongiorno! Cosa prende?", 1.3], ["Vorrei un caffè, per favore.", 1.3], ["Buongiorno!", 1.3], ["Buongiorno! Cosa prende?", 1]]);
   });
 
+  it("coaches in the interface language, or in the course's support language when the interface is the language practiced", async () => {
+    const t = await speak();
+    const coachedIn = async (language: string) => {
+      const { id } = (await t.req("POST", "/api/conversations", { language, level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json;
+      return (t.deps.db.prepare("SELECT locale FROM conversations WHERE id = ?").get(id) as { locale: string }).locale;
+    };
+    await t.req("PUT", "/api/locale", { locale: "es-419" });
+    await t.req("PUT", "/api/learning", { languages: ["it", "nl"] });
+    await t.req("PUT", "/api/locale", { locale: "it" });
+    expect(await coachedIn("nl")).toBe("it");
+    expect(await coachedIn("it")).toBe("es-419");
+  });
+
   it("keeps hard mode per conversation", async () => {
     const t = await speak();
     const conv = await t.start();

@@ -210,7 +210,7 @@ export function Conversation() {
     <Show when={conv()}>
       <div class="d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <A href={`/${lang()}/speak`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
+          <A href={`/${lang()}/talk`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
           <h1 class="qa-conversation-title h4 mb-0 me-auto">{c().title}</h1>
           <label class="form-check mb-0 small">
             <input type="checkbox" class="qa-conversation-hard form-check-input" checked={c().hardMode} onChange={(e) => void setHardMode(e.currentTarget.checked)} />

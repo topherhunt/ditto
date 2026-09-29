@@ -92,7 +92,7 @@ function TestResult(props: { lang: Language; level: string; passed: boolean; rig
         <Show when={saved.error}>{(e) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: (e() as Error).message })}</div>}</Show>
       </Show>
       <div class="d-flex gap-2">
-        <A href={`/${props.lang}`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
+        <A href={`/${props.lang}/type`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
         <Show when={!props.passed}>
           <button type="button" class="qa-test-retry btn btn-outline-primary" onClick={() => props.onRetry()}>{t("test.retry")}</button>
         </Show>
@@ -139,7 +139,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
             </Show>
             <div class="d-flex gap-2">
               {/* Focused so Enter goes straight back. */}
-              <A href={`/${props.lang}`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
+              <A href={`/${props.lang}/type`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
               <Show when={props.mode === "learn"}>
                 <button type="button" class="qa-restart btn btn-outline-primary" onClick={() => setIndex(0)}>{t("practice.again")}</button>
               </Show>

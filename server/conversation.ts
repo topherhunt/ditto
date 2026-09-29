@@ -11,10 +11,10 @@ import {
   type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
   type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
-import { supportLocale, type Language, type Locale } from "../shared/content.ts";
+import type { Language, Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
 import type { AppDeps } from "./app.ts";
-import type { User } from "./auth.ts";
+import { supportFor, type User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
 import { partnerVoice, type Speech } from "./speech.ts";
@@ -184,10 +184,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     speak();
     const user = c.get("user");
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
+    // The coach writes live, so it can use the UI language unless that is the language practiced.
+    const coachLocale = (user.locale as string) === body.language ? supportFor(db, user, body.language) : user.locale;
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
       "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?)",
-    ).run(user.id, body.language, supportLocale(body.language, user.locale), body.level, scenario, Number(body.hardMode), now, now).lastInsertRowid);
+    ).run(user.id, body.language, coachLocale, body.level, scenario, Number(body.hardMode), now, now).lastInsertRowid);
     await partnerTurn(conversationOr404(id, user.id), user.id);
     return c.json(conversationOut(conversationOr404(id, user.id), user.id));
   });

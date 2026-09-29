@@ -14,6 +14,8 @@ async function pickMeaning(page: Page, meaning: string) {
 test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebook", async ({ page }) => {
   await signIn(page, "learner1@example.com");
   await expect(page).toHaveURL(/\/it$/);
+  await page.locator(".qa-dash-start-type").click();
+  await expect(page).toHaveURL(/\/it\/type$/);
   await page.locator(".qa-lesson-start").first().click();
 
   // caffè typed without its accent: accepted, and the fixed letter stays orange.
@@ -140,7 +142,7 @@ test("a finished course folds to its title, and opens on click", async ({ page }
   await signIn(page, "folds1@example.com");
   await completeLesson(page, "it-a1-bar-1");
   await completeLesson(page, "it-a1-bar-2");
-  await page.reload();
+  await page.goto("/it/type");
   // Al bar is A1's only main-track course, so the level folds too.
   await page.locator(".qa-level-toggle").click();
   const bar = page.locator(".qa-course-it-a1-bar");
@@ -155,6 +157,7 @@ test("a finished course folds to its title, and opens on click", async ({ page }
 
 test("later lessons and modules stay locked until the ones before are done", async ({ page }) => {
   await signIn(page, "learner6@example.com");
+  await page.goto("/it/type");
   await expect(page.locator(".qa-lesson-start")).toHaveCount(1);
   await expect(page.locator(".qa-lesson-locked")).toHaveCount(1);
   await expect(page.locator(".qa-course-locked")).toContainText("after Al bar");
@@ -165,6 +168,7 @@ test("later lessons and modules stay locked until the ones before are done", asy
 
 test("report a problem with an item: pick a kind, add a note, send with Enter", async ({ page }) => {
   await signIn(page, "learner7@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await page.locator(".qa-report-open").click();
   await expect(page.locator(".qa-report-send")).toBeDisabled();
@@ -190,6 +194,7 @@ test("report a problem with an item: pick a kind, add a note, send with Enter", 
 
 test("an answer graded wrong can be reported as one that should be accepted", async ({ page }) => {
   await signIn(page, "learner15@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await page.locator(".qa-report-open").click();
   await expect(page.locator(".qa-report-kind-accept")).toHaveCount(0);
@@ -208,6 +213,7 @@ test("an answer graded wrong can be reported as one that should be accepted", as
 
 test("finishing a lesson celebrates, and Enter goes back to the lessons", async ({ page }) => {
   await signIn(page, "learner8@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
@@ -224,7 +230,10 @@ test("finishing a lesson celebrates, and Enter goes back to the lessons", async 
 
 test("review is empty for a new learner", async ({ page }) => {
   await signIn(page, "learner3@example.com");
-  await page.locator(".qa-review-link").click();
+  await page.goto("/it/type");
+  // Review only links from the catalog once there is progress.
+  await expect(page.locator(".qa-review-link")).toHaveCount(0);
+  await page.goto("/it/review");
   await expect(page.locator(".qa-session-done")).toContainText("Nothing to practice");
 });
 
@@ -250,6 +259,7 @@ test("dark by default with a persistent theme setting; sign out from the account
 
 test("a slot shows its whole word plus trailing punctuation without scrolling", async ({ page }) => {
   await signIn(page, "learner5@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
   await slot(page, 0).fill("caffè,");
   const overflow = await slot(page, 0).evaluate((el: HTMLInputElement) => el.scrollWidth - el.clientWidth);
@@ -283,12 +293,12 @@ test("the language picker switches the catalog, and Type returns to it from othe
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-lang-picker")).toContainText("🇳🇱");
   await page.locator(".qa-nav-type").click();
-  await expect(page).toHaveURL(/\/nl$/);
+  await expect(page).toHaveURL(/\/nl\/type$/);
 });
 
 test("the catalog's prefs line describes the course's settings and links to the page that changes them", async ({ page }) => {
   await signIn(page, "prefsrow1@example.com");
-  await expect(page).toHaveURL(/\/it$/);
+  await page.goto("/it/type");
   const row = page.locator(".qa-home-prefs");
   await expect(row.locator(".qa-prefs-summary-path")).toContainText("Full: words, phrases, chunks, sentences");
   await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Once");
@@ -305,7 +315,7 @@ test("the catalog's prefs line describes the course's settings and links to the 
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
 
   await page.locator(".qa-course-settings-back").click();
-  await expect(page).toHaveURL(/\/it$/);
+  await expect(page).toHaveURL(/\/it\/type$/);
   await expect(row.locator(".qa-prefs-summary-path")).toContainText("Sentences only");
   await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Off");
   await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));

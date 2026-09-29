@@ -17,6 +17,7 @@ async function answer(page: Page, text: string, meaning: string) {
 
 test("next lesson button, then a level test: fail on the first miss, retry, pass, and the level unlocks unchecked", async ({ page }) => {
   await signIn(page, "tester1@example.com");
+  await page.goto("/it/type");
   await expect(page.locator(".qa-next-lesson")).toContainText("Un caffè, per favore");
   await expect(page.locator(".qa-level-toggle")).toHaveAttribute("aria-expanded", "true");
   await expect(page.locator(".qa-course-locked")).toHaveCount(1);

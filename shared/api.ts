@@ -5,15 +5,19 @@ export const HINT_LEVELS = ["letters", "initial", "none"] as const;
 export type HintLevel = (typeof HINT_LEVELS)[number];
 export const MODES = ["learn", "mistakes", "review"] as const;
 export type Mode = (typeof MODES)[number];
+export const LEARNER_LEVELS = ["A1", "A2", "B1", "B2"] as const;
+export type LearnerLevel = (typeof LEARNER_LEVELS)[number];
 
 export const PrefsSchema = z.strictObject({
   path: z.enum(Object.keys(PATHS) as [keyof typeof PATHS]),
   hints: z.enum(HINT_LEVELS),
   autoplay: z.int().min(0).max(3),
   rate: z.number().min(0.5).max(1),
+  /** Self-rated: the conversation level and which levels the coach suggests testing out of. Null until the learner is asked. */
+  level: z.enum(LEARNER_LEVELS).nullable(),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1 };
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, level: null };
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema });
 export const PutLocaleSchema = z.strictObject({ locale: z.enum(LOCALES) });
@@ -105,7 +109,7 @@ export const PutProfileVisibilitySchema = z.strictObject({ public: z.boolean() }
 /** An account's id in URLs and the API: random, so accounts can't be enumerated. The numeric row id never leaves the server. */
 export const PublicIdSchema = z.string().regex(/^[A-Za-z0-9_-]{10}$/);
 
-/** By email from the Friends page, or by id from a profile. */
+/** By id from a search result or a profile. The app only sends ids; `email` remains for scripts and tests. */
 export const FriendRequestSchema = z.union([z.strictObject({ email: z.email() }), z.strictObject({ userId: PublicIdSchema })]);
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
 
@@ -127,7 +131,6 @@ export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.strin
 /** Conversation mode (docs/conversation.md). Irish is out until live Irish TTS exists. */
 export const SPEAK_LANGUAGES = ["it", "nl", "en"] as const satisfies readonly Language[];
 export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
-export const LEARNER_LEVELS = ["A1", "A2", "B1", "B2"] as const;
 export const STARTERS = ["cafe", "directions", "hotel", "meeting", "market", "weekend"] as const;
 export type Starter = (typeof STARTERS)[number];
 /** Failed tries at one sentence before the coach offers to move on. */
@@ -210,6 +213,59 @@ export type AdminSpendOut = { days: string[]; users: { email: string; username: 
 export type AdminSpeakReport = SpeakAttemptOut & {
   conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string;
 };
+/** Days of history behind /admin/users' "active days" and "spend (30d)" columns and a user's daily activity. */
+export const ADMIN_RECENT_DAYS = 30;
+/**
+ * One account on /admin/users. `items`: dictation items, quiz answers and spoken replies, ever. `activeDays`: UTC days with any
+ * item in the last ADMIN_RECENT_DAYS. `blockedBy`: people who blocked this account's friend request. `reports`: problem and
+ * speaking reports filed.
+ */
+export type AdminUserRow = {
+  id: string; email: string; username: string | null; createdAt: string; lastSeenAt: string | null; lastPracticedAt: string | null;
+  locale: Locale; learning: Language[]; profilePublic: boolean; items: number; activeDays: number; lessonsCompleted: number;
+  friends: number; pendingSent: number; blockedBy: number; reports: number; spendRecent: number; spendTotal: number;
+};
+export type AdminItemCounts = { type: number; quiz: number; talk: number };
+export type AdminUserDetail = {
+  user: AdminUserRow;
+  /** Sessions not yet expired, one per signed-in browser. */
+  activeSessions: number;
+  languages: (AdminItemCounts & { language: Language; lessonsCompleted: number; levelsPassed: string[]; quizLevelsPassed: string[]; conversations: number })[];
+  /** UTC days with any item in the last ADMIN_RECENT_DAYS, newest first. */
+  days: (AdminItemCounts & { day: string })[];
+  spendByPurpose: { purpose: string; total: number }[];
+  friends: Person[];
+  /** Accounts that blocked this one, and accounts this one blocked. */
+  blockedBy: Person[];
+  blocked: Person[];
+  reports: { kind: string; note: string; text: string; createdAt: string }[];
+};
+
+/** What a signed-in page is for, as engaged time is filed (docs/metrics.md). Admin pages aren't counted. */
+export const ACTIVITIES = [
+  "home", "lesson", "review", "mistakes", "level-test", "notebook", "talk", "quiz-study", "quiz-test", "quiz-decks", "social", "settings", "other",
+] as const;
+export type Activity = (typeof ACTIVITIES)[number];
+/** Seconds of engaged time the client reports at once; the server refuses more. */
+export const ENGAGED_MAX_SECONDS = 60;
+export const EngagedSchema = z.strictObject({
+  activity: z.enum(ACTIVITIES), language: z.enum(LANGUAGES).nullable(), seconds: z.number().int().min(1).max(ENGAGED_MAX_SECONDS),
+});
+/** Per-user engaged time is kept this long, then folded into anonymous daily totals (server/metrics.ts). */
+export const METRICS_KEEP_DAYS = 90;
+/** Response-time buckets of http_hourly, by upper bound in ms. */
+export const LATENCY_BUCKETS = ["<100ms", "<300ms", "<1s", "<3s", "3s+"] as const;
+/**
+ * /admin/metrics. `days`: newest first; `activeUsers` had any engaged time, `peakConcurrent` is the most learners engaged in one
+ * 5-minute window. `activities` and `routes` cover the whole range; `learnerDays` sums each day's distinct learners. `p95` is the
+ * latency bucket holding the 95th percentile. `hours`: the last 48 UTC hours with traffic, newest first.
+ */
+export type AdminMetricsOut = {
+  days: { day: string; activeUsers: number; peakConcurrent: number; engagedMinutes: number; spendUsd: number; requests: number; errors5xx: number }[];
+  activities: { activity: Activity; language: Language | null; learnerDays: number; minutes: number }[];
+  routes: { route: string; requests: number; errors4xx: number; errors5xx: number; p95: (typeof LATENCY_BUCKETS)[number] }[];
+  hours: { hour: string; requests: number; errors5xx: number; peakConcurrent: number }[];
+};
 
 /** `learning`: empty only until a new learner picks a language. */
 export type Me = { email: string; username: string | null; profilePublic: boolean; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
@@ -233,6 +289,10 @@ export type Catalog = {
   dueCount: number;
   mistakesCount: number;
 };
+/** Days of history the dashboard's activity calendar and streak draw on. */
+export const ACTIVITY_DAYS = 60;
+/** Items practiced per UTC hour (`2026-09-29T14`), so the client can bucket them into its own local days. */
+export type ActivityOut = { hours: { hour: string; type: number; talk: number; quiz: number }[] };
 export type ExplanationOut = { categories: string[]; summary: string; details: string };
 export type MistakeEntry = {
   unit: ServedUnit;
@@ -252,7 +312,8 @@ export type LevelTestOut = { units: ServedUnit[] };
 export type Person = { id: string; username: string | null };
 /** How the searcher stands with an account. A blocked requester sees `outgoing`. */
 export type Relation = "self" | "none" | "outgoing" | "incoming" | "friends" | "blocked";
-export type FriendSearchOut = { found: false } | { found: true; id: string; relation: Relation };
+/** A search matches an exact email or an exact username, ignoring case. */
+export type FriendSearchOut = { found: false } | { found: true; person: Person; relation: Relation };
 export type FriendsOut = {
   friends: Person[];
   incoming: Person[];
@@ -263,12 +324,10 @@ export type FriendsOut = {
 /** Rolling windows, in days. */
 export const LEADERBOARD_WINDOWS = { day: 1, week: 7, month: 30 } as const;
 export type LeaderboardWindow = keyof typeof LEADERBOARD_WINDOWS;
-export const LEADERBOARD_SCOPES = ["everyone", "friends"] as const;
-export type LeaderboardScope = (typeof LEADERBOARD_SCOPES)[number];
 export const LEADERBOARD_SIZE = 20;
 /** Tied lesson counts share a rank. */
-export type LeaderboardRow = { rank: number; person: Person; lessons: number; isMe: boolean; isFriend: boolean };
-/** `everyone` lists learners with a username, a public profile and a lesson in the window; `friends` lists the viewer and all friends. `me` is the viewer's row when it falls outside `rows`. */
+export type LeaderboardRow = { rank: number; person: Person; lessons: number; isMe: boolean };
+/** The viewer and their friends only; strangers never appear. `me` is the viewer's row when it falls outside `rows`. */
 export type LeaderboardOut = { rows: LeaderboardRow[]; me: LeaderboardRow | null };
 
 export type ActivityWindow = "day" | "week" | "month" | "year";

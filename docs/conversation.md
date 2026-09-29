@@ -1,6 +1,6 @@
 # Conversation mode
 
-Called "Talk" in the interface. A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`.
+Called "Talk" in the interface. A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`. The coach, glosses and titles are in the learner's UI language, or the course's support language (`supportFor`) when the UI language is the one practiced.
 
 ## Turn loop
 

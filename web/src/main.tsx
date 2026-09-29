@@ -8,9 +8,11 @@ import { t } from "./i18n/index.ts";
 import { About } from "./pages/About.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
 import { CourseSettings } from "./pages/CourseSettings.tsx";
+import { Dashboard } from "./pages/Dashboard.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
+import { MetricsAdmin } from "./pages/MetricsAdmin.tsx";
 import { Notebook } from "./pages/Notebook.tsx";
 import { Practice } from "./pages/Practice.tsx";
 import { PocRecorder } from "./pages/PocRecorder.tsx";
@@ -25,6 +27,7 @@ import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
 import { Welcome } from "./pages/Welcome.tsx";
 import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
+import { UserAdmin, UsersAdmin } from "./pages/UsersAdmin.tsx";
 import { installClickSound } from "./sounds.ts";
 
 installClickSound();
@@ -42,15 +45,19 @@ render(
       <Route path="/admin/reports" component={Reports} />
       <Route path="/admin/pronunciation" component={PocRecorder} />
       <Route path="/admin/speaking" component={SpeakingAdmin} />
-      <Route path="/:lang" component={Home} />
+      <Route path="/admin/metrics" component={MetricsAdmin} />
+      <Route path="/admin/users" component={UsersAdmin} />
+      <Route path="/admin/users/:id" component={UserAdmin} />
+      <Route path="/:lang" component={Dashboard} />
+      <Route path="/:lang/type" component={Home} />
       <Route path="/:lang/settings" component={CourseSettings} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />
       <Route path="/:lang/test/:level" component={() => <Practice mode="test" />} />
       <Route path="/:lang/review" component={() => <Practice mode="review" />} />
       <Route path="/:lang/mistakes/practice" component={() => <Practice mode="mistakes" />} />
       <Route path="/:lang/notebook" component={Notebook} />
-      <Route path="/:lang/speak" component={Speak} />
-      <Route path="/:lang/speak/:id" component={Conversation} />
+      <Route path="/:lang/talk" component={Speak} />
+      <Route path="/:lang/talk/:id" component={Conversation} />
       <Route path="/:lang/quiz" component={QuizHome} />
       <Route path="/:lang/quiz/test/:level" component={QuizTest} />
       <Route path="/:lang/quiz/:deckId" component={QuizDeck} />

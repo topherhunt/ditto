@@ -82,11 +82,19 @@ describe("prefs and catalog", () => {
   it("stores prefs per language", async () => {
     const t = setup();
     await t.login();
-    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75 };
+    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75, level: "B1" };
     expect((await t.req("PUT", "/api/prefs", { language: "nl", prefs })).status).toBe(200);
     const me = await t.req("GET", "/api/me");
     expect(me.json.prefs.nl).toEqual(prefs);
-    expect(me.json.prefs.it.path).toBe("full");
+    expect(me.json.prefs.it).toMatchObject({ path: "full", level: null });
+  });
+
+  it("fills in the level for prefs saved before it existed", async () => {
+    const t = setup();
+    await t.login();
+    t.deps.db.prepare("UPDATE users SET prefs = ?").run(JSON.stringify({ it: { path: "chunks", hints: "none", autoplay: 2, rate: 1 } }));
+    const me = await t.req("GET", "/api/me");
+    expect(me.json.prefs.it).toEqual({ path: "chunks", hints: "none", autoplay: 2, rate: 1, level: null });
   });
 
   it("lists the language's courses with unit counts per stage instead of units, and lesson progress", async () => {
@@ -414,6 +422,23 @@ describe("locale", () => {
     await t.login("ana@example.com", "it");
     const unit = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0];
     expect(unit.translation).toBe("coffee");
+  });
+
+  it("keeps a course in the support language the learner last had when the interface switches to one it lacks", async () => {
+    const t = setup();
+    await t.login("ana@example.com", "es-419");
+    await t.req("PUT", "/api/learning", { languages: ["it"] });
+    const translation = async () => (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0].translation;
+
+    await t.req("PUT", "/api/locale", { locale: "it" });
+    expect(await translation()).toBe("café");
+    await t.req("PUT", "/api/locale", { locale: "nl" });
+    expect(await translation()).toBe("koffie");
+    await t.req("PUT", "/api/locale", { locale: "it" });
+    expect(await translation()).toBe("koffie");
+
+    await t.req("PUT", "/api/learning", { languages: ["ga", "it"] });
+    expect(await translation()).toBe("koffie");
   });
 
   it("asks for and caches explanations per interface language", async () => {

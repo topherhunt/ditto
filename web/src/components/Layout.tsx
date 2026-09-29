@@ -1,17 +1,18 @@
 import { A, useLocation, useNavigate, type RouteSectionProps } from "@solidjs/router";
 import { createEffect, createResource, createSignal, ErrorBoundary, For, Match, on, onCleanup, Show, Switch } from "solid-js";
 import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
-import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
+import { LANGUAGES, type Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
+import { languageName, t } from "../i18n/index.ts";
 import { homeLanguage, LANGUAGE_FLAGS, rememberLanguage } from "../learning.ts";
 import { FEEDBACK_URL } from "../links.ts";
+import { trackPage } from "../metrics.ts";
 import { Welcome } from "../pages/Welcome.tsx";
 import { logout, me, refetchMe } from "../session.ts";
 import { capHits, spend, usdShort } from "../spend.ts";
 import { Notifications } from "./Notifications.tsx";
 import { LearnPicker } from "./LearnPicker.tsx";
-import { UsernameForm } from "./UsernameForm.tsx";
+import { Setup } from "./Setup.tsx";
 
 export function Layout(props: RouteSectionProps) {
   const location = useLocation();
@@ -23,6 +24,7 @@ export function Layout(props: RouteSectionProps) {
   const navLang = () => lang() ?? homeLanguage(me()!.learning);
   const navigate = useNavigate();
   createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
+  createEffect(() => { if (me()) trackPage(location.pathname); });
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const [langMenuOpen, setLangMenuOpen] = createSignal(false);
@@ -40,15 +42,7 @@ export function Layout(props: RouteSectionProps) {
         <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
         <Match when={me() === null}><div class="container py-4" style={{ "max-width": "52rem" }}><Welcome /></div></Match>
         {/* A new account has no username yet, and the leaderboard and profiles need one. */}
-        <Match when={me() && me()!.username === null}>
-          <div class="qa-choose-username container py-5" style={{ "max-width": "28rem" }}>
-            <h1 class="h4">{t("username.title")}</h1>
-            <p class="text-body-secondary">{t("username.intro")}</p>
-            <LocalePicker />
-            <UsernameForm initial={null} submitLabel={t("username.continue")} />
-            <button type="button" class="qa-logout btn btn-link btn-sm px-0 mt-3" onClick={logout}>{t("nav.signOut")}</button>
-          </div>
-        </Match>
+        <Match when={me() && me()!.username === null}><Setup /></Match>
         {/* Only a learner who skipped the homepage's question gets here: a new account without a pick, or one from before the question. */}
         <Match when={me() && me()!.learning.length === 0}>
           <div class="qa-choose-learning container py-5" style={{ "max-width": "28rem" }}>
@@ -66,7 +60,7 @@ export function Layout(props: RouteSectionProps) {
             <>
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
                 <div class="container gap-2 flex-wrap">
-                  <A class="qa-nav-home navbar-brand" href="/"><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
+                  <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
                   <Show when={user().learning.length > 1}>
                     <div class="dropdown" ref={langMenuRoot}>
                       <button type="button" class="qa-lang-picker btn btn-sm btn-outline-primary dropdown-toggle" aria-expanded={langMenuOpen()}
@@ -91,9 +85,9 @@ export function Layout(props: RouteSectionProps) {
                     </div>
                   </Show>
                   <ul class="navbar-nav">
-                    <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
+                    <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}/type`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>
-                      <li class="nav-item"><A class="qa-nav-speak nav-link" href={`/${navLang()}/speak`}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-speak nav-link" href={`/${navLang()}/talk`}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
                     </Show>
                     <Show when={config()?.quiz.includes(navLang())}>
                       <li class="nav-item"><A class="qa-nav-quiz nav-link" href={`/${navLang()}/quiz`}><i class="bi bi-patch-question me-1" aria-hidden="true" />{t("nav.quiz")}</A></li>
@@ -114,6 +108,8 @@ export function Layout(props: RouteSectionProps) {
                         <li><A href="/settings" class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-gear me-2" aria-hidden="true" />{t("nav.settings")}</A></li>
                         <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
                         {/* Admin-only, so not translated. */}
+                        {user().admin && <li><A href="/admin/users" class="qa-nav-users dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people me-2" aria-hidden="true" />Users</A></li>}
+                        {user().admin && <li><A href="/admin/metrics" class="qa-nav-metrics dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-graph-up me-2" aria-hidden="true" />Metrics</A></li>}
                         {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-bug me-2" aria-hidden="true" />Reports</A></li>}
                         {user().admin && config()?.poc && <li><A href="/admin/pronunciation" class="qa-nav-poc dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-mic me-2" aria-hidden="true" />Pronunciation POC</A></li>}
                         {user().admin && <li><A href="/admin/speaking" class="qa-nav-speaking dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-chat-dots me-2" aria-hidden="true" />Speaking</A></li>}
@@ -135,33 +131,11 @@ export function Layout(props: RouteSectionProps) {
         <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
           <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
         </a>
+        <Show when={me()}><A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A></Show>
         <Show when={me() && spend()}>
           {(s) => <span class="qa-spend-today" style={{ color: "rgba(var(--bs-body-color-rgb), 0.85)" }}>{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
         </Show>
       </footer>
     </ErrorBoundary>
-  );
-}
-
-/** Saves on change, so the rest of the new-account screen switches language right away. */
-function LocalePicker() {
-  const [error, setError] = createSignal<string | null>(null);
-  const choose = async (locale: Locale) => {
-    setError(null);
-    try {
-      await api.put("/api/locale", { locale });
-      await refetchMe();
-    } catch (e) {
-      setError(t("settings.saveFailed", { error: (e as Error).message }));
-    }
-  };
-  return (
-    <label class="form-label mb-3 d-block">
-      {t("settings.interface")}
-      <select class="qa-choose-locale form-select" value={me()!.locale} onChange={(e) => choose(e.currentTarget.value as Locale)}>
-        <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
-      </select>
-      <Show when={error()}>{(m) => <div class="qa-choose-locale-error text-danger small">{m()}</div>}</Show>
-    </label>
   );
 }

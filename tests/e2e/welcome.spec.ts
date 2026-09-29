@@ -59,6 +59,7 @@ test("the course picked before sign-in is saved to the new account, which then l
 
   await page.locator(".qa-dev-email").fill("carryover@example.com");
   await page.locator(".qa-dev-submit").click();
+  await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("carryover");
   await page.locator(".qa-username-save").click();
   await expect(page).toHaveURL(/\/it$/);
@@ -66,17 +67,21 @@ test("the course picked before sign-in is saved to the new account, which then l
   expect(me.learning).toEqual(["it"]);
 });
 
-test("a new account that skipped the course question picks one before anything else", async ({ page }) => {
+test("a new account that skipped the course question picks one on the setup screen, which then asks its level", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-dev-email").fill("nopick@example.com");
   await page.locator(".qa-dev-submit").click();
+  const setup = page.locator(".qa-choose-username");
+  await expect(setup.locator(".qa-level-picker")).toHaveCount(0);
+  await setup.locator(".qa-learn-it").click();
+  await expect(setup.locator(".qa-level-picker legend")).toHaveText("How much Italian do you know?");
+  await setup.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("nopick");
   await page.locator(".qa-username-save").click();
-  await expect(page.locator(".qa-choose-learning")).toBeVisible();
-  await expect(page.locator(".qa-user")).toHaveCount(0);
-  await page.locator(".qa-choose-learning .qa-learn-it").click();
   await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-user")).toHaveText("nopick");
+  const me = await (await page.request.get("/api/me")).json();
+  expect(me.learning).toEqual(["it"]);
 });
 
 test("signing in from a deep link keeps the visitor on that page", async ({ page }) => {
@@ -85,15 +90,20 @@ test("signing in from a deep link keeps the visitor on that page", async ({ page
   await page.locator(".qa-learn-it").click();
   await page.locator(".qa-dev-email").fill("deeplink@example.com");
   await page.locator(".qa-dev-submit").click();
+  await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("deeplink");
   await page.locator(".qa-username-save").click();
   await expect(page).toHaveURL(/\/it\/notebook$/);
   await expect(page.locator(".qa-welcome")).toHaveCount(0);
 });
 
-test("the logo takes a signed-in learner to the homepage, which leads back to their course", async ({ page }) => {
+test("the logo takes a signed-in learner to their dashboard, and the footer to the homepage, which leads back", async ({ page }) => {
   await signIn(page, "logo@example.com");
+  await page.goto("/it/type");
   await page.locator(".qa-nav-home").click();
+  await expect(page).toHaveURL(/\/it$/);
+  await expect(page.locator(".qa-dash-title")).toBeVisible();
+  await page.locator(".qa-footer-home").click();
   await expect(page).toHaveURL(/\/$/);
   await expect(page.locator(".qa-welcome-way")).toHaveCount(3);
   await expect(page.locator(".qa-dev-email")).toHaveCount(0);

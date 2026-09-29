@@ -2,9 +2,10 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import type { Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { LanguagePrefsSummary } from "../components/LanguagePrefs.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
-import { languageName, t } from "../i18n/index.ts";
+import { t } from "../i18n/index.ts";
 import { me } from "../session.ts";
 import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
@@ -15,13 +16,13 @@ export function Home() {
   const path = () => me()!.prefs[lang()].path;
   /** Level or course id -> folded, for ones the learner opened or closed by hand; the rest fold once done (a level also once passed). */
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
+  const fresh = () => Object.keys(catalog()!.progress).length === 0;
 
   return (
     <Show when={catalog()}>
       {(cat) => (
         <div class="d-flex flex-column gap-4">
-          <div class="d-flex flex-wrap align-items-center gap-2">
-            <h1 class="h3 mb-0 me-auto">{languageName(lang())}</h1>
+          <ActivityHeader activity="type" lang={lang()} fresh={fresh()}>
             <Show when={nextLesson(cat())}>
               {(lesson) => (
                 <A href={`/${lang()}/lesson/${lesson().id}`} class="qa-next-lesson btn btn-success">
@@ -29,13 +30,16 @@ export function Home() {
                 </A>
               )}
             </Show>
-            <A href={`/${lang()}/review`} class="qa-review-link btn btn-primary">
-              {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
-            </A>
-            <A href={`/${lang()}/notebook`} class="qa-notebook-link btn btn-outline-primary">
-              {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
-            </A>
-          </div>
+            {/* A first-timer sees just the way in; these fill up once they practice. */}
+            <Show when={!fresh()}>
+              <A href={`/${lang()}/review`} class="qa-review-link btn btn-primary">
+                {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
+              </A>
+              <A href={`/${lang()}/notebook`} class="qa-notebook-link btn btn-outline-primary">
+                {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
+              </A>
+            </Show>
+          </ActivityHeader>
           <div class="qa-home-prefs"><LanguagePrefsSummary lang={lang()} /></div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>
             {([level, courses]) => {

@@ -1,6 +1,6 @@
 # English curriculum plan
 
-The English instance of [curriculum.md](curriculum.md): American English (US spelling, dollars, miles, Fahrenheit, US settings) for learners whose support language is Latin American Spanish (`es-419`) or Italian (`it`). Each module lists its course id, its requirements, its grammar focus, its six lessons, and the lemmas it `introduces`. A module may use its own lemmas plus every lemma introduced by the modules it requires, transitively. For main modules, that means every earlier main module.
+The English instance of [curriculum.md](curriculum.md): American English (US spelling, dollars, miles, Fahrenheit, US settings) for learners whose support language is Latin American Spanish (`es-419`), Italian (`it`) or Dutch (`nl`). Each module lists its course id, its requirements, its grammar focus, its six lessons, and the lemmas it `introduces`. A module may use its own lemmas plus every lemma introduced by the modules it requires, transitively. For main modules, that means every earlier main module.
 
 The lemma lists are the core-vocabulary plan and decide ordering. A module author may add up to about 10 extra lemmas when natural sentences need them, but only lemmas that no module in this plan lists. Optional modules may also introduce lemmas that a later main module lists, because main modules never require them.
 

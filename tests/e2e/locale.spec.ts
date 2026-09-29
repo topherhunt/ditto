@@ -12,7 +12,7 @@ test("switching the interface language localizes the UI and the meaning check, a
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Guardado");
   await expect(page.locator("html")).toHaveAttribute("lang", "es-419");
   await expect(page.locator(".qa-settings-title")).toHaveText("Ajustes");
-  await page.goto("/it");
+  await page.goto("/it/type");
   await page.locator(".qa-home-settings").click();
   await expect(page.locator(".qa-course-settings-title")).toHaveText("Ajustes de práctica de Italiano");
   await page.locator(".qa-settings-path").selectOption("sentences");
@@ -43,7 +43,8 @@ test("a language picked before sign-in becomes a new account's interface languag
   await expect(page.locator(".qa-dev-submit")).toHaveText("Dev-login");
   await page.locator(".qa-dev-email").fill("locale2@example.com");
   await page.locator(".qa-dev-submit").click();
-  await expect(page.locator(".qa-choose-username h1")).toHaveText("Kies een gebruikersnaam");
+  await expect(page.locator(".qa-choose-username h1")).toHaveText("Welkom bij Ditto! 👋");
+  await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("locale2");
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-user")).toHaveText("locale2");
@@ -61,7 +62,8 @@ test("a new account picks its interface language alongside its username", async 
   await page.locator(".qa-dev-submit").click();
   await expect(page.locator(".qa-choose-locale")).toHaveValue("en");
   await page.locator(".qa-choose-locale").selectOption("it");
-  await expect(page.locator(".qa-choose-username h1")).toHaveText("Scegli un nome utente");
+  await expect(page.locator(".qa-choose-username h1")).toHaveText("Benvenuto su Ditto! 👋");
+  await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("locale3");
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-user")).toHaveText("locale3");

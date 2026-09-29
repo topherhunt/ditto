@@ -22,15 +22,15 @@ export function Friends() {
   const [races, { refetch: refetchRaces }] = createResource(() => api.get<ChallengeOut[]>("/api/challenges"));
   const refresh = () => Promise.all([refetchFriends(), refetchRaces()]);
 
-  const [email, setEmail] = createSignal("");
+  const [query, setQuery] = createSignal("");
   const [found, setFound] = createSignal<FriendSearchOut | null>(null);
   async function search(e: SubmitEvent) {
     e.preventDefault();
-    setFound(await api.get<FriendSearchOut>(`/api/friends/search?email=${encodeURIComponent(email().trim())}`));
+    setFound(await api.get<FriendSearchOut>(`/api/friends/search?q=${encodeURIComponent(query().trim())}`));
   }
-  async function request() {
-    const { relation } = await api.post<{ relation: Relation }>("/api/friends/requests", { email: email().trim() });
-    setFound({ ...(found() as Extract<FriendSearchOut, { found: true }>), relation });
+  async function request(f: Extract<FriendSearchOut, { found: true }>) {
+    const { relation } = await api.post<{ relation: Relation }>("/api/friends/requests", { userId: f.person.id });
+    setFound({ ...f, relation });
     await refresh();
   }
   const act = async (id: string, action: string) => {
@@ -49,28 +49,29 @@ export function Friends() {
       <section class="card"><div class="card-body d-flex flex-column gap-2">
         <h2 class="h5 mb-0">{t("friends.add")}</h2>
         <form class="d-flex gap-2" onSubmit={search}>
-          <input type="email" required class="qa-friend-email form-control" placeholder={t("friends.emailPlaceholder")} value={email()}
-            onInput={(e) => { setEmail(e.currentTarget.value); setFound(null); }} />
+          <input type="text" required autocapitalize="none" class="qa-friend-query form-control" placeholder={t("friends.searchPlaceholder")} value={query()}
+            onInput={(e) => { setQuery(e.currentTarget.value); setFound(null); }} />
           <button type="submit" class="qa-friend-search btn btn-primary">{t("friends.find")}</button>
         </form>
         <Show when={found()}>
           {(f) => (
             <div class="qa-friend-result">
-              <Switch>
-                <Match when={!f().found}><span class="text-body-secondary">{t("friends.noAccount")}</span></Match>
-                <Match when={f().found && (f() as { relation: Relation }).relation}>
-                  {(rel) => (
-                    <Switch fallback={<span class="text-body-secondary">{t(SEARCH_RESULT[rel() as keyof typeof SEARCH_RESULT])}</span>}>
-                      <Match when={rel() === "none"}>
-                        <button type="button" class="qa-friend-add btn btn-success" onClick={request}>{t("friends.send")}</button>
+              <Show when={f().found ? f() as Extract<FriendSearchOut, { found: true }> : null}
+                fallback={<span class="text-body-secondary">{t("friends.noAccount")}</span>}>
+                {(hit) => (
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <PersonLabel person={hit().person} />
+                    <Switch fallback={<span class="text-body-secondary">{t(SEARCH_RESULT[hit().relation as keyof typeof SEARCH_RESULT])}</span>}>
+                      <Match when={hit().relation === "none"}>
+                        <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.send")}</button>
                       </Match>
-                      <Match when={rel() === "incoming"}>
-                        <button type="button" class="qa-friend-add btn btn-success" onClick={request}>{t("friends.acceptTheirs")}</button>
+                      <Match when={hit().relation === "incoming"}>
+                        <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.acceptTheirs")}</button>
                       </Match>
                     </Switch>
-                  )}
-                </Match>
-              </Switch>
+                  </div>
+                )}
+              </Show>
             </div>
           )}
         </Show>

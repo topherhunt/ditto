@@ -1,13 +1,17 @@
 import { expect, type Page } from "@playwright/test";
 
-/** Dev-logs in from the homepage, learning Italian; a new account picks `username` (the email's local part by default) at the prompt. */
-export async function signIn(page: Page, email: string, username = email.split("@")[0]) {
+/**
+ * Dev-logs in from the homepage, learning Italian, and lands on its dashboard. A new account answers the setup screen
+ * with `level` and `username` (the email's local part by default).
+ */
+export async function signIn(page: Page, email: string, username = email.split("@")[0], level = "A1") {
   await page.goto("/");
   await page.locator(".qa-learn-it").click();
   await page.locator(".qa-dev-email").fill(email);
   await page.locator(".qa-dev-submit").click();
   await expect(page.locator(".qa-user, .qa-choose-username")).toBeVisible();
   if (await page.locator(".qa-choose-username").isVisible()) {
+    await page.locator(`.qa-level-${level}`).click();
     await page.locator(".qa-username").fill(username);
     await page.locator(".qa-username-save").click();
   }
