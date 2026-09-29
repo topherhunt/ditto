@@ -14,9 +14,9 @@ async function pickMeaning(page: Page, meaning: string) {
 test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebook", async ({ page }) => {
   await signIn(page, "learner1@example.com");
   await expect(page).toHaveURL(/\/it$/);
+  await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
   await page.locator(".qa-dash-start-type").click();
-  await expect(page).toHaveURL(/\/it\/type$/);
-  await page.locator(".qa-lesson-start").first().click();
+  await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-1$/);
 
   // caffè typed without its accent: accepted, and the fixed letter stays orange.
   await slot(page, 0).fill("caffe");
@@ -269,31 +269,21 @@ test("a slot shows its whole word plus trailing punctuation without scrolling", 
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
 });
 
-test("a learner with one course gets no language picker", async ({ page }) => {
-  await signIn(page, "picker0@example.com");
-  await expect(page).toHaveURL(/\/it$/);
-  await expect(page.locator(".qa-nav-type")).toBeVisible();
-  await expect(page.locator(".qa-lang-picker")).toHaveCount(0);
-});
-
-test("the language picker switches the catalog, and Type returns to it from other pages", async ({ page }) => {
+test("the dashboard's language menu switches course, and the navbar follows it from other pages", async ({ page }) => {
   await signIn(page, "picker1@example.com");
   await expect(page).toHaveURL(/\/it$/);
   await setLearning(page, ["it", "nl"]);
-  await expect(page.locator(".qa-lang-picker")).toContainText("🇮🇹");
-  await page.locator(".qa-lang-picker").click();
-  await expect(page.locator(".qa-lang-it")).toHaveClass(/active/);
-  await expect(page.locator(".qa-lang-nl")).toHaveText("🇳🇱 Dutch");
-  await page.locator(".qa-lang-nl").click();
+  await page.locator(".qa-dash-lang").click();
+  await expect(page.locator(".qa-dash-lang-nl")).toHaveText("🇳🇱 Dutch");
+  await page.locator(".qa-dash-lang-nl").click();
   await expect(page).toHaveURL(/\/nl$/);
-  await expect(page.locator(".qa-lang-picker")).toContainText("🇳🇱");
-  await expect(page.locator(".qa-lang-nl")).toBeHidden();
 
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await expect(page.locator(".qa-lang-picker")).toContainText("🇳🇱");
   await page.locator(".qa-nav-type").click();
   await expect(page).toHaveURL(/\/nl\/type$/);
+  await page.locator(".qa-nav-home").click();
+  await expect(page).toHaveURL(/\/nl$/);
 });
 
 test("the catalog's prefs line describes the course's settings and links to the page that changes them", async ({ page }) => {

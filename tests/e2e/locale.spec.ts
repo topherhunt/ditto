@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { signIn } from "./helpers.ts";
 
-test("switching the interface language localizes the UI and the meaning check, and survives a reload", async ({ page }) => {
+test("switching your language localizes the UI and the meaning check, and survives a reload", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await signIn(page, "locale1@example.com");
@@ -14,7 +14,7 @@ test("switching the interface language localizes the UI and the meaning check, a
   await expect(page.locator(".qa-settings-title")).toHaveText("Ajustes");
   await page.goto("/it/type");
   await page.locator(".qa-home-settings").click();
-  await expect(page.locator(".qa-course-settings-title")).toHaveText("Ajustes de práctica de Italiano");
+  await expect(page.locator(".qa-course-settings-title")).toHaveText("Ajustes de práctica de italiano");
   await page.locator(".qa-settings-path").selectOption("sentences");
   await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
   await page.locator(".qa-settings-hints").selectOption("none");
@@ -36,7 +36,43 @@ test("switching the interface language localizes the UI and the meaning check, a
   await expect(page.locator(".qa-check")).toHaveText("Comprobar");
 });
 
-test("a language picked before sign-in becomes a new account's interface language", async ({ page }) => {
+test("interface immersion shows a course's pages in its language, while translations, Settings and the course's settings stay in yours", async ({ page }) => {
+  await signIn(page, "immerse1@example.com");
+  await page.goto("/it/settings");
+  await page.locator(".qa-settings-path").selectOption("sentences");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await page.locator(".qa-settings-hints").selectOption("none");
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await expect(page.locator("label[for=immerseUi]")).toHaveText("Show the app in Italian");
+  await page.locator(".qa-settings-immerseUi").check();
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+  await page.goto("/it/lesson/it-a1-bar-1");
+  await expect(page.locator("html")).toHaveAttribute("lang", "it");
+  await expect(page.locator(".qa-nav-type")).toHaveText("Digita");
+  await page.locator(".qa-free-input").fill("Vorrei un caffè, per favore.");
+  await page.locator(".qa-free-input").press("Enter");
+  await expect(page.locator(".qa-meaning-option")).toHaveCount(3);
+  const options = (await page.locator(".qa-meaning-option").allInnerTexts()).map((s) => s.replace(/^\d\s*/, "")).sort();
+  expect(options).toEqual(["A coffee for me, thanks.", "I'd like a coffee, please.", "I'd like the bill, please."]);
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator(".qa-settings-title")).toHaveText("Settings");
+});
+
+test("a course the app isn't translated into offers no immersion", async ({ page }) => {
+  await signIn(page, "immerse2@example.com");
+  await page.goto("/ga/settings");
+  await expect(page.locator(".qa-settings-path")).toBeVisible();
+  await expect(page.locator(".qa-settings-immersion")).toHaveCount(0);
+  await page.goto("/it/settings");
+  await expect(page.locator(".qa-settings-immersion")).toBeVisible();
+});
+
+test("a language picked before sign-in becomes a new account's language", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-welcome-speak-nl").click();
   await page.locator(".qa-learn-it").click();
@@ -54,7 +90,7 @@ test("a language picked before sign-in becomes a new account's interface languag
   await expect(page.locator(".qa-settings-locale")).toHaveValue("nl");
 });
 
-test("a new account picks its interface language alongside its username", async ({ page }) => {
+test("a new account picks its language alongside its username", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-welcome-speak-en").click();
   await page.locator(".qa-learn-it").click();
@@ -63,6 +99,8 @@ test("a new account picks its interface language alongside its username", async 
   await expect(page.locator(".qa-choose-locale")).toHaveValue("en");
   await page.locator(".qa-choose-locale").selectOption("it");
   await expect(page.locator(".qa-choose-username h1")).toHaveText("Benvenuto su Ditto! 👋");
+  // Italian lowercases language names mid-sentence.
+  await expect(page.locator(".qa-level-picker legend")).toHaveText("Quanto italiano sai?");
   await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("locale3");
   await page.locator(".qa-username-save").click();

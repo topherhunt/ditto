@@ -11,8 +11,7 @@ import { minuteUsage, tokenUsage, type Usage } from "./usage.ts";
 const ChunkSchema = z.strictObject({ text: z.string().min(1), gloss: z.string().min(1) });
 const PartnerSchema = z.strictObject({
   title: z.string().min(1),
-  line: z.array(ChunkSchema).min(1),
-  learnerLine: z.array(ChunkSchema).min(1).nullable(),
+  line: z.string().min(1),
   suggestions: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })).length(3),
 });
 const CoachSchema = z.strictObject({
@@ -24,12 +23,12 @@ const CoachSchema = z.strictObject({
   feedback: z.string(),
 });
 const HowSchema = z.strictObject({ chunks: z.array(ChunkSchema).min(1) });
+const GlossSchema = z.strictObject({ lines: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })) });
 
 export type Line = { role: "partner" | "learner"; text: string };
-/** `locale` is the learner's support language: glosses, titles and coaching are written in it. */
-export type Setting = { language: Language; locale: Locale; level: string; scenario: string };
-/** `learnerLine`: the learner's last line in chunks, null when opening. */
-export type PartnerOut = { title: string; line: Chunk[]; learnerLine: Chunk[] | null; suggestions: Chunk[][] };
+/** Glosses and titles are written in `locale`, the learner's own language; coaching in `helpLocale`, the course's language when immersed. */
+export type Setting = { language: Language; locale: Locale; helpLocale: Locale; level: string; scenario: string };
+export type PartnerOut = { title: string; line: string; suggestions: Chunk[][] };
 export type CoachIn = Setting & {
   partnerLine: string;
   /** The sentence a retry is judged against; null on a first try. */
@@ -46,6 +45,8 @@ export interface ConversationAI {
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
   howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
+  /** Each of `lines`, consecutive lines of the conversation, in chunks. */
+  gloss(setting: Setting, lines: string[]): Promise<Paid<Chunk[][]>>;
 }
 
 /** Chunks carry their own punctuation, so joining with spaces leaves only a space before closing marks to remove. */
@@ -53,32 +54,35 @@ export const joinChunks = (chunks: Chunk[]) => chunks.map((c) => c.text).join(" 
 
 const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", C1: "C2", C2: "C2" };
 
-const CHUNKING = `Split every sentence into chunks for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ("ci vediamo" = "see you", "per favore" = "please"), an object pronoun or article with the word it belongs to ("Le porto" = "I'll bring you", "il conto" = "the bill"), and compound verb forms ("ho preso" = "I took"). "Le porto tutto subito." is "Le porto" / "tutto" / "subito.", never one chunk. The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
+const CHUNKING = `Chunks are for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ("ci vediamo" = "see you", "per favore" = "please"), an object pronoun or article with the word it belongs to ("Le porto" = "I'll bring you", "il conto" = "the bill"), and compound verb forms ("ho preso" = "I took"). "Le porto tutto subito." is "Le porto" / "tutto" / "subito.", never one chunk. The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
 
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
 The conversation is open-ended: never steer toward ending it (no goodbyes, no wrapping up). When the scenario's task is done (the order is taken, the room is booked), you can ask if they need anything else, but always leave an opening too: ask something personal or contextual that invites more talk, such as how their day is going, how long they're visiting, or whether they've seen something nearby.
 Scenario: ${s.scenario}
 - title: a short title for this conversation in {locale}.
 - line: your next line.
-- learnerLine: the learner's last line in the conversation so far, exactly as written, split into chunks; null when opening the conversation.
-- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore." rather than "Sì, grazie."
+- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore." rather than "Sì, grazie." Split each suggestion into chunks.
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
 const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged.
 
-meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {locale}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
+meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {help}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
 Register (informal vs formal address: tu/Lei, je/u, and the verb forms that go with them) is always the learner's choice. Keep the learner's register in meant, never list it in fixes, never let it fail grammarOk, and never mention it in feedback. The partner addressing the learner formally while the learner answers informally (or the reverse) is normal and is not inconsistency, whoever the partner is (waiter, stranger, receptionist).
 
-The learner can't read linguistics jargon. Fixes and feedback are in {locale}, short and plain.
+The learner can't read linguistics jargon. Fixes and feedback are in {help}, short and plain.
 level: the CEFR level of meant as a reply in this conversation (vocabulary, grammar and length).
 feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.
 fromSuggestion: true if the learner's reply is substantially one of the suggested replies shown to them: the same words and meaning, even reordered, slightly changed, or with words added or dropped. False for a reply of their own, even on the same topic, and when no suggestions were shown.`;
 
-const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation.
+const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
+${CHUNKING}`;
+
+const GLOSS_INSTRUCTIONS = `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive lines of a role-play conversation, one per input line. Return one entry per line, in the same order, splitting each line, exactly as written, into chunks.
 ${CHUNKING}`;
 
 const fill = (t: string, s: Setting) =>
-  t.replaceAll("{language}", LANGUAGE_NAMES[s.language]).replaceAll("{locale}", LOCALE_NAMES[s.locale]).replaceAll("{level}", s.level);
+  t.replaceAll("{language}", LANGUAGE_NAMES[s.language]).replaceAll("{locale}", LOCALE_NAMES[s.locale]).replaceAll("{help}", LOCALE_NAMES[s.helpLocale])
+    .replaceAll("{level}", s.level);
 const transcript = (history: Line[]) => history.map((l) => `${l.role === "partner" ? "Partner" : "Learner"}: ${l.text}`).join("\n");
 
 export function openAIConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "gpt-transcribe"): ConversationAI {
@@ -122,6 +126,11 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
       const input = `${history.length ? `Conversation so far:\n${transcript(history)}\n\n` : ""}The learner wants to say: ${text}`;
       const { result, usage } = await parse(HowSchema, "how", fill(HOW_INSTRUCTIONS, setting), input);
       return { result: result.chunks, usage };
+    },
+    async gloss(setting, lines) {
+      const { result, usage } = await parse(GlossSchema, "gloss", fill(GLOSS_INSTRUCTIONS, setting), lines.join("\n"));
+      if (result.lines.length !== lines.length) throw new Error(`${model} glossed ${result.lines.length} of ${lines.length} lines`);
+      return { result: result.lines.map((l) => l.chunks), usage };
     },
   };
 }

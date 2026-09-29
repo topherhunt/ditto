@@ -1,9 +1,10 @@
 import { mkdtempSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import type { AppDeps } from "../../server/app.ts";
 import { voiceId } from "../../server/content.ts";
+import type { Setting } from "../../server/conversation-ai.ts";
 import { FAKE_COST, fakeAI, fakeSpeech } from "../../server/conversation-fake.ts";
 import { setup } from "./helpers.ts";
 
@@ -58,7 +59,8 @@ describe("conversation mode", () => {
     const clip = await t.req("GET", opening.audioUrl);
     expect(clip.status).toBe(200);
     expect(clip.headers.get("content-type")).toBe("audio/wav");
-    expect(conv.spend).toEqual({ today: FAKE_COST, cap: 5, conversation: FAKE_COST });
+    // The partner's line and its gloss.
+    expect(conv.spend).toEqual({ today: 2 * FAKE_COST, cap: 5, conversation: 2 * FAKE_COST });
 
     const list = (await t.req("GET", "/api/conversations?lang=it")).json;
     expect(list.conversations.map((c: { id: number; title: string }) => [c.id, c.title])).toEqual([[conv.id, "Al bar"]]);
@@ -88,8 +90,8 @@ describe("conversation mode", () => {
     expect(retry.turns[0].chunks.map((x: { text: string }) => x.text)).toEqual(["Vorrei", "un", "caffè,", "per", "favore."]);
     expect((await t.req("GET", retry.turns[0].audioUrl)).headers.get("content-type")).toBe("audio/webm");
     expect(retry.reliance).toEqual({ leaned: 1, of: 1 });
-    // Opening, two transcriptions and coach calls, and the partner's answer.
-    expect(retry.spend.conversation).toBeCloseTo(6 * FAKE_COST);
+    // Opening, two transcriptions and coach calls, and the partner's answer, each partner line with its gloss.
+    expect(retry.spend.conversation).toBeCloseTo(8 * FAKE_COST, 6);
 
     const again = (await t.req("GET", `/api/conversations/${conv.id}`)).json;
     expect(again.turns.map((x: { role: string }) => x.role)).toEqual(["partner", "learner", "partner"]);
@@ -172,14 +174,34 @@ describe("conversation mode", () => {
     expect((await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).status).toBe(409);
   });
 
-  it("fails the partner's answer when its call leaves the learner's line unglossed", async () => {
+  it("glosses the learner's line and the partner's answer in one call, and fails the answer when that call fails", async () => {
     const t = await speak();
     const conv = await t.start();
-    const partner = t.ai.partner;
+    const gloss = t.ai.gloss;
+    const glossed: string[][] = [];
     t.ai.coach = passFirstTry("Vorrei un caffè.");
-    t.ai.partner = async (s, h) => { const p = await partner(s, h); return { ...p, result: { ...p.result, learnerLine: null } }; };
+    t.ai.gloss = async () => { throw new Error("model down"); };
     expect((await t.reply(conv.id)).status).toBe(500);
     expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.turns.at(-1)).toMatchObject({ role: "learner", chunks: null });
+    t.ai.gloss = (s, lines) => { glossed.push(lines); return gloss(s, lines); };
+    const res = (await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).json;
+    expect(glossed).toEqual([["Vorrei un caffè.", "Certo! Altro?"]]);
+    expect(res.turns.map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
+  });
+
+  it("warns when a line's chunks don't join back into the line, and stores them anyway", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const t = await speak();
+      await t.start();
+      expect(warn).not.toHaveBeenCalled();
+      t.ai.gloss = async (_s, lines) => ({ result: lines.map(() => [{ text: "Buongiorno!", gloss: "Good morning!" }]), usage: { model: "fake", inputTokens: 1, outputTokens: 1, audioSeconds: 0, costUsd: FAKE_COST } });
+      const conv = await t.start();
+      expect(warn).toHaveBeenCalledWith(`Gloss mismatch in conversation ${conv.id}: "Buongiorno! Cosa prende?" was chunked as "Buongiorno!"`);
+      expect(conv.turns[0].chunks).toEqual([{ text: "Buongiorno!", gloss: "Good morning!" }]);
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it("speaks every line of every conversation in the language's one partner voice", async () => {
@@ -229,17 +251,24 @@ describe("conversation mode", () => {
     expect(t.paces).toEqual([["Buongiorno! Cosa prende?", 1.3], ["Vorrei un caffè, per favore.", 1.3], ["Buongiorno!", 1.3], ["Buongiorno! Cosa prende?", 1]]);
   });
 
-  it("coaches in the interface language, or in the course's support language when the interface is the language practiced", async () => {
+  it("glosses in the learner's own language, and coaches in the course's language only with help immersion", async () => {
     const t = await speak();
-    const coachedIn = async (language: string) => {
-      const { id } = (await t.req("POST", "/api/conversations", { language, level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json;
-      return (t.deps.db.prepare("SELECT locale FROM conversations WHERE id = ?").get(id) as { locale: string }).locale;
-    };
     await t.req("PUT", "/api/locale", { locale: "es-419" });
-    await t.req("PUT", "/api/learning", { languages: ["it", "nl"] });
+    const settings: Setting[] = [];
+    t.ai.coach = async (c) => { settings.push(c); return passFirstTry("Un caffè, per favore.")(); };
+    await t.reply((await t.start()).id);
+
+    const prefs = (await t.req("GET", "/api/me")).json.prefs.it;
+    await t.req("PUT", "/api/prefs", { language: "it", prefs: { ...prefs, immerseHelp: true } });
+    await t.reply((await t.start()).id);
+    expect(settings.map((s) => [s.locale, s.helpLocale])).toEqual([["es-419", "es-419"], ["es-419", "it"]]);
+  });
+
+  it("glosses and coaches in the support language when the learner's own language is the one practiced", async () => {
+    const t = await speak();
     await t.req("PUT", "/api/locale", { locale: "it" });
-    expect(await coachedIn("nl")).toBe("it");
-    expect(await coachedIn("it")).toBe("es-419");
+    const { id } = await t.start();
+    expect(t.deps.db.prepare("SELECT locale, help_locale FROM conversations WHERE id = ?").get(id)).toEqual({ locale: "en", help_locale: "en" });
   });
 
   it("keeps hard mode per conversation", async () => {

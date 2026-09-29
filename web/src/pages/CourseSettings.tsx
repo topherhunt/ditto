@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router";
 import { LanguagePrefs } from "../components/LanguagePrefs.tsx";
-import { languageName, t } from "../i18n/index.ts";
+import { languageInSentence, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS } from "../learning.ts";
 import { useLang } from "./lang.ts";
 
@@ -10,7 +10,7 @@ export function CourseSettings() {
   return (
     <div class="d-flex flex-column gap-3" style={{ "max-width": "28rem" }} data-silent>
       <A href={`/${lang()}/type`} class="qa-course-settings-back small">← {LANGUAGE_FLAGS[lang()]} {t("activity.type")}</A>
-      <h1 class="qa-course-settings-title h4 mb-0">{t("settings.course", { language: languageName(lang()) })}</h1>
+      <h1 class="qa-course-settings-title h4 mb-0">{t("settings.course", { language: languageInSentence(lang()) })}</h1>
       <LanguagePrefs lang={lang()} />
     </div>
   );

@@ -26,12 +26,17 @@ function initialLocale(): Locale {
   return "en";
 }
 
-export const [locale, setLocale] = createSignal<Locale>(initialLocale());
+/** The learner's own language, which the UI is in unless `setImmersion` overrides it. */
+export const [ownLocale, setLocale] = createSignal<Locale>(initialLocale());
+/** The course language an immersed course page shows the UI in; null elsewhere. */
+export const [immersion, setImmersion] = createSignal<Locale | null>(null);
+/** The UI's language. */
+export const locale = () => immersion() ?? ownLocale();
 
 createRoot(() =>
   createEffect(() => {
     document.documentElement.lang = locale();
-    try { localStorage.setItem(STORAGE_KEY, locale()); } catch { /* storage unavailable */ }
+    try { localStorage.setItem(STORAGE_KEY, ownLocale()); } catch { /* storage unavailable */ }
   }),
 );
 
@@ -44,6 +49,8 @@ export function t(key: Key, vars: Record<string, string | number> = {}): string 
 }
 
 export const languageName = (l: Language) => t(`language.${l}`);
+/** For `{language}` inside a sentence, where Italian and Spanish lowercase it. */
+export const languageInSentence = (l: Language) => t(`language.${l}.inSentence`);
 
 /** A mistake category from the grader or the explainer, e.g. `missing_word`. */
 export function categoryName(c: string): string {

@@ -4,7 +4,7 @@ import { QUIZ_GRADUATE_SHARE, QUIZ_TEST_SIZE, type QuizHomeOut } from "../../../
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { dayKey, deckName, Donut, Sparkline } from "../components/QuizCharts.tsx";
-import { languageName, t } from "../i18n/index.ts";
+import { languageInSentence, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 
 const SPARK_DAYS = 14;
@@ -36,7 +36,7 @@ export function QuizHome() {
         return (
           <div class="d-flex flex-column gap-4">
             <ActivityHeader activity="quiz" lang={lang()} fresh={h().activity.length === 0} />
-            <For each={h().levels} fallback={<p class="qa-quiz-none text-body-secondary">{t("quiz.none", { language: languageName(lang()) })}</p>}>
+            <For each={h().levels} fallback={<p class="qa-quiz-none text-body-secondary">{t("quiz.none", { language: languageInSentence(lang()) })}</p>}>
               {(l, i) => {
                 const folded = () => toggled()[l.level] ?? (l.passed !== null || !l.unlocked);
                 const decks = () => h().decks.filter((d) => d.level === l.level);

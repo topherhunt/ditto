@@ -9,7 +9,7 @@ import { LearnPicker } from "../components/LearnPicker.tsx";
 import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import type { Key } from "../i18n/en.ts";
-import { languageName, locale, LOCALE_LABELS, setLocale, t } from "../i18n/index.ts";
+import { languageInSentence, locale, LOCALE_LABELS, setLocale, t } from "../i18n/index.ts";
 import { homeLanguage, learnable, rememberLanguage, storedLanguage } from "../learning.ts";
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
@@ -47,7 +47,7 @@ const SAMPLES: Record<Language, Samples> = {
 const ALONG: Key[] = ["welcome.along.review", "welcome.along.notebook", "welcome.along.why", "welcome.along.words", "welcome.along.testOut", "welcome.along.friends"];
 const HABITS: Key[] = ["welcome.habit.mistakes", "about.tipDaily", "about.tipHints", "about.tipAloud"];
 
-const languageList = (ls: readonly Language[]) => new Intl.ListFormat(locale(), { type: "conjunction" }).format(ls.map(languageName));
+const languageList = (ls: readonly Language[]) => new Intl.ListFormat(locale(), { type: "conjunction" }).format(ls.map(languageInSentence));
 
 /** The homepage. Signed out it shows on every route, so signing in keeps the visitor where they are, and opens by asking what they speak and want to learn. */
 export function Welcome() {
@@ -92,7 +92,7 @@ export function Welcome() {
               <div>
                 <h2 class="h6">
                   <Show when={learning()} fallback={t("welcome.signInReturning")}>
-                    {(l) => t("welcome.signInToStart", { language: languageName(l()) })}
+                    {(l) => t("welcome.signInToStart", { language: languageInSentence(l()) })}
                   </Show>
                 </h2>
                 <Show when={config()}>{(c) => <SignIn config={c()} learning={learning()} />}</Show>
@@ -104,7 +104,7 @@ export function Welcome() {
             <div class="text-center">
               <p>{t("welcome.back", { name: u().username! })}</p>
               <A class="qa-welcome-continue btn btn-primary btn-lg" href={`/${homeLanguage(u().learning)}`}>
-                {t("welcome.continue", { language: languageName(homeLanguage(u().learning)) })}
+                {t("welcome.continue", { language: languageInSentence(homeLanguage(u().learning)) })}
               </A>
             </div>
           )}

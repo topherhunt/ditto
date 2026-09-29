@@ -64,7 +64,7 @@ function LocalePicker() {
   };
   return (
     <label class="form-label small mb-3 d-block">
-      {t("settings.interface")}
+      {t("settings.yourLanguage")}
       <select class="qa-choose-locale form-select form-select-sm" value={me()!.locale} onChange={(e) => choose(e.currentTarget.value as Locale)}>
         <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
       </select>

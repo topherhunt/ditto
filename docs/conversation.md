@@ -1,6 +1,6 @@
 # Conversation mode
 
-Called "Talk" in the interface. A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`. The coach, glosses and titles are in the learner's UI language, or the course's support language (`supportFor`) when the UI language is the one practiced.
+Called "Talk" in the interface. A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`. Glosses and titles are in the learner's own language (`conversations.locale`), or the course's support language when their own is the one practiced; the coach writes in that too, or in the course's language with help immersion on (`conversations.help_locale`).
 
 ## Turn loop
 
@@ -12,7 +12,7 @@ Called "Talk" in the interface. A speaking track separate from dictation: a spok
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation and speaks it in the partner's voice, 30% slower (`GET /api/conversations/:id/say`, rendered on demand, ~0.7-0.9 s, and cached only by the browser; it counts toward the daily spend cap). Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
+Lines and suggestions come with translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"). The call that writes the partner's line chunks its suggestions; a second, smaller call (`gloss`), run while the line is spoken, chunks the partner's line and the learner's line it answers, so past replies are glossed too. Chunks that don't join back into their line are stored anyway and logged as a warning starting `Gloss mismatch`. Tapping a chunk shows its translation and speaks it in the partner's voice, 30% slower (`GET /api/conversations/:id/say`, rendered on demand, ~0.7-0.9 s, and cached only by the browser; it counts toward the daily spend cap). Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 
@@ -38,7 +38,8 @@ The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is o
 
 - Every paid call in the app (conversation, the "Why?" explainer, quiz audio) writes model, tokens or audio seconds, and computed cost to `api_usage` (`server/usage.ts`), tagged with user, purpose and, for conversation calls, the conversation. Prices live in code; an unknown model throws.
 - A per-user daily cap (`DAILY_SPEND_CAP`, default $1), resetting at midnight UTC. `underCapOr429` (`server/usage.ts`) runs before every paid call starts: as middleware on conversation routes, and on a cache miss for the explainer and quiz audio. A request in progress may overshoot slightly. Free practice stays open; a refused call (429) sends the web app to `/cap`, which congratulates the learner and lists the free features.
-- Every signed-in API response carries the learner's spend and cap (`X-Spend-Today`, `X-Spend-Cap`), shown in the footer. Admins see spend per user per day on `/admin/speaking`; conversations also show their own cost.
+- Every signed-in API response carries the learner's spend and cap (`X-Spend-Today`, `X-Spend-Cap`), shown in the footer. Admins see spend per user per day on `/admin/speaking`, per user on `/admin/users` and per day on `/admin/metrics`; conversations also show their own cost.
+- The ledger is kept whole. Its only index is `(user_id, created_at)`, which keeps the cap check fast at any size; the admin reports scan up to 30 days. A row is ~150 bytes with its index; a spoken reply writes 4-5 rows, so 100 learners doing 50 replies a day add ~8M rows (~1.2 GB) a year. Past a few million rows, or if `/admin/*` slows, fold rows older than ~90 days into a per-user, per-day, per-purpose total table (as `rollUpMetrics` does, [metrics.md](metrics.md)): lifetime totals stay exact and only per-call detail is lost. Deleting an account deletes its ledger rows (cascade).
 
 ## Running it
 

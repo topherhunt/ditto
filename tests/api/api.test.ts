@@ -82,19 +82,27 @@ describe("prefs and catalog", () => {
   it("stores prefs per language", async () => {
     const t = setup();
     await t.login();
-    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75, level: "B1" };
+    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75, level: "B1", immerseUi: true, immerseHelp: false };
     expect((await t.req("PUT", "/api/prefs", { language: "nl", prefs })).status).toBe(200);
     const me = await t.req("GET", "/api/me");
     expect(me.json.prefs.nl).toEqual(prefs);
     expect(me.json.prefs.it).toMatchObject({ path: "full", level: null });
   });
 
-  it("fills in the level for prefs saved before it existed", async () => {
+  it("fills in the level and immersion for prefs saved before they existed", async () => {
     const t = setup();
     await t.login();
     t.deps.db.prepare("UPDATE users SET prefs = ?").run(JSON.stringify({ it: { path: "chunks", hints: "none", autoplay: 2, rate: 1 } }));
     const me = await t.req("GET", "/api/me");
-    expect(me.json.prefs.it).toEqual({ path: "chunks", hints: "none", autoplay: 2, rate: 1, level: null });
+    expect(me.json.prefs.it).toEqual({ path: "chunks", hints: "none", autoplay: 2, rate: 1, level: null, immerseUi: false, immerseHelp: false });
+  });
+
+  it("refuses immersion for a course the app isn't translated into", async () => {
+    const t = setup();
+    await t.login();
+    const prefs = { ...(await t.req("GET", "/api/me")).json.prefs.ga, immerseHelp: true };
+    expect((await t.req("PUT", "/api/prefs", { language: "ga", prefs })).status).toBe(400);
+    expect((await t.req("PUT", "/api/prefs", { language: "it", prefs })).status).toBe(200);
   });
 
   it("lists the language's courses with unit counts per stage instead of units, and lesson progress", async () => {
@@ -424,21 +432,32 @@ describe("locale", () => {
     expect(unit.translation).toBe("coffee");
   });
 
-  it("keeps a course in the support language the learner last had when the interface switches to one it lacks", async () => {
+  it("with help immersion, explains in the course's language while translations stay in the learner's own", async () => {
     const t = setup();
+    const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;
+    const body = { unitId: "it-a1-bar-1-u06", answer: "Vorrei un caffe per favor" };
     await t.login("ana@example.com", "es-419");
-    await t.req("PUT", "/api/learning", { languages: ["it"] });
-    const translation = async () => (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0].translation;
+    const prefs = (await t.req("GET", "/api/me")).json.prefs.it;
+    await t.req("PUT", "/api/prefs", { language: "it", prefs: { ...prefs, immerseHelp: true } });
 
-    await t.req("PUT", "/api/locale", { locale: "it" });
-    expect(await translation()).toBe("café");
-    await t.req("PUT", "/api/locale", { locale: "nl" });
-    expect(await translation()).toBe("koffie");
-    await t.req("PUT", "/api/locale", { locale: "it" });
-    expect(await translation()).toBe("koffie");
+    await t.req("POST", "/api/explain", body);
+    expect(explainer.calls[0].locale).toBe("it");
+    expect(explainer.calls[0].unit.translation).toBe("Quisiera un café, por favor.");
+    await t.attempt("it-a1-bar-1-u06", { outcome: "revealed", submissions: [body.answer] });
+    const [entry] = (await t.req("GET", "/api/mistakes?lang=it")).json;
+    expect(entry.unit.translation).toBe("Quisiera un café, por favor.");
+    expect(entry.explanation.summary).toBe(`fake summary for ${body.answer}`);
 
-    await t.req("PUT", "/api/learning", { languages: ["ga", "it"] });
-    expect(await translation()).toBe("koffie");
+    await t.req("PUT", "/api/prefs", { language: "it", prefs });
+    expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation).toBeNull();
+  });
+
+  it("explains in the support language when the learner's own language is the one practiced", async () => {
+    const t = setup();
+    const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;
+    await t.login("ana@example.com", "it");
+    await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u06", answer: "Vorrei un caffe per favor" });
+    expect(explainer.calls[0].locale).toBe("en");
   });
 
   it("asks for and caches explanations per interface language", async () => {

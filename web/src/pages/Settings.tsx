@@ -15,11 +15,12 @@ export function Settings() {
       <h1 class="qa-settings-title h4 mb-0">{t("settings.title")}</h1>
       <div class="qa-settings-general d-flex flex-column gap-3">
         <label class="form-label mb-0">
-          {t("settings.interface")}
+          {t("settings.yourLanguage")}
           <select class="qa-settings-locale form-select" value={me()!.locale}
             onChange={(e) => save(() => api.put("/api/locale", { locale: e.currentTarget.value as Locale }))}>
             <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
           </select>
+          <div class="form-text">{t("settings.yourLanguageHint")}</div>
         </label>
         <LearningPicker save={save} />
         <ThemePicker />

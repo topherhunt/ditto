@@ -118,16 +118,13 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-settings-learn-it")).toBeChecked();
   await expect(page.locator(".qa-settings-learn-it")).toBeDisabled();
-  await expect(page.locator(".qa-lang-picker")).toHaveCount(0);
 
   await page.locator(".qa-settings-learn-nl").check();
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
   await expect(page.locator(".qa-settings-learn-it")).toBeEnabled();
-  await expect(page.locator(".qa-lang-picker")).toBeVisible();
 
   await page.locator(".qa-settings-learn-it").uncheck();
   await expect(page.locator(".qa-settings-learn-nl")).toBeDisabled();
-  await expect(page.locator(".qa-lang-picker")).toHaveCount(0);
   await page.reload();
   await expect(page.locator(".qa-settings-learn-it")).not.toBeChecked();
 });

@@ -1,14 +1,14 @@
 import { For } from "solid-js";
 import { LEARNER_LEVELS, type LearnerLevel } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
-import { languageName, t } from "../i18n/index.ts";
+import { languageInSentence, t } from "../i18n/index.ts";
 
 /** "How much do you know?" as one radio per level, so a form can require an answer. */
 export function LevelPicker(props: { lang: Language; chosen: LearnerLevel | null; onChoose: (l: LearnerLevel) => void }) {
   const name = `level-${props.lang}`;
   return (
     <fieldset class="qa-level-picker">
-      <legend class="h6">{t("level.question", { language: languageName(props.lang) })}</legend>
+      <legend class="h6">{t("level.question", { language: languageInSentence(props.lang) })}</legend>
       <div class="d-flex flex-column gap-2">
         <For each={LEARNER_LEVELS}>
           {(l) => (

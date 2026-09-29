@@ -3,18 +3,18 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutProfileVisibilitySchema, PutUsernameSchema, ReportSchema,
+  AttemptSchema, ExplainSchema, LevelPassSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutProfileVisibilitySchema, PutUsernameSchema, ReportSchema,
   SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
-  type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
+  type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type ReviewOut,
 } from "../shared/api.ts";
-import { LANGUAGES, LOCALES, PATHS, STAGES, SUPPORT_LOCALES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
+import { LANGUAGES, LOCALES, PATHS, STAGES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
 import { exactKey } from "../shared/tokenize.ts";
 import { registerActivity } from "./activity.ts";
 import { isAdmin, registerAdmin } from "./admin.ts";
 import { registerAdminUsers } from "./admin-users.ts";
 import {
-  createSession, deleteSession, SESSION_COOKIE, SESSION_DAYS, sessionUser, supportFor, upsertUser, type User, type VerifyGoogle,
+  createSession, deleteSession, helpLocale, prefsOf, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { registerConversation, type ConversationDeps } from "./conversation.ts";
@@ -61,7 +61,7 @@ const answerKey = (answer: string) => exactKey(answer).replace(/\s+/g, " ").trim
 
 export function createApp(deps: AppDeps) {
   const { db, content } = deps;
-  /** Ids, stages and unlocks, which every locale shares. Text shown to a learner comes from `content.locales[supportFor(...)]`. */
+  /** Ids, stages and unlocks, which every locale shares. Text shown to a learner comes from `content.locales[supportLocale(language, user.locale)]`. */
   const structure = content.locales.en;
   const lessons = new Map<string, ServedLesson>(structure.courses.flatMap((c) => c.lessons.map((l) => [l.id, l] as const)));
   const app = new Hono<{ Variables: { user: User } }>();
@@ -103,9 +103,8 @@ export function createApp(deps: AppDeps) {
 
   const learningOf = (userId: number) =>
     (db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid").all(userId) as { language: Language }[]).map((r) => r.language);
-  const insertLearning = (userId: number, language: Language, support: Locale) =>
-    db.prepare("INSERT INTO learning_languages (user_id, language, support_locale) VALUES (?, ?, ?)").run(userId, language, support);
-  const localeOf = (userId: number) => (db.prepare("SELECT locale FROM users WHERE id = ?").get(userId) as { locale: Locale }).locale;
+  const insertLearning = (userId: number, language: Language) =>
+    db.prepare("INSERT INTO learning_languages (user_id, language) VALUES (?, ?)").run(userId, language);
 
   /** `learning`: the language picked on the homepage before sign-in; it only fills an empty list, so a saved choice wins. */
   const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1], locale: Locale, learning: Language | undefined) => {
@@ -113,7 +112,7 @@ export function createApp(deps: AppDeps) {
       throw new HTTPException(403, { message: `${profile.email} is not allowed` });
     const now = deps.now();
     const userId = upsertUser(db, profile, locale, now);
-    if (learning && learningOf(userId).length === 0) insertLearning(userId, learning, supportLocale(learning, localeOf(userId)));
+    if (learning && learningOf(userId).length === 0) insertLearning(userId, learning);
     const token = createSession(db, userId, now);
     setCookie(c, SESSION_COOKIE, token, {
       httpOnly: true, secure: deps.secureCookies, sameSite: "Lax", path: "/", maxAge: SESSION_DAYS * 86_400,
@@ -185,12 +184,6 @@ export function createApp(deps: AppDeps) {
   ], gated);
   app.get("/api/conversations/:id/say", gated);
 
-  const prefsOf = (user: User): Record<Language, Prefs> => {
-    const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
-    // Defaults fill fields added since the prefs were saved.
-    return Object.fromEntries(LANGUAGES.map((l) => [l, PrefsSchema.parse({ ...DEFAULT_PREFS, ...stored[l] })])) as Record<Language, Prefs>;
-  };
-
   app.get("/api/me", (c) => {
     const u = c.get("user");
     return c.json<Me>({
@@ -200,25 +193,17 @@ export function createApp(deps: AppDeps) {
 
   app.put("/api/learning", async (c) => {
     const { languages } = PutLearningSchema.parse(await c.req.json());
-    const { id: me, locale } = c.get("user");
+    const me = c.get("user").id;
     transaction(db, () => {
-      // A course kept in the list keeps its support language.
-      const kept = new Map((db.prepare("SELECT language, support_locale FROM learning_languages WHERE user_id = ?").all(me) as
-        { language: Language; support_locale: Locale }[]).map((r) => [r.language, r.support_locale]));
       db.prepare("DELETE FROM learning_languages WHERE user_id = ?").run(me);
-      for (const l of languages) insertLearning(me, l, kept.get(l) ?? supportLocale(l, locale));
+      for (const l of languages) insertLearning(me, l);
     });
     return c.json({ ok: true });
   });
 
   app.put("/api/locale", async (c) => {
     const { locale } = PutLocaleSchema.parse(await c.req.json());
-    const me = c.get("user").id;
-    transaction(db, () => {
-      db.prepare("UPDATE users SET locale = ? WHERE id = ?").run(locale, me);
-      const update = db.prepare("UPDATE learning_languages SET support_locale = ? WHERE user_id = ? AND language = ?");
-      for (const l of LANGUAGES) if (SUPPORT_LOCALES[l].includes(locale)) update.run(locale, me, l);
-    });
+    db.prepare("UPDATE users SET locale = ? WHERE id = ?").run(locale, c.get("user").id);
     return c.json({ ok: true });
   });
 
@@ -268,7 +253,7 @@ export function createApp(deps: AppDeps) {
     const language = lang(c);
     const user = c.get("user");
     const userId = user.id;
-    const courses = content.locales[supportFor(db, user, language)].courses.filter((x) => x.language === language);
+    const courses = content.locales[supportLocale(language, user.locale)].courses.filter((x) => x.language === language);
     const rows = db.prepare("SELECT lesson_id, path, next_index, completed_at FROM lesson_progress WHERE user_id = ?").all(userId) as {
       lesson_id: string; path: keyof typeof PATHS; next_index: number; completed_at: string | null;
     }[];
@@ -292,7 +277,7 @@ export function createApp(deps: AppDeps) {
     const lessonId = c.req.param("lessonId");
     const user = c.get("user");
     const userId = user.id;
-    const lesson = content.locales[supportFor(db, user, language)].courses.filter((x) => x.language === language).flatMap((x) => x.lessons).find((l) => l.id === lessonId);
+    const lesson = content.locales[supportLocale(language, user.locale)].courses.filter((x) => x.language === language).flatMap((x) => x.lessons).find((l) => l.id === lessonId);
     if (!lesson) throw new HTTPException(404, { message: `Unknown ${language} lesson ${lessonId}` });
     const rows = db.prepare("SELECT path, next_index, completed_at FROM lesson_progress WHERE user_id = ? AND lesson_id = ?").all(userId, lessonId) as {
       path: keyof typeof PATHS; next_index: number; completed_at: string | null;
@@ -311,7 +296,7 @@ export function createApp(deps: AppDeps) {
     const language = lang(c);
     const level = z.string().parse(c.req.query("level"));
     levelOr404(language, level);
-    const courses = content.locales[supportFor(db, c.get("user"), language)].courses.filter((x) => x.language === language);
+    const courses = content.locales[supportLocale(language, c.get("user").locale)].courses.filter((x) => x.language === language);
     return c.json<LevelTestOut>({ units: levelTestUnits(courses, level) });
   });
 
@@ -405,7 +390,7 @@ export function createApp(deps: AppDeps) {
     const language = lang(c);
     const user = c.get("user");
     const userId = user.id;
-    const support = supportFor(db, user, language);
+    const support = supportLocale(language, user.locale);
     const rows = db.prepare("SELECT unit_id FROM review_cards WHERE user_id = ? AND language = ? AND due <= ? ORDER BY due LIMIT ?")
       .all(userId, language, deps.now().toISOString(), REVIEW_BATCH) as { unit_id: string }[];
     return c.json<ReviewOut>({ units: rows.map((r) => unitOr404(support, r.unit_id)), dueCount: counts(userId, language).dueCount });
@@ -427,13 +412,14 @@ export function createApp(deps: AppDeps) {
       unit_id: string; wrong_count: number; last_wrong_at: string; last_answer: string | null; categories: string; clean_streak: number;
     }[];
     const user = c.get("user");
-    const support = supportFor(db, user, language);
+    const support = supportLocale(language, user.locale);
+    const help = helpLocale(user, language);
     return c.json<MistakeEntry[]>(rows.map((r) => {
       const unit = unitOr404(support, r.unit_id);
       return {
         unit, wrongCount: r.wrong_count, lastWrongAt: r.last_wrong_at, lastAnswer: r.last_answer,
         categories: JSON.parse(r.categories), cleanStreak: r.clean_streak,
-        explanation: r.last_answer ? cachedExplanation(unit, r.last_answer, user.locale) : null,
+        explanation: r.last_answer ? cachedExplanation(unit, r.last_answer, help) : null,
       };
     }));
   });
@@ -448,8 +434,10 @@ export function createApp(deps: AppDeps) {
   app.post("/api/explain", async (c) => {
     const { unitId, answer } = ExplainSchema.parse(await c.req.json());
     const user = c.get("user");
-    const { id: userId, locale } = user;
-    const support = supportFor(db, user, unitOr404("en", unitId).language);
+    const userId = user.id;
+    const { language } = unitOr404("en", unitId);
+    const support = supportLocale(language, user.locale);
+    const locale = helpLocale(user, language);
     const unit = unitOr404(support, unitId);
     const result = grade({ mode: "free", text: answer }, unit);
     if (result.passed) throw new HTTPException(400, { message: "That answer is correct" });
@@ -459,7 +447,7 @@ export function createApp(deps: AppDeps) {
     if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENAI_API_KEY)" });
     underCapOr429(db, userId, deps.dailySpendCap, deps.now());
 
-    // The explainer sees the unit and grammar focus in the learner's support language, and writes in their UI language.
+    // The explainer sees the unit and grammar focus in the learner's support language, and writes in their help language.
     const lesson = content.locales[support].courses.find((x) => x.id === unit.courseId)!.lessons.find((l) => l.id === unit.lessonId)!;
     const { result: ex, usage } = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result, locale });
     transaction(db, () => {

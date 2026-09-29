@@ -23,6 +23,11 @@ export const en = {
   "language.ga": "Irish",
   "language.it": "Italian",
   "language.nl": "Dutch",
+  // Mid-sentence forms, for languages that lowercase language names there (Italian, Spanish).
+  "language.en.inSentence": "English",
+  "language.ga.inSentence": "Irish",
+  "language.it.inSentence": "Italian",
+  "language.nl.inSentence": "Dutch",
 
   "login.tagline": "Listen, type what you hear, and learn from every mistake.",
   "login.googleMissing": "Google sign-in is not configured.",
@@ -133,7 +138,8 @@ export const en = {
   "report.sent": "Thanks, reported.",
 
   "settings.title": "Settings",
-  "settings.interface": "Interface language",
+  "settings.yourLanguage": "Your language",
+  "settings.yourLanguageHint": "Translations, explanations and coaching come in this language.",
   "settings.theme": "Theme",
   "settings.themeLight": "Light",
   "settings.themeDark": "Dark",
@@ -153,6 +159,11 @@ export const en = {
   "settings.autoplay3": "Three times",
   "settings.rate": "Playback speed",
   "settings.rateNormal": "Normal",
+  "settings.immersion": "Immersion",
+  "settings.immerseUi": "Show the app in {language}",
+  "settings.immerseUiHint": "Menus and buttons in the language you're learning.",
+  "settings.immerseHelp": "Get help in {language}",
+  "settings.immerseHelpHint": "Explanations and coaching in {language}. Translations stay in your language.",
   "settings.saving": "Saving…",
   "settings.saved": "Saved",
   "settings.saveFailed": "Could not save: {error}",
@@ -525,7 +536,13 @@ export const en = {
   "dash.level.toward": "{pct}% of the way to {next}",
   "dash.level.reached": "🎉 {level} reached! {pct}% of the way to {next}",
   "dash.notYet": "Not available for this language yet",
-  "dash.open": "Open",
+  "dash.go.lessonStart": "Start lesson: {title}",
+  "dash.go.lessonContinue": "Continue lesson: {title}",
+  "dash.go.lessonsDone": "See all lessons",
+  "dash.go.talkFirst": "Start your first conversation",
+  "dash.go.talkNew": "Start a new conversation",
+  "dash.go.quizDeck": "Study {deck}",
+  "dash.go.quizAll": "See all quizzes",
 };
 
 export type Key = keyof typeof en;

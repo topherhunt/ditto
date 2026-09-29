@@ -1,10 +1,10 @@
 import { A, useLocation, useNavigate, type RouteSectionProps } from "@solidjs/router";
-import { createEffect, createResource, createSignal, ErrorBoundary, For, Match, on, onCleanup, Show, Switch } from "solid-js";
-import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
+import { createEffect, createResource, createSignal, ErrorBoundary, Match, on, onCleanup, Show, Switch } from "solid-js";
+import { immersible, SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, type Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { languageName, t } from "../i18n/index.ts";
-import { homeLanguage, LANGUAGE_FLAGS, rememberLanguage } from "../learning.ts";
+import { setImmersion, t } from "../i18n/index.ts";
+import { homeLanguage, rememberLanguage } from "../learning.ts";
 import { FEEDBACK_URL } from "../links.ts";
 import { trackPage } from "../metrics.ts";
 import { Welcome } from "../pages/Welcome.tsx";
@@ -22,17 +22,20 @@ export function Layout(props: RouteSectionProps) {
   };
   /** The language the nav points at: the current route's, else the learner's home course. Only read once they study one. */
   const navLang = () => lang() ?? homeLanguage(me()!.learning);
+  // A course's settings page stays in the learner's own language, so the switch that turns immersion off is always readable.
+  createEffect(() => {
+    const l = lang();
+    const user = me();
+    setImmersion(user && l && immersible(l) && user.prefs[l].immerseUi && location.pathname !== `/${l}/settings` ? l : null);
+  });
   const navigate = useNavigate();
   createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
   createEffect(() => { if (me()) trackPage(location.pathname); });
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [config] = createResource(() => api.get<Config>("/api/config"));
-  const [langMenuOpen, setLangMenuOpen] = createSignal(false);
   let menuRoot: HTMLDivElement | undefined;
-  let langMenuRoot: HTMLDivElement | undefined;
   const closeOnOutsideClick = (e: MouseEvent) => {
     if (menuRoot && !menuRoot.contains(e.target as Node)) setMenuOpen(false);
-    if (langMenuRoot && !langMenuRoot.contains(e.target as Node)) setLangMenuOpen(false);
   };
   document.addEventListener("click", closeOnOutsideClick);
   onCleanup(() => document.removeEventListener("click", closeOnOutsideClick));
@@ -61,29 +64,6 @@ export function Layout(props: RouteSectionProps) {
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
                 <div class="container gap-2 flex-wrap">
                   <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
-                  <Show when={user().learning.length > 1}>
-                    <div class="dropdown" ref={langMenuRoot}>
-                      <button type="button" class="qa-lang-picker btn btn-sm btn-outline-primary dropdown-toggle" aria-expanded={langMenuOpen()}
-                        aria-label={languageName(navLang())} onClick={() => setLangMenuOpen(!langMenuOpen())}>
-                        {LANGUAGE_FLAGS[navLang()]} <span class="text-uppercase">{navLang()}</span>
-                      </button>
-                      <ul class="dropdown-menu" classList={{ show: langMenuOpen() }} data-bs-popper="static">
-                        <For each={user().learning}>
-                          {(l) => (
-                            <li>
-                              <A href={`/${l}`} class={`qa-lang-${l} dropdown-item`} classList={{ active: navLang() === l }} end
-                                onClick={() => {
-                                  rememberLanguage(l);
-                                  setLangMenuOpen(false);
-                                }}>
-                                {LANGUAGE_FLAGS[l]} {languageName(l)}
-                              </A>
-                            </li>
-                          )}
-                        </For>
-                      </ul>
-                    </div>
-                  </Show>
                   <ul class="navbar-nav">
                     <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}/type`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>

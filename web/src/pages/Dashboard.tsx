@@ -4,7 +4,7 @@ import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut,
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { LevelPicker } from "../components/LevelPicker.tsx";
-import { dayKey } from "../components/QuizCharts.tsx";
+import { dayKey, deckName } from "../components/QuizCharts.tsx";
 import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
 import { languageName, locale, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable, rememberLanguage, saveLevel } from "../learning.ts";
@@ -16,7 +16,9 @@ type Counts = { type: number; talk: number; quiz: number };
 const itemsOf = (c: Counts | undefined) => (c ? c.type + c.talk + c.quiz : 0);
 /** One level of a ladder: `pct` is the way to it, meaningful only for the level after the highest achieved one. */
 type Rung = { level: string; achieved: boolean; pct: number };
-type Tip = { qa: string; text: string; go?: { href: string; label: string } };
+/** `icon`: a card button's Bootstrap icon, a play arrow unless set. */
+type Go = { href: string; label: string; icon?: string };
+type Tip = { qa: string; text: string; go?: Go };
 
 /** A course's home: what to do next, how the learner has been doing, and the ways to practice. */
 export function Dashboard() {
@@ -80,6 +82,25 @@ export function Dashboard() {
   const lessonsDone = () => catalog()!.courses.flatMap((c) => c.lessons).filter((l) => lessonDone(catalog()!, l.id)).length;
   const lessonsTotal = () => catalog()!.courses.reduce((n, c) => n + c.lessons.length, 0);
   const quizCount = (k: "graduated" | "total") => quiz()!.levels.reduce((n, l) => n + l[k], 0);
+
+  /** Each card's way in: the specific next thing in that activity, else its page. */
+  const typeGo = (): Go => {
+    const next = nextLesson(catalog()!);
+    if (!next) return { href: `/${lang()}/type`, label: t("dash.go.lessonsDone"), icon: "bi-list-ul" };
+    const started = next.id in catalog()!.progress;
+    return { href: `/${lang()}/lesson/${next.id}`, label: t(started ? "dash.go.lessonContinue" : "dash.go.lessonStart", { title: next.title }) };
+  };
+  /** A new topic, not the last conversation: the talk page picks topics and lists past conversations. */
+  const talkGo = (): Go => ({ href: `/${lang()}/talk`, label: t(talk()!.conversations.length ? "dash.go.talkNew" : "dash.go.talkFirst") });
+  /** The lowest unfinished level's first deck with questions due, else with new ones. */
+  const quizGo = (): Go => {
+    const level = quiz()!.levels.find((l) => l.unlocked && l.passed === null);
+    const decks = quiz()!.decks.filter((d) => d.level === level?.level);
+    const deck = decks.find((d) => d.due > 0) ?? decks.find((d) => d.fresh > 0);
+    return deck
+      ? { href: `/${lang()}/quiz/${deck.id}`, label: t("dash.go.quizDeck", { deck: deckName(deck) }) }
+      : { href: `/${lang()}/quiz`, label: t("dash.go.quizAll"), icon: "bi-list-ul" };
+  };
 
   return (
     <Show when={ready()}>
@@ -145,11 +166,11 @@ export function Dashboard() {
         <section>
           <h2 class="h5 mb-3">{t("dash.waysHeading")}</h2>
           <div class="row g-3">
-            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={`/${lang()}/type`}
+            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={`/${lang()}/type`} go={typeGo()}
               stat={t("dash.stat.type", { done: lessonsDone(), total: lessonsTotal() })} />
-            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? `/${lang()}/talk` : undefined}
+            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? `/${lang()}/talk` : undefined} go={talkOn() ? talkGo() : undefined}
               stat={talkOn() ? t("dash.stat.talk", { n: talk()!.conversations.length }) : undefined} />
-            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? `/${lang()}/quiz` : undefined}
+            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? `/${lang()}/quiz` : undefined} go={quizOn() ? quizGo() : undefined}
               stat={quizOn() ? t("dash.stat.quiz", { done: quizCount("graduated"), total: quizCount("total") }) : undefined} />
           </div>
         </section>
@@ -296,18 +317,28 @@ function Ladder(props: { qa: string; label: string; rungs: Rung[] }) {
   );
 }
 
-/** One activity: what it is, how far the learner has come in it, and the way in; `href` is unset where the course lacks it. */
-function Way(props: { qa: "type" | "talk" | "quiz"; icon: string; body: string; href?: string; stat?: string }) {
+/**
+ * One activity: what it is, how far the learner has come in it, and an invitation to its next step. `href` (the activity's page,
+ * linked from the heading) and `go` are unset where the course lacks the activity.
+ */
+function Way(props: { qa: "type" | "talk" | "quiz"; icon: string; body: string; href?: string; go?: Go; stat?: string }) {
+  const title = () => <><i class={`bi ${props.icon} me-2 text-primary`} aria-hidden="true" />{t(`activity.${props.qa}`)}</>;
   return (
     <div class="col-md-4">
       <div class={`qa-dash-way qa-dash-way-${props.qa} card h-100`} classList={{ "opacity-50": !props.href }}>
         <div class="card-body d-flex flex-column gap-2">
-          <h3 class="h5 mb-0"><i class={`bi ${props.icon} me-2 text-primary`} aria-hidden="true" />{t(`activity.${props.qa}`)}</h3>
+          <h3 class="h5 mb-0">
+            <Show when={props.href} fallback={title()}>
+              {(href) => <A href={href()} class={`qa-dash-way-link-${props.qa} link-body-emphasis text-decoration-none`}>{title()}</A>}
+            </Show>
+          </h3>
           <p class="small mb-0">{props.body}</p>
           <Show when={props.stat}>{(s) => <div class="qa-dash-way-stat small text-body-secondary">{s()}</div>}</Show>
-          <div class="mt-auto pt-2">
-            <Show when={props.href} fallback={<span class="small text-body-secondary">{t("dash.notYet")}</span>}>
-              {(href) => <A href={href()} class={`qa-dash-start-${props.qa} btn btn-primary`}>{t("dash.open")}</A>}
+          <div class="mt-auto pt-2 text-center">
+            <Show when={props.go} fallback={<span class="small text-body-secondary">{t("dash.notYet")}</span>}>
+              {(go) => <A href={go().href} class={`qa-dash-start-${props.qa} btn btn-primary`}>
+                <i class={`bi ${go().icon ?? "bi-play-fill"} me-1`} aria-hidden="true" />{go().label}
+              </A>}
             </Show>
           </div>
         </div>

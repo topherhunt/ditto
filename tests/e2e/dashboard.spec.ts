@@ -11,6 +11,13 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
   await expect(page.locator(".qa-dash-day-active")).toHaveCount(0);
   await expect(page.locator(".qa-dash-ladder-type .qa-dash-ladder-status")).toHaveText("0% of the way to A1");
   await expect(page.locator(".qa-dash-way")).toHaveCount(3);
+  // Each card invites to its own next step.
+  await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
+  await expect(page.locator(".qa-dash-start-type")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1");
+  await expect(page.locator(".qa-dash-start-talk")).toHaveText("Start your first conversation");
+  await expect(page.locator(".qa-dash-start-talk")).toHaveAttribute("href", "/it/talk");
+  await expect(page.locator(".qa-dash-start-quiz")).toHaveText(/^Study A1 /);
+  await expect(page.locator(".qa-dash-start-quiz")).toHaveAttribute("href", /^\/it\/quiz\/it-a1-/);
 
   await page.locator(".qa-dash-coach-go").click();
   await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-1$/);
@@ -21,6 +28,7 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
   await page.locator(".qa-nav-home").click();
   await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-dash-coach-first")).toHaveCount(0);
+  await expect(page.locator(".qa-dash-start-type")).toHaveText("Continue lesson: Un caffè, per favore");
   await expect(page.locator(".qa-dash-day-active")).toHaveCount(1);
   await expect(page.locator(".qa-dash-streak")).toHaveText("🔥 1-day streak");
   await expect(page.locator(".qa-dash-active-days")).toHaveText("Practiced 1 of the last 30 days");
@@ -54,7 +62,7 @@ test("the setup screen won't save without a level", async ({ page }) => {
 
 test("an activity's help opens by itself on a first visit, stays closed once dismissed, and reopens from its button", async ({ page }) => {
   await signIn(page, "dash4@example.com");
-  await page.locator(".qa-dash-start-type").click();
+  await page.locator(".qa-dash-way-link-type").click();
   await expect(page.locator(".qa-activity-title")).toHaveText("Listen and type");
   await expect(page.locator(".qa-help li")).toHaveCount(4);
   await page.locator(".qa-help-close").click();

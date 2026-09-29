@@ -84,7 +84,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry")).toHaveCount(0);
   await expect(page.locator(".qa-replies")).toContainText("1");
   await expect(page.locator(".qa-hints")).toContainText("1");
-  await expect(page.locator(".qa-cost")).toContainText("$0.006");
+  await expect(page.locator(".qa-cost")).toContainText("$0.008");
 
   await page.locator(".qa-conversation-hard").check();
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);
@@ -131,6 +131,6 @@ test("an admin sees reported judgments and spend", async ({ page }) => {
   const report = page.locator(".qa-admin-speak-report").filter({ hasText: "admin's own report" });
   await expect(report).toContainText("Buongiorno! Cosa prende?");
   await expect(report).toContainText("Vorrei un caffè");
-  // Opening line, transcription and coach, at the fake's $0.001 each.
-  await expect(page.locator(".qa-admin-spend-user").filter({ hasText: "admin" })).toContainText("$0.003");
+  // Opening line and its gloss, transcription and coach, at the fake's $0.001 each.
+  await expect(page.locator(".qa-admin-spend-user").filter({ hasText: "admin" })).toContainText("$0.004");
 });

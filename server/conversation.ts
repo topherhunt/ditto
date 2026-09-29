@@ -14,7 +14,7 @@ import {
 import type { Language, Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
 import type { AppDeps } from "./app.ts";
-import { supportFor, type User } from "./auth.ts";
+import { helpLocale, ownLocale, type User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
 import { partnerVoice, type Speech } from "./speech.ts";
@@ -39,7 +39,7 @@ const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 
 
 type ConversationRow = {
-  id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number;
+  id: number; user_id: number; language: Language; locale: Locale; help_locale: Locale; level: string; scenario: string; title: string; hard_mode: number;
   created_at: string; updated_at: string;
 };
 type TurnRow = {
@@ -69,7 +69,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const PACE: Record<string, number> = { A1: 1.3, A2: 1.2, B1: 1.1, B2: 1, C1: 1, C2: 1 };
   const pace = (c: ConversationRow) => PACE[c.level]!;
   const WORD_PACE = 1.3;
-  const setting = (c: ConversationRow): Setting => ({ language: c.language, locale: c.locale, level: c.level, scenario: c.scenario });
+  const setting = (c: ConversationRow): Setting => ({ language: c.language, locale: c.locale, helpLocale: c.help_locale, level: c.level, scenario: c.scenario });
   const audioUrl = (conversationId: number, file: string) => `/api/conversations/${conversationId}/audio/${file}`;
 
   const turnRows = (conversationId: number) =>
@@ -105,26 +105,34 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   };
 
   /**
-   * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. The same call glosses
-   * the learner's line it answers, so it returns that turn too, then its own.
+   * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. A second call, run while
+   * the line is spoken, glosses it and the learner's line it answers, so it returns that turn too, then its own.
    */
   const partnerTurn = async (conv: ConversationRow, userId: number): Promise<TurnOut[]> => {
     const { ai, audioDir } = speak();
     const learner = turnRows(conv.id).at(-1);
     const { result, usage } = await ai.partner(setting(conv), history(conv.id));
     paid(userId, conv.id, "partner", usage);
-    if (learner && !result.learnerLine) throw new Error("The partner model returned no chunks for the learner's line");
-    const text = joinChunks(result.line);
+    const text = result.line;
     const file = saveAudio(conv.id, "wav");
-    await say(conv, userId, text, pace(conv), join(audioDir, file));
+    const lines = learner ? [learner.text, text] : [text];
+    const [glossed] = await Promise.all([
+      ai.gloss(setting(conv), lines).then((g) => { paid(userId, conv.id, "gloss", g.usage); return g.result; }),
+      say(conv, userId, text, pace(conv), join(audioDir, file)),
+    ]);
+    // The chunks are shown as the line, so a mismatch shows the learner text other than what was spoken or said.
+    glossed.forEach((c, i) => {
+      if (joinChunks(c) !== lines[i]) console.warn(`Gloss mismatch in conversation ${conv.id}: "${lines[i]}" was chunked as "${joinChunks(c)}"`);
+    });
+    const [learnerChunks, chunks] = learner ? glossed : [null, glossed[0]];
     const now = deps.now().toISOString();
     transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
       db.prepare("UPDATE conversations SET updated_at = ? WHERE id = ?").run(now, conv.id);
-      if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(result.learnerLine), learner.id);
+      if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(learnerChunks), learner.id);
       db.prepare(
         "INSERT INTO conversation_turns (conversation_id, role, text, chunks, suggestions, audio_file, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?)",
-      ).run(conv.id, text, JSON.stringify(result.line), JSON.stringify(result.suggestions), file, now);
+      ).run(conv.id, text, JSON.stringify(chunks), JSON.stringify(result.suggestions), file, now);
     });
     return turnRows(conv.id).slice(learner ? -2 : -1).map((t) => toTurn(conv.id, t));
   };
@@ -184,12 +192,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     speak();
     const user = c.get("user");
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
-    // The coach writes live, so it can use the UI language unless that is the language practiced.
-    const coachLocale = (user.locale as string) === body.language ? supportFor(db, user, body.language) : user.locale;
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
-      "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?)",
-    ).run(user.id, body.language, coachLocale, body.level, scenario, Number(body.hardMode), now, now).lastInsertRowid);
+      `INSERT INTO conversations (user_id, language, locale, help_locale, level, scenario, title, hard_mode, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, '', ?, ?, ?)`,
+    ).run(user.id, body.language, ownLocale(user, body.language), helpLocale(user, body.language), body.level, scenario, Number(body.hardMode), now, now)
+      .lastInsertRowid);
     await partnerTurn(conversationOr404(id, user.id), user.id);
     return c.json(conversationOut(conversationOr404(id, user.id), user.id));
   });

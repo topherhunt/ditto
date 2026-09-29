@@ -1,9 +1,9 @@
 import { A } from "@solidjs/router";
 import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
-import type { Prefs } from "../../../shared/api.ts";
+import { immersible, type Prefs } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { t } from "../i18n/index.ts";
+import { languageInSentence, t } from "../i18n/index.ts";
 import { me, refetchMe } from "../session.ts";
 
 type SaveStatus = "saving" | "saved" | { error: string } | null;
@@ -67,10 +67,32 @@ export function LanguagePrefs(props: { lang: Language }) {
           </label>
         )}
       </For>
+      <Show when={immersible(props.lang)}>
+        <fieldset class="qa-settings-immersion">
+          <legend class="form-label fs-6 mb-2">{t("settings.immersion")}</legend>
+          <For each={IMMERSION}>
+            {(f) => (
+              <div class="mb-2">
+                <div class="form-check form-switch">
+                  <input class={`qa-settings-${f.field} form-check-input`} type="checkbox" role="switch" id={f.field} checked={prefs()[f.field]}
+                    onChange={(e) => savePrefs({ [f.field]: e.currentTarget.checked })} />
+                  <label class="form-check-label" for={f.field}>{t(f.label, { language: languageInSentence(props.lang) })}</label>
+                </div>
+                <div class="form-text">{t(f.hint, { language: languageInSentence(props.lang) })}</div>
+              </div>
+            )}
+          </For>
+        </fieldset>
+      </Show>
       <Status />
     </div>
   );
 }
+
+const IMMERSION = [
+  { field: "immerseUi", label: "settings.immerseUi", hint: "settings.immerseUiHint" },
+  { field: "immerseHelp", label: "settings.immerseHelp", hint: "settings.immerseHelpHint" },
+] as const;
 
 /** A link to change the language's practice prefs, followed by a one-line recap of them. */
 export function LanguagePrefsSummary(props: { lang: Language }) {

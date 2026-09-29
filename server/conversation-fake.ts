@@ -1,6 +1,7 @@
 // Scripted conversation AI and speech for tests and FAKE_CONVERSATION=1 (E2E, never production): no models, no spend.
 // The coach fails every first try and passes every retry; tests replace methods to script other outcomes.
 import { writeFileSync } from "node:fs";
+import type { Chunk } from "../shared/api.ts";
 import type { ConversationAI } from "./conversation-ai.ts";
 import type { Speech } from "./speech.ts";
 import type { Usage } from "./usage.ts";
@@ -27,16 +28,19 @@ export function fakeSpeech(): Speech {
   };
 }
 
+/** The partner's lines as sentence chunks; any other line is glossed word by word as "(word)". */
+const GLOSSES: Record<string, Chunk[]> = {
+  "Buongiorno! Cosa prende?": [{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }],
+  "Certo! Altro?": [{ text: "Certo!", gloss: "Sure!" }, { text: "Altro?", gloss: "Anything else?" }],
+};
+
 export function fakeAI(): ConversationAI {
   return {
     transcribe: async () => ({ result: "Vorrei un caffè", usage: { model: "fake-transcribe", inputTokens: 0, outputTokens: 0, audioSeconds: 2, costUsd: FAKE_COST } }),
     partner: async (_setting, history) => ({
       result: {
         title: "Al bar",
-        line: history.length
-          ? [{ text: "Certo!", gloss: "Sure!" }, { text: "Altro?", gloss: "Anything else?" }]
-          : [{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }],
-        learnerLine: history.length ? history.at(-1)!.text.split(" ").map((w) => ({ text: w, gloss: `(${w})` })) : null,
+        line: history.length ? "Certo! Altro?" : "Buongiorno! Cosa prende?",
         suggestions: [
           [{ text: "Vorrei un caffè,", gloss: "I'd like a coffee," }, { text: "per favore.", gloss: "please." }],
           [{ text: "Un tè,", gloss: "A tea," }, { text: "grazie.", gloss: "thanks." }],
@@ -58,5 +62,9 @@ export function fakeAI(): ConversationAI {
       };
     },
     howDoISay: async () => ({ result: [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }], usage: usage() }),
+    gloss: async (_setting, lines) => ({
+      result: lines.map((l) => GLOSSES[l] ?? l.split(" ").map((w) => ({ text: w, gloss: `(${w})` }))),
+      usage: usage(),
+    }),
   };
 }

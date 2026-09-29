@@ -1,22 +1,29 @@
 import { createHash, randomBytes } from "node:crypto";
 import { OAuth2Client } from "google-auth-library";
-import { SUPPORT_LOCALES, supportLocale, type Language, type Locale } from "../shared/content.ts";
+import { DEFAULT_PREFS, immersible, PrefsSchema, type Prefs } from "../shared/api.ts";
+import { LANGUAGES, supportLocale, type Language, type Locale } from "../shared/content.ts";
 import type { DB } from "./db.ts";
 
 export type GoogleProfile = { sub: string; email: string };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
+/** `locale` is the learner's own language: translations, explanations and coaching come in it, and so does the UI unless immersed. */
 export type User = { id: number; email: string; username: string | null; profilePublic: boolean; prefs: string; locale: Locale };
 
-/**
- * The support language `language`'s content is shown to `user` in: the UI locale where the course has it, else the one the
- * learner last had for the course, so switching the UI to a language a course lacks doesn't swap its translations.
- */
-export function supportFor(db: DB, user: User, language: Language): Locale {
-  if (SUPPORT_LOCALES[language].includes(user.locale)) return user.locale;
-  const row = db.prepare("SELECT support_locale FROM learning_languages WHERE user_id = ? AND language = ?").get(user.id, language) as
-    { support_locale: Locale } | undefined;
-  // A course the learner doesn't study, such as a friend's lesson.
-  return row ? row.support_locale : supportLocale(language, user.locale);
+export const prefsOf = (user: User): Record<Language, Prefs> => {
+  const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
+  // Defaults fill fields added since the prefs were saved.
+  return Object.fromEntries(LANGUAGES.map((l) => [l, PrefsSchema.parse({ ...DEFAULT_PREFS, ...stored[l] })])) as Record<Language, Prefs>;
+};
+
+/** The language AI writes glosses and titles in for `language`: the learner's own, or the course's support language if that is the one practiced. */
+export const ownLocale = (user: User, language: Language): Locale =>
+  (user.locale as string) === language ? supportLocale(language, user.locale) : user.locale;
+
+/** The language of explanations and coaching: the course's own with help immersion on, else as `ownLocale`. */
+export function helpLocale(user: User, language: Language): Locale {
+  if (!prefsOf(user)[language].immerseHelp) return ownLocale(user, language);
+  if (!immersible(language)) throw new Error(`Help immersion is on for ${language}, which has no locale`);
+  return language;
 }
 
 export const SESSION_COOKIE = "lp_session";

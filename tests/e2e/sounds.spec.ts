@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { setLearning, signIn } from "./helpers.ts";
+import { signIn } from "./helpers.ts";
 
 /** Records each UI sound instead of playing it, as "name volume". */
 async function recordSounds(page: Page) {
@@ -114,11 +114,8 @@ test("a quiz option sounds correct or wrong at half volume, in study and in a le
 test("the navbar and the settings page are silent", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds3@example.com");
-  await setLearning(page, ["it", "nl"]);
   await played(page);
 
-  await page.locator(".qa-lang-picker").click();
-  await page.locator(".qa-lang-nl").click();
   await page.locator(".qa-notifications").click();
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
@@ -126,7 +123,7 @@ test("the navbar and the settings page are silent", async ({ page }) => {
   await page.locator(".qa-settings-theme-light").click();
   await page.locator(".qa-username-save").click();
   await page.locator(".qa-nav-type").click();
-  await expect(page).toHaveURL(/\/nl\/type$/);
+  await expect(page).toHaveURL(/\/it\/type$/);
   expect(await played(page)).toEqual([]);
 
   // Buttons on the page itself still click.
