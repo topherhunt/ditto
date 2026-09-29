@@ -56,11 +56,12 @@ const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", 
 const CHUNKING = `Split every sentence into chunks for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ("ci vediamo" = "see you", "per favore" = "please"), an object pronoun or article with the word it belongs to ("Le porto" = "I'll bring you", "il conto" = "the bill"), and compound verb forms ("ho preso" = "I took"). "Le porto tutto subito." is "Le porto" / "tutto" / "subito.", never one chunk. The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
 
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
+The conversation is open-ended: never steer toward ending it (no goodbyes, no wrapping up). When the scenario's task is done (the order is taken, the room is booked), you can ask if they need anything else, but always leave an opening too: ask something personal or contextual that invites more talk, such as how their day is going, how long they're visiting, or whether they've seen something nearby.
 Scenario: ${s.scenario}
 - title: a short title for this conversation in {locale}.
 - line: your next line.
 - learnerLine: the learner's last line in the conversation so far, exactly as written, split into chunks; null when opening the conversation.
-- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way.
+- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it.
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
 const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged.

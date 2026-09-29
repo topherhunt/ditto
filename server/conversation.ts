@@ -65,6 +65,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (!row) throw new HTTPException(404, { message: `No conversation ${id}` });
     return row;
   };
+  /** Piper's own speed overwhelms beginners, so lower levels hear the partner slower; a lone tapped word is always slow. */
+  const PACE: Record<string, number> = { A1: 1.3, A2: 1.2, B1: 1.1, B2: 1, C1: 1, C2: 1 };
+  const pace = (c: ConversationRow) => PACE[c.level]!;
+  const WORD_PACE = 1.3;
   const setting = (c: ConversationRow): Setting => ({ language: c.language, locale: c.locale, level: c.level, scenario: c.scenario });
   const audioUrl = (conversationId: number, file: string) => `/api/conversations/${conversationId}/audio/${file}`;
 
@@ -113,7 +117,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (learner && !result.learnerLine) throw new Error("The partner model returned no chunks for the learner's line");
     const text = joinChunks(result.line);
     const file = saveAudio(conv.id, "wav");
-    await speech.say(text, partnerVoice(conv.language), join(audioDir, file));
+    await speech.say(text, partnerVoice(conv.language), pace(conv), join(audioDir, file));
     const now = deps.now().toISOString();
     transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
@@ -152,7 +156,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
     const file = saveAudio(conv.id, "wav");
-    await speak().speech.say(target, partnerVoice(conv.language), join(speak().audioDir, file));
+    await speak().speech.say(target, partnerVoice(conv.language), pace(conv), join(speak().audioDir, file));
     return file;
   };
 
@@ -312,7 +316,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const { speech, audioDir } = speak();
     const path = join(audioDir, `say-${randomUUID()}.wav`);
     try {
-      await speech.say(text, partnerVoice(conv.language), path);
+      await speech.say(text, partnerVoice(conv.language), WORD_PACE, path);
       return c.body(readFileSync(path), 200, { "Content-Type": "audio/wav", "Cache-Control": "private, max-age=86400" });
     } finally {
       rmSync(path, { force: true });

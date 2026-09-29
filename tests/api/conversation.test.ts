@@ -13,12 +13,14 @@ async function speak(overrides: Partial<AppDeps> = {}) {
   const speech = fakeSpeech();
   /** voiceId of each line spoken. */
   const voices: string[] = [];
+  /** Each line's text and pace. */
+  const paces: [string, number][] = [];
   const say = speech.say;
-  speech.say = (text, voice, out) => { voices.push(voiceId(voice)); return say(text, voice, out); };
+  speech.say = (text, voice, pace, out) => { voices.push(voiceId(voice)); paces.push([text, pace]); return say(text, voice, pace, out); };
   const conversation = { ai: fakeAI(), speech, audioDir: mkdtempSync(join(tmpdir(), "lp-speak-")) };
   const t = setup({ conversation, ...overrides });
   await t.login();
-  const start = async () => (await t.req("POST", "/api/conversations", { language: "it", level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json;
+  const start = async (level = "A2") => (await t.req("POST", "/api/conversations", { language: "it", level, scenario: { starter: "cafe" }, hardMode: false })).json;
   // The route streams step events then a result or error; `status` is an in-stream error's, else the HTTP status.
   const reply = async (id: number, over: Record<string, unknown> = {}) => {
     const res = await t.req("POST", `/api/conversations/${id}/attempts`, { audio, mime: "audio/webm", target: null, usedHow: false, taps: 0, ...over });
@@ -27,7 +29,7 @@ async function speak(overrides: Partial<AppDeps> = {}) {
     const end = events.at(-1);
     return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
   };
-  return { ...t, ai: conversation.ai, voices, start, reply };
+  return { ...t, ai: conversation.ai, voices, paces, start, reply };
 }
 
 const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
@@ -201,6 +203,15 @@ describe("conversation mode", () => {
     expect((await say("x".repeat(81))).status).toBe(400);
     await t.login("someone@example.com");
     expect((await say("Le porto")).status).toBe(404);
+  });
+
+  it("slows the partner for lower levels and every tapped chunk", async () => {
+    const t = await speak();
+    const a1 = await t.start("A1");
+    await t.reply(a1.id); // fails, so the target is spoken
+    await t.req("GET", `/api/conversations/${a1.id}/say?text=Buongiorno!`);
+    await t.start("B2");
+    expect(t.paces).toEqual([["Buongiorno! Cosa prende?", 1.3], ["Vorrei un caffè, per favore.", 1.3], ["Buongiorno!", 1.3], ["Buongiorno! Cosa prende?", 1]]);
   });
 
   it("keeps hard mode per conversation", async () => {

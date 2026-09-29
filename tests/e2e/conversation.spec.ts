@@ -31,9 +31,8 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(opening.locator(".qa-chunk")).toHaveText(["Buongiorno!", "Cosa prende?"]);
   await opening.locator(".qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("Good morning!");
-  // Tapping a chunk drips and speaks it.
-  expect((await page.evaluate(() => (window as unknown as { played: string[] }).played.slice(-2))).map((u) => decodeURIComponent(u)))
-    .toEqual([expect.stringMatching(/\/droplet-[\w-]+\.mp3$/), expect.stringMatching(/\/say\?text=Buongiorno!$/)]);
+  // Tapping a chunk speaks it.
+  expect(decodeURIComponent(await page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1)!))).toMatch(/\/say\?text=Buongiorno!$/);
   await opening.locator(".qa-chunk").nth(1).click();
   await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
   await page.locator(".qa-conversation-title").click();
@@ -52,9 +51,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-record")).toHaveCount(0);
   release();
   await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
-  // A failed reply is introduced in the interface language, spoken and in writing.
+  // A failed reply sounds a warning and is introduced in the interface language.
   await expect(page.locator(".qa-retry-good-try")).toHaveText("Good try! Here are some corrections:");
-  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/good-try-en-[\w-]+\.m4a$/));
+  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/marimba-warning-[\w-]+\.mp3$/));
   await expect(page.locator(".qa-checking")).toHaveCount(0);
   await expect(page.locator(".qa-retry-play-target")).toBeVisible();
   await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");

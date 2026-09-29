@@ -6,7 +6,8 @@ import { VOICES, voiceId, type Voice } from "./content.ts";
 
 /** Local speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
-  say(text: string, voice: Voice, out: string): Promise<{ seconds: number }>;
+  /** `pace` stretches the voice's own speed: 1.3 is 30% slower. */
+  say(text: string, voice: Voice, pace: number, out: string): Promise<{ seconds: number }>;
 }
 
 /** The partner's one Piper voice per language, from the lessons' voices; one each keeps the worker to one loaded voice per language. */
@@ -75,6 +76,6 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
   };
 
   return {
-    say: (text, voice, out) => call({ op: "say", text, voice: { model: voice.model, speaker: voice.speaker }, out }),
+    say: (text, voice, pace, out) => call({ op: "say", text, voice: { model: voice.model, speaker: voice.speaker }, pace, out }),
   };
 }

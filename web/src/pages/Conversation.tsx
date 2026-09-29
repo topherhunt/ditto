@@ -7,7 +7,7 @@ import {
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
-import { playDroplet, playGoodTry, playResult } from "../sounds.ts";
+import { playResult, playWarning } from "../sounds.ts";
 import { autoplay, play, playing, stop } from "./player.ts";
 import { usd } from "./Speak.tsx";
 
@@ -105,7 +105,6 @@ export function Conversation() {
   const tap = (key: string, text: string) => {
     if (activeChunk() === key) return setActiveChunk(null);
     setActiveChunk(key);
-    playDroplet();
     autoplay(`/api/conversations/${c().id}/say?text=${encodeURIComponent(text)}`);
     setRevealed((s) => new Set(s).add(key));
   };
@@ -153,7 +152,7 @@ export function Conversation() {
         playResult(true);
         advance(res.turns, { reliance: res.reliance, spend: res.spend });
       } else {
-        playGoodTry();
+        playWarning();
         update({ spend: res.spend });
         setAttempt(res.attempt);
       }

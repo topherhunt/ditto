@@ -4,15 +4,15 @@ Called "Talk" in the interface. A speaking track separate from dictation: a spok
 
 ## Turn loop
 
-1. The partner speaks a line (local Piper TTS, in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`); it plays by itself and its transcript shows.
+1. The partner speaks a line (local Piper TTS, in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`); it plays by itself and its transcript shows. Lower levels hear it slower (Piper's `length_scale`: A1 1.3, A2 1.2, B1 1.1; `PACE` in `server/conversation.ts`).
 2. Suggested replies: three plausible replies, each steering the conversation a different way. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
-4. The coach judges it (below). A pass plays the success sound. A failure pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:" in writing and spoken in the interface language (clips in `web/src/sounds/good-try-*.m4a`, rendered once with `scripts/tts-render.py`).
+4. The coach judges it (below). A pass plays the success sound. A failure plays a marimba warning and pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:".
 5. Once the reply passes, the partner answers and the loop repeats. If the partner's answer fails, a button retries it.
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation, plays a quiet droplet (`web/src/sounds.ts`) and speaks the chunk in the partner's voice (`GET /api/conversations/:id/say`, rendered on demand in ~30 ms warm and cached only by the browser); chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
+The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation and speaks it in the partner's voice, 30% slower (`GET /api/conversations/:id/say`, rendered on demand in ~30 ms warm and cached only by the browser). Piper garbles some lone words (*fiume* as "chiume"); how often depends on the voice. Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 

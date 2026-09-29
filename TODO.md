@@ -1,5 +1,4 @@
 - [ ] Polish up the Talk feature
-  - [ ] Your speech conversation partner should not steer to end the conversation. Even if you're in the context of ordering some food in a cafe or a drink and you've already ordered, they can take your order and ask if you need anything else, but they they want to leave an opening. They want to invite further dialogue. They don't ever want to steer towards ending the conversation because we want this conversation to stay open-ended. So they can ask you how your day is going, or how long you are visiting here, or if you've seen the beautiful mountains nearby, or who knows what. The LLM can think of something contextually appropriate to suggest next. We just need to encourage it to not try to end conversations. 
 - [ ] Polish up the current featureset (Type and Talk)
 - [ ] Polish up the onboarding & settings user flow
 - [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection.
