@@ -106,3 +106,37 @@ test("the navbar and the settings page are silent", async ({ page }) => {
   await page.locator(".qa-review-link").click();
   expect(await played(page)).toEqual(["click"]);
 });
+
+test("a pass bursts one emoji per pass in a row, and a wrong answer starts the count over", async ({ page }) => {
+  // The emojis fade in 250 ms, so count each burst as it is added rather than racing to see it.
+  await page.addInitScript(() => {
+    const bursts: number[] = [];
+    (window as unknown as { bursts: number[] }).bursts = bursts;
+    new MutationObserver((records) => {
+      const added = records.flatMap((r) => [...r.addedNodes]).filter((n) => n instanceof Element && n.matches(".qa-celebrate-emoji")).length;
+      if (added) bursts.push(added);
+    }).observe(document, { childList: true, subtree: true });
+  });
+  const bursts = () => page.evaluate(() => (window as unknown as { bursts: number[] }).bursts.splice(0));
+  await signIn(page, "sounds4@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+
+  await page.locator(".qa-slot").first().fill("caffè");
+  await page.locator(".qa-slot").first().press("Enter");
+  expect(await bursts()).toEqual([1]);
+  await page.locator(".qa-meaning-option").filter({ hasText: /^\dcoffee$/ }).click();
+  await page.locator(".qa-next").click();
+
+  await page.locator(".qa-slot").first().fill("vorrei");
+  await page.locator(".qa-slot").first().press("Enter");
+  expect(await bursts()).toEqual([2]);
+  await page.locator(".qa-meaning-option").filter({ hasText: /^\dI would like$/ }).click();
+  await page.locator(".qa-next").click();
+
+  await page.locator(".qa-slot").first().fill("uno");
+  await page.locator(".qa-slot").first().press("Enter");
+  await page.locator(".qa-slot").first().fill("un");
+  await page.locator(".qa-slot").nth(1).fill("caffè");
+  await page.locator(".qa-slot").nth(1).press("Enter");
+  expect(await bursts()).toEqual([1]);
+});

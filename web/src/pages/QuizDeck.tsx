@@ -53,14 +53,16 @@ export function QuizDeck() {
             <Show when={d().deck.due === 0 && d().deck.fresh === 0}>
               <p class="qa-quiz-caught-up text-success text-center mb-0">{t("quiz.caughtUp")}</p>
             </Show>
+            <A href={`${base()}/study/spaced`} class="qa-quiz-mode-spaced btn btn-success btn-lg">
+              <div class="fw-bold">{t("quiz.mode.spaced")}</div>
+              <div class="small">{t("quiz.mode.spacedDesc")}</div>
+            </A>
+            <h2 class="h6 text-body-secondary mb-0">{t("quiz.otherOptions")}</h2>
             <div class="list-group">
-              <For each={QUIZ_MODES}>
+              <For each={QUIZ_MODES.filter((m) => m !== "spaced")}>
                 {(mode) => (
                   <A href={`${base()}/study/${mode}`} class={`qa-quiz-mode-${mode} list-group-item list-group-item-action`}>
-                    <div class="fw-medium">
-                      {t(`quiz.mode.${mode}`)}
-                      <Show when={mode === "spaced"}> <span class="small fw-normal text-body-secondary">({t("quiz.recommended")})</span></Show>
-                    </div>
+                    <div class="fw-medium">{t(`quiz.mode.${mode}`)}</div>
                     <div class="small text-body-secondary">{t(`quiz.mode.${mode}Desc`)}</div>
                   </A>
                 )}

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Provision Ditto's tenant only: user, dirs, private Node, speech worker (Piper and Praat venv, voices), systemd units, Caddy site, registry entry.
+# Provision Ditto's tenant only: user, dirs, private Node, speech worker (Piper venv, voices), systemd units, Caddy site, registry entry.
 # Idempotent. The shared host setup (Caddy, system Node, registry) already exists on racknerd1.
 . "$(cd "$(dirname "$0")" && pwd)/config.sh"
 require_host
 echo "==> Provisioning ${SERVICE_NAME}: ${DOMAIN} -> 127.0.0.1:${APP_PORT}, ${REMOTE_DIR}, Node ${APP_NODE_MAJOR} in ${APP_NODE_DIR}"
-remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' SPEECH_DIR='${SPEECH_DIR}' PIPER_VERSION='${PIPER_VERSION}' PIPER_VOICES='${PIPER_VOICES}' PARSELMOUTH_VERSION='${PARSELMOUTH_VERSION}' bash -s" <<'REMOTE'
+remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' SPEECH_DIR='${SPEECH_DIR}' PIPER_VERSION='${PIPER_VERSION}' PIPER_VOICES='${PIPER_VOICES}' bash -s" <<'REMOTE'
 set -euo pipefail
 if [ -d "${REGISTRY_DIR}" ]; then
   for f in "${REGISTRY_DIR}"/*.app; do
@@ -35,10 +35,10 @@ if ! "${APP_NODE_DIR}/bin/node" -v 2>/dev/null | grep -q "^v${APP_NODE_MAJOR}\."
 fi
 echo "Node: $("${APP_NODE_DIR}/bin/node" -v)"
 
-# Piper voices Dutch here; Italian and English are Kokoro on OpenRouter, whose questions Praat bends up.
+# Piper voices Dutch here; Italian and English are Kokoro on OpenRouter.
 dpkg -s python3-venv >/dev/null 2>&1 || { apt-get update -q && apt-get install -y -q --no-install-recommends python3-venv; }
 [ -x "${SPEECH_DIR}/venv/bin/python" ] || python3 -m venv "${SPEECH_DIR}/venv"
-"${SPEECH_DIR}/venv/bin/pip" install -q "piper-tts==${PIPER_VERSION}" "praat-parselmouth==${PARSELMOUTH_VERSION}"
+"${SPEECH_DIR}/venv/bin/pip" install -q "piper-tts==${PIPER_VERSION}"
 install -d -m 755 "${SPEECH_DIR}/piper-voices"
 for v in ${PIPER_VOICES}; do
   # it_IT-paola-medium lives at it/it_IT/paola/medium/ in rhasspy/piper-voices.
@@ -51,7 +51,7 @@ for v in ${PIPER_VOICES}; do
     fi
   done
 done
-echo "Piper: $("${SPEECH_DIR}/venv/bin/pip" show piper-tts | sed -n 's/^Version: //p'), voices: $(ls "${SPEECH_DIR}/piper-voices" | grep -c '\.onnx$'), parselmouth: $("${SPEECH_DIR}/venv/bin/pip" show praat-parselmouth | sed -n 's/^Version: //p')"
+echo "Piper: $("${SPEECH_DIR}/venv/bin/pip" show piper-tts | sed -n 's/^Version: //p'), voices: $(ls "${SPEECH_DIR}/piper-voices" | grep -c '\.onnx$')"
 
 if ! id -u "${SERVICE_USER}" >/dev/null 2>&1; then
   adduser --system --group --home "${REMOTE_DIR}" --no-create-home --shell /usr/sbin/nologin "${SERVICE_USER}"

@@ -31,7 +31,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
 - A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
 - An in-app notifications bell (no email or push).
-- Quiz mode (nav: Quiz): preset multiple-choice grammar and vocab decks per language and level, scheduled with FSRS, with per-deck stats and session history. Question audio uses the conversation partner's voice. Presets are stored once and shared; see [quizzes.md](quizzes.md).
+- Quiz mode (nav: Quiz): preset multiple-choice grammar and vocab decks per language and level, scheduled with FSRS, with per-deck stats and session history. Levels unlock in order, by graduating 90% of a level or a perfect 20-question test-out. Question audio is gpt-4o-mini-tts. Presets are stored once and shared; see [quizzes.md](quizzes.md).
 - Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 to B1 for Spanish and Italian speakers (31 main and 10 optional modules, [curriculum-en.md](curriculum-en.md)); Dutch A1 to B1 for English and Spanish speakers (31 main and 10 optional modules, [curriculum-nl.md](curriculum-nl.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)).
 
 **Later**
@@ -55,7 +55,7 @@ One Node process (a monolith) serves the SPA, the JSON API and audio files. Cadd
 | Frontend | Vite + SolidJS + TypeScript, `@solidjs/router` | Fine-grained reactivity, small bundle. Trap: never destructure props (it breaks reactivity) |
 | CSS | Bootstrap 5 (CSS only) utilities, plus one component stylesheet for the dictation widget | Utility-first |
 | SRS | `ts-fsrs` | FSRS schedules more efficiently than SM-2 and the library is maintained |
-| AI | `openai` SDK, Responses API with a strict JSON-schema output, model `gpt-6-luna` (`EXPLAIN_MODEL`) | About $0.0004 per uncached explanation ($0.10 / $0.50 per 1M in/out tokens) |
+| AI | `openai` SDK against OpenRouter, Responses API with a strict JSON-schema output, model `openai/gpt-6-luna` (`EXPLAIN_MODEL` in `server/explain.ts`) | About $0.0004 per uncached explanation ($0.10 / $0.50 per 1M in/out tokens) |
 | Tests | Vitest (unit + API), Playwright (E2E) | |
 
 ### Repo layout
@@ -86,18 +86,20 @@ The server computes the URLs when it loads content, so there is no manifest. It 
 
 `content/audio-fixes.json` fixes single clips that render badly, keyed by language, voice id and text as rendered (lowercase for word audio): `say` is what the engine reads instead (a respelling or punctuation), `phonemes` feeds Kokoro IPA directly (a space or `pʰ` can break a slurred cluster or a p heard as b), `cut` drops seconds off the end after trimming (a breath the silence trim keeps), `openrouter` (`{model, voice, style?}`, e.g. `google/gemini-3.8-flash-tts` with a voice of the slot's gender) renders that one clip with a paid voice when the free engines keep failing, and `take` forces a fresh render, since Piper and OpenRouter output is random per run. OpenRouter renders need `OPENROUTER_API_KEY` in `.env` and happen only locally; production never renders, and deploy ships the files. Gemini reads a bare word in whatever language it guesses ("nome" as English "gnome"), so short Italian texts may need a `say` with context or an instruction. A fix joins the hash, so the fixed clip gets a new file and the old one stays until `--prune` (don't prune while reports on it are under review). A fix for text nothing renders is a load error.
 
-Voices, both genders, four per language except `ga`:
+Voices, both genders, four per language except `it` and `ga`:
 - `en`: Piper amy, lessac (F) and ryan, joe (M).
-- `it`: Piper paola, serena and Kokoro if_sara (F), plus Kokoro im_nicola (M). Kokoro has no other Italian voices.
+- `it`: OpenAI gpt-4o-mini-tts marin (F) and cedar (M), which beat Piper, local Kokoro, Kokoro on OpenRouter and Gemini 3.8 Flash TTS by ear in September 2026 (clearer, fewer mispronunciations, no clipped endings). Rendering needs `OPENAI_API_KEY` in `.env`; all Italian audio cost an estimated $4-5 at list price (about $0.015 per audio minute).
 - `nl`: Piper pim, ronnie (M) and two speakers of the multi-speaker `nl_NL-mls` model (F, chosen by median pitch).
 - `ga`: ABAIR's Munster voices Neasa (F) and Colm (M), matching the course's Munster forms. ABAIR (Trinity College Dublin) is a free public service; credit it wherever Irish audio ships.
 
 `scripts/build-audio.ts` renders only missing files, with one `scripts/tts-render.py` process per voice in parallel, except ABAIR voices, which run one at a time with a 1s pause per request. `--prune` also deletes files no content references. The renderer:
-1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`), or fetches from ABAIR's web reader endpoint;
+1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`), or fetches from ABAIR's web reader endpoint or OpenAI (4 workers per OpenAI voice);
 2. trims silence, matches loudness (RMS 0.08, peak capped at 0.95) and pads 150ms at each end;
 3. encodes with `afconvert` into a `.part` file, then renames it, so an interrupted run never leaves a truncated file.
 
 Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
+
+**gpt-4o-mini-tts has no reliable pace control.** OpenAI clips are asked for the language, a native accent and "a normal conversational pace, the way a native speaker says it to a friend" (`scripts/tts-render.py`). The language is named because TTS models read a bare word in whatever language they guess (Gemini read "nome" as English "gnome"). In a September 2026 test (9 Italian items, one take each), "conversational" and "brisk" pace instructions changed spoken length less than two takes of the same text differ, and `speed: 1.25` sped some clips up by 10-30% and left others unchanged. Speeding clips up locally (ffmpeg `atempo`) is reliable but sounded artificial and was rejected.
 
 **Sanity check after rendering:** `npm run content:check-audio` (`scripts/check-audio.ts`; pass flags after `--`) runs a phoneme recognizer (`facebook/wav2vec2-xlsr-53-espeak-cv-ft`, language-independent IPA, via torch and transformers in `.venv`, downloaded to the Hugging Face cache on first run) over clips of 1-2 word texts, compares what it heard with espeak's IPA for the text, and writes `data/audio-check.html`: clips ranked by phoneme error rate (PER) with play buttons. `--all`, `--lang`, `--voice` and `--text` change the scope; results are cached per clip in `data/audio-check.jsonl`, so later runs score only new renders (the first pass over every short clip takes about an hour on Apple silicon). It is a ranker for listening, not a verdict: its "heard" column matched every complaint in the first batch of reports (si-ye, nosey, bosso, shee-trah), but PER alone doesn't separate good from bad (approved clips scored up to 0.5, and o/ɔ is folded, so an open-vowel error scores 0). When fixing a clip, list candidate fixes per text in `data/audio-candidates.json` (shaped like `audio-fixes.json`, with a list of fixes per text) and run `npm run content:audio-candidates`: it renders each to the file its fix would use, scores them, and writes `data/audio-candidates.html`. Adopting one means copying its fix into `audio-fixes.json`; the file is already in place. Pick one whose heard phonemes carry no extra glide, trailing θ/s, b for p or ʃ for tʃ; then listen. Text-level ASR (Whisper) is not a substitute: it guesses the intended word and passed clips that people rejected.
 
@@ -188,8 +190,8 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - **Cache:** the `explanations` table, keyed by `(unit_id, rev, answer key, model, locale)`. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. It is shared across users, so a repeated mistake is free.
 - **Spend guards:**
   - The endpoint only runs when a user clicks "Why?".
-  - A per-user daily cap (`EXPLAIN_DAILY_LIMIT`, default 50).
-  - The route returns 503 with a clear message when `OPENAI_API_KEY` is unset. The key stays server-side.
+  - Each uncached explanation is charged to the learner in `api_usage` and counts toward the daily spend cap (docs/conversation.md, Spend).
+  - The route returns 503 with a clear message when `OPENROUTER_API_KEY` is unset. The key stays server-side.
   - Tests use a fake client.
 
 ## Data model (SQLite)
@@ -209,7 +211,7 @@ review_cards(user_id, unit_id, language, due, card JSON  -- ts-fsrs Card; `due` 
              , PK(user_id, unit_id))
 explanations(id PK, unit_id, unit_rev, answer_key, model, locale, categories JSON, summary, details, created_at,
              UNIQUE(unit_id, unit_rev, answer_key, model, locale))
-explain_usage(user_id, day, count, PK(user_id, day))
+explain_usage(user_id, day, count, PK(user_id, day))  -- unused since the dollar cap replaced the count cap
 reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
         , audio_file, kind  -- audio|text|translation|accept|other
         , answer  -- accept only: the typed answer that was graded wrong

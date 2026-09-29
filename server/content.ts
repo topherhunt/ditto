@@ -9,8 +9,8 @@ import {
 import { tokenize, words } from "../shared/tokenize.ts";
 import { loadQuizzes, type QuizDeck } from "./quiz-content.ts";
 
-/** For `abair`, `model` is an ABAIR voice name; see scripts/tts-render.py. */
-export type Voice = { engine: "piper" | "kokoro" | "abair"; model: string; speaker?: number; gender: "F" | "M" };
+/** For `abair`, `model` is an ABAIR voice name; for `openai`, a gpt-4o-mini-tts voice; see scripts/tts-render.py. */
+export type Voice = { engine: "piper" | "kokoro" | "abair" | "openai"; model: string; speaker?: number; gender: "F" | "M" };
 
 /**
  * Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch.
@@ -24,10 +24,8 @@ export const VOICES: Record<Language, Voice[]> = {
     { engine: "piper", model: "en_US-joe-medium", gender: "M" },
   ],
   it: [
-    { engine: "piper", model: "it_IT-paola-medium", gender: "F" },
-    { engine: "piper", model: "it_IT-serena-medium", gender: "F" },
-    { engine: "kokoro", model: "if_sara", gender: "F" },
-    { engine: "kokoro", model: "im_nicola", gender: "M" },
+    { engine: "openai", model: "marin", gender: "F" },
+    { engine: "openai", model: "cedar", gender: "M" },
   ],
   nl: [
     { engine: "piper", model: "nl_NL-pim-medium", gender: "M" },

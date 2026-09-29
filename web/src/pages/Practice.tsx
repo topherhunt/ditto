@@ -1,13 +1,13 @@
 import { A, useParams } from "@solidjs/router";
-import { createResource, createSignal, For, onMount, Show } from "solid-js";
+import { createResource, createSignal, For, Show } from "solid-js";
 import type { CompareRow, LessonOut, LevelTestOut, MistakeEntry, ReviewOut } from "../../../shared/api.ts";
 import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { Exercise } from "../components/Exercise.tsx";
+import { Tada } from "../components/Tada.tsx";
 import { t } from "../i18n/index.ts";
 import type { Outcome, SessionMode } from "../practice.ts";
 import { me } from "../session.ts";
-import { playVictory } from "../sounds.ts";
 import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
 
@@ -72,32 +72,6 @@ export function Practice(props: { mode: SessionMode }) {
     <Show when={deck()} keyed>
       {(d) => <Session deck={d} mode={props.mode} lang={lang()} level={params.level} onRetry={refetch} />}
     </Show>
-  );
-}
-
-const SPARK_EMOJI = ["🎉", "🎊", "✨", "🥳", "⭐", "🌟", "💫", "🎈", "🙌", "👏"];
-
-/** Ten small celebration emoji fanned out around the circle, each with its own reach and 0.5-1s lifetime. */
-function sparks() {
-  return Array.from({ length: 10 }, (_, i) => {
-    const angle = ((i + Math.random() * 0.8) / 10) * 2 * Math.PI;
-    const reach = 5 + Math.random() * 4;
-    return {
-      emoji: SPARK_EMOJI[Math.floor(Math.random() * SPARK_EMOJI.length)],
-      style: { "--dx": `${Math.cos(angle) * reach}rem`, "--dy": `${Math.sin(angle) * reach}rem`, "--dur": `${500 + Math.random() * 500}ms` },
-    };
-  });
-}
-
-function Tada() {
-  onMount(playVictory);
-  return (
-    <div class="text-center" style={{ "font-size": "5rem" }}>
-      <span class="position-relative d-inline-block">
-        <span class="qa-tada tilt breathe" aria-hidden="true">🎉</span>
-        <For each={sparks()}>{(s) => <span class="qa-tada-spark spark" style={s.style} aria-hidden="true"><span>{s.emoji}</span></span>}</For>
-      </span>
-    </div>
   );
 }
 

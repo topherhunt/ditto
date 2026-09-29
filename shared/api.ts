@@ -177,6 +177,9 @@ export type CheckStep = "listening" | "judging" | "answering";
 export type SpeakAttemptEvent = { step: CheckStep } | { result: SpeakAttemptResult } | { error: string; status: number };
 /** USD. `today` resets at midnight UTC; nothing paid starts once it reaches `cap`. */
 export type Spend = { today: number; cap: number; conversation: number };
+/** Every signed-in API response carries the learner's `today` and `cap` in USD. */
+export const SPEND_TODAY_HEADER = "X-Spend-Today";
+export const SPEND_CAP_HEADER = "X-Spend-Cap";
 /** Learner turns that leaned on a suggestion, "How do I say...?" or moving on, out of all learner turns. */
 export type Reliance = { leaned: number; of: number };
 export type ConversationOut = {
@@ -344,10 +347,19 @@ export const QUIZ_SAY_FIELDS = ["question", "correct", "wrong0", "wrong1", "wron
 
 export const StartQuizSchema = z.strictObject({ mode: z.enum(QUIZ_MODES) });
 export const QuizAnswerSchema = z.strictObject({ questionId: z.string(), rating: z.enum(QUIZ_RATINGS), responseMs: z.int().min(0) });
+export const QuizTestPassSchema = z.strictObject({ language: z.enum(LANGUAGES), level: z.enum(QUIZ_LEVELS) });
+/** A level passes once this share of its questions are graduated (in review), or by answering every test question right. */
+export const QUIZ_GRADUATE_SHARE = 0.9;
+export const QUIZ_TEST_SIZE = 20;
 
 export type QuizDeckOut = { id: string; level: QuizLevel; kind: QuizKind; num: number; total: number; due: number; fresh: number; mastery: Mastery };
 /** `activity`: every session with answers in this language, for the practice sparklines. */
-export type QuizHomeOut = { decks: QuizDeckOut[]; activity: { deckId: string; at: string; answered: number }[] };
+export type QuizHomeOut = { decks: QuizDeckOut[]; levels: QuizLevelOut[]; activity: { deckId: string; at: string; answered: number }[] };
+/** A level with decks in the language. The first level is always unlocked, as are passed ones and the one after each. */
+export type QuizLevelOut = { level: QuizLevel; total: number; graduated: number; passed: "progress" | "test" | null; unlocked: boolean };
+/** `passed`: the level this answer finished, and the one it unlocked (null after the last). */
+export type QuizAnswerOut = { passed: { level: QuizLevel; next: QuizLevel | null } | null };
+export type QuizTestOut = { questions: (QuizQuestionOut & { deckId: string })[]; next: QuizLevel | null };
 export type QuizCardOut = { mastery: MasteryState; stability: number; due: string };
 export type QuizQuestionOut = { id: string; title: string; question: string; correct: string; wrong: string[]; explanation: string; card: QuizCardOut | null };
 /** `mastery`: the deck's breakdown after the session's last answer. */

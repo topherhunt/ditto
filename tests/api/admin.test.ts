@@ -6,7 +6,7 @@ const UNIT = "it-a1-bar-1-u01";
 
 async function report(t: T, over: Record<string, unknown> = {}) {
   await t.login("learner@example.com");
-  expect((await t.req("POST", "/api/reports", { unitId: UNIT, rev: 1, voice: 2, kind: "audio", note: "mumbled", ...over })).status).toBe(200);
+  expect((await t.req("POST", "/api/reports", { unitId: UNIT, rev: 1, voice: 1, kind: "audio", note: "mumbled", ...over })).status).toBe(200);
   await t.login("admin@example.com");
 }
 const list = async (t: T, status: string) => (await t.req("GET", `/api/admin/reports?status=${status}`)).json;
@@ -31,8 +31,8 @@ describe("report triage", () => {
     const [r] = await list(t, "new");
     expect(r).toMatchObject({
       status: "new", reporter: { email: "learner@example.com" }, kind: "audio", note: "mumbled", unitId: UNIT, unitRev: 1,
-      text: unit.text, voice: "kokoro:if_sara", audioUrl: unit.audio[2], decision: null,
-      current: { rev: unit.rev, text: unit.text, translation: unit.translation, audioUrl: unit.audio[2] },
+      text: unit.text, voice: "openai:cedar", audioUrl: unit.audio[1], decision: null,
+      current: { rev: unit.rev, text: unit.text, translation: unit.translation, audioUrl: unit.audio[1] },
     });
   });
 

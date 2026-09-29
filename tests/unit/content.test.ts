@@ -65,12 +65,12 @@ describe("content loading", () => {
 
   it("renders an audio fix into a new file for that voice and text only, including word audio", () => {
     const fix = { say: "Lo." };
-    const c = loadWithFixes({ it: { "kokoro:if_sara": { lo: fix } } }, base);
+    const c = loadWithFixes({ it: { "openai:marin": { lo: fix } } }, base);
     const u = c.locales.en.units.get("it-test-1-u01")!;
-    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.model === "if_sara" ? fix : undefined)}`));
-    expect(u.words[0].audio[2]).not.toBe(`/audio/${audioFile("it", VOICES.it[2], "lo")}`);
+    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.model === "marin" ? fix : undefined)}`));
+    expect(u.words[0].audio[0]).not.toBe(`/audio/${audioFile("it", VOICES.it[0], "lo")}`);
     expect(u.audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "Lo prendo.")}`));
-    expect(c.audioJobs.find((j) => `/audio/${j.file}` === u.words[0].audio[2])).toMatchObject({ text: "lo", fix });
+    expect(c.audioJobs.find((j) => `/audio/${j.file}` === u.words[0].audio[0])).toMatchObject({ text: "lo", fix });
   });
 
   it("reads a unit with a speaker only in voices of that gender, renders nothing for the others, and keeps every voice for its words", () => {
@@ -88,14 +88,14 @@ describe("content loading", () => {
 
   it("rejects audio fixes for an unknown voice, phonemes on a non-Kokoro voice or with OpenRouter, a partial OpenRouter voice, and text nothing renders", () => {
     expect(() => loadWithFixes({ it: { "kokoro:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice kokoro:nobody/);
-    expect(() => loadWithFixes({ it: { "piper:it_IT-paola-medium": { lo: { phonemes: "lo" } } } }, base)).toThrow(/phonemes need a kokoro voice/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { phonemes: "lo" } } } }, base)).toThrow(/phonemes need a kokoro voice/);
     const openrouter = { model: "google/gemini-3.8-flash-tts", voice: "Kore" };
-    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { phonemes: "lo", openrouter } } } }, base)).toThrow(/not openrouter/);
-    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { openrouter: { model: openrouter.model } } } } }, base)).toThrow(/voice/);
-    expect(loadWithFixes({ it: { "kokoro:if_sara": { lo: { openrouter } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ openrouter });
-    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|kokoro:if_sara\|gone/);
-    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: {} } } }, base)).toThrow(/empty fix/);
-    expect(() => loadWithFixes({ it: { "kokoro:if_sara": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { phonemes: "lo", openrouter } } } }, base)).toThrow(/not openrouter/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { openrouter: { model: openrouter.model } } } } }, base)).toThrow(/voice/);
+    expect(loadWithFixes({ it: { "openai:marin": { lo: { openrouter } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ openrouter });
+    expect(() => loadWithFixes({ it: { "openai:marin": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|openai:marin\|gone/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: {} } } }, base)).toThrow(/empty fix/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
   });
 
   it("rejects a word without a lexicon entry, an unused entry, and a lesson not ending in a sentence", () => {

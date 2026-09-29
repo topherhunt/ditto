@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?} (openrouter: {engine, model, voice, style?}), language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?} (openrouter: {engine, model, voice, style?}; openai: model is the voice), language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -86,6 +86,42 @@ elif voice["engine"] == "openrouter":
         if not kind.startswith("audio/pcm") or not rate or "channels=1" not in kind:
             sys.exit(f"expected mono PCM with a rate from OpenRouter, got {kind}")
         return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, int(rate.group(1))
+elif voice["engine"] == "openai":
+    # gpt-4o-mini-tts. Naming the language stops it guessing one from a bare word; it has no reliable pace control
+    # (docs/plan.md, Audio). It occasionally returns silence or stalls past the timeout, and parallel workers can hit
+    # the rate limit, so all three retry.
+    import os
+    import time
+    import urllib.error
+    import urllib.request
+
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise SystemExit("OPENAI_API_KEY is not set (put it in .env)")
+    name = {"it": "Italian", "en": "American English", "nl": "Dutch", "ga": "Irish Gaelic"}[language]
+
+    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
+        kind = "word" if len(text.split()) == 1 else "sentence" if text.rstrip()[-1] in ".!?" else "phrase"
+        instructions = f"Say this {name} {kind} in {name} with a native {name} accent, at a normal conversational pace, the way a native speaker says it to a friend"
+        body = {"model": "gpt-4o-mini-tts", "input": text, "voice": voice["model"], "response_format": "pcm", "instructions": instructions}
+        req = urllib.request.Request("https://api.openai.com/v1/audio/speech", data=json.dumps(body).encode(),
+                                     headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+        for attempt in range(5):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as res:
+                    samples = np.frombuffer(res.read(), dtype="<i2").astype(np.float32) / 32768  # pcm is 24 kHz 16-bit mono
+            except urllib.error.HTTPError as e:
+                if e.code in (429, 500, 502, 503) and attempt < 4:
+                    time.sleep(2 ** attempt)
+                    continue
+                sys.exit(f"OpenAI {e.code} for {text!r}: {e.read().decode()}")
+            except (TimeoutError, urllib.error.URLError) as e:
+                if attempt < 4:
+                    continue
+                sys.exit(f"OpenAI unreachable for {text!r}: {e}")
+            if samples.size and np.max(np.abs(samples)) > SILENCE:
+                return samples, 24000
+        sys.exit(f"OpenAI rendered silence 5 times for {text!r}")
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 

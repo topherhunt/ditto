@@ -4,6 +4,7 @@ import { pickVoice, type ServedUnit, type ServedWord } from "../../../shared/con
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
+import { celebrate } from "../celebrate.ts";
 import { categoryName, t } from "../i18n/index.ts";
 import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
 import { playResult } from "../sounds.ts";
@@ -118,6 +119,7 @@ export function Exercise(props: {
     submissions.push(free() ? freeText().trim() : slots().join(" "));
     const r = grade(answer, unit);
     playResult(r.passed);
+    celebrate(r.passed);
     if (r.against === unit.text) for (const w of r.words) if (w.kind === "accent") accentWords.set(w.wordIndex, w.accentPositions);
     if (r.passed) {
       if (r.against === unit.text) {
@@ -163,6 +165,7 @@ export function Exercise(props: {
 
   function reveal() {
     playResult(false);
+    celebrate(false);
     setRevealed(true);
     finish(accentWords.size);
   }
@@ -183,7 +186,10 @@ export function Exercise(props: {
     if (meaningPick() !== null) return;
     setMeaningPick(option);
     // A right pick stays quiet: the dictation already played its sound.
-    if (option !== unit.translation) playResult(false);
+    if (option !== unit.translation) {
+      playResult(false);
+      celebrate(false);
+    }
     record(option === unit.translation);
   }
 

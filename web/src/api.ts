@@ -1,3 +1,5 @@
+import { noteSpend } from "./spend.ts";
+
 export class ApiError extends Error {
   status: number;
   constructor(status: number, message: string) {
@@ -12,6 +14,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     headers: body === undefined ? {} : { "content-type": "application/json" },
     body: body === undefined ? undefined : JSON.stringify(body),
   });
+  noteSpend(res.headers);
   const data = res.headers.get("content-type")?.includes("json") ? await res.json() : null;
   if (!res.ok) throw new ApiError(res.status, data?.error ?? `${method} ${path} failed with ${res.status}`);
   return data as T;
@@ -23,6 +26,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
  */
 async function postStream<T, E>(path: string, body: unknown, onEvent: (e: E) => void): Promise<T> {
   const res = await fetch(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  noteSpend(res.headers);
   if (!res.ok) {
     const data = res.headers.get("content-type")?.includes("json") ? await res.json() : null;
     throw new ApiError(res.status, data?.error ?? `POST ${path} failed with ${res.status}`);

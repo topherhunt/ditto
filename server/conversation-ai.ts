@@ -81,9 +81,10 @@ const fill = (t: string, s: Setting) =>
   t.replaceAll("{language}", LANGUAGE_NAMES[s.language]).replaceAll("{locale}", LOCALE_NAMES[s.locale]).replaceAll("{level}", s.level);
 const transcript = (history: Line[]) => history.map((l) => `${l.role === "partner" ? "Partner" : "Learner"}: ${l.text}`).join("\n");
 
-export function openAIConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "gpt-transcribe"): ConversationAI {
-  // Node 26's built-in fetch reuses destroyed HTTP/2 sessions to api.openai.com (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
-  const client = new OpenAI({ apiKey, fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
+/** OpenAI models through OpenRouter's OpenAI-compatible API. */
+export function openRouterConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "openai/gpt-transcribe"): ConversationAI {
+  // Node 26's built-in fetch can reuse destroyed HTTP/2 sessions (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
+  const client = new OpenAI({ apiKey, baseURL: "https://openrouter.ai/api/v1", fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
   // Priced before the first call, so a model missing from the price table fails at startup.
   tokenUsage(model, 0, 0);
   minuteUsage(transcribeModel, 0);
@@ -99,10 +100,12 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
 
   return {
     async transcribe(file, language) {
-      // gpt-transcribe ignores the singular `language`; `languages` steers it toward the conversation's language.
-      const res = await client.audio.transcriptions.create({ model: transcribeModel, languages: [language], file: await toFile(readFileSync(file), basename(file)) });
-      if (res.usage?.type !== "duration") throw new Error(`${transcribeModel} returned no duration usage`);
-      return { result: res.text, usage: minuteUsage(transcribeModel, res.usage.seconds) };
+      // OpenRouter steers gpt-transcribe with the singular `language` and silently ignores OpenAI's `languages`.
+      const res = await client.audio.transcriptions.create({ model: transcribeModel, language, file: await toFile(readFileSync(file), basename(file)) });
+      // OpenRouter reports usage as { seconds, cost }, not OpenAI's typed duration usage.
+      const seconds = (res.usage as { seconds?: unknown } | undefined)?.seconds;
+      if (typeof seconds !== "number") throw new Error(`${transcribeModel} returned no usage seconds`);
+      return { result: res.text, usage: minuteUsage(transcribeModel, seconds) };
     },
     async partner(setting, history) {
       const input = history.length ? `Conversation so far:\n${transcript(history)}` : "Open the conversation.";

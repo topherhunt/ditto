@@ -1,27 +1,4 @@
 {
-  "it": {
-    "piper:it_IT-paola-medium": {
-      "con la carta": { "say": "con la carrta" },
-      "io": { "say": "iio." },
-      "sono spagnola": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Kore" } },
-      "Ciao Marta, di dove sei?": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Aoede" } },
-      "Ciao mamma, ciao papà!": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Aoede" } }
-    },
-    "kokoro:if_sara": {
-      "sì": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Kore" } },
-      "ecco": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Kore" } },
-      "posso pagare": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Kore" } },
-      "città": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Kore" } },
-      "Un caffè e un cornetto sono tre euro.": { "phonemes": "ʊn kaffˈɛ e ʊn kornˈetːo sˌono trˈɛ ˈɛʊro." }
-    },
-    "kokoro:im_nicola": {
-      "no": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Charon" } },
-      "Un cappuccino, grazie.": { "phonemes": "ʊn kapːutʃˈino, ɡrˈatsje." },
-      "un euro": { "say": "Un euro." },
-      "conto": { "say": "Conto." },
-      "nome": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Orus", "style": "Say this Italian word in Italian, with a native Italian accent" } }
-    }
-  },
   "en": {
     "piper:en_US-ryan-medium": {
       "coffee": { "openrouter": { "model": "google/gemini-3.8-flash-tts", "voice": "Charon" } }

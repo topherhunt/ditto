@@ -16,7 +16,7 @@ async function speak(overrides: Partial<AppDeps> = {}) {
   /** Each line's text and pace. */
   const paces: [string, number][] = [];
   const say = speech.say;
-  speech.say = (text, voice, pace, out) => { voices.push(voiceId(voice)); paces.push([text, pace]); return say(text, voice, pace, out); };
+  speech.say = (text, language, voice, pace, out) => { voices.push(voiceId(voice)); paces.push([text, pace]); return say(text, language, voice, pace, out); };
   const conversation = { ai: fakeAI(), speech, audioDir: mkdtempSync(join(tmpdir(), "lp-speak-")) };
   const t = setup({ conversation, ...overrides });
   await t.login();

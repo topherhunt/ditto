@@ -13,7 +13,7 @@ if (!existsSync(python)) throw new Error(`TTS venv not found at ${python}; see d
 const engineOf = (j: AudioJob) =>
   j.fix?.openrouter ? { engine: "openrouter", ...j.fix.openrouter } : { engine: j.voice.engine, model: j.voice.model, speaker: j.voice.speaker };
 
-/** Renders jobs into audioDir, one Python process per voice in parallel; remote services (ABAIR, OpenRouter) one group at a time. */
+/** Renders jobs into audioDir, one Python process per voice in parallel; ABAIR and OpenRouter one group at a time. */
 export async function renderJobs(jobs: AudioJob[], audioDir: string) {
   const byVoice = new Map<string, AudioJob[]>();
   for (const j of jobs) {
@@ -33,7 +33,9 @@ export async function renderJobs(jobs: AudioJob[], audioDir: string) {
       proc.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${voiceId(group[0].voice)} renderer exited with ${code}`))));
       proc.stdin.end(group.map((j) => JSON.stringify({ text: j.fix?.say ?? j.text, phonemes: j.fix?.phonemes, cut: j.fix?.cut, out: join(audioDir, j.file) })).join("\n") + "\n");
     });
-  const groups = [...byVoice.values()];
+  // OpenAI's rate limit allows several requests at once, so each OpenAI voice splits across workers.
+  const groups = [...byVoice.values()].flatMap((g) =>
+    engineOf(g[0]).engine === "openai" ? Array.from({ length: 4 }, (_, i) => g.filter((_, k) => k % 4 === i)).filter((c) => c.length) : [g]);
   const remote = groups.filter((g) => ["abair", "openrouter"].includes(engineOf(g[0]).engine));
   await Promise.all([
     ...groups.filter((g) => !remote.includes(g)).map(render),

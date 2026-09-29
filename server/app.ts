@@ -4,6 +4,7 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
+  SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
   type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
 import { LANGUAGES, LOCALES, PATHS, STAGES, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
@@ -16,13 +17,14 @@ import {
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { registerConversation, type ConversationDeps } from "./conversation.ts";
 import { transaction, type DB } from "./db.ts";
-import type { Explainer } from "./explain.ts";
+import { EXPLAIN_MODEL, type Explainer } from "./explain.ts";
 import { levelTestUnits } from "./level-test.ts";
 import { registerPoc } from "./poc.ts";
 import { registerQuiz } from "./quiz.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
+import { recordUsage, spentToday } from "./usage.ts";
 
 export type AppDeps = {
   db: DB;
@@ -36,15 +38,12 @@ export type AppDeps = {
   adminEmails: Set<string>;
   devLogin: boolean;
   explainer: Explainer | null;
-  /** Model whose cached explanations are shown, even when the explainer is disabled. */
-  explainModel: string;
-  explainDailyLimit: number;
   secureCookies: boolean;
   /** Where the pronunciation proof-of-concept recorder saves takes; null (always in production) disables it. */
   pocDir: string | null;
   /** Conversation mode's AI, local speech and audio dir; null refuses its paid calls. */
   conversation: ConversationDeps | null;
-  /** USD per user per UTC day, across conversation mode's paid calls. */
+  /** USD per user per UTC day, across every paid call; reaching it blocks the exercises until midnight UTC. */
   dailySpendCap: number;
 };
 
@@ -134,13 +133,30 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
+  // Every signed-in response, errors included, carries the learner's spend so the client can show it and the cap screen.
+  // A streamed response's headers go out before its paid calls finish, so they show the spend as it stood at the start.
   app.use("/api/*", async (c, next) => {
     const token = getCookie(c, SESSION_COOKIE);
     const user = token ? sessionUser(db, token, deps.now()) : null;
     if (!user) throw new HTTPException(401, { message: "Not signed in" });
     c.set("user", user);
     await next();
+    c.header(SPEND_TODAY_HEADER, spentToday(db, user.id, deps.now()).toFixed(6));
+    c.header(SPEND_CAP_HEADER, deps.dailySpendCap.toFixed(2));
   });
+
+  // Every route that spends on AI or records practice. Checked before a request starts, so one in progress may overshoot the cap slightly.
+  const gated = (c: Context, next: () => Promise<void>) => {
+    if (spentToday(db, c.get("user").id, deps.now()) >= deps.dailySpendCap)
+      throw new HTTPException(429, { message: `Daily AI budget ($${deps.dailySpendCap.toFixed(2)}) reached; it resets at midnight UTC` });
+    return next();
+  };
+  app.on("POST", [
+    "/api/attempts", "/api/level-test/pass", "/api/explain",
+    "/api/conversations", "/api/conversations/:id/attempts", "/api/conversations/:id/move-on", "/api/conversations/:id/partner", "/api/conversations/:id/how",
+    "/api/quiz/decks/:id/sessions", "/api/quiz/sessions/:id/answers", "/api/quiz/test/pass",
+  ], gated);
+  app.on("GET", ["/api/conversations/:id/say", "/api/quiz/decks/:id/say"], gated);
 
   const prefsOf = (user: User): Record<Language, Prefs> => {
     const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
@@ -340,7 +356,7 @@ export function createApp(deps: AppDeps) {
   const cachedExplanation = (unit: ServedUnit, answer: string, locale: Locale): ExplanationOut | null => {
     const row = db.prepare(
       "SELECT categories, summary, details FROM explanations WHERE unit_id = ? AND unit_rev = ? AND answer_key = ? AND model = ? AND locale = ?",
-    ).get(unit.id, unit.rev, answerKey(answer), deps.explainModel, locale) as { categories: string; summary: string; details: string } | undefined;
+    ).get(unit.id, unit.rev, answerKey(answer), EXPLAIN_MODEL, locale) as { categories: string; summary: string; details: string } | undefined;
     return row ? { categories: JSON.parse(row.categories), summary: row.summary, details: row.details } : null;
   };
 
@@ -379,21 +395,17 @@ export function createApp(deps: AppDeps) {
 
     const cached = cachedExplanation(unit, answer, locale);
     if (cached) return c.json({ ...cached, cached: true });
-    if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENAI_API_KEY)" });
-
-    const day = deps.now().toISOString().slice(0, 10);
-    const used = (db.prepare("SELECT count FROM explain_usage WHERE user_id = ? AND day = ?").get(userId, day) as { count: number } | undefined)?.count ?? 0;
-    if (used >= deps.explainDailyLimit) throw new HTTPException(429, { message: `Daily explanation limit (${deps.explainDailyLimit}) reached` });
+    if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENROUTER_API_KEY)" });
 
     // The explainer sees the unit and grammar focus in the learner's support language, and writes in their UI language.
     const lesson = content.locales[locale].courses.find((x) => x.id === unit.courseId)!.lessons.find((l) => l.id === unit.lessonId)!;
-    const ex = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result, locale });
+    const { result: ex, usage } = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result, locale });
     transaction(db, () => {
+      recordUsage(db, userId, null, "explain", usage, deps.now());
       db.prepare(
         `INSERT INTO explanations (unit_id, unit_rev, answer_key, model, locale, categories, summary, details, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`,
-      ).run(unit.id, unit.rev, answerKey(answer), deps.explainer!.model, locale, JSON.stringify(ex.categories), ex.summary, ex.details, deps.now().toISOString());
-      db.prepare("INSERT INTO explain_usage (user_id, day, count) VALUES (?, ?, 1) ON CONFLICT DO UPDATE SET count = count + 1").run(userId, day);
+      ).run(unit.id, unit.rev, answerKey(answer), EXPLAIN_MODEL, locale, JSON.stringify(ex.categories), ex.summary, ex.details, deps.now().toISOString());
     });
     return c.json({ ...ex, cached: false });
   });

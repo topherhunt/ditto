@@ -1,9 +1,10 @@
 """Speech for conversation mode (server/speech.ts), one long-lived process.
 
 Usage: speech-worker.py <tools_dir>. stdin: JSON lines {id, op, ...}; stdout: one line {id, ...} or {id, error} each.
-- say {text, voice, pace, out}: renders the text to a 16-bit WAV at `out` -> {seconds}. `pace` stretches the voice's own speed: 1 is as is, 1.3 is 30% slower.
-`voice` is {engine, model, speaker?}: "piper" renders here with a file in <tools>/piper-voices; "kokoro" is a Kokoro voice rendered by OpenRouter (OPENROUTER_API_KEY).
-Kokoro says questions like statements, so a Kokoro line ending in "?" gets its last RISE_SECONDS bent up RISE_SEMITONES (Praat PSOLA).
+- say {text, language, voice, pace, out}: renders the text to a 16-bit WAV at `out` -> {seconds}. `pace` stretches the voice's own speed: 1 is as is, 1.3 is 30% slower.
+- `language` names the language for gpt-4o-mini-tts, which otherwise guesses it from the text and can read a short one with the wrong accent.
+`voice` is {engine, model, speaker?}: "piper" renders here with a file in <tools>/piper-voices; "kokoro" is a Kokoro voice rendered by OpenRouter
+(OPENROUTER_API_KEY); "openai" is a gpt-4o-mini-tts voice rendered by OpenAI (OPENAI_API_KEY), which ignores `speed`, so it is asked for the pace.
 """
 import json
 import os
@@ -14,13 +15,11 @@ import urllib.request
 import wave
 
 import numpy as np
-import parselmouth
-from parselmouth.praat import call
 
 tools = sys.argv[1]
 piper_voices = {}
 KOKORO_MODEL = "hexgrad/kokoro-82m"  # the same as KOKORO_MODEL in server/speech.ts, which records its cost
-RISE_SEMITONES, RISE_SECONDS = 4, 0.4
+LANGUAGE_NAMES = {"it": "Italian", "en": "English", "nl": "Dutch"}
 
 
 def piper(text, voice, pace):
@@ -44,34 +43,32 @@ def kokoro(text, voice, pace):
     rate = re.search(r"rate=(\d+)", kind)
     if not kind.startswith("audio/pcm") or not rate or "channels=1" not in kind:
         raise RuntimeError(f"expected mono PCM from OpenRouter, got {kind}")
-    audio, rate = np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, int(rate.group(1))
-    return (rise(audio, rate) if re.search(r"\?\W*$", text) else audio), rate
+    return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, int(rate.group(1))
 
 
-def rise(audio, rate):
-    """Replaces the pitch over the last RISE_SECONDS of voicing with a glide up from where it was, steepening toward the end."""
-    sound = parselmouth.Sound(audio.astype(np.float64), sampling_frequency=rate)
-    manip = call(sound, "To Manipulation", 0.01, 75, 500)
-    tier = call(manip, "Extract pitch tier")
-    points = [(call(tier, "Get time from index", i), call(tier, "Get value at index", i)) for i in range(1, call(tier, "Get number of points") + 1)]
-    if not points:  # nothing voiced, nothing to bend
-        return audio
-    end = points[-1][0]
-    start = max(end - RISE_SECONDS, points[0][0])
-    base = call(tier, "Get value at time", start)
-    new = call("Create PitchTier", "rise", sound.xmin, sound.xmax)
-    for t, f in points:
-        if t < start:
-            call(new, "Add point", t, f)
-    for t in np.arange(start, end + 0.005, 0.01):
-        call(new, "Add point", t, base * 2 ** (RISE_SEMITONES / 12 * ((t - start) / (end - start or 1)) ** 1.5))
-    call([new, manip], "Replace pitch tier")
-    return call(manip, "Get resynthesis (overlap-add)").values[0].astype(np.float32)
+def openai(text, voice, pace, language):
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY is not set")
+    name = LANGUAGE_NAMES[language]
+    speed = "slowly and very clearly, for a beginner" if pace >= 1.2 else "a little slowly and clearly, for a learner" if pace > 1 else "at a natural pace"
+    body = {"model": "gpt-4o-mini-tts", "input": text, "voice": voice["model"], "response_format": "pcm",
+            "instructions": f"Read this {name} text aloud in {name} with a native {name} accent, {speed}."}
+    req = urllib.request.Request("https://api.openai.com/v1/audio/speech", data=json.dumps(body).encode(),
+                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as res:
+            pcm = res.read()
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"OpenAI {e.code}: {e.read().decode()}") from None
+    return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, 24000  # pcm is 24 kHz 16-bit mono
 
 
-def synth(text, voice, pace, out):
-    engines = {"piper": piper, "kokoro": kokoro}
-    audio, rate = engines[voice["engine"]](text, voice, pace)
+def synth(text, language, voice, pace, out):
+    if voice["engine"] == "openai":
+        audio, rate = openai(text, voice, pace, language)
+    else:
+        audio, rate = {"piper": piper, "kokoro": kokoro}[voice["engine"]](text, voice, pace)
     with wave.open(out, "wb") as w:
         w.setnchannels(1)
         w.setsampwidth(2)
@@ -82,7 +79,7 @@ def synth(text, voice, pace, out):
 
 def handle(req):
     if req["op"] == "say":
-        return {"seconds": synth(req["text"], req["voice"], req["pace"], req["out"])}
+        return {"seconds": synth(req["text"], req["language"], req["voice"], req["pace"], req["out"])}
     raise ValueError(f"unknown op {req['op']}")
 
 

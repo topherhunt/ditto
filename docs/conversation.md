@@ -4,7 +4,7 @@ Called "Talk" in the interface. A speaking track separate from dictation: a spok
 
 ## Turn loop
 
-1. The partner speaks a line (TTS in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`: Kokoro on OpenRouter for Italian and English, ~$0.62 per 1M characters and recorded as "speech" spend; local Piper for Dutch, which Kokoro lacks); it plays by itself and its transcript shows. Lower levels hear it slower (A1 1.3, A2 1.2, B1 1.1 times as long; `PACE` in `server/conversation.ts`). Kokoro ignores "?" and says every question like a statement, so the worker bends the last 0.4 s of a Kokoro line ending in "?" up 4 semitones (Praat PSOLA); wh- and either/or questions rise too, and Piper's Dutch lines are left as they are.
+1. The partner speaks a line (TTS in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`: Kokoro on OpenRouter for Italian and English, ~$0.62 per 1M characters and recorded as "speech" spend; local Piper for Dutch, which Kokoro lacks); it plays by itself and its transcript shows. Lower levels hear it slower (A1 1.3, A2 1.2, B1 1.1 times as long; `PACE` in `server/conversation.ts`). Kokoro ignores "?" and says every question like a statement.
 2. Suggested replies: three plausible replies, each steering the conversation a different way, each a polite full sentence of about 6 to 12 words even at A1. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
 4. The coach judges it (below). A pass plays the success sound. A failure plays a marimba warning and pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:".
@@ -18,11 +18,11 @@ The call that writes the partner's line and the suggestions also returns their t
 
 ## Coach
 
-The conversation trains fluency and vocabulary, not pronunciation (a separate pronunciation practice is on the [roadmap](roadmap.md#pronunciation)). OpenAI `gpt-transcribe`, steered to the conversation's language (`languages`; it has no Irish), writes down what was said and reports the audio length it bills, and a text model (`CONVERSATION_MODEL`, default `gpt-6-luna`, reasoning effort `CONVERSATION_EFFORT`, default `low`) judges the transcript's grammar. It returns the sentence it thinks was meant (corrected), the fixes, a CEFR grade, and whether the reply is substantially one of the suggestions shown (`fromSuggestion`). A reply passes when the transcript already is that sentence; on a retry, the target. The learner's formal or informal address is theirs to choose and is never corrected or remarked on. The model's floor is ~0.7 s to first token; the rest of a coach call is output tokens.
+The conversation trains fluency and vocabulary, not pronunciation (a separate pronunciation practice is on the [roadmap](roadmap.md#pronunciation)). OpenAI `gpt-transcribe` on OpenRouter, steered to the conversation's language (`language`; it has no Irish), writes down what was said and reports the audio length it bills, and a text model (`CONVERSATION_MODEL`, default `openai/gpt-6-luna` on OpenRouter, reasoning effort `CONVERSATION_EFFORT`, default `low`) judges the transcript's grammar. It returns the sentence it thinks was meant (corrected), the fixes, a CEFR grade, and whether the reply is substantially one of the suggestions shown (`fromSuggestion`). A reply passes when the transcript already is that sentence; on a retry, the target. The learner's formal or informal address is theirs to choose and is never corrected or remarked on. The model's floor is ~0.7 s to first token; the rest of a coach call is output tokens.
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that renders Piper voices itself, fetches Kokoro lines from OpenRouter (`OPENROUTER_API_KEY`, inherited from the server) and bends Kokoro questions up with Praat. It starts on first use (about 1 s) and keeps each Piper voice used (60-120 MB; ~300 MB in all with one), so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `piper-tts` and `praat-parselmouth` and the Piper voices in `tools/piper-voices`; production installs these with `devops/provision.sh`, whose `MemoryMax` must fit Node plus the worker.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that renders Piper voices itself, fetches Kokoro lines from OpenRouter (`OPENROUTER_API_KEY`, inherited from the server) and quiz mode's gpt-4o-mini-tts lines from OpenAI (`OPENAI_API_KEY`). It starts on first use (about 1 s) and keeps each Piper voice used (60-120 MB; ~300 MB in all with one), so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `piper-tts` and the Piper voices in `tools/piper-voices`; production installs these with `devops/provision.sh`, whose `MemoryMax` must fit Node plus the worker.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.
@@ -36,16 +36,16 @@ The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is o
 
 ## Spend
 
-- Every conversation call writes model, tokens or audio seconds, and computed cost to `api_usage` (`server/usage.ts`), tagged with user, conversation and purpose. Prices live in code; an unknown model throws.
-- A per-user daily cap (`DAILY_SPEND_CAP`, default $5), resetting at midnight UTC, checked before each paid request starts, so a request in progress may overshoot slightly.
-- An admin table of spend per user per day, and an in-session cost meter for the learner.
+- Every paid call in the app (conversation, the "Why?" explainer, quiz audio) writes model, tokens or audio seconds, and computed cost to `api_usage` (`server/usage.ts`), tagged with user, purpose and, for conversation calls, the conversation. Prices live in code; an unknown model throws.
+- A per-user daily cap (`DAILY_SPEND_CAP`, default $1), resetting at midnight UTC. One middleware in `server/app.ts` checks it before every paid or practice-recording route starts, so a request in progress may overshoot slightly; past it those routes return 429 and the web app shows a congratulations screen on exercise pages.
+- Every signed-in API response carries the learner's spend and cap (`X-Spend-Today`, `X-Spend-Cap`), shown in the footer. Admins see spend per user per day on `/admin/speaking`; conversations also show their own cost.
 
 ## Running it
 
-Conversation mode is on when `OPENAI_API_KEY` is set and `SPEECH_PYTHON` (default `.venv/bin/python`) exists; the server logs why when it is off. Recordings and partner audio go to `SPEAK_AUDIO_DIR` (default `data/speak-audio`). `FAKE_CONVERSATION=1` swaps in scripted fakes (`server/conversation-fake.ts`) for E2E; it is refused in production.
+Conversation mode is on when `OPENROUTER_API_KEY` is set and `SPEECH_PYTHON` (default `.venv/bin/python`) exists; the server logs why when it is off. Recordings and partner audio go to `SPEAK_AUDIO_DIR` (default `data/speak-audio`). `FAKE_CONVERSATION=1` swaps in scripted fakes (`server/conversation-fake.ts`) for E2E; it is refused in production.
 
 ## Not built
 
-- The explainer's calls don't go through `api_usage`, and nothing reconciles it against OpenAI's Costs API.
+- The explainer's calls don't go through `api_usage`, and nothing reconciles it against OpenRouter's reported costs.
 - Speaking the "How do I say...?" question instead of typing it.
 - Reloading mid-retry loses the retry screen: failed attempts are stored but not replayed into the page.

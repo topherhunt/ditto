@@ -3,6 +3,7 @@ import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import { LANGUAGE_NAMES, LOCALE_NAMES, type Locale, type ServedUnit } from "../shared/content.ts";
 import type { GradeResult } from "../shared/grader.ts";
+import { tokenUsage, type Usage } from "./usage.ts";
 
 export const EXPLAIN_CATEGORIES = [
   "spelling", "mishearing", "homophone", "agreement", "conjugation", "article", "preposition",
@@ -20,8 +21,7 @@ export type Explanation = z.infer<typeof ExplanationSchema>;
 export type ExplainInput = { unit: ServedUnit; grammarFocus: string[]; answer: string; grade: GradeResult; locale: Locale };
 
 export interface Explainer {
-  model: string;
-  explain(input: ExplainInput): Promise<Explanation>;
+  explain(input: ExplainInput): Promise<{ result: Explanation; usage: Usage }>;
 }
 
 const INSTRUCTIONS = `You are a concise language tutor. A learner heard a recorded ${"{language}"} sentence and typed what they heard (a dictation exercise). Explain why their answer is wrong.
@@ -56,10 +56,15 @@ export function buildPrompt({ unit, grammarFocus, answer, grade, locale }: Expla
   return { instructions: INSTRUCTIONS.replace("{language}", LANGUAGE_NAMES[unit.language]).replace("{locale}", LOCALE_NAMES[locale]), input };
 }
 
-export function openAIExplainer(apiKey: string, model: string): Explainer {
-  const client = new OpenAI({ apiKey });
+/** On OpenRouter. Cached explanations are keyed by it, so changing it drops the cache. */
+export const EXPLAIN_MODEL = "openai/gpt-6-luna";
+
+/** An OpenAI model through OpenRouter's OpenAI-compatible API. */
+export function openRouterExplainer(apiKey: string): Explainer {
+  const client = new OpenAI({ apiKey, baseURL: "https://openrouter.ai/api/v1" });
+  const model = EXPLAIN_MODEL;
+  tokenUsage(model, 0, 0);
   return {
-    model,
     async explain(input) {
       const { instructions, input: text } = buildPrompt(input);
       const res = await client.responses.parse({
@@ -70,7 +75,8 @@ export function openAIExplainer(apiKey: string, model: string): Explainer {
         text: { format: zodTextFormat(ExplanationSchema, "explanation") },
       });
       if (!res.output_parsed) throw new Error(`Explainer returned no parsed output (status ${res.status})`);
-      return res.output_parsed;
+      if (!res.usage) throw new Error(`${model} returned no usage for the explanation`);
+      return { result: res.output_parsed, usage: tokenUsage(model, res.usage.input_tokens, res.usage.output_tokens) };
     },
   };
 }

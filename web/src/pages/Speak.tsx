@@ -2,14 +2,13 @@ import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
 import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { usd } from "../spend.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
 
 type Level = (typeof LEARNER_LEVELS)[number];
 const LEVEL_KEY = "speakLevel";
-
-export const usd = (n: number) => `$${n.toFixed(n < 1 ? 3 : 2)}`;
 
 function savedLevel(): Level {
   try {

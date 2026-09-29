@@ -4,16 +4,21 @@ import { createSignal } from "solid-js";
 const player = new Audio();
 /** The url playing, so its play button can turn into a stop button. */
 export const [playing, setPlaying] = createSignal<string | null>(null);
+/** True from `play` until sound starts: a quiz clip can take a second or two to render on first play. */
+export const [loading, setLoading] = createSignal(false);
 // A pause queued by switching to another url fires once the new one is already playing; `paused` tells them apart.
-for (const e of ["pause", "ended"]) player.addEventListener(e, () => { if (player.paused) setPlaying(null); });
-player.addEventListener("error", () => setPlaying(null));
+for (const e of ["pause", "ended"]) player.addEventListener(e, () => { if (player.paused) { setPlaying(null); setLoading(false); } });
+player.addEventListener("error", () => { setPlaying(null); setLoading(false); });
+player.addEventListener("playing", () => setLoading(false));
 const SILENCE = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=";
 
 export const play = (url: string) => {
   player.src = url;
   setPlaying(url);
+  setLoading(true);
   return player.play().catch((e: unknown) => {
     setPlaying(null);
+    setLoading(false);
     throw e;
   });
 };

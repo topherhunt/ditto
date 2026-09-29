@@ -7,9 +7,10 @@ import { HTTPException } from "hono/http-exception";
 import { Rating, State, type Card, type Grade } from "ts-fsrs";
 import { z } from "zod";
 import {
-  MASTERY_STATES, QUIZ_LEVELS, QUIZ_RATINGS, QUIZ_SAY_FIELDS, QuizAnswerSchema, StartQuizSchema,
-  type Mastery, type MasteryState, type QuizCardOut, type QuizDeckDetailOut, type QuizDeckOut, type QuizHomeOut, type QuizKind, type QuizLevel,
-  type QuizMode, type QuizQuestionOut, type QuizRating, type QuizSessionOut, type QuizSessionStartOut, type QuizSessionSummary,
+  MASTERY_STATES, QUIZ_GRADUATE_SHARE, QUIZ_LEVELS, QUIZ_RATINGS, QUIZ_SAY_FIELDS, QUIZ_TEST_SIZE, QuizAnswerSchema, QuizTestPassSchema, StartQuizSchema,
+  type Mastery, type MasteryState, type QuizAnswerOut, type QuizCardOut, type QuizDeckDetailOut, type QuizDeckOut, type QuizHomeOut, type QuizKind,
+  type QuizLevel, type QuizLevelOut, type QuizMode, type QuizQuestionOut, type QuizRating, type QuizSessionOut, type QuizSessionStartOut,
+  type QuizSessionSummary, type QuizTestOut,
 } from "../shared/api.ts";
 import { LANGUAGES, type Language } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
@@ -17,9 +18,9 @@ import type { User } from "./auth.ts";
 import { voiceId } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { QuizDeck } from "./quiz-content.ts";
-import { partnerVoice } from "./speech.ts";
+import { quizVoice } from "./speech.ts";
 import { scheduleGrade } from "./srs.ts";
-import { recordUsage, spentToday } from "./usage.ts";
+import { recordUsage } from "./usage.ts";
 
 const QUEUE_SIZE = 20;
 const GRADE: Record<QuizRating, Grade> = { again: Rating.Again, hard: Rating.Hard, good: Rating.Good, easy: Rating.Easy };
@@ -108,6 +109,35 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     }
     return { id: d.id, level: d.level, kind: d.kind, num: d.num, total: ids.length, due, fresh: mastery.new, mastery };
   };
+  /** The language's levels that have decks, in order, with the learner's progress and passes. */
+  const levelsOf = (userId: number, language: Language): QuizLevelOut[] => {
+    const counts = new Map((db.prepare(
+      `SELECT d.level, count(*) AS total, count(c.question_id) FILTER (WHERE c.state = ?) AS graduated
+       FROM quiz_decks d JOIN quiz_questions q ON q.deck_id = d.id
+       LEFT JOIN quiz_cards c ON c.user_id = ? AND c.deck_id = q.deck_id AND c.question_id = q.id
+       WHERE d.language = ? AND (d.owner_id IS NULL OR d.owner_id = ?) GROUP BY d.level`,
+    ).all(State.Review, userId, language, userId) as { level: QuizLevel; total: number; graduated: number }[]).map((r) => [r.level, r]));
+    const passes = new Map((db.prepare("SELECT level, how FROM quiz_level_passes WHERE user_id = ? AND language = ?")
+      .all(userId, language) as { level: QuizLevel; how: "progress" | "test" }[]).map((r) => [r.level, r.how]));
+    const out: QuizLevelOut[] = [];
+    for (const level of QUIZ_LEVELS) {
+      const r = counts.get(level);
+      if (!r) continue;
+      const passed = passes.get(level) ?? null;
+      out.push({ level, total: r.total, graduated: r.graduated, passed, unlocked: !out.length || passed !== null || out.at(-1)!.passed !== null });
+    }
+    return out;
+  };
+  const levelOr404 = (userId: number, language: Language, level: QuizLevel) => {
+    const levels = levelsOf(userId, language);
+    const i = levels.findIndex((l) => l.level === level);
+    if (i < 0) throw new HTTPException(404, { message: `No ${language} quizzes at ${level}` });
+    return { ...levels[i], next: levels[i + 1]?.level ?? null };
+  };
+  const pass = (userId: number, language: Language, level: QuizLevel, how: "progress" | "test") =>
+    db.prepare("INSERT INTO quiz_level_passes (user_id, language, level, how, passed_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT DO NOTHING")
+      .run(userId, language, level, how, deps.now().toISOString()).changes > 0;
+
   const byLevel = (a: DeckRow, b: DeckRow) =>
     QUIZ_LEVELS.indexOf(a.level) - QUIZ_LEVELS.indexOf(b.level) || a.kind.localeCompare(b.kind) || a.num - b.num;
 
@@ -143,7 +173,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
        FROM quiz_sessions s JOIN quiz_answers a ON a.session_id = s.id JOIN quiz_decks d ON d.id = s.deck_id
        WHERE s.user_id = ? AND d.language = ? GROUP BY s.id ORDER BY s.started_at`,
     ).all(userId, language) as QuizHomeOut["activity"];
-    return c.json<QuizHomeOut>({ decks: decks.map((d) => deckOut(d, questionIds(d.id), cardsOf(userId, d.id))), activity });
+    return c.json<QuizHomeOut>({ decks: decks.map((d) => deckOut(d, questionIds(d.id), cardsOf(userId, d.id))), levels: levelsOf(userId, language), activity });
   });
 
   app.get("/api/quiz/decks/:id", (c) => {
@@ -166,6 +196,8 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     const { mode } = StartQuizSchema.parse(await c.req.json());
     const userId = c.get("user").id;
     const deck = deckOr404(c.req.param("id"), userId);
+    if (!levelOr404(userId, deck.language, deck.level).unlocked)
+      throw new HTTPException(403, { message: `${deck.level} is locked: finish the level before it or test out` });
     const cards = cardsOf(userId, deck.id);
     const all = questionIds(deck.id).map((id) => ({ id, card: cards.get(id) }));
     const isNew = (x: (typeof all)[number]) => !x.card || x.card.state === State.New;
@@ -187,6 +219,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
   });
 
   // A wrong answer is rated again; the learner rates a right one. The client re-asks missed questions within the session.
+  // The answer that graduates QUIZ_GRADUATE_SHARE of its level passes the level.
   app.post("/api/quiz/sessions/:id/answers", async (c) => {
     const a = QuizAnswerSchema.parse(await c.req.json());
     const userId = c.get("user").id;
@@ -212,6 +245,32 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
       for (const id of questionIds(session.deck_id)) mastery[masteryOf(cards.get(id))]++;
       db.prepare("UPDATE quiz_sessions SET mastery = ?, updated_at = ? WHERE id = ?").run(JSON.stringify(mastery), iso, session.id);
     });
+    const deck = deckOr404(session.deck_id, userId);
+    const level = levelOr404(userId, deck.language, deck.level);
+    const passed = level.passed === null && level.graduated >= QUIZ_GRADUATE_SHARE * level.total && pass(userId, deck.language, deck.level, "progress");
+    return c.json<QuizAnswerOut>({ passed: passed ? { level: deck.level, next: level.next } : null });
+  });
+
+  // Any level can be tested, locked or not. Test answers touch no cards: only a pass is recorded.
+  app.get("/api/quiz/test", (c) => {
+    const language = z.enum(LANGUAGES).parse(c.req.query("lang"));
+    const level = z.enum(QUIZ_LEVELS).parse(c.req.query("level"));
+    const userId = c.get("user").id;
+    const { next } = levelOr404(userId, language, level);
+    const rows = db.prepare(
+      `SELECT q.deck_id AS deckId, q.id, q.title, q.question, q.correct, q.wrong, q.explanation
+       FROM quiz_questions q JOIN quiz_decks d ON d.id = q.deck_id
+       WHERE d.language = ? AND d.level = ? AND (d.owner_id IS NULL OR d.owner_id = ?)`,
+    ).all(language, level, userId) as (QuestionRow & { deckId: string })[];
+    const questions = shuffle(rows).slice(0, QUIZ_TEST_SIZE).map((q) => ({ ...q, wrong: JSON.parse(q.wrong) as string[], card: null }));
+    return c.json<QuizTestOut>({ questions, next });
+  });
+
+  app.post("/api/quiz/test/pass", async (c) => {
+    const { language, level } = QuizTestPassSchema.parse(await c.req.json());
+    const userId = c.get("user").id;
+    levelOr404(userId, language, level);
+    pass(userId, language, level, "test");
     return c.json({ ok: true });
   });
 
@@ -226,7 +285,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
   });
 
   // Only a question's own text can be voiced, so this is no free TTS proxy. Renders are shared across learners on disk, since
-  // Kokoro ones cost money; the learner who misses the cache pays, under the daily cap.
+  // they cost money; the learner who misses the cache pays.
   app.get("/api/quiz/decks/:id/say", async (c) => {
     if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (the speech worker)" });
     const { speech, audioDir } = deps.conversation;
@@ -239,17 +298,15 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     const raw = field.startsWith("wrong") ? (JSON.parse(q.wrong) as string[])[Number(field.slice(5))] : q[field as "question" | "correct" | "explanation"];
     // A read-aloud blank: "Io ___ italiano" would otherwise be read as underscores or skipped without a pause.
     const text = raw.replace(/_{2,}/g, "…");
-    const voice = partnerVoice(deck.language);
+    const voice = quizVoice(deck.language);
     const pace = PACE[deck.level];
     const dir = join(audioDir, "quiz");
     const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${pace}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
     if (!existsSync(path)) {
-      if (spentToday(db, userId, deps.now()) >= deps.dailySpendCap)
-        throw new HTTPException(429, { message: `Daily AI budget ($${deps.dailySpendCap.toFixed(2)}) reached; it resets at midnight UTC` });
       mkdirSync(dir, { recursive: true });
       const tmp = `${path}.${randomUUID()}.tmp.wav`;
       try {
-        const { usage } = await speech.say(text, voice, pace, tmp);
+        const { usage } = await speech.say(text, deck.language, voice, pace, tmp);
         if (usage) recordUsage(db, userId, null, "quiz-speech", usage, deps.now());
         renameSync(tmp, path);
       } finally {

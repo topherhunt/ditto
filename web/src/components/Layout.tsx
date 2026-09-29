@@ -5,11 +5,15 @@ import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/
 import { api } from "../api.ts";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { logout, me, refetchMe } from "../session.ts";
+import { capReached, resetTime, spend, usd } from "../spend.ts";
 import { Login } from "./Login.tsx";
 import { Notifications } from "./Notifications.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
 
 const LAST_LANG_KEY = "lastLanguage";
+const FEEDBACK_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeJ4x9h5nMq53v7CyoWiVGS_6EFa4-ncz95TZXaGq9j2UoOJQ/viewform?usp=dialog";
+/** Pages that practice, which the daily spend cap blocks. */
+const EXERCISE_PATH = /^\/[^/]+\/(lesson|test|review|mistakes\/practice|speak|quiz\/test|quiz\/[^/]+\/study)(\/|$)/;
 
 const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
 
@@ -116,12 +120,33 @@ export function Layout(props: RouteSectionProps) {
                   </div>
                 </div>
               </nav>
-              <main class="container py-4" style={{ "max-width": "52rem" }}>{props.children}</main>
+              <main class="container py-4" style={{ "max-width": "52rem" }}>
+                <Show when={capReached() && EXERCISE_PATH.test(location.pathname)} fallback={props.children}><CapReached /></Show>
+              </main>
             </>
           )}
         </Match>
       </Switch>
+      <footer class="container py-3 small text-body-secondary d-flex flex-wrap justify-content-between gap-2" style={{ "max-width": "52rem" }}>
+        <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
+          <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
+        </a>
+        <Show when={me() && spend()}>
+          {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usd(s().today), cap: usd(s().cap) })}</span>}
+        </Show>
+      </footer>
     </ErrorBoundary>
+  );
+}
+
+function CapReached() {
+  return (
+    <div class="qa-cap-reached text-center py-5">
+      <div class="display-5 mb-3" aria-hidden="true">🎉</div>
+      <h1 class="h3">{t("cap.title")}</h1>
+      <p class="text-body-secondary mx-auto" style={{ "max-width": "32rem" }}>{t("cap.body", { cap: usd(spend()!.cap) })}</p>
+      <p class="small text-body-secondary">{t("cap.resets", { time: resetTime() })}</p>
+    </div>
   );
 }
 

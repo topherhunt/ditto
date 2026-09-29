@@ -1,8 +1,8 @@
 import type { DB } from "./db.ts";
 
-/** USD, as of 2026-09: text models per 1M tokens in/out, transcription per audio minute, speech per 1M characters. */
-const TOKEN_PRICES: Record<string, { input: number; output: number }> = { "gpt-6-luna": { input: 0.1, output: 0.5 } };
-const MINUTE_PRICES: Record<string, number> = { "gpt-transcribe": 0.0045 };
+/** USD, as of 2026-09: text models per 1M tokens in/out, transcription and gpt-4o-mini-tts (OpenAI's estimate) per audio minute, other speech per 1M characters. */
+const TOKEN_PRICES: Record<string, { input: number; output: number }> = { "openai/gpt-6-luna": { input: 0.1, output: 0.5 } };
+const MINUTE_PRICES: Record<string, number> = { "openai/gpt-transcribe": 0.0045, "gpt-4o-mini-tts": 0.015 };
 const CHAR_PRICES: Record<string, number> = { "hexgrad/kokoro-82m": 0.62 };
 
 /** One paid call, as the api_usage ledger records it. */

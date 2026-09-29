@@ -18,17 +18,16 @@ APP_DIR="${REMOTE_DIR}/app"
 DATA_DIR="${REMOTE_DIR}/data"
 BACKUP_DIR="${REMOTE_DIR}/backups"
 BACKUP_KEEP="${BACKUP_KEEP:-14}"
-# Secrets (GOOGLE_CLIENT_ID, OPENAI_API_KEY, ...) live only here on the host; push-env.sh writes it.
+# Secrets (GOOGLE_CLIENT_ID, OPENROUTER_API_KEY, ...) live only here on the host; push-env.sh writes it.
 ENV_FILE="/etc/${SERVICE_NAME}.env"
 # Ditto needs Node >= 24 but the shared host's /usr/bin/node serves other tenants, so Ditto gets its own.
 # Deliberately not named NODE_MAJOR: host-setup.sh uses that to change the host-wide Node.
 APP_NODE_MAJOR="${APP_NODE_MAJOR:-24}"
 APP_NODE_DIR="/opt/node${APP_NODE_MAJOR}"
-# Conversation mode's speech worker: a Python venv with Piper and Praat (parselmouth), and the Piper voices in PARTNER_VOICES (server/speech.ts). Kokoro renders on OpenRouter.
+# Conversation mode's speech worker: a Python venv with Piper, and the Piper voices in PARTNER_VOICES (server/speech.ts). Kokoro renders on OpenRouter, quiz voices on OpenAI.
 SPEECH_DIR="${REMOTE_DIR}/speech"
 PIPER_VERSION="${PIPER_VERSION:-1.8.0}"
 PIPER_VOICES="${PIPER_VOICES:-nl_NL-ronnie-medium}"
-PARSELMOUTH_VERSION="${PARSELMOUTH_VERSION:-0.4.7}"
 
 require_host() {
   if [ -z "${DEPLOY_HOST}" ]; then echo "ERROR: DEPLOY_HOST is not set." >&2; exit 1; fi

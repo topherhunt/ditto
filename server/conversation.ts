@@ -55,7 +55,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const { db } = deps;
   if (deps.conversation) mkdirSync(deps.conversation.audioDir, { recursive: true });
   const speak = () => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY and the speech worker)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENROUTER_API_KEY and the speech worker)" });
     return deps.conversation;
   };
   const Id = z.coerce.number().int();
@@ -92,15 +92,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     conversation: conversationId === null ? 0
       : (db.prepare("SELECT coalesce(sum(cost_usd), 0) AS s FROM api_usage WHERE conversation_id = ?").get(conversationId) as { s: number }).s,
   });
-  /** Checked before each paid request starts, so one in progress may overshoot the cap slightly. */
-  const underCapOr429 = (userId: number) => {
-    if (spentToday(db, userId, deps.now()) >= deps.dailySpendCap)
-      throw new HTTPException(429, { message: `Daily AI budget ($${deps.dailySpendCap.toFixed(2)}) reached; it resets at midnight UTC` });
-  };
   const paid = (userId: number, conversationId: number | null, purpose: string, u: Usage) => recordUsage(db, userId, conversationId, purpose, u, deps.now());
   /** Renders `text` in the partner's voice to `path`, recording what it cost. */
   const say = async (conv: ConversationRow, userId: number, text: string, speed: number, path: string) => {
-    const { usage } = await speak().speech.say(text, partnerVoice(conv.language), speed, path);
+    const { usage } = await speak().speech.say(text, conv.language, partnerVoice(conv.language), speed, path);
     if (usage) paid(userId, conv.id, "speech", usage);
   };
 
@@ -190,7 +185,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const body = NewConversationSchema.parse(await c.req.json());
     speak();
     const user = c.get("user");
-    underCapOr429(user.id);
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
@@ -220,7 +214,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const { ai, audioDir } = speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    underCapOr429(userId);
     const turn = awaitingReply(conv.id);
     const file = saveAudio(conv.id, EXT[body.mime], Buffer.from(body.audio, "base64"));
     const path = join(audioDir, file);
@@ -271,7 +264,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    underCapOr429(userId);
     const turn = awaitingReply(conv.id);
     if (failures(turn.id, target) < MOVE_ON_AFTER)
       throw new HTTPException(409, { message: `Moving on needs ${MOVE_ON_AFTER} failed tries at this sentence` });
@@ -289,7 +281,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    underCapOr429(userId);
     if (turnRows(conv.id).at(-1)?.role !== "learner") throw new HTTPException(409, { message: "It's the learner's turn" });
     return c.json<PartnerRetryResult>({ turns: await partnerTurn(conv, userId), spend: spend(userId, conv.id) });
   });
@@ -299,7 +290,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const { ai } = speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    underCapOr429(userId);
     const { result, usage } = await ai.howDoISay(setting(conv), history(conv.id), text);
     paid(userId, conv.id, "how", usage);
     return c.json<HowOut>({ sentence: joinChunks(result), chunks: result, spend: spend(userId, conv.id) });
@@ -320,7 +310,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     const text = z.string().trim().min(1).max(80).parse(c.req.query("text"));
     const { audioDir } = speak();
-    underCapOr429(userId);
     const path = join(audioDir, `say-${randomUUID()}.wav`);
     try {
       await say(conv, userId, text, WORD_PACE, path);

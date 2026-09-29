@@ -6,7 +6,8 @@ import type { Locale } from "../../shared/content.ts";
 import { createApp, type AppDeps } from "../../server/app.ts";
 import { loadContent } from "../../server/content.ts";
 import { openDb } from "../../server/db.ts";
-import type { Explainer, ExplainInput } from "../../server/explain.ts";
+import { EXPLAIN_MODEL, type Explainer, type ExplainInput } from "../../server/explain.ts";
+import { tokenUsage } from "../../server/usage.ts";
 
 const root = join(import.meta.dirname, "../..");
 const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
@@ -15,11 +16,13 @@ const ORIGIN = "http://app.test";
 export function fakeExplainer(): Explainer & { calls: ExplainInput[] } {
   const calls: ExplainInput[] = [];
   return {
-    model: "fake-model",
     calls,
     async explain(input) {
       calls.push(input);
-      return { categories: ["spelling"], summary: `fake summary for ${input.answer}`, details: "fake details" };
+      return {
+        result: { categories: ["spelling"], summary: `fake summary for ${input.answer}`, details: "fake details" },
+        usage: tokenUsage(EXPLAIN_MODEL, 1000, 200),
+      };
     },
   };
 }
@@ -36,8 +39,6 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     adminEmails: new Set(["admin@example.com"]),
     devLogin: true,
     explainer: fakeExplainer(),
-    explainModel: "fake-model",
-    explainDailyLimit: 3,
     secureCookies: false,
     pocDir: null,
     conversation: null,

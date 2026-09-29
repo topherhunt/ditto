@@ -1,7 +1,7 @@
 import { createResource, For, Show } from "solid-js";
 import type { AdminSpeakReport, AdminSpendOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
-import { usd } from "./Speak.tsx";
+import { usd } from "../spend.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 

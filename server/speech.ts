@@ -3,12 +3,12 @@ import type { Readable, Writable } from "node:stream";
 import { createInterface } from "node:readline";
 import type { Language } from "../shared/content.ts";
 import type { Voice } from "./content.ts";
-import { charUsage, type Usage } from "./usage.ts";
+import { charUsage, minuteUsage, type Usage } from "./usage.ts";
 
 /** Speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
   /** `pace` stretches the voice's own speed: 1.3 is 30% slower. `usage` is null for a voice rendered locally, which costs nothing. */
-  say(text: string, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
+  say(text: string, language: Language, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
 /** The partner's one voice per language, chosen by ear for whole sentences: Kokoro (paid, via OpenRouter), or Piper for Dutch, which Kokoro lacks. */
@@ -23,8 +23,21 @@ export const partnerVoice = (language: Language) => {
   return voice;
 };
 
+/** Quiz mode's voice per language: gpt-4o-mini-tts, called on OpenAI directly since OpenRouter lacks it. */
+const QUIZ_VOICES: Partial<Record<Language, Voice>> = {
+  it: { engine: "openai", model: "marin", gender: "F" },
+  nl: { engine: "openai", model: "cedar", gender: "M" },
+  en: { engine: "openai", model: "cedar", gender: "M" },
+};
+export const quizVoice = (language: Language) => {
+  const voice = QUIZ_VOICES[language];
+  if (!voice) throw new Error(`No quiz voice for ${language}`);
+  return voice;
+};
+
 /** The OpenRouter model the worker renders Kokoro voices with. */
 const KOKORO_MODEL = "hexgrad/kokoro-82m";
+const OPENAI_TTS_MODEL = "gpt-4o-mini-tts";
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
 
@@ -35,6 +48,7 @@ type Worker = ChildProcessByStdio<Writable, Readable, null>;
 export function speechWorker(python: string, script: string, toolsDir: string, idleMs: number): Speech {
   // Priced before the first call, so a missing price fails at startup.
   charUsage(KOKORO_MODEL, 0, 0);
+  minuteUsage(OPENAI_TTS_MODEL, 0);
   const pending = new Map<number, { resolve: (v: Record<string, unknown>) => void; reject: (e: Error) => void }>();
   let nextId = 1;
   let child: Worker | null = null;
@@ -82,9 +96,12 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
   };
 
   return {
-    say: async (text, voice, pace, out) => {
-      const { seconds } = await call<{ seconds: number }>({ op: "say", text, voice: { engine: voice.engine, model: voice.model, speaker: voice.speaker }, pace, out });
-      return { seconds, usage: voice.engine === "kokoro" ? charUsage(KOKORO_MODEL, text.length, seconds) : null };
+    say: async (text, language, voice, pace, out) => {
+      const { seconds } = await call<{ seconds: number }>({ op: "say", text, language, voice: { engine: voice.engine, model: voice.model, speaker: voice.speaker }, pace, out });
+      const usage = voice.engine === "kokoro" ? charUsage(KOKORO_MODEL, text.length, seconds)
+        : voice.engine === "openai" ? minuteUsage(OPENAI_TTS_MODEL, seconds)
+        : null;
+      return { seconds, usage };
     },
   };
 }

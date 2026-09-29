@@ -18,6 +18,7 @@ import { Profile } from "./pages/Profile.tsx";
 import { QuizBrowse, QuizDeck, QuizSession, QuizStats } from "./pages/QuizDeck.tsx";
 import { QuizHome } from "./pages/QuizHome.tsx";
 import { QuizStudy } from "./pages/QuizStudy.tsx";
+import { QuizTest } from "./pages/QuizTest.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
@@ -48,6 +49,7 @@ render(
       <Route path="/:lang/speak" component={Speak} />
       <Route path="/:lang/speak/:id" component={Conversation} />
       <Route path="/:lang/quiz" component={QuizHome} />
+      <Route path="/:lang/quiz/test/:level" component={QuizTest} />
       <Route path="/:lang/quiz/:deckId" component={QuizDeck} />
       <Route path="/:lang/quiz/:deckId/study/:mode" component={QuizStudy} />
       <Route path="/:lang/quiz/:deckId/browse" component={QuizBrowse} />

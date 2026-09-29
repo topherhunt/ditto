@@ -20,7 +20,7 @@ function silentWav(): Buffer {
 
 export function fakeSpeech(): Speech {
   return {
-    say: async (_text, _voice, _pace, out) => {
+    say: async (_text, _language, _voice, _pace, out) => {
       writeFileSync(out, silentWav());
       return { seconds: 0.1, usage: null };
     },

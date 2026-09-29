@@ -10,7 +10,7 @@ import { useLang } from "./lang.ts";
 import { playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
 import { autoplay } from "./player.ts";
-import { usd } from "./Speak.tsx";
+import { usd } from "../spend.ts";
 
 /** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
 function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string, text: string) => void; class?: string }) {

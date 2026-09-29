@@ -79,7 +79,7 @@ describe("prefs and catalog", () => {
     const lesson = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json;
     expect(lesson.title).toBe("Un caffè, per favore");
     expect(lesson.units).toHaveLength(10);
-    expect(lesson.units[0].audio).toEqual(Array(4).fill(expect.stringMatching(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/)));
+    expect(lesson.units[0].audio).toEqual(Array(2).fill(expect.stringMatching(/^\/audio\/it\/[0-9a-f]{20}\.m4a$/)));
     expect(lesson.progress).toEqual({ sentences: { nextIndex: 1, completedAt: null } });
     expect(lesson.playable).toBe(true);
     expect((await t.req("GET", "/api/lessons/it-a1-bar-1?lang=nl")).status).toBe(404);
@@ -172,12 +172,12 @@ describe("problem reports", () => {
     const t = setup();
     await t.login();
     const unit = (await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).json.units[0];
-    const res = await t.req("POST", "/api/reports", { unitId: unit.id, rev: unit.rev, voice: 2, kind: "audio", note: " sounds like sri-le " });
+    const res = await t.req("POST", "/api/reports", { unitId: unit.id, rev: unit.rev, voice: 1, kind: "audio", note: " sounds like sri-le " });
     expect(res.status).toBe(200);
     const row = t.deps.db.prepare("SELECT unit_id, unit_rev, language, text, voice, audio_file, kind, note, resolved_at FROM reports").get();
     expect(row).toEqual({
-      unit_id: unit.id, unit_rev: unit.rev, language: "it", text: unit.text, voice: "kokoro:if_sara",
-      audio_file: unit.audio[2].replace("/audio/", ""), kind: "audio", note: "sounds like sri-le", resolved_at: null,
+      unit_id: unit.id, unit_rev: unit.rev, language: "it", text: unit.text, voice: "openai:cedar",
+      audio_file: unit.audio[1].replace("/audio/", ""), kind: "audio", note: "sounds like sri-le", resolved_at: null,
     });
   });
 
@@ -300,19 +300,53 @@ describe("explainer", () => {
     expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation.summary).toBe("fake summary for cafe latte");
   });
 
-  it("refuses correct answers, enforces the daily cap, and returns 503 without a key", async () => {
+  it("charges each fresh explanation to the learner's ledger, and cached ones nothing", async () => {
+    const t = setup();
+    await t.login("a@example.com");
+    const body = { unitId: "it-a1-bar-1-u01", answer: "cafe latte" };
+    const first = await t.req("POST", "/api/explain", body);
+    expect(Number(first.headers.get("X-Spend-Today"))).toBeCloseTo(0.0002);
+    await t.login("b@example.com");
+    const cached = await t.req("POST", "/api/explain", body);
+    expect(cached.json.cached).toBe(true);
+    expect(Number(cached.headers.get("X-Spend-Today"))).toBe(0);
+    expect(t.deps.db.prepare("SELECT purpose, model, cost_usd AS cost FROM api_usage").all())
+      .toEqual([{ purpose: "explain", model: "openai/gpt-6-luna", cost: expect.closeTo(0.0002) }]);
+  });
+
+  it("refuses correct answers and returns 503 without a key", async () => {
     const t = setup();
     await t.login();
     expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "caffe" })).status).toBe(400);
-    for (const a of ["x1", "x2", "x3"]) expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: a })).status).toBe(200);
-    const capped = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" });
-    expect(capped.status).toBe(429);
-    t.clock.now = new Date("2026-09-02T10:00:00Z");
-    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" })).status).toBe(200);
 
     const noKey = setup({ explainer: null });
     await noKey.login();
     expect((await noKey.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x" })).status).toBe(503);
+  });
+});
+
+describe("daily spend cap", () => {
+  it("blocks the learner's exercises and paid calls once their spend reaches the cap, until midnight UTC", async () => {
+    // Each fake explanation costs $0.0002, so the third reaches the cap.
+    const t = setup({ dailySpendCap: 0.0005 });
+    await t.login("a@example.com");
+    for (const answer of ["x1", "x2", "x3"]) expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer })).status).toBe(200);
+
+    const capped = await t.attempt("it-a1-bar-1-u01");
+    expect(capped.status).toBe(429);
+    expect(capped.json.error).toBe("Daily AI budget ($0.00) reached; it resets at midnight UTC");
+    expect(Number(capped.headers.get("X-Spend-Today"))).toBeCloseTo(0.0006);
+    expect(capped.headers.get("X-Spend-Cap")).toBe("0.00");
+    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" })).status).toBe(429);
+    expect((await t.req("POST", "/api/quiz/test/pass", {})).status).toBe(429);
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).status).toBe(200);
+
+    await t.login("b@example.com");
+    expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
+
+    await t.login("a@example.com");
+    t.clock.now = new Date("2026-09-02T00:00:00Z");
+    expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
   });
 });
 
