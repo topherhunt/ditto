@@ -204,7 +204,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   // SpeakAttemptEvent lines, so later failures arrive as an {error, status} line under HTTP 200.
   app.post("/api/conversations/:id/attempts", async (c) => {
     const body = SpeakAttemptSchema.parse(await c.req.json());
-    const { ai, speech, audioDir } = speak();
+    const { ai, audioDir } = speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     underCapOr429(userId);
@@ -214,8 +214,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
 
     const check = async (step: (s: CheckStep) => Promise<unknown>): Promise<SpeakAttemptResult> => {
       await step("listening");
-      const [{ seconds }, transcript] = await Promise.all([speech.duration(path), ai.transcribe(path, conv.language)]);
-      paid(userId, conv.id, "transcribe", ai.transcribeUsage(seconds));
+      const { result: transcript, usage } = await ai.transcribe(path, conv.language);
+      paid(userId, conv.id, "transcribe", usage);
       if (!transcript.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
       await step("judging");
       const coached = await ai.coach({ ...setting(conv), partnerLine: turn.text, target: body.target, transcript });

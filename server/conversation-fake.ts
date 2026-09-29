@@ -20,7 +20,6 @@ function silentWav(): Buffer {
 
 export function fakeSpeech(): Speech {
   return {
-    duration: async () => ({ seconds: 2 }),
     say: async (_text, _language, out) => {
       writeFileSync(out, silentWav());
       return { seconds: 0.1 };
@@ -30,8 +29,7 @@ export function fakeSpeech(): Speech {
 
 export function fakeAI(): ConversationAI {
   return {
-    transcribe: async () => "Vorrei un caffè",
-    transcribeUsage: (seconds) => ({ model: "fake-transcribe", inputTokens: 0, outputTokens: 0, audioSeconds: seconds, costUsd: FAKE_COST }),
+    transcribe: async () => ({ result: "Vorrei un caffè", usage: { model: "fake-transcribe", inputTokens: 0, outputTokens: 0, audioSeconds: 2, costUsd: FAKE_COST } }),
     partner: async (_setting, history) => ({
       result: {
         title: "Al bar",

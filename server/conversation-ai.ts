@@ -36,9 +36,8 @@ export type CoachIn = Setting & {
 export type Paid<T> = { result: T; usage: Usage };
 
 export interface ConversationAI {
-  transcribe(file: string, language: Language): Promise<string>;
-  /** Transcription is billed by audio length, which the speech worker measures. */
-  transcribeUsage(seconds: number): Usage;
+  /** Billed by audio length, which the response reports. */
+  transcribe(file: string, language: Language): Promise<Paid<string>>;
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
   howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
@@ -92,9 +91,11 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
 
   return {
     async transcribe(file, language) {
-      return (await client.audio.transcriptions.create({ model: transcribeModel, language, file: await toFile(readFileSync(file), basename(file)) })).text;
+      // gpt-transcribe ignores the singular `language`; `languages` steers it toward the conversation's language.
+      const res = await client.audio.transcriptions.create({ model: transcribeModel, languages: [language], file: await toFile(readFileSync(file), basename(file)) });
+      if (res.usage?.type !== "duration") throw new Error(`${transcribeModel} returned no duration usage`);
+      return { result: res.text, usage: minuteUsage(transcribeModel, res.usage.seconds) };
     },
-    transcribeUsage: (seconds) => minuteUsage(transcribeModel, seconds),
     async partner(setting, history) {
       const input = history.length ? `Conversation so far:\n${transcript(history)}` : "Open the conversation.";
       const { result, usage } = await parse(PartnerSchema, "partner", partnerInstructions(setting), input);

@@ -37,7 +37,7 @@ const conversation = env.FAKE_CONVERSATION === "1"
   : env.OPENAI_API_KEY && existsSync(speechPython)
     ? {
       ai: openAIConversation(env.OPENAI_API_KEY, env.CONVERSATION_MODEL || "gpt-6-luna", z.enum(["none", "low", "medium"]).parse(env.CONVERSATION_EFFORT || "low")),
-      speech: speechWorker(speechPython, join(root, "server/speech-worker.py"), env.TOOLS_DIR || join(root, "tools")),
+      speech: speechWorker(speechPython, join(root, "server/speech-worker.py"), env.TOOLS_DIR || join(root, "tools"), Number(env.SPEECH_IDLE_MINUTES || 60) * 60_000),
       audioDir: speakAudioDir,
     }
     : null;

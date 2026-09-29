@@ -1,6 +1,22 @@
 - [x] Finish generating the EN audio
 - [x] Finish generating the Gaelic audio
 - [x] Also plan out & build a fully-voice-convo based mode, that's fully AI driven conversation trees.
+- [ ] Polish up the Talk feature
+  - [ ] When you start a convo, it should speak out the speaker's words.
+- [ ] Polish up the current featureset (Type and Talk) 
+- [ ] Polish up the onboarding & settings user flow
+- [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection. 
+- [ ]  Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way.
+- [ ] Publish the Google Oauth app so people aren't blocked from accessing.
+- [ ] test and confirm with Luis and others that people can access the app fine. 
+
+- [ ] When you first go to ditto.topherhunt.com, see the home page w an overview of features, what you can do , what to expect, how to make the most out if it. And then you can log in.
+- [ ] Port Quizzer app into Ditto. As "Quiz" mode.
+- [ ] Better onboarding: "Interface lanugage" needs to be clearer, eg "What larguage do you speak". Then ask "What languages do you want to learn?" (Gather feedback on any unsupported laguages, allow the user to request others.) Hints about keyboard usage (space to jump between words, enter)
+- [ ] separate mode for pronunciation coach. Words, then sentences, very precisely.
+- [ ] A splash page introducing each of these tools. Give the pricing breakdown.
+- [ ] Ensure I'm protected from people overusing it & racking up api bill.
+- [ ] Ensure the conversation mode is designed to be as cheap as possible. Does that mean STT and TTS should both be on my server? Or Modal? Cloudflare Workers?
+
 - [ ] Track my total OpenAI API token spend. Is there a way to do that via the an API request from the token itself, or do I need to track it in the database per request somehow?
 - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.
-

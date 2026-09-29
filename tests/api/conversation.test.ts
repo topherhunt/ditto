@@ -135,7 +135,8 @@ describe("conversation mode", () => {
     const t = await speak();
     const conv = await t.start();
     let coached = 0;
-    t.ai.transcribe = async () => "  ";
+    const transcribe = t.ai.transcribe;
+    t.ai.transcribe = async (file, language) => ({ ...(await transcribe(file, language)), result: "  " });
     t.ai.coach = async (c) => { coached++; return fakeAI().coach(c); };
     expect((await t.reply(conv.id)).status).toBe(422);
     expect(coached).toBe(0);

@@ -5,7 +5,6 @@ import type { Language } from "../shared/content.ts";
 
 /** Local speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
-  duration(file: string): Promise<{ seconds: number }>;
   say(text: string, language: Language, out: string): Promise<{ seconds: number }>;
 }
 
@@ -21,13 +20,14 @@ const voiceOf = (language: Language) => {
 };
 
 /**
- * Starts the worker on first use (it loads a Piper voice on first use, holding ~100 MB per voice) and again after it dies;
- * requests in flight when it dies fail. It exits when this process closes its stdin.
+ * Starts the worker on first use (~1 s, holding 170-250 MB) and again after it dies; requests in flight when it dies fail.
+ * After `idleMs` with nothing in flight it is stopped to free that memory, by closing its stdin, which also stops it when this process exits.
  */
-export function speechWorker(python: string, script: string, toolsDir: string): Speech {
+export function speechWorker(python: string, script: string, toolsDir: string, idleMs: number): Speech {
   const pending = new Map<number, { resolve: (v: Record<string, unknown>) => void; reject: (e: Error) => void }>();
   let nextId = 1;
   let child: Worker | null = null;
+  let idle: NodeJS.Timeout | undefined;
 
   const fail = (c: Worker, e: Error) => {
     if (child !== c) return; // "error" and "exit" can both fire
@@ -50,18 +50,27 @@ export function speechWorker(python: string, script: string, toolsDir: string): 
     c.on("error", (e) => fail(c, new Error(`Speech worker failed: ${e.message}`)));
     return c;
   };
+  // Detached first, so its exit fails nothing and the next call starts a fresh worker.
+  const stop = () => {
+    const c = child;
+    child = null;
+    c?.stdin.end();
+  };
 
   const call = <T>(req: Record<string, unknown>): Promise<T> => {
+    clearTimeout(idle);
     child ??= start();
     const id = nextId++;
-    return new Promise((resolve, reject) => {
+    return new Promise<T>((resolve, reject) => {
       pending.set(id, { resolve: resolve as (v: Record<string, unknown>) => void, reject });
       child!.stdin.write(JSON.stringify({ id, ...req }) + "\n");
+    }).finally(() => {
+      clearTimeout(idle);
+      if (!pending.size) idle = setTimeout(stop, idleMs).unref();
     });
   };
 
   return {
-    duration: (file) => call({ op: "duration", file }),
     say: (text, language, out) => call({ op: "say", text, voice: voiceOf(language), out }),
   };
 }
