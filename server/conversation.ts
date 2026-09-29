@@ -65,7 +65,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (!row) throw new HTTPException(404, { message: `No conversation ${id}` });
     return row;
   };
-  /** Piper's own speed overwhelms beginners, so lower levels hear the partner slower; a lone tapped word is always slow. */
+  /** A voice's own speed overwhelms beginners, so lower levels hear the partner slower; a lone tapped word is always slow. */
   const PACE: Record<string, number> = { A1: 1.3, A2: 1.2, B1: 1.1, B2: 1, C1: 1, C2: 1 };
   const pace = (c: ConversationRow) => PACE[c.level]!;
   const WORD_PACE = 1.3;
@@ -98,6 +98,11 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       throw new HTTPException(429, { message: `Daily AI budget ($${deps.dailySpendCap.toFixed(2)}) reached; it resets at midnight UTC` });
   };
   const paid = (userId: number, conversationId: number | null, purpose: string, u: Usage) => recordUsage(db, userId, conversationId, purpose, u, deps.now());
+  /** Renders `text` in the partner's voice to `path`, recording what it cost. */
+  const say = async (conv: ConversationRow, userId: number, text: string, speed: number, path: string) => {
+    const { usage } = await speak().speech.say(text, partnerVoice(conv.language), speed, path);
+    if (usage) paid(userId, conv.id, "speech", usage);
+  };
 
   const saveAudio = (conversationId: number, ext: string, data?: Buffer) => {
     const file = `${conversationId}-${randomUUID()}.${ext}`;
@@ -110,14 +115,14 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
    * the learner's line it answers, so it returns that turn too, then its own.
    */
   const partnerTurn = async (conv: ConversationRow, userId: number): Promise<TurnOut[]> => {
-    const { ai, speech, audioDir } = speak();
+    const { ai, audioDir } = speak();
     const learner = turnRows(conv.id).at(-1);
     const { result, usage } = await ai.partner(setting(conv), history(conv.id));
     paid(userId, conv.id, "partner", usage);
     if (learner && !result.learnerLine) throw new Error("The partner model returned no chunks for the learner's line");
     const text = joinChunks(result.line);
     const file = saveAudio(conv.id, "wav");
-    await speech.say(text, partnerVoice(conv.language), pace(conv), join(audioDir, file));
+    await say(conv, userId, text, pace(conv), join(audioDir, file));
     const now = deps.now().toISOString();
     transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
@@ -151,12 +156,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     targetAudioUrl: r.target_audio_file === null ? null : audioUrl(r.conversation_id, r.target_audio_file),
   });
   /** The partner voice saying a retry target, rendered once per target per turn. */
-  const targetAudio = async (conv: ConversationRow, turnId: number, target: string) => {
+  const targetAudio = async (conv: ConversationRow, userId: number, turnId: number, target: string) => {
     const done = db.prepare("SELECT target_audio_file AS f FROM conversation_attempts WHERE turn_id = ? AND target = ? AND target_audio_file IS NOT NULL")
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
     const file = saveAudio(conv.id, "wav");
-    await speak().speech.say(target, partnerVoice(conv.language), pace(conv), join(speak().audioDir, file));
+    await say(conv, userId, target, pace(conv), join(speak().audioDir, file));
     return file;
   };
 
@@ -232,7 +237,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       const verdict = coached.result;
       const passed = verdict.grammarOk;
       const target = body.target ?? verdict.meant;
-      const targetFile = passed ? null : await targetAudio(conv, turn.id, target);
+      const targetFile = passed ? null : await targetAudio(conv, userId, turn.id, target);
 
       const attemptId = Number(db.prepare(
         `INSERT INTO conversation_attempts (conversation_id, turn_id, retry, target, transcript, verdict, passed, audio_file, target_audio_file, created_at)
@@ -309,14 +314,16 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return c.json({ ok: true });
   });
 
-  // A tapped chunk, voiced on demand (~30 ms warm) and cached by the browser rather than stored.
+  // A tapped chunk, voiced on demand and cached by the browser rather than stored.
   app.get("/api/conversations/:id/say", async (c) => {
-    const conv = conversationOr404(Id.parse(c.req.param("id")), c.get("user").id);
+    const userId = c.get("user").id;
+    const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     const text = z.string().trim().min(1).max(80).parse(c.req.query("text"));
-    const { speech, audioDir } = speak();
+    const { audioDir } = speak();
+    underCapOr429(userId);
     const path = join(audioDir, `say-${randomUUID()}.wav`);
     try {
-      await speech.say(text, partnerVoice(conv.language), WORD_PACE, path);
+      await say(conv, userId, text, WORD_PACE, path);
       return c.body(readFileSync(path), 200, { "Content-Type": "audio/wav", "Cache-Control": "private, max-age=86400" });
     } finally {
       rmSync(path, { force: true });

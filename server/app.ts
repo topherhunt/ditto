@@ -19,6 +19,7 @@ import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { levelTestUnits } from "./level-test.ts";
 import { registerPoc } from "./poc.ts";
+import { registerQuiz } from "./quiz.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
@@ -102,7 +103,10 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
-  app.get("/api/config", (c) => c.json<Config>({ googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null, speak: deps.conversation !== null }));
+  const quizLanguages = LANGUAGES.filter((l) => content.quizzes.some((d) => d.language === l));
+  app.get("/api/config", (c) => c.json<Config>({
+    googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null, speak: deps.conversation !== null, quiz: quizLanguages,
+  }));
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
@@ -397,6 +401,7 @@ export function createApp(deps: AppDeps) {
   registerSocial(app, deps);
   registerAdmin(app, deps);
   registerConversation(app, deps);
+  registerQuiz(app, deps);
   if (deps.pocDir) registerPoc(app, content, deps.pocDir);
 
   app.all("/api/*", () => {

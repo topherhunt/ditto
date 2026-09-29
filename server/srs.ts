@@ -14,6 +14,11 @@ const RATING: Record<Outcome, Grade> = {
 
 /** Schedules the next review. `stored` is the card JSON from review_cards, or null for a new card. */
 export function schedule(stored: string | null, outcome: Outcome, now: Date): Card {
+  return scheduleGrade(stored, RATING[outcome], now);
+}
+
+/** `schedule` for a learner-picked grade, as quiz mode asks for. */
+export function scheduleGrade(stored: string | null, grade: Grade, now: Date): Card {
   const card: CardInput | Card = stored ? (JSON.parse(stored) as CardInput) : createEmptyCard(now);
-  return scheduler.next(card, now, RATING[outcome]).card;
+  return scheduler.next(card, now, grade).card;
 }

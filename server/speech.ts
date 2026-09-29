@@ -2,33 +2,39 @@ import { spawn, type ChildProcessByStdio } from "node:child_process";
 import type { Readable, Writable } from "node:stream";
 import { createInterface } from "node:readline";
 import type { Language } from "../shared/content.ts";
-import { VOICES, voiceId, type Voice } from "./content.ts";
+import type { Voice } from "./content.ts";
+import { charUsage, type Usage } from "./usage.ts";
 
-/** Local speech for conversation mode; server/speech-worker.py documents each call. */
+/** Speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
-  /** `pace` stretches the voice's own speed: 1.3 is 30% slower. */
-  say(text: string, voice: Voice, pace: number, out: string): Promise<{ seconds: number }>;
+  /** `pace` stretches the voice's own speed: 1.3 is 30% slower. `usage` is null for a voice rendered locally, which costs nothing. */
+  say(text: string, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
-/** The partner's one Piper voice per language, from the lessons' voices; one each keeps the worker to one loaded voice per language. */
-const PARTNER_VOICES: Partial<Record<Language, string>> = {
-  it: "piper:it_IT-paola-medium",
-  nl: "piper:nl_NL-ronnie-medium",
-  en: "piper:en_US-ryan-medium",
+/** The partner's one voice per language, chosen by ear for whole sentences: Kokoro (paid, via OpenRouter), or Piper for Dutch, which Kokoro lacks. */
+const PARTNER_VOICES: Partial<Record<Language, Voice>> = {
+  it: { engine: "kokoro", model: "if_sara", gender: "F" },
+  nl: { engine: "piper", model: "nl_NL-ronnie-medium", gender: "M" },
+  en: { engine: "kokoro", model: "am_michael", gender: "M" },
 };
 export const partnerVoice = (language: Language) => {
-  const voice = VOICES[language].find((v) => voiceId(v) === PARTNER_VOICES[language]);
-  if (!voice || voice.engine !== "piper") throw new Error(`No Piper conversation voice for ${language}`);
+  const voice = PARTNER_VOICES[language];
+  if (!voice) throw new Error(`No conversation voice for ${language}`);
   return voice;
 };
+
+/** The OpenRouter model the worker renders Kokoro voices with. */
+const KOKORO_MODEL = "hexgrad/kokoro-82m";
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
 
 /**
- * Starts the worker on first use (~1 s, holding 170-250 MB) and again after it dies; requests in flight when it dies fail.
+ * Starts the worker on first use (~1 s; ~300 MB with a Piper voice loaded) and again after it dies; requests in flight when it dies fail.
  * After `idleMs` with nothing in flight it is stopped to free that memory, by closing its stdin, which also stops it when this process exits.
  */
 export function speechWorker(python: string, script: string, toolsDir: string, idleMs: number): Speech {
+  // Priced before the first call, so a missing price fails at startup.
+  charUsage(KOKORO_MODEL, 0, 0);
   const pending = new Map<number, { resolve: (v: Record<string, unknown>) => void; reject: (e: Error) => void }>();
   let nextId = 1;
   let child: Worker | null = null;
@@ -76,6 +82,9 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
   };
 
   return {
-    say: (text, voice, pace, out) => call({ op: "say", text, voice: { model: voice.model, speaker: voice.speaker }, pace, out }),
+    say: async (text, voice, pace, out) => {
+      const { seconds } = await call<{ seconds: number }>({ op: "say", text, voice: { engine: voice.engine, model: voice.model, speaker: voice.speaker }, pace, out });
+      return { seconds, usage: voice.engine === "kokoro" ? charUsage(KOKORO_MODEL, text.length, seconds) : null };
+    },
   };
 }

@@ -34,14 +34,14 @@ const speechPython = env.SPEECH_PYTHON || join(root, ".venv/bin/python");
 const speakAudioDir = env.SPEAK_AUDIO_DIR || join(root, "data/speak-audio");
 const conversation = env.FAKE_CONVERSATION === "1"
   ? { ai: fakeAI(), speech: fakeSpeech(), audioDir: speakAudioDir }
-  : env.OPENAI_API_KEY && existsSync(speechPython)
+  : env.OPENAI_API_KEY && env.OPENROUTER_API_KEY && existsSync(speechPython)
     ? {
       ai: openAIConversation(env.OPENAI_API_KEY, env.CONVERSATION_MODEL || "gpt-6-luna", z.enum(["none", "low", "medium"]).parse(env.CONVERSATION_EFFORT || "low")),
       speech: speechWorker(speechPython, join(root, "server/speech-worker.py"), env.TOOLS_DIR || join(root, "tools"), Number(env.SPEECH_IDLE_MINUTES || 60) * 60_000),
       audioDir: speakAudioDir,
     }
     : null;
-if (!conversation) console.warn(`Conversation mode is off: it needs OPENAI_API_KEY and ${speechPython}`);
+if (!conversation) console.warn(`Conversation mode is off: it needs OPENAI_API_KEY, OPENROUTER_API_KEY and ${speechPython}`);
 
 const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn" });
 const app = createApp({

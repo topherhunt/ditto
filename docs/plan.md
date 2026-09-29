@@ -31,6 +31,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
 - A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
 - An in-app notifications bell (no email or push).
+- Quiz mode (nav: Quiz): preset multiple-choice grammar and vocab decks per language and level, scheduled with FSRS, with per-deck stats and session history. Question audio uses the conversation partner's voice. Presets are stored once and shared; see [quizzes.md](quizzes.md).
 - Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 to B1 for Spanish and Italian speakers (31 main and 10 optional modules, [curriculum-en.md](curriculum-en.md)); Dutch A1 to B1 for English and Spanish speakers (31 main and 10 optional modules, [curriculum-nl.md](curriculum-nl.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)).
 
 **Later**

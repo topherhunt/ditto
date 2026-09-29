@@ -188,7 +188,7 @@ describe("conversation mode", () => {
     await t.reply(conv.id); // fails, so the target is spoken
     await t.reply(conv.id, { target: "Vorrei un caffè, per favore." }); // passes, so the partner answers
     await t.start();
-    expect(t.voices).toEqual(Array(4).fill("piper:it_IT-paola-medium"));
+    expect(t.voices).toEqual(Array(4).fill("kokoro:if_sara"));
   });
 
   it("speaks a tapped chunk in the partner's voice without storing it, only to the conversation's owner", async () => {
@@ -198,11 +198,26 @@ describe("conversation mode", () => {
     const res = await say("Le porto");
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toBe("audio/wav");
-    expect(t.voices.at(-1)).toBe("piper:it_IT-paola-medium");
+    expect(t.voices.at(-1)).toBe("kokoro:if_sara");
     expect(readdirSync(t.deps.conversation!.audioDir).filter((f) => f.startsWith("say-"))).toEqual([]);
     expect((await say("x".repeat(81))).status).toBe(400);
     await t.login("someone@example.com");
     expect((await say("Le porto")).status).toBe(404);
+  });
+
+  it("meters a paid voice's lines and tapped chunks as speech spend, and refuses a tapped chunk once the day's cap is reached", async () => {
+    const t = await speak({ dailySpendCap: 0.02 });
+    const speech = t.deps.conversation!.speech;
+    const say = speech.say;
+    speech.say = async (...args) => ({ ...(await say(...args)), usage: { model: "fake-voice", inputTokens: 0, outputTokens: 0, audioSeconds: 0.1, costUsd: 0.01 } });
+    const conv = await t.start();
+    expect(conv.spend.conversation).toBeCloseTo(FAKE_COST + 0.01);
+    const tap = () => t.req("GET", `/api/conversations/${conv.id}/say?text=Le%20porto`);
+    expect((await tap()).status).toBe(200);
+    expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.spend.conversation).toBeCloseTo(FAKE_COST + 0.02);
+    expect((await tap()).status).toBe(429);
+    const purposes = t.deps.db.prepare("SELECT purpose FROM api_usage WHERE model = 'fake-voice'").all().map((r) => r.purpose);
+    expect(purposes).toEqual(["speech", "speech"]);
   });
 
   it("slows the partner for lower levels and every tapped chunk", async () => {

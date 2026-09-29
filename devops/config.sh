@@ -24,10 +24,11 @@ ENV_FILE="/etc/${SERVICE_NAME}.env"
 # Deliberately not named NODE_MAJOR: host-setup.sh uses that to change the host-wide Node.
 APP_NODE_MAJOR="${APP_NODE_MAJOR:-24}"
 APP_NODE_DIR="/opt/node${APP_NODE_MAJOR}"
-# Conversation mode's speech worker: a Python venv with Piper, and the partner's voices, ~65 MB each on disk (the models in PARTNER_VOICES, server/speech.ts).
+# Conversation mode's speech worker: a Python venv with Piper and Praat (parselmouth), and the Piper voices in PARTNER_VOICES (server/speech.ts). Kokoro renders on OpenRouter.
 SPEECH_DIR="${REMOTE_DIR}/speech"
 PIPER_VERSION="${PIPER_VERSION:-1.8.0}"
-PIPER_VOICES="${PIPER_VOICES:-it_IT-paola-medium nl_NL-ronnie-medium en_US-ryan-medium}"
+PIPER_VOICES="${PIPER_VOICES:-nl_NL-ronnie-medium}"
+PARSELMOUTH_VERSION="${PARSELMOUTH_VERSION:-0.4.7}"
 
 require_host() {
   if [ -z "${DEPLOY_HOST}" ]; then echo "ERROR: DEPLOY_HOST is not set." >&2; exit 1; fi

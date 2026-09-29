@@ -87,6 +87,9 @@ export function Layout(props: RouteSectionProps) {
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>
                       <li class="nav-item"><A class="qa-nav-speak nav-link" href={`/${navLang()}/speak`}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
                     </Show>
+                    <Show when={config()?.quiz.includes(navLang())}>
+                      <li class="nav-item"><A class="qa-nav-quiz nav-link" href={`/${navLang()}/quiz`}><i class="bi bi-patch-question me-1" aria-hidden="true" />{t("nav.quiz")}</A></li>
+                    </Show>
                   </ul>
                   <div class="ms-auto d-flex align-items-center gap-2">
                     <Notifications />

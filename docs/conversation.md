@@ -4,15 +4,15 @@ Called "Talk" in the interface. A speaking track separate from dictation: a spok
 
 ## Turn loop
 
-1. The partner speaks a line (local Piper TTS, in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`); it plays by itself and its transcript shows. Lower levels hear it slower (Piper's `length_scale`: A1 1.3, A2 1.2, B1 1.1; `PACE` in `server/conversation.ts`).
-2. Suggested replies: three plausible replies, each steering the conversation a different way. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
+1. The partner speaks a line (TTS in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`: Kokoro on OpenRouter for Italian and English, ~$0.62 per 1M characters and recorded as "speech" spend; local Piper for Dutch, which Kokoro lacks); it plays by itself and its transcript shows. Lower levels hear it slower (A1 1.3, A2 1.2, B1 1.1 times as long; `PACE` in `server/conversation.ts`). Kokoro ignores "?" and says every question like a statement, so the worker bends the last 0.4 s of a Kokoro line ending in "?" up 4 semitones (Praat PSOLA); wh- and either/or questions rise too, and Piper's Dutch lines are left as they are.
+2. Suggested replies: three plausible replies, each steering the conversation a different way, each a polite full sentence of about 6 to 12 words even at A1. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
 4. The coach judges it (below). A pass plays the success sound. A failure plays a marimba warning and pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:".
 5. Once the reply passes, the partner answers and the loop repeats. If the partner's answer fails, a button retries it.
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation and speaks it in the partner's voice, 30% slower (`GET /api/conversations/:id/say`, rendered on demand in ~30 ms warm and cached only by the browser). Piper garbles some lone words (*fiume* as "chiume"); how often depends on the voice. Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
+The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation and speaks it in the partner's voice, 30% slower (`GET /api/conversations/:id/say`, rendered on demand, ~0.2-0.4 s with Kokoro and ~30 ms with Piper, and cached only by the browser; it counts toward the daily spend cap). Piper garbles many lone words (*fiume* as "chiume"), Ronnie especially. Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 
@@ -22,7 +22,7 @@ The conversation trains fluency and vocabulary, not pronunciation (a separate pr
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process in which Piper voices the partner. It starts on first use (about 1 s), keeps each voice it has used loaded (one per language, 60-120 MB each, ~0.5 s to load), and holds 170-250 MB with one, so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with Piper and the voices in `tools/piper-voices`; production installs these with `devops/provision.sh`.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that renders Piper voices itself, fetches Kokoro lines from OpenRouter (`OPENROUTER_API_KEY`, inherited from the server) and bends Kokoro questions up with Praat. It starts on first use (about 1 s) and keeps each Piper voice used (60-120 MB; ~300 MB in all with one), so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `piper-tts` and `praat-parselmouth` and the Piper voices in `tools/piper-voices`; production installs these with `devops/provision.sh`, whose `MemoryMax` must fit Node plus the worker.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.

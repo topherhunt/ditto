@@ -22,7 +22,7 @@ export function fakeSpeech(): Speech {
   return {
     say: async (_text, _voice, _pace, out) => {
       writeFileSync(out, silentWav());
-      return { seconds: 0.1 };
+      return { seconds: 0.1, usage: null };
     },
   };
 }

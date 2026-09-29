@@ -47,7 +47,7 @@ cp .env.example .env    # DEV_LOGIN=1 gives you a dev sign-in form locally
 npm run dev             # API on :3000, Vite on :5173
 ```
 
-`OPENAI_API_KEY` is optional; without it the "Why?" explainer is disabled. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
+`OPENAI_API_KEY` is optional; without it the "Why?" explainer is disabled. Conversation mode also needs `OPENROUTER_API_KEY`, for its Kokoro voice. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
 
 ### Audio
 
@@ -55,7 +55,7 @@ Audio files are generated, not committed. Set up the text-to-speech tools once:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/pip install piper-tts kokoro-onnx numpy
+.venv/bin/pip install piper-tts kokoro-onnx numpy praat-parselmouth
 ```
 
 Then put the Piper voice models named in `VOICES` (`server/content.ts`) in `tools/piper-voices/` ([rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices)), and `kokoro-v1.0.onnx` plus `voices-v1.0.bin` in `tools/kokoro/` ([kokoro-onnx releases](https://github.com/thewh1teagle/kokoro-onnx/releases)).

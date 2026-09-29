@@ -15,6 +15,9 @@ import { Notebook } from "./pages/Notebook.tsx";
 import { Practice } from "./pages/Practice.tsx";
 import { PocRecorder } from "./pages/PocRecorder.tsx";
 import { Profile } from "./pages/Profile.tsx";
+import { QuizBrowse, QuizDeck, QuizSession, QuizStats } from "./pages/QuizDeck.tsx";
+import { QuizHome } from "./pages/QuizHome.tsx";
+import { QuizStudy } from "./pages/QuizStudy.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
@@ -44,6 +47,12 @@ render(
       <Route path="/:lang/notebook" component={Notebook} />
       <Route path="/:lang/speak" component={Speak} />
       <Route path="/:lang/speak/:id" component={Conversation} />
+      <Route path="/:lang/quiz" component={QuizHome} />
+      <Route path="/:lang/quiz/:deckId" component={QuizDeck} />
+      <Route path="/:lang/quiz/:deckId/study/:mode" component={QuizStudy} />
+      <Route path="/:lang/quiz/:deckId/browse" component={QuizBrowse} />
+      <Route path="/:lang/quiz/:deckId/stats" component={QuizStats} />
+      <Route path="/:lang/quiz/:deckId/sessions/:sessionId" component={QuizSession} />
       <Route path="*" component={() => <p class="qa-not-found">{t("app.notFound")}</p>} />
     </Router>
   ),

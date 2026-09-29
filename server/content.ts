@@ -7,6 +7,7 @@ import {
   type Course, type Language, type LexEntry, type Locale, type Localized, type ServedCourse, type ServedUnit,
 } from "../shared/content.ts";
 import { tokenize, words } from "../shared/tokenize.ts";
+import { loadQuizzes, type QuizDeck } from "./quiz-content.ts";
 
 /** For `abair`, `model` is an ABAIR voice name; see scripts/tts-render.py. */
 export type Voice = { engine: "piper" | "kokoro" | "abair"; model: string; speaker?: number; gender: "F" | "M" };
@@ -75,6 +76,8 @@ export type Content = {
   /** Keyed by UI locale. Ids, text, audio and structure are the same in each; only support-language text differs. */
   locales: Record<Locale, LocalizedContent>;
   audioJobs: AudioJob[];
+  /** Preset quiz decks from content/quizzes; synced into the DB at boot. */
+  quizzes: QuizDeck[];
 };
 
 function fail(file: string, msg: string): never {
@@ -296,7 +299,7 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
     ].map((l) => `\x1b[31m${l}\x1b[0m`).join("\n"));
   }
   for (const l of LOCALES) locales[l].courses.sort((a, b) => a.language.localeCompare(b.language) || a.order - b.order);
-  return { locales, audioJobs };
+  return { locales, audioJobs, quizzes: loadQuizzes(contentDir) };
 }
 
 function z_message(err: { issues: { path: PropertyKey[]; message: string }[] }): string {

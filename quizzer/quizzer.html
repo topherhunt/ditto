@@ -1,0 +1,3269 @@
+<!--
+  Flashcard Quizzer — a single-file spaced-repetition study app.
+
+  USAGE: Open quizzer.html in a browser. Import one or more CSV decks via
+  drag-and-drop or the file picker. All progress is stored in localStorage.
+
+  CSV FORMAT (header row required):
+    title, question, correct, wrong1, wrong2, wrong3, wrong4 (optional), explanation
+
+  STUDY MODES:
+    - Spaced Repetition (FSRS-4.5): due cards first, then new cards (recommended)
+    - Least Practiced: unseen cards first, then lowest stability
+    - Random: shuffled subset (max 20 per session)
+    - Browse: read-only view of all cards with answers
+
+  FEATURES:
+    - FSRS-4.5 algorithm tracking stability, difficulty, and due dates per card
+    - Self-rated difficulty after each answer (Again / Hard / Good / Easy)
+    - Session summaries with response-time breakdown and mastery stats
+    - Deck management: import, rename, delete, mastery chart per deck
+    - Export/import full state as JSON; multi-language UI (EN, NL, IT)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🎯</text></svg>">
+<title>Quizzer - multiple-choice flashcards for faster learning</title>
+<script>window.goatcounter = {no_onload: true};</script>
+<script data-goatcounter="https://topherhunt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+function gcEvent(name) {
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count({path: 'quizzer-' + name, title: 'quizzer ' + name, event: true});
+  } else {
+    setTimeout(function() { gcEvent(name); }, 200);
+  }
+}
+</script>
+<style>
+:root {
+  --bg: #141720;
+  --surface: #1c2030;
+  --elevated: #2a3045;
+  --accent: #53d8a8;
+  --error: #e74c6f;
+  --text: #e8e8e8;
+  --muted: #8899aa;
+  --amber: #f5a623;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--elevated);
+}
+header h1 { font-size: 1.3rem; font-weight: 700; cursor: pointer; }
+header nav { display: flex; gap: 8px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+}
+.btn-primary { background: #0d6efd; color: white; }
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-secondary:hover { filter: brightness(1.2); }
+.btn-danger { background: #dc3545; color: white; }
+.btn-danger:hover { filter: brightness(1.1); }
+.btn-success { background: #198754; color: white; }
+.btn-success:hover { filter: brightness(1.1); }
+.btn-outline-primary { background: transparent; color: #0d6efd; border: 1px solid #0d6efd; }
+.btn-outline-primary:hover { background: #0d6efd; color: white; }
+a { color: #0d6efd; }
+.btn-outline-danger { background: transparent; color: #dc3545; border: 1px solid #dc3545; }
+.btn-outline-danger:hover { background: #dc3545; color: white; }
+.btn-small { padding: 8px 14px; font-size: 0.85rem; width: auto; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+/* Import zone */
+.import-zone {
+  border: 2px dashed var(--muted);
+  border-radius: var(--radius);
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+.import-zone.dragover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(83, 216, 168, 0.05);
+}
+.import-zone input { display: none; }
+
+/* Mastery chart tooltip */
+.chart-wrap { position: relative; }
+.chart-wrap svg circle { cursor: pointer; }
+.chart-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--elevated);
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--fg);
+  white-space: pre;
+  line-height: 1.5;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 10;
+}
+.chart-tooltip.visible { opacity: 1; }
+
+/* Deck list */
+.deck-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.deck-item:hover { opacity: 0.85; }
+.deck-item-info { flex: 1; }
+.deck-item-info h3 { font-size: 0.95rem; font-weight: 600; }
+.deck-item-info p { font-size: 0.8rem; color: var(--muted); }
+.deck-item-actions { display: flex; gap: 6px; }
+
+/* Mode selection */
+.mode-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+.mode-btn {
+  background: var(--surface);
+  border: 1px solid var(--elevated);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mode-btn:hover { border-color: var(--accent); }
+.mode-btn .mode-title { font-weight: 600; font-size: 1rem; }
+.mode-btn .mode-desc { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+.mode-btn.primary {
+  border-color: var(--accent);
+  background: rgba(83, 216, 168, 0.12);
+  box-shadow: 0 0 0 1px var(--accent) inset;
+}
+.mode-btn.primary .mode-title { color: var(--accent); font-weight: 700; font-size: 1.05rem; }
+.mode-btn.primary .mode-desc { color: var(--fg); }
+.mode-btn.primary:hover { background: rgba(83, 216, 168, 0.18); }
+
+/* Due counts */
+.due-counts {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+}
+.due-count {
+  text-align: center;
+  flex: 1;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+.due-count .number { font-size: 1.5rem; font-weight: 700; }
+.due-count .label { font-size: 0.75rem; color: var(--muted); }
+
+/* Study counter */
+.study-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.study-counter {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.progress-dots {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+.progress-dot.correct { background: var(--accent); }
+.progress-dot.incorrect { background: var(--error);
+}
+
+/* Question */
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Answer options */
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--elevated);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.option-btn:hover:not(.locked) { border-color: var(--accent); }
+.option-btn.locked { cursor: default; }
+.option-btn.correct {
+  border-color: var(--accent);
+  background: rgba(83, 216, 168, 0.15);
+  color: var(--accent);
+}
+.option-btn.incorrect {
+  border-color: var(--error);
+  background: rgba(231, 76, 111, 0.15);
+  color: var(--error);
+}
+.option-btn.reveal-correct {
+  border-color: var(--accent);
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Explanation */
+.explanation {
+  background: var(--elevated);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--accent);
+  animation: slideIn 0.25s ease-out;
+}
+
+/* TTS */
+.tts-btn {
+  background: transparent;
+  border: 1px solid var(--elevated);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 36px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.tts-btn:hover:not(:disabled) { background: var(--elevated); }
+.tts-btn:disabled { cursor: wait; opacity: 0.7; }
+.tts-btn.playing { color: #f5a524; border-color: #f5a524; }
+.tts-btn-inline {
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  min-width: 28px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+@keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Session summary */
+.summary-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--elevated);
+  font-size: 0.95rem;
+}
+.summary-stat:last-child { border-bottom: none; }
+.summary-stat .label { color: var(--muted); }
+
+/* Speed tier bar */
+.tier-bar { display: flex; gap: 2px; margin: 8px 0; height: 24px; border-radius: 4px; overflow: hidden; }
+.tier-bar > div { height: 100%; }
+.tier-bar .t-fast { background: var(--accent); }
+.tier-bar .t-medium { background: var(--text); opacity: 0.4; }
+.tier-bar .t-slow { background: var(--amber); }
+.tier-bar .t-incorrect { background: var(--error); }
+
+.tier-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.tier-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.tier-legend .l-fast::before { background: var(--accent); }
+.tier-legend .l-medium::before { background: var(--text); opacity: 0.4; }
+.tier-legend .l-slow::before { background: var(--amber); }
+.tier-legend .l-incorrect::before { background: var(--error); }
+
+/* Review mode */
+.review-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.review-nav .btn { flex: 1; }
+.review-answer {
+  background: rgba(83, 216, 168, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 12px 0;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+.review-wrong {
+  background: var(--surface);
+  border: 1px solid var(--elevated);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 4px 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* Stats */
+.stat-bar {
+  display: flex;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+.stat-bar .mastered { background: var(--accent); }
+.stat-bar .review-state { background: #4a90d9; }
+.stat-bar .learning { background: var(--amber); }
+.stat-bar .new-state { background: var(--elevated); }
+
+.stat-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.stat-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.stat-legend .l-mastered::before { background: var(--accent); }
+.stat-legend .l-review::before { background: #4a90d9; }
+.stat-legend .l-learning::before { background: var(--amber); }
+.stat-legend .l-new::before { background: var(--elevated); }
+
+.stats-table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+}
+.stats-table th {
+  text-align: left;
+  color: var(--muted);
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--elevated);
+  font-weight: 500;
+}
+.stats-table td {
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--elevated);
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--elevated);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.session-item:hover { opacity: 0.75; }
+.session-item:last-child { border-bottom: none; }
+
+/* Confirm dialog */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+.dialog {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 400px;
+  width: 100%;
+}
+.dialog h3 { margin-bottom: 12px; }
+.dialog p { color: var(--muted); margin-bottom: 16px; font-size: 0.9rem; }
+.dialog-btns { display: flex; gap: 10px; }
+.dialog-btns .btn { flex: 1; }
+
+/* Utility */
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.rating-buttons { display: flex; gap: 8px; }
+.rating-buttons .btn { flex: 1; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.text-center { text-align: center; }
+.text-muted { color: var(--muted); font-size: 0.85rem; }
+.text-accent { color: var(--accent); }
+.text-error { color: var(--error); }
+.hidden { display: none !important; }
+
+/* Back button */
+.back-row {
+  margin-bottom: 2px;
+}
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.back-btn:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1 onclick="navigate('#/')">🎯 Quizzer</h1>
+    <nav>
+      <button id="nav-home" class="btn btn-small btn-outline-primary" onclick="navigate('#/')">Home</button>
+      <button id="nav-help" class="btn btn-small btn-outline-primary" onclick="navigate('#/help')">Help</button>
+      <button id="nav-settings" class="btn btn-small btn-outline-primary" onclick="navigate('#/settings')">Settings</button>
+    </nav>
+  </header>
+  <main id="app"></main>
+</div>
+
+<script>
+// ─── i18n ──────────────────────────────────────────────────────────
+const LANGS = {
+  en: {
+    _label: '🇺🇸',
+    _name: 'English',
+    _locale: 'en-GB',
+    home: 'Home',
+    dragCsv: 'Drag a CSV file here<br>or tap to select',
+    noDecks: 'No decks yet. Import a deck to get started!',
+    myDecks: 'My Decks',
+    importDeck: '+ Add Deck',
+    presetsTitle: 'Preset decks',
+    langEnglish: 'English', langFrench: 'French', langGreek: 'Greek', langItalian: 'Italian', langDutch: 'Dutch', langArabic: 'Arabic', langScottishGaelic: 'Scottish Gaelic',
+    orImportCsv: 'Or import your own CSV',
+    importTitle: 'Add a Deck',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Copy the prompt</b> below (tap the Copy button).</li><li><b>Paste it into any AI chatbot</b> — ChatGPT, Claude, Gemini, etc.</li><li><b>Fill in the [BRACKETED] parts</b> in the prompt (topic, level, language, number of cards).</li><li>The AI will reply with CSV text. <b>Save that text as a <code>.csv</code> file</b> on your device.</li><li><b>Drag the file onto the box above</b> (or tap to select it).</li></ol><p style="margin-top:8px">Works great for language vocab, but also history dates, anatomy, chemistry, capitals — anything you want to memorize!</p>',
+    importPrompt: `Create a CSV flashcard deck for studying [TOPIC]. Target level: [BEGINNER / INTERMEDIATE / ADVANCED]. Language: [LANGUAGE].
+
+Use this exact header row:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Generate [NUMBER] multiple-choice questions. Each row must have exactly 7 comma-separated columns. Wrap any field that contains a comma in double quotes. The "explanation" column should give a brief reason why the correct answer is right.
+
+Output ONLY the CSV with no other text.`,
+    copyPrompt: 'Copy prompt',
+    copied: 'Copied!',
+    allDecks: 'All decks',
+    deckBreadcrumb: name => `Deck: ${name}`,
+    howToCreate: 'How to create your own personalized deck',
+    nCards: n => `${n} cards`,
+    dueToday: 'Due today',
+    newAvailable: 'New',
+    totalCards: 'Total',
+    start: 'Study',
+    statistics: 'Statistics',
+    delete: 'Delete',
+    error: 'Error',
+    emptyFile: 'The file is empty.',
+    invalidHeader: 'Invalid CSV header. Expected: ',
+    noValidQuestions: 'No valid questions found (each row must have 9 columns).',
+    deleteDeck: 'Delete deck',
+    deleteDeckConfirm: name => `Delete "${name}" and all progress?`,
+    back: 'Back',
+    backToDeck: 'Back to deck',
+    spacedRep: 'Spaced repetition',
+    spacedRepDesc: 'FSRS-prioritised: due cards first, then new cards',
+    leastPracticed: 'Least practiced first',
+    leastPracticedDesc: 'Unseen and weakest cards first',
+    randomMode: 'Random',
+    randomModeDesc: 'All cards in random order',
+    browse: 'Browse',
+    browseDesc: 'Browse all cards with answers',
+    noDue: 'Nothing due — all caught up!',
+    caughtUp: 'You\'re all caught up for today! Take a break, or keep practicing.',
+    doneForNow: 'Done for now',
+    nextCard: 'Next',
+    reviewed: 'Reviewed',
+    remaining: 'Remaining',
+    correct: '<strong>Correct!</strong>',
+    incorrect: '<strong>Wrong!</strong>',
+    sessionSummary: 'Session Summary',
+    cardsReviewed: 'Cards reviewed',
+    time: 'Time',
+    ratingEasy: 'Easy',
+    ratingModerate: 'Moderate',
+    ratingHard: 'Hard',
+    ratingIncorrect: 'Incorrect',
+    newStarted: 'New cards started',
+    cardsImproved: 'Cards improved',
+    cardsMastered: 'Cards mastered',
+    stateNew: 'New',
+    stateLearning: 'Learning',
+    stateReview: 'Review',
+    stateMastered: 'Mastered',
+    questionDetail: 'Card details',
+    questionCol: 'Card',
+    stateCol: 'State',
+    stabilityCol: 'Stability',
+    nextReviewCol: 'Next review',
+    sessionHistory: 'Session history',
+    sessionDetail: 'Session detail',
+    exportJson: 'Export JSON',
+    importJson: 'Import JSON',
+    deleteAll: 'Delete all data',
+    clearAll: 'Clear all',
+    clearAllTitle: 'Delete all data',
+    clearAllConfirm: 'Are you sure? All decks, statistics and history will be deleted.',
+    importJsonConfirm: 'Importing will replace all your current decks, statistics and history. Continue?',
+    importInvalid: 'Invalid JSON file.',
+    importDone: 'Import complete.',
+    globalSettings: 'Settings',
+    dataInfo: 'Your data belongs to you. Everything — decks, practice history, and completion stats — is stored locally in your browser. If you clear your browser data or switch computers, it will be gone. If you care about it, export a JSON backup now and then. Exporting downloads all of your decks together with all of your practice history and progress, so you can re-import it later or move it to another device.',
+    navHome: 'Home',
+    navSettings: 'Settings',
+    navHelp: 'Help',
+    helpForumNote: 'Questions, problems, ideas, or just want to say hi? Visit the <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">discussion forum</a>.',
+    helpIntro: 'Quizzer is a flashcard app for memorizing anything. Language vocab is a natural fit, but it works just as well for history, science, geography, scripture, or any other topic you want to drill into long-term memory.',
+    helpSections: [
+      { title: 'Creating a deck', items: [
+        'Click <strong>+ Import Deck</strong> on the home screen to add a new deck.',
+        'Use the prompt provided there with ChatGPT, Claude, or any AI to generate a CSV deck on any topic.',
+        'Drag the resulting <code>.csv</code> file onto the import zone (or click to select it).',
+      ]},
+      { title: 'Practice modes', items: [
+        '<strong>Spaced repetition</strong> (recommended): the app uses FSRS to show due cards first, then introduces new ones at the right pace for long-term memory.',
+        '<strong>Least practiced</strong>: focuses on cards you have seen least often — useful for warming up a fresh deck.',
+        '<strong>Random</strong>: shuffles all cards regardless of state — good for casual review.',
+        '<strong>Browse</strong>: flip through every card with answers visible — no grading, no tracking.',
+      ]},
+      { title: 'Rating cards', items: [
+        '<strong>Again</strong>: you got it wrong — the card comes back soon.',
+        '<strong>Hard</strong>: correct but a struggle — shorter interval next time.',
+        '<strong>Good</strong>: correct with normal effort — standard interval.',
+        '<strong>Easy</strong>: instant recall — longer interval.',
+      ]},
+      { title: 'Stats & history', items: [
+        'Each deck page shows your mastery breakdown (new / learning / review / mastered) and a history chart over time.',
+        'Hover the dots on the chart to see counts for any given day.',
+        'Click <strong>Statistics</strong> on a deck to see all past sessions and drill into individual session details.',
+        'On the home screen, the small red sparkline next to each deck shows your practice volume across the last 14 days.',
+      ]},
+      { title: 'Backup & restore', items: [
+        'Your data lives in the browser only. Visit <strong>Settings</strong> to export a JSON backup now and then.',
+        'Use <strong>Import JSON</strong> in Settings to restore a backup or move your data to another computer.',
+        'Clearing browser data or switching devices without exporting first will lose your decks and history.',
+      ]},
+    ],
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    previous: 'Previous',
+    next: 'Next',
+    recommended: 'recommended',
+    days: 'd',
+    today: 'today',
+    noSessions: 'No sessions yet.',
+    settings: 'Settings',
+    deckName: 'Deck name',
+    save: 'Save',
+    importExportHeader: 'Import & export',
+    openaiKeyLabel: 'OpenAI API key (optional)',
+    openaiKeyHint: 'Enables the ▶ read-aloud buttons. Get a key at platform.openai.com. You are only charged when you click ▶ — roughly $0.01 per 50 cards.',
+    settingsSaved: 'Settings saved.',
+    invalidApiKey: 'Invalid API key. Please check and try again.',
+  },
+  fr: {
+    _label: '🇫🇷',
+    _name: 'Français',
+    _locale: 'fr-FR',
+    home: 'Accueil',
+    dragCsv: 'Glissez un fichier CSV ici<br>ou cliquez pour sélectionner',
+    noDecks: 'Aucun jeu pour le moment. Importez-en un pour commencer !',
+    myDecks: 'Mes jeux',
+    importDeck: '+ Ajouter un jeu',
+    presetsTitle: 'Jeux préréglés',
+    langEnglish: 'Anglais', langFrench: 'Français', langGreek: 'Grec', langItalian: 'Italien', langDutch: 'Néerlandais', langArabic: 'Arabe', langScottishGaelic: 'Écossais Gaélique',
+    orImportCsv: 'Ou importez votre propre CSV',
+    importTitle: 'Importer un jeu',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Copiez le prompt</b> ci-dessous (appuyez sur le bouton Copier).</li><li><b>Collez-le dans un chatbot IA</b> — ChatGPT, Claude, Gemini, etc.</li><li><b>Remplissez les parties entre [CROCHETS]</b> dans le prompt (sujet, niveau, langue, nombre de cartes).</li><li>L\'IA répondra avec du texte CSV. <b>Enregistrez ce texte comme fichier <code>.csv</code></b> sur votre appareil.</li><li><b>Glissez le fichier dans la zone ci-dessus</b> (ou appuyez pour le sélectionner).</li></ol><p style="margin-top:8px">Idéal pour le vocabulaire, mais aussi les dates historiques, l\'anatomie, la chimie, les capitales — tout ce que vous voulez mémoriser !</p>',
+    importPrompt: `Crée un jeu de cartes-flash CSV pour étudier [SUJET]. Niveau visé : [DÉBUTANT / INTERMÉDIAIRE / AVANCÉ]. Langue : [LANGUE].
+
+Utilise exactement cette ligne d'en-tête :
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Génère [NOMBRE] questions à choix multiples. Chaque ligne doit contenir exactement 7 colonnes séparées par des virgules. Entoure de guillemets doubles tout champ contenant une virgule. La colonne « explanation » doit donner une brève raison pour laquelle la bonne réponse est correcte.
+
+Renvoie UNIQUEMENT le CSV, sans aucun autre texte.`,
+    copyPrompt: 'Copier le prompt',
+    copied: 'Copié !',
+    allDecks: 'Tous les jeux',
+    deckBreadcrumb: name => `Jeu : ${name}`,
+    howToCreate: 'Comment créer votre propre jeu personnalisé',
+    nCards: n => `${n} cartes`,
+    dueToday: 'À réviser aujourd\'hui',
+    newAvailable: 'Nouvelles',
+    totalCards: 'Total',
+    start: 'Étudier',
+    statistics: 'Statistiques',
+    delete: 'Supprimer',
+    error: 'Erreur',
+    emptyFile: 'Le fichier est vide.',
+    invalidHeader: 'En-tête CSV invalide. Attendu : ',
+    noValidQuestions: 'Aucune question valide trouvée (chaque ligne doit avoir 9 colonnes).',
+    deleteDeck: 'Supprimer le jeu',
+    deleteDeckConfirm: name => `Supprimer « ${name} » et toute sa progression ?`,
+    back: 'Retour',
+    backToDeck: 'Retour au jeu',
+    spacedRep: 'Répétition espacée',
+    spacedRepDesc: 'Priorité FSRS : cartes à réviser d\'abord, puis nouvelles cartes',
+    leastPracticed: 'Moins pratiquées d\'abord',
+    leastPracticedDesc: 'Cartes jamais vues et plus faibles en premier',
+    randomMode: 'Aléatoire',
+    randomModeDesc: 'Toutes les cartes dans un ordre aléatoire',
+    browse: 'Parcourir',
+    browseDesc: 'Parcourir toutes les cartes avec les réponses',
+    noDue: 'Rien à réviser — tout est à jour !',
+    caughtUp: 'Vous êtes à jour pour aujourd\'hui ! Faites une pause ou continuez à pratiquer.',
+    doneForNow: 'Terminer',
+    nextCard: 'Suivante',
+    reviewed: 'Révisées',
+    remaining: 'Restantes',
+    correct: '<strong>Correct !</strong>',
+    incorrect: '<strong>Faux !</strong>',
+    sessionSummary: 'Résumé de la session',
+    cardsReviewed: 'Cartes révisées',
+    time: 'Temps',
+    ratingEasy: 'Facile',
+    ratingModerate: 'Moyen',
+    ratingHard: 'Difficile',
+    ratingIncorrect: 'Incorrect',
+    newStarted: 'Nouvelles cartes commencées',
+    cardsImproved: 'Cartes améliorées',
+    cardsMastered: 'Cartes maîtrisées',
+    stateNew: 'Nouvelles',
+    stateLearning: 'Apprentissage',
+    stateReview: 'Révision',
+    stateMastered: 'Maîtrisées',
+    questionDetail: 'Détails des cartes',
+    questionCol: 'Carte',
+    stateCol: 'État',
+    stabilityCol: 'Stabilité',
+    nextReviewCol: 'Prochaine révision',
+    sessionHistory: 'Historique des sessions',
+    sessionDetail: 'Détail de la session',
+    exportJson: 'Exporter en JSON',
+    importJson: 'Importer un JSON',
+    deleteAll: 'Supprimer toutes les données',
+    clearAll: 'Tout effacer',
+    clearAllTitle: 'Supprimer toutes les données',
+    clearAllConfirm: 'Êtes-vous sûr ? Tous les jeux, statistiques et historiques seront supprimés.',
+    importJsonConfirm: 'L\'importation remplacera tous vos jeux, statistiques et historiques actuels. Continuer ?',
+    importInvalid: 'Fichier JSON invalide.',
+    importDone: 'Importation terminée.',
+    globalSettings: 'Paramètres',
+    dataInfo: 'Vos données vous appartiennent. Tout — jeux, historique de pratique et statistiques de progression — est stocké localement dans votre navigateur. Si vous effacez les données du navigateur ou changez d\'ordinateur, tout sera perdu. Si cela compte pour vous, exportez de temps en temps une sauvegarde JSON. L\'export télécharge l\'ensemble de vos jeux ainsi que tout votre historique de pratique et votre progression, afin que vous puissiez les réimporter plus tard ou les déplacer vers un autre appareil.',
+    navHome: 'Accueil',
+    navSettings: 'Paramètres',
+    navHelp: 'Aide',
+    helpForumNote: 'Des questions, des problèmes, des idées ou simplement envie de dire bonjour ? Visitez le <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">forum de discussion</a>.',
+    helpSections: [
+      { title: 'Créer un jeu', items: [
+        'Cliquez sur <strong>+ Importer un jeu</strong> sur l\'écran d\'accueil pour ajouter un nouveau jeu.',
+        'Utilisez le prompt fourni avec ChatGPT, Claude ou n\'importe quelle IA pour générer un jeu CSV sur n\'importe quel sujet.',
+        'Glissez le fichier <code>.csv</code> obtenu sur la zone d\'import (ou cliquez pour le sélectionner).',
+      ]},
+      { title: 'Modes de pratique', items: [
+        '<strong>Répétition espacée</strong> (recommandé) : l\'application utilise FSRS pour afficher d\'abord les cartes à réviser, puis introduire les nouvelles au bon rythme pour la mémoire à long terme.',
+        '<strong>Moins pratiquées</strong> : se concentre sur les cartes que vous avez vues le moins souvent — utile pour démarrer un nouveau jeu.',
+        '<strong>Aléatoire</strong> : mélange toutes les cartes quel que soit leur état — bien pour une révision libre.',
+        '<strong>Parcourir</strong> : feuilletez toutes les cartes avec les réponses visibles — pas d\'évaluation, pas de suivi.',
+      ]},
+      { title: 'Évaluer les cartes', items: [
+        '<strong>À refaire</strong> : vous avez eu faux — la carte revient bientôt.',
+        '<strong>Difficile</strong> : correct mais avec effort — intervalle plus court la prochaine fois.',
+        '<strong>Bien</strong> : correct avec un effort normal — intervalle standard.',
+        '<strong>Facile</strong> : rappel immédiat — intervalle plus long.',
+      ]},
+      { title: 'Statistiques et historique', items: [
+        'Chaque page de jeu affiche votre répartition de maîtrise (nouvelles / apprentissage / révision / maîtrisées) et un graphique d\'historique dans le temps.',
+        'Survolez les points du graphique pour voir les chiffres d\'un jour donné.',
+        'Cliquez sur <strong>Statistiques</strong> dans un jeu pour voir toutes vos sessions passées et explorer les détails de chaque session.',
+        'Sur l\'écran d\'accueil, la petite ligne rouge à côté de chaque jeu montre votre volume de pratique des 14 derniers jours.',
+      ]},
+      { title: 'Sauvegarde et restauration', items: [
+        'Vos données vivent uniquement dans le navigateur. Allez dans <strong>Paramètres</strong> pour exporter une sauvegarde JSON de temps en temps.',
+        'Utilisez <strong>Importer un JSON</strong> dans Paramètres pour restaurer une sauvegarde ou déplacer vos données vers un autre ordinateur.',
+        'Effacer les données du navigateur ou changer d\'appareil sans avoir exporté au préalable fera perdre vos jeux et votre historique.',
+      ]},
+    ],
+    cancel: 'Annuler',
+    confirm: 'Confirmer',
+    previous: 'Précédent',
+    next: 'Suivant',
+    recommended: 'recommandé',
+    days: 'j',
+    today: 'aujourd\'hui',
+    noSessions: 'Aucune session pour le moment.',
+    settings: 'Paramètres',
+    deckName: 'Nom du jeu',
+    save: 'Enregistrer',
+    importExportHeader: 'Import & export',
+    openaiKeyLabel: 'Clé API OpenAI (optionnel)',
+    openaiKeyHint: 'Active les boutons ▶ de lecture audio. Obtenez une clé sur platform.openai.com. Vous n\'êtes facturé que lorsque vous cliquez sur ▶ — environ 0,01 $ par 50 cartes.',
+    settingsSaved: 'Paramètres enregistrés.',
+    invalidApiKey: 'Clé API invalide. Veuillez vérifier et réessayer.',
+  },
+  nl: {
+    _label: '🇳🇱',
+    _name: 'Nederlands',
+    _locale: 'nl-NL',
+    home: 'Home',
+    dragCsv: 'Sleep een CSV-bestand hierheen<br>of tik om te selecteren',
+    noDecks: 'Nog geen decks. Importeer een deck om te beginnen!',
+    myDecks: 'Mijn Decks',
+    importDeck: '+ Deck toevoegen',
+    presetsTitle: 'Voorgeïnstalleerde decks',
+    langEnglish: 'Engels', langFrench: 'Frans', langGreek: 'Grieks', langItalian: 'Italiaans', langDutch: 'Nederlands', langArabic: 'Arabisch', langScottishGaelic: 'Schots Gaelisch',
+    orImportCsv: 'Of importeer je eigen CSV',
+    importTitle: 'Deck importeren',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Kopieer de prompt</b> hieronder (tik op de knop Kopiëren).</li><li><b>Plak het in een AI-chatbot</b> — ChatGPT, Claude, Gemini, etc.</li><li><b>Vul de delen tussen [HAAKJES] in</b> in de prompt (onderwerp, niveau, taal, aantal kaarten).</li><li>De AI antwoordt met CSV-tekst. <b>Sla die tekst op als <code>.csv</code>-bestand</b> op je apparaat.</li><li><b>Sleep het bestand naar het vak hierboven</b> (of tik om te selecteren).</li></ol><p style="margin-top:8px">Ideaal voor woordenschat, maar ook voor geschiedenisdata, anatomie, scheikunde, hoofdsteden — alles wat je wilt onthouden!</p>',
+    importPrompt: `Maak een CSV-flashcard-deck om [ONDERWERP] te studeren. Niveau: [BEGINNER / GEMIDDELD / GEVORDERD]. Taal: [TAAL].
+
+Gebruik exact deze kopregel:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Genereer [AANTAL] meerkeuzevragen. Elke rij moet precies 7 kommagescheiden kolommen hebben. Zet velden met een komma tussen dubbele aanhalingstekens. De kolom "explanation" moet kort uitleggen waarom het goede antwoord correct is.
+
+Geef ALLEEN de CSV zonder andere tekst.`,
+    copyPrompt: 'Prompt kopiëren',
+    copied: 'Gekopieerd!',
+    allDecks: 'Alle decks',
+    deckBreadcrumb: name => `Deck: ${name}`,
+    howToCreate: 'Hoe maak je je eigen gepersonaliseerd deck',
+    nCards: n => `${n} kaarten`,
+    dueToday: 'Vandaag',
+    newAvailable: 'Nieuw',
+    totalCards: 'Totaal',
+    start: 'Studeren',
+    statistics: 'Statistieken',
+    delete: 'Verwijderen',
+    error: 'Fout',
+    emptyFile: 'Het bestand is leeg.',
+    invalidHeader: 'Ongeldige CSV-header. Verwacht: ',
+    noValidQuestions: 'Geen geldige vragen gevonden (elke rij moet 9 kolommen hebben).',
+    deleteDeck: 'Deck verwijderen',
+    deleteDeckConfirm: name => `"${name}" en alle voortgang verwijderen?`,
+    back: 'Terug',
+    backToDeck: 'Terug naar deck',
+    spacedRep: 'Gespreide herhaling',
+    spacedRepDesc: 'FSRS-prioriteit: eerst te herhalen kaarten, dan nieuwe',
+    leastPracticed: 'Minst geoefend eerst',
+    leastPracticedDesc: 'Ongeziene en zwakste kaarten eerst',
+    randomMode: 'Willekeurig',
+    randomModeDesc: 'Alle kaarten in willekeurige volgorde',
+    browse: 'Bladeren',
+    browseDesc: 'Blader door alle kaarten met antwoorden',
+    noDue: 'Niets te herhalen — helemaal bij!',
+    caughtUp: 'Je bent helemaal bij voor vandaag! Neem een pauze, of oefen verder.',
+    doneForNow: 'Klaar voor nu',
+    nextCard: 'Volgende',
+    reviewed: 'Herhaald',
+    remaining: 'Resterend',
+    correct: '<strong>Goed!</strong>',
+    incorrect: '<strong>Fout!</strong>',
+    sessionSummary: 'Sessie-overzicht',
+    cardsReviewed: 'Kaarten herhaald',
+    time: 'Tijd',
+    ratingEasy: 'Makkelijk',
+    ratingModerate: 'Gemiddeld',
+    ratingHard: 'Moeilijk',
+    ratingIncorrect: 'Fout',
+    newStarted: 'Nieuwe kaarten gestart',
+    cardsImproved: 'Kaarten verbeterd',
+    cardsMastered: 'Kaarten beheerst',
+    stateNew: 'Nieuw',
+    stateLearning: 'Aan het leren',
+    stateReview: 'Herhaling',
+    stateMastered: 'Beheerst',
+    questionDetail: 'Kaartdetails',
+    questionCol: 'Kaart',
+    stateCol: 'Status',
+    stabilityCol: 'Stabiliteit',
+    nextReviewCol: 'Volgende herhaling',
+    sessionHistory: 'Sessiegeschiedenis',
+    sessionDetail: 'Sessiedetails',
+    exportJson: 'Exporteer JSON',
+    clearAll: 'Alles wissen',
+    clearAllTitle: 'Alles wissen',
+    clearAllConfirm: 'Weet je het zeker? Alle decks, statistieken en geschiedenis worden verwijderd.',
+    cancel: 'Annuleren',
+    confirm: 'Bevestigen',
+    previous: 'Vorige',
+    next: 'Volgende',
+    recommended: 'aanbevolen',
+    days: 'd',
+    today: 'vandaag',
+    noSessions: 'Nog geen sessies.',
+    settings: 'Instellingen',
+    deckName: 'Decknaam',
+    save: 'Opslaan',
+    importJson: 'JSON importeren',
+    deleteAll: 'Alle gegevens verwijderen',
+    importJsonConfirm: 'Importeren vervangt al je huidige decks, statistieken en geschiedenis. Doorgaan?',
+    importInvalid: 'Ongeldig JSON-bestand.',
+    globalSettings: 'Instellingen',
+    dataInfo: 'Je gegevens zijn van jou. Alles — decks, oefen­geschiedenis en voortgang — wordt lokaal in je browser opgeslagen. Als je je browsergegevens wist of van computer wisselt, ben je het kwijt. Als het je wat waard is, exporteer dan zo nu en dan een JSON-back-up. Bij export download je al je decks samen met je volledige oefen­geschiedenis en voortgang, zodat je het later weer kunt importeren of naar een ander apparaat kunt overzetten.',
+    navHome: 'Home',
+    navSettings: 'Instellingen',
+    navHelp: 'Help',
+    helpForumNote: 'Vragen, problemen, ideeën of gewoon hallo zeggen? Bezoek het <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">discussieforum</a>.',
+    helpSections: [
+      { title: 'Een deck maken', items: [
+        'Klik op <strong>+ Deck importeren</strong> op het startscherm om een nieuw deck toe te voegen.',
+        'Gebruik de prompt die daar staat met ChatGPT, Claude of een andere AI om een CSV-deck over een willekeurig onderwerp te genereren.',
+        'Sleep het resulterende <code>.csv</code>-bestand naar de import­zone (of klik om te selecteren).',
+      ]},
+      { title: 'Oefenmodi', items: [
+        '<strong>Gespreide herhaling</strong> (aanbevolen): de app gebruikt FSRS om eerst kaarten te tonen die toe zijn aan herhaling en daarna nieuwe kaarten in het juiste tempo voor langetermijn­geheugen.',
+        '<strong>Minst geoefend</strong>: richt zich op kaarten die je het minst hebt gezien — handig om een nieuw deck op te warmen.',
+        '<strong>Willekeurig</strong>: schudt alle kaarten ongeacht hun status — goed voor losse herhaling.',
+        '<strong>Bladeren</strong>: blader door alle kaarten met antwoorden zichtbaar — geen beoordeling, geen tracking.',
+      ]},
+      { title: 'Kaarten beoordelen', items: [
+        '<strong>Opnieuw</strong>: je had het fout — de kaart komt snel terug.',
+        '<strong>Moeilijk</strong>: goed maar moeizaam — kortere interval volgende keer.',
+        '<strong>Goed</strong>: correct met normale moeite — standaard­interval.',
+        '<strong>Makkelijk</strong>: meteen geweten — langere interval.',
+      ]},
+      { title: 'Statistieken & geschiedenis', items: [
+        'Elke deck-pagina toont je beheersings­overzicht (nieuw / lerend / herhaling / beheerst) en een geschiedenis­grafiek over de tijd.',
+        'Beweeg over de stippen op de grafiek om de aantallen voor een bepaalde dag te zien.',
+        'Klik op <strong>Statistieken</strong> bij een deck om alle eerdere sessies te zien en in te zoomen op individuele sessies.',
+        'Op het startscherm toont de kleine rode lijn naast elk deck je oefenvolume over de afgelopen 14 dagen.',
+      ]},
+      { title: 'Back-up & herstel', items: [
+        'Je gegevens staan alleen in de browser. Ga naar <strong>Instellingen</strong> om af en toe een JSON-back-up te exporteren.',
+        'Gebruik <strong>JSON importeren</strong> in Instellingen om een back-up terug te zetten of je gegevens naar een andere computer te verplaatsen.',
+        'Als je je browser­gegevens wist of van apparaat wisselt zonder eerst te exporteren, ben je je decks en geschiedenis kwijt.',
+      ]},
+    ],
+    importExportHeader: 'Import & export',
+    openaiKeyLabel: 'OpenAI API-sleutel (optioneel)',
+    openaiKeyHint: 'Activeert de ▶ voorleesknoppen. Haal een sleutel op platform.openai.com. Er worden alleen kosten in rekening gebracht als je op ▶ klikt — circa $0,01 per 50 kaarten.',
+    settingsSaved: 'Instellingen opgeslagen.',
+    invalidApiKey: 'Ongeldige API-sleutel. Controleer en probeer opnieuw.',
+  },
+  it: {
+    _label: '🇮🇹',
+    _name: 'Italiano',
+    _locale: 'it-IT',
+    home: 'Home',
+    dragCsv: 'Trascina un file CSV qui<br>oppure tocca per selezionare',
+    noDecks: 'Nessun mazzo ancora. Importa un mazzo per iniziare!',
+    myDecks: 'I Miei Mazzi',
+    importDeck: '+ Aggiungi mazzo',
+    presetsTitle: 'Mazzi predefiniti',
+    langEnglish: 'Inglese', langFrench: 'Francese', langGreek: 'Greco', langItalian: 'Italiano', langDutch: 'Olandese', langArabic: 'Arabo', langScottishGaelic: 'Gaelico Scozzese',
+    orImportCsv: 'Oppure importa il tuo CSV',
+    importTitle: 'Importa un mazzo',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Copia il prompt</b> qui sotto (tocca il pulsante Copia).</li><li><b>Incollalo in un chatbot AI</b> — ChatGPT, Claude, Gemini, etc.</li><li><b>Compila le parti tra [PARENTESI]</b> nel prompt (argomento, livello, lingua, numero di carte).</li><li>L\'AI risponderà con testo CSV. <b>Salva quel testo come file <code>.csv</code></b> sul tuo dispositivo.</li><li><b>Trascina il file nella zona sopra</b> (o tocca per selezionarlo).</li></ol><p style="margin-top:8px">Ottimo per il vocabolario, ma anche per date storiche, anatomia, chimica, capitali — qualsiasi cosa tu voglia memorizzare!</p>',
+    importPrompt: `Crea un mazzo di flashcard CSV per studiare [ARGOMENTO]. Livello: [PRINCIPIANTE / INTERMEDIO / AVANZATO]. Lingua: [LINGUA].
+
+Usa esattamente questa riga di intestazione:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Genera [NUMERO] domande a scelta multipla. Ogni riga deve avere esattamente 7 colonne separate da virgola. Racchiudi tra virgolette doppie i campi che contengono una virgola. La colonna "explanation" deve spiegare brevemente perché la risposta corretta è giusta.
+
+Restituisci SOLO il CSV senza altro testo.`,
+    copyPrompt: 'Copia prompt',
+    copied: 'Copiato!',
+    allDecks: 'Tutti i mazzi',
+    deckBreadcrumb: name => `Mazzo: ${name}`,
+    howToCreate: 'Come creare il tuo mazzo personalizzato',
+    nCards: n => `${n} carte`,
+    dueToday: 'Oggi',
+    newAvailable: 'Nuove',
+    totalCards: 'Totale',
+    start: 'Studia',
+    statistics: 'Statistiche',
+    delete: 'Elimina',
+    error: 'Errore',
+    emptyFile: 'Il file è vuoto.',
+    invalidHeader: 'Intestazione CSV non valida. Attesa: ',
+    noValidQuestions: 'Nessuna domanda valida trovata (ogni riga deve avere 9 colonne).',
+    deleteDeck: 'Elimina mazzo',
+    deleteDeckConfirm: name => `Eliminare "${name}" e tutti i progressi?`,
+    back: 'Indietro',
+    backToDeck: 'Torna al mazzo',
+    spacedRep: 'Ripetizione spaziata',
+    spacedRepDesc: 'Priorità FSRS: prima le carte da ripassare, poi le nuove',
+    leastPracticed: 'Meno praticate prima',
+    leastPracticedDesc: 'Carte non viste e più deboli prima',
+    randomMode: 'Casuale',
+    randomModeDesc: 'Tutte le carte in ordine casuale',
+    browse: 'Sfoglia',
+    browseDesc: 'Sfoglia tutte le carte con le risposte',
+    noDue: 'Niente da ripassare — tutto in pari!',
+    caughtUp: 'Sei in pari per oggi! Fai una pausa, o continua a esercitarti.',
+    doneForNow: 'Basta per ora',
+    nextCard: 'Prossima',
+    reviewed: 'Ripassate',
+    remaining: 'Rimanenti',
+    correct: '<strong>Corretto!</strong>',
+    incorrect: '<strong>Sbagliato!</strong>',
+    sessionSummary: 'Riepilogo sessione',
+    cardsReviewed: 'Carte ripassate',
+    time: 'Tempo',
+    ratingEasy: 'Facile',
+    ratingModerate: 'Medio',
+    ratingHard: 'Difficile',
+    ratingIncorrect: 'Errato',
+    newStarted: 'Carte nuove iniziate',
+    cardsImproved: 'Carte migliorate',
+    cardsMastered: 'Carte padroneggiate',
+    stateNew: 'Nuova',
+    stateLearning: 'In apprendimento',
+    stateReview: 'Ripasso',
+    stateMastered: 'Padroneggiata',
+    questionDetail: 'Dettaglio carte',
+    questionCol: 'Carta',
+    stateCol: 'Stato',
+    stabilityCol: 'Stabilità',
+    nextReviewCol: 'Prossimo ripasso',
+    sessionHistory: 'Cronologia sessioni',
+    sessionDetail: 'Dettaglio sessione',
+    exportJson: 'Esporta JSON',
+    clearAll: 'Cancella tutto',
+    clearAllTitle: 'Cancella tutto',
+    clearAllConfirm: 'Sei sicuro/a? Tutti i mazzi, le statistiche e la cronologia verranno eliminati.',
+    cancel: 'Annulla',
+    confirm: 'Conferma',
+    previous: 'Precedente',
+    next: 'Successiva',
+    recommended: 'consigliato',
+    days: 'g',
+    today: 'oggi',
+    noSessions: 'Nessuna sessione ancora.',
+    settings: 'Impostazioni',
+    deckName: 'Nome del mazzo',
+    save: 'Salva',
+    importJson: 'Importa JSON',
+    deleteAll: 'Elimina tutti i dati',
+    importJsonConfirm: 'L\'importazione sostituirà tutti i tuoi mazzi, statistiche e cronologia attuali. Continuare?',
+    importInvalid: 'File JSON non valido.',
+    globalSettings: 'Impostazioni',
+    dataInfo: 'I tuoi dati appartengono a te. Tutto — mazzi, cronologia di studio e statistiche di completamento — viene salvato localmente nel tuo browser. Se cancelli i dati del browser o cambi computer, andranno persi. Se ci tieni, esporta ogni tanto un backup JSON. L\'esportazione scarica tutti i tuoi mazzi insieme a tutta la cronologia di studio e ai progressi, così potrai reimportarli in seguito o spostarli su un altro dispositivo.',
+    navHome: 'Home',
+    navSettings: 'Impostazioni',
+    navHelp: 'Aiuto',
+    helpForumNote: 'Domande, problemi, idee o vuoi solo salutare? Visita il <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">forum di discussione</a>.',
+    helpSections: [
+      { title: 'Creare un mazzo', items: [
+        'Clicca su <strong>+ Importa mazzo</strong> nella schermata iniziale per aggiungere un nuovo mazzo.',
+        'Usa il prompt fornito lì con ChatGPT, Claude o qualsiasi AI per generare un mazzo CSV su qualsiasi argomento.',
+        'Trascina il file <code>.csv</code> risultante nell\'area di importazione (o clicca per selezionarlo).',
+      ]},
+      { title: 'Modalità di pratica', items: [
+        '<strong>Ripetizione spaziata</strong> (consigliata): l\'app usa FSRS per mostrare prima le carte da ripassare, poi introduce le nuove al ritmo giusto per la memoria a lungo termine.',
+        '<strong>Meno praticate</strong>: si concentra sulle carte che hai visto meno spesso — utile per scaldare un mazzo nuovo.',
+        '<strong>Casuale</strong>: mescola tutte le carte indipendentemente dallo stato — buona per un ripasso informale.',
+        '<strong>Sfoglia</strong>: scorri tutte le carte con le risposte visibili — nessuna valutazione, nessun tracciamento.',
+      ]},
+      { title: 'Valutare le carte', items: [
+        '<strong>Di nuovo</strong>: hai sbagliato — la carta tornerà presto.',
+        '<strong>Difficile</strong>: corretto ma faticoso — intervallo più breve la prossima volta.',
+        '<strong>Buono</strong>: corretto con sforzo normale — intervallo standard.',
+        '<strong>Facile</strong>: ricordo immediato — intervallo più lungo.',
+      ]},
+      { title: 'Statistiche e cronologia', items: [
+        'Ogni pagina del mazzo mostra la suddivisione della padronanza (nuove / in apprendimento / ripasso / padroneggiate) e un grafico storico nel tempo.',
+        'Passa il mouse sui punti del grafico per vedere i conteggi di un giorno specifico.',
+        'Clicca su <strong>Statistiche</strong> in un mazzo per vedere tutte le sessioni passate ed esplorare i dettagli delle singole sessioni.',
+        'Nella schermata iniziale, la piccola linea rossa accanto a ogni mazzo mostra il volume di studio degli ultimi 14 giorni.',
+      ]},
+      { title: 'Backup e ripristino', items: [
+        'I tuoi dati vivono solo nel browser. Visita <strong>Impostazioni</strong> per esportare di tanto in tanto un backup JSON.',
+        'Usa <strong>Importa JSON</strong> in Impostazioni per ripristinare un backup o spostare i tuoi dati su un altro computer.',
+        'Cancellare i dati del browser o cambiare dispositivo senza prima esportare farà perdere i tuoi mazzi e la cronologia.',
+      ]},
+    ],
+    importExportHeader: 'Importa ed esporta',
+    openaiKeyLabel: 'Chiave API OpenAI (opzionale)',
+    openaiKeyHint: 'Abilita i pulsanti ▶ di lettura audio. Ottieni una chiave su platform.openai.com. Il costo viene addebitato solo quando clicchi ▶ — circa $0,01 ogni 50 carte.',
+    settingsSaved: 'Impostazioni salvate.',
+    invalidApiKey: 'Chiave API non valida. Controlla e riprova.',
+  },
+  tr: {
+    _label: '🇹🇷',
+    _name: 'Türkçe',
+    _locale: 'tr-TR',
+    home: 'Ana Sayfa',
+    dragCsv: 'Bir CSV dosyasını buraya sürükleyin<br>veya seçmek için dokunun',
+    noDecks: 'Henüz deste yok. Başlamak için bir deste içe aktarın!',
+    myDecks: 'Destelerim',
+    importDeck: '+ Deste Ekle',
+    presetsTitle: 'Hazır desteler',
+    langEnglish: 'İngilizce', langFrench: 'Fransızca', langGreek: 'Yunanca', langItalian: 'İtalyanca', langDutch: 'Hollandaca', langArabic: 'Arapça', langScottishGaelic: 'İskoç Gaelicesi',
+    orImportCsv: 'Veya kendi CSV dosyanızı içe aktarın',
+    importTitle: 'Deste İçe Aktar',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Aşağıdaki istemi kopyalayın</b> (Kopyala düğmesine dokunun).</li><li><b>Bir AI sohbet botuna yapıştırın</b> — ChatGPT, Claude, Gemini, vb.</li><li><b>İstemdeki [KÖŞELI PARANTEZ] kısımları doldurun</b> (konu, seviye, dil, kart sayısı).</li><li>AI, CSV metniyle yanıt verecektir. <b>Bu metni cihazınıza <code>.csv</code> dosyası olarak kaydedin</b>.</li><li><b>Dosyayı yukarıdaki kutuya sürükleyin</b> (veya seçmek için dokunun).</li></ol><p style="margin-top:8px">Kelime bilgisi için harika, ama aynı zamanda tarih tarihleri, anatomi, kimya, başkentler — ezberlemek istediğiniz her şey için!</p>',
+    importPrompt: `[KONU] çalışmak için bir CSV flashcard destesi oluştur. Seviye: [BAŞLANGIÇ / ORTA / İLERİ]. Dil: [DİL].
+
+Tam olarak bu başlık satırını kullan:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+[SAYI] çoktan seçmeli soru oluştur. Her satırda tam olarak 7 virgülle ayrılmış sütun olmalı. Virgül içeren alanları çift tırnak içine al. "explanation" sütunu doğru cevabın neden doğru olduğunu kısaca açıklamalı.
+
+YALNIZCA CSV çıktısı ver, başka metin ekleme.`,
+    copyPrompt: 'İstemi kopyala',
+    copied: 'Kopyalandı!',
+    allDecks: 'Tüm desteler',
+    deckBreadcrumb: name => `Deste: ${name}`,
+    howToCreate: 'Kendi kişiselleştirilmiş destenizi nasıl oluşturursunuz',
+    nCards: n => `${n} kart`,
+    dueToday: 'Bugün',
+    newAvailable: 'Yeni',
+    totalCards: 'Toplam',
+    start: 'Çalış',
+    statistics: 'İstatistikler',
+    delete: 'Sil',
+    error: 'Hata',
+    emptyFile: 'Dosya boş.',
+    invalidHeader: 'Geçersiz CSV başlığı. Beklenen: ',
+    noValidQuestions: 'Geçerli soru bulunamadı (her satırda 9 sütun olmalı).',
+    deleteDeck: 'Desteyi sil',
+    deleteDeckConfirm: name => `"${name}" ve tüm ilerleme silinsin mi?`,
+    back: 'Geri',
+    backToDeck: 'Desteye dön',
+    spacedRep: 'Aralıklı tekrar',
+    spacedRepDesc: 'FSRS öncelikli: önce tekrar edilecek kartlar, sonra yeniler',
+    leastPracticed: 'En az çalışılan önce',
+    leastPracticedDesc: 'Görülmemiş ve en zayıf kartlar önce',
+    randomMode: 'Rastgele',
+    randomModeDesc: 'Tüm kartlar rastgele sırada',
+    browse: 'Göz At',
+    browseDesc: 'Tüm kartlara cevaplarıyla göz at',
+    noDue: 'Tekrar edilecek bir şey yok — hepsini tamamladınız!',
+    caughtUp: 'Bugünlük tamamladınız! Bir mola verin veya pratik yapmaya devam edin.',
+    doneForNow: 'Şimdilik yeterli',
+    nextCard: 'Sonraki',
+    reviewed: 'Tekrar edildi',
+    remaining: 'Kalan',
+    correct: '<strong>Doğru!</strong>',
+    incorrect: '<strong>Yanlış!</strong>',
+    sessionSummary: 'Oturum Özeti',
+    cardsReviewed: 'Tekrar edilen kartlar',
+    time: 'Süre',
+    ratingEasy: 'Kolay',
+    ratingModerate: 'Orta',
+    ratingHard: 'Zor',
+    ratingIncorrect: 'Yanlış',
+    newStarted: 'Yeni başlanan kartlar',
+    cardsImproved: 'Gelişen kartlar',
+    cardsMastered: 'Ustalaşılan kartlar',
+    stateNew: 'Yeni',
+    stateLearning: 'Öğreniliyor',
+    stateReview: 'Tekrar',
+    stateMastered: 'Ustalaşıldı',
+    questionDetail: 'Kart detayları',
+    questionCol: 'Kart',
+    stateCol: 'Durum',
+    stabilityCol: 'Kararlılık',
+    nextReviewCol: 'Sonraki tekrar',
+    sessionHistory: 'Oturum geçmişi',
+    sessionDetail: 'Oturum detayı',
+    exportJson: 'JSON Dışa Aktar',
+    clearAll: 'Tümünü sil',
+    clearAllTitle: 'Tümünü sil',
+    clearAllConfirm: 'Emin misiniz? Tüm desteler, istatistikler ve geçmiş silinecek.',
+    cancel: 'İptal',
+    confirm: 'Onayla',
+    previous: 'Önceki',
+    next: 'Sonraki',
+    recommended: 'önerilen',
+    days: 'g',
+    today: 'bugün',
+    noSessions: 'Henüz oturum yok.',
+    settings: 'Ayarlar',
+    deckName: 'Deste adı',
+    save: 'Kaydet',
+    importJson: 'JSON içe aktar',
+    deleteAll: 'Tüm verileri sil',
+    importJsonConfirm: 'İçe aktarma, mevcut tüm destelerinizi, istatistiklerinizi ve geçmişinizi değiştirir. Devam edilsin mi?',
+    importInvalid: 'Geçersiz JSON dosyası.',
+    globalSettings: 'Ayarlar',
+    dataInfo: 'Verileriniz size aittir. Her şey — desteler, çalışma geçmişi ve ilerleme istatistikleri — yerel olarak tarayıcınızda saklanır. Tarayıcı verilerinizi temizlerseniz veya bilgisayar değiştirirseniz kaybolur. Önemsiyorsanız ara sıra bir JSON yedeği dışa aktarın. Dışa aktarma tüm destelerinizi ve tüm çalışma geçmişinizi ve ilerlemenizi indirir; daha sonra geri içe aktarabilir veya başka bir cihaza taşıyabilirsiniz.',
+    navHome: 'Ana sayfa',
+    navSettings: 'Ayarlar',
+    navHelp: 'Yardım',
+    helpForumNote: 'Sorularınız, sorunlarınız, fikirleriniz mi var ya da sadece selam mı vermek istiyorsunuz? <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">Tartışma forumunu</a> ziyaret edin.',
+    helpSections: [
+      { title: 'Deste oluşturma', items: [
+        'Yeni bir deste eklemek için ana ekranda <strong>+ Deste İçe Aktar</strong>\'a tıklayın.',
+        'Herhangi bir konuda CSV destesi oluşturmak için orada verilen istemi ChatGPT, Claude veya herhangi bir yapay zekayla kullanın.',
+        'Oluşan <code>.csv</code> dosyasını içe aktarma alanına sürükleyin (veya tıklayarak seçin).',
+      ]},
+      { title: 'Çalışma modları', items: [
+        '<strong>Aralıklı tekrar</strong> (önerilen): Uygulama, uzun vadeli hafıza için önce tekrar zamanı gelmiş kartları, sonra yenileri doğru hızda göstermek için FSRS kullanır.',
+        '<strong>En az çalışılanlar</strong>: En az gördüğünüz kartlara odaklanır — yeni bir desteyi ısıtmak için yararlıdır.',
+        '<strong>Rastgele</strong>: Durumdan bağımsız olarak tüm kartları karıştırır — günlük tekrar için iyidir.',
+        '<strong>Göz at</strong>: Tüm kartları cevaplarıyla birlikte gözden geçirin — değerlendirme yok, takip yok.',
+      ]},
+      { title: 'Kart değerlendirme', items: [
+        '<strong>Tekrar</strong>: yanlış yaptınız — kart yakında geri gelir.',
+        '<strong>Zor</strong>: doğru ama zorlandınız — sonraki sefer daha kısa aralık.',
+        '<strong>İyi</strong>: normal çabayla doğru — standart aralık.',
+        '<strong>Kolay</strong>: anında hatırlandı — daha uzun aralık.',
+      ]},
+      { title: 'İstatistikler ve geçmiş', items: [
+        'Her deste sayfası ustalık dağılımınızı (yeni / öğreniliyor / tekrar / ustalaşılmış) ve zaman içinde bir geçmiş grafiğini gösterir.',
+        'Belirli bir günün sayılarını görmek için grafikteki noktaların üzerine gelin.',
+        'Geçmiş tüm oturumları görmek ve ayrıntılarına inmek için bir destede <strong>İstatistikler</strong>\'e tıklayın.',
+        'Ana ekranda her destenin yanındaki küçük kırmızı çizgi, son 14 gündeki çalışma hacminizi gösterir.',
+      ]},
+      { title: 'Yedekleme ve geri yükleme', items: [
+        'Verileriniz yalnızca tarayıcıda yaşar. Ara sıra bir JSON yedeği dışa aktarmak için <strong>Ayarlar</strong>\'ı ziyaret edin.',
+        'Bir yedeği geri yüklemek veya verilerinizi başka bir bilgisayara taşımak için Ayarlar\'daki <strong>JSON İçe Aktar</strong>\'ı kullanın.',
+        'Önce dışa aktarmadan tarayıcı verilerini silmek veya cihaz değiştirmek desteleri ve geçmişi kaybettirir.',
+      ]},
+    ],
+    importExportHeader: 'İçe ve dışa aktar',
+    openaiKeyLabel: 'OpenAI API anahtarı (isteğe bağlı)',
+    openaiKeyHint: '▶ sesli okuma düğmelerini etkinleştirir. platform.openai.com adresinden bir anahtar edinin. Yalnızca ▶ düğmesine tıkladığınızda ücretlendirilirsiniz — yaklaşık 50 kart başına 0,01 $.',
+    settingsSaved: 'Ayarlar kaydedildi.',
+    invalidApiKey: 'Geçersiz API anahtarı. Lütfen kontrol edip tekrar deneyin.',
+  },
+  es: {
+    _label: '🇪🇸',
+    _name: 'Español',
+    _locale: 'es-ES',
+    home: 'Inicio',
+    dragCsv: 'Arrastra un archivo CSV aquí<br>o toca para seleccionar',
+    noDecks: 'Aún no hay mazos. ¡Importa un mazo para empezar!',
+    myDecks: 'Mis Mazos',
+    importDeck: '+ Añadir mazo',
+    presetsTitle: 'Mazos predefinidos',
+    langEnglish: 'Inglés', langFrench: 'Francés', langGreek: 'Griego', langItalian: 'Italiano', langDutch: 'Neerlandés', langArabic: 'Árabe', langScottishGaelic: 'Gaélico Escocés',
+    orImportCsv: 'O importa tu propio CSV',
+    importTitle: 'Importar un mazo',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Copia el prompt</b> de abajo (toca el botón Copiar).</li><li><b>Pégalo en un chatbot de IA</b> — ChatGPT, Claude, Gemini, etc.</li><li><b>Rellena las partes entre [CORCHETES]</b> en el prompt (tema, nivel, idioma, número de tarjetas).</li><li>La IA responderá con texto CSV. <b>Guarda ese texto como archivo <code>.csv</code></b> en tu dispositivo.</li><li><b>Arrastra el archivo a la zona de arriba</b> (o toca para seleccionarlo).</li></ol><p style="margin-top:8px">Ideal para vocabulario, pero también para fechas históricas, anatomía, química, capitales — ¡cualquier cosa que quieras memorizar!</p>',
+    importPrompt: `Crea un mazo de flashcards CSV para estudiar [TEMA]. Nivel: [PRINCIPIANTE / INTERMEDIO / AVANZADO]. Idioma: [IDIOMA].
+
+Usa exactamente esta fila de encabezado:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Genera [NÚMERO] preguntas de opción múltiple. Cada fila debe tener exactamente 7 columnas separadas por comas. Encierra entre comillas dobles los campos que contengan una coma. La columna "explanation" debe explicar brevemente por qué la respuesta correcta es la correcta.
+
+Devuelve SOLO el CSV sin ningún otro texto.`,
+    copyPrompt: 'Copiar prompt',
+    copied: '¡Copiado!',
+    allDecks: 'Todos los mazos',
+    deckBreadcrumb: name => `Mazo: ${name}`,
+    howToCreate: 'Cómo crear tu propio mazo personalizado',
+    nCards: n => `${n} tarjetas`,
+    dueToday: 'Hoy',
+    newAvailable: 'Nuevas',
+    totalCards: 'Total',
+    start: 'Estudiar',
+    statistics: 'Estadísticas',
+    delete: 'Eliminar',
+    error: 'Error',
+    emptyFile: 'El archivo está vacío.',
+    invalidHeader: 'Encabezado CSV no válido. Esperado: ',
+    noValidQuestions: 'No se encontraron preguntas válidas (cada fila debe tener 9 columnas).',
+    deleteDeck: 'Eliminar mazo',
+    deleteDeckConfirm: name => `¿Eliminar "${name}" y todo el progreso?`,
+    back: 'Atrás',
+    backToDeck: 'Volver al mazo',
+    spacedRep: 'Repetición espaciada',
+    spacedRepDesc: 'Prioridad FSRS: primero tarjetas por repasar, luego nuevas',
+    leastPracticed: 'Menos practicadas primero',
+    leastPracticedDesc: 'Tarjetas no vistas y más débiles primero',
+    randomMode: 'Aleatorio',
+    randomModeDesc: 'Todas las tarjetas en orden aleatorio',
+    browse: 'Explorar',
+    browseDesc: 'Explora todas las tarjetas con sus respuestas',
+    noDue: '¡Nada que repasar — todo al día!',
+    caughtUp: '¡Estás al día por hoy! Tómate un descanso o sigue practicando.',
+    doneForNow: 'Listo por ahora',
+    nextCard: 'Siguiente',
+    reviewed: 'Repasadas',
+    remaining: 'Restantes',
+    correct: '<strong>¡Correcto!</strong>',
+    incorrect: '<strong>¡Incorrecto!</strong>',
+    sessionSummary: 'Resumen de la sesión',
+    cardsReviewed: 'Tarjetas repasadas',
+    time: 'Tiempo',
+    ratingEasy: 'Fácil',
+    ratingModerate: 'Moderado',
+    ratingHard: 'Difícil',
+    ratingIncorrect: 'Incorrecto',
+    newStarted: 'Tarjetas nuevas iniciadas',
+    cardsImproved: 'Tarjetas mejoradas',
+    cardsMastered: 'Tarjetas dominadas',
+    stateNew: 'Nueva',
+    stateLearning: 'Aprendiendo',
+    stateReview: 'Repaso',
+    stateMastered: 'Dominada',
+    questionDetail: 'Detalle de tarjetas',
+    questionCol: 'Tarjeta',
+    stateCol: 'Estado',
+    stabilityCol: 'Estabilidad',
+    nextReviewCol: 'Próximo repaso',
+    sessionHistory: 'Historial de sesiones',
+    sessionDetail: 'Detalle de sesión',
+    exportJson: 'Exportar JSON',
+    clearAll: 'Borrar todo',
+    clearAllTitle: 'Borrar todo',
+    clearAllConfirm: '¿Estás seguro/a? Se eliminarán todos los mazos, estadísticas e historial.',
+    cancel: 'Cancelar',
+    confirm: 'Confirmar',
+    previous: 'Anterior',
+    next: 'Siguiente',
+    recommended: 'recomendado',
+    days: 'd',
+    today: 'hoy',
+    noSessions: 'Aún no hay sesiones.',
+    settings: 'Ajustes',
+    deckName: 'Nombre del mazo',
+    save: 'Guardar',
+    importJson: 'Importar JSON',
+    deleteAll: 'Eliminar todos los datos',
+    importJsonConfirm: 'La importación reemplazará todos tus mazos, estadísticas e historial actuales. ¿Continuar?',
+    importInvalid: 'Archivo JSON no válido.',
+    globalSettings: 'Ajustes',
+    dataInfo: 'Tus datos te pertenecen. Todo — mazos, historial de práctica y estadísticas de progreso — se guarda localmente en tu navegador. Si borras los datos del navegador o cambias de ordenador, se perderá. Si te importa, exporta una copia JSON de vez en cuando. La exportación descarga todos tus mazos junto con todo tu historial de práctica y progreso, para que puedas reimportarlo más tarde o moverlo a otro dispositivo.',
+    navHome: 'Inicio',
+    navSettings: 'Ajustes',
+    navHelp: 'Ayuda',
+    helpForumNote: '¿Preguntas, problemas, ideas o solo quieres saludar? Visita el <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">foro de discusión</a>.',
+    helpSections: [
+      { title: 'Crear un mazo', items: [
+        'Haz clic en <strong>+ Importar mazo</strong> en la pantalla de inicio para añadir un nuevo mazo.',
+        'Usa el prompt que aparece allí con ChatGPT, Claude o cualquier IA para generar un mazo CSV sobre cualquier tema.',
+        'Arrastra el archivo <code>.csv</code> resultante a la zona de importación (o haz clic para seleccionarlo).',
+      ]},
+      { title: 'Modos de práctica', items: [
+        '<strong>Repetición espaciada</strong> (recomendado): la app usa FSRS para mostrar primero las tarjetas pendientes y luego introducir nuevas al ritmo adecuado para la memoria a largo plazo.',
+        '<strong>Menos practicadas</strong>: se centra en las tarjetas que has visto menos — útil para calentar un mazo nuevo.',
+        '<strong>Aleatorio</strong>: baraja todas las tarjetas sin importar su estado — bueno para repaso casual.',
+        '<strong>Hojear</strong>: pasa por todas las tarjetas con las respuestas visibles — sin calificación, sin seguimiento.',
+      ]},
+      { title: 'Calificar tarjetas', items: [
+        '<strong>Otra vez</strong>: te equivocaste — la tarjeta vuelve pronto.',
+        '<strong>Difícil</strong>: correcta pero costó — intervalo más corto la próxima vez.',
+        '<strong>Bien</strong>: correcta con esfuerzo normal — intervalo estándar.',
+        '<strong>Fácil</strong>: recordada al instante — intervalo más largo.',
+      ]},
+      { title: 'Estadísticas e historial', items: [
+        'Cada página de mazo muestra tu desglose de dominio (nueva / aprendiendo / repaso / dominada) y un gráfico de historial a lo largo del tiempo.',
+        'Pasa el ratón sobre los puntos del gráfico para ver los recuentos de un día concreto.',
+        'Haz clic en <strong>Estadísticas</strong> en un mazo para ver todas las sesiones pasadas y profundizar en los detalles de cada sesión.',
+        'En la pantalla de inicio, la pequeña línea roja junto a cada mazo muestra tu volumen de práctica de los últimos 14 días.',
+      ]},
+      { title: 'Copia de seguridad y restauración', items: [
+        'Tus datos viven solo en el navegador. Visita <strong>Ajustes</strong> para exportar una copia JSON de vez en cuando.',
+        'Usa <strong>Importar JSON</strong> en Ajustes para restaurar una copia o mover tus datos a otro ordenador.',
+        'Borrar los datos del navegador o cambiar de dispositivo sin exportar antes hará que pierdas tus mazos e historial.',
+      ]},
+    ],
+    importExportHeader: 'Importar y exportar',
+    openaiKeyLabel: 'Clave API de OpenAI (opcional)',
+    openaiKeyHint: 'Activa los botones ▶ de lectura en voz alta. Consigue una clave en platform.openai.com. Solo se cobra al pulsar ▶ — aproximadamente $0,01 por cada 50 tarjetas.',
+    settingsSaved: 'Ajustes guardados.',
+    invalidApiKey: 'Clave API no válida. Revisa e inténtalo de nuevo.',
+  },
+  el: {
+    _label: '🇬🇷',
+    _name: 'Ελληνικά',
+    _locale: 'el-GR',
+    home: 'Αρχική',
+    dragCsv: 'Σύρετε ένα αρχείο CSV εδώ<br>ή πατήστε για επιλογή',
+    noDecks: 'Δεν υπάρχουν ακόμα τράπουλες. Εισαγάγετε μια τράπουλα για να ξεκινήσετε!',
+    myDecks: 'Οι Τράπουλές μου',
+    importDeck: '+ Προσθήκη τράπουλας',
+    presetsTitle: 'Προκαθορισμένες τράπουλες',
+    langEnglish: 'Αγγλικά', langFrench: 'Γαλλικά', langGreek: 'Ελληνικά', langItalian: 'Ιταλικά', langDutch: 'Ολλανδικά', langArabic: 'Αραβικά', langScottishGaelic: 'Σκωτικά Γαελικά',
+    orImportCsv: 'Ή εισαγάγετε το δικό σας CSV',
+    importTitle: 'Εισαγωγή τράπουλας',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>Αντιγράψτε το prompt</b> παρακάτω (πατήστε το κουμπί Αντιγραφή).</li><li><b>Επικολλήστε το σε ένα AI chatbot</b> — ChatGPT, Claude, Gemini, κλπ.</li><li><b>Συμπληρώστε τα μέρη σε [ΑΓΚΥΛΕΣ]</b> στο prompt (θέμα, επίπεδο, γλώσσα, αριθμός καρτών).</li><li>Το AI θα απαντήσει με κείμενο CSV. <b>Αποθηκεύστε αυτό το κείμενο ως αρχείο <code>.csv</code></b> στη συσκευή σας.</li><li><b>Σύρετε το αρχείο στην περιοχή πάνω</b> (ή πατήστε για να το επιλέξετε).</li></ol><p style="margin-top:8px">Ιδανικό για λεξιλόγιο, αλλά και για ιστορικές ημερομηνίες, ανατομία, χημεία, πρωτεύουσες — ό,τι θέλετε να απομνημονεύσετε!</p>',
+    importPrompt: `Δημιούργησε μια τράπουλα flashcard CSV για μελέτη [ΘΕΜΑ]. Επίπεδο: [ΑΡΧΑΡΙΟ / ΜΕΣΑΙΟ / ΠΡΟΧΩΡΗΜΕΝΟ]. Γλώσσα: [ΓΛΩΣΣΑ].
+
+Χρησιμοποίησε ακριβώς αυτή τη γραμμή επικεφαλίδας:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+Δημιούργησε [ΑΡΙΘΜΟΣ] ερωτήσεις πολλαπλής επιλογής. Κάθε γραμμή πρέπει να έχει ακριβώς 7 στήλες χωρισμένες με κόμμα. Βάλε σε διπλά εισαγωγικά τα πεδία που περιέχουν κόμμα. Η στήλη "explanation" πρέπει να εξηγεί σύντομα γιατί η σωστή απάντηση είναι σωστή.
+
+Επέστρεψε ΜΟΝΟ το CSV χωρίς άλλο κείμενο.`,
+    copyPrompt: 'Αντιγραφή prompt',
+    copied: 'Αντιγράφηκε!',
+    allDecks: 'Όλες οι τράπουλες',
+    deckBreadcrumb: name => `Τράπουλα: ${name}`,
+    howToCreate: 'Πώς να δημιουργήσετε τη δική σας εξατομικευμένη τράπουλα',
+    nCards: n => `${n} κάρτες`,
+    dueToday: 'Σήμερα',
+    newAvailable: 'Νέες',
+    totalCards: 'Σύνολο',
+    start: 'Μελέτη',
+    statistics: 'Στατιστικά',
+    delete: 'Διαγραφή',
+    error: 'Σφάλμα',
+    emptyFile: 'Το αρχείο είναι κενό.',
+    invalidHeader: 'Μη έγκυρη επικεφαλίδα CSV. Αναμενόμενη: ',
+    noValidQuestions: 'Δεν βρέθηκαν έγκυρες ερωτήσεις (κάθε γραμμή πρέπει να έχει 9 στήλες).',
+    deleteDeck: 'Διαγραφή τράπουλας',
+    deleteDeckConfirm: name => `Διαγραφή "${name}" και όλης της προόδου;`,
+    back: 'Πίσω',
+    backToDeck: 'Πίσω στην τράπουλα',
+    spacedRep: 'Διαστηματική επανάληψη',
+    spacedRepDesc: 'Προτεραιότητα FSRS: πρώτα κάρτες για επανάληψη, μετά νέες',
+    leastPracticed: 'Λιγότερο εξασκημένες πρώτα',
+    leastPracticedDesc: 'Αθέατες και πιο αδύναμες κάρτες πρώτα',
+    randomMode: 'Τυχαία',
+    randomModeDesc: 'Όλες οι κάρτες σε τυχαία σειρά',
+    browse: 'Περιήγηση',
+    browseDesc: 'Περιηγηθείτε σε όλες τις κάρτες με τις απαντήσεις',
+    noDue: 'Τίποτα για επανάληψη — είστε ενημερωμένοι!',
+    caughtUp: 'Είστε ενημερωμένοι για σήμερα! Κάντε ένα διάλειμμα ή συνεχίστε την εξάσκηση.',
+    doneForNow: 'Αρκετά για τώρα',
+    nextCard: 'Επόμενη',
+    reviewed: 'Επαναλήφθηκαν',
+    remaining: 'Υπολειπόμενες',
+    correct: '<strong>Σωστό!</strong>',
+    incorrect: '<strong>Λάθος!</strong>',
+    sessionSummary: 'Σύνοψη συνεδρίας',
+    cardsReviewed: 'Κάρτες που επαναλήφθηκαν',
+    time: 'Χρόνος',
+    ratingEasy: 'Εύκολο',
+    ratingModerate: 'Μέτριο',
+    ratingHard: 'Δύσκολο',
+    ratingIncorrect: 'Λάθος',
+    newStarted: 'Νέες κάρτες που ξεκίνησαν',
+    cardsImproved: 'Κάρτες που βελτιώθηκαν',
+    cardsMastered: 'Κάρτες που κατακτήθηκαν',
+    stateNew: 'Νέα',
+    stateLearning: 'Εκμάθηση',
+    stateReview: 'Επανάληψη',
+    stateMastered: 'Κατακτημένη',
+    questionDetail: 'Λεπτομέρειες κάρτας',
+    questionCol: 'Κάρτα',
+    stateCol: 'Κατάσταση',
+    stabilityCol: 'Σταθερότητα',
+    nextReviewCol: 'Επόμενη επανάληψη',
+    sessionHistory: 'Ιστορικό συνεδριών',
+    sessionDetail: 'Λεπτομέρειες συνεδρίας',
+    exportJson: 'Εξαγωγή JSON',
+    clearAll: 'Διαγραφή όλων',
+    clearAllTitle: 'Διαγραφή όλων',
+    clearAllConfirm: 'Είστε σίγουροι; Όλες οι τράπουλες, τα στατιστικά και το ιστορικό θα διαγραφούν.',
+    cancel: 'Ακύρωση',
+    confirm: 'Επιβεβαίωση',
+    previous: 'Προηγούμενη',
+    next: 'Επόμενη',
+    recommended: 'προτεινόμενο',
+    days: 'μ',
+    today: 'σήμερα',
+    noSessions: 'Δεν υπάρχουν ακόμα συνεδρίες.',
+    settings: 'Ρυθμίσεις',
+    deckName: 'Όνομα τράπουλας',
+    save: 'Αποθήκευση',
+    importJson: 'Εισαγωγή JSON',
+    deleteAll: 'Διαγραφή όλων των δεδομένων',
+    importJsonConfirm: 'Η εισαγωγή θα αντικαταστήσει όλες τις τρέχουσες τράπουλες, στατιστικά και ιστορικό σας. Συνέχεια;',
+    importInvalid: 'Μη έγκυρο αρχείο JSON.',
+    globalSettings: 'Ρυθμίσεις',
+    dataInfo: 'Τα δεδομένα σας ανήκουν σε εσάς. Όλα — τράπουλες, ιστορικό εξάσκησης και στατιστικά προόδου — αποθηκεύονται τοπικά στον περιηγητή σας. Αν διαγράψετε τα δεδομένα του περιηγητή ή αλλάξετε υπολογιστή, θα χαθούν. Αν σας ενδιαφέρει, εξάγετε ένα JSON αντίγραφο ασφαλείας πού και πού. Η εξαγωγή κατεβάζει όλες τις τράπουλες σας μαζί με όλο το ιστορικό εξάσκησης και την πρόοδο, ώστε να μπορείτε να τα επαναφέρετε αργότερα ή να τα μεταφέρετε σε άλλη συσκευή.',
+    navHome: 'Αρχική',
+    navSettings: 'Ρυθμίσεις',
+    navHelp: 'Βοήθεια',
+    helpForumNote: 'Ερωτήσεις, προβλήματα, ιδέες ή απλώς θέλετε να πείτε ένα γεια; Επισκεφθείτε το <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">φόρουμ συζητήσεων</a>.',
+    helpSections: [
+      { title: 'Δημιουργία τράπουλας', items: [
+        'Κάντε κλικ στο <strong>+ Εισαγωγή τράπουλας</strong> στην αρχική οθόνη για να προσθέσετε νέα τράπουλα.',
+        'Χρησιμοποιήστε το προτεινόμενο prompt με ChatGPT, Claude ή οποιοδήποτε AI για να δημιουργήσετε μια τράπουλα CSV για οποιοδήποτε θέμα.',
+        'Σύρετε το αρχείο <code>.csv</code> που προκύπτει στη ζώνη εισαγωγής (ή κάντε κλικ για επιλογή).',
+      ]},
+      { title: 'Τρόποι εξάσκησης', items: [
+        '<strong>Διαστηματική επανάληψη</strong> (συνιστάται): η εφαρμογή χρησιμοποιεί FSRS για να εμφανίσει πρώτα τις κάρτες προς επανάληψη και έπειτα τις νέες με τον σωστό ρυθμό για μακροπρόθεσμη μνήμη.',
+        '<strong>Λιγότερο εξασκημένες</strong>: εστιάζει στις κάρτες που έχετε δει λιγότερο — χρήσιμο για να ζεσταθείτε με νέα τράπουλα.',
+        '<strong>Τυχαία</strong>: ανακατεύει όλες τις κάρτες ανεξάρτητα από κατάσταση — καλό για χαλαρή επανάληψη.',
+        '<strong>Περιήγηση</strong>: ξεφυλλίστε όλες τις κάρτες με τις απαντήσεις ορατές — χωρίς βαθμολόγηση, χωρίς παρακολούθηση.',
+      ]},
+      { title: 'Βαθμολόγηση καρτών', items: [
+        '<strong>Ξανά</strong>: το λάθεψατε — η κάρτα επιστρέφει σύντομα.',
+        '<strong>Δύσκολο</strong>: σωστό αλλά με κόπο — μικρότερο διάστημα την επόμενη φορά.',
+        '<strong>Καλό</strong>: σωστό με κανονική προσπάθεια — τυπικό διάστημα.',
+        '<strong>Εύκολο</strong>: άμεση ανάκληση — μεγαλύτερο διάστημα.',
+      ]},
+      { title: 'Στατιστικά και ιστορικό', items: [
+        'Κάθε σελίδα τράπουλας δείχνει την ανάλυση κατοχής (νέες / εκμάθηση / επανάληψη / κατακτημένες) και ένα διάγραμμα ιστορικού στον χρόνο.',
+        'Περάστε τον δείκτη πάνω από τις τελείες του διαγράμματος για να δείτε τους αριθμούς για κάθε ημέρα.',
+        'Κάντε κλικ στα <strong>Στατιστικά</strong> μιας τράπουλας για να δείτε όλες τις προηγούμενες συνεδρίες και να εμβαθύνετε σε λεπτομέρειες.',
+        'Στην αρχική οθόνη, η μικρή κόκκινη γραμμή δίπλα από κάθε τράπουλα δείχνει τον όγκο εξάσκησής σας τις τελευταίες 14 ημέρες.',
+      ]},
+      { title: 'Αντίγραφο ασφαλείας και επαναφορά', items: [
+        'Τα δεδομένα σας ζουν μόνο στον περιηγητή. Επισκεφθείτε τις <strong>Ρυθμίσεις</strong> για να εξάγετε ένα JSON αντίγραφο πού και πού.',
+        'Χρησιμοποιήστε την <strong>Εισαγωγή JSON</strong> στις Ρυθμίσεις για να επαναφέρετε ένα αντίγραφο ή να μεταφέρετε δεδομένα σε άλλον υπολογιστή.',
+        'Η διαγραφή δεδομένων περιηγητή ή η αλλαγή συσκευής χωρίς προηγούμενη εξαγωγή θα χάσει τις τράπουλες και το ιστορικό σας.',
+      ]},
+    ],
+    importExportHeader: 'Εισαγωγή & εξαγωγή',
+    openaiKeyLabel: 'Κλειδί API OpenAI (προαιρετικό)',
+    openaiKeyHint: 'Ενεργοποιεί τα κουμπιά ▶ ανάγνωσης. Αποκτήστε ένα κλειδί στο platform.openai.com. Χρεώνεστε μόνο όταν πατάτε ▶ — περίπου $0,01 ανά 50 κάρτες.',
+    settingsSaved: 'Οι ρυθμίσεις αποθηκεύτηκαν.',
+    invalidApiKey: 'Μη έγκυρο κλειδί API. Ελέγξτε και δοκιμάστε ξανά.',
+  },
+  ar: {
+    _label: '🇸🇦',
+    _name: 'العربية',
+    _locale: 'ar',
+    _dir: 'rtl',
+    home: 'الرئيسية',
+    dragCsv: 'اسحب ملف CSV هنا<br>أو انقر للاختيار',
+    noDecks: 'لا توجد مجموعات بعد. استورد مجموعة للبدء!',
+    myDecks: 'مجموعاتي',
+    importDeck: '+ إضافة مجموعة',
+    presetsTitle: 'مجموعات جاهزة',
+    langEnglish: 'الإنجليزية', langFrench: 'الفرنسية', langGreek: 'اليونانية', langItalian: 'الإيطالية', langDutch: 'الهولندية', langArabic: 'العربية', langScottishGaelic: 'الغيلية الاسكتلندية',
+    orImportCsv: 'أو استورد ملف CSV الخاص بك',
+    importTitle: 'إضافة مجموعة',
+    importInstructions: '<ol style="margin:0;padding-left:1.2em"><li><b>انسخ الموجّه</b> أدناه (اضغط على زر النسخ).</li><li><b>الصقه في أي روبوت دردشة ذكي</b> — ChatGPT، Claude، Gemini، إلخ.</li><li><b>املأ الأجزاء بين [الأقواس]</b> في الموجّه (الموضوع، المستوى، اللغة، عدد البطاقات).</li><li>سيرد الذكاء الاصطناعي بنص CSV. <b>احفظ هذا النص كملف <code>.csv</code></b> على جهازك.</li><li><b>اسحب الملف إلى المربع أعلاه</b> (أو اضغط لاختياره).</li></ol><p style="margin-top:8px">رائع للمفردات، وأيضًا للتواريخ والتشريح والكيمياء والعواصم — أي شيء تريد حفظه!</p>',
+    importPrompt: `أنشئ مجموعة بطاقات تعليمية بصيغة CSV لدراسة [الموضوع]. المستوى المستهدف: [مبتدئ / متوسط / متقدم]. اللغة: [اللغة].
+
+استخدم صف العناوين التالي بالضبط:
+title,question,correct,wrong1,wrong2,wrong3,explanation
+
+أنشئ [العدد] من أسئلة الاختيار من متعدد. يجب أن يحتوي كل صف على 7 أعمدة مفصولة بفواصل بالضبط. ضع أي حقل يحتوي على فاصلة بين علامتي اقتباس مزدوجتين. يجب أن يقدّم عمود "explanation" سببًا موجزًا لصحة الإجابة الصحيحة.
+
+أخرج ملف CSV فقط دون أي نص آخر.`,
+    copyPrompt: 'نسخ الموجّه',
+    copied: 'تم النسخ!',
+    allDecks: 'كل المجموعات',
+    deckBreadcrumb: name => `المجموعة: ${name}`,
+    howToCreate: 'كيفية إنشاء مجموعتك المخصصة',
+    nCards: n => `${n} بطاقة`,
+    dueToday: 'مستحقة اليوم',
+    newAvailable: 'جديدة',
+    totalCards: 'المجموع',
+    start: 'ادرس',
+    statistics: 'الإحصائيات',
+    delete: 'حذف',
+    error: 'خطأ',
+    emptyFile: 'الملف فارغ.',
+    invalidHeader: 'ترويسة CSV غير صالحة. المتوقع: ',
+    noValidQuestions: 'لم يتم العثور على أسئلة صالحة (يجب أن يحتوي كل صف على 9 أعمدة).',
+    deleteDeck: 'حذف المجموعة',
+    deleteDeckConfirm: name => `حذف "${name}" وكل التقدم؟`,
+    back: 'رجوع',
+    backToDeck: 'العودة إلى المجموعة',
+    spacedRep: 'التكرار المتباعد',
+    spacedRepDesc: 'بأولوية FSRS: البطاقات المستحقة أولًا، ثم الجديدة',
+    leastPracticed: 'الأقل تدريبًا أولًا',
+    leastPracticedDesc: 'البطاقات غير المرئية والأضعف أولًا',
+    randomMode: 'عشوائي',
+    randomModeDesc: 'كل البطاقات بترتيب عشوائي',
+    browse: 'تصفح',
+    browseDesc: 'تصفح كل البطاقات مع الإجابات',
+    noDue: 'لا شيء مستحق — كل شيء محدّث!',
+    caughtUp: 'لقد أنهيت كل شيء لهذا اليوم! خذ استراحة أو تابع التدريب.',
+    doneForNow: 'اكتفيت الآن',
+    nextCard: 'التالية',
+    reviewed: 'تمت المراجعة',
+    remaining: 'المتبقية',
+    correct: '<strong>صحيح!</strong>',
+    incorrect: '<strong>خطأ!</strong>',
+    sessionSummary: 'ملخّص الجلسة',
+    cardsReviewed: 'البطاقات المراجَعة',
+    time: 'الوقت',
+    ratingEasy: 'سهل',
+    ratingModerate: 'متوسط',
+    ratingHard: 'صعب',
+    ratingIncorrect: 'خطأ',
+    newStarted: 'بطاقات جديدة بدأت',
+    cardsImproved: 'بطاقات تحسّنت',
+    cardsMastered: 'بطاقات أُتقنت',
+    stateNew: 'جديدة',
+    stateLearning: 'قيد التعلم',
+    stateReview: 'مراجعة',
+    stateMastered: 'متقنة',
+    questionDetail: 'تفاصيل البطاقة',
+    questionCol: 'البطاقة',
+    stateCol: 'الحالة',
+    stabilityCol: 'الاستقرار',
+    nextReviewCol: 'المراجعة التالية',
+    sessionHistory: 'سجل الجلسات',
+    sessionDetail: 'تفاصيل الجلسة',
+    exportJson: 'تصدير JSON',
+    importJson: 'استيراد JSON',
+    deleteAll: 'حذف كل البيانات',
+    clearAll: 'مسح الكل',
+    clearAllTitle: 'حذف كل البيانات',
+    clearAllConfirm: 'هل أنت متأكد؟ سيتم حذف كل المجموعات والإحصائيات والسجل.',
+    importJsonConfirm: 'سيؤدي الاستيراد إلى استبدال كل مجموعاتك وإحصائياتك وسجلك الحالي. هل تريد المتابعة؟',
+    importInvalid: 'ملف JSON غير صالح.',
+    importDone: 'اكتمل الاستيراد.',
+    globalSettings: 'الإعدادات',
+    dataInfo: 'بياناتك ملك لك. كل شيء — المجموعات وسجل التدريب وإحصائيات التقدم — مخزَّن محليًا في متصفحك. إذا مسحت بيانات المتصفح أو غيّرت الحاسوب، فسيضيع كل شيء. إن كنت تهتم بها، فقم بتصدير نسخة JSON احتياطية من حين لآخر. يقوم التصدير بتنزيل كل مجموعاتك مع كامل سجل التدريب والتقدم، لتتمكن من استيرادها لاحقًا أو نقلها إلى جهاز آخر.',
+    navHome: 'الرئيسية',
+    navSettings: 'الإعدادات',
+    navHelp: 'مساعدة',
+    helpForumNote: 'أسئلة أو مشكلات أو أفكار أو مجرد إلقاء التحية؟ تفضّل بزيارة <a href="https://github.com/topherhunt/topher-utilities/discussions" target="_blank" rel="noopener" style="color:var(--accent)">منتدى النقاش</a>.',
+    helpIntro: 'Quizzer تطبيق بطاقات تعليمية لحفظ أي شيء. مفردات اللغات خيار طبيعي، لكنه يعمل بنفس الكفاءة للتاريخ والعلوم والجغرافيا والنصوص الدينية أو أي موضوع آخر تريد ترسيخه في الذاكرة طويلة الأمد.',
+    helpSections: [
+      { title: 'إنشاء مجموعة', items: [
+        'انقر على <strong>+ إضافة مجموعة</strong> في الشاشة الرئيسية لإضافة مجموعة جديدة.',
+        'استخدم الموجّه المقدَّم هناك مع ChatGPT أو Claude أو أي ذكاء اصطناعي لإنشاء مجموعة CSV حول أي موضوع.',
+        'اسحب ملف <code>.csv</code> الناتج إلى منطقة الاستيراد (أو انقر لاختياره).',
+      ]},
+      { title: 'أوضاع التدريب', items: [
+        '<strong>التكرار المتباعد</strong> (موصى به): يستخدم التطبيق FSRS لإظهار البطاقات المستحقة أولًا، ثم يُدخل الجديدة بالإيقاع المناسب للذاكرة طويلة الأمد.',
+        '<strong>الأقل تدريبًا</strong>: يركّز على البطاقات التي رأيتها أقل — مفيد لإحماء مجموعة جديدة.',
+        '<strong>عشوائي</strong>: يخلط كل البطاقات بغض النظر عن حالتها — جيد للمراجعة غير الرسمية.',
+        '<strong>تصفح</strong>: تصفّح كل بطاقة والإجابات ظاهرة — بدون تقييم ولا تتبّع.',
+      ]},
+      { title: 'تقييم البطاقات', items: [
+        '<strong>مرة أخرى</strong>: أخطأت — ستعود البطاقة قريبًا.',
+        '<strong>صعب</strong>: صحيح لكن بصعوبة — فاصل أقصر في المرة القادمة.',
+        '<strong>جيد</strong>: صحيح بجهد طبيعي — فاصل معياري.',
+        '<strong>سهل</strong>: استرجاع فوري — فاصل أطول.',
+      ]},
+      { title: 'الإحصائيات والسجل', items: [
+        'تعرض صفحة كل مجموعة تفصيل الإتقان (جديدة / قيد التعلم / مراجعة / متقنة) ورسمًا بيانيًا للسجل عبر الزمن.',
+        'مرّر المؤشر فوق النقاط في الرسم لرؤية الأعداد في أي يوم.',
+        'انقر على <strong>الإحصائيات</strong> في مجموعة لرؤية كل الجلسات السابقة والتعمّق في تفاصيل كل جلسة.',
+        'في الشاشة الرئيسية، يُظهر الخط الأحمر الصغير بجانب كل مجموعة حجم تدريبك خلال آخر 14 يومًا.',
+      ]},
+      { title: 'النسخ الاحتياطي والاستعادة', items: [
+        'بياناتك تعيش في المتصفح فقط. تفضل بـ<strong>الإعدادات</strong> لتصدير نسخة JSON احتياطية من حين لآخر.',
+        'استخدم <strong>استيراد JSON</strong> في الإعدادات لاستعادة نسخة احتياطية أو نقل بياناتك إلى حاسوب آخر.',
+        'مسح بيانات المتصفح أو تغيير الأجهزة دون التصدير أولًا سيؤدي إلى فقدان مجموعاتك وسجلك.',
+      ]},
+    ],
+    cancel: 'إلغاء',
+    confirm: 'تأكيد',
+    previous: 'السابقة',
+    next: 'التالية',
+    recommended: 'موصى به',
+    days: 'ي',
+    today: 'اليوم',
+    noSessions: 'لا توجد جلسات بعد.',
+    settings: 'الإعدادات',
+    deckName: 'اسم المجموعة',
+    save: 'حفظ',
+    importExportHeader: 'استيراد وتصدير',
+    openaiKeyLabel: 'مفتاح API لـ OpenAI (اختياري)',
+    openaiKeyHint: 'يفعّل أزرار ▶ القراءة بصوت عالٍ. احصل على مفتاح من platform.openai.com. لا تُفرض رسوم إلا عند الضغط على ▶ — حوالي 0.01$ لكل 50 بطاقة.',
+    settingsSaved: 'تم حفظ الإعدادات.',
+    invalidApiKey: 'مفتاح API غير صالح. يرجى التحقق والمحاولة مرة أخرى.',
+  },
+};
+
+let currentLang = localStorage.getItem('quizzer_lang') || 'en';
+function t(key) { return LANGS[currentLang][key] ?? LANGS.en[key] ?? key; }
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('quizzer_lang', lang);
+  document.documentElement.lang = LANGS[lang]._locale.slice(0, 2);
+  document.documentElement.dir = LANGS[lang]._dir || 'ltr';
+  initLangSelect();
+  applyNavLabels();
+  handleRoute();
+}
+function applyNavLabels() {
+  const h = document.getElementById('nav-home');
+  const s = document.getElementById('nav-settings');
+  const hp = document.getElementById('nav-help');
+  if (h) h.textContent = t('navHome');
+  if (s) s.textContent = t('navSettings');
+  if (hp) hp.textContent = t('navHelp');
+}
+function initLangSelect() {
+  const sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.innerHTML = Object.entries(LANGS).map(([code, l]) =>
+    `<option value="${code}" ${code === currentLang ? 'selected' : ''}>${l._label} ${l._name}</option>`
+  ).join('');
+}
+
+// ─── Storage ────────────────────────────────────────────────────────
+const KEYS = { quizzes: 'quizzer_quizzes', stats: 'quizzer_stats', sessions: 'quizzer_sessions', openaiKey: 'quizzer_openai_key' };
+
+function load(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || null; } catch { return null; }
+}
+function save(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
+
+function genId() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let id = '';
+  for (let i = 0; i < 8; i++) id += chars[Math.floor(Math.random() * 62)];
+  return id;
+}
+
+function getDecks() {
+  const decks = load(KEYS.quizzes) || {};
+  let migrated = false;
+  const stats = load(KEYS.stats) || {};
+  const sessions = load(KEYS.sessions) || [];
+
+  // Phase 1: Migrate deck keys from name-based to stable ID
+  for (const [key, deck] of Object.entries(decks)) {
+    if (!deck.id) {
+      deck.id = genId();
+      decks[deck.id] = deck;
+      delete decks[key];
+      // Remap stats keys from oldKey::* to newId::*
+      for (const sKey of Object.keys(stats)) {
+        if (sKey.startsWith(key + '::')) {
+          stats[`${deck.id}::${sKey.slice(key.length + 2)}`] = stats[sKey];
+          delete stats[sKey];
+        }
+      }
+      // Remap session references
+      sessions.forEach(s => { if (s.deckName === key) s.deckName = deck.id; });
+      migrated = true;
+    }
+  }
+
+  // Phase 2: Assign stable IDs to cards that lack them
+  for (const [deckId, deck] of Object.entries(decks)) {
+    deck.questions.forEach((q, i) => {
+      if (!q.id) {
+        q.id = genId();
+        const oldKey = `${deckId}::${i}`;
+        if (stats[oldKey]) {
+          stats[`${deckId}::${q.id}`] = stats[oldKey];
+          delete stats[oldKey];
+        }
+        migrated = true;
+      }
+    });
+  }
+
+  if (migrated) {
+    save(KEYS.quizzes, decks);
+    save(KEYS.stats, stats);
+    save(KEYS.sessions, sessions);
+  }
+  return decks;
+}
+function saveDecks(q) { save(KEYS.quizzes, q); }
+function getStats() { return load(KEYS.stats) || {}; }
+function saveStats(s) { save(KEYS.stats, s); }
+function getSessions() { return load(KEYS.sessions) || []; }
+function saveSessions(s) { save(KEYS.sessions, s); }
+
+function getCardState(qid) {
+  const stats = getStats();
+  return stats[qid] || newCard();
+}
+
+function saveCardState(qid, card) {
+  const stats = getStats();
+  stats[qid] = card;
+  saveStats(stats);
+}
+
+function recordSession(session) {
+  const sessions = getSessions();
+  sessions.push(session);
+  saveSessions(sessions);
+}
+
+// ─── CSV Parser ─────────────────────────────────────────────────────
+function parseCSV(text) {
+  const rows = [];
+  let i = 0;
+  while (i < text.length) {
+    const row = [];
+    while (i < text.length) {
+      if (text[i] === '"') {
+        i++;
+        let field = '';
+        while (i < text.length) {
+          if (text[i] === '"') {
+            if (i + 1 < text.length && text[i + 1] === '"') { field += '"'; i += 2; }
+            else { i++; break; }
+          } else { field += text[i]; i++; }
+        }
+        row.push(field);
+        if (i < text.length && text[i] === ',') i++;
+      } else {
+        let field = '';
+        while (i < text.length && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r') {
+          field += text[i]; i++;
+        }
+        row.push(field);
+        if (i < text.length && text[i] === ',') i++;
+      }
+      if (i >= text.length || text[i] === '\n' || text[i] === '\r') break;
+    }
+    if (text[i] === '\r') i++;
+    if (text[i] === '\n') i++;
+    if (row.length > 0 && !(row.length === 1 && row[0] === '')) rows.push(row);
+  }
+  return rows;
+}
+
+function importCSV(filename, text) {
+  const rows = parseCSV(text);
+  if (rows.length === 0) return t('emptyFile');
+  const header = rows[0].map(c => c.trim().toLowerCase());
+  // Detect format: with or without module, with or without wrong4
+  const formats = [
+    { cols: ['module','title','question','correct','wrong1','wrong2','wrong3','wrong4','explanation'], hasModule: true, hasWrong4: true },
+    { cols: ['module','title','question','correct','wrong1','wrong2','wrong3','explanation'], hasModule: true, hasWrong4: false },
+    { cols: ['title','question','correct','wrong1','wrong2','wrong3','wrong4','explanation'], hasModule: false, hasWrong4: true },
+    { cols: ['title','question','correct','wrong1','wrong2','wrong3','explanation'], hasModule: false, hasWrong4: false },
+  ];
+  const fmt = formats.find(f => header.length === f.cols.length && f.cols.every((h, i) => header[i] === h));
+  if (!fmt) {
+    return t('invalidHeader') + 'title,question,correct,wrong1,wrong2,wrong3,explanation';
+  }
+  const questions = [];
+  for (let r = 1; r < rows.length; r++) {
+    const row = rows[r];
+    if (row.length !== fmt.cols.length) continue;
+    let i = 0;
+    const module = fmt.hasModule ? row[i++].trim() : '';
+    const title = row[i++].trim();
+    const question = row[i++].trim();
+    const correct = row[i++].trim();
+    const wrong = [row[i++].trim(), row[i++].trim(), row[i++].trim()];
+    if (fmt.hasWrong4) wrong.push(row[i++].trim());
+    const explanation = row[i].trim();
+    questions.push({ id: genId(), module, title, question, correct, wrong, explanation });
+  }
+  if (questions.length === 0) return t('noValidQuestions');
+  const decks = getDecks();
+  const deckId = genId();
+  decks[deckId] = { id: deckId, name: filename.replace(/\.csv$/i, ''), importedAt: Date.now(), questions };
+  saveDecks(decks);
+  return null;
+}
+
+// ─── Shuffle ────────────────────────────────────────────────────────
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ─── FSRS-4.5 Scheduler ────────────────────────────────────────────
+const FSRS_W = [0.4, 0.6, 2.4, 5.8, 4.93, 0.94, 0.86, 0.01, 1.49, 0.14, 0.94, 2.18, 0.05, 0.34, 1.26, 0.29, 2.61];
+const FSRS_RETENTION = 0.9;
+const FSRS_MAX_INTERVAL = 36500;
+
+const State = { New: 0, Learning: 1, Review: 2, Relearning: 3 };
+const Rating = { Again: 1, Hard: 2, Good: 3, Easy: 4 };
+
+function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+
+function newCard() {
+  return { state: State.New, stability: 0, difficulty: 0, due: 0, lastReview: 0, reps: 0, lapses: 0, attempts: 0, correct: 0, incorrect: 0 };
+}
+
+function forgettingCurve(elapsed, stability) {
+  if (stability <= 0) return 0;
+  return Math.pow(1 + elapsed / (9 * stability), -1);
+}
+
+function fsrsInterval(stability) {
+  const i = 9 * stability * (1 / FSRS_RETENTION - 1);
+  return Math.min(Math.max(Math.round(i), 1), FSRS_MAX_INTERVAL);
+}
+
+function fsrsSchedule(card, rating, now) {
+  now = now || Date.now();
+  const w = FSRS_W;
+  const next = { ...card };
+  next.lastReview = now;
+  next.attempts++;
+  if (rating === Rating.Again) next.incorrect++;
+  else next.correct++;
+
+  if (card.state === State.New) {
+    next.difficulty = clamp(w[4] - (rating - 3) * w[5], 1, 10);
+    next.stability = [0, w[0], w[1], w[2], w[3]][rating];
+    next.reps = 1;
+    next.state = rating === Rating.Again ? State.Learning : State.Review;
+  } else {
+    const elapsed = Math.max(0, (now - card.lastReview) / 86400000);
+    const r = forgettingCurve(elapsed, card.stability);
+
+    // Update difficulty with mean reversion
+    let d = card.difficulty - w[6] * (rating - 3);
+    d = w[7] * (w[4] - (rating - 3) * w[5]) + (1 - w[7]) * d;
+    next.difficulty = clamp(d, 1, 10);
+
+    if (rating === Rating.Again) {
+      next.lapses++;
+      next.stability = w[11] * Math.pow(card.difficulty, -w[12])
+        * (Math.pow(card.stability + 1, w[13]) - 1)
+        * Math.exp((1 - r) * w[14]);
+      next.state = State.Relearning;
+    } else {
+      const hardPenalty = rating === Rating.Hard ? w[15] : 1;
+      const easyBonus = rating === Rating.Easy ? w[16] : 1;
+      next.stability = card.stability * (
+        1 + Math.exp(w[8]) * (11 - card.difficulty) * Math.pow(card.stability, -w[9])
+        * (Math.exp((1 - r) * w[10]) - 1) * hardPenalty * easyBonus
+      );
+      next.state = State.Review;
+      next.reps++;
+    }
+  }
+
+  next.stability = Math.max(next.stability, 0.01);
+  next.due = now + fsrsInterval(next.stability) * 86400000;
+  return next;
+}
+
+// Rating is now user-chosen: incorrect = Again, correct = user picks Hard/Good/Easy
+
+// Classify card for stats display
+function cardMasteryState(card) {
+  if (!card || card.state === State.New) return 'new';
+  if (card.state === State.Learning || card.state === State.Relearning) return 'learning';
+  if (card.state === State.Review && card.stability >= 21) return 'mastered';
+  return 'review';
+}
+
+// ─── Data Migration ─────────────────────────────────────────────────
+function migrateStats() {
+  const stats = getStats();
+  let migrated = false;
+  for (const qid in stats) {
+    const s = stats[qid];
+    if (s.streak !== undefined && s.stability === undefined) {
+      migrated = true;
+      const card = newCard();
+      card.attempts = s.attempts || 0;
+      card.correct = s.correct || 0;
+      card.incorrect = s.incorrect || 0;
+      if (s.attempts > 0) {
+        const acc = s.correct / s.attempts;
+        if (s.streak >= 3 && acc >= 0.7) {
+          card.state = State.Review;
+          card.stability = Math.min(s.streak * 2, 30);
+          card.difficulty = clamp(5 - s.streak * 0.5, 1, 10);
+          card.due = (s.lastAttempt || Date.now()) + card.stability * 86400000;
+          card.reps = s.correct;
+          card.lastReview = s.lastAttempt || Date.now();
+        } else {
+          card.state = State.Learning;
+          card.stability = 0.5;
+          card.difficulty = clamp(5 + (s.incorrect / Math.max(s.attempts, 1)) * 3, 1, 10);
+          card.due = Date.now();
+          card.reps = s.correct;
+          card.lapses = s.incorrect;
+          card.lastReview = s.lastAttempt || Date.now();
+        }
+      }
+      stats[qid] = card;
+    }
+  }
+  if (migrated) saveStats(stats);
+}
+
+// ─── Deck Helpers ───────────────────────────────────────────────────
+function getDueCounts(deckName) {
+  const decks = getDecks();
+  const deck = decks[deckName];
+  if (!deck) return { due: 0, newCards: 0, total: 0 };
+  const stats = getStats();
+  const now = Date.now();
+  let due = 0, newCards = 0;
+  deck.questions.forEach(q => {
+    const s = stats[`${deckName}::${q.id}`];
+    if (!s || s.state === State.New) newCards++;
+    else if (s.due <= now) due++;
+  });
+  return { due, newCards, total: deck.questions.length };
+}
+
+function buildStudyQueue(deckName, mode) {
+  const decks = getDecks();
+  const deck = decks[deckName];
+  if (!deck) return [];
+  const stats = getStats();
+  const now = Date.now();
+
+  const allCards = deck.questions.map(question => {
+    const qid = `${deckName}::${question.id}`;
+    const card = stats[qid] || newCard();
+    return { qid, question, card };
+  });
+
+  if (mode === 'random') {
+    return shuffle(allCards).slice(0, 20);
+  }
+
+  if (mode === 'leastpracticed') {
+    // Unseen first, then lowest stability
+    const sorted = [...allCards].sort((a, b) => {
+      const aNew = a.card.state === State.New ? 0 : 1;
+      const bNew = b.card.state === State.New ? 0 : 1;
+      if (aNew !== bNew) return aNew - bNew;
+      return a.card.stability - b.card.stability;
+    });
+    return sorted.slice(0, 20);
+  }
+
+  // Default: spaced repetition (FSRS)
+  const dueCards = [];
+  const newCards = [];
+  const reviewedCards = [];
+  for (const item of allCards) {
+    if (item.card.state === State.New) {
+      newCards.push(item);
+    } else if (item.card.due <= now) {
+      dueCards.push(item);
+    } else {
+      reviewedCards.push(item);
+    }
+  }
+  // Most overdue first
+  dueCards.sort((a, b) => a.card.due - b.card.due);
+  const queue = [...dueCards, ...shuffle(newCards)];
+  if (queue.length > 0) return queue.slice(0, 20);
+  // All caught up — offer soonest-due reviewed cards
+  reviewedCards.sort((a, b) => a.card.due - b.card.due);
+  return reviewedCards.slice(0, 20);
+}
+
+// ─── App State ──────────────────────────────────────────────────────
+let activeQuiz = null;
+let studySession = null;
+let questionStartTime = 0;
+let reviewIndex = 0;
+
+const $ = id => document.getElementById(id);
+const app = () => $('app');
+
+// ─── Hash Router ────────────────────────────────────────────────────
+function navigate(hash) {
+  if (location.hash === hash) {
+    handleRoute();
+  } else {
+    location.hash = hash;
+  }
+}
+
+function handleRoute() {
+  stopTTS();
+  const hash = location.hash || '#/';
+  const raw = hash.slice(2); // strip '#/'
+  const parts = raw ? raw.split('/').map(decodeURIComponent) : [];
+
+  if (parts.length === 0 || (parts.length === 1 && parts[0] === '')) {
+    renderHome();
+  } else if (parts.length === 1 && parts[0] === 'import') {
+    renderImport();
+  } else if (parts.length === 1 && parts[0] === 'settings') {
+    renderGlobalSettings();
+  } else if (parts.length === 1 && parts[0] === 'help') {
+    gcEvent('help-viewed');
+    renderHelp();
+  } else if (parts.length === 1) {
+    renderDeckHome(parts[0]);
+  } else if (parts[1] === 'study' || parts[1] === 'leastpracticed' || parts[1] === 'random') {
+    const mode = parts[1] === 'study' ? 'spaced' : parts[1];
+    if (!studySession || studySession.deckName !== parts[0] || studySession.mode !== mode) {
+      startStudySession(parts[0], mode);
+    }
+    renderStudyCard();
+  } else if (parts[1] === 'browse') {
+    activeQuiz = parts[0];
+    renderBrowse();
+  } else if (parts[1] === 'settings') {
+    renderDeckSettings(parts[0]);
+  } else if (parts[1] === 'stats') {
+    gcEvent('stats-viewed');
+    renderStats(parts[0]);
+  } else if (parts[1] === 'session' && parts[2]) {
+    renderSessionDetail(parts[0], parseInt(parts[2]));
+  } else if (parts[1] === 'summary') {
+    renderSessionSummary();
+  } else {
+    renderHome();
+  }
+}
+
+// ─── Home View ──────────────────────────────────────────────────────
+function renderHome() {
+  const decks = getDecks();
+  const names = Object.keys(decks).sort((a, b) => decks[a].name.localeCompare(decks[b].name, undefined, { sensitivity: 'base' }));
+
+  let html = `<h2 style="margin-bottom:12px">${t('myDecks')}</h2>`;
+
+  if (names.length === 0) {
+    html += `<p class="text-muted text-center" style="margin:24px 0">${t('noDecks')}</p>`;
+  } else {
+    const peakMax = getPeakDailyReviewed();
+    for (const name of names) {
+      const deck = decks[name];
+      const counts = getDueCounts(name);
+      const dueText = counts.due > 0 ? `<span class="text-accent">${counts.due} ${t('dueToday').toLowerCase()}</span>` : '';
+      const newText = counts.newCards > 0 ? `<span>${counts.newCards} ${t('newAvailable').toLowerCase()}</span>` : '';
+      const parts = [t('nCards')(deck.questions.length), dueText, newText].filter(Boolean);
+      html += `
+        <div class="card deck-item" onclick="navigate('#/${encodeURIComponent(name)}')">
+          <div class="deck-item-info">
+            <h3>${esc(deck.name)}</h3>
+            <p>${parts.join(' · ')}</p>
+          </div>
+          ${buildSparkline(name, peakMax)}
+          ${buildDonut(name, 44)}
+        </div>
+      `;
+    }
+  }
+
+  html += `
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn btn-outline-primary" style="width:auto" onclick="navigate('#/import')">${t('importDeck')}</button>
+    </div>
+  `;
+
+  app().innerHTML = html;
+}
+
+const PRESET_LANGS = [
+  { code: 'ar', flag: '🇸🇦', labelKey: 'langArabic',  fileLang: 'Arabic'  },
+  { code: 'nl', flag: '🇳🇱', labelKey: 'langDutch',   fileLang: 'Dutch'   },
+  { code: 'en', flag: '🇺🇸', labelKey: 'langEnglish', fileLang: 'English' },
+  { code: 'fr', flag: '🇫🇷', labelKey: 'langFrench',  fileLang: 'French'  },
+  { code: 'gd', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', labelKey: 'langScottishGaelic', fileLang: 'Scottish Gaelic' },
+  { code: 'el', flag: '🇬🇷', labelKey: 'langGreek',   fileLang: 'Greek'   },
+  { code: 'it', flag: '🇮🇹', labelKey: 'langItalian', fileLang: 'Italian' },
+];
+const PRESET_LEVELS = ['A1','A1+','A2','A2+','B1','B1+','B2','B2+'];
+const PRESET_COLS = [
+  { module: 'Grammar', num: 1 },
+  { module: 'Grammar', num: 2 },
+  { module: 'Vocab',   num: 1 },
+  { module: 'Vocab',   num: 2 },
+];
+
+function togglePresetLang(id) {
+  const el = document.getElementById(id);
+  const arrow = document.getElementById(id + '-arrow');
+  if (el.style.display === 'none') {
+    el.style.display = '';
+    arrow.textContent = '▾';
+  } else {
+    el.style.display = 'none';
+    arrow.textContent = '▸';
+  }
+}
+
+function renderPresetsSection() {
+  const existingNames = new Set(Object.values(getDecks()).map(d => d.name));
+  let html = `<h3 style="margin-bottom:8px">${t('presetsTitle')}</h3>`;
+  for (const lang of PRESET_LANGS) {
+    const langId = 'preset-' + lang.code;
+    html += `<h4 style="margin:12px 0 4px;cursor:pointer;color:#0066cc" onclick="togglePresetLang('${langId}')"><span id="${langId}-arrow">▸</span> ${lang.flag} ${t(lang.labelKey)}</h4>`;
+    html += `<table id="${langId}" style="display:none;border-collapse:collapse;font-size:0.88rem;margin-bottom:6px"><tbody>`;
+    for (const level of PRESET_LEVELS) {
+      html += `<tr>`;
+      for (const col of PRESET_COLS) {
+        const filename = `${lang.fileLang} ${level} ${col.module} ${col.num}.csv`;
+        const deckName = filename.replace(/\.csv$/i, '');
+        const path = `quizzes/${lang.code}/${encodeURIComponent(filename)}`;
+        const label = `${level} ${col.module} ${col.num}`;
+        const fnAttr = filename.replace(/'/g, "\\'");
+        const cell = existingNames.has(deckName)
+          ? `<span style="color:#888">${label}</span>`
+          : `<a href="#" onclick="event.preventDefault();loadPreset('${path}', '${fnAttr}')">${label}</a>`;
+        html += `<td style="padding:2px 10px 2px 0;white-space:nowrap">${cell}</td>`;
+      }
+      html += `</tr>`;
+    }
+    html += `</tbody></table>`;
+  }
+
+  return html;
+}
+
+function loadPreset(path, filename) {
+  fetch(path)
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(text => {
+      const err = importCSV(filename, text);
+      if (err) alert(t('error') + ': ' + err);
+      else navigate('#/');
+    })
+    .catch(e => alert(t('error') + ': ' + e.message));
+}
+
+function renderImport() {
+  const promptText = t('importPrompt');
+  const html = `
+    <div class="back-row">
+      <button class="back-btn" onclick="navigate('#/')">&larr; ${t('allDecks')}</button>
+    </div>
+    <h2 style="margin-bottom:12px">${t('importTitle')}</h2>
+    ${renderPresetsSection()}
+    <h3 style="margin:20px 0 8px">${t('orImportCsv')}</h3>
+    <div class="import-zone" id="import-zone">
+      <p>${t('dragCsv')}</p>
+      <input type="file" id="file-input" accept=".csv" multiple>
+    </div>
+    <h3 style="margin-bottom:8px;cursor:pointer;color:#0066cc" onclick="document.getElementById('how-to-create-body').style.display=document.getElementById('how-to-create-body').style.display==='none'?'':'none';document.getElementById('how-to-create-arrow').textContent=document.getElementById('how-to-create-body').style.display==='none'?'▸':'▾'"><span id="how-to-create-arrow">▸</span> ${t('howToCreate')}</h3>
+    <div id="how-to-create-body" style="display:none">
+    <p class="text-muted" style="margin-bottom:16px">${t('importInstructions')}</p>
+    <div style="position:relative;margin-top:16px;margin-bottom:20px">
+      <pre style="background:var(--elevated);border-radius:var(--radius);padding:14px;font-size:0.82rem;line-height:1.5;white-space:pre-wrap;word-break:break-word;color:var(--text);max-height:240px;overflow-y:auto">${esc(promptText)}</pre>
+      <button id="copy-prompt-btn" class="btn btn-small btn-outline-primary" style="position:absolute;bottom:8px;right:8px;background:var(--elevated)" onclick="copyPrompt()">${t('copyPrompt')}</button>
+    </div>
+    </div>
+  `;
+  app().innerHTML = html;
+  setupImport();
+}
+
+function copyPrompt() {
+  navigator.clipboard.writeText(t('importPrompt')).then(() => {
+    const btn = $('copy-prompt-btn');
+    btn.textContent = t('copied');
+    setTimeout(() => { btn.textContent = t('copyPrompt'); }, 1500);
+  });
+}
+
+function setupImport() {
+  const zone = $('import-zone');
+  const input = $('file-input');
+  if (!zone || !input) return;
+
+  zone.addEventListener('click', () => input.click());
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('dragover');
+    handleFiles(e.dataTransfer.files);
+  });
+  input.addEventListener('change', e => handleFiles(e.target.files));
+}
+
+function handleFiles(files) {
+  for (const f of files) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const err = importCSV(f.name, e.target.result);
+      if (err) alert(t('error') + ': ' + err);
+      else navigate('#/');
+    };
+    reader.readAsText(f);
+  }
+}
+
+function deleteDeck(name) {
+  showConfirm(
+    t('deleteDeck'),
+    t('deleteDeckConfirm')(name),
+    () => {
+      const decks = getDecks();
+      const questions = decks[name]?.questions || [];
+      delete decks[name];
+      saveDecks(decks);
+      const stats = getStats();
+      questions.forEach(q => delete stats[`${name}::${q.id}`]);
+      saveStats(stats);
+      navigate('#/');
+    }
+  );
+}
+
+// ─── Donut Chart ────────────────────────────────────────────────────
+function buildDonut(deckName, size) {
+  const deck = getDecks()[deckName];
+  if (!deck || deck.questions.length === 0) return '';
+  const stats = getStats();
+  const total = deck.questions.length;
+  let mNew = 0, mLearning = 0, mReview = 0, mMastered = 0;
+  deck.questions.forEach(q => {
+    const ms = cardMasteryState(stats[`${deckName}::${q.id}`]);
+    if (ms === 'new') mNew++;
+    else if (ms === 'learning') mLearning++;
+    else if (ms === 'review') mReview++;
+    else mMastered++;
+  });
+
+  // Weighted progress: mastered=100%, review=66%, learning=33%, new=0%
+  const pct = Math.round((mMastered * 1 + mReview * 0.66 + mLearning * 0.33) / total * 100);
+
+  const R = 20, r = 13, cx = 24, cy = 24;
+  const segments = [
+    { count: mMastered, color: 'var(--accent)' },
+    { count: mReview, color: '#4a90d9' },
+    { count: mLearning, color: 'var(--amber)' },
+    { count: mNew, color: 'var(--elevated)' },
+  ];
+
+  let paths = '';
+  let angle = -Math.PI / 2;
+  for (const seg of segments) {
+    if (seg.count === 0) continue;
+    const sweep = (seg.count / total) * Math.PI * 2;
+    if (seg.count === total) {
+      // Full circle
+      paths += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="${seg.color}"/>`;
+    } else {
+      const x1 = cx + R * Math.cos(angle), y1 = cy + R * Math.sin(angle);
+      const x2 = cx + R * Math.cos(angle + sweep), y2 = cy + R * Math.sin(angle + sweep);
+      const large = sweep > Math.PI ? 1 : 0;
+      paths += `<path d="M${cx},${cy} L${x1},${y1} A${R},${R} 0 ${large} 1 ${x2},${y2} Z" fill="${seg.color}"/>`;
+    }
+    angle += sweep;
+  }
+  // Inner circle for donut hole
+  paths += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--surface)"/>`;
+  // Center text
+  paths += `<text x="${cx}" y="${cy + 1}" text-anchor="middle" dominant-baseline="middle" fill="var(--text)" font-size="9" font-weight="700">${pct}%</text>`;
+
+  return `<svg width="${size}" height="${size}" viewBox="0 0 48 48" style="flex-shrink:0">${paths}</svg>`;
+}
+
+// ─── Deck Sparkline (practice volume last 14 days) ──────────────────
+// Peak daily card count across ALL decks, ALL time — shared y-max for sparklines
+function getPeakDailyReviewed() {
+  const byDay = {};
+  for (const s of getSessions()) {
+    if (!s.reviewed) continue;
+    const d = new Date(s.date); d.setHours(0, 0, 0, 0);
+    const key = d.getTime();
+    byDay[key] = (byDay[key] || 0) + s.reviewed;
+  }
+  const vals = Object.values(byDay);
+  return vals.length ? Math.max(...vals) : 0;
+}
+
+function buildSparkline(deckId, peakMax) {
+  const DAYS = 14;
+  const W = 80, H = 32, PAD = 2;
+  const counts = new Array(DAYS).fill(0);
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const start = now.getTime() - (DAYS - 1) * 86400000;
+  for (const s of getSessions()) {
+    if (s.deckName !== deckId || !s.reviewed) continue;
+    const d = new Date(s.date); d.setHours(0, 0, 0, 0);
+    const idx = Math.round((d.getTime() - start) / 86400000);
+    if (idx >= 0 && idx < DAYS) counts[idx] += s.reviewed;
+  }
+  if (peakMax === 0 || counts.every(c => c === 0)) {
+    return `<svg width="${W}" height="${H}" style="flex-shrink:0;margin-right:12px"></svg>`;
+  }
+  const innerW = W - PAD * 2, innerH = H - PAD * 2;
+  const x = i => PAD + (i / (DAYS - 1)) * innerW;
+  const y = v => PAD + innerH - (v / peakMax) * innerH;
+  const pts = counts.map((v, i) => `${x(i)},${y(v)}`).join(' ');
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="flex-shrink:0;margin-right:12px"><polyline points="${pts}" fill="none" stroke="#e05a5a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+
+// ─── Mastery History Chart ──────────────────────────────────────────
+function buildMasteryChart(deckName, total) {
+  const sessions = getSessions().filter(s => s.deckName === deckName && s.mastery);
+  if (sessions.length === 0) return '';
+
+  // Group by day, take last snapshot per day
+  const byDay = {};
+  for (const s of sessions) {
+    const day = new Date(s.date).toISOString().slice(0, 10);
+    byDay[day] = s.mastery;
+  }
+  const days = Object.keys(byDay).sort();
+
+  // Prepend a "day 0" (day before first session) where all cards are new
+  const firstDate = new Date(days[0]);
+  firstDate.setDate(firstDate.getDate() - 1);
+  const day0 = firstDate.toISOString().slice(0, 10);
+  const points = [{ day: day0, mastered: 0, review: 0, learning: 0, new: total }];
+  for (const d of days) {
+    const m = byDay[d];
+    points.push({ day: d, mastered: m.mastered, review: m.review, learning: m.learning, new: m.new });
+  }
+
+  if (points.length < 2) return '';
+
+  const W = 560, H = 160, PAD_L = 12, PAD_R = 12, PAD_T = 4, PAD_B = 20;
+  const chartW = W - PAD_L - PAD_R;
+  const chartH = H - PAD_T - PAD_B;
+
+  function x(i) { return PAD_L + (i / (points.length - 1)) * chartW; }
+  function y(val) { return PAD_T + chartH - (val / total) * chartH; }
+
+  // Build stacked areas: bottom to top: mastered, review, learning, new
+  const layers = ['mastered', 'review', 'learning', 'new'];
+  const colors = ['var(--accent)', '#4a90d9', 'var(--amber)', 'var(--elevated)'];
+  const cumulative = points.map(() => 0);
+  let paths = '';
+  let dots = '';
+  const layerTops = layers.map(() => []);
+
+  for (let li = 0; li < layers.length; li++) {
+    const prevCum = [...cumulative];
+    for (let i = 0; i < points.length; i++) {
+      cumulative[i] += points[i][layers[li]];
+      layerTops[li].push(cumulative[i]);
+    }
+    // Path: top line left-to-right, then bottom line right-to-left
+    let d = `M${x(0)},${y(cumulative[0])}`;
+    for (let i = 1; i < points.length; i++) {
+      d += ` L${x(i)},${y(cumulative[i])}`;
+    }
+    for (let i = points.length - 1; i >= 0; i--) {
+      d += ` L${x(i)},${y(prevCum[i])}`;
+    }
+    d += ' Z';
+    paths += `<path d="${d}" fill="${colors[li]}" opacity="0.7"/>`;
+  }
+
+  // Dots per layer boundary, colored to match each layer; tooltip lists all non-zero counts
+  const colorByKey = { new: colors[3], learning: colors[2], review: colors[1], mastered: colors[0] };
+  for (let i = 0; i < points.length; i++) {
+    const p = points[i];
+    const lines = [`<div><strong>${p.day}</strong></div>`];
+    for (const k of ['new', 'learning', 'review', 'mastered']) {
+      if (p[k] > 0) lines.push(`<div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${colorByKey[k]};margin-right:6px;vertical-align:middle"></span>${k[0].toUpperCase() + k.slice(1)}: ${p[k]}</div>`);
+    }
+    const tooltip = lines.join('');
+    for (let li = 0; li < layers.length; li++) {
+      if (p[layers[li]] === 0) continue;
+      const cx = x(i), cy = y(layerTops[li][i]);
+      dots += `<circle cx="${cx}" cy="${cy}" r="3" fill="${colors[li]}" onmouseenter="showChartTip(event,this)" onmouseleave="hideChartTip()" data-tip="${tooltip.replace(/"/g,'&quot;')}"/>`;
+    }
+  }
+
+  // Date labels: one per point, up to 15; otherwise skip to stay under 15
+  const fmt = d => { const p = d.split('-'); return `${parseInt(p[1])}/${parseInt(p[2])}`; };
+  const step = Math.ceil(points.length / 15);
+  let labels = '';
+  for (let i = 0; i < points.length; i++) {
+    if (i % step !== 0 && i !== points.length - 1) continue;
+    const anchor = i === 0 ? 'start' : (i === points.length - 1 ? 'end' : 'middle');
+    labels += `<text x="${x(i)}" y="${H - 2}" fill="var(--muted)" font-size="11" text-anchor="${anchor}">${fmt(points[i].day)}</text>`;
+  }
+
+  return `<div class="chart-wrap"><svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;margin:12px 0 4px;display:block">${paths}${dots}${labels}</svg><div class="chart-tooltip" id="chart-tooltip"></div></div>`;
+}
+
+function showChartTip(e, el) {
+  const wrap = el.closest('.chart-wrap');
+  const tip = wrap.querySelector('.chart-tooltip');
+  tip.innerHTML = el.getAttribute('data-tip');
+  const wrapRect = wrap.getBoundingClientRect();
+  const dotRect = el.getBoundingClientRect();
+  const cx = dotRect.left + dotRect.width / 2 - wrapRect.left;
+  const cy = dotRect.top - wrapRect.top;
+  tip.style.left = cx + 'px';
+  tip.style.top = cy + 'px';
+  tip.classList.add('visible');
+}
+function hideChartTip() {
+  document.querySelectorAll('.chart-tooltip.visible').forEach(t => t.classList.remove('visible'));
+}
+
+// ─── Deck Home View ─────────────────────────────────────────────────
+function renderDeckHome(deckName) {
+  const decks = getDecks();
+  const deck = decks[deckName];
+  if (!deck) return navigate('#/');
+
+  activeQuiz = deckName;
+  const counts = getDueCounts(deckName);
+  const stats = getStats();
+
+  // Mastery distribution
+  let mNew = 0, mLearning = 0, mReview = 0, mMastered = 0;
+  deck.questions.forEach(q => {
+    const s = stats[`${deckName}::${q.id}`];
+    const ms = cardMasteryState(s);
+    if (ms === 'new') mNew++;
+    else if (ms === 'learning') mLearning++;
+    else if (ms === 'review') mReview++;
+    else mMastered++;
+  });
+  const total = deck.questions.length;
+
+  let html = `
+    <div class="back-row"><button class="back-btn" onclick="navigate('#/')">&larr; ${t('allDecks')}</button></div>
+    <h2 class="mb-16">${esc(deck.name)}</h2>
+
+    <div class="due-counts">
+      <div class="due-count">
+        <div class="number text-accent">${counts.due}</div>
+        <div class="label">${t('dueToday')}</div>
+      </div>
+      <div class="due-count">
+        <div class="number">${counts.newCards}</div>
+        <div class="label">${t('newAvailable')}</div>
+      </div>
+      <div class="due-count">
+        <div class="number">${total}</div>
+        <div class="label">${t('totalCards')}</div>
+      </div>
+    </div>
+
+    <div class="stat-bar">
+      <div class="mastered" style="width:${mMastered/total*100}%"></div>
+      <div class="review-state" style="width:${mReview/total*100}%"></div>
+      <div class="learning" style="width:${mLearning/total*100}%"></div>
+      <div class="new-state" style="width:${mNew/total*100}%"></div>
+    </div>
+    <div class="stat-legend">
+      <span class="l-mastered">${t('stateMastered')} ${mMastered}</span>
+      <span class="l-review">${t('stateReview')} ${mReview}</span>
+      <span class="l-learning">${t('stateLearning')} ${mLearning}</span>
+      <span class="l-new">${t('stateNew')} ${mNew}</span>
+    </div>
+    ${buildMasteryChart(deckName, total)}
+
+    ${counts.due === 0 && counts.newCards === 0 ? `<p class="text-accent text-center" style="margin:0 0 12px">${t('caughtUp')}</p>` : ''}
+    <div class="mode-grid">
+      <button class="mode-btn primary" onclick="navigate('#/${encodeURIComponent(deckName)}/study')">
+        <div class="mode-title">${t('spacedRep')} <span class="text-muted" style="font-weight:400;font-size:0.8rem">(${t('recommended')})</span></div>
+        <div class="mode-desc">${t('spacedRepDesc')}</div>
+      </button>
+      <button class="mode-btn" onclick="navigate('#/${encodeURIComponent(deckName)}/leastpracticed')">
+        <div class="mode-title">${t('leastPracticed')}</div>
+        <div class="mode-desc">${t('leastPracticedDesc')}</div>
+      </button>
+      <button class="mode-btn" onclick="navigate('#/${encodeURIComponent(deckName)}/random')">
+        <div class="mode-title">${t('randomMode')}</div>
+        <div class="mode-desc">${t('randomModeDesc')}</div>
+      </button>
+      <button class="mode-btn" onclick="navigate('#/${encodeURIComponent(deckName)}/browse')">
+        <div class="mode-title">${t('browse')}</div>
+        <div class="mode-desc">${t('browseDesc')}</div>
+      </button>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:16px;">
+      <button class="btn btn-outline-primary" style="flex:1" onclick="navigate('#/${encodeURIComponent(deckName)}/stats')">${t('statistics')}</button>
+      <button class="btn btn-outline-primary" style="flex:1" onclick="navigate('#/${encodeURIComponent(deckName)}/settings')">${t('settings')}</button>
+      <button class="btn btn-outline-danger" style="flex:1" onclick="deleteDeck('${esc(deckName)}')">${t('delete')}</button>
+    </div>
+  `;
+  app().innerHTML = html;
+}
+
+// ─── Deck Settings ──────────────────────────────────────────────────
+function renderDeckSettings(deckName) {
+  const decks = getDecks();
+  const deck = decks[deckName];
+  if (!deck) return navigate('#/');
+
+  const dn = encodeURIComponent(deckName);
+  app().innerHTML = `
+    <div class="back-row"><button class="back-btn" onclick="navigate('#/${dn}')">&larr; ${esc(t('deckBreadcrumb')(deck.name))}</button></div>
+    <h2 class="mb-16">${t('settings')}</h2>
+    <div class="card">
+      <label class="text-muted" style="font-size:0.85rem;">${t('deckName')}</label>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <input type="text" id="deck-name-input" value="${esc(deck.name)}" style="flex:1;padding:10px;border-radius:var(--radius);border:1px solid var(--elevated);background:var(--bg);color:var(--text);font-size:1rem;">
+        <button class="btn btn-primary" style="width:auto;padding:10px 20px;" onclick="renameDeck('${esc(deckName)}')">${t('save')}</button>
+      </div>
+    </div>
+  `;
+}
+
+function renameDeck(deckId) {
+  const input = document.getElementById('deck-name-input');
+  const newName = input.value.trim();
+  if (!newName) return;
+
+  const decks = getDecks();
+  if (!decks[deckId]) return;
+  decks[deckId].name = newName;
+  saveDecks(decks);
+
+  navigate('#/' + encodeURIComponent(deckId));
+}
+
+// ─── Study Session ──────────────────────────────────────────────────
+function startStudySession(deckName, mode) {
+  const queue = buildStudyQueue(deckName, mode);
+  activeQuiz = deckName;
+  studySession = {
+    deckName,
+    mode,
+    queue,
+    currentIndex: 0,
+    reviewed: [],
+    startTime: Date.now(),
+    newStarted: 0,
+    incorrect: 0,
+    slow: 0,
+    medium: 0,
+    fast: 0,
+    improved: 0,
+    mastered: 0,
+  };
+}
+
+function renderStudyCard() {
+  stopTTS();
+  if (!studySession || studySession.currentIndex >= studySession.queue.length) {
+    if (studySession && studySession.reviewed.length > 0) {
+      return navigate('#/' + encodeURIComponent(studySession.deckName) + '/summary');
+    }
+    // No cards in queue
+    const dn = studySession?.deckName || activeQuiz;
+    const deckLabel = esc(t('deckBreadcrumb')(getDecks()[dn]?.name || dn));
+    studySession = null;
+    app().innerHTML = `
+      <div class="back-row"><button class="back-btn" onclick="navigate('#/${encodeURIComponent(dn)}')">&larr; ${deckLabel}</button></div>
+      <p class="text-muted text-center mt-16">${t('noDue')}</p>
+    `;
+    return;
+  }
+
+  const { qid, question } = studySession.queue[studySession.currentIndex];
+  const options = shuffle([question.correct, ...question.wrong]);
+  const reviewedCount = studySession.reviewed.length;
+  const remainingCount = studySession.queue.length - studySession.currentIndex;
+
+  const deckLabel = esc(t('deckBreadcrumb')(getDecks()[studySession.deckName]?.name || studySession.deckName));
+
+  let dots = '';
+  for (const r of studySession.reviewed) {
+    dots += `<div class="progress-dot ${r.isCorrect ? 'correct' : 'incorrect'}"></div>`;
+  }
+
+  let html = `
+    <div class="back-row" style="display:flex;justify-content:space-between;align-items:center">
+      <button class="back-btn" onclick="finishStudy()">&larr; ${deckLabel}</button>
+      <div class="study-counter">${t('reviewed')}: ${reviewedCount} · ${t('remaining')}: ${remainingCount}</div>
+    </div>
+    <div class="progress-dots">${dots}</div>
+    <div class="question-text" dir="auto">${esc(question.question)} ${ttsBtn(question.question)}</div>
+    <div class="options" id="options">
+  `;
+  for (const opt of options) {
+    html += `<div style="display:flex;gap:8px;align-items:stretch"><button class="option-btn" dir="auto" style="margin-bottom:0" data-answer="${esc(opt)}" onclick="handleAnswer(this)">${esc(opt)}</button>${ttsBtn(opt)}</div>`;
+  }
+  html += `</div><div id="feedback"></div>`;
+  app().innerHTML = html;
+  questionStartTime = performance.now();
+}
+
+function handleAnswer(btn) {
+  if (btn.classList.contains('locked')) return;
+  const responseTime = performance.now() - questionStartTime;
+
+  const { qid, question } = studySession.queue[studySession.currentIndex];
+  const chosen = btn.dataset.answer;
+  const isCorrect = chosen === question.correct;
+
+  // Visual feedback on buttons
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach(b => {
+    b.classList.add('locked');
+    if (b.dataset.answer === question.correct) b.classList.add(isCorrect ? 'correct' : 'reveal-correct');
+  });
+  if (!isCorrect) btn.classList.add('incorrect');
+
+  const feedback = $('feedback');
+  const resultText = isCorrect ? `<span class="text-accent">${t('correct')}</span>` : `<span class="text-error">${t('incorrect')}</span>`;
+
+  if (isCorrect) {
+    // Correct: show explanation + let user choose difficulty rating
+    feedback.innerHTML = `
+      <div class="explanation"><p>${resultText}</p><p class="mt-8" dir="auto">${esc(question.explanation)} ${ttsBtn(question.explanation)}</p></div>
+      <div class="rating-buttons mt-16">
+        <button class="btn btn-danger" onclick="handleRating(${Rating.Hard}, ${Math.round(responseTime)})">${t('ratingHard')}</button>
+        <button class="btn btn-primary" onclick="handleRating(${Rating.Good}, ${Math.round(responseTime)})">${t('ratingModerate')}</button>
+        <button class="btn btn-success" onclick="handleRating(${Rating.Easy}, ${Math.round(responseTime)})">${t('ratingEasy')}</button>
+      </div>
+    `;
+  } else {
+    // Incorrect: auto-rate as Again and advance
+    applyRating(Rating.Again, Math.round(responseTime));
+    feedback.innerHTML = `
+      <div class="explanation"><p>${resultText}</p><p class="mt-8" dir="auto">${esc(question.explanation)} ${ttsBtn(question.explanation)}</p></div>
+      <button class="btn btn-secondary mt-16" onclick="advanceStudy()">${t('nextCard')}</button>
+    `;
+  }
+}
+
+function handleRating(rating, responseTime) {
+  applyRating(rating, responseTime);
+  advanceStudy();
+}
+
+function applyRating(rating, responseTime) {
+  gcEvent('question-complete');
+  const { qid, question } = studySession.queue[studySession.currentIndex];
+  const isCorrect = rating !== Rating.Again;
+
+  const oldCard = getCardState(qid);
+  const prevState = oldCard.state;
+  const newCardState = fsrsSchedule(oldCard, rating, Date.now());
+  saveCardState(qid, newCardState);
+
+  const wasNew = prevState === State.New;
+  if (wasNew) studySession.newStarted++;
+  if (rating === Rating.Again) {
+    studySession.incorrect++;
+    studySession.queue.push({ qid, question, card: newCardState });
+  } else if (rating === Rating.Hard) studySession.slow++;
+  else if (rating === Rating.Good) studySession.medium++;
+  else studySession.fast++;
+
+  const newMastery = cardMasteryState(newCardState);
+  const oldMastery = wasNew ? 'new' : (prevState === State.Learning || prevState === State.Relearning ? 'learning' : (oldCard.stability >= 21 ? 'mastered' : 'review'));
+  if (newMastery === 'mastered' && oldMastery !== 'mastered') studySession.mastered++;
+  else if (newMastery === 'review' && (oldMastery === 'new' || oldMastery === 'learning')) studySession.improved++;
+
+  studySession.reviewed.push({
+    qid,
+    title: question.title,
+    rating,
+    responseTime,
+    prevState,
+    newState: newCardState.state,
+    isCorrect,
+  });
+}
+
+function advanceStudy() {
+  studySession.currentIndex++;
+  renderStudyCard();
+}
+
+function recordStudySession(s) {
+  if (s._recorded) return;
+  s._recorded = true;
+  const duration = Math.round((Date.now() - s.startTime) / 1000);
+  const total = s.reviewed.length;
+  const snapStats = getStats();
+  const snapDeck = getDecks()[s.deckName];
+  const snap = { new: 0, learning: 0, review: 0, mastered: 0 };
+  if (snapDeck) {
+    snapDeck.questions.forEach(q => {
+      const ms = cardMasteryState(snapStats[`${s.deckName}::${q.id}`]);
+      snap[ms]++;
+    });
+  }
+  recordSession({
+    date: Date.now(),
+    deckName: s.deckName,
+    mode: s.mode,
+    duration,
+    reviewed: total,
+    newStarted: s.newStarted,
+    incorrect: s.incorrect,
+    slow: s.slow,
+    medium: s.medium,
+    fast: s.fast,
+    improved: s.improved,
+    mastered: s.mastered,
+    cards: s.reviewed,
+    mastery: snap,
+  });
+}
+
+function finishStudy() {
+  if (studySession && studySession.reviewed.length > 0) {
+    recordStudySession(studySession);
+    navigate('#/' + encodeURIComponent(studySession.deckName) + '/summary');
+  } else {
+    const dn = studySession?.deckName || activeQuiz || '';
+    studySession = null;
+    navigate('#/' + encodeURIComponent(dn));
+  }
+}
+
+// ─── Session Summary ────────────────────────────────────────────────
+function renderSessionSummary() {
+  if (!studySession || studySession.reviewed.length === 0) {
+    return navigate('#/');
+  }
+
+  const s = studySession;
+  const duration = Math.round((Date.now() - s.startTime) / 1000);
+  const mins = Math.floor(duration / 60);
+  const secs = duration % 60;
+  const total = s.reviewed.length;
+  const deckName = s.deckName;
+
+  // Build speed tier bar
+  const tierBar = buildTierBar(s.fast, s.medium, s.slow, s.incorrect, total);
+
+  let html = `
+    <h2 class="mb-16 text-center">${t('sessionSummary')}</h2>
+    <div class="card">
+      <div class="summary-stat"><span class="label">${t('cardsReviewed')}</span><span>${total}</span></div>
+      <div class="summary-stat"><span class="label">${t('time')}</span><span>${mins}m ${secs}s</span></div>
+    </div>
+    <div class="card">
+      ${tierBar}
+      <div class="tier-legend">
+        <span class="l-fast">${t('ratingEasy')} ${s.fast}</span>
+        <span class="l-medium">${t('ratingModerate')} ${s.medium}</span>
+        <span class="l-slow">${t('ratingHard')} ${s.slow}</span>
+        <span class="l-incorrect">${t('ratingIncorrect')} ${s.incorrect}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="summary-stat"><span class="label">${t('newStarted')}</span><span>${s.newStarted}</span></div>
+      <div class="summary-stat"><span class="label">${t('cardsImproved')}</span><span>${s.improved}</span></div>
+      <div class="summary-stat"><span class="label">${t('cardsMastered')}</span><span class="text-accent">${s.mastered}</span></div>
+    </div>
+    <button class="btn btn-primary mt-16" onclick="studySession=null;navigate('#/${encodeURIComponent(deckName)}')">${t('backToDeck')}</button>
+  `;
+  app().innerHTML = html;
+  studySession = null;
+}
+
+function buildTierBar(fast, medium, slow, incorrect, total) {
+  if (total === 0) return '';
+  return `<div class="tier-bar">
+    ${fast > 0 ? `<div class="t-fast" style="width:${fast/total*100}%"></div>` : ''}
+    ${medium > 0 ? `<div class="t-medium" style="width:${medium/total*100}%"></div>` : ''}
+    ${slow > 0 ? `<div class="t-slow" style="width:${slow/total*100}%"></div>` : ''}
+    ${incorrect > 0 ? `<div class="t-incorrect" style="width:${incorrect/total*100}%"></div>` : ''}
+  </div>`;
+}
+
+// ─── Browse Mode ────────────────────────────────────────────────────
+function renderBrowse() {
+  const decks = getDecks();
+  const deck = decks[activeQuiz];
+  if (!deck) return navigate('#/');
+  if (deck.questions.length === 0) return navigate('#/' + encodeURIComponent(activeQuiz));
+
+  reviewIndex = Math.max(0, Math.min(reviewIndex, deck.questions.length - 1));
+  const question = deck.questions[reviewIndex];
+  const dn = encodeURIComponent(activeQuiz);
+
+  app().innerHTML = `
+    <div class="back-row"><button class="back-btn" onclick="navigate('#/${dn}')">&larr; ${esc(t('deckBreadcrumb')(decks[activeQuiz].name))}</button></div>
+    <div class="review-nav mb-8">
+      <button class="btn btn-outline-primary" onclick="reviewIndex--;navigate('#/${dn}/browse')" ${reviewIndex === 0 ? 'disabled' : ''}>${t('previous')}</button>
+      <button class="btn btn-outline-primary" onclick="reviewIndex++;navigate('#/${dn}/browse')" ${reviewIndex === deck.questions.length - 1 ? 'disabled' : ''}>${t('next')}</button>
+    </div>
+    <div class="text-muted mb-8" style="font-size:0.75rem">${reviewIndex + 1} / ${deck.questions.length}</div>
+    <div class="question-text" dir="auto">${esc(question.question)} ${ttsBtn(question.question)}</div>
+    <div class="review-answer" dir="auto">${esc(question.correct)} ${ttsBtn(question.correct)}</div>
+    ${question.wrong.map(w => `<div class="review-wrong" dir="auto">${esc(w)} ${ttsBtn(w)}</div>`).join('')}
+    <div class="explanation" dir="auto">${esc(question.explanation)} ${ttsBtn(question.explanation)}</div>
+  `;
+}
+
+// ─── Stats View ─────────────────────────────────────────────────────
+function renderStats(deckName) {
+  const decks = getDecks();
+  const deck = decks[deckName];
+  if (!deck) return navigate('#/');
+
+  const stats = getStats();
+  const sessions = getSessions().filter(s => s.deckName === deckName);
+  const dn = encodeURIComponent(deckName);
+
+  // Mastery distribution
+  let mNew = 0, mLearning = 0, mReview = 0, mMastered = 0;
+  deck.questions.forEach(q => {
+    const s = stats[`${deckName}::${q.id}`];
+    const ms = cardMasteryState(s);
+    if (ms === 'new') mNew++;
+    else if (ms === 'learning') mLearning++;
+    else if (ms === 'review') mReview++;
+    else mMastered++;
+  });
+  const total = deck.questions.length;
+
+  let html = `
+    <div class="back-row"><button class="back-btn" onclick="navigate('#/${dn}')">&larr; ${esc(t('deckBreadcrumb')(deck.name))}</button></div>
+    <h2 class="mb-16">${t('statistics')}</h2>
+
+    <div class="card">
+      <div class="stat-bar">
+        <div class="mastered" style="width:${mMastered/total*100}%"></div>
+        <div class="review-state" style="width:${mReview/total*100}%"></div>
+        <div class="learning" style="width:${mLearning/total*100}%"></div>
+        <div class="new-state" style="width:${mNew/total*100}%"></div>
+      </div>
+      <div class="stat-legend">
+        <span class="l-mastered">${t('stateMastered')} ${mMastered}</span>
+        <span class="l-review">${t('stateReview')} ${mReview}</span>
+        <span class="l-learning">${t('stateLearning')} ${mLearning}</span>
+        <span class="l-new">${t('stateNew')} ${mNew}</span>
+      </div>
+    </div>
+  `;
+
+  // Per-card table
+  html += `
+    <details class="mb-16">
+      <summary style="cursor:pointer; color:var(--muted); font-size:0.85rem; margin:8px 0;">${t('questionDetail')}</summary>
+      <div style="overflow-x:auto;">
+      <table class="stats-table">
+        <thead><tr><th>${t('questionCol')}</th><th>${t('stateCol')}</th><th>${t('stabilityCol')}</th><th>${t('nextReviewCol')}</th></tr></thead>
+        <tbody>
+  `;
+  const stateLabels = {
+    'new': () => t('stateNew'),
+    'learning': () => t('stateLearning'),
+    'review': () => t('stateReview'),
+    'mastered': () => t('stateMastered'),
+  };
+  deck.questions.forEach(question => {
+    const s = stats[`${deckName}::${question.id}`] || newCard();
+    const ms = cardMasteryState(s);
+    const stab = s.stability > 0 ? (s.stability >= 1 ? Math.round(s.stability) + t('days') : '<1' + t('days')) : '—';
+    let nextR = '—';
+    if (s.due > 0) {
+      const daysUntil = Math.round((s.due - Date.now()) / 86400000);
+      if (daysUntil <= 0) nextR = t('today');
+      else nextR = daysUntil + t('days');
+    }
+    html += `<tr><td>${esc(question.title)}</td><td>${stateLabels[ms]()}</td><td>${stab}</td><td>${nextR}</td></tr>`;
+  });
+  html += `</tbody></table></div></details>`;
+
+  // Session history
+  html += `<h3 class="mb-8 mt-16">${t('sessionHistory')}</h3>`;
+  if (sessions.length === 0) {
+    html += `<p class="text-muted">${t('noSessions')}</p>`;
+  } else {
+    html += `<div class="card">`;
+    // Find the index of each session in the global sessions array for linking
+    const allSessions = getSessions();
+    for (const s of [...sessions].reverse().slice(0, 20)) {
+      const globalIdx = allSessions.indexOf(s);
+      // Find by date since indexOf won't work after JSON parse
+      const idx = allSessions.findIndex(gs => gs.date === s.date && gs.deckName === s.deckName && gs.reviewed === s.reviewed);
+      const d = new Date(s.date);
+      const locale = LANGS[currentLang]._locale;
+      const dateStr = d.toLocaleDateString(locale, { day: '2-digit', month: '2-digit' });
+      const timeStr = d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+      html += `
+        <div class="session-item" onclick="navigate('#/${dn}/session/${idx}')">
+          <span>${dateStr} ${timeStr}</span>
+          <span>${s.reviewed} ${t('cardsReviewed').toLowerCase()}</span>
+        </div>
+      `;
+    }
+    html += `</div>`;
+  }
+
+  app().innerHTML = html;
+}
+
+// ─── Session Detail View ────────────────────────────────────────────
+function renderSessionDetail(deckName, sessionIdx) {
+  const sessions = getSessions();
+  const s = sessions[sessionIdx];
+  if (!s) return navigate('#/' + encodeURIComponent(deckName) + '/stats');
+
+  const dn = encodeURIComponent(deckName);
+  const d = new Date(s.date);
+  const locale = LANGS[currentLang]._locale;
+  const dateStr = d.toLocaleDateString(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const timeStr = d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+  const mins = Math.floor(s.duration / 60);
+  const secs = s.duration % 60;
+  const total = s.reviewed;
+
+  const tierBar = buildTierBar(s.fast || 0, s.medium || 0, s.slow || 0, s.incorrect || 0, total);
+
+  let html = `
+    <div class="back-row"><button class="back-btn" onclick="navigate('#/${dn}/stats')">&larr; ${t('back')}</button></div>
+    <h2 class="mb-8">${t('sessionDetail')}</h2>
+    <p class="text-muted mb-16">${dateStr} ${timeStr}</p>
+
+    <div class="card">
+      <div class="summary-stat"><span class="label">${t('cardsReviewed')}</span><span>${total}</span></div>
+      <div class="summary-stat"><span class="label">${t('time')}</span><span>${mins}m ${secs}s</span></div>
+    </div>
+    <div class="card">
+      ${tierBar}
+      <div class="tier-legend">
+        <span class="l-fast">${t('ratingEasy')} ${s.fast || 0}</span>
+        <span class="l-medium">${t('ratingModerate')} ${s.medium || 0}</span>
+        <span class="l-slow">${t('ratingHard')} ${s.slow || 0}</span>
+        <span class="l-incorrect">${t('ratingIncorrect')} ${s.incorrect || 0}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="summary-stat"><span class="label">${t('newStarted')}</span><span>${s.newStarted || 0}</span></div>
+      <div class="summary-stat"><span class="label">${t('cardsImproved')}</span><span>${s.improved || 0}</span></div>
+      <div class="summary-stat"><span class="label">${t('cardsMastered')}</span><span class="text-accent">${s.mastered || 0}</span></div>
+    </div>
+  `;
+
+  // Per-card breakdown
+  if (s.cards && s.cards.length > 0) {
+    const ratingLabels = {
+      [Rating.Again]: t('ratingIncorrect'),
+      [Rating.Hard]: t('ratingHard'),
+      [Rating.Good]: t('ratingModerate'),
+      [Rating.Easy]: t('ratingEasy'),
+    };
+    const ratingColors = {
+      [Rating.Again]: 'text-error',
+      [Rating.Hard]: '',
+      [Rating.Good]: '',
+      [Rating.Easy]: 'text-accent',
+    };
+    html += `
+      <details class="mb-16">
+        <summary style="cursor:pointer; color:var(--muted); font-size:0.85rem; margin:8px 0;">${t('questionDetail')}</summary>
+        <div style="overflow-x:auto;">
+        <table class="stats-table">
+          <thead><tr><th>${t('questionCol')}</th><th></th><th>${t('time')}</th></tr></thead>
+          <tbody>
+    `;
+    for (const c of s.cards) {
+      const timeS = (c.responseTime / 1000).toFixed(1) + 's';
+      const cls = ratingColors[c.rating] || '';
+      html += `<tr><td>${esc(c.title || c.qid)}</td><td class="${cls}">${ratingLabels[c.rating]}</td><td>${timeS}</td></tr>`;
+    }
+    html += `</tbody></table></div></details>`;
+  }
+
+  app().innerHTML = html;
+}
+
+// ─── Export / Clear ─────────────────────────────────────────────────
+function exportStats() {
+  const data = {
+    decks: getDecks(),
+    stats: getStats(),
+    sessions: getSessions(),
+    exportedAt: new Date().toISOString(),
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `flashcards-export-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function clearAllData() {
+  showConfirm(
+    t('clearAllTitle'),
+    t('clearAllConfirm'),
+    () => {
+      localStorage.removeItem(KEYS.quizzes);
+      localStorage.removeItem(KEYS.stats);
+      localStorage.removeItem(KEYS.sessions);
+      navigate('#/');
+    }
+  );
+}
+
+function importJSONFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    let data;
+    try { data = JSON.parse(e.target.result); }
+    catch { alert(t('importInvalid')); return; }
+    if (!data || typeof data !== 'object' || !data.decks) { alert(t('importInvalid')); return; }
+    showConfirm(t('importJson'), t('importJsonConfirm'), () => {
+      save(KEYS.quizzes, data.decks || {});
+      save(KEYS.stats, data.stats || {});
+      save(KEYS.sessions, data.sessions || []);
+      navigate('#/');
+    });
+  };
+  reader.readAsText(file);
+}
+
+const HELP_ICONS = [
+  ['📝','🤖','📂'],
+  ['⭐','🎯','🎲','📖'],
+  ['❌','🐢','👍','⚡'],
+  ['📊','🔵','📈','🔥'],
+  ['💾','📥','⚠️'],
+];
+function renderHelp() {
+  const sections = t('helpSections');
+  let html = `<h2 class="mb-16">${t('navHelp')}</h2>`;
+  html += `<div class="card"><p style="margin:0;font-size:0.9rem;line-height:1.5">${t('helpIntro')}</p></div>`;
+  sections.forEach((sec, si) => {
+    html += `<div class="card"><h3 style="margin-bottom:10px;font-size:1rem">${sec.title}</h3>`;
+    sec.items.forEach((text, ii) => {
+      const icon = HELP_ICONS[si][ii];
+      html += `<div style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:0.9rem;line-height:1.5"><span style="font-size:1.1rem;flex-shrink:0">${icon}</span><span>${text}</span></div>`;
+    });
+    html += `</div>`;
+  });
+  html += `<div class="card"><p style="margin:0 0 8px;font-size:0.9rem;line-height:1.5">Made with love by <a href="https://topherhunt.github.io" target="_blank" rel="noopener" style="color:var(--accent)">Topher Hunt</a></p><p style="margin:0;font-size:0.9rem;line-height:1.5">💬 ${t('helpForumNote')}</p></div>`;
+  app().innerHTML = html;
+}
+
+function showToast(msg) {
+  const el = document.createElement('div');
+  el.textContent = msg;
+  Object.assign(el.style, {
+    position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+    background: 'var(--accent)', color: '#000', padding: '10px 20px',
+    borderRadius: 'var(--radius)', fontWeight: '600', fontSize: '0.9rem',
+    zIndex: '9999', opacity: '0', transition: 'opacity 0.3s',
+  });
+  document.body.appendChild(el);
+  requestAnimationFrame(() => el.style.opacity = '1');
+  setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 300); }, 2500);
+}
+
+async function saveSettings() {
+  const val = document.getElementById('openai-key-input').value.trim();
+  if (val) {
+    try {
+      const res = await fetch('https://api.openai.com/v1/models', {
+        headers: { 'Authorization': `Bearer ${val}` },
+      });
+      if (!res.ok) {
+        showToast(t('invalidApiKey'));
+        return;
+      }
+    } catch {
+      showToast(t('invalidApiKey'));
+      return;
+    }
+    localStorage.setItem(KEYS.openaiKey, val);
+  } else {
+    localStorage.removeItem(KEYS.openaiKey);
+  }
+  navigate('#/');
+  showToast(t('settingsSaved'));
+}
+
+function renderGlobalSettings() {
+  app().innerHTML = `
+    <h2 class="mb-16">${t('globalSettings')}</h2>
+    <div class="card">
+      <div style="margin-bottom:14px;">
+        <select id="lang-select" onchange="setLang(this.value)" style="width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--elevated);border-radius:var(--radius);padding:10px 12px;font-size:0.95rem;cursor:pointer;"></select>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:0.85rem;margin-bottom:4px;color:var(--text)">${t('openaiKeyLabel')}</label>
+        <input id="openai-key-input" type="password" value="${localStorage.getItem(KEYS.openaiKey) || ''}" placeholder="sk-..." style="width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--elevated);border-radius:var(--radius);padding:10px 12px;font-size:0.9rem;" onfocus="this.type='text'" onblur="this.type='password'">
+        <p style="font-size:0.75rem;margin-top:4px;color:var(--text);opacity:0.7">${t('openaiKeyHint')}</p>
+        <button class="btn btn-primary btn-small" style="margin:16px 0 8px" onclick="saveSettings()">${t('save')}</button>
+      </div>
+      <h3 style="margin:8px 0 8px">${t('importExportHeader')}</h3>
+      <p style="font-size:0.85rem; line-height:1.5; margin:0 0 14px; color:var(--text); opacity:0.7;">${t('dataInfo')}</p>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-secondary" onclick="exportStats()">📤 ${t('exportJson')}</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('global-import-input').click()">📥 ${t('importJson')}</button>
+        <input id="global-import-input" type="file" accept="application/json,.json" style="display:none" onchange="if(this.files[0]) importJSONFile(this.files[0])">
+        <button class="btn btn-danger" onclick="clearAllData()">🗑️ ${t('deleteAll')}</button>
+      </div>
+    </div>
+  `;
+  initLangSelect();
+}
+
+// ─── Confirm Dialog ─────────────────────────────────────────────────
+function showConfirm(title, message, onConfirm) {
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay';
+  overlay.innerHTML = `
+    <div class="dialog">
+      <h3>${title}</h3>
+      <p>${message}</p>
+      <div class="dialog-btns">
+        <button class="btn btn-secondary" id="confirm-cancel">${t('cancel')}</button>
+        <button class="btn btn-danger" id="confirm-ok">${t('confirm')}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelector('#confirm-cancel').addEventListener('click', () => overlay.remove());
+  overlay.querySelector('#confirm-ok').addEventListener('click', () => { overlay.remove(); onConfirm(); });
+}
+
+// ─── Escape HTML ────────────────────────────────────────────────────
+function esc(s) {
+  if (typeof s !== 'string') return s;
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+// ─── TTS ────────────────────────────────────────────────────────
+let ttsCache = {};
+let ttsAudio = null;
+
+function stopTTS() {
+  if (ttsAudio) { try { ttsAudio.pause(); } catch {} ttsAudio = null; }
+  document.querySelectorAll('.tts-btn.playing').forEach(b => { b.classList.remove('playing'); b.innerHTML = '▶'; });
+}
+
+function ttsBtn(text) {
+  if (!localStorage.getItem(KEYS.openaiKey)) return '';
+  return `<button class="tts-btn tts-btn-inline" onclick="event.stopPropagation();toggleTTS(this)" data-text="${esc(text)}" title="Read aloud">▶</button>`;
+}
+
+async function toggleTTS(btn) {
+  const text = btn.getAttribute('data-text');
+  if (ttsAudio && !ttsAudio.paused) {
+    stopTTS();
+    return;
+  }
+  if (ttsCache[text]) {
+    playTTS(btn, ttsCache[text]);
+    return;
+  }
+  const openaiKey = localStorage.getItem(KEYS.openaiKey);
+  if (!openaiKey) return;
+  btn.disabled = true;
+  btn.innerHTML = '...';
+  try {
+    const res = await fetch('https://api.openai.com/v1/audio/speech', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini-tts',
+        voice: 'alloy',
+        input: text,
+        instructions: 'Speak slowly and clearly.',
+        response_format: 'mp3',
+      }),
+    });
+    if (!res.ok) throw new Error(`TTS error: ${res.status}`);
+    const blob = await res.blob();
+    const audioUrl = URL.createObjectURL(blob);
+    ttsCache[text] = audioUrl;
+    btn.disabled = false;
+    playTTS(btn, audioUrl);
+  } catch (e) {
+    btn.disabled = false;
+    btn.innerHTML = '▶';
+    btn.title = e.message;
+  }
+}
+
+function playTTS(btn, audioUrl) {
+  stopTTS();
+  ttsAudio = new Audio(audioUrl);
+  btn.classList.add('playing');
+  btn.innerHTML = '■';
+  ttsAudio.addEventListener('ended', () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '▶';
+  });
+  ttsAudio.play().catch(() => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '▶';
+  });
+}
+
+// ─── Init ───────────────────────────────────────────────────────────
+document.documentElement.lang = LANGS[currentLang]._locale.slice(0, 2);
+document.documentElement.dir = LANGS[currentLang]._dir || 'ltr';
+initLangSelect();
+applyNavLabels();
+migrateStats();
+window.addEventListener('hashchange', handleRoute);
+handleRoute();
+gcEvent('page-loaded');
+</script>
+</body>
+</html>

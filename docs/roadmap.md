@@ -36,6 +36,20 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
   - It holds ~1 GB on CPU, too much for the production VPS, so it needs GPU or serverless hosting (Modal, Replicate, RunPod).
   - The dev-only `/admin/pronunciation` recorder and `scripts/pronunciation-poc.ts` still score candidate judges.
 
+## Custom quiz decks
+
+- **Gap:** Quiz mode offers only the preset decks. Learners can't drill their own material, which matters for making Ditto their own learning app.
+- **Idea:** upload a CSV in the preset format (`docs/quizzes.md`) as a deck owned by the learner (`quiz_decks.owner_id`), validated by the same `parseDeck`. The upload page offers a prompt to paste into any chatbot:
+
+  > Create a CSV flashcard deck for studying [TOPIC]. Target level: [BEGINNER / INTERMEDIATE / ADVANCED]. Language: [LANGUAGE].
+  >
+  > Use this exact header row:
+  > title,question,correct,wrong1,wrong2,wrong3,explanation
+  >
+  > Generate [NUMBER] multiple-choice questions. Each row must have exactly 7 comma-separated columns. Wrap any field that contains a comma in double quotes. The "explanation" column should give a brief reason why the correct answer is right.
+  >
+  > Output ONLY the CSV with no other text.
+
 ## Reading and writing beyond the sentence
 
 - **Gap:** no reading of connected text and no free writing (messages, short forms), both part of A2.

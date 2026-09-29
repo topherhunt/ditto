@@ -203,7 +203,8 @@ export type AdminSpeakReport = SpeakAttemptOut & {
 
 export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };
 /** `poc`: the pronunciation proof-of-concept recorder is on (development only). `speak`: conversation mode is configured. */
-export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean };
+/** `quiz`: the languages with quiz decks. */
+export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[] };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
 export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };
@@ -322,3 +323,38 @@ export type NotificationKind =
   | "friend_request" | "friend_accepted" | "challenge_invite" | "challenge_accepted" | "challenge_declined" | "challenge_finished";
 export type NotificationOut = { id: number; kind: NotificationKind; actor: Person; challenge: ChallengeOut | null; createdAt: string; read: boolean };
 export type NotificationsOut = { unread: number; items: NotificationOut[] };
+
+/** Quiz mode (docs/quizzes.md): multiple-choice decks, reviewed on an FSRS schedule. */
+export const QUIZ_LEVELS = ["A1", "A1+", "A2", "A2+", "B1", "B1+", "B2", "B2+"] as const;
+export type QuizLevel = (typeof QUIZ_LEVELS)[number];
+export const QUIZ_KINDS = ["grammar", "vocab"] as const;
+export type QuizKind = (typeof QUIZ_KINDS)[number];
+/** spaced: due cards, then new ones. least: unseen, then least stable. random: any. */
+export const QUIZ_MODES = ["spaced", "least", "random"] as const;
+export type QuizMode = (typeof QUIZ_MODES)[number];
+/** again is a wrong answer; the learner rates a right one hard, good or easy. */
+export const QUIZ_RATINGS = ["again", "hard", "good", "easy"] as const;
+export type QuizRating = (typeof QUIZ_RATINGS)[number];
+/** mastered: in review with a stability of 21+ days. */
+export const MASTERY_STATES = ["new", "learning", "review", "mastered"] as const;
+export type MasteryState = (typeof MASTERY_STATES)[number];
+export type Mastery = Record<MasteryState, number>;
+/** What the read-aloud button can voice: a question's own text fields. */
+export const QUIZ_SAY_FIELDS = ["question", "correct", "wrong0", "wrong1", "wrong2", "explanation"] as const;
+
+export const StartQuizSchema = z.strictObject({ mode: z.enum(QUIZ_MODES) });
+export const QuizAnswerSchema = z.strictObject({ questionId: z.string(), rating: z.enum(QUIZ_RATINGS), responseMs: z.int().min(0) });
+
+export type QuizDeckOut = { id: string; level: QuizLevel; kind: QuizKind; num: number; total: number; due: number; fresh: number; mastery: Mastery };
+/** `activity`: every session with answers in this language, for the practice sparklines. */
+export type QuizHomeOut = { decks: QuizDeckOut[]; activity: { deckId: string; at: string; answered: number }[] };
+export type QuizCardOut = { mastery: MasteryState; stability: number; due: string };
+export type QuizQuestionOut = { id: string; title: string; question: string; correct: string; wrong: string[]; explanation: string; card: QuizCardOut | null };
+/** `mastery`: the deck's breakdown after the session's last answer. */
+export type QuizSessionSummary = {
+  id: number; mode: QuizMode; startedAt: string; durationS: number; answered: number; ratings: Record<QuizRating, number>;
+  newStarted: number; improved: number; mastered: number; mastery: Mastery;
+};
+export type QuizDeckDetailOut = { deck: QuizDeckOut; questions: QuizQuestionOut[]; sessions: QuizSessionSummary[] };
+export type QuizSessionStartOut = { sessionId: number; queue: string[] };
+export type QuizSessionOut = QuizSessionSummary & { deckId: string; answers: { questionId: string; title: string; rating: QuizRating; responseMs: number }[] };

@@ -61,7 +61,7 @@ Scenario: ${s.scenario}
 - title: a short title for this conversation in {locale}.
 - line: your next line.
 - learnerLine: the learner's last line in the conversation so far, exactly as written, split into chunks; null when opening the conversation.
-- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it.
+- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore." rather than "Sì, grazie."
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
 const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged.
