@@ -19,17 +19,18 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
 - Practice: audio autoplay, replay, and 0.75x speed, in one of two voices picked at random per unit (among those matching its `speaker`); per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
-- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
+- The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`, `nl`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
 - "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss), optionally with a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh push` closes on production every report approved or closed in the dev DB, then `pull` brings the closures back.
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
 - Friends, added by exact email or from a profile. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
 - Usernames: picked on a blocking screen right after first sign-in, changeable under Account settings (`/account`). ASCII `[A-Za-z0-9_.-]{3,20}`, unique regardless of capitals. Lists, races, notifications and leaderboards show only the username.
-- Profiles. Anyone sees the username, the activity line and lessons completed in the past day/week/month, with an Add friend button. Only you and your friends see the name, email and the rest: the current module per language the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
+- Identity privacy: learners know each other only by username. Email, Google name and Google photo are never shown to another learner, friends included; the Google name and photo aren't stored. The email is shown only to its owner (Settings) and the operator (`/admin`). Users appear in URLs and the API by `users.public_id` (random, 10 characters from a 64-character alphabet), never by the numeric row ID.
+- Profiles (`/people/:publicId`, `/people/me`). Your own profile carries a note on what strangers see, linking to Settings. A public profile (the default) shows anyone the username, the language most recently practiced, the activity line and lessons completed in the past day/week/month, with an Add friend button. A private one (Settings > "Public profile" off) shows strangers only the username and the button. Only you and your friends see the rest: accuracy, the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
 - A lesson any friend has started is playable out of sequence. Its done screen compares your latest run with friends who have played it.
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
-- A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
+- A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among everyone with a public profile, a username and at least one lesson, or among you and your friends. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
 - An in-app notifications bell (no email or push).
 - Quiz mode (nav: Quiz): preset multiple-choice grammar and vocab decks per language and level, scheduled with FSRS, with per-deck stats and session history. Levels unlock in order, by graduating 90% of a level or a perfect 20-question test-out. Question audio is gpt-4o-mini-tts. Presets are stored once and shared; see [quizzes.md](quizzes.md).
 - Content: the full Italian A1 to B1 curriculum (31 main and 10 optional modules, [curriculum-it.md](curriculum-it.md)); English A1 to B1 for Spanish and Italian speakers (31 main and 10 optional modules, [curriculum-en.md](curriculum-en.md)); Dutch A1 to B1 for English and Spanish speakers (31 main and 10 optional modules, [curriculum-nl.md](curriculum-nl.md)); Irish A1 for English speakers (11 main modules, [curriculum-ga.md](curriculum-ga.md)).
@@ -193,8 +194,11 @@ Voices, one per gender in each language:
 ## Data model (SQLite)
 
 ```sql
-users(id PK, google_sub UNIQUE, email, name, picture, prefs JSON, locale, created_at,
-      username  -- NULL until picked; UNIQUE COLLATE NOCASE
+users(id PK  -- internal only; never sent to the client
+      , public_id UNIQUE  -- random [A-Za-z0-9_-]{10}, set by an AFTER INSERT trigger
+      , google_sub UNIQUE, email, prefs JSON, locale, created_at
+      , username  -- NULL until picked; UNIQUE COLLATE NOCASE
+      , profile_public  -- 1 (default) or 0
       )
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
@@ -235,8 +239,9 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`), checks `ALLOWED_EMAILS`, and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
 | POST | `/api/auth/dev` | Enabled only when `DEV_LOGIN=1`. Used by E2E tests |
 | POST | `/api/auth/logout` | |
-| GET | `/api/me` | User, username, prefs, and whether they're an admin |
+| GET | `/api/me` | User, username, prefs, profile visibility, and whether they're an admin |
 | PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
+| PUT | `/api/profile-visibility` | `{public}` |
 | PUT | `/api/prefs` | |
 | GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress, plus review-due and notebook counts |
 | POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction |
@@ -254,7 +259,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | GET | `/api/friends/search?email=` | Only whether the account exists and how you stand with it |
 | POST | `/api/friends/requests` | `{email}` or `{userId}`. If they already asked you, this accepts their request |
 | POST | `/api/friends/:id/(accept\|decline\|block\|unblock\|unfriend)` | Unfriending cancels open races |
-| GET | `/api/profile/(:id\|me)` | Anyone: person, relation, activity, lesson counts. `details` is null unless self or friends |
+| GET | `/api/profile/(:publicId\|me)` | Person and relation. `summary` (language, activity, lesson counts) is null for a stranger viewing a private profile; `details` is null unless self or friends. Never includes email. Every `:id`, `userId` and `opponentId` naming a user is a public ID |
 | GET | `/api/lessons/:lessonId/compare` | Your latest run of the lesson next to your friends' |
 | GET | `/api/challenges` | Settles due races; lists open ones and the past 30 days |
 | POST | `/api/challenges` | `{opponentId, kind: "most", days}` or `{opponentId, kind: "first_to", target}` |

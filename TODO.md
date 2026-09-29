@@ -3,9 +3,6 @@
 - [ ] Publish the Google Oauth app so people aren't blocked from accessing.
 - [ ] 
 
-- Type:
-  - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.
-
 - Talk:
   - Conversation history should be compacted in a scrollable & hidable div so you don't have trouble getting back up to the top of the page. Or, Talk with Claude to think through what is the best way to do this on mobile. Maybe chats older than the most recent 3 are hidden under a "See chat history" modal that you can easily X out of. But that also introduces friction.... I'd like to hear your suggestions. Maybe just a "Skip to top" button on the left side or sth.
 
@@ -13,7 +10,6 @@
   - [ ] A splash page introducing all of these tools. Give the pricing breakdown.
   - [ ] When you first go to ditto.topherhunt.com, see the home page w an overview of features, what you can do , what to expect, how to make the most out if it. And then you can log in.
   - [ ] Better onboarding: "Interface lanugage" needs to be clearer, eg "What larguage do you speak". Then ask "What languages do you want to learn?" (Gather feedback on any unsupported laguages, allow the user to request others.) Hints about keyboard usage (space to jump between words, enter)
-  - The leaderboard was only thought through when I just had the typing functionality. Now I have typing and talking and quiz, and I want the leaderboard to somehow reflect some general overall proxy for how much activity you've done. and I think per the changes mentioned in the type section of this to-do document, I think the leaderboard should probably be limited to your friends and their friends.
 
 - Instrumentation & account controls
   - [x] Remove EXPLAIN_DAILY_LIMIT env var, And instead, each user gets an allotment of free credits. If any user exceeds that credit, then they get a congratulations message and a congratulations notification email telling them that they've used up all of their free credits for today. And I'm thrilled that they're using this platform so much, but sorry they'll have to wait for tomorrow.
@@ -31,6 +27,12 @@
 
 ### For after launch
 
+- Social & leaderboard rethink:
+  - [ ] Limit the leaderboard to your friends and their friends (2nd degree), and make it in-depth and rich. No leaderboard of strangers' gobbledygook names.
+  - [ ] Score a general proxy for activity across Type, Talk and Quiz, not just typed lessons.
+  - [ ] Empty state: when you have no friends yet, prompt you to invite some.
+  - [ ] "Match me with another learner" button that pairs you with someone studying the same language.
+  - [ ] Send friends words of encouragement.
 - Support slowing down audio as a user setting. Only up to A2.
 - Stream on-demand audio to reduce wait times, rather than waiting until the full clip is returned?
 - Find nicer `wrong` sound that's gentler on the ears. Search the marimba sound effects.

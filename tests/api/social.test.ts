@@ -8,16 +8,20 @@ const B = "bob@example.com";
 const C = "cyd@example.com";
 const DAY = 86_400_000;
 
-/** Signs in each email once so the accounts exist, named after the email's local part; returns their ids. */
+/** Signs in each email once so the accounts exist, named after the email's local part; returns their public ids. */
 async function accounts(t: T, ...emails: string[]) {
-  const ids: number[] = [];
+  const ids: string[] = [];
   for (const e of emails) {
     await t.login(e);
     expect((await t.req("PUT", "/api/username", { username: e.split("@")[0] })).status).toBe(200);
-    ids.push((t.deps.db.prepare("SELECT id FROM users WHERE email = ?").get(e) as { id: number }).id);
+    ids.push((t.deps.db.prepare("SELECT public_id FROM users WHERE email = ?").get(e) as { public_id: string }).public_id);
   }
   return ids;
 }
+
+const rowId = (t: T, publicId: string) => (t.deps.db.prepare("SELECT id FROM users WHERE public_id = ?").get(publicId) as { id: number }).id;
+/** Well-formed, but no account has it. */
+const NOBODY = "0000000000";
 
 async function befriend(t: T, from: string, to: string) {
   await t.login(from);
@@ -45,13 +49,13 @@ describe("friend requests", () => {
     expect((await t.req("GET", "/api/friends/search?email=BOB@example.com")).json).toEqual({ found: true, id: bo, relation: "none" });
     expect((await t.req("GET", `/api/friends/search?email=${A}`)).json.relation).toBe("self");
     expect((await t.req("POST", "/api/friends/requests", { email: B })).json).toEqual({ relation: "outgoing" });
-    expect((await t.req("GET", "/api/friends")).json.outgoing.map((p: { id: number }) => p.id)).toEqual([bo]);
+    expect((await t.req("GET", "/api/friends")).json.outgoing.map((p: { id: string }) => p.id)).toEqual([bo]);
 
     await t.login(B);
     const notes = (await t.req("GET", "/api/notifications")).json;
     expect(notes.unread).toBe(1);
     expect(notes.items[0]).toMatchObject({ kind: "friend_request", actor: { id: ana, username: "ana" }, read: false });
-    expect((await t.req("GET", "/api/friends")).json.incoming.map((p: { id: number }) => p.id)).toEqual([ana]);
+    expect((await t.req("GET", "/api/friends")).json.incoming.map((p: { id: string }) => p.id)).toEqual([ana]);
     expect((await t.req("POST", `/api/friends/${ana}/accept`, {})).status).toBe(200);
     expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ id: ana }], incoming: [] });
 
@@ -65,7 +69,7 @@ describe("friend requests", () => {
     const [ana, bo] = await accounts(t, A, B);
     await t.login(A);
     expect((await t.req("POST", "/api/friends/requests", { userId: bo })).json).toEqual({ relation: "outgoing" });
-    expect((await t.req("POST", "/api/friends/requests", { userId: ana + bo + 100 })).status).toBe(404);
+    expect((await t.req("POST", "/api/friends/requests", { userId: NOBODY })).status).toBe(404);
     expect((await t.req("POST", "/api/friends/requests", { userId: bo, email: B })).status).toBe(400);
   });
 
@@ -184,7 +188,7 @@ describe("leaderboard", () => {
 });
 
 describe("profiles", () => {
-  it("show strangers only lesson counts; details are for yourself and friends", async () => {
+  it("show strangers the language and lesson counts, details only to yourself and friends, and never an email", async () => {
     const t = setup();
     const [ana, bo, cy] = await accounts(t, A, B, C);
     await befriend(t, A, B);
@@ -200,15 +204,37 @@ describe("profiles", () => {
     expect(JSON.stringify(own)).not.toContain(C);
     const stranger = (await t.req("GET", `/api/profile/${ana}`)).json;
     expect(stranger).toEqual({
-      person: { id: ana, username: "ana" }, relation: "outgoing", activity: { window: "week", lessons: 2 },
-      lessons: { day: 1, week: 2, month: 2 }, details: null,
+      person: { id: ana, username: "ana" }, relation: "outgoing",
+      summary: { language: "it", activity: { window: "week", lessons: 2 }, lessons: { day: 1, week: 2, month: 2 } }, details: null,
     });
 
     await t.login(B);
     const friend = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(friend).toMatchObject({ relation: "friends", details: { name: "ana", accuracy: { lessons: 2 } } });
+    expect(friend).toMatchObject({ relation: "friends", summary: { language: "it" }, details: { accuracy: { lessons: 2 } } });
     expect(JSON.stringify(friend)).not.toContain(A);
-    expect((await t.req("GET", `/api/profile/${bo + cy + 100}`)).status).toBe(404);
+    expect((await t.req("GET", `/api/profile/${NOBODY}`)).status).toBe(404);
+    expect((await t.req("GET", "/api/profile/1")).status).toBe(400);
+  });
+
+  it("a private account shows strangers only its username and leaves the Everyone leaderboard; friends still see it all", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B, C);
+    await befriend(t, A, B);
+    await t.login(A);
+    await completeBar1(t);
+    expect((await t.req("GET", "/api/me")).json.profilePublic).toBe(true);
+    expect((await t.req("PUT", "/api/profile-visibility", { public: false })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.profilePublic).toBe(false);
+    const everyone = async () => (await t.req("GET", "/api/leaderboard?window=week&scope=everyone")).json.rows.map((r: { person: { id: string } }) => r.person.id);
+    expect(await everyone()).toEqual([ana]);
+
+    await t.login(C);
+    expect((await t.req("GET", `/api/profile/${ana}`)).json).toEqual({ person: { id: ana, username: "ana" }, relation: "none", summary: null, details: null });
+    expect(await everyone()).toEqual([]);
+
+    await t.login(B);
+    expect((await t.req("GET", `/api/profile/${ana}`)).json).toMatchObject({ summary: { language: "it" }, details: { languages: [{ language: "it" }] } });
+    expect((await t.req("GET", "/api/leaderboard?window=week&scope=friends")).json.rows.map((r: { person: { id: string } }) => r.person.id)).toEqual([ana, bo]);
   });
 
   it("show the current module, completions, recent lessons, accuracy, and the smallest window with two lessons", async () => {
@@ -216,13 +242,13 @@ describe("profiles", () => {
     const [ana] = await accounts(t, A);
     await t.login(A);
     let p = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(p).toMatchObject({ activity: null, details: { accuracy: { lessons: 0, dictation: null, meaning: null }, languages: [] } });
+    expect(p).toMatchObject({ summary: { language: null, activity: null }, details: { accuracy: { lessons: 0, dictation: null, meaning: null }, languages: [] } });
 
     const first = t.clock.now.toISOString();
     await completeBar1(t);
     later(t, 3 * DAY);
     p = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(p.activity).toEqual({ lastCompletedAt: first });
+    expect(p.summary.activity).toEqual({ lastCompletedAt: first });
 
     // Lesson 2: one item revealed, one meaning missed, one retried clean after a correction (the latest counts).
     await t.attempt("it-a1-bar-2-u02", { path: "sentences", outcome: "revealed" });
@@ -231,7 +257,7 @@ describe("profiles", () => {
     await t.attempt("it-a1-bar-2-u06", { path: "sentences" });
     for (const u of ["u08", "u09"]) await t.attempt(`it-a1-bar-2-${u}`, { path: "sentences" });
     p = (await t.req("GET", `/api/profile/${ana}`)).json;
-    expect(p.activity).toEqual({ window: "week", lessons: 2 });
+    expect(p.summary.activity).toEqual({ window: "week", lessons: 2 });
     // 8 items: 7 without a reveal; 7 of 8 meaning checks right.
     expect(p.details.accuracy).toEqual({ lessons: 2, dictation: 88, meaning: 88 });
     expect(p.details.languages).toHaveLength(1);
@@ -361,7 +387,7 @@ describe("races", () => {
       `INSERT INTO challenges (challenger_id, opponent_id, kind, days, target, status, created_at, started_at, ends_at)
        VALUES (?, ?, 'first_to', 30, ?, 'active', ?, ?, ?) RETURNING id`,
     );
-    insert.get(ana, bo, 2, start, start, end);
+    insert.get(rowId(t, ana), rowId(t, bo), 2, start, start, end);
     later(t, DAY);
     await t.login(B);
     await completeBar1(t);
@@ -372,7 +398,7 @@ describe("races", () => {
     expect((await t.req("GET", "/api/challenges")).json[0]).toMatchObject({ status: "finished", winnerId: bo, finishedAt: reached });
 
     await t.login(A);
-    const { id: tie } = insert.get(ana, bo, 3, t.clock.now.toISOString(), t.clock.now.toISOString(), new Date(t.clock.now.getTime() + DAY).toISOString()) as { id: number };
+    const { id: tie } = insert.get(rowId(t, ana), rowId(t, bo), 3, t.clock.now.toISOString(), t.clock.now.toISOString(), new Date(t.clock.now.getTime() + DAY).toISOString()) as { id: number };
     later(t, 2 * DAY);
     const races = (await t.req("GET", "/api/challenges")).json;
     expect(races.find((r: { id: number }) => r.id === tie)).toMatchObject({ status: "finished", winnerId: null, scores: { challenger: 0, opponent: 0 } });

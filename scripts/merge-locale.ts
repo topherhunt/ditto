@@ -3,7 +3,7 @@
 //   { course, locale, description, grammarFocus: {lessonId: string[]}, lexicon: {key: gloss},
 //     units: {unitId: {translation, distractors: [a, b]}} }
 // and must have exactly the course's lessons, lexicon keys and translated units. Plain-string fields in a
-// course are English and become locale maps on write.
+// course are English and become locale maps on write. English courses are checked against their first support language.
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { LOCALES, type Locale } from "../shared/content.ts";
@@ -25,7 +25,13 @@ const root = join(import.meta.dirname, "..");
 const isMap = <T>(v: Localized<T>): v is Partial<Record<Locale, T>> =>
   typeof v === "object" && v !== null && !Array.isArray(v) && Object.keys(v).every((k) => (LOCALES as readonly string[]).includes(k));
 const toMap = <T>(v: Localized<T>): Partial<Record<Locale, T>> => (isMap(v) ? v : { en: v });
-const en = <T>(v: Localized<T>): T => toMap(v).en!;
+/** The text a patch is checked against: the English, or for an English course its first support language. */
+const base = <T>(v: Localized<T>): T => {
+  const m = toMap(v);
+  const b = m.en ?? Object.values(m)[0];
+  if (b === undefined) throw new Error(`no base text in ${JSON.stringify(v)}`);
+  return b;
+};
 
 export const coursePath = (id: string) => join(root, "content/courses", id.split("-")[0], `${id}.json`);
 
@@ -59,7 +65,7 @@ export function checkPatch(p: Patch, course: RawCourse): { errors: string[]; war
   for (const l of course.lessons) {
     const got = p.grammarFocus?.[l.id];
     if (!got) continue;
-    if (!Array.isArray(got) || got.length !== en(l.grammarFocus).length) errors.push(`grammarFocus ${l.id}: needs ${en(l.grammarFocus).length} labels`);
+    if (!Array.isArray(got) || got.length !== base(l.grammarFocus).length) errors.push(`grammarFocus ${l.id}: needs ${base(l.grammarFocus).length} labels`);
     else got.forEach((g, i) => text(`grammarFocus ${l.id}[${i}]`, g, true));
   }
   sameKeys("lexicon", Object.keys(p.lexicon ?? {}), Object.keys(course.lexicon), errors);
@@ -81,9 +87,9 @@ export function checkPatch(p: Patch, course: RawCourse): { errors: string[]; war
     const norm = (s: string) => s.toLowerCase().replace(/[\p{P}\s]+/gu, " ").trim();
     const all = [pu.translation, ...pu.distractors].map(norm);
     if (new Set(all).size !== 3) errors.push(`${where}: translation and distractors must all differ: ${JSON.stringify([pu.translation, ...pu.distractors])}`);
-    const wantsEnd = END.test(en(u.translation!));
+    const wantsEnd = END.test(base(u.translation!));
     for (const s of [pu.translation, ...pu.distractors])
-      if (END.test(s) !== wantsEnd) errors.push(`${where}: "${s}" ${wantsEnd ? "needs" : "must not have"} an end mark, like the English "${en(u.translation!)}"`);
+      if (END.test(s) !== wantsEnd) errors.push(`${where}: "${s}" ${wantsEnd ? "needs" : "must not have"} an end mark, like "${base(u.translation!)}"`);
     const len = pu.translation.length;
     for (const d of pu.distractors)
       if (Math.abs(d.length - len) > Math.max(12, len * 0.6)) warnings.push(`${where}: distractor "${d}" is much ${d.length > len ? "longer" : "shorter"} than "${pu.translation}"`);

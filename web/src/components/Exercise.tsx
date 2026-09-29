@@ -64,6 +64,7 @@ export function Exercise(props: {
   const started = Date.now();
   const inputs: HTMLInputElement[] = [];
   let freeInput: HTMLTextAreaElement | undefined;
+  let card!: HTMLDivElement;
   /** The meaning check: the translation plus its distractors, shuffled. Null when the unit has no translation. */
   const meaningOptions = unit.distractors ? shuffle([unit.translation!, ...unit.distractors]) : null;
   const [meaningPick, setMeaningPick] = createSignal<string | null>(null);
@@ -119,7 +120,7 @@ export function Exercise(props: {
     submissions.push(free() ? freeText().trim() : slots().join(" "));
     const r = grade(answer, unit);
     playResult(r.passed);
-    celebrate(r.passed);
+    celebrate(r.passed, card);
     if (r.against === unit.text) for (const w of r.words) if (w.kind === "accent") accentWords.set(w.wordIndex, w.accentPositions);
     if (r.passed) {
       if (r.against === unit.text) {
@@ -165,7 +166,7 @@ export function Exercise(props: {
 
   function reveal() {
     playResult(false);
-    celebrate(false);
+    celebrate(false, card);
     setRevealed(true);
     finish(accentWords.size);
   }
@@ -188,7 +189,7 @@ export function Exercise(props: {
     // A right pick stays quiet: the dictation already played its sound.
     if (option !== unit.translation) {
       playResult(false);
-      celebrate(false);
+      celebrate(false, card);
     }
     record(option === unit.translation);
   }
@@ -254,7 +255,7 @@ export function Exercise(props: {
 
   return (
     <>
-    <div class="qa-exercise card shadow-sm">
+    <div ref={card} class="qa-exercise card shadow-sm">
       <div class="card-body d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
           <button type="button" class="qa-play btn btn-primary" onClick={() => replay()} title={t("exercise.replayTitle")}>{t("exercise.play")}</button>

@@ -203,17 +203,25 @@ test("a right quiz pick bursts one emoji per right pick in a row, and a wrong pi
   expect(await bursts()).toEqual([1]);
 });
 
-test("a quiz burst starts from the center of the options, and a typing burst from the center of the screen", async ({ page }) => {
-  const bursts = await recordBurstOrigins(page);
+test("a typing burst starts from the center of the exercise card, and a quiz burst from the center of the options", async ({ page }) => {
+  const recorded = await recordBurstOrigins(page);
+  // The browser rounds style pixels to 3 decimals, so origins compare as numbers, to within half a pixel.
+  const bursts = async () => (await recorded()).map((b) => ({ count: b.count, left: parseFloat(b.left), top: parseFloat(b.top) }));
+  const center = async (selector: string) => {
+    const box = (await page.locator(selector).boundingBox())!;
+    return { left: expect.closeTo(box.x + box.width / 2, 0), top: expect.closeTo(box.y + box.height / 2, 0) };
+  };
   await signIn(page, "sounds7@example.com");
   await page.locator(".qa-lesson-start").first().click();
   await page.locator(".qa-slot").first().fill("caffè");
+  // Measured before the pass, which reshapes the card to show the finished answer.
+  const card = await center(".qa-exercise");
   await page.locator(".qa-slot").first().press("Enter");
-  expect(await bursts()).toEqual([{ count: 1, left: "50%", top: "50%" }]);
+  expect(await bursts()).toEqual([{ count: 1, ...card }]);
 
   await page.goto("/it/quiz/it-a1-grammar-1");
   await page.locator(".qa-quiz-mode-spaced").click();
-  const box = (await page.locator(".qa-quiz-options").boundingBox())!;
+  const options = await center(".qa-quiz-options");
   await page.locator(".qa-quiz-option-correct").click();
-  expect(await bursts()).toEqual([{ count: 1, left: `${box.x + box.width / 2}px`, top: `${box.y + box.height / 2}px` }]);
+  expect(await bursts()).toEqual([{ count: 1, ...options }]);
 });

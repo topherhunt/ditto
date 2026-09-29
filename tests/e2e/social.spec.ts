@@ -61,7 +61,7 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await signIn(page, bo);
   await page.locator(".qa-notifications").click();
   await page.locator(".qa-notification").filter({ hasText: "accepted your friend request" }).click();
-  await expect(page).toHaveURL(/\/people\/\d+$/);
+  await expect(page).toHaveURL(/\/people\/[A-Za-z0-9_-]{10}$/);
   await expect(page.locator(".qa-activity")).toContainText("Last completed a lesson");
   await expect(page.locator(".qa-level")).toContainText("Module 1 of");
   await expect(page.locator(".qa-graph")).toBeVisible();
@@ -135,8 +135,9 @@ test("a new account picks a username, finds a stranger on the leaderboard, sees 
   const row = page.locator(".qa-leader").filter({ hasText: "learner13" });
   await expect(row.locator(".qa-leader-lessons")).toHaveText("1 lesson");
   await row.locator(".qa-leader-link").click();
-  await expect(page).toHaveURL(/\/people\/\d+$/);
+  await expect(page).toHaveURL(/\/people\/[A-Za-z0-9_-]{10}$/);
   await expect(page.locator(".qa-profile-name")).toHaveText("learner13");
+  await expect(page.locator(".qa-profile-studying")).toContainText("Italian");
   await expect(page.locator(".qa-profile-lessons-week")).toHaveText("1");
   await expect(page.locator(".qa-profile-private")).toBeVisible();
   await expect(page.locator(".qa-profile-language")).toHaveCount(0);
@@ -152,4 +153,27 @@ test("a new account picks a username, finds a stranger on the leaderboard, sees 
   await page.locator(".qa-username-save").click();
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
   await expect(page.locator(".qa-user")).toHaveText("wren.b");
+});
+
+test("your own profile says who sees what, never shows your email, and going private hides it from strangers", async ({ page }) => {
+  await signIn(page, "hider@example.com");
+  await page.goto("/it/lesson/it-a1-bar-1");
+  await finishLesson(page);
+  await page.goto("/people/me");
+  await expect(page.locator(".qa-profile-self-note")).toContainText("Everyone else sees only your username, the language");
+  await expect(page.locator(".qa-profile")).not.toContainText("hider@example.com");
+
+  await page.goto("/settings");
+  await page.locator(".qa-settings-profile-public").uncheck();
+  await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
+  await page.goto("/people/me");
+  await expect(page.locator(".qa-profile-self-note")).toContainText("It's private");
+  const me = await (await page.request.get("/api/profile/me")).json();
+  await signOut(page);
+
+  await signIn(page, "seeker@example.com");
+  await page.goto(`/people/${me.person.id}`);
+  await expect(page.locator(".qa-profile-hidden")).toBeVisible();
+  await expect(page.locator(".qa-profile-lessons-week")).toHaveCount(0);
+  await expect(page.locator(".qa-profile-befriend")).toBeVisible();
 });

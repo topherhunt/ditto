@@ -33,7 +33,7 @@ export function Friends() {
     setFound({ ...(found() as Extract<FriendSearchOut, { found: true }>), relation });
     await refresh();
   }
-  const act = async (id: number, action: string) => {
+  const act = async (id: string, action: string) => {
     await api.post(`/api/friends/${id}/${action}`);
     await refresh();
   };

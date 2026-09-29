@@ -3,7 +3,7 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutProfileVisibilitySchema, PutUsernameSchema, ReportSchema,
   SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
   type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
@@ -139,7 +139,7 @@ export function createApp(deps: AppDeps) {
     app.post("/api/auth/dev", async (c) => {
       const { email, locale, learning } = z.strictObject({ email: z.email(), locale: z.enum(LOCALES), learning: z.enum(LANGUAGES).optional() })
         .parse(await c.req.json());
-      return startSession(c, { sub: `dev:${email}`, email, name: email.split("@")[0], picture: null }, locale, learning);
+      return startSession(c, { sub: `dev:${email}`, email }, locale, learning);
     });
   }
 
@@ -180,7 +180,7 @@ export function createApp(deps: AppDeps) {
   app.get("/api/me", (c) => {
     const u = c.get("user");
     return c.json<Me>({
-      email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
+      email: u.email, username: u.username, profilePublic: u.profilePublic, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
     });
   });
 
@@ -209,6 +209,12 @@ export function createApp(deps: AppDeps) {
         throw new HTTPException(409, { message: `The username ${username} is taken` });
       db.prepare("UPDATE users SET username = ? WHERE id = ?").run(username, me);
     });
+    return c.json({ ok: true });
+  });
+
+  app.put("/api/profile-visibility", async (c) => {
+    const { public: open } = PutProfileVisibilitySchema.parse(await c.req.json());
+    db.prepare("UPDATE users SET profile_public = ? WHERE id = ?").run(Number(open), c.get("user").id);
     return c.json({ ok: true });
   });
 

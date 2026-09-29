@@ -11,7 +11,7 @@ const run = (...args: string[]) => execFileSync("node", [script, ...args], { enc
 function makeDb(dir: string, name: string, sub: string, username: string): { path: string; db: DB } {
   const path = join(dir, `${name}.db`);
   const db = openDb(path);
-  db.prepare("INSERT INTO users (google_sub, email, name, username, created_at) VALUES (?, ?, ?, ?, ?)").run(sub, `${name}@x.com`, name, username, "2026-01-01");
+  db.prepare("INSERT INTO users (google_sub, email, username, created_at) VALUES (?, ?, ?, ?)").run(sub, `${name}@x.com`, username, "2026-01-01");
   return { path, db };
 }
 function addReport(db: DB, unitId: string, triaged = false) {

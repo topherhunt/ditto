@@ -3,7 +3,7 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FriendRequestSchema, LEADERBOARD_SCOPES, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
-  RACE_DEADLINE_DAYS, type ActivityWindow, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
+  PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile,
   type Relation,
 } from "../shared/api.ts";
@@ -39,9 +39,9 @@ export function friendIds(db: DB, userId: number): number[] {
 /** Lessons any friend has started -> those friends. */
 export function friendLessons(db: DB, userId: number): Map<string, Person[]> {
   const rows = db.prepare(
-    `SELECT DISTINCT p.lesson_id, u.id, u.username FROM lesson_progress p JOIN users u ON u.id = p.user_id
+    `SELECT DISTINCT p.lesson_id, u.public_id AS id, u.username FROM lesson_progress p JOIN users u ON u.id = p.user_id
      WHERE p.user_id IN (SELECT value FROM json_each(?)) ORDER BY u.username IS NULL, u.username COLLATE NOCASE`,
-  ).all(JSON.stringify(friendIds(db, userId))) as { lesson_id: string; id: number; username: string | null }[];
+  ).all(JSON.stringify(friendIds(db, userId))) as { lesson_id: string; id: string; username: string | null }[];
   const out = new Map<string, Person[]>();
   for (const { lesson_id, ...person } of rows) out.set(lesson_id, [...(out.get(lesson_id) ?? []), person]);
   return out;
@@ -62,9 +62,15 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
   const pct = (n: number, of: number) => Math.round((100 * n) / of);
 
   const person = (id: number): Person => {
-    const p = db.prepare("SELECT id, username FROM users WHERE id = ?").get(id) as Person | undefined;
+    const p = db.prepare("SELECT public_id AS id, username FROM users WHERE id = ?").get(id) as Person | undefined;
     if (!p) throw new Error(`No user ${id}`);
     return p;
+  };
+  /** The row id behind a public id from a URL or request body. */
+  const userId = (publicId: string) => {
+    const row = db.prepare("SELECT id FROM users WHERE public_id = ?").get(PublicIdSchema.parse(publicId)) as { id: number } | undefined;
+    if (!row) throw new HTTPException(404, { message: "No such account" });
+    return row.id;
   };
   const userByEmail = (email: string) =>
     db.prepare("SELECT id FROM users WHERE lower(email) = lower(?)").get(email.trim()) as { id: number } | undefined;
@@ -144,11 +150,12 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const me = c.get("user").id;
     const friends = new Set(friendIds(db, me));
     const counts = lessonsSince(daysAgo(LEADERBOARD_WINDOWS[window]));
-    const ids = scope === "friends" ? [me, ...friends] : [...counts.keys()];
-    const ranked = ids.map(person).map((p) => ({ person: p, lessons: counts.get(p.id) ?? 0 }))
+    const isPublic = (id: number) => (db.prepare("SELECT profile_public FROM users WHERE id = ?").get(id) as { profile_public: number }).profile_public === 1;
+    const ids = scope === "friends" ? [me, ...friends] : [...counts.keys()].filter((id) => id === me || isPublic(id));
+    const ranked = ids.map((id) => ({ id, person: person(id), lessons: counts.get(id) ?? 0 }))
       .sort((a, b) => b.lessons - a.lessons || byName(a.person, b.person));
-    const rows: LeaderboardRow[] = ranked.map((r) => ({
-      rank: ranked.findIndex((x) => x.lessons === r.lessons) + 1, ...r, isMe: r.person.id === me, isFriend: friends.has(r.person.id),
+    const rows: LeaderboardRow[] = ranked.map(({ id, ...r }) => ({
+      rank: ranked.findIndex((x) => x.lessons === r.lessons) + 1, ...r, isMe: id === me, isFriend: friends.has(id),
     }));
     const shown = rows.slice(0, LEADERBOARD_SIZE);
     return c.json<LeaderboardOut>({ rows: shown, me: shown.some((r) => r.isMe) ? null : (rows.find((r) => r.isMe) ?? null) });
@@ -156,13 +163,12 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.get("/api/friends/search", (c) => {
     const other = userByEmail(z.email().parse(c.req.query("email")));
-    return c.json<FriendSearchOut>(other ? { found: true, id: other.id, relation: relation(c.get("user").id, other.id) } : { found: false });
+    return c.json<FriendSearchOut>(other ? { found: true, id: person(other.id).id, relation: relation(c.get("user").id, other.id) } : { found: false });
   });
 
   app.post("/api/friends/requests", async (c) => {
     const body = FriendRequestSchema.parse(await c.req.json());
-    const other = "email" in body ? userByEmail(body.email)
-      : (db.prepare("SELECT id FROM users WHERE id = ?").get(body.userId) as { id: number } | undefined);
+    const other = "email" in body ? userByEmail(body.email) : { id: userId(body.userId) };
     if (!other) throw new HTTPException(404, { message: "No such account" });
     const me = c.get("user").id;
     const rel = relation(me, other.id);
@@ -180,7 +186,7 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.post("/api/friends/:id/:action", (c) => {
     const action = z.enum(FRIEND_ACTIONS).parse(c.req.param("action"));
-    const other = Id.parse(c.req.param("id"));
+    const other = userId(c.req.param("id"));
     const me = c.get("user").id;
     const needs = { accept: "incoming", decline: "incoming", block: "incoming", unblock: "blocked", unfriend: "friends" } as const;
     if (relation(me, other) !== needs[action]) throw new HTTPException(404, { message: `No ${needs[action]} friendship to ${action}` });
@@ -223,24 +229,28 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.get("/api/profile/:id", (c) => {
     const me = c.get("user").id;
-    const id = c.req.param("id") === "me" ? me : Id.parse(c.req.param("id"));
-    const contact = db.prepare("SELECT name, picture FROM users WHERE id = ?").get(id) as
-      { name: string; picture: string | null } | undefined;
-    if (!contact) throw new HTTPException(404, { message: "No such account" });
+    const id = c.req.param("id") === "me" ? me : userId(c.req.param("id"));
     const rel = relation(me, id);
+    const insider = rel === "self" || rel === "friends";
+    const { profile_public } = db.prepare("SELECT profile_public FROM users WHERE id = ?").get(id) as { profile_public: number };
+    if (!insider && profile_public === 0) return c.json<Profile>({ person: person(id), relation: rel, summary: null, details: null });
+
     const done = completions(id);
     const windowed = ACTIVITY_WINDOWS.map(([window, days]) => ({ window, lessons: done.filter((r) => r.at >= daysAgo(days)).length }))
       .find((w) => w.lessons >= 2);
     const since = (window: LeaderboardWindow) => done.filter((r) => r.at >= daysAgo(LEADERBOARD_WINDOWS[window])).length;
-    const base = { person: person(id), relation: rel, activity: windowed ?? (done.length ? { lastCompletedAt: done.at(-1)!.at } : null),
-      lessons: { day: since("day"), week: since("week"), month: since("month") } };
-    if (rel !== "self" && rel !== "friends") return c.json<Profile>({ ...base, details: null });
     const worked = (db.prepare("SELECT lesson_id, max(created_at) AS last FROM attempts WHERE user_id = ? AND mode = 'learn' GROUP BY lesson_id ORDER BY last DESC")
       .all(id) as { lesson_id: string; last: string }[]).filter((r) => courseOf.has(r.lesson_id));
+    const firstStudied = db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid LIMIT 1").get(id) as { language: Language } | undefined;
+    const base = { person: person(id), relation: rel, summary: {
+      language: worked.length ? courseOf.get(worked[0].lesson_id)!.language : (firstStudied?.language ?? null),
+      activity: windowed ?? (done.length ? { lastCompletedAt: done.at(-1)!.at } : null),
+      lessons: { day: since("day"), week: since("week"), month: since("month") },
+    } };
+    if (!insider) return c.json<Profile>({ ...base, details: null });
     const accuracyLessons = worked.slice(0, ACCURACY_LESSONS).map((r) => r.lesson_id);
     const doneAt = new Map(done.map((r) => [r.lesson_id, r.at]));
     return c.json<Profile>({ ...base, details: {
-      ...contact,
       accuracy: { lessons: accuracyLessons.length, ...accuracyOf(latestAttempts(id, accuracyLessons)) },
       languages: [...new Set(worked.map((r) => courseOf.get(r.lesson_id)!.language))].map((l) => languageProfile(l, worked, doneAt)),
     } });
@@ -267,7 +277,7 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     return {
       id: r.id, kind: r.kind, days: r.days, target: r.target, status: r.status,
       challenger: person(r.challenger_id), opponent: person(r.opponent_id), mine: r.challenger_id === viewer,
-      startedAt: r.started_at, endsAt: r.ends_at, finishedAt: r.finished_at, winnerId: r.winner_id,
+      startedAt: r.started_at, endsAt: r.ends_at, finishedAt: r.finished_at, winnerId: r.winner_id === null ? null : person(r.winner_id).id,
       scores: { challenger: score(r.challenger_id), opponent: score(r.opponent_id) },
     };
   };
@@ -310,7 +320,7 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
   app.post("/api/challenges", async (c) => {
     const body = ChallengeSchema.parse(await c.req.json());
     const me = c.get("user").id;
-    const them = body.opponentId;
+    const them = userId(body.opponentId);
     if (relation(me, them) !== "friends") throw new HTTPException(404, { message: "You can only race your friends" });
     const open = db.prepare(
       `SELECT 1 FROM challenges WHERE status IN ('pending', 'active')

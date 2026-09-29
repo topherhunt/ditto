@@ -8,7 +8,7 @@ import { DatabaseSync } from "node:sqlite";
 //   node scripts/reports.ts close <db> <closures JSON>    close those on production once their fix is deployed
 // import and close need a migrated DB: start the app against it once first.
 
-type Exported = Record<string, unknown> & { id: number; reporter: { google_sub: string; email: string; name: string; username: string | null } };
+type Exported = Record<string, unknown> & { id: number; reporter: { google_sub: string; email: string; username: string | null } };
 /** unit_id and created_at confirm the id names the same report on both sides. */
 type Closure = { id: number; unit_id: string; created_at: string; resolution: string };
 const REPORT_COLUMNS = [
@@ -22,9 +22,9 @@ if (!dbPath) throw new Error("Usage: node scripts/reports.ts export|import|close
 if (command === "export") {
   const db = new DatabaseSync(dbPath, { readOnly: true });
   const rows = db.prepare(
-    `SELECT r.*, u.google_sub, u.email, u.name, u.username FROM reports r JOIN users u ON u.id = r.user_id ORDER BY r.id`,
+    `SELECT r.*, u.google_sub, u.email, u.username FROM reports r JOIN users u ON u.id = r.user_id ORDER BY r.id`,
   ).all() as Record<string, unknown>[];
-  const reports = rows.map(({ user_id: _, google_sub, email, name, username, ...r }) => ({ ...r, reporter: { google_sub, email, name, username } }));
+  const reports = rows.map(({ user_id: _, google_sub, email, username, ...r }) => ({ ...r, reporter: { google_sub, email, username } }));
   console.log(JSON.stringify({ exportedAt: new Date().toISOString(), reports }, null, 2));
 } else if (command === "import") {
   const { reports } = JSON.parse(readFileSync(rest[0], "utf8")) as { reports: Exported[] };
@@ -33,9 +33,9 @@ if (command === "export") {
   try {
     // A reporter's username comes along unless a local account already has it.
     const user = db.prepare(
-      `INSERT INTO users (google_sub, email, name, username, created_at)
-       VALUES (?1, ?2, ?3, (SELECT ?4 WHERE NOT EXISTS (SELECT 1 FROM users WHERE username = ?4 COLLATE NOCASE)), ?5)
-       ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, name = excluded.name RETURNING id`,
+      `INSERT INTO users (google_sub, email, username, created_at)
+       VALUES (?1, ?2, (SELECT ?3 WHERE NOT EXISTS (SELECT 1 FROM users WHERE username = ?3 COLLATE NOCASE)), ?4)
+       ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email RETURNING id`,
     );
     // A local review survives only when the local row is the same report, not a dev-only one that shares its id.
     const same = "reports.unit_id = excluded.unit_id AND reports.created_at = excluded.created_at";
@@ -47,8 +47,8 @@ if (command === "export") {
     const ids = reports.map((r) => r.id);
     const dropped = db.prepare(`DELETE FROM reports WHERE id NOT IN (SELECT value FROM json_each(?))`).run(JSON.stringify(ids)).changes;
     for (const r of reports) {
-      const { google_sub, email, name, username } = r.reporter;
-      const { id: userId } = user.get(google_sub, email, name, username, new Date().toISOString()) as { id: number };
+      const { google_sub, email, username } = r.reporter;
+      const { id: userId } = user.get(google_sub, email, username, new Date().toISOString()) as { id: number };
       upsert.run(userId, ...REPORT_COLUMNS.map((c) => r[c] as string | number | null));
     }
     db.exec("COMMIT");

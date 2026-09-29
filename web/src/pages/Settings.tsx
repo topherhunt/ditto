@@ -24,6 +24,14 @@ export function Settings() {
         <LearningPicker save={save} />
         <ThemePicker />
         <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={markSaved} />
+        <div>
+          <div class="form-check form-switch">
+            <input class="qa-settings-profile-public form-check-input" type="checkbox" role="switch" id="profile-public" checked={me()!.profilePublic}
+              onChange={(e) => save(() => api.put("/api/profile-visibility", { public: e.currentTarget.checked }))} />
+            <label class="form-check-label" for="profile-public">{t("settings.profilePublic")}</label>
+          </div>
+          <div class="form-text">{t("settings.profilePublicHint")}</div>
+        </div>
         <Status />
       </div>
     </div>

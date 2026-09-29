@@ -8,18 +8,18 @@ const DURATION_MS = 500;
 const STEPS = 12;
 
 /**
- * A pass throws one emoji per pass in the streak out from the center of `from` (default: the screen), arcing down under gravity
- * and fading over 500 ms; a miss resets the streak.
+ * A pass throws one emoji per pass in the streak out from the center of `from`, arcing down under gravity and fading over 500 ms;
+ * a miss resets the streak.
  */
-export function celebrate(passed: boolean, from?: Element) {
+export function celebrate(passed: boolean, from: Element) {
   if (!passed) {
     streak = 0;
     return;
   }
   streak++;
-  const box = from?.getBoundingClientRect();
-  const left = box ? `${box.left + box.width / 2}px` : "50%";
-  const top = box ? `${box.top + box.height / 2}px` : "50%";
+  const box = from.getBoundingClientRect();
+  const left = `${box.left + box.width / 2}px`;
+  const top = `${box.top + box.height / 2}px`;
   for (let i = 0; i < streak; i++) {
     const el = document.createElement("span");
     el.className = "qa-celebrate-emoji position-fixed pe-none fs-1";

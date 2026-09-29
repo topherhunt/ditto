@@ -4,6 +4,8 @@ import type { ActivityWindow, LeaderboardWindow, Profile as ProfileOut } from ".
 import { api } from "../api.ts";
 import { ProgressGraph } from "../components/ProgressGraph.tsx";
 import { languageName, t } from "../i18n/index.ts";
+import { LANGUAGE_FLAGS } from "../learning.ts";
+import { me } from "../session.ts";
 import { displayName, lessonCount, shortDate } from "../social.ts";
 
 const ACTIVITY_KEYS = {
@@ -11,13 +13,13 @@ const ACTIVITY_KEYS = {
 } as const satisfies Record<ActivityWindow, string>;
 const LESSONS_KEYS = { day: "profile.lessonsDay", week: "profile.lessonsWeek", month: "profile.lessonsMonth" } as const satisfies Record<LeaderboardWindow, string>;
 
-function activityText(a: ProfileOut["activity"]) {
+function activityText(a: NonNullable<ProfileOut["summary"]>["activity"]) {
   if (a === null) return t("profile.noLessons");
   if ("lastCompletedAt" in a) return t("profile.lastCompleted", { date: shortDate(a.lastCompletedAt) });
   return t(ACTIVITY_KEYS[a.window], { lessons: lessonCount(a.lessons) });
 }
 
-/** Anyone's activity volume; their name, picture and studies only for themselves and friends. `/people/me` is the signed-in learner. */
+/** The username for anyone; the language and lesson counts unless the account is private; progress only for themselves and friends. `/people/me` is the signed-in learner. */
 export function Profile() {
   const params = useParams();
   const navigate = useNavigate();
@@ -38,11 +40,18 @@ export function Profile() {
     <Show when={profile()}>
       {(p) => (
         <div class="qa-profile d-flex flex-column gap-4">
+          <Show when={p().relation === "self"}>
+            <div class="qa-profile-self-note alert alert-secondary small mb-0">
+              {t(me()!.profilePublic ? "profile.selfPublic" : "profile.selfPrivate")}{" "}
+              <A href="/settings" class="alert-link">{t("profile.changeInSettings")}</A>
+            </div>
+          </Show>
           <div class="d-flex align-items-center gap-3">
-            <Show when={p().details?.picture}>{(src) => <img src={src()} alt="" class="rounded-circle" width="56" height="56" referrerpolicy="no-referrer" />}</Show>
             <div class="me-auto">
               <h1 class="qa-profile-name h3 mb-0">{displayName(p().person)}</h1>
-              <Show when={p().details}>{(d) => <div class="small text-body-secondary">{d().name}</div>}</Show>
+              <Show when={p().summary?.language}>
+                {(l) => <div class="qa-profile-studying text-body-secondary">{LANGUAGE_FLAGS[l()]} {languageName(l())}</div>}
+              </Show>
             </div>
             <Switch>
               <Match when={p().relation === "friends"}>
@@ -58,23 +67,29 @@ export function Profile() {
               <Match when={p().relation === "blocked"}><span class="small text-body-secondary">{t("profile.blockedThem")}</span></Match>
             </Switch>
           </div>
-          <div class="d-flex flex-column gap-3">
-            <p class="qa-activity fs-5 mb-0">{activityText(p().activity)}</p>
-            <div class="row g-2">
-              <For each={Object.keys(LESSONS_KEYS) as LeaderboardWindow[]}>
-                {(w) => (
-                  <div class="col-4">
-                    <div class="border rounded p-2 h-100">
-                      <div class={`qa-profile-lessons-${w} fs-4 fw-semibold`}>{p().lessons[w]}</div>
-                      <div class="small text-body-secondary">{t(LESSONS_KEYS[w])}</div>
-                    </div>
-                  </div>
-                )}
-              </For>
-            </div>
-          </div>
+          <Show when={p().summary} fallback={
+            <Show when={p().relation !== "blocked"}><p class="qa-profile-hidden text-body-secondary mb-0">{t("profile.hidden")}</p></Show>
+          }>
+            {(s) => (
+              <div class="d-flex flex-column gap-3">
+                <p class="qa-activity fs-5 mb-0">{activityText(s().activity)}</p>
+                <div class="row g-2">
+                  <For each={Object.keys(LESSONS_KEYS) as LeaderboardWindow[]}>
+                    {(w) => (
+                      <div class="col-4">
+                        <div class="border rounded p-2 h-100">
+                          <div class={`qa-profile-lessons-${w} fs-4 fw-semibold`}>{s().lessons[w]}</div>
+                          <div class="small text-body-secondary">{t(LESSONS_KEYS[w])}</div>
+                        </div>
+                      </div>
+                    )}
+                  </For>
+                </div>
+              </div>
+            )}
+          </Show>
           <Show when={p().details} fallback={
-            <Show when={p().relation !== "blocked"}><p class="qa-profile-private text-body-secondary mb-0">{t("profile.private")}</p></Show>
+            <Show when={p().summary && p().relation !== "blocked"}><p class="qa-profile-private text-body-secondary mb-0">{t("profile.private")}</p></Show>
           }>
             {(d) => (
               <>

@@ -34,7 +34,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
     content,
     now: () => clock.now,
     googleClientId: "test-client",
-    verifyGoogle: async (credential) => ({ sub: `g-${credential}`, email: `${credential}@example.com`, name: credential, picture: null }),
+    verifyGoogle: async (credential) => ({ sub: `g-${credential}`, email: `${credential}@example.com` }),
     allowedEmails: null,
     adminEmails: new Set(["admin@example.com"]),
     devLogin: true,

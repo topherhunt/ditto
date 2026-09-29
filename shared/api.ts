@@ -101,9 +101,12 @@ export type AdminReport = {
 /** Letters, digits and `_ . -`, ASCII only so lookalike letters can't imitate a taken name. Unique ignoring case. */
 export const UsernameSchema = z.string().trim().regex(/^[A-Za-z0-9_.-]{3,20}$/);
 export const PutUsernameSchema = z.strictObject({ username: UsernameSchema });
+export const PutProfileVisibilitySchema = z.strictObject({ public: z.boolean() });
+/** An account's id in URLs and the API: random, so accounts can't be enumerated. The numeric row id never leaves the server. */
+export const PublicIdSchema = z.string().regex(/^[A-Za-z0-9_-]{10}$/);
 
 /** By email from the Friends page, or by id from a profile. */
-export const FriendRequestSchema = z.union([z.strictObject({ email: z.email() }), z.strictObject({ userId: z.int() })]);
+export const FriendRequestSchema = z.union([z.strictObject({ email: z.email() }), z.strictObject({ userId: PublicIdSchema })]);
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
 
 export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
@@ -111,8 +114,8 @@ export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
 export const RACE_MIN_TARGET = 15;
 export const RACE_DEADLINE_DAYS = 30;
 export const ChallengeSchema = z.discriminatedUnion("kind", [
-  z.strictObject({ opponentId: z.int(), kind: z.literal("most"), days: z.union(RACE_DAYS.map((d) => z.literal(d))) }),
-  z.strictObject({ opponentId: z.int(), kind: z.literal("first_to"), target: z.int().min(RACE_MIN_TARGET).max(200) }),
+  z.strictObject({ opponentId: PublicIdSchema, kind: z.literal("most"), days: z.union(RACE_DAYS.map((d) => z.literal(d))) }),
+  z.strictObject({ opponentId: PublicIdSchema, kind: z.literal("first_to"), target: z.int().min(RACE_MIN_TARGET).max(200) }),
 ]);
 export type ChallengeBody = z.infer<typeof ChallengeSchema>;
 export const CHALLENGE_ACTIONS = ["accept", "decline", "cancel"] as const;
@@ -209,7 +212,7 @@ export type AdminSpeakReport = SpeakAttemptOut & {
 };
 
 /** `learning`: empty only until a new learner picks a language. */
-export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
+export type Me = { email: string; username: string | null; profilePublic: boolean; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
 /** `poc`: the pronunciation proof-of-concept recorder is on (development only). `speak`: conversation mode is configured. */
 /** `quiz`: the languages with quiz decks. `dailySpendCap`: each learner's free AI credit per UTC day, in USD. */
 export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[]; dailySpendCap: number };
@@ -246,10 +249,10 @@ export type ReviewOut = { units: ServedUnit[]; dueCount: number };
 export type LevelTestOut = { units: ServedUnit[] };
 
 /** Everything anyone may see about an account. `username` is null until they pick one. */
-export type Person = { id: number; username: string | null };
+export type Person = { id: string; username: string | null };
 /** How the searcher stands with an account. A blocked requester sees `outgoing`. */
 export type Relation = "self" | "none" | "outgoing" | "incoming" | "friends" | "blocked";
-export type FriendSearchOut = { found: false } | { found: true; id: number; relation: Relation };
+export type FriendSearchOut = { found: false } | { found: true; id: string; relation: Relation };
 export type FriendsOut = {
   friends: Person[];
   incoming: Person[];
@@ -265,20 +268,24 @@ export type LeaderboardScope = (typeof LEADERBOARD_SCOPES)[number];
 export const LEADERBOARD_SIZE = 20;
 /** Tied lesson counts share a rank. */
 export type LeaderboardRow = { rank: number; person: Person; lessons: number; isMe: boolean; isFriend: boolean };
-/** `everyone` lists learners with a username and a lesson in the window; `friends` lists the viewer and all friends. `me` is the viewer's row when it falls outside `rows`. */
+/** `everyone` lists learners with a username, a public profile and a lesson in the window; `friends` lists the viewer and all friends. `me` is the viewer's row when it falls outside `rows`. */
 export type LeaderboardOut = { rows: LeaderboardRow[]; me: LeaderboardRow | null };
 
 export type ActivityWindow = "day" | "week" | "month" | "year";
-/** Anyone's profile shows activity volume; `details` is for yourself and friends only. */
+/** A profile never includes the account's email or anything from Google. */
 export type Profile = {
   person: Person;
   relation: Relation;
-  /** The smallest window with at least two lessons completed, else when the last one was. */
-  activity: { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
-  lessons: Record<LeaderboardWindow, number>;
+  /** Null for a private account the viewer isn't friends with. */
+  summary: {
+    /** The language of the lesson worked on most recently, else the first one studied; null with neither. */
+    language: Language | null;
+    /** The smallest window with at least two lessons completed, else when the last one was. */
+    activity: { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
+    lessons: Record<LeaderboardWindow, number>;
+  } | null;
+  /** For yourself and friends only. */
   details: {
-    name: string;
-    picture: string | null;
     /** Latest learn attempt per item, over the last 10 lessons worked on. Percentages; null with no items. */
     accuracy: { lessons: number; dictation: number | null; meaning: number | null };
     /** Languages with any progress, most recent first. */
@@ -321,7 +328,7 @@ export type ChallengeOut = {
   startedAt: string | null;
   endsAt: string | null;
   finishedAt: string | null;
-  winnerId: number | null;
+  winnerId: string | null;
   /** Lessons each side has completed since the start (by the finish, once finished). */
   scores: { challenger: number; opponent: number };
 };

@@ -3,9 +3,9 @@ import { OAuth2Client } from "google-auth-library";
 import type { Locale } from "../shared/content.ts";
 import type { DB } from "./db.ts";
 
-export type GoogleProfile = { sub: string; email: string; name: string; picture: string | null };
+export type GoogleProfile = { sub: string; email: string };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
-export type User = { id: number; email: string; username: string | null; name: string; picture: string | null; prefs: string; locale: Locale };
+export type User = { id: number; email: string; username: string | null; profilePublic: boolean; prefs: string; locale: Locale };
 
 export const SESSION_COOKIE = "lp_session";
 export const SESSION_DAYS = 30;
@@ -17,7 +17,7 @@ export function googleVerifier(clientId: string): VerifyGoogle {
     const p = ticket.getPayload();
     if (!p?.sub || !p.email) throw new Error("Google token has no subject or email");
     if (!p.email_verified) throw new Error("Google email is not verified");
-    return { sub: p.sub, email: p.email, name: p.name ?? p.email, picture: p.picture ?? null };
+    return { sub: p.sub, email: p.email };
   };
 }
 
@@ -27,11 +27,11 @@ const hashToken = (token: string) => createHash("sha256").update(token).digest("
 export function upsertUser(db: DB, profile: GoogleProfile, locale: Locale, now: Date): number {
   const row = db
     .prepare(
-      `INSERT INTO users (google_sub, email, name, picture, locale, created_at) VALUES (?, ?, ?, ?, ?, ?)
-       ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, name = excluded.name, picture = excluded.picture
+      `INSERT INTO users (google_sub, email, locale, created_at) VALUES (?, ?, ?, ?)
+       ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email
        RETURNING id`,
     )
-    .get(profile.sub, profile.email, profile.name, profile.picture, locale, now.toISOString()) as { id: number };
+    .get(profile.sub, profile.email, locale, now.toISOString()) as { id: number };
   return row.id;
 }
 
@@ -46,11 +46,13 @@ export function createSession(db: DB, userId: number, now: Date): string {
 export function sessionUser(db: DB, token: string, now: Date): User | null {
   const row = db
     .prepare(
-      `SELECT u.id, u.email, u.username, u.name, u.picture, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
+      `SELECT u.id, u.email, u.username, u.profile_public, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
        WHERE s.token_hash = ? AND s.expires_at > ?`,
     )
-    .get(hashToken(token), now.toISOString());
-  return (row as User | undefined) ?? null;
+    .get(hashToken(token), now.toISOString()) as (Omit<User, "profilePublic"> & { profile_public: number }) | undefined;
+  if (!row) return null;
+  const { profile_public, ...user } = row;
+  return { ...user, profilePublic: profile_public === 1 };
 }
 
 export function deleteSession(db: DB, token: string): void {
