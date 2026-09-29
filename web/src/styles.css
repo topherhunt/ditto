@@ -20,10 +20,13 @@
 .letter-stray { color: var(--bs-orange); text-decoration: line-through; }
 
 .font-mono { font-family: var(--bs-font-monospace); }
+.text-orange { color: var(--bs-orange); }
+.btn-outline-orange { --bs-btn-color: var(--bs-orange); --bs-btn-border-color: var(--bs-orange); --bs-btn-hover-color: #000; --bs-btn-hover-bg: var(--bs-orange); --bs-btn-hover-border-color: var(--bs-orange); --bs-btn-active-color: #000; --bs-btn-active-bg: var(--bs-orange); --bs-btn-active-border-color: var(--bs-orange); }
 
 /* Tap-to-translate phrase in conversation mode. */
 .chunk { cursor: pointer; border-radius: var(--bs-border-radius-sm); }
-.chunk:hover, .chunk.active { background: var(--bs-secondary-bg); }
+/* A translucent tint, so it shows on any bubble color; the shadow widens it without spacing the words apart. */
+.chunk:hover, .chunk.active { --chunk-tint: rgba(var(--bs-emphasis-color-rgb), .15); background: var(--chunk-tint); box-shadow: 0 0 0 2px var(--chunk-tint); }
 
 /* Slot inputs size to their word (set --len inline) plus one spare character for typed punctuation. Pair with `px-2`: the 1rem is its padding, the 2px the border. */
 .slot { width: calc((var(--len) + 1) * 1ch + 1rem + 2px); min-width: 3rem; font-family: var(--bs-font-monospace); }

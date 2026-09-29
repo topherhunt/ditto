@@ -8,7 +8,7 @@ async function recordSounds(page: Page) {
     (window as unknown as { sounds: string[] }).sounds = sounds;
     HTMLMediaElement.prototype.play = function () {
       const name = this.src.match(/\/(click|correct|wrong|victory)-[\w-]+\.mp3$/)?.[1];
-      if (name) sounds.push(`${name} ${this.volume}`);
+      if (name) sounds.push(`${name} ${this.volume} ${this.playbackRate}`);
       return Promise.resolve();
     };
   });
@@ -16,12 +16,13 @@ async function recordSounds(page: Page) {
 
 const VOLUMES: Record<string, number> = { click: 0.5, correct: 0.5, wrong: 0.5, victory: 0.25 };
 
-/** The UI sounds played since the last call, by name, each checked against its volume; item audio is ignored. */
+/** The UI sounds played since the last call, by name, each checked against its volume and a rate within 0.1 of 1; item audio is ignored. */
 async function played(page: Page): Promise<string[]> {
   const sounds = await page.evaluate(() => (window as unknown as { sounds: string[] }).sounds.splice(0));
   return sounds.map((s) => {
-    const [name, volume] = s.split(" ");
+    const [name, volume, rate] = s.split(" ");
     expect(Number(volume), name).toBe(VOLUMES[name]);
+    expect(Math.abs(Number(rate) - 1), name).toBeLessThanOrEqual(0.1);
     return name;
   });
 }

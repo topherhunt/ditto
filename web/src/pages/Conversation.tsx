@@ -7,18 +7,19 @@ import {
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
-import { autoplay, play } from "./player.ts";
+import { playDroplet, playGoodTry, playResult } from "../sounds.ts";
+import { autoplay, play, playing, stop } from "./player.ts";
 import { usd } from "./Speak.tsx";
 
-/** Tappable chunks; the tapped one shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
-function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string) => void; class?: string }) {
+/** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
+function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string, text: string) => void; class?: string }) {
   const key = (i: number) => `${props.id}-${i}`;
   return (
     <div class={props.class}>
       <For each={props.chunks}>
         {(c, i) => (
           <>
-            <span class="qa-chunk chunk position-relative px-1" classList={{ active: props.active === key(i()) }} onClick={() => props.onTap(key(i()))}>
+            <span class="qa-chunk chunk position-relative" classList={{ active: props.active === key(i()) }} onClick={() => props.onTap(key(i()), c.text)}>
               {c.text}
               <Show when={props.active === key(i())}>
                 <span class="qa-gloss tooltip bs-tooltip-bottom show position-absolute top-100 start-50 translate-middle-x" role="tooltip">
@@ -34,7 +35,19 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
   );
 }
 
-function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string) => void }) {
+/** Plays `url` on the shared player; while it plays, the button is an orange stop button. `color` is its idle button class; without one it is a link-style icon. */
+function PlayButton(props: { url: string; class: string; color?: string }) {
+  const on = () => playing() === props.url;
+  const icon = () => props.color === undefined;
+  return (
+    <button type="button" class={`btn btn-sm ${props.class} ${on() ? (icon() ? "text-orange" : "btn-outline-orange") : (props.color ?? "")}`}
+      aria-label={t(on() ? "speak.stop" : "speak.play")} onClick={() => (on() ? stop() : void play(props.url))}>
+      {icon() ? <i class={on() ? "bi bi-stop-circle" : "bi bi-play-circle"} aria-hidden="true" /> : on() ? "■" : "▶"}
+    </button>
+  );
+}
+
+function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string, text: string) => void }) {
   const turn = () => props.turn;
   return (
     <Show when={turn().role === "partner"} fallback={
@@ -43,7 +56,7 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
           <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
             {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
           </Show>
-          <Show when={turn().audioUrl}>{(u) => <button type="button" class="btn btn-sm btn-link p-0" aria-label={t("speak.play")} onClick={() => void play(u())}><i class="bi bi-play-circle" aria-hidden="true" /></button>}</Show>
+          <Show when={turn().audioUrl}>{(u) => <PlayButton url={u()} class="btn-link p-0" />}</Show>
         </div>
         <div class="small text-body-secondary">
           <Show when={turn().source !== "own"}>{t(`speak.source.${turn().source as "suggestion" | "how" | "moved_on"}`)}</Show>
@@ -52,7 +65,7 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
       </div>
     }>
       <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded bg-body-secondary" style={{ "max-width": "85%" }}>
-        <button type="button" class="qa-turn-play btn btn-sm btn-outline-primary" aria-label={t("speak.play")} onClick={() => void play(turn().audioUrl!)}>▶</button>
+        <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" />
         <ChunkLine class="qa-turn-text fs-5" chunks={turn().chunks!} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />
       </div>
     </Show>
@@ -89,8 +102,11 @@ export function Conversation() {
   const last = () => c().turns[c().turns.length - 1];
   /** The chunk whose gloss tooltip is open; tapping it again or anywhere else closes it. */
   const [activeChunk, setActiveChunk] = createSignal<string | null>(null);
-  const tap = (key: string) => {
-    setActiveChunk(activeChunk() === key ? null : key);
+  const tap = (key: string, text: string) => {
+    if (activeChunk() === key) return setActiveChunk(null);
+    setActiveChunk(key);
+    playDroplet();
+    autoplay(`/api/conversations/${c().id}/say?text=${encodeURIComponent(text)}`);
     setRevealed((s) => new Set(s).add(key));
   };
   const closeTooltip = (e: MouseEvent) => {
@@ -133,8 +149,11 @@ export function Conversation() {
       const res = await api.postStream<SpeakAttemptResult, { step: CheckStep }>(`/api/conversations/${c().id}/attempts`, {
         audio, mime, target: attempt()?.target ?? null, usedHow: how() !== null, taps: revealed().size,
       }, (e) => setStep(e.step));
-      if (res.attempt.passed) advance(res.turns, { reliance: res.reliance, spend: res.spend });
-      else {
+      if (res.attempt.passed) {
+        playResult(true);
+        advance(res.turns, { reliance: res.reliance, spend: res.spend });
+      } else {
+        playGoodTry();
         update({ spend: res.spend });
         setAttempt(res.attempt);
       }
@@ -279,6 +298,7 @@ export function Conversation() {
         <div class="d-flex flex-wrap gap-3 small text-body-secondary border-top pt-2">
           <span class="qa-cost">{t("speak.cost", { cost: usd(c().spend.conversation), today: usd(c().spend.today), cap: usd(c().spend.cap) })}</span>
           <span class="qa-replies">{t(c().reliance.of === 1 ? "speak.replies.one" : "speak.replies.other", { n: c().reliance.of })}</span>
+          <span class="qa-hints">{t(c().reliance.leaned === 1 ? "speak.hints.one" : "speak.hints.other", { n: c().reliance.leaned })}</span>
         </div>
       </div>
     </Show>
@@ -304,15 +324,16 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
   return (
     <div class="qa-retry d-flex flex-column gap-2">
       <div>
+        <div class="qa-retry-good-try text-orange fw-semibold">{t("speak.goodTry")}</div>
         <div class="small fw-semibold">{t("speak.sayThis")} <span class="qa-retry-tries fw-normal text-body-secondary">({t("speak.tries", { n: a().failures + 1 })})</span></div>
         <div class="d-flex align-items-center gap-2">
           <Show when={a().targetAudioUrl}>
-            {(u) => <button type="button" class="qa-retry-play-target btn btn-sm btn-outline-primary" aria-label={t("speak.play")} onClick={() => void play(u())}>▶</button>}
+            {(u) => <PlayButton url={u()} class="qa-retry-play-target" color="btn-outline-primary" />}
           </Show>
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>
         <div class="d-flex align-items-center gap-2 small text-body-secondary">
-          <button type="button" class="qa-retry-play-own btn btn-sm btn-outline-secondary" aria-label={t("speak.play")} onClick={() => void play(a().audioUrl)}>▶</button>
+          <PlayButton url={a().audioUrl} class="qa-retry-play-own" color="btn-outline-secondary" />
           <span class="qa-retry-heard">{t("speak.youSaid", { text: a().transcript })}</span>
         </div>
       </div>

@@ -50,7 +50,7 @@ export function fakeAI(): ConversationAI {
       const meant = c.target ?? "Vorrei un caffè, per favore.";
       return {
         result: {
-          meant, level: "A2", grammarOk: passed,
+          meant, level: "A2", grammarOk: passed, fromSuggestion: c.suggestions.includes(meant),
           fixes: passed ? [] : [{ wrong: "Vorrei un caffè", right: "Vorrei un caffè, per favore", why: "Add \"per favore\" to be polite." }],
           feedback: passed ? "Well said." : "Add \"per favore\" to be polite.",
         },

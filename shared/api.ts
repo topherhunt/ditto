@@ -162,6 +162,8 @@ export type CoachVerdict = {
   meant: string;
   level: (typeof CEFR_LEVELS)[number];
   grammarOk: boolean;
+  /** The reply is substantially one of the suggestions shown, by the coach's judgment. */
+  fromSuggestion: boolean;
   fixes: { wrong: string; right: string; why: string }[];
   feedback: string;
 };

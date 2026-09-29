@@ -12,8 +12,8 @@ export interface Speech {
 /** The partner's one Piper voice per language, from the lessons' voices; one each keeps the worker to one loaded voice per language. */
 const PARTNER_VOICES: Partial<Record<Language, string>> = {
   it: "piper:it_IT-paola-medium",
-  nl: "piper:nl_NL-pim-medium",
-  en: "piper:en_US-amy-medium",
+  nl: "piper:nl_NL-ronnie-medium",
+  en: "piper:en_US-ryan-medium",
 };
 export const partnerVoice = (language: Language) => {
   const voice = VOICES[language].find((v) => voiceId(v) === PARTNER_VOICES[language]);

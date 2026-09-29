@@ -1,4 +1,4 @@
-import { mkdtempSync } from "node:fs";
+import { mkdtempSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -30,8 +30,8 @@ async function speak(overrides: Partial<AppDeps> = {}) {
   return { ...t, ai: conversation.ai, voices, start, reply };
 }
 
-const passFirstTry = (meant: string) => async () => ({
-  result: { meant, level: "B1" as const, grammarOk: true, fixes: [], feedback: "Good." },
+const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
+  result: { meant, level: "B1" as const, grammarOk: true, fromSuggestion, fixes: [], feedback: "Good." },
   usage: { model: "fake", inputTokens: 1, outputTokens: 1, audioSeconds: 0, costUsd: FAKE_COST },
 });
 
@@ -94,9 +94,14 @@ describe("conversation mode", () => {
     expect((await t.req("GET", "/api/conversations?lang=it")).json.conversations[0].levels).toEqual(["A2"]);
   });
 
-  it("tells an own reply from a suggestion and from \"How do I say...?\"", async () => {
+  it("counts a reply as a suggestion when the coach, shown the suggestions, judges it one, and tells it from an own reply and \"How do I say...?\"", async () => {
     const t = await speak();
     const conv = await t.start();
+    let shown: string[] = [];
+    t.ai.coach = async (c) => { shown = c.suggestions; return passFirstTry("Un caffè, per favore.", true)(); };
+    expect((await t.reply(conv.id)).json.turns[0].source).toBe("suggestion");
+    expect(shown).toEqual(["Vorrei un caffè, per favore.", "Un tè, grazie.", "Niente, grazie."]);
+
     t.ai.coach = passFirstTry("Vorrei una spremuta.");
     expect((await t.reply(conv.id)).json.turns[0].source).toBe("own");
 
@@ -105,7 +110,7 @@ describe("conversation mode", () => {
     t.ai.coach = passFirstTry("Vorrei un tè freddo.");
     const res = (await t.reply(conv.id, { usedHow: true })).json;
     expect(res.turns[0].source).toBe("how");
-    expect(res.reliance).toEqual({ leaned: 1, of: 2 });
+    expect(res.reliance).toEqual({ leaned: 2, of: 3 });
   });
 
   it("offers moving on only after 5 failed tries at the target, reusing the target's audio, then logs it as a weak phrase", async () => {
@@ -184,12 +189,31 @@ describe("conversation mode", () => {
     expect(t.voices).toEqual(Array(4).fill("piper:it_IT-paola-medium"));
   });
 
+  it("speaks a tapped chunk in the partner's voice without storing it, only to the conversation's owner", async () => {
+    const t = await speak();
+    const conv = await t.start();
+    const say = (text: string) => t.req("GET", `/api/conversations/${conv.id}/say?text=${encodeURIComponent(text)}`);
+    const res = await say("Le porto");
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toBe("audio/wav");
+    expect(t.voices.at(-1)).toBe("piper:it_IT-paola-medium");
+    expect(readdirSync(t.deps.conversation!.audioDir).filter((f) => f.startsWith("say-"))).toEqual([]);
+    expect((await say("x".repeat(81))).status).toBe(400);
+    await t.login("someone@example.com");
+    expect((await say("Le porto")).status).toBe(404);
+  });
+
   it("keeps hard mode per conversation", async () => {
     const t = await speak();
     const conv = await t.start();
     expect(conv.hardMode).toBe(false);
     await t.req("PUT", `/api/conversations/${conv.id}`, { hardMode: true });
     expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.hardMode).toBe(true);
+
+    let shown: string[] | null = null;
+    t.ai.coach = async (c) => { shown = c.suggestions; return passFirstTry("Un caffè, per favore.")(); };
+    await t.reply(conv.id);
+    expect(shown).toEqual([]);
   });
 
   it("hides a conversation and its audio from other learners, but lets admins hear it", async () => {

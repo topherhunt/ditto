@@ -19,6 +19,7 @@ const CoachSchema = z.strictObject({
   meant: z.string().min(1),
   level: z.enum(CEFR_LEVELS),
   grammarOk: z.boolean(),
+  fromSuggestion: z.boolean(),
   fixes: z.array(z.strictObject({ wrong: z.string(), right: z.string(), why: z.string() })),
   feedback: z.string(),
 });
@@ -34,6 +35,8 @@ export type CoachIn = Setting & {
   /** The sentence a retry is judged against; null on a first try. */
   target: string | null;
   transcript: string;
+  /** The suggested replies the learner could see; empty in hard mode. */
+  suggestions: string[];
 };
 export type Paid<T> = { result: T; usage: Usage };
 
@@ -67,7 +70,8 @@ Register (informal vs formal address: tu/Lei, je/u, and the verb forms that go w
 
 The learner can't read linguistics jargon. Fixes and feedback are in {locale}, short and plain.
 level: the CEFR level of meant as a reply in this conversation (vocabulary, grammar and length).
-feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.`;
+feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.
+fromSuggestion: true if the learner's reply is substantially one of the suggested replies shown to them: the same words and meaning, even reordered, slightly changed, or with words added or dropped. False for a reply of their own, even on the same topic, and when no suggestions were shown.`;
 
 const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation.
 ${CHUNKING}`;
@@ -108,6 +112,7 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
       const input = [
         `Partner said: ${c.partnerLine}`,
         c.target ? `Retry. Target: ${c.target}` : "First try (no target).",
+        c.suggestions.length ? `Suggested replies shown:\n${c.suggestions.map((s) => `- ${s}`).join("\n")}` : "No suggested replies were shown.",
         `transcript: ${c.transcript}`,
       ].join("\n");
       const { result, usage } = await parse(CoachSchema, "coach", fill(COACH_INSTRUCTIONS, c), input);

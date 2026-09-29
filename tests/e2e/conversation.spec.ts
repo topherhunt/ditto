@@ -31,6 +31,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(opening.locator(".qa-chunk")).toHaveText(["Buongiorno!", "Cosa prende?"]);
   await opening.locator(".qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("Good morning!");
+  // Tapping a chunk drips and speaks it.
+  expect((await page.evaluate(() => (window as unknown as { played: string[] }).played.slice(-2))).map((u) => decodeURIComponent(u)))
+    .toEqual([expect.stringMatching(/\/droplet-[\w-]+\.mp3$/), expect.stringMatching(/\/say\?text=Buongiorno!$/)]);
   await opening.locator(".qa-chunk").nth(1).click();
   await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
   await page.locator(".qa-conversation-title").click();
@@ -49,6 +52,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-record")).toHaveCount(0);
   release();
   await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
+  // A failed reply is introduced in the interface language, spoken and in writing.
+  await expect(page.locator(".qa-retry-good-try")).toHaveText("Good try! Here are some corrections:");
+  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/good-try-en-[\w-]+\.m4a$/));
   await expect(page.locator(".qa-checking")).toHaveCount(0);
   await expect(page.locator(".qa-retry-play-target")).toBeVisible();
   await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");
@@ -71,12 +77,14 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await page.waitForTimeout(300);
   await page.keyboard.press(" ");
   await expect(page.locator(".qa-turn-learner .qa-chunk")).toHaveText(["Vorrei", "un", "caffè,", "per", "favore."]);
+  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/correct-[\w-]+\.mp3$/));
   await page.locator(".qa-turn-learner .qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("(Vorrei)");
   await expect(page.locator(".qa-turn-learner .qa-turn-level")).toHaveText("A2");
   await expect(page.locator(".qa-turn-partner").nth(1).locator(".qa-chunk")).toHaveText(["Certo!", "Altro?"]);
   await expect(page.locator(".qa-retry")).toHaveCount(0);
   await expect(page.locator(".qa-replies")).toContainText("1");
+  await expect(page.locator(".qa-hints")).toContainText("1");
   await expect(page.locator(".qa-cost")).toContainText("$0.006");
 
   await page.locator(".qa-conversation-hard").check();
@@ -85,6 +93,28 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
 
   await page.goto("/it/speak");
   await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
+});
+
+test("a playing line's play button turns into a stop button that stops it", async ({ page }) => {
+  // 30 s of silence instead of the fake 0.1 s line, so it is still playing when the test looks.
+  const rate = 8000, data = 30 * rate * 2;
+  const wav = Buffer.alloc(44 + data);
+  wav.write("RIFF", 0); wav.writeUInt32LE(36 + data, 4); wav.write("WAVEfmt ", 8); wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
+  wav.writeUInt32LE(rate, 24); wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write("data", 36); wav.writeUInt32LE(data, 40);
+  await page.route("**/audio/*.wav", (route) => route.fulfill({ contentType: "audio/wav", body: wav }));
+  await signIn(page, "stopper@example.com");
+  await page.goto("/it/speak");
+  await page.locator(".qa-speak-starter-cafe").click();
+
+  // The opening line autoplays, so its button starts as a stop button.
+  const button = page.locator(".qa-turn-play").first();
+  await expect(button).toHaveText("■");
+  await expect(button).toHaveClass(/btn-outline-orange/);
+  await button.click();
+  await expect(button).toHaveText("▶");
+  await expect(button).toHaveClass(/btn-outline-primary/);
+  await button.click();
+  await expect(button).toHaveText("■");
 });
 
 test("an admin sees reported judgments and spend", async ({ page }) => {

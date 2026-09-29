@@ -1,6 +1,6 @@
 // Conversation mode (docs/conversation.md): a role-play with an AI partner, gated by a coach that judges each spoken reply's grammar.
 import { randomUUID } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
@@ -37,8 +37,6 @@ const EXT: Record<string, string> = { "audio/webm": "webm", "audio/mp4": "m4a" }
 const MIME: Record<string, string> = { webm: "audio/webm", m4a: "audio/mp4", wav: "audio/wav" };
 const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 
-/** Case, punctuation and spacing don't distinguish a spoken reply from a suggestion. */
-const spoken = (s: string) => s.toLowerCase().replace(/[\p{P}\p{S}]/gu, " ").replace(/\s+/g, " ").trim();
 
 type ConversationRow = {
   id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number;
@@ -224,7 +222,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       paid(userId, conv.id, "transcribe", usage);
       if (!transcript.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
       await step("judging");
-      const coached = await ai.coach({ ...setting(conv), partnerLine: turn.text, target: body.target, transcript });
+      const suggestions = conv.hard_mode ? [] : (JSON.parse(turn.suggestions!) as Chunk[][]).map(joinChunks);
+      const coached = await ai.coach({ ...setting(conv), partnerLine: turn.text, target: body.target, transcript, suggestions });
       paid(userId, conv.id, "coach", coached.usage);
       const verdict = coached.result;
       const passed = verdict.grammarOk;
@@ -239,8 +238,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       let turns: TurnOut[] = [];
       if (passed) {
         await step("answering");
-        const suggested = (JSON.parse(turn.suggestions!) as Chunk[][]).some((s) => spoken(joinChunks(s)) === spoken(target));
-        learnerTurn(conv, target, body.usedHow ? "how" : suggested ? "suggestion" : "own", verdict.level, body.taps, file);
+        learnerTurn(conv, target, body.usedHow ? "how" : verdict.fromSuggestion ? "suggestion" : "own", verdict.level, body.taps, file);
         turns = await partnerTurn(conv, userId);
       }
       const attempt = toAttempt(db.prepare("SELECT * FROM conversation_attempts WHERE id = ?").get(attemptId) as AttemptRow);
@@ -305,6 +303,20 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       .run(note, deps.now().toISOString(), Id.parse(c.req.param("attemptId")), conv.id);
     if (res.changes === 0) throw new HTTPException(404, { message: "No such attempt" });
     return c.json({ ok: true });
+  });
+
+  // A tapped chunk, voiced on demand (~30 ms warm) and cached by the browser rather than stored.
+  app.get("/api/conversations/:id/say", async (c) => {
+    const conv = conversationOr404(Id.parse(c.req.param("id")), c.get("user").id);
+    const text = z.string().trim().min(1).max(80).parse(c.req.query("text"));
+    const { speech, audioDir } = speak();
+    const path = join(audioDir, `say-${randomUUID()}.wav`);
+    try {
+      await speech.say(text, partnerVoice(conv.language), path);
+      return c.body(readFileSync(path), 200, { "Content-Type": "audio/wav", "Cache-Control": "private, max-age=86400" });
+    } finally {
+      rmSync(path, { force: true });
+    }
   });
 
   // Only files this conversation's rows name are served, to its owner or an admin.

@@ -24,10 +24,10 @@ ENV_FILE="/etc/${SERVICE_NAME}.env"
 # Deliberately not named NODE_MAJOR: host-setup.sh uses that to change the host-wide Node.
 APP_NODE_MAJOR="${APP_NODE_MAJOR:-24}"
 APP_NODE_DIR="/opt/node${APP_NODE_MAJOR}"
-# Conversation mode's speech worker: a Python venv with Piper, and the partner's voices, ~65 MB each on disk (every Piper model in VOICES, server/content.ts).
+# Conversation mode's speech worker: a Python venv with Piper, and the partner's voices, ~65 MB each on disk (the models in PARTNER_VOICES, server/speech.ts).
 SPEECH_DIR="${REMOTE_DIR}/speech"
 PIPER_VERSION="${PIPER_VERSION:-1.8.0}"
-PIPER_VOICES="${PIPER_VOICES:-it_IT-paola-medium it_IT-serena-medium nl_NL-pim-medium nl_NL-ronnie-medium nl_NL-mls-medium en_US-amy-medium en_US-lessac-medium en_US-ryan-medium en_US-joe-medium}"
+PIPER_VOICES="${PIPER_VOICES:-it_IT-paola-medium nl_NL-ronnie-medium en_US-ryan-medium}"
 
 require_host() {
   if [ -z "${DEPLOY_HOST}" ]; then echo "ERROR: DEPLOY_HOST is not set." >&2; exit 1; fi

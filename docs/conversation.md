@@ -1,24 +1,24 @@
 # Conversation mode
 
-A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`.
+Called "Talk" in the interface. A speaking track separate from dictation: a spoken back-and-forth with an AI partner, with a coach that stops the conversation until each reply is said correctly. Languages: Italian, Dutch, English. Irish is out until live Irish TTS exists. Pages: `/:lang/speak` (start, history, weak phrases) and `/:lang/speak/:id`; server in `server/conversation.ts`.
 
 ## Turn loop
 
 1. The partner speaks a line (local Piper TTS, in one fixed voice per language, `PARTNER_VOICES` in `server/speech.ts`); it plays by itself and its transcript shows.
 2. Suggested replies: three plausible replies, each steering the conversation a different way. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
-4. The coach judges it (below). A failure pauses the conversation on the retry screen.
+4. The coach judges it (below). A pass plays the success sound. A failure pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:" in writing and spoken in the interface language (clips in `web/src/sounds/good-try-*.m4a`, rendered once with `scripts/tts-render.py`).
 5. Once the reply passes, the partner answers and the loop repeats. If the partner's answer fails, a button retries it.
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation; on hover a chunk gets a background color and a pointer cursor. Space works the record button (not while typing).
+The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation, plays a quiet droplet (`web/src/sounds.ts`) and speaks the chunk in the partner's voice (`GET /api/conversations/:id/say`, rendered on demand in ~30 ms warm and cached only by the browser); chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 
 ## Coach
 
-The conversation trains fluency and vocabulary, not pronunciation (a separate pronunciation practice is on the [roadmap](roadmap.md#pronunciation)). OpenAI `gpt-transcribe`, steered to the conversation's language (`languages`; it has no Irish), writes down what was said and reports the audio length it bills, and a text model (`CONVERSATION_MODEL`, default `gpt-6-luna`, reasoning effort `CONVERSATION_EFFORT`, default `low`) judges the transcript's grammar. It returns the sentence it thinks was meant (corrected), the fixes, and a CEFR grade. A reply passes when the transcript already is that sentence; on a retry, the target. The learner's formal or informal address is theirs to choose and is never corrected or remarked on. The model's floor is ~0.7 s to first token; the rest of a coach call is output tokens.
+The conversation trains fluency and vocabulary, not pronunciation (a separate pronunciation practice is on the [roadmap](roadmap.md#pronunciation)). OpenAI `gpt-transcribe`, steered to the conversation's language (`languages`; it has no Irish), writes down what was said and reports the audio length it bills, and a text model (`CONVERSATION_MODEL`, default `gpt-6-luna`, reasoning effort `CONVERSATION_EFFORT`, default `low`) judges the transcript's grammar. It returns the sentence it thinks was meant (corrected), the fixes, a CEFR grade, and whether the reply is substantially one of the suggestions shown (`fromSuggestion`). A reply passes when the transcript already is that sentence; on a retry, the target. The learner's formal or informal address is theirs to choose and is never corrected or remarked on. The model's floor is ~0.7 s to first token; the rest of a coach call is output tokens.
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
@@ -31,7 +31,7 @@ The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is o
 
 ## Scaffolding and progress
 
-- Each learner turn records whether it came from a suggestion (exact match after normalizing), "How do I say...?", moving on, or the learner's own words, plus chunks tapped and the coach's CEFR grade. The page shows the number of replies; reliance (`leaned`) is computed but not shown, since paraphrasing a suggestion counts as the learner's own.
+- Each learner turn records whether it came from a suggestion (the coach's `fromSuggestion`), "How do I say...?", moving on, or the learner's own words, plus chunks tapped and the coach's CEFR grade. The page shows the number of replies and "used N hints": the turns from any of the first three (`leaned`).
 - A scenario is a starter (café, directions, hotel, meeting, market, weekend), any typed topic, or "surprise me". Level comes from the learner, and the partner speaks one notch above it.
 
 ## Spend
