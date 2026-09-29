@@ -47,18 +47,18 @@ cp .env.example .env    # DEV_LOGIN=1 gives you a dev sign-in form locally
 npm run dev             # API on :3000, Vite on :5173
 ```
 
-`OPENROUTER_API_KEY` is optional; without it the "Why?" explainer and conversation mode are disabled. Quiz audio also needs `OPENAI_API_KEY` (gpt-4o-mini-tts). `GOOGLE_CLIENT_ID` is only needed for real sign-in.
+`OPENAI_API_KEY` is optional; without it the "Why?" explainer and conversation mode are disabled and quiz audio fails. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
 
 ### Audio
 
-Audio files are generated, not committed. Set up the text-to-speech tools once:
+Audio files are generated, not committed. Set up the Python venv once (the renderer and conversation mode's speech worker use it):
 
 ```sh
 python3 -m venv .venv
-.venv/bin/pip install piper-tts kokoro-onnx numpy
+.venv/bin/pip install numpy
 ```
 
-Then put the Piper voice models named in `VOICES` (`server/content.ts`) in `tools/piper-voices/` ([rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices)), and `kokoro-v1.0.onnx` plus `voices-v1.0.bin` in `tools/kokoro/` ([kokoro-onnx releases](https://github.com/thewh1teagle/kokoro-onnx/releases)).
+English, Italian and Dutch audio renders on OpenAI (gpt-4o-mini-tts), so it needs `OPENAI_API_KEY` in `.env`.
 
 ```sh
 npm run content:audio            # renders only missing files into content/audio/
@@ -87,7 +87,5 @@ Irish audio comes from ABAIR's online service rather than a local model, so it n
 ## Credits and thanks 💙
 
 **Go raibh míle maith agaibh to [ABAIR](https://abair.ie).** Every Irish sentence in Ditto is spoken by ABAIR's native-speaker voices (here, Neasa and Colm from Munster). ABAIR is a research project at the Phonetics and Speech Laboratory of Trinity College Dublin, and it offers Irish speech technology for free. A language you can hear is a language you can learn, and ABAIR makes Irish something people can hear. Thank you. *Irish text-to-speech by [ABAIR, Trinity College Dublin](https://abair.ie).*
-
-Voices for the other languages come from [Piper](https://github.com/rhasspy/piper) and [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M). Thanks to their authors and to the voice datasets behind them.
 
 Made with 💙 by Topher Hunt.

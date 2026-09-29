@@ -86,13 +86,10 @@ describe("content loading", () => {
     expect(() => pickVoice([null, null])).toThrow(/no audio/);
   });
 
-  it("rejects audio fixes for an unknown voice, phonemes on a non-Kokoro voice or with OpenRouter, a partial OpenRouter voice, and text nothing renders", () => {
-    expect(() => loadWithFixes({ it: { "kokoro:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice kokoro:nobody/);
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { phonemes: "lo" } } } }, base)).toThrow(/phonemes need a kokoro voice/);
-    const openrouter = { model: "google/gemini-3.8-flash-tts", voice: "Kore" };
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { phonemes: "lo", openrouter } } } }, base)).toThrow(/not openrouter/);
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { openrouter: { model: openrouter.model } } } } }, base)).toThrow(/voice/);
-    expect(loadWithFixes({ it: { "openai:marin": { lo: { openrouter } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ openrouter });
+  it("rejects audio fixes for an unknown voice, an unknown field, and text nothing renders", () => {
+    expect(() => loadWithFixes({ it: { "openai:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice openai:nobody/);
+    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { openrouter: {} } } } }, base)).toThrow(/openrouter/);
+    expect(loadWithFixes({ it: { "openai:marin": { lo: { say: "Lo.", cut: 0.1 } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ say: "Lo.", cut: 0.1 });
     expect(() => loadWithFixes({ it: { "openai:marin": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|openai:marin\|gone/);
     expect(() => loadWithFixes({ it: { "openai:marin": { lo: {} } } }, base)).toThrow(/empty fix/);
     expect(() => loadWithFixes({ it: { "openai:marin": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);

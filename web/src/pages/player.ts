@@ -1,4 +1,6 @@
 import { createSignal } from "solid-js";
+import { api } from "../api.ts";
+import { capReached, hitCap } from "../spend.ts";
 
 // One audio element for conversation mode, so a click that starts a conversation can unlock it for the partner's first line.
 const player = new Audio();
@@ -8,7 +10,12 @@ export const [playing, setPlaying] = createSignal<string | null>(null);
 export const [loading, setLoading] = createSignal(false);
 // A pause queued by switching to another url fires once the new one is already playing; `paused` tells them apart.
 for (const e of ["pause", "ended"]) player.addEventListener(e, () => { if (player.paused) { setPlaying(null); setLoading(false); } });
-player.addEventListener("error", () => { setPlaying(null); setLoading(false); });
+// An audio element can't read the status of a failed clip, so a free call refreshes the spend to tell a refused paid render.
+player.addEventListener("error", () => {
+  setPlaying(null);
+  setLoading(false);
+  void api.get("/api/me").then(() => { if (capReached()) hitCap(); });
+});
 player.addEventListener("playing", () => setLoading(false));
 const SILENCE = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=";
 

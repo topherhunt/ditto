@@ -10,6 +10,10 @@ export const capReached = () => {
   return s !== null && s.today >= s.cap;
 };
 
+/** Counts refused paid calls; the layout sends the learner to the cap page on each. */
+export const [capHits, setCapHits] = createSignal(0);
+export const hitCap = () => setCapHits((n) => n + 1);
+
 /** Only signed-in responses carry the headers. */
 export function noteSpend(headers: Headers) {
   const today = headers.get(SPEND_TODAY_HEADER);

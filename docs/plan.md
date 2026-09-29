@@ -17,7 +17,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 
 - Google sign-in (the only login method), with an email allowlist.
 - A catalog per language, grouped by level: courses -> lessons, unlocked in order (see Learning flow).
-- Practice: audio autoplay, replay, and 0.75x speed, in one of four voices picked at random per unit (among those matching its `speaker`); per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
+- Practice: audio autoplay, replay, and 0.75x speed, in one of two voices picked at random per unit (among those matching its `speaker`); per-word inputs with a hint level; letter-level diff; lenient accents; per-word hint; show answer.
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - The UI is localized into English, Latin American Spanish, Dutch and Italian (`LOCALES`: `en`, `es-419`, `nl`, `it`). The learner's locale (`users.locale`, picked at sign-in or in Settings) is also their support language: translations, distractors, glosses, descriptions and explanations come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`; `nl` has `en`, `es-419`; `ga` has `en` only), else in the course's first support language.
 - Mistakes notebook, with focused practice of notebook items.
@@ -55,7 +55,7 @@ One Node process (a monolith) serves the SPA, the JSON API and audio files. Cadd
 | Frontend | Vite + SolidJS + TypeScript, `@solidjs/router` | Fine-grained reactivity, small bundle. Trap: never destructure props (it breaks reactivity) |
 | CSS | Bootstrap 5 (CSS only) utilities, plus one component stylesheet for the dictation widget | Utility-first |
 | SRS | `ts-fsrs` | FSRS schedules more efficiently than SM-2 and the library is maintained |
-| AI | `openai` SDK against OpenRouter, Responses API with a strict JSON-schema output, model `openai/gpt-6-luna` (`EXPLAIN_MODEL` in `server/explain.ts`) | About $0.0004 per uncached explanation ($0.10 / $0.50 per 1M in/out tokens) |
+| AI | `openai` SDK, Responses API with a strict JSON-schema output, model `gpt-6-luna` (`EXPLAIN_MODEL` in `server/explain.ts`) | About $0.0004 per uncached explanation ($0.10 / $0.50 per 1M in/out tokens) |
 | Tests | Vitest (unit + API), Playwright (E2E) | |
 
 ### Repo layout
@@ -84,24 +84,20 @@ Filenames are content-addressed: `sha1(renderVersion|lang|voice|text[|fix])` -> 
 
 The server computes the URLs when it loads content, so there is no manifest. It fails at boot if a referenced file is missing (a warning in dev). Every word, and every unit without a `speaker`, has one file per voice; the served `audio` arrays follow the voice order in `VOICES` (`server/content.ts`), with `null` for voices that don't match a unit's `speaker`. Word audio is keyed on the lowercase surface form.
 
-`content/audio-fixes.json` fixes single clips that render badly, keyed by language, voice id and text as rendered (lowercase for word audio): `say` is what the engine reads instead (a respelling or punctuation), `phonemes` feeds Kokoro IPA directly (a space or `pʰ` can break a slurred cluster or a p heard as b), `cut` drops seconds off the end after trimming (a breath the silence trim keeps), `openrouter` (`{model, voice, style?}`, e.g. `google/gemini-3.8-flash-tts` with a voice of the slot's gender) renders that one clip with a paid voice when the free engines keep failing, and `take` forces a fresh render, since Piper and OpenRouter output is random per run. OpenRouter renders need `OPENROUTER_API_KEY` in `.env` and happen only locally; production never renders, and deploy ships the files. Gemini reads a bare word in whatever language it guesses ("nome" as English "gnome"), so short Italian texts may need a `say` with context or an instruction. A fix joins the hash, so the fixed clip gets a new file and the old one stays until `--prune` (don't prune while reports on it are under review). A fix for text nothing renders is a load error.
+`content/audio-fixes.json` fixes single clips that render badly, keyed by language, voice id and text as rendered (lowercase for word audio): `say` is what the engine reads instead (a respelling or punctuation), `cut` drops seconds off the end after trimming (a breath the silence trim keeps), and `take` forces a fresh render, since OpenAI output is random per run. A fix joins the hash, so the fixed clip gets a new file and the old one stays until `--prune` (don't prune while reports on it are under review). A fix for text nothing renders is a load error.
 
-Voices, both genders, four per language except `it` and `ga`:
-- `en`: Piper amy, lessac (F) and ryan, joe (M).
-- `it`: OpenAI gpt-4o-mini-tts marin (F) and cedar (M), which beat Piper, local Kokoro, Kokoro on OpenRouter and Gemini 3.8 Flash TTS by ear in September 2026 (clearer, fewer mispronunciations, no clipped endings). Rendering needs `OPENAI_API_KEY` in `.env`; all Italian audio cost an estimated $4-5 at list price (about $0.015 per audio minute).
-- `nl`: Piper pim, ronnie (M) and two speakers of the multi-speaker `nl_NL-mls` model (F, chosen by median pitch).
-- `ga`: ABAIR's Munster voices Neasa (F) and Colm (M), matching the course's Munster forms. ABAIR (Trinity College Dublin) is a free public service; credit it wherever Irish audio ships.
+Voices, one per gender in each language:
+- `en`, `it`, `nl`: OpenAI gpt-4o-mini-tts marin (F) and cedar (M). By ear in September 2026 they beat Piper, local Kokoro, Kokoro on OpenRouter and Gemini 3.8 Flash TTS in Italian (clearer, fewer mispronunciations, no clipped endings), and Piper by a wide margin in English and Dutch. Rendering needs `OPENAI_API_KEY` in `.env`; all three languages cost an estimated $12-15 at list price (about $0.015 per audio minute).
+- `ga`: ABAIR's Munster voices Neasa (F) and Colm (M), matching the course's Munster forms. gpt-4o-mini-tts (marin, cedar, asked for Irish Gaelic) was no better in quality and has a distinct American accent in Irish, so Irish stays on ABAIR. ABAIR (Trinity College Dublin) is a free public service; credit it wherever Irish audio ships.
 
 `scripts/build-audio.ts` renders only missing files, with one `scripts/tts-render.py` process per voice in parallel, except ABAIR voices, which run one at a time with a 1s pause per request. `--prune` also deletes files no content references. The renderer:
-1. synthesizes with Piper or Kokoro (both installed in the gitignored `.venv`), or fetches from ABAIR's web reader endpoint or OpenAI (4 workers per OpenAI voice);
+1. fetches from OpenAI (4 workers per voice) or ABAIR's web reader endpoint;
 2. trims silence, matches loudness (RMS 0.08, peak capped at 0.95) and pads 150ms at each end;
 3. encodes with `afconvert` into a `.part` file, then renames it, so an interrupted run never leaves a truncated file.
 
-Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
-
 **gpt-4o-mini-tts has no reliable pace control.** OpenAI clips are asked for the language, a native accent and "a normal conversational pace, the way a native speaker says it to a friend" (`scripts/tts-render.py`). The language is named because TTS models read a bare word in whatever language they guess (Gemini read "nome" as English "gnome"). In a September 2026 test (9 Italian items, one take each), "conversational" and "brisk" pace instructions changed spoken length less than two takes of the same text differ, and `speed: 1.25` sped some clips up by 10-30% and left others unchanged. Speeding clips up locally (ffmpeg `atempo`) is reliable but sounded artificial and was rejected.
 
-**Sanity check after rendering:** `npm run content:check-audio` (`scripts/check-audio.ts`; pass flags after `--`) runs a phoneme recognizer (`facebook/wav2vec2-xlsr-53-espeak-cv-ft`, language-independent IPA, via torch and transformers in `.venv`, downloaded to the Hugging Face cache on first run) over clips of 1-2 word texts, compares what it heard with espeak's IPA for the text, and writes `data/audio-check.html`: clips ranked by phoneme error rate (PER) with play buttons. `--all`, `--lang`, `--voice` and `--text` change the scope; results are cached per clip in `data/audio-check.jsonl`, so later runs score only new renders (the first pass over every short clip takes about an hour on Apple silicon). It is a ranker for listening, not a verdict: its "heard" column matched every complaint in the first batch of reports (si-ye, nosey, bosso, shee-trah), but PER alone doesn't separate good from bad (approved clips scored up to 0.5, and o/ɔ is folded, so an open-vowel error scores 0). When fixing a clip, list candidate fixes per text in `data/audio-candidates.json` (shaped like `audio-fixes.json`, with a list of fixes per text) and run `npm run content:audio-candidates`: it renders each to the file its fix would use, scores them, and writes `data/audio-candidates.html`. Adopting one means copying its fix into `audio-fixes.json`; the file is already in place. Pick one whose heard phonemes carry no extra glide, trailing θ/s, b for p or ʃ for tʃ; then listen. Text-level ASR (Whisper) is not a substitute: it guesses the intended word and passed clips that people rejected.
+**Sanity check after rendering:** `npm run content:check-audio` (`scripts/check-audio.ts`; pass flags after `--`) runs a phoneme recognizer (`facebook/wav2vec2-xlsr-53-espeak-cv-ft`, language-independent IPA, via torch and transformers in `.venv`, with espeak's IPA from `phonemizer-fork` and `espeakng-loader`, downloaded to the Hugging Face cache on first run) over clips of 1-2 word texts, compares what it heard with espeak's IPA for the text, and writes `data/audio-check.html`: clips ranked by phoneme error rate (PER) with play buttons. `--all`, `--lang`, `--voice` and `--text` change the scope; results are cached per clip in `data/audio-check.jsonl`, so later runs score only new renders (the first pass over every short clip takes about an hour on Apple silicon). It is a ranker for listening, not a verdict: its "heard" column matched every complaint in the first batch of reports (si-ye, nosey, bosso, shee-trah), but PER alone doesn't separate good from bad (approved clips scored up to 0.5, and o/ɔ is folded, so an open-vowel error scores 0). When fixing a clip, list candidate fixes per text in `data/audio-candidates.json` (shaped like `audio-fixes.json`, with a list of fixes per text) and run `npm run content:audio-candidates`: it renders each to the file its fix would use, scores them, and writes `data/audio-candidates.html`. Adopting one means copying its fix into `audio-fixes.json`; the file is already in place. Pick one whose heard phonemes carry no extra glide, trailing θ/s, b for p or ʃ for tʃ; then listen. Text-level ASR (Whisper) is not a substitute: it guesses the intended word and passed clips that people rejected.
 
 ## Content model
 
@@ -191,7 +187,7 @@ Models live in the gitignored `tools/piper-voices/` and `tools/kokoro/`.
 - **Spend guards:**
   - The endpoint only runs when a user clicks "Why?".
   - Each uncached explanation is charged to the learner in `api_usage` and counts toward the daily spend cap (docs/conversation.md, Spend).
-  - The route returns 503 with a clear message when `OPENROUTER_API_KEY` is unset. The key stays server-side.
+  - The route returns 503 with a clear message when `OPENAI_API_KEY` is unset. The key stays server-side.
   - Tests use a fake client.
 
 ## Data model (SQLite)
@@ -212,7 +208,7 @@ review_cards(user_id, unit_id, language, due, card JSON  -- ts-fsrs Card; `due` 
 explanations(id PK, unit_id, unit_rev, answer_key, model, locale, categories JSON, summary, details, created_at,
              UNIQUE(unit_id, unit_rev, answer_key, model, locale))
 explain_usage(user_id, day, count, PK(user_id, day))  -- unused since the dollar cap replaced the count cap
-reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. kokoro:if_sara
+reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. openai:marin
         , audio_file, kind  -- audio|text|translation|accept|other
         , answer  -- accept only: the typed answer that was graded wrong
         , note, created_at

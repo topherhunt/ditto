@@ -3,7 +3,7 @@ import type { Readable, Writable } from "node:stream";
 import { createInterface } from "node:readline";
 import type { Language } from "../shared/content.ts";
 import type { Voice } from "./content.ts";
-import { charUsage, minuteUsage, type Usage } from "./usage.ts";
+import { minuteUsage, type Usage } from "./usage.ts";
 
 /** Speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
@@ -11,11 +11,11 @@ export interface Speech {
   say(text: string, language: Language, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
-/** The partner's one voice per language, chosen by ear for whole sentences: Kokoro (paid, via OpenRouter), or Piper for Dutch, which Kokoro lacks. */
+/** The partner's one voice per language, on gpt-4o-mini-tts (paid, on OpenAI). */
 const PARTNER_VOICES: Partial<Record<Language, Voice>> = {
-  it: { engine: "kokoro", model: "if_sara", gender: "F" },
-  nl: { engine: "piper", model: "nl_NL-ronnie-medium", gender: "M" },
-  en: { engine: "kokoro", model: "am_michael", gender: "M" },
+  it: { engine: "openai", model: "marin", gender: "F" },
+  nl: { engine: "openai", model: "cedar", gender: "M" },
+  en: { engine: "openai", model: "cedar", gender: "M" },
 };
 export const partnerVoice = (language: Language) => {
   const voice = PARTNER_VOICES[language];
@@ -23,7 +23,7 @@ export const partnerVoice = (language: Language) => {
   return voice;
 };
 
-/** Quiz mode's voice per language: gpt-4o-mini-tts, called on OpenAI directly since OpenRouter lacks it. */
+/** Quiz mode's voice per language, on gpt-4o-mini-tts. */
 const QUIZ_VOICES: Partial<Record<Language, Voice>> = {
   it: { engine: "openai", model: "marin", gender: "F" },
   nl: { engine: "openai", model: "cedar", gender: "M" },
@@ -35,19 +35,16 @@ export const quizVoice = (language: Language) => {
   return voice;
 };
 
-/** The OpenRouter model the worker renders Kokoro voices with. */
-const KOKORO_MODEL = "hexgrad/kokoro-82m";
 const OPENAI_TTS_MODEL = "gpt-4o-mini-tts";
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
 
 /**
- * Starts the worker on first use (~1 s; ~300 MB with a Piper voice loaded) and again after it dies; requests in flight when it dies fail.
- * After `idleMs` with nothing in flight it is stopped to free that memory, by closing its stdin, which also stops it when this process exits.
+ * Starts the worker on first use (~1 s) and again after it dies; requests in flight when it dies fail.
+ * After `idleMs` with nothing in flight it is stopped, by closing its stdin, which also stops it when this process exits.
  */
-export function speechWorker(python: string, script: string, toolsDir: string, idleMs: number): Speech {
+export function speechWorker(python: string, script: string, idleMs: number): Speech {
   // Priced before the first call, so a missing price fails at startup.
-  charUsage(KOKORO_MODEL, 0, 0);
   minuteUsage(OPENAI_TTS_MODEL, 0);
   const pending = new Map<number, { resolve: (v: Record<string, unknown>) => void; reject: (e: Error) => void }>();
   let nextId = 1;
@@ -61,7 +58,7 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
     pending.clear();
   };
   const start = () => {
-    const c = spawn(python, [script, toolsDir], { stdio: ["pipe", "pipe", "inherit"] });
+    const c = spawn(python, [script], { stdio: ["pipe", "pipe", "inherit"] });
     createInterface({ input: c.stdout }).on("line", (line) => {
       const msg = JSON.parse(line) as { id?: number; error?: string };
       if (msg.id === undefined) return; // the ready line
@@ -97,10 +94,8 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
 
   return {
     say: async (text, language, voice, pace, out) => {
-      const { seconds } = await call<{ seconds: number }>({ op: "say", text, language, voice: { engine: voice.engine, model: voice.model, speaker: voice.speaker }, pace, out });
-      const usage = voice.engine === "kokoro" ? charUsage(KOKORO_MODEL, text.length, seconds)
-        : voice.engine === "openai" ? minuteUsage(OPENAI_TTS_MODEL, seconds)
-        : null;
+      const { seconds } = await call<{ seconds: number }>({ op: "say", text, language, voice: { engine: voice.engine, model: voice.model }, pace, out });
+      const usage = voice.engine === "openai" ? minuteUsage(OPENAI_TTS_MODEL, seconds) : null;
       return { seconds, usage };
     },
   };

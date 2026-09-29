@@ -2,8 +2,10 @@ import { A, useParams } from "@solidjs/router";
 import { createMemo, createResource, createSignal, Show } from "solid-js";
 import type { QuizTestOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { celebrate } from "../celebrate.ts";
 import { Tada } from "../components/Tada.tsx";
 import { t } from "../i18n/index.ts";
+import { playResult } from "../sounds.ts";
 import { useLang } from "./lang.ts";
 import { useSpeak } from "./QuizDeck.tsx";
 import { QuestionCard, shuffle } from "./QuizStudy.tsx";
@@ -34,6 +36,12 @@ function TestRun(props: { test: QuizTestOut; level: string; onRetry: () => void 
   const passed = () => done() && !missed();
   const [saved] = createResource(() => passed() || undefined,
     () => api.post("/api/quiz/test/pass", { language: lang(), level: props.level }));
+  const choose = (option: string) => {
+    if (chosen() !== null) return;
+    setChosen(option);
+    playResult(option === q().correct);
+    celebrate(option === q().correct);
+  };
   const next = () => {
     if (missed() || index() + 1 === total()) setDone(true);
     else {
@@ -70,7 +78,7 @@ function TestRun(props: { test: QuizTestOut; level: string; onRetry: () => void 
         </div></div>
       }>
         <p class="small text-body-secondary mb-0">{t("quiz.testIntro", { n: total(), level: props.level })}</p>
-        <QuestionCard q={q()} deckId={q().deckId} speak={speak()} options={options()} chosen={chosen()} onChoose={(o) => chosen() === null && setChosen(o)} />
+        <QuestionCard q={q()} deckId={q().deckId} speak={speak()} options={options()} chosen={chosen()} onChoose={choose} />
         <Show when={chosen() !== null}>
           <button type="button" class="qa-quiz-continue btn btn-primary" onClick={next}>
             {t(missed() || index() + 1 === total() ? "quiz.seeResult" : "quiz.next")}

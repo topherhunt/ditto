@@ -14,15 +14,25 @@ test("the feedback link is in the footer before and after signing in", async ({ 
   await expect(page.locator(".qa-spend-today")).toContainText(/\$0\.000 of \$\d+\.\d\d/);
 });
 
-test("an exercise shows the congratulations screen once the day's spend reaches the cap", async ({ page }) => {
+test("a paid call refused at the cap sends the learner to the congratulations page, in their interface language", async ({ page }) => {
   await signIn(page, "capped@example.com");
-  // Spending a real dollar in E2E isn't possible, so the lesson's response reports the cap as reached.
-  await page.route("**/api/lessons/**", async (route) => {
-    const response = await route.fetch();
-    await route.fulfill({ response, headers: { ...response.headers(), "x-spend-today": "1.000100", "x-spend-cap": "1.00" } });
-  });
-  await page.locator(".qa-lesson-start").first().click();
+  await page.request.put("/api/locale", { data: { locale: "it" } });
+  // Spending a real dollar in E2E isn't possible, so starting a conversation is answered as the server does at the cap.
+  await page.route("**/api/conversations", (route) => route.request().method() === "POST"
+    ? route.fulfill({
+      status: 429, contentType: "application/json", headers: { "x-spend-today": "1.000100", "x-spend-cap": "1.00" },
+      body: JSON.stringify({ error: "Daily AI budget ($1.00) reached; it resets at midnight UTC" }),
+    })
+    : route.continue());
+  await page.goto("/it/speak");
+  await page.locator(".qa-speak-starter-cafe").click();
+
+  await expect(page).toHaveURL(/\/cap$/);
+  await expect(page.locator(".qa-cap-reached h1")).toHaveText("Congratulazioni!");
   await expect(page.locator(".qa-cap-reached")).toContainText("$1.00");
-  await expect(page.locator(".qa-slot")).toHaveCount(0);
-  await expect(page.locator(".qa-spend-today")).toContainText("$1.00 of $1.00");
+  await expect(page.locator(".qa-cap-free li")).toHaveCount(4);
+  // The next real response restores the true (zero) spend, so only the footer's language is checked.
+  await expect(page.locator(".qa-spend-today")).toContainText(/su \$\d/);
+  await page.locator(".qa-cap-continue").click();
+  await expect(page).toHaveURL(/\/it$/);
 });

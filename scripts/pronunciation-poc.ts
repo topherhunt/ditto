@@ -152,7 +152,7 @@ async function judgeRealtime(wav: string, clip: z.infer<typeof ClipSchema>): Pro
 type Phonemes = { heard: string; want: string; per: number };
 async function recognize(): Promise<Phonemes[]> {
   const python = join(root, ".venv/bin/python");
-  const proc = spawn(python, [join(root, "scripts/audio-phonemes.py"), join(root, "tools"), work], { stdio: ["pipe", "pipe", "inherit"] });
+  const proc = spawn(python, [join(root, "scripts/audio-phonemes.py"), work], { stdio: ["pipe", "pipe", "inherit"] });
   const byFile = new Map<string, Phonemes>();
   createInterface({ input: proc.stdout }).on("line", (line) => {
     const h = JSON.parse(line) as { file: string; heard: string; want: string };

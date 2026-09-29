@@ -24,7 +24,7 @@ import { registerQuiz } from "./quiz.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
 import { unlockedIds } from "./unlocks.ts";
-import { recordUsage, spentToday } from "./usage.ts";
+import { recordUsage, spentToday, underCapOr429 } from "./usage.ts";
 
 export type AppDeps = {
   db: DB;
@@ -43,12 +43,13 @@ export type AppDeps = {
   pocDir: string | null;
   /** Conversation mode's AI, local speech and audio dir; null refuses its paid calls. */
   conversation: ConversationDeps | null;
-  /** USD per user per UTC day, across every paid call; reaching it blocks the exercises until midnight UTC. */
+  /** USD per user per UTC day, across every paid call; reaching it refuses paid calls until midnight UTC. */
   dailySpendCap: number;
 };
 
 const GRADUATE_AFTER = 2;
 const REVIEW_BATCH = 50;
+const SLOW_REQUEST_MS = 2000;
 
 const LangQuery = z.enum(LANGUAGES);
 /** Punctuation can make an answer wrong, so it is part of the key; case and spacing are not. */
@@ -73,6 +74,13 @@ export function createApp(deps: AppDeps) {
     if (err instanceof z.ZodError) return c.json({ error: "Invalid request", issues: err.issues }, 400);
     console.error(err);
     return c.json({ error: "Internal error" }, 500);
+  });
+
+  app.use("/api/*", async (c, next) => {
+    const started = performance.now();
+    await next();
+    const ms = Math.round(performance.now() - started);
+    if (ms > SLOW_REQUEST_MS) console.warn(`Slow request: ${c.req.method} ${c.req.path} -> ${c.res.status} in ${ms} ms`);
   });
 
   // CSRF: mutations must be same-origin JSON. Cross-site forms can't send application/json without a CORS preflight.
@@ -145,18 +153,15 @@ export function createApp(deps: AppDeps) {
     c.header(SPEND_CAP_HEADER, deps.dailySpendCap.toFixed(2));
   });
 
-  // Every route that spends on AI or records practice. Checked before a request starts, so one in progress may overshoot the cap slightly.
+  // Routes that always pay are capped here; the explainer and quiz audio pay only on a cache miss, so they check there.
   const gated = (c: Context, next: () => Promise<void>) => {
-    if (spentToday(db, c.get("user").id, deps.now()) >= deps.dailySpendCap)
-      throw new HTTPException(429, { message: `Daily AI budget ($${deps.dailySpendCap.toFixed(2)}) reached; it resets at midnight UTC` });
+    underCapOr429(db, c.get("user").id, deps.dailySpendCap, deps.now());
     return next();
   };
   app.on("POST", [
-    "/api/attempts", "/api/level-test/pass", "/api/explain",
     "/api/conversations", "/api/conversations/:id/attempts", "/api/conversations/:id/move-on", "/api/conversations/:id/partner", "/api/conversations/:id/how",
-    "/api/quiz/decks/:id/sessions", "/api/quiz/sessions/:id/answers", "/api/quiz/test/pass",
   ], gated);
-  app.on("GET", ["/api/conversations/:id/say", "/api/quiz/decks/:id/say"], gated);
+  app.get("/api/conversations/:id/say", gated);
 
   const prefsOf = (user: User): Record<Language, Prefs> => {
     const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
@@ -395,7 +400,8 @@ export function createApp(deps: AppDeps) {
 
     const cached = cachedExplanation(unit, answer, locale);
     if (cached) return c.json({ ...cached, cached: true });
-    if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENROUTER_API_KEY)" });
+    if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENAI_API_KEY)" });
+    underCapOr429(db, userId, deps.dailySpendCap, deps.now());
 
     // The explainer sees the unit and grammar focus in the learner's support language, and writes in their UI language.
     const lesson = content.locales[locale].courses.find((x) => x.id === unit.courseId)!.lessons.find((l) => l.id === unit.lessonId)!;

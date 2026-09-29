@@ -17,7 +17,7 @@ function makeDb(dir: string, name: string, sub: string, username: string): { pat
 function addReport(db: DB, unitId: string, triaged = false) {
   db.prepare(
     `INSERT INTO reports (user_id, unit_id, unit_rev, language, text, voice, audio_file, kind, note, created_at, decision, admin_note, triaged_at)
-     VALUES (1, ?, 1, 'it', 'Ciao', 'kokoro:if_sara', 'it/a.m4a', 'audio', '', '2026-01-01', ?, ?, ?)`,
+     VALUES (1, ?, 1, 'it', 'Ciao', 'openai:marin', 'it/a.m4a', 'audio', '', '2026-01-01', ?, ?, ?)`,
   ).run(unitId, triaged ? "fix_audio" : null, triaged ? "mumbled" : null, triaged ? "2026-01-02" : null);
 }
 

@@ -19,6 +19,7 @@ import { QuizBrowse, QuizDeck, QuizSession, QuizStats } from "./pages/QuizDeck.t
 import { QuizHome } from "./pages/QuizHome.tsx";
 import { QuizStudy } from "./pages/QuizStudy.tsx";
 import { QuizTest } from "./pages/QuizTest.tsx";
+import { CapReached } from "./pages/CapReached.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
@@ -32,6 +33,7 @@ render(
     <Router root={Layout}>
       <Route path="/" component={() => <Navigate href={`/${lastLanguage()}`} />} />
       <Route path="/about" component={About} />
+      <Route path="/cap" component={CapReached} />
       <Route path="/friends" component={Friends} />
       <Route path="/leaderboard" component={Leaderboard} />
       <Route path="/settings" component={Settings} />

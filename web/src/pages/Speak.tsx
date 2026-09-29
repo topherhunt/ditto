@@ -2,7 +2,6 @@ import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
 import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
-import { usd } from "../spend.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
@@ -114,7 +113,6 @@ export function Speak() {
                 </ul>
               </section>
             </Show>
-            <div class="qa-speak-spend small text-body-secondary">{t("speak.spendToday", { today: usd(d().spend.today), cap: usd(d().spend.cap) })}</div>
           </>
         )}
       </Show>

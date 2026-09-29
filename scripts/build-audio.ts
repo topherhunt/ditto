@@ -1,6 +1,6 @@
 // Renders every missing audio file referenced by content (see renderJobs in audio-jobs.ts).
 // `--prune` also deletes files no content references (e.g. after a RENDER_VERSION bump).
-// OpenRouter fixes need OPENROUTER_API_KEY and OpenAI word voices OPENAI_API_KEY (from .env); rendering is local only, and deploy ships the files.
+// OpenAI voices need OPENAI_API_KEY (from .env); rendering is local only, and deploy ships the files.
 import { existsSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { loadContent } from "../server/content.ts";

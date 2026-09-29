@@ -188,7 +188,7 @@ describe("conversation mode", () => {
     await t.reply(conv.id); // fails, so the target is spoken
     await t.reply(conv.id, { target: "Vorrei un caffè, per favore." }); // passes, so the partner answers
     await t.start();
-    expect(t.voices).toEqual(Array(4).fill("kokoro:if_sara"));
+    expect(t.voices).toEqual(Array(4).fill("openai:marin"));
   });
 
   it("speaks a tapped chunk in the partner's voice without storing it, only to the conversation's owner", async () => {
@@ -198,7 +198,7 @@ describe("conversation mode", () => {
     const res = await say("Le porto");
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toBe("audio/wav");
-    expect(t.voices.at(-1)).toBe("kokoro:if_sara");
+    expect(t.voices.at(-1)).toBe("openai:marin");
     expect(readdirSync(t.deps.conversation!.audioDir).filter((f) => f.startsWith("say-"))).toEqual([]);
     expect((await say("x".repeat(81))).status).toBe(400);
     await t.login("someone@example.com");

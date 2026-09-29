@@ -1,19 +1,17 @@
-import { A, useLocation, type RouteSectionProps } from "@solidjs/router";
-import { createResource, createSignal, ErrorBoundary, For, Match, onCleanup, Show, Switch } from "solid-js";
+import { A, useLocation, useNavigate, type RouteSectionProps } from "@solidjs/router";
+import { createEffect, createResource, createSignal, ErrorBoundary, For, Match, on, onCleanup, Show, Switch } from "solid-js";
 import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { logout, me, refetchMe } from "../session.ts";
-import { capReached, resetTime, spend, usd } from "../spend.ts";
+import { capHits, spend, usd } from "../spend.ts";
 import { Login } from "./Login.tsx";
 import { Notifications } from "./Notifications.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
 
 const LAST_LANG_KEY = "lastLanguage";
 const FEEDBACK_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeJ4x9h5nMq53v7CyoWiVGS_6EFa4-ncz95TZXaGq9j2UoOJQ/viewform?usp=dialog";
-/** Pages that practice, which the daily spend cap blocks. */
-const EXERCISE_PATH = /^\/[^/]+\/(lesson|test|review|mistakes\/practice|speak|quiz\/test|quiz\/[^/]+\/study)(\/|$)/;
 
 const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
 
@@ -33,6 +31,8 @@ export function Layout(props: RouteSectionProps) {
   };
   /** The language the nav points at: the current route's, else the last one picked. */
   const navLang = () => lang() ?? lastLanguage();
+  const navigate = useNavigate();
+  createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const [langMenuOpen, setLangMenuOpen] = createSignal(false);
@@ -121,7 +121,7 @@ export function Layout(props: RouteSectionProps) {
                 </div>
               </nav>
               <main class="container py-4" style={{ "max-width": "52rem" }}>
-                <Show when={capReached() && EXERCISE_PATH.test(location.pathname)} fallback={props.children}><CapReached /></Show>
+                {props.children}
               </main>
             </>
           )}
@@ -136,17 +136,6 @@ export function Layout(props: RouteSectionProps) {
         </Show>
       </footer>
     </ErrorBoundary>
-  );
-}
-
-function CapReached() {
-  return (
-    <div class="qa-cap-reached text-center py-5">
-      <div class="display-5 mb-3" aria-hidden="true">🎉</div>
-      <h1 class="h3">{t("cap.title")}</h1>
-      <p class="text-body-secondary mx-auto" style={{ "max-width": "32rem" }}>{t("cap.body", { cap: usd(spend()!.cap) })}</p>
-      <p class="small text-body-secondary">{t("cap.resets", { time: resetTime() })}</p>
-    </div>
   );
 }
 

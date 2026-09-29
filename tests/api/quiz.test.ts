@@ -156,6 +156,12 @@ describe("quiz mode", () => {
     expect((await t.req("GET", url("question"))).status).toBe(200);
     expect(said).toHaveLength(2);
     expect(readdirSync(join(audioDir, "quiz"))).toHaveLength(2);
+    // At the daily cap, a stored clip still plays, being free; a new render is refused.
+    t.deps.dailySpendCap = 0;
+    expect((await t.req("GET", url("question"))).status).toBe(200);
+    expect((await t.req("GET", url("wrong0"))).status).toBe(429);
+    expect(said).toHaveLength(2);
+    t.deps.dailySpendCap = 5;
 
     expect((await t.req("GET", url("title"))).status).toBe(400);
     expect((await t.req("GET", url("question", "nope"))).status).toBe(404);

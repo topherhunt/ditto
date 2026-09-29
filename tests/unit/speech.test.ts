@@ -10,7 +10,7 @@ const alive = (p: number) => { try { process.kill(p, 0); return true; } catch { 
 
 describe("speech worker", () => {
   it("reuses one worker while busy, stops it after the idle time, and starts a fresh one on the next call", async () => {
-    const speech = speechWorker(process.execPath, echo, "tools", 100);
+    const speech = speechWorker(process.execPath, echo, 100);
     const first = await pid(speech);
     await sleep(50);
     expect(await pid(speech)).toBe(first);

@@ -10,28 +10,24 @@ import { tokenize, words } from "../shared/tokenize.ts";
 import { loadQuizzes, type QuizDeck } from "./quiz-content.ts";
 
 /** For `abair`, `model` is an ABAIR voice name; for `openai`, a gpt-4o-mini-tts voice; see scripts/tts-render.py. */
-export type Voice = { engine: "piper" | "kokoro" | "abair" | "openai"; model: string; speaker?: number; gender: "F" | "M" };
+export type Voice = { engine: "abair" | "openai"; model: string; gender: "F" | "M" };
 
 /**
- * Order matters: served audio arrays follow it. The NL mls speakers were picked as female by median pitch.
+ * Order matters: served audio arrays follow it.
  * GA uses ABAIR's Munster voices, to match the Munster forms in the course (Conas atá tú?, Táim).
  */
 export const VOICES: Record<Language, Voice[]> = {
   en: [
-    { engine: "piper", model: "en_US-amy-medium", gender: "F" },
-    { engine: "piper", model: "en_US-lessac-medium", gender: "F" },
-    { engine: "piper", model: "en_US-ryan-medium", gender: "M" },
-    { engine: "piper", model: "en_US-joe-medium", gender: "M" },
+    { engine: "openai", model: "marin", gender: "F" },
+    { engine: "openai", model: "cedar", gender: "M" },
   ],
   it: [
     { engine: "openai", model: "marin", gender: "F" },
     { engine: "openai", model: "cedar", gender: "M" },
   ],
   nl: [
-    { engine: "piper", model: "nl_NL-pim-medium", gender: "M" },
-    { engine: "piper", model: "nl_NL-ronnie-medium", gender: "M" },
-    { engine: "piper", model: "nl_NL-mls-medium", speaker: 3, gender: "F" },
-    { engine: "piper", model: "nl_NL-mls-medium", speaker: 6, gender: "F" },
+    { engine: "openai", model: "marin", gender: "F" },
+    { engine: "openai", model: "cedar", gender: "M" },
   ],
   ga: [
     { engine: "abair", model: "ga_MU_nnc_piper", gender: "F" }, // Neasa
@@ -42,19 +38,16 @@ export const VOICES: Record<Language, Voice[]> = {
 /** Bump to re-render every file after changing how audio is produced (padding, loudness). */
 const RENDER_VERSION = 2;
 
-export const voiceId = (v: Voice) => `${v.engine}:${v.model}${v.speaker === undefined ? "" : `#${v.speaker}`}`;
+export const voiceId = (v: Voice) => `${v.engine}:${v.model}`;
 
 /**
- * A fix for one clip that renders badly: what the engine reads instead of the text (`say`, or Kokoro `phonemes`),
- * seconds to `cut` off the end, a paid `openrouter` voice to render it instead of the slot's own engine, and a `take`
- * to bump for a fresh render from a random engine (Piper, OpenRouter).
+ * A fix for one clip that renders badly: what the engine reads instead of the text (`say`),
+ * seconds to `cut` off the end, and a `take` to bump for a fresh render (OpenAI output is random per run).
  */
 export const AudioFixSchema = z.strictObject({
-  say: z.string().min(1).optional(), phonemes: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),
-  openrouter: z.strictObject({ model: z.string().min(1), voice: z.string().min(1), style: z.string().min(1).optional() }).optional(),
+  say: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),
 })
-  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" })
-  .refine((f) => !(f.openrouter && f.phonemes), { message: "phonemes need a kokoro voice, not openrouter" });
+  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" });
 export type AudioFix = z.infer<typeof AudioFixSchema>;
 /** content/audio-fixes.json: language -> voice id -> text (as rendered, so lowercase for word audio) -> fix. */
 const AudioFixesSchema = z.partialRecord(z.enum(LANGUAGES), z.record(z.string(), z.record(z.string(), AudioFixSchema)));
@@ -119,10 +112,7 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
     for (const [id, byText] of Object.entries(byVoice)) {
       const voice = VOICES[language as Language].find((v) => voiceId(v) === id);
       if (!voice) fail(fixesPath, `unknown ${language} voice ${id}`);
-      for (const [text, fix] of Object.entries(byText)) {
-        if (fix.phonemes && voice.engine !== "kokoro") fail(fixesPath, `${id} "${text}": phonemes need a kokoro voice`);
-        unusedFixes.add(`${language}|${id}|${text}`);
-      }
+      for (const text of Object.keys(byText)) unusedFixes.add(`${language}|${id}|${text}`);
     }
 
   // Words recur across thousands of units; hashing each occurrence dominated boot on the VPS.

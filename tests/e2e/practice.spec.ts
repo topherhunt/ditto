@@ -37,7 +37,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await slot(page, 0).press("Enter");
   await pickMeaning(page, "I would like");
   await expect(page.locator(".qa-outcome")).toContainText("Corrected");
-  // No OPENROUTER_API_KEY in E2E: the explainer reports it is not configured.
+  // No OPENAI_API_KEY in E2E: the explainer reports it is not configured.
   await page.locator(".qa-why").click();
   await expect(page.locator(".qa-explain .alert-warning")).toContainText("not configured");
   await page.locator(".qa-next").click();

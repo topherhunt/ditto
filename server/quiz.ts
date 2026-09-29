@@ -20,7 +20,7 @@ import { transaction, type DB } from "./db.ts";
 import type { QuizDeck } from "./quiz-content.ts";
 import { quizVoice } from "./speech.ts";
 import { scheduleGrade } from "./srs.ts";
-import { recordUsage } from "./usage.ts";
+import { recordUsage, underCapOr429 } from "./usage.ts";
 
 const QUEUE_SIZE = 20;
 const GRADE: Record<QuizRating, Grade> = { again: Rating.Again, hard: Rating.Hard, good: Rating.Good, easy: Rating.Easy };
@@ -285,7 +285,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
   });
 
   // Only a question's own text can be voiced, so this is no free TTS proxy. Renders are shared across learners on disk, since
-  // they cost money; the learner who misses the cache pays.
+  // they cost money; the learner who misses the cache pays, under the daily cap.
   app.get("/api/quiz/decks/:id/say", async (c) => {
     if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (the speech worker)" });
     const { speech, audioDir } = deps.conversation;
@@ -303,6 +303,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     const dir = join(audioDir, "quiz");
     const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${pace}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
     if (!existsSync(path)) {
+      underCapOr429(db, userId, deps.dailySpendCap, deps.now());
       mkdirSync(dir, { recursive: true });
       const tmp = `${path}.${randomUUID()}.tmp.wav`;
       try {

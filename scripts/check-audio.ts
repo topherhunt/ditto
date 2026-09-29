@@ -1,7 +1,7 @@
 // Sanity-checks rendered clips: a phoneme recognizer listens to each one, and the clips whose phonemes stray
 // furthest from the text's come first in data/audio-check.html, to be played and judged by ear.
 // Default scope: texts of 1-2 words, where a slurred or clipped sound has no context to hide in.
-// Flags: --all (every length), --lang it, --voice kokoro:if_sara, --text "sì" (repeatable), --top 300.
+// Flags: --all (every length), --lang it, --voice openai:marin, --text "sì" (repeatable), --top 300.
 // Results are cached per clip file in data/audio-check.jsonl, so only new renders get scored.
 import { existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

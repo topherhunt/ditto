@@ -26,10 +26,7 @@ const clips = Object.entries(plan).flatMap(([language, byVoice]) =>
     return Object.entries(byText).map(([text, fixes]) => {
       const current = audioJobs.find((j) => j.language === language && voiceId(j.voice) === id && j.text === text);
       if (!current) throw new Error(`no content renders ${language}|${id}|${text}`);
-      const candidates = fixes.map((fix): AudioJob => {
-        if (fix.phonemes && voice.engine !== "kokoro") throw new Error(`${id} "${text}": phonemes need a kokoro voice`);
-        return { language: language as Language, voice, text, fix, file: audioFile(language as Language, voice, text, fix) };
-      });
+      const candidates = fixes.map((fix): AudioJob => ({ language: language as Language, voice, text, fix, file: audioFile(language as Language, voice, text, fix) }));
       return { current, candidates };
     });
   }));

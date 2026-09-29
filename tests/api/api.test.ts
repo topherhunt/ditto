@@ -311,7 +311,7 @@ describe("explainer", () => {
     expect(cached.json.cached).toBe(true);
     expect(Number(cached.headers.get("X-Spend-Today"))).toBe(0);
     expect(t.deps.db.prepare("SELECT purpose, model, cost_usd AS cost FROM api_usage").all())
-      .toEqual([{ purpose: "explain", model: "openai/gpt-6-luna", cost: expect.closeTo(0.0002) }]);
+      .toEqual([{ purpose: "explain", model: "gpt-6-luna", cost: expect.closeTo(0.0002) }]);
   });
 
   it("refuses correct answers and returns 503 without a key", async () => {
@@ -326,27 +326,26 @@ describe("explainer", () => {
 });
 
 describe("daily spend cap", () => {
-  it("blocks the learner's exercises and paid calls once their spend reaches the cap, until midnight UTC", async () => {
+  it("refuses the learner's paid calls once their spend reaches the cap, until midnight UTC, and keeps free practice open", async () => {
     // Each fake explanation costs $0.0002, so the third reaches the cap.
     const t = setup({ dailySpendCap: 0.0005 });
     await t.login("a@example.com");
     for (const answer of ["x1", "x2", "x3"]) expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer })).status).toBe(200);
 
-    const capped = await t.attempt("it-a1-bar-1-u01");
+    const capped = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" });
     expect(capped.status).toBe(429);
     expect(capped.json.error).toBe("Daily AI budget ($0.00) reached; it resets at midnight UTC");
     expect(Number(capped.headers.get("X-Spend-Today"))).toBeCloseTo(0.0006);
     expect(capped.headers.get("X-Spend-Cap")).toBe("0.00");
-    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" })).status).toBe(429);
-    expect((await t.req("POST", "/api/quiz/test/pass", {})).status).toBe(429);
-    expect((await t.req("GET", "/api/lessons/it-a1-bar-1?lang=it")).status).toBe(200);
+    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x1" })).json.cached).toBe(true);
+    expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
 
     await t.login("b@example.com");
-    expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
+    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" })).status).toBe(200);
 
     await t.login("a@example.com");
     t.clock.now = new Date("2026-09-02T00:00:00Z");
-    expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
+    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x5" })).status).toBe(200);
   });
 });
 

@@ -85,6 +85,30 @@ test("finishing a lesson plays the victory sound at a quarter volume", async ({ 
   expect(await played(page)).toEqual(["click", "victory"]);
 });
 
+test("a quiz option sounds correct or wrong at half volume, in study and in a level test", async ({ page }) => {
+  await recordSounds(page);
+  await signIn(page, "sounds5@example.com");
+  await page.goto("/it/quiz/it-a1-grammar-1");
+  await page.locator(".qa-quiz-mode-spaced").click();
+  await played(page);
+
+  await page.locator(".qa-quiz-option:not(.qa-quiz-option-correct)").first().click();
+  expect(await played(page)).toEqual(["click", "wrong"]);
+  await page.locator(".qa-quiz-continue").click();
+  await played(page);
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await played(page)).toEqual(["click", "correct"]);
+
+  await page.goto("/it/quiz/test/A1");
+  await played(page);
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await played(page)).toEqual(["click", "correct"]);
+  await page.locator(".qa-quiz-continue").click();
+  await played(page);
+  await page.locator(".qa-quiz-option:not(.qa-quiz-option-correct)").first().click();
+  expect(await played(page)).toEqual(["click", "wrong"]);
+});
+
 test("the navbar and the settings page are silent", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds3@example.com");
@@ -107,8 +131,8 @@ test("the navbar and the settings page are silent", async ({ page }) => {
   expect(await played(page)).toEqual(["click"]);
 });
 
-test("a pass bursts one emoji per pass in a row, and a wrong answer starts the count over", async ({ page }) => {
-  // The emojis fade in 250 ms, so count each burst as it is added rather than racing to see it.
+/** Counts the emojis in each celebrate burst; they fade in 250 ms, so each burst is counted as it is added rather than raced to be seen. */
+async function recordBursts(page: Page) {
   await page.addInitScript(() => {
     const bursts: number[] = [];
     (window as unknown as { bursts: number[] }).bursts = bursts;
@@ -117,7 +141,11 @@ test("a pass bursts one emoji per pass in a row, and a wrong answer starts the c
       if (added) bursts.push(added);
     }).observe(document, { childList: true, subtree: true });
   });
-  const bursts = () => page.evaluate(() => (window as unknown as { bursts: number[] }).bursts.splice(0));
+  return () => page.evaluate(() => (window as unknown as { bursts: number[] }).bursts.splice(0));
+}
+
+test("a pass bursts one emoji per pass in a row, and a wrong answer starts the count over", async ({ page }) => {
+  const bursts = await recordBursts(page);
   await signIn(page, "sounds4@example.com");
   await page.locator(".qa-lesson-start").first().click();
 
@@ -138,5 +166,30 @@ test("a pass bursts one emoji per pass in a row, and a wrong answer starts the c
   await page.locator(".qa-slot").first().fill("un");
   await page.locator(".qa-slot").nth(1).fill("caffè");
   await page.locator(".qa-slot").nth(1).press("Enter");
+  expect(await bursts()).toEqual([1]);
+});
+
+test("a right quiz pick bursts one emoji per right pick in a row, and a wrong pick bursts none and starts the count over", async ({ page }) => {
+  const bursts = await recordBursts(page);
+  await signIn(page, "sounds6@example.com");
+  await page.goto("/it/quiz/it-a1-grammar-1");
+  await page.locator(".qa-quiz-mode-spaced").click();
+
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await bursts()).toEqual([1]);
+  await page.locator(".qa-quiz-rate-good").click();
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await bursts()).toEqual([2]);
+  await page.locator(".qa-quiz-rate-good").click();
+  await page.locator(".qa-quiz-option:not(.qa-quiz-option-correct)").first().click();
+  await expect(page.locator(".qa-quiz-missed")).toBeVisible();
+  expect(await bursts()).toEqual([]);
+  await page.locator(".qa-quiz-continue").click();
+  // The missed question comes back at the end.
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await bursts()).toEqual([1]);
+
+  await page.goto("/it/quiz/test/A1");
+  await page.locator(".qa-quiz-option-correct").click();
   expect(await bursts()).toEqual([1]);
 });

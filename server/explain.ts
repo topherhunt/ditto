@@ -56,12 +56,11 @@ export function buildPrompt({ unit, grammarFocus, answer, grade, locale }: Expla
   return { instructions: INSTRUCTIONS.replace("{language}", LANGUAGE_NAMES[unit.language]).replace("{locale}", LOCALE_NAMES[locale]), input };
 }
 
-/** On OpenRouter. Cached explanations are keyed by it, so changing it drops the cache. */
-export const EXPLAIN_MODEL = "openai/gpt-6-luna";
+/** Cached explanations are keyed by it, so changing it drops the cache. */
+export const EXPLAIN_MODEL = "gpt-6-luna";
 
-/** An OpenAI model through OpenRouter's OpenAI-compatible API. */
-export function openRouterExplainer(apiKey: string): Explainer {
-  const client = new OpenAI({ apiKey, baseURL: "https://openrouter.ai/api/v1" });
+export function openAIExplainer(apiKey: string): Explainer {
+  const client = new OpenAI({ apiKey });
   const model = EXPLAIN_MODEL;
   tokenUsage(model, 0, 0);
   return {

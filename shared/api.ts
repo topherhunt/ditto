@@ -192,7 +192,7 @@ export type ConversationSummary = {
   levels: string[];
   reliance: Reliance;
 };
-export type ConversationsOut = { conversations: ConversationSummary[]; weakPhrases: { text: string; createdAt: string }[]; spend: Omit<Spend, "conversation"> };
+export type ConversationsOut = { conversations: ConversationSummary[]; weakPhrases: { text: string; createdAt: string }[] };
 /** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
 export type SpeakAttemptResult = { attempt: SpeakAttemptOut; turns: TurnOut[]; reliance: Reliance; spend: Spend };
 export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend };

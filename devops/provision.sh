@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Provision Ditto's tenant only: user, dirs, private Node, speech worker (Piper venv, voices), systemd units, Caddy site, registry entry.
+# Provision Ditto's tenant only: user, dirs, private Node, speech worker (Python venv), systemd units, Caddy site, registry entry.
 # Idempotent. The shared host setup (Caddy, system Node, registry) already exists on racknerd1.
 . "$(cd "$(dirname "$0")" && pwd)/config.sh"
 require_host
 echo "==> Provisioning ${SERVICE_NAME}: ${DOMAIN} -> 127.0.0.1:${APP_PORT}, ${REMOTE_DIR}, Node ${APP_NODE_MAJOR} in ${APP_NODE_DIR}"
-remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' SPEECH_DIR='${SPEECH_DIR}' PIPER_VERSION='${PIPER_VERSION}' PIPER_VOICES='${PIPER_VOICES}' bash -s" <<'REMOTE'
+remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' SPEECH_DIR='${SPEECH_DIR}' bash -s" <<'REMOTE'
 set -euo pipefail
 if [ -d "${REGISTRY_DIR}" ]; then
   for f in "${REGISTRY_DIR}"/*.app; do
@@ -35,23 +35,11 @@ if ! "${APP_NODE_DIR}/bin/node" -v 2>/dev/null | grep -q "^v${APP_NODE_MAJOR}\."
 fi
 echo "Node: $("${APP_NODE_DIR}/bin/node" -v)"
 
-# Piper voices Dutch here; Italian and English are Kokoro on OpenRouter.
+# The speech worker only calls gpt-4o-mini-tts on OpenAI and writes WAV files, so its venv needs just numpy.
 dpkg -s python3-venv >/dev/null 2>&1 || { apt-get update -q && apt-get install -y -q --no-install-recommends python3-venv; }
 [ -x "${SPEECH_DIR}/venv/bin/python" ] || python3 -m venv "${SPEECH_DIR}/venv"
-"${SPEECH_DIR}/venv/bin/pip" install -q "piper-tts==${PIPER_VERSION}"
-install -d -m 755 "${SPEECH_DIR}/piper-voices"
-for v in ${PIPER_VOICES}; do
-  # it_IT-paola-medium lives at it/it_IT/paola/medium/ in rhasspy/piper-voices.
-  locale="${v%%-*}"; rest="${v#*-}"; name="${rest%-*}"; quality="${rest##*-}"
-  for ext in onnx onnx.json; do
-    f="${SPEECH_DIR}/piper-voices/${v}.${ext}"
-    if [ ! -s "$f" ]; then
-      curl -fsSL -o "$f.tmp" "https://huggingface.co/rhasspy/piper-voices/resolve/main/${locale%%_*}/${locale}/${name}/${quality}/${v}.${ext}"
-      mv "$f.tmp" "$f"
-    fi
-  done
-done
-echo "Piper: $("${SPEECH_DIR}/venv/bin/pip" show piper-tts | sed -n 's/^Version: //p'), voices: $(ls "${SPEECH_DIR}/piper-voices" | grep -c '\.onnx$')"
+"${SPEECH_DIR}/venv/bin/pip" install -q numpy
+echo "Speech worker numpy: $("${SPEECH_DIR}/venv/bin/pip" show numpy | sed -n 's/^Version: //p')"
 
 if ! id -u "${SERVICE_USER}" >/dev/null 2>&1; then
   adduser --system --group --home "${REMOTE_DIR}" --no-create-home --shell /usr/sbin/nologin "${SERVICE_USER}"
@@ -78,7 +66,6 @@ Environment=HOST=127.0.0.1
 Environment=PORT=${APP_PORT}
 Environment=DATABASE_PATH=${DATA_DIR}/app.db
 Environment=SPEECH_PYTHON=${SPEECH_DIR}/venv/bin/python
-Environment=TOOLS_DIR=${SPEECH_DIR}
 Environment=SPEAK_AUDIO_DIR=${DATA_DIR}/speak-audio
 ExecStart=${APP_NODE_DIR}/bin/node server/index.ts
 Restart=on-failure
@@ -91,7 +78,7 @@ ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
 RestrictSUIDSGID=true
-# Node ~130 MB plus the speech worker, ~300 MB with Piper's Dutch voice loaded (it stops after an hour idle).
+# Node ~130 MB plus the speech worker, ~35 MB (it stops after an hour idle).
 MemoryMax=512M
 
 [Install]

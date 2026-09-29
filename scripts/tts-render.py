@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: tools dir, voice JSON {engine, model, speaker?} (openrouter: {engine, model, voice, style?}; openai: model is the voice), language.stdin: JSON lines {"text", "phonemes"?, "cut"?, "out"}; Kokoro reads `phonemes` instead of the text when given, and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: voice JSON {engine, model} (openai: model is the voice), language. stdin: JSON lines {"text", "cut"?, "out"}; `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -8,34 +8,15 @@ from pathlib import Path
 
 import numpy as np
 
-tools = Path(sys.argv[1])
-voice = json.loads(sys.argv[2])
-language = sys.argv[3]
+voice = json.loads(sys.argv[1])
+language = sys.argv[2]
 
 TARGET_RMS = 0.08  # about -22 dBFS over the voiced part, so voices and engines play at the same loudness
 PEAK = 0.95
 PAD_SECONDS = 0.15
 SILENCE = 0.01
 
-if voice["engine"] == "piper":
-    from piper import PiperVoice, SynthesisConfig
-
-    model = PiperVoice.load(tools / "piper-voices" / f"{voice['model']}.onnx")
-    config = SynthesisConfig(speaker_id=voice.get("speaker"))
-
-    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
-        chunks = list(model.synthesize(text, config))
-        return np.concatenate([c.audio_float_array for c in chunks]), chunks[0].sample_rate
-elif voice["engine"] == "kokoro":
-    from kokoro_onnx import Kokoro
-
-    model = Kokoro(str(tools / "kokoro" / "kokoro-v1.0.onnx"), str(tools / "kokoro" / "voices-v1.0.bin"))
-
-    def synth(text: str, phonemes: str | None) -> tuple[np.ndarray, int]:
-        if phonemes:
-            return model.create(phonemes, voice=voice["model"], lang=language, is_phonemes=True)
-        return model.create(text, voice=voice["model"], lang=language)
-elif voice["engine"] == "abair":
+if voice["engine"] == "abair":
     # ABAIR (Trinity College Dublin) serves this free endpoint for its web reader. Be a polite guest:
     # one request at a time (build-audio.ts runs abair voices sequentially) with a pause after each, and an honest
     # User-Agent (Cloudflare rejects Python's default one with error 1010).
@@ -46,7 +27,7 @@ elif voice["engine"] == "abair":
     import urllib.parse
     import urllib.request
 
-    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
+    def synth(text: str) -> tuple[np.ndarray, int]:
         query = urllib.parse.urlencode({"input": text, "voice": voice["model"], "normalise": "true"})
         req = urllib.request.Request(f"https://synthesis.abair.ie/api/synthesise?{query}", headers={"Accept": "application/json", "User-Agent": "Ditto/1.0 (dictation trainer; +https://github.com/topherhunt/ditto)"})
         try:
@@ -60,32 +41,6 @@ elif voice["engine"] == "abair":
             if w.getnchannels() != 1 or w.getsampwidth() != 2:
                 sys.exit(f"expected 16-bit mono from ABAIR, got {w.getnchannels()} channels, {w.getsampwidth()} bytes")
             return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
-elif voice["engine"] == "openrouter":
-    # Paid fallback for single clips the free engines can't get right (see audio-fixes.json). Output varies per call.
-    import os
-    import re
-    import urllib.error
-    import urllib.request
-
-    key = os.environ.get("OPENROUTER_API_KEY")
-    if not key:
-        raise SystemExit("OPENROUTER_API_KEY is not set (put it in .env)")
-
-    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
-        body = {"model": voice["model"], "input": text, "voice": voice["voice"], "response_format": "pcm"}
-        if voice.get("style"):
-            body["provider"] = {"options": {"google": {"speech_metadata": {"style": voice["style"]}}}}
-        req = urllib.request.Request("https://openrouter.ai/api/v1/audio/speech", data=json.dumps(body).encode(),
-                                     headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-        try:
-            with urllib.request.urlopen(req, timeout=60) as res:
-                kind, pcm = res.headers["Content-Type"], res.read()
-        except urllib.error.HTTPError as e:
-            sys.exit(f"OpenRouter {e.code} for {text!r}: {e.read().decode()}")
-        rate = re.search(r"rate=(\d+)", kind)
-        if not kind.startswith("audio/pcm") or not rate or "channels=1" not in kind:
-            sys.exit(f"expected mono PCM with a rate from OpenRouter, got {kind}")
-        return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, int(rate.group(1))
 elif voice["engine"] == "openai":
     # gpt-4o-mini-tts. Naming the language stops it guessing one from a bare word; it has no reliable pace control
     # (docs/plan.md, Audio). It occasionally returns silence or stalls past the timeout, and parallel workers can hit
@@ -100,7 +55,7 @@ elif voice["engine"] == "openai":
         raise SystemExit("OPENAI_API_KEY is not set (put it in .env)")
     name = {"it": "Italian", "en": "American English", "nl": "Dutch", "ga": "Irish Gaelic"}[language]
 
-    def synth(text: str, _phonemes: None) -> tuple[np.ndarray, int]:
+    def synth(text: str) -> tuple[np.ndarray, int]:
         kind = "word" if len(text.split()) == 1 else "sentence" if text.rstrip()[-1] in ".!?" else "phrase"
         instructions = f"Say this {name} {kind} in {name} with a native {name} accent, at a normal conversational pace, the way a native speaker says it to a friend"
         body = {"model": "gpt-4o-mini-tts", "input": text, "voice": voice["model"], "response_format": "pcm", "instructions": instructions}
@@ -145,7 +100,7 @@ with tempfile.TemporaryDirectory() as tmp:
     wav_path = Path(tmp) / "out.wav"
     for line in sys.stdin:
         job = json.loads(line)
-        samples, rate = synth(job["text"], job.get("phonemes"))
+        samples, rate = synth(job["text"])
         pcm = (finish(np.asarray(samples, dtype=np.float32), rate, job.get("cut") or 0) * 32767).astype(np.int16)
         with wave.open(str(wav_path), "wb") as wav:
             wav.setnchannels(1)

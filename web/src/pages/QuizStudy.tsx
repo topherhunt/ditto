@@ -2,9 +2,11 @@ import { A, useNavigate, useParams } from "@solidjs/router";
 import { createMemo, createResource, createSignal, For, Show } from "solid-js";
 import type { QuizAnswerOut, QuizQuestionOut, QuizRating, QuizSessionOut, QuizSessionStartOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { celebrate } from "../celebrate.ts";
 import { deckName, SessionSummary } from "../components/QuizCharts.tsx";
 import { Tada } from "../components/Tada.tsx";
 import { t } from "../i18n/index.ts";
+import { playResult } from "../sounds.ts";
 import { useLang } from "./lang.ts";
 import { Say, useDeck, useSpeak } from "./QuizDeck.tsx";
 
@@ -65,6 +67,8 @@ export function QuizStudy() {
     if (chosen() !== null) return;
     setChosen(option);
     const right = option === current()!.correct;
+    playResult(right);
+    celebrate(right);
     setResults((rs) => [...rs, right]);
     if (!right) {
       setMissed((m) => [...m, current()!.id]);
@@ -158,14 +162,16 @@ export function QuestionCard(props: { q: QuizQuestionOut; deckId: string; speak:
         <For each={props.options}>
           {(option) => {
             const field = () => (option === props.q.correct ? "correct" : `wrong${props.q.wrong.indexOf(option)}`);
+            // One class string, not class plus classList: For reuses a button when a missed question comes straight back,
+            // and a changed class would wipe a classList class that classList doesn't know to restore.
             const style = () => {
               if (props.chosen === null) return "btn-outline-secondary";
-              if (option === props.q.correct) return right() ? "btn-success" : "btn-outline-success";
-              return option === props.chosen ? "btn-danger" : "btn-outline-secondary opacity-50";
+              if (option === props.q.correct) return `pe-none ${right() ? "btn-success" : "btn-outline-success"}`;
+              return `pe-none ${option === props.chosen ? "btn-danger" : "btn-outline-secondary opacity-50"}`;
             };
             return (
               <div class="d-flex align-items-center gap-2">
-                <button type="button" class={`qa-quiz-option btn ${style()} flex-grow-1 text-start`} classList={{ "qa-quiz-option-correct": option === props.q.correct, "pe-none": props.chosen !== null }}
+                <button type="button" class={`qa-quiz-option ${option === props.q.correct ? "qa-quiz-option-correct" : ""} btn ${style()} flex-grow-1 text-start`}
                   dir="auto" onClick={() => props.onChoose(option)}>{option}</button>
                 {say(field())}
               </div>

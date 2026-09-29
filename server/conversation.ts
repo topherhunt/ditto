@@ -55,7 +55,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const { db } = deps;
   if (deps.conversation) mkdirSync(deps.conversation.audioDir, { recursive: true });
   const speak = () => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENROUTER_API_KEY and the speech worker)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY and the speech worker)" });
     return deps.conversation;
   };
   const Id = z.coerce.number().int();
@@ -86,11 +86,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return { leaned: sources.filter((s) => LEANED.includes(s)).length, of: sources.length };
   };
 
-  const spend = (userId: number, conversationId: number | null): Spend => ({
+  const spend = (userId: number, conversationId: number): Spend => ({
     today: spentToday(db, userId, deps.now()),
     cap: deps.dailySpendCap,
-    conversation: conversationId === null ? 0
-      : (db.prepare("SELECT coalesce(sum(cost_usd), 0) AS s FROM api_usage WHERE conversation_id = ?").get(conversationId) as { s: number }).s,
+    conversation: (db.prepare("SELECT coalesce(sum(cost_usd), 0) AS s FROM api_usage WHERE conversation_id = ?").get(conversationId) as { s: number }).s,
   });
   const paid = (userId: number, conversationId: number | null, purpose: string, u: Usage) => recordUsage(db, userId, conversationId, purpose, u, deps.now());
   /** Renders `text` in the partner's voice to `path`, recording what it cost. */
@@ -172,8 +171,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     }));
     const weakPhrases = db.prepare("SELECT text, created_at AS createdAt FROM weak_phrases WHERE user_id = ? AND language = ? ORDER BY id DESC")
       .all(userId, language) as { text: string; createdAt: string }[];
-    const { today, cap } = spend(userId, null);
-    return c.json<ConversationsOut>({ conversations, weakPhrases, spend: { today, cap } });
+    return c.json<ConversationsOut>({ conversations, weakPhrases });
   });
 
   const conversationOut = (conv: ConversationRow, userId: number): ConversationOut => ({
