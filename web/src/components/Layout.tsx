@@ -4,24 +4,14 @@ import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
+import { homeLanguage, LANGUAGE_FLAGS, rememberLanguage } from "../learning.ts";
+import { FEEDBACK_URL } from "../links.ts";
+import { Welcome } from "../pages/Welcome.tsx";
 import { logout, me, refetchMe } from "../session.ts";
-import { capHits, spend, usd } from "../spend.ts";
-import { Login } from "./Login.tsx";
+import { capHits, spend, usdShort } from "../spend.ts";
 import { Notifications } from "./Notifications.tsx";
+import { LearnPicker } from "./LearnPicker.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
-
-const LAST_LANG_KEY = "lastLanguage";
-const FEEDBACK_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeJ4x9h5nMq53v7CyoWiVGS_6EFa4-ncz95TZXaGq9j2UoOJQ/viewform?usp=dialog";
-
-const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
-
-export function lastLanguage(): Language {
-  try {
-    const l = localStorage.getItem(LAST_LANG_KEY);
-    if (l && (LANGUAGES as readonly string[]).includes(l)) return l as Language;
-  } catch { /* storage unavailable: use the default */ }
-  return "it";
-}
 
 export function Layout(props: RouteSectionProps) {
   const location = useLocation();
@@ -29,8 +19,8 @@ export function Layout(props: RouteSectionProps) {
     const seg = location.pathname.split("/")[1];
     return (LANGUAGES as readonly string[]).includes(seg) ? seg as Language : null;
   };
-  /** The language the nav points at: the current route's, else the last one picked. */
-  const navLang = () => lang() ?? lastLanguage();
+  /** The language the nav points at: the current route's, else the learner's home course. Only read once they study one. */
+  const navLang = () => lang() ?? homeLanguage(me()!.learning);
   const navigate = useNavigate();
   createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
   const [menuOpen, setMenuOpen] = createSignal(false);
@@ -48,7 +38,7 @@ export function Layout(props: RouteSectionProps) {
     <ErrorBoundary fallback={(err) => <div class="container py-4"><div class="alert alert-danger">{String(err)}</div></div>}>
       <Switch>
         <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
-        <Match when={me() === null}><Login /></Match>
+        <Match when={me() === null}><div class="container py-4" style={{ "max-width": "52rem" }}><Welcome /></div></Match>
         {/* A new account has no username yet, and the leaderboard and profiles need one. */}
         <Match when={me() && me()!.username === null}>
           <div class="qa-choose-username container py-5" style={{ "max-width": "28rem" }}>
@@ -59,33 +49,47 @@ export function Layout(props: RouteSectionProps) {
             <button type="button" class="qa-logout btn btn-link btn-sm px-0 mt-3" onClick={logout}>{t("nav.signOut")}</button>
           </div>
         </Match>
+        {/* Only a learner who skipped the homepage's question gets here: a new account without a pick, or one from before the question. */}
+        <Match when={me() && me()!.learning.length === 0}>
+          <div class="qa-choose-learning container py-5" style={{ "max-width": "28rem" }}>
+            <h1 class="h4 mb-3">{t("welcome.learnQ")}</h1>
+            <LearnPicker locale={me()!.locale} chosen={null} onChoose={async (l) => {
+              await api.put("/api/learning", { languages: [l] });
+              rememberLanguage(l);
+              await refetchMe();
+              if (location.pathname === "/") navigate(`/${l}`);
+            }} />
+          </div>
+        </Match>
         <Match when={me()}>
           {(user) => (
             <>
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
                 <div class="container gap-2 flex-wrap">
-                  <A class="navbar-brand" href={`/${navLang()}`}><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
-                  <div class="dropdown" ref={langMenuRoot}>
-                    <button type="button" class="qa-lang-picker btn btn-sm btn-outline-primary dropdown-toggle" aria-expanded={langMenuOpen()}
-                      aria-label={languageName(navLang())} onClick={() => setLangMenuOpen(!langMenuOpen())}>
-                      {LANGUAGE_FLAGS[navLang()]} <span class="text-uppercase">{navLang()}</span>
-                    </button>
-                    <ul class="dropdown-menu" classList={{ show: langMenuOpen() }} data-bs-popper="static">
-                      <For each={LANGUAGES}>
-                        {(l) => (
-                          <li>
-                            <A href={`/${l}`} class={`qa-lang-${l} dropdown-item`} classList={{ active: navLang() === l }} end
-                              onClick={() => {
-                                try { localStorage.setItem(LAST_LANG_KEY, l); } catch { /* storage unavailable */ }
-                                setLangMenuOpen(false);
-                              }}>
-                              {LANGUAGE_FLAGS[l]} {languageName(l)}
-                            </A>
-                          </li>
-                        )}
-                      </For>
-                    </ul>
-                  </div>
+                  <A class="qa-nav-home navbar-brand" href="/"><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
+                  <Show when={user().learning.length > 1}>
+                    <div class="dropdown" ref={langMenuRoot}>
+                      <button type="button" class="qa-lang-picker btn btn-sm btn-outline-primary dropdown-toggle" aria-expanded={langMenuOpen()}
+                        aria-label={languageName(navLang())} onClick={() => setLangMenuOpen(!langMenuOpen())}>
+                        {LANGUAGE_FLAGS[navLang()]} <span class="text-uppercase">{navLang()}</span>
+                      </button>
+                      <ul class="dropdown-menu" classList={{ show: langMenuOpen() }} data-bs-popper="static">
+                        <For each={user().learning}>
+                          {(l) => (
+                            <li>
+                              <A href={`/${l}`} class={`qa-lang-${l} dropdown-item`} classList={{ active: navLang() === l }} end
+                                onClick={() => {
+                                  rememberLanguage(l);
+                                  setLangMenuOpen(false);
+                                }}>
+                                {LANGUAGE_FLAGS[l]} {languageName(l)}
+                              </A>
+                            </li>
+                          )}
+                        </For>
+                      </ul>
+                    </div>
+                  </Show>
                   <ul class="navbar-nav">
                     <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>
@@ -132,7 +136,7 @@ export function Layout(props: RouteSectionProps) {
           <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
         </a>
         <Show when={me() && spend()}>
-          {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usd(s().today), cap: usd(s().cap) })}</span>}
+          {(s) => <span class="qa-spend-today" style={{ color: "rgba(var(--bs-body-color-rgb), 0.85)" }}>{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
         </Show>
       </footer>
     </ErrorBoundary>

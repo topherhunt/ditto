@@ -3,7 +3,7 @@ import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
+  AttemptSchema, DEFAULT_PREFS, ExplainSchema, LevelPassSchema, PrefsSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutUsernameSchema, ReportSchema,
   SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
   type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type Prefs, type ReviewOut,
 } from "../shared/api.ts";
@@ -94,11 +94,17 @@ export function createApp(deps: AppDeps) {
     await next();
   });
 
-  const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1], locale: Locale) => {
+  const learningOf = (userId: number) =>
+    (db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid").all(userId) as { language: Language }[]).map((r) => r.language);
+
+  /** `learning`: the language picked on the homepage before sign-in; it only fills an empty list, so a saved choice wins. */
+  const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1], locale: Locale, learning: Language | undefined) => {
     if (deps.allowedEmails && !deps.allowedEmails.has(profile.email.toLowerCase()))
       throw new HTTPException(403, { message: `${profile.email} is not allowed` });
     const now = deps.now();
-    const token = createSession(db, upsertUser(db, profile, locale, now), now);
+    const userId = upsertUser(db, profile, locale, now);
+    if (learning && learningOf(userId).length === 0) db.prepare("INSERT INTO learning_languages (user_id, language) VALUES (?, ?)").run(userId, learning);
+    const token = createSession(db, userId, now);
     setCookie(c, SESSION_COOKIE, token, {
       httpOnly: true, secure: deps.secureCookies, sameSite: "Lax", path: "/", maxAge: SESSION_DAYS * 86_400,
     });
@@ -113,24 +119,27 @@ export function createApp(deps: AppDeps) {
   const quizLanguages = LANGUAGES.filter((l) => content.quizzes.some((d) => d.language === l));
   app.get("/api/config", (c) => c.json<Config>({
     googleClientId: deps.googleClientId, devLogin: deps.devLogin, poc: deps.pocDir !== null, speak: deps.conversation !== null, quiz: quizLanguages,
+    dailySpendCap: deps.dailySpendCap,
   }));
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
-    const { credential, locale } = z.strictObject({ credential: z.string(), locale: z.enum(LOCALES) }).parse(await c.req.json());
+    const { credential, locale, learning } = z.strictObject({ credential: z.string(), locale: z.enum(LOCALES), learning: z.enum(LANGUAGES).optional() })
+      .parse(await c.req.json());
     let profile;
     try {
       profile = await deps.verifyGoogle(credential);
     } catch (e) {
       throw new HTTPException(401, { message: `Google sign-in failed: ${(e as Error).message}` });
     }
-    return startSession(c, profile, locale);
+    return startSession(c, profile, locale, learning);
   });
 
   if (deps.devLogin) {
     app.post("/api/auth/dev", async (c) => {
-      const { email, locale } = z.strictObject({ email: z.email(), locale: z.enum(LOCALES) }).parse(await c.req.json());
-      return startSession(c, { sub: `dev:${email}`, email, name: email.split("@")[0], picture: null }, locale);
+      const { email, locale, learning } = z.strictObject({ email: z.email(), locale: z.enum(LOCALES), learning: z.enum(LANGUAGES).optional() })
+        .parse(await c.req.json());
+      return startSession(c, { sub: `dev:${email}`, email, name: email.split("@")[0], picture: null }, locale, learning);
     });
   }
 
@@ -170,7 +179,20 @@ export function createApp(deps: AppDeps) {
 
   app.get("/api/me", (c) => {
     const u = c.get("user");
-    return c.json<Me>({ email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, prefs: prefsOf(u), admin: isAdmin(deps, u) });
+    return c.json<Me>({
+      email: u.email, username: u.username, name: u.name, picture: u.picture, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
+    });
+  });
+
+  app.put("/api/learning", async (c) => {
+    const { languages } = PutLearningSchema.parse(await c.req.json());
+    const me = c.get("user").id;
+    transaction(db, () => {
+      db.prepare("DELETE FROM learning_languages WHERE user_id = ?").run(me);
+      const insert = db.prepare("INSERT INTO learning_languages (user_id, language) VALUES (?, ?)");
+      for (const l of languages) insert.run(me, l);
+    });
+    return c.json({ ok: true });
   });
 
   app.put("/api/locale", async (c) => {

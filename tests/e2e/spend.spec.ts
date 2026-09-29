@@ -11,7 +11,7 @@ test("the feedback link is in the footer before and after signing in", async ({ 
 
   await signIn(page, "footer@example.com");
   await expect(link).toBeVisible();
-  await expect(page.locator(".qa-spend-today")).toContainText(/\$0\.000 of \$\d+\.\d\d/);
+  await expect(page.locator(".qa-spend-today")).toHaveText(/^Usage today: \$0 \/ \$\d+(\.\d\d)?$/);
 });
 
 test("a paid call refused at the cap sends the learner to the congratulations page, in their interface language", async ({ page }) => {
@@ -32,7 +32,7 @@ test("a paid call refused at the cap sends the learner to the congratulations pa
   await expect(page.locator(".qa-cap-reached")).toContainText("$1.00");
   await expect(page.locator(".qa-cap-free li")).toHaveCount(4);
   // The next real response restores the true (zero) spend, so only the footer's language is checked.
-  await expect(page.locator(".qa-spend-today")).toContainText(/su \$\d/);
+  await expect(page.locator(".qa-spend-today")).toContainText(/^Uso oggi: \$/);
   await page.locator(".qa-cap-continue").click();
   await expect(page).toHaveURL(/\/it$/);
 });

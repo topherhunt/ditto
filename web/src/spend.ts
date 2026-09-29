@@ -2,6 +2,8 @@ import { createSignal } from "solid-js";
 import { SPEND_CAP_HEADER, SPEND_TODAY_HEADER } from "../../shared/api.ts";
 
 export const usd = (n: number) => `$${n.toFixed(n < 1 ? 3 : 2)}`;
+/** Cents at most, without a trailing ".00": $0.03, $1. */
+export const usdShort = (n: number) => `$${n.toFixed(2).replace(/\.00$/, "")}`;
 
 /** The learner's AI spend today and daily cap in USD, from the latest signed-in API response; null before one. */
 export const [spend, setSpend] = createSignal<{ today: number; cap: number } | null>(null);

@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./styles.css";
-import { Navigate, Route, Router } from "@solidjs/router";
+import { Route, Router } from "@solidjs/router";
 import { render } from "solid-js/web";
-import { Layout, lastLanguage } from "./components/Layout.tsx";
+import { Layout } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
 import { About } from "./pages/About.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
@@ -23,6 +23,7 @@ import { CapReached } from "./pages/CapReached.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
+import { Welcome } from "./pages/Welcome.tsx";
 import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
 import { installClickSound } from "./sounds.ts";
 
@@ -31,7 +32,7 @@ installClickSound();
 render(
   () => (
     <Router root={Layout}>
-      <Route path="/" component={() => <Navigate href={`/${lastLanguage()}`} />} />
+      <Route path="/" component={Welcome} />
       <Route path="/about" component={About} />
       <Route path="/cap" component={CapReached} />
       <Route path="/friends" component={Friends} />

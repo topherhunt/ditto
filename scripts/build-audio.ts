@@ -12,7 +12,8 @@ const { audioJobs } = loadContent(process.env.CONTENT_DIR ?? join(root, "content
 if (process.argv.includes("--prune")) {
   const wanted = new Set(audioJobs.map((j) => j.file));
   let pruned = 0;
-  for (const lang of existsSync(audioDir) ? readdirSync(audioDir) : [])
+  const langs = existsSync(audioDir) ? readdirSync(audioDir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name) : [];
+  for (const lang of langs)
     for (const name of readdirSync(join(audioDir, lang)))
       if (!wanted.has(`${lang}/${name}`)) {
         rmSync(join(audioDir, lang, name));

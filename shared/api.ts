@@ -17,6 +17,10 @@ export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema });
 export const PutLocaleSchema = z.strictObject({ locale: z.enum(LOCALES) });
+/** The languages the learner studies, first-added first; at least one. */
+export const PutLearningSchema = z.strictObject({
+  languages: z.array(z.enum(LANGUAGES)).min(1).refine((ls) => new Set(ls).size === ls.length, "Each language at most once"),
+});
 
 export const AttemptSchema = z.strictObject({
   unitId: z.string(),
@@ -204,10 +208,11 @@ export type AdminSpeakReport = SpeakAttemptOut & {
   conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string;
 };
 
-export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; prefs: Record<Language, Prefs>; admin: boolean };
+/** `learning`: empty only until a new learner picks a language. */
+export type Me = { email: string; username: string | null; name: string; picture: string | null; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
 /** `poc`: the pronunciation proof-of-concept recorder is on (development only). `speak`: conversation mode is configured. */
-/** `quiz`: the languages with quiz decks. */
-export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[] };
+/** `quiz`: the languages with quiz decks. `dailySpendCap`: each learner's free AI credit per UTC day, in USD. */
+export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[]; dailySpendCap: number };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
 export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };

@@ -1,7 +1,8 @@
 import { A } from "@solidjs/router";
 import { For, Show } from "solid-js";
 import { t } from "../i18n/index.ts";
-import { lastLanguage } from "../components/Layout.tsx";
+import { homeLanguage } from "../learning.ts";
+import { me } from "../session.ts";
 import { resetTime, spend, usd } from "../spend.ts";
 
 /** Where a paid call refused at the daily spend cap sends the learner. */
@@ -17,7 +18,7 @@ export function CapReached() {
             <For each={["cap.freeType", "cap.freeNotebook", "cap.freeQuiz", "cap.freeSocial"] as const}>{(k) => <li>{t(k)}</li>}</For>
           </ul>
           <p class="small text-body-secondary">{t("cap.resets", { time: resetTime() })}</p>
-          <A class="qa-cap-continue btn btn-primary" href={`/${lastLanguage()}`}>{t("cap.continue")}</A>
+          <A class="qa-cap-continue btn btn-primary" href={`/${homeLanguage(me()!.learning)}`}>{t("cap.continue")}</A>
         </div>
       )}
     </Show>

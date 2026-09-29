@@ -1,9 +1,11 @@
-import { createEffect, createResource, createSignal, For, onMount, Show } from "solid-js";
+import { useLocation, useNavigate } from "@solidjs/router";
+import { createEffect, createSignal, onMount, Show } from "solid-js";
 import type { Config } from "../../../shared/api.ts";
-import { LOCALES, type Locale } from "../../../shared/content.ts";
+import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { locale, LOCALE_LABELS, setLocale, t } from "../i18n/index.ts";
-import { refetchMe } from "../session.ts";
+import { locale, t } from "../i18n/index.ts";
+import { homeLanguage } from "../learning.ts";
+import { me, refetchMe } from "../session.ts";
 
 declare global {
   interface Window {
@@ -18,7 +20,7 @@ declare global {
   }
 }
 
-function GoogleButton(props: { clientId: string; onError: (m: string) => void }) {
+function GoogleButton(props: { clientId: string; signIn: (body: object) => Promise<void>; onError: (m: string) => void }) {
   let el!: HTMLDivElement;
   const [loaded, setLoaded] = createSignal(false);
   onMount(() => {
@@ -29,8 +31,7 @@ function GoogleButton(props: { clientId: string; onError: (m: string) => void })
     script.onload = () => {
       window.google!.accounts.id.initialize({
         client_id: props.clientId,
-        callback: ({ credential }) =>
-          api.post("/api/auth/google", { credential, locale: locale() }).then(refetchMe, (e: Error) => props.onError(e.message)),
+        callback: ({ credential }) => props.signIn({ credential }),
       });
       setLoaded(true);
     };
@@ -46,39 +47,42 @@ function GoogleButton(props: { clientId: string; onError: (m: string) => void })
   return <div ref={el} class="qa-google-signin" style={{ "color-scheme": "light" }} />;
 }
 
-export function Login() {
-  const [config] = createResource(() => api.get<Config>("/api/config"));
+/** Signs in with the course picked on the homepage; the server keeps it only for an account that has none yet. */
+export function SignIn(props: { config: Config; learning: Language | null }) {
   const [error, setError] = createSignal<string | null>(null);
   const [email, setEmail] = createSignal("dev@example.com");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  async function signIn(path: string, body: object) {
+    try {
+      await api.post(path, { ...body, locale: locale(), ...(props.learning && { learning: props.learning }) });
+    } catch (e) {
+      setError((e as Error).message);
+      return;
+    }
+    await refetchMe();
+    // Deep links keep their page; the homepage hands over to the course.
+    const learning = me()!.learning;
+    if (location.pathname === "/" && learning.length > 0) navigate(`/${homeLanguage(learning)}`);
+  }
 
   return (
-    <div class="container py-5" style={{ "max-width": "28rem" }}>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <h1 class="h3 mb-0">Ditto</h1>
-        <select class="qa-login-locale form-select form-select-sm w-auto" aria-label={t("login.language")} value={locale()}
-          onChange={(e) => setLocale(e.currentTarget.value as Locale)}>
-          <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
-        </select>
+    <div>
+      <div class="d-flex flex-column gap-3">
+        <Show when={props.config.googleClientId} fallback={<div class="alert alert-warning">{t("login.googleMissing")}</div>}>
+          {(id) => <GoogleButton clientId={id()} signIn={(body) => signIn("/api/auth/google", body)} onError={setError} />}
+        </Show>
+        <Show when={props.config.devLogin}>
+          <form class="qa-dev-login d-flex gap-2" onSubmit={(e) => {
+            e.preventDefault();
+            void signIn("/api/auth/dev", { email: email() });
+          }}>
+            <input class="qa-dev-email form-control" type="email" value={email()} onInput={(e) => setEmail(e.currentTarget.value)} />
+            <button class="qa-dev-submit btn btn-secondary text-nowrap" type="submit">{t("login.dev")}</button>
+          </form>
+        </Show>
       </div>
-      <p class="text-body-secondary">{t("login.tagline")}</p>
-      <Show when={config()}>
-        {(c) => (
-          <div class="d-flex flex-column gap-3">
-            <Show when={c().googleClientId} fallback={<div class="alert alert-warning">{t("login.googleMissing")}</div>}>
-              {(id) => <GoogleButton clientId={id()} onError={setError} />}
-            </Show>
-            <Show when={c().devLogin}>
-              <form class="qa-dev-login d-flex gap-2" onSubmit={(e) => {
-                e.preventDefault();
-                api.post("/api/auth/dev", { email: email(), locale: locale() }).then(refetchMe, (err: Error) => setError(err.message));
-              }}>
-                <input class="qa-dev-email form-control" type="email" value={email()} onInput={(e) => setEmail(e.currentTarget.value)} />
-                <button class="qa-dev-submit btn btn-secondary text-nowrap" type="submit">{t("login.dev")}</button>
-              </form>
-            </Show>
-          </div>
-        )}
-      </Show>
       <Show when={error()}>{(m) => <div class="qa-login-error alert alert-danger mt-3">{m()}</div>}</Show>
     </div>
   );

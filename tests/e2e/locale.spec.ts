@@ -38,7 +38,8 @@ test("switching the interface language localizes the UI and the meaning check, a
 
 test("a language picked before sign-in becomes a new account's interface language", async ({ page }) => {
   await page.goto("/");
-  await page.locator(".qa-login-locale").selectOption("nl");
+  await page.locator(".qa-welcome-speak-nl").click();
+  await page.locator(".qa-learn-it").click();
   await expect(page.locator(".qa-dev-submit")).toHaveText("Dev-login");
   await page.locator(".qa-dev-email").fill("locale2@example.com");
   await page.locator(".qa-dev-submit").click();
@@ -54,7 +55,8 @@ test("a language picked before sign-in becomes a new account's interface languag
 
 test("a new account picks its interface language alongside its username", async ({ page }) => {
   await page.goto("/");
-  await page.locator(".qa-login-locale").selectOption("en");
+  await page.locator(".qa-welcome-speak-en").click();
+  await page.locator(".qa-learn-it").click();
   await page.locator(".qa-dev-email").fill("locale3@example.com");
   await page.locator(".qa-dev-submit").click();
   await expect(page.locator(".qa-choose-locale")).toHaveValue("en");

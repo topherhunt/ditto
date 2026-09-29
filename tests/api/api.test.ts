@@ -8,6 +8,13 @@ describe("health", () => {
   });
 });
 
+describe("config", () => {
+  it("tells signed-out visitors the daily AI credit, for the homepage's pricing", async () => {
+    const t = setup({ dailySpendCap: 2.5 });
+    expect((await t.req("GET", "/api/config")).json.dailySpendCap).toBe(2.5);
+  });
+});
+
 describe("auth", () => {
   it("rejects API calls without a session and accepts them after Google sign-in", async () => {
     const t = setup();
@@ -32,6 +39,16 @@ describe("auth", () => {
     expect((await t.req("POST", "/api/auth/google", { credential: "ok", locale: "en" })).status).toBe(200);
   });
 
+  it("stores the language picked before sign-in only when the account has none yet", async () => {
+    const t = setup();
+    await t.req("POST", "/api/auth/dev", { email: "new@example.com", locale: "en" });
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual([]);
+    await t.req("POST", "/api/auth/dev", { email: "new@example.com", locale: "en", learning: "nl" });
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual(["nl"]);
+    await t.req("POST", "/api/auth/dev", { email: "new@example.com", locale: "en", learning: "ga" });
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual(["nl"]);
+  });
+
   it("does not expose dev login unless enabled", async () => {
     const t = setup({ devLogin: false });
     expect((await t.login()).status).toBe(401);
@@ -45,6 +62,19 @@ describe("auth", () => {
     expect(cross.status).toBe(403);
     const form = await t.req("POST", "/api/auth/logout", undefined, { "content-type": "application/x-www-form-urlencoded" });
     expect(form.status).toBe(415);
+  });
+});
+
+describe("learning languages", () => {
+  it("replaces the list in the order given, and refuses an empty or repeated one", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.req("PUT", "/api/learning", { languages: ["it", "ga"] })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual(["it", "ga"]);
+    expect((await t.req("PUT", "/api/learning", { languages: [] })).status).toBe(400);
+    expect((await t.req("PUT", "/api/learning", { languages: ["it", "it"] })).status).toBe(400);
+    expect((await t.req("PUT", "/api/learning", { languages: ["ga"] })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual(["ga"]);
   });
 });
 

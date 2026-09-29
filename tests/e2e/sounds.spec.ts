@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { signIn } from "./helpers.ts";
+import { setLearning, signIn } from "./helpers.ts";
 
 /** Records each UI sound instead of playing it, as "name volume". */
 async function recordSounds(page: Page) {
@@ -112,6 +112,7 @@ test("a quiz option sounds correct or wrong at half volume, in study and in a le
 test("the navbar and the settings page are silent", async ({ page }) => {
   await recordSounds(page);
   await signIn(page, "sounds3@example.com");
+  await setLearning(page, ["it", "nl"]);
   await played(page);
 
   await page.locator(".qa-lang-picker").click();
@@ -131,17 +132,25 @@ test("the navbar and the settings page are silent", async ({ page }) => {
   expect(await played(page)).toEqual(["click"]);
 });
 
-/** Counts the emojis in each celebrate burst; they fade in 250 ms, so each burst is counted as it is added rather than raced to be seen. */
-async function recordBursts(page: Page) {
+type Burst = { count: number; left: string; top: string };
+
+/** Records each celebrate burst's emoji count and origin; they fade in 500 ms, so each burst is recorded as it is added rather than raced to be seen. */
+async function recordBurstOrigins(page: Page): Promise<() => Promise<Burst[]>> {
   await page.addInitScript(() => {
-    const bursts: number[] = [];
-    (window as unknown as { bursts: number[] }).bursts = bursts;
+    const bursts: Burst[] = [];
+    (window as unknown as { bursts: Burst[] }).bursts = bursts;
     new MutationObserver((records) => {
-      const added = records.flatMap((r) => [...r.addedNodes]).filter((n) => n instanceof Element && n.matches(".qa-celebrate-emoji")).length;
-      if (added) bursts.push(added);
+      const added = records.flatMap((r) => [...r.addedNodes]).filter((n): n is HTMLElement => n instanceof HTMLElement && n.matches(".qa-celebrate-emoji"));
+      if (added.length) bursts.push({ count: added.length, left: added[0].style.left, top: added[0].style.top });
     }).observe(document, { childList: true, subtree: true });
   });
-  return () => page.evaluate(() => (window as unknown as { bursts: number[] }).bursts.splice(0));
+  return () => page.evaluate(() => (window as unknown as { bursts: Burst[] }).bursts.splice(0));
+}
+
+/** The emoji count of each celebrate burst. */
+async function recordBursts(page: Page) {
+  const bursts = await recordBurstOrigins(page);
+  return async () => (await bursts()).map((b) => b.count);
 }
 
 test("a pass bursts one emoji per pass in a row, and a wrong answer starts the count over", async ({ page }) => {
@@ -192,4 +201,19 @@ test("a right quiz pick bursts one emoji per right pick in a row, and a wrong pi
   await page.goto("/it/quiz/test/A1");
   await page.locator(".qa-quiz-option-correct").click();
   expect(await bursts()).toEqual([1]);
+});
+
+test("a quiz burst starts from the center of the options, and a typing burst from the center of the screen", async ({ page }) => {
+  const bursts = await recordBurstOrigins(page);
+  await signIn(page, "sounds7@example.com");
+  await page.locator(".qa-lesson-start").first().click();
+  await page.locator(".qa-slot").first().fill("caffè");
+  await page.locator(".qa-slot").first().press("Enter");
+  expect(await bursts()).toEqual([{ count: 1, left: "50%", top: "50%" }]);
+
+  await page.goto("/it/quiz/it-a1-grammar-1");
+  await page.locator(".qa-quiz-mode-spaced").click();
+  const box = (await page.locator(".qa-quiz-options").boundingBox())!;
+  await page.locator(".qa-quiz-option-correct").click();
+  expect(await bursts()).toEqual([{ count: 1, left: `${box.x + box.width / 2}px`, top: `${box.y + box.height / 2}px` }]);
 });

@@ -63,12 +63,12 @@ export function QuizStudy() {
     if (passed) setLevelUp(passed);
     setBusy(false);
   };
-  const choose = async (option: string) => {
+  const choose = async (option: string, from: Element) => {
     if (chosen() !== null) return;
     setChosen(option);
     const right = option === current()!.correct;
     playResult(right);
-    celebrate(right);
+    celebrate(right, from);
     setResults((rs) => [...rs, right]);
     if (!right) {
       setMissed((m) => [...m, current()!.id]);
@@ -128,7 +128,7 @@ export function QuizStudy() {
                     <div class="d-flex flex-wrap gap-1" aria-hidden="true">
                       <For each={results()}>{(ok) => <span class={`rounded-circle ${ok ? "bg-success" : "bg-danger"}`} style={{ width: "0.5rem", height: "0.5rem" }} />}</For>
                     </div>
-                    <QuestionCard q={q()} deckId={r().d.deck.id} speak={speak()} options={options()} chosen={chosen()} onChoose={(o) => void choose(o)} />
+                    <QuestionCard q={q()} deckId={r().d.deck.id} speak={speak()} options={options()} chosen={chosen()} onChoose={(o, from) => void choose(o, from)} />
                     <Show when={chosen() !== null}>
                       <Show when={right()} fallback={
                         <button type="button" class="qa-quiz-continue btn btn-secondary" disabled={busy()} onClick={next}>{t("quiz.next")}</button>
@@ -152,13 +152,14 @@ export function QuizStudy() {
 }
 
 /** A question with its shuffled options and, once one is chosen, whether it was right and why. */
-export function QuestionCard(props: { q: QuizQuestionOut; deckId: string; speak: boolean; options: string[]; chosen: string | null; onChoose: (option: string) => void }) {
+export function QuestionCard(props: { q: QuizQuestionOut; deckId: string; speak: boolean; options: string[]; chosen: string | null; onChoose: (option: string, from: Element) => void }) {
+  let optionList!: HTMLDivElement;
   const say = (field: string) => <Say on={props.speak} deckId={props.deckId} questionId={props.q.id} field={field} />;
   const right = () => props.chosen === props.q.correct;
   return (
     <>
       <p class="qa-quiz-question fs-5 mb-0" dir="auto">{props.q.question}{say("question")}</p>
-      <div class="d-flex flex-column gap-2">
+      <div ref={optionList} class="qa-quiz-options d-flex flex-column gap-2">
         <For each={props.options}>
           {(option) => {
             const field = () => (option === props.q.correct ? "correct" : `wrong${props.q.wrong.indexOf(option)}`);
@@ -172,7 +173,7 @@ export function QuestionCard(props: { q: QuizQuestionOut; deckId: string; speak:
             return (
               <div class="d-flex align-items-center gap-2">
                 <button type="button" class={`qa-quiz-option ${option === props.q.correct ? "qa-quiz-option-correct" : ""} btn ${style()} flex-grow-1 text-start`}
-                  dir="auto" onClick={() => props.onChoose(option)}>{option}</button>
+                  dir="auto" onClick={() => props.onChoose(option, optionList)}>{option}</button>
                 {say(field())}
               </div>
             );

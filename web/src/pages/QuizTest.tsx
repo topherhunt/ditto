@@ -36,11 +36,11 @@ function TestRun(props: { test: QuizTestOut; level: string; onRetry: () => void 
   const passed = () => done() && !missed();
   const [saved] = createResource(() => passed() || undefined,
     () => api.post("/api/quiz/test/pass", { language: lang(), level: props.level }));
-  const choose = (option: string) => {
+  const choose = (option: string, from: Element) => {
     if (chosen() !== null) return;
     setChosen(option);
     playResult(option === q().correct);
-    celebrate(option === q().correct);
+    celebrate(option === q().correct, from);
   };
   const next = () => {
     if (missed() || index() + 1 === total()) setDone(true);

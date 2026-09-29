@@ -1,8 +1,7 @@
 - [ ] Polish up the onboarding & settings user flow
-- [ ] Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way. Subprocessors: OpenAI
-- [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection.
+- [ ] Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way. Subprocessors: OpenAI (AI speech & tutoring features), RackNerd (server host).
 - [ ] Publish the Google Oauth app so people aren't blocked from accessing.
-- \[ \]
+- [ ] 
 
 - Type:
   - [ ] Change the leaderboard to be in-depth and rich, but only be among your friends and their friends. So the only people you should see on the leaderboard are people you know, or 2nd-degree friends THEY know.
@@ -25,10 +24,10 @@
 
 - [ ] npm run content:audio -- --prune
 - [ ] Ensure:
+  - [x] We are tracking and incrementing the API spend for each user per day in a metrics table so that we have per day stats on how much each user is spending. So I can easily tally up the total per user, I can identify heavy users, and also get a sense of what is a reasonable cost window to budget for this app.
   - [ ] test and confirm with Luis and others that people can access the app fine.
   - [ ] the production.inv has production api keys, no dev api keys.
   - [ ] We have full production logging with log rotation.
-  - [ ] We are tracking and incrementing the API spend for each user per day in a metrics table so that we have per day stats on how much each user is spending. So I can easily tally up the total per user, I can identify heavy users, and also get a sense of what is a reasonable cost window to budget for this app.
 
 ### For after launch
 

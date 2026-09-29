@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
-import { signIn } from "./helpers.ts";
+import { setLearning, signIn } from "./helpers.ts";
 
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
@@ -259,9 +259,17 @@ test("a slot shows its whole word plus trailing punctuation without scrolling", 
   await expect(page.locator(".qa-outcome")).toContainText("Perfect");
 });
 
+test("a learner with one course gets no language picker", async ({ page }) => {
+  await signIn(page, "picker0@example.com");
+  await expect(page).toHaveURL(/\/it$/);
+  await expect(page.locator(".qa-nav-type")).toBeVisible();
+  await expect(page.locator(".qa-lang-picker")).toHaveCount(0);
+});
+
 test("the language picker switches the catalog, and Type returns to it from other pages", async ({ page }) => {
   await signIn(page, "picker1@example.com");
   await expect(page).toHaveURL(/\/it$/);
+  await setLearning(page, ["it", "nl"]);
   await expect(page.locator(".qa-lang-picker")).toContainText("🇮🇹");
   await page.locator(".qa-lang-picker").click();
   await expect(page.locator(".qa-lang-it")).toHaveClass(/active/);

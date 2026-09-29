@@ -1,9 +1,10 @@
 import { createSignal, For, onCleanup } from "solid-js";
-import { LOCALES, type Locale } from "../../../shared/content.ts";
+import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { createSaver } from "../components/LanguagePrefs.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
-import { LOCALE_LABELS, t } from "../i18n/index.ts";
+import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
+import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
 import { me } from "../session.ts";
 import { chooseTheme, theme, type Theme } from "../theme.ts";
 
@@ -20,11 +21,39 @@ export function Settings() {
             <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
           </select>
         </label>
+        <LearningPicker save={save} />
         <ThemePicker />
         <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={markSaved} />
         <Status />
       </div>
     </div>
+  );
+}
+
+/** Hiding a course only drops it from the nav; its progress stays. The last one can't be hidden. */
+function LearningPicker(props: { save: (request: () => Promise<unknown>) => Promise<void> }) {
+  const learning = () => me()!.learning;
+  // Courses already studied stay listed even when the interface language has no translations for them.
+  const offered = () => LANGUAGES.filter((l) => learning().includes(l) || learnable(me()!.locale).includes(l));
+  const toggle = (l: Language, on: boolean) => {
+    const languages = on ? [...learning(), l] : learning().filter((x) => x !== l);
+    void props.save(() => api.put("/api/learning", { languages }));
+  };
+  return (
+    <fieldset>
+      <legend class="fs-6 mb-1">{t("settings.learning")}</legend>
+      <For each={offered()}>
+        {(l) => (
+          <div class="form-check form-switch">
+            <input class={`qa-settings-learn-${l} form-check-input`} type="checkbox" role="switch" id={`learn-${l}`}
+              checked={learning().includes(l)} disabled={learning().length === 1 && learning()[0] === l}
+              onChange={(e) => toggle(l, e.currentTarget.checked)} />
+            <label class="form-check-label" for={`learn-${l}`}>{LANGUAGE_FLAGS[l]} {languageName(l)}</label>
+          </div>
+        )}
+      </For>
+      <div class="form-text">{t("settings.learningHint")}</div>
+    </fieldset>
   );
 }
 
