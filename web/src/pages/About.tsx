@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { EmojiLine } from "../components/EmojiLine.tsx";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
 
@@ -17,7 +18,7 @@ export function About() {
             <div class="col-md-6">
               <h2 class="h6 text-body-secondary text-uppercase">{t(col.heading)}</h2>
               <ul class="qa-about-tips list-unstyled d-flex flex-column gap-2 mb-0">
-                <For each={col.tips}>{(tip) => <li>{t(tip)}</li>}</For>
+                <For each={col.tips}>{(tip) => <EmojiLine text={t(tip)} />}</For>
               </ul>
             </div>
           )}

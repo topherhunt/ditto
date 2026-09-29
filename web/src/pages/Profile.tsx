@@ -17,7 +17,7 @@ function activityText(a: ProfileOut["activity"]) {
   return t(ACTIVITY_KEYS[a.window], { lessons: lessonCount(a.lessons) });
 }
 
-/** Anyone's activity volume; their studies and contact details only for themselves and friends. `/people/me` is the signed-in learner. */
+/** Anyone's activity volume; their name, picture and studies only for themselves and friends. `/people/me` is the signed-in learner. */
 export function Profile() {
   const params = useParams();
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export function Profile() {
             <Show when={p().details?.picture}>{(src) => <img src={src()} alt="" class="rounded-circle" width="56" height="56" referrerpolicy="no-referrer" />}</Show>
             <div class="me-auto">
               <h1 class="qa-profile-name h3 mb-0">{displayName(p().person)}</h1>
-              <Show when={p().details}>{(d) => <div class="small text-body-secondary">{d().name} · {d().email}</div>}</Show>
+              <Show when={p().details}>{(d) => <div class="small text-body-secondary">{d().name}</div>}</Show>
             </div>
             <Switch>
               <Match when={p().relation === "friends"}>

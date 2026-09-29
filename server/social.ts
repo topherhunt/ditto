@@ -224,8 +224,8 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
   app.get("/api/profile/:id", (c) => {
     const me = c.get("user").id;
     const id = c.req.param("id") === "me" ? me : Id.parse(c.req.param("id"));
-    const contact = db.prepare("SELECT name, email, picture FROM users WHERE id = ?").get(id) as
-      { name: string; email: string; picture: string | null } | undefined;
+    const contact = db.prepare("SELECT name, picture FROM users WHERE id = ?").get(id) as
+      { name: string; picture: string | null } | undefined;
     if (!contact) throw new HTTPException(404, { message: "No such account" });
     const rel = relation(me, id);
     const done = completions(id);

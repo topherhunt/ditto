@@ -17,6 +17,19 @@ test("signed-out visitors see the homepage: three ways to practice, a real grade
   await expect(page.locator(".qa-dev-email")).toBeInViewport();
 });
 
+test("the practice samples follow the course picked, and emoji bullets hang outside their text", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".qa-welcome-sample-quiz")).toContainText("Ieri");
+  await page.locator(".qa-learn-nl").click();
+  await expect(page.locator(".qa-welcome-sample-quiz")).toContainText("Gisteren");
+  await expect(page.locator(".qa-welcome-sample-diff")).toContainText("koffie");
+  await expect(page.locator(".qa-welcome-way-talk")).toContainText("Ik wil een cappuccino hebben.");
+
+  const item = page.locator(".qa-welcome-along li").first();
+  await expect(item.locator("span").first()).toHaveText("🔁");
+  await expect(item.locator("span").nth(1)).not.toContainText("🔁");
+});
+
 test("the homepage offers only the courses translated into the language the visitor speaks", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".qa-learn-it")).toBeVisible();

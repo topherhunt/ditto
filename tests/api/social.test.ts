@@ -195,7 +195,9 @@ describe("profiles", () => {
 
     await t.login(C);
     await t.req("POST", "/api/friends/requests", { email: A });
-    expect((await t.req("GET", "/api/profile/me")).json).toMatchObject({ relation: "self", person: { id: cy, username: "cyd" }, details: { email: C } });
+    const own = (await t.req("GET", "/api/profile/me")).json;
+    expect(own).toMatchObject({ relation: "self", person: { id: cy, username: "cyd" } });
+    expect(JSON.stringify(own)).not.toContain(C);
     const stranger = (await t.req("GET", `/api/profile/${ana}`)).json;
     expect(stranger).toEqual({
       person: { id: ana, username: "ana" }, relation: "outgoing", activity: { window: "week", lessons: 2 },
@@ -203,9 +205,9 @@ describe("profiles", () => {
     });
 
     await t.login(B);
-    expect((await t.req("GET", `/api/profile/${ana}`)).json).toMatchObject({
-      relation: "friends", details: { name: "ana", email: A, accuracy: { lessons: 2 } },
-    });
+    const friend = (await t.req("GET", `/api/profile/${ana}`)).json;
+    expect(friend).toMatchObject({ relation: "friends", details: { name: "ana", accuracy: { lessons: 2 } } });
+    expect(JSON.stringify(friend)).not.toContain(A);
     expect((await t.req("GET", `/api/profile/${bo + cy + 100}`)).status).toBe(404);
   });
 

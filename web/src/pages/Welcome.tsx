@@ -4,6 +4,7 @@ import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { api } from "../api.ts";
+import { EmojiLine } from "../components/EmojiLine.tsx";
 import { LearnPicker } from "../components/LearnPicker.tsx";
 import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
@@ -13,9 +14,35 @@ import { homeLanguage, learnable, rememberLanguage, storedLanguage } from "../le
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
 
-/** Graded by the real grader, so it looks exactly like an exercise: a missing letter, an accent and an extra letter. */
-const SAMPLE_TYPED = "vorei un caffe perr favore";
-const SAMPLE_DIFF = grade({ mode: "free", text: SAMPLE_TYPED }, { language: "it", text: "Vorrei un caffè, per favore." });
+type Samples = {
+  /** Graded by the real grader, so it looks exactly like an exercise: missing letters, an accent and an extra letter. */
+  type: { typed: string; answer: string };
+  talk?: { partner: string; learner: string; fix: string };
+  quiz?: { prompt: string; right: string; wrong: [string, string] };
+};
+
+/** Each card shows the chosen course's sample, or Italian's when that course has none for the mode. */
+const IT_SAMPLES: Required<Samples> = {
+  type: { typed: "vorei un caffe perr favore", answer: "Vorrei un caffè, per favore." },
+  talk: { partner: "Ciao! Cosa prendi?", learner: "Io vuole un cappuccino.", fix: "Vorrei un cappuccino." },
+  quiz: { prompt: "Ieri ___ al cinema con Luca.", right: "sono andato", wrong: ["ho andato", "andavo"] },
+};
+const SAMPLES: Record<Language, Samples> = {
+  it: IT_SAMPLES,
+  en: {
+    type: { typed: "id like a cofee pleasse", answer: "I'd like a coffee, please." },
+    talk: { partner: "Hi! What can I get you?", learner: "Yes, I take a cappuccino.", fix: "I'll have a cappuccino." },
+    quiz: { prompt: "Yesterday I ___ to the cinema with Luke.", right: "went", wrong: ["have gone", "goed"] },
+  },
+  nl: {
+    type: { typed: "ik wil grag een kofie alstublieftt", answer: "Ik wil graag een koffie, alstublieft." },
+    talk: { partner: "Hoi! Wat wil je drinken?", learner: "Ik wil hebben een cappuccino.", fix: "Ik wil een cappuccino hebben." },
+    quiz: { prompt: "Gisteren ___ ik met Luuk naar de bioscoop.", right: "ging", wrong: ["gaat", "gegaan"] },
+  },
+  ga: {
+    type: { typed: "ba mhaith liom cupan cafe le do thoill", answer: "Ba mhaith liom cupán caife, le do thoil." },
+  },
+};
 
 const ALONG: Key[] = ["welcome.along.review", "welcome.along.notebook", "welcome.along.why", "welcome.along.words", "welcome.along.testOut", "welcome.along.friends"];
 const HABITS: Key[] = ["welcome.habit.mistakes", "about.tipDaily", "about.tipHints", "about.tipAloud"];
@@ -28,6 +55,11 @@ export function Welcome() {
   const [picked, setPicked] = createSignal(storedLanguage());
   // A pick the chosen interface language has no translations for doesn't count.
   const learning = () => { const l = picked(); return l && learnable(locale()).includes(l) ? l : null; };
+  const samples = () => SAMPLES[learning() ?? "it"];
+  const typeSample = () => samples().type;
+  const typeDiff = () => grade({ mode: "free", text: typeSample().typed }, { language: learning() ?? "it", text: typeSample().answer });
+  const talkSample = () => samples().talk ?? IT_SAMPLES.talk;
+  const quizSample = () => samples().quiz ?? IT_SAMPLES.quiz;
   let hero!: HTMLElement;
 
   return (
@@ -90,31 +122,30 @@ export function Welcome() {
                   <div class="small">
                     <div class="d-flex align-items-center gap-2 mb-2">
                       <span class="badge text-bg-primary" aria-hidden="true">▶</span>
-                      <span class="font-mono text-body-secondary">{SAMPLE_TYPED}</span>
+                      <span class="font-mono text-body-secondary">{typeSample().typed}</span>
                     </div>
-                    <div class="qa-welcome-sample-diff mb-2"><SentenceDiff result={SAMPLE_DIFF} /></div>
+                    <div class="qa-welcome-sample-diff mb-2"><SentenceDiff result={typeDiff()} /></div>
                     <div class="text-body-secondary">{t("welcome.type.legend")}</div>
                   </div>
                 </Way>
                 <Show when={c().speak}>
                   <Way qa="talk" icon="bi-mic" title={t("welcome.talk.title")} body={t("welcome.talk.body")} languages={SPEAK_LANGUAGES}>
                     <div class="small d-flex flex-column gap-2">
-                      <div class="p-2 rounded bg-body-secondary align-self-start">Ciao! Cosa prendi?</div>
-                      <div class="p-2 rounded bg-primary-subtle align-self-end">Io vuole un cappuccino.</div>
+                      <div class="p-2 rounded bg-body-secondary align-self-start">{talkSample().partner}</div>
+                      <div class="p-2 rounded bg-primary-subtle align-self-end">{talkSample().learner}</div>
                       <div class="p-2 rounded border border-warning-subtle">
                         {t("speak.goodTry")}
-                        <div><span class="fw-semibold">{t("speak.sayThis")}:</span> Vorrei un cappuccino.</div>
+                        <div><span class="fw-semibold">{t("speak.sayThis")}:</span> {talkSample().fix}</div>
                       </div>
                     </div>
                   </Way>
                 </Show>
                 <Show when={c().quiz.length > 0}>
                   <Way qa="quiz" icon="bi-patch-question" title={t("welcome.quiz.title")} body={t("quiz.intro")} languages={c().quiz}>
-                    <div class="small d-flex flex-column gap-1">
-                      <div class="mb-1">Ieri ___ al cinema con Luca.</div>
-                      <div class="px-2 py-1 rounded border border-success bg-success-subtle">✓ sono andato</div>
-                      <div class="px-2 py-1 rounded border">ho andato</div>
-                      <div class="px-2 py-1 rounded border">andavo</div>
+                    <div class="qa-welcome-sample-quiz small d-flex flex-column gap-1">
+                      <div class="mb-1">{quizSample().prompt}</div>
+                      <div class="px-2 py-1 rounded border border-success bg-success-subtle">✓ {quizSample().right}</div>
+                      <For each={quizSample().wrong}>{(w) => <div class="px-2 py-1 rounded border">{w}</div>}</For>
                     </div>
                   </Way>
                 </Show>
@@ -124,7 +155,7 @@ export function Welcome() {
             <section>
               <h2 class="h3 mb-3">{t("welcome.alongHeading")}</h2>
               <ul class="qa-welcome-along list-unstyled row g-2 mb-0">
-                <For each={ALONG}>{(k) => <li class="col-md-6">{t(k)}</li>}</For>
+                <For each={ALONG}>{(k) => <EmojiLine class="col-md-6" text={t(k)} />}</For>
               </ul>
             </section>
 
@@ -142,7 +173,7 @@ export function Welcome() {
                 <div class="col-md-6">
                   <h3 class="h6 text-body-secondary text-uppercase">{t("welcome.habitsHeading")}</h3>
                   <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
-                    <For each={HABITS}>{(k) => <li>{t(k)}</li>}</For>
+                    <For each={HABITS}>{(k) => <EmojiLine text={t(k)} />}</For>
                   </ul>
                 </div>
               </div>

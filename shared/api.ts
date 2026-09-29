@@ -278,7 +278,6 @@ export type Profile = {
   lessons: Record<LeaderboardWindow, number>;
   details: {
     name: string;
-    email: string;
     picture: string | null;
     /** Latest learn attempt per item, over the last 10 lessons worked on. Percentages; null with no items. */
     accuracy: { lessons: number; dictation: number | null; meaning: number | null };
