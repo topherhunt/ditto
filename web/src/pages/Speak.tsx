@@ -4,6 +4,7 @@ import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type Starter, t
 import { api } from "../api.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
+import { unlockPlayer } from "./player.ts";
 
 type Level = (typeof LEARNER_LEVELS)[number];
 const LEVEL_KEY = "speakLevel";
@@ -33,9 +34,10 @@ export function Speak() {
   const start = async (scenario: { starter: Starter } | { topic: string } | { surprise: true }) => {
     setStarting(true);
     setError(null);
+    unlockPlayer();
     try {
       const conv = await api.post<ConversationOut>("/api/conversations", { language: lang(), level: level(), scenario, hardMode: hardMode() });
-      navigate(`/${lang()}/speak/${conv.id}`);
+      navigate(`/${lang()}/speak/${conv.id}`, { state: { opened: true } });
     } catch (e) {
       setError((e as Error).message);
       setStarting(false);

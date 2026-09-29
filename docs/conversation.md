@@ -4,7 +4,7 @@ A speaking track separate from dictation: a spoken back-and-forth with an AI par
 
 ## Turn loop
 
-1. The partner speaks a line (local Piper TTS) and its transcript shows.
+1. The partner speaks a line (local Piper TTS, in one of the lessons' Piper voices for the language, picked at random per conversation); it plays by itself and its transcript shows.
 2. Suggested replies: three plausible replies, each steering the conversation a different way. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
 4. The coach judges it (below). A failure pauses the conversation on the retry screen.
@@ -12,7 +12,7 @@ A speaking track separate from dictation: a spoken back-and-forth with an AI par
 
 All paid calls run server-side, so they can be metered and capped.
 
-The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks (*ci vediamo* = "see you", not word by word). Tapping a chunk shows its translation; on hover a chunk gets a background color and a pointer cursor.
+The call that writes the partner's line and the suggestions also returns their translations into the support language, in chunks (*ci vediamo* = "see you", not word by word), and chunks the learner's line it answers, so past replies are glossed too. Tapping a chunk shows its translation; on hover a chunk gets a background color and a pointer cursor.
 
 "How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
 
@@ -22,7 +22,7 @@ The conversation trains fluency and vocabulary, not pronunciation (a separate pr
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process in which Piper voices the partner. It starts on first use (about 1 s), keeps one voice loaded (a conversation speaks one language), and holds 170-250 MB, so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with Piper and the voices in `tools/piper-voices`; production installs these with `devops/provision.sh`.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process in which Piper voices the partner. It starts on first use (about 1 s), keeps one voice loaded (a conversation speaks in one; switching reloads in ~0.5 s), and holds 170-250 MB, so the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with Piper and the voices in `tools/piper-voices`; production installs these with `devops/provision.sh`.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.

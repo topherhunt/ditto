@@ -2,22 +2,26 @@ import { spawn, type ChildProcessByStdio } from "node:child_process";
 import type { Readable, Writable } from "node:stream";
 import { createInterface } from "node:readline";
 import type { Language } from "../shared/content.ts";
+import { VOICES, voiceId, type Voice } from "./content.ts";
 
 /** Local speech for conversation mode; server/speech-worker.py documents each call. */
 export interface Speech {
-  say(text: string, language: Language, out: string): Promise<{ seconds: number }>;
+  say(text: string, voice: Voice, out: string): Promise<{ seconds: number }>;
 }
 
-/** The partner's voice. */
-const PIPER_VOICES: Partial<Record<Language, string>> = { it: "it_IT-paola-medium", nl: "nl_NL-pim-medium", en: "en_US-amy-medium" };
+/** The lessons' Piper voices; each conversation's partner speaks in one, picked at random. */
+export const partnerVoices = (language: Language) => {
+  const voices = VOICES[language].filter((v) => v.engine === "piper");
+  if (!voices.length) throw new Error(`No conversation voice for ${language}`);
+  return voices;
+};
+export const partnerVoice = (language: Language, id: string) => {
+  const voice = partnerVoices(language).find((v) => voiceId(v) === id);
+  if (!voice) throw new Error(`No ${language} conversation voice ${id}`);
+  return voice;
+};
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
-
-const voiceOf = (language: Language) => {
-  const model = PIPER_VOICES[language];
-  if (!model) throw new Error(`No conversation voice for ${language}`);
-  return { model };
-};
 
 /**
  * Starts the worker on first use (~1 s, holding 170-250 MB) and again after it dies; requests in flight when it dies fail.
@@ -71,6 +75,6 @@ export function speechWorker(python: string, script: string, toolsDir: string, i
   };
 
   return {
-    say: (text, language, out) => call({ op: "say", text, voice: voiceOf(language), out }),
+    say: (text, voice, out) => call({ op: "say", text, voice: { model: voice.model, speaker: voice.speaker }, out }),
   };
 }

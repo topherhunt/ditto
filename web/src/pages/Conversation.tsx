@@ -1,18 +1,14 @@
-import { A, useParams } from "@solidjs/router";
-import { createResource, createSignal, For, onCleanup, Show } from "solid-js";
+import { A, useLocation, useParams } from "@solidjs/router";
+import { createEffect, createResource, createSignal, For, onCleanup, Show } from "solid-js";
 import {
-  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type SpeakAttemptOut, type SpeakAttemptResult, type TurnOut,
+  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
+  type TurnOut,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
+import { autoplay, play } from "./player.ts";
 import { usd } from "./Speak.tsx";
-
-const player = new Audio();
-const play = (url: string) => {
-  player.src = url;
-  return player.play();
-};
 
 /** Tappable chunks; the tapped one shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
 function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string) => void; class?: string }) {
@@ -44,7 +40,9 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
     <Show when={turn().role === "partner"} fallback={
       <div class="qa-turn qa-turn-learner align-self-end text-end" style={{ "max-width": "85%" }}>
         <div class="d-inline-flex align-items-center gap-2 p-2 rounded bg-primary-subtle">
-          <span class="qa-turn-text">{turn().text}</span>
+          <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
+            {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
+          </Show>
           <Show when={turn().audioUrl}>{(u) => <button type="button" class="btn btn-sm btn-link p-0" aria-label={t("speak.play")} onClick={() => void play(u())}><i class="bi bi-play-circle" aria-hidden="true" /></button>}</Show>
         </div>
         <div class="small text-body-secondary">
@@ -67,6 +65,13 @@ export function Conversation() {
   const lang = useLang();
   const params = useParams();
   const [conv, { mutate, refetch }] = createResource(() => params.id, (id) => api.get<ConversationOut>(`/api/conversations/${id}`));
+  /** Set by the Speak page when it has just started this conversation, whose opening line then plays once. */
+  let opening = (useLocation().state as { opened?: boolean } | undefined)?.opened === true;
+  createEffect(() => {
+    if (!opening || !conv()) return;
+    opening = false;
+    autoplay(conv()!.turns[0].audioUrl!);
+  });
   /** Chunks tapped since the learner's last turn; their count is sent as `taps`. */
   const [revealed, setRevealed] = createSignal(new Set<string>());
   const [recState, setRecState] = createSignal<RecState>("idle");
@@ -93,7 +98,9 @@ export function Conversation() {
   };
   document.addEventListener("click", closeTooltip);
   onCleanup(() => document.removeEventListener("click", closeTooltip));
-  const update = (patch: Partial<ConversationOut>, turns: TurnOut[] = []) => mutate({ ...c(), ...patch, turns: [...c().turns, ...turns] });
+  /** `turns` are new, or replace the turn with their id (a learner turn gets its chunks with the partner's answer). */
+  const update = (patch: Partial<ConversationOut>, turns: TurnOut[] = []) =>
+    mutate({ ...c(), ...patch, turns: [...c().turns.filter((x) => !turns.some((n) => n.id === x.id)), ...turns] });
   /** A new turn clears the reply in progress and speaks the partner's answer. */
   const advance = (turns: TurnOut[], patch: Partial<ConversationOut>) => {
     update(patch, turns);
@@ -103,8 +110,7 @@ export function Conversation() {
     setHowOpen(false);
     setRevealed(new Set<string>());
     const partner = turns.find((x) => x.role === "partner");
-    // Autoplay can be refused without a recent click; the play button is still there.
-    if (partner) play(partner.audioUrl!).catch(() => {});
+    if (partner) autoplay(partner.audioUrl!);
   };
   const run = async (fn: () => Promise<void>) => {
     setBusy(true);
@@ -171,8 +177,8 @@ export function Conversation() {
     advance(res.turns, { reliance: res.reliance, spend: res.spend });
   });
   const partnerRetry = () => run(async () => {
-    const res = await api.post<{ turn: TurnOut; spend: ConversationOut["spend"] }>(`/api/conversations/${c().id}/partner`);
-    advance([res.turn], { spend: res.spend });
+    const res = await api.post<PartnerRetryResult>(`/api/conversations/${c().id}/partner`);
+    advance(res.turns, { spend: res.spend });
   });
   const setHardMode = (hardMode: boolean) => run(async () => {
     await api.put(`/api/conversations/${c().id}`, { hardMode });

@@ -1,15 +1,22 @@
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import type { AppDeps } from "../../server/app.ts";
+import { voiceId } from "../../server/content.ts";
 import { FAKE_COST, fakeAI, fakeSpeech } from "../../server/conversation-fake.ts";
+import { partnerVoices } from "../../server/speech.ts";
 import { setup } from "./helpers.ts";
 
 const audio = Buffer.from("fake recording").toString("base64");
 
 async function speak(overrides: Partial<AppDeps> = {}) {
-  const conversation = { ai: fakeAI(), speech: fakeSpeech(), audioDir: mkdtempSync(join(tmpdir(), "lp-speak-")) };
+  const speech = fakeSpeech();
+  /** voiceId of each line spoken. */
+  const voices: string[] = [];
+  const say = speech.say;
+  speech.say = (text, voice, out) => { voices.push(voiceId(voice)); return say(text, voice, out); };
+  const conversation = { ai: fakeAI(), speech, audioDir: mkdtempSync(join(tmpdir(), "lp-speak-")) };
   const t = setup({ conversation, ...overrides });
   await t.login();
   const start = async () => (await t.req("POST", "/api/conversations", { language: "it", level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json;
@@ -21,7 +28,7 @@ async function speak(overrides: Partial<AppDeps> = {}) {
     const end = events.at(-1);
     return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
   };
-  return { ...t, ai: conversation.ai, start, reply };
+  return { ...t, ai: conversation.ai, voices, start, reply };
 }
 
 const passFirstTry = (meant: string) => async () => ({
@@ -76,6 +83,8 @@ describe("conversation mode", () => {
     expect(retry.attempt.passed).toBe(true);
     expect(retry.turns.map((x: { role: string; text: string }) => [x.role, x.text])).toEqual([["learner", "Vorrei un caffè, per favore."], ["partner", "Certo! Altro?"]]);
     expect(retry.turns[0]).toMatchObject({ source: "suggestion", level: "A2" });
+    // The partner's call glosses the learner line it answers.
+    expect(retry.turns[0].chunks.map((x: { text: string }) => x.text)).toEqual(["Vorrei", "un", "caffè,", "per", "favore."]);
     expect((await t.req("GET", retry.turns[0].audioUrl)).headers.get("content-type")).toBe("audio/webm");
     expect(retry.reliance).toEqual({ leaned: 1, of: 1 });
     // Opening, two transcriptions and coach calls, and the partner's answer.
@@ -152,8 +161,33 @@ describe("conversation mode", () => {
     expect((await t.reply(conv.id)).status).toBe(409);
     t.ai.partner = partner;
     const res = (await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).json;
-    expect(res.turn).toMatchObject({ role: "partner", text: "Certo! Altro?" });
+    expect(res.turns.map((x: { role: string; chunks: unknown[] }) => [x.role, x.chunks.length])).toEqual([["learner", 3], ["partner", 2]]);
+    expect(res.turns[1].text).toBe("Certo! Altro?");
     expect((await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).status).toBe(409);
+  });
+
+  it("fails the partner's answer when its call leaves the learner's line unglossed", async () => {
+    const t = await speak();
+    const conv = await t.start();
+    const partner = t.ai.partner;
+    t.ai.coach = passFirstTry("Vorrei un caffè.");
+    t.ai.partner = async (s, h) => { const p = await partner(s, h); return { ...p, result: { ...p.result, learnerLine: null } }; };
+    expect((await t.reply(conv.id)).status).toBe(500);
+    expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.turns.at(-1)).toMatchObject({ role: "learner", chunks: null });
+  });
+
+  it("speaks a whole conversation in one voice, picked at random from the language's Piper voices", async () => {
+    const t = await speak();
+    const voices = partnerVoices("it").map(voiceId);
+    const random = vi.spyOn(Math, "random").mockReturnValue(0.99);
+    const conv = await t.start();
+    await t.reply(conv.id); // fails, so the target is spoken
+    await t.reply(conv.id, { target: "Vorrei un caffè, per favore." }); // passes, so the partner answers
+    expect(t.voices).toEqual([voices.at(-1), voices.at(-1), voices.at(-1)]);
+    random.mockReturnValue(0);
+    await t.start();
+    expect(t.voices.at(-1)).toBe(voices[0]);
+    random.mockRestore();
   });
 
   it("keeps hard mode per conversation", async () => {

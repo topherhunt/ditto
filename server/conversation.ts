@@ -1,5 +1,4 @@
-// Conversation mode (docs/conversation.md): a role-play with an AI partner, gated by a coach that judges each spoken reply
-// from the local phoneme recognizer's output.
+// Conversation mode (docs/conversation.md): a role-play with an AI partner, gated by a coach that judges each spoken reply's grammar.
 import { randomUUID } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -10,7 +9,7 @@ import { z } from "zod";
 import {
   HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SpeakAttemptSchema, SpeakReportSchema,
   type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
-  type HowOut, type MoveOnResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
+  type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
 import { supportLocale, type Language, type Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
@@ -18,7 +17,8 @@ import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
-import type { Speech } from "./speech.ts";
+import { voiceId } from "./content.ts";
+import { partnerVoice, partnerVoices, type Speech } from "./speech.ts";
 import { recordUsage, spentToday, type Usage } from "./usage.ts";
 
 export type ConversationDeps = { ai: ConversationAI; speech: Speech; audioDir: string };
@@ -42,7 +42,8 @@ const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 const spoken = (s: string) => s.toLowerCase().replace(/[\p{P}\p{S}]/gu, " ").replace(/\s+/g, " ").trim();
 
 type ConversationRow = {
-  id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number; created_at: string; updated_at: string;
+  id: number; user_id: number; language: Language; locale: Locale; level: string; scenario: string; title: string; hard_mode: number; voice: string;
+  created_at: string; updated_at: string;
 };
 type TurnRow = {
   id: number; role: "partner" | "learner"; text: string; chunks: string | null; suggestions: string | null; audio_file: string | null;
@@ -103,30 +104,36 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return file;
   };
 
-  /** The partner's next line, spoken, stored as a turn; the opening line also names the conversation. */
-  const partnerTurn = async (conv: ConversationRow, userId: number): Promise<TurnOut> => {
+  /**
+   * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. The same call glosses
+   * the learner's line it answers, so it returns that turn too, then its own.
+   */
+  const partnerTurn = async (conv: ConversationRow, userId: number): Promise<TurnOut[]> => {
     const { ai, speech, audioDir } = speak();
+    const learner = turnRows(conv.id).at(-1);
     const { result, usage } = await ai.partner(setting(conv), history(conv.id));
     paid(userId, conv.id, "partner", usage);
+    if (learner && !result.learnerLine) throw new Error("The partner model returned no chunks for the learner's line");
     const text = joinChunks(result.line);
     const file = saveAudio(conv.id, "wav");
-    await speech.say(text, conv.language, join(audioDir, file));
+    await speech.say(text, partnerVoice(conv.language, conv.voice), join(audioDir, file));
     const now = deps.now().toISOString();
-    const id = transaction(db, () => {
+    transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
       db.prepare("UPDATE conversations SET updated_at = ? WHERE id = ?").run(now, conv.id);
-      return Number(db.prepare(
+      if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(result.learnerLine), learner.id);
+      db.prepare(
         "INSERT INTO conversation_turns (conversation_id, role, text, chunks, suggestions, audio_file, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?)",
-      ).run(conv.id, text, JSON.stringify(result.line), JSON.stringify(result.suggestions), file, now).lastInsertRowid);
+      ).run(conv.id, text, JSON.stringify(result.line), JSON.stringify(result.suggestions), file, now);
     });
-    return toTurn(conv.id, turnRows(conv.id).find((t) => t.id === id)!);
+    return turnRows(conv.id).slice(learner ? -2 : -1).map((t) => toTurn(conv.id, t));
   };
 
-  const learnerTurn = (conv: ConversationRow, text: string, source: TurnSource, level: string | null, taps: number, file: string | null): TurnOut => {
-    const id = Number(db.prepare(
+  /** Returned by the partnerTurn that answers it, with its chunks. */
+  const learnerTurn = (conv: ConversationRow, text: string, source: TurnSource, level: string | null, taps: number, file: string | null) => {
+    db.prepare(
       "INSERT INTO conversation_turns (conversation_id, role, text, audio_file, source, level, taps, created_at) VALUES (?, 'learner', ?, ?, ?, ?, ?, ?)",
-    ).run(conv.id, text, file, source, level, taps, deps.now().toISOString()).lastInsertRowid);
-    return toTurn(conv.id, turnRows(conv.id).find((t) => t.id === id)!);
+    ).run(conv.id, text, file, source, level, taps, deps.now().toISOString());
   };
 
   /** The partner line being answered; a conversation whose partner failed to answer must get one first (POST .../partner). */
@@ -148,7 +155,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
     const file = saveAudio(conv.id, "wav");
-    await speak().speech.say(target, conv.language, join(speak().audioDir, file));
+    await speak().speech.say(target, partnerVoice(conv.language, conv.voice), join(speak().audioDir, file));
     return file;
   };
 
@@ -179,10 +186,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const user = c.get("user");
     underCapOr429(user.id);
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
+    const voices = partnerVoices(body.language);
+    const voice = voiceId(voices[Math.floor(Math.random() * voices.length)]);
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
-      "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?)",
-    ).run(user.id, body.language, supportLocale(body.language, user.locale), body.level, scenario, Number(body.hardMode), now, now).lastInsertRowid);
+      "INSERT INTO conversations (user_id, language, locale, level, scenario, title, hard_mode, voice, created_at, updated_at) VALUES (?, ?, ?, ?, ?, '', ?, ?, ?, ?)",
+    ).run(user.id, body.language, supportLocale(body.language, user.locale), body.level, scenario, Number(body.hardMode), voice, now, now).lastInsertRowid);
     await partnerTurn(conversationOr404(id, user.id), user.id);
     return c.json(conversationOut(conversationOr404(id, user.id), user.id));
   });
@@ -230,12 +239,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       ).run(conv.id, turn.id, Number(body.target !== null), target, transcript, JSON.stringify(verdict), Number(passed), file, targetFile, deps.now().toISOString())
         .lastInsertRowid);
-      const turns: TurnOut[] = [];
+      let turns: TurnOut[] = [];
       if (passed) {
         await step("answering");
         const suggested = (JSON.parse(turn.suggestions!) as Chunk[][]).some((s) => spoken(joinChunks(s)) === spoken(target));
-        turns.push(learnerTurn(conv, target, body.usedHow ? "how" : suggested ? "suggestion" : "own", verdict.level, body.taps, file));
-        turns.push(await partnerTurn(conv, userId));
+        learnerTurn(conv, target, body.usedHow ? "how" : suggested ? "suggestion" : "own", verdict.level, body.taps, file);
+        turns = await partnerTurn(conv, userId);
       }
       const attempt = toAttempt(db.prepare("SELECT * FROM conversation_attempts WHERE id = ?").get(attemptId) as AttemptRow);
       return { attempt, turns, reliance: reliance(conv.id), spend: spend(userId, conv.id) };
@@ -262,12 +271,12 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const turn = awaitingReply(conv.id);
     if (failures(turn.id, target) < MOVE_ON_AFTER)
       throw new HTTPException(409, { message: `Moving on needs ${MOVE_ON_AFTER} failed tries at this sentence` });
-    const turns = transaction(db, () => {
+    transaction(db, () => {
       db.prepare("INSERT INTO weak_phrases (user_id, language, text, conversation_id, created_at) VALUES (?, ?, ?, ?, ?)")
         .run(userId, conv.language, target, conv.id, deps.now().toISOString());
-      return [learnerTurn(conv, target, "moved_on", null, taps, null)];
+      learnerTurn(conv, target, "moved_on", null, taps, null);
     });
-    turns.push(await partnerTurn(conv, userId));
+    const turns = await partnerTurn(conv, userId);
     return c.json<MoveOnResult>({ turns, reliance: reliance(conv.id), spend: spend(userId, conv.id) });
   });
 
@@ -278,7 +287,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     underCapOr429(userId);
     if (turnRows(conv.id).at(-1)?.role !== "learner") throw new HTTPException(409, { message: "It's the learner's turn" });
-    return c.json({ turn: await partnerTurn(conv, userId), spend: spend(userId, conv.id) });
+    return c.json<PartnerRetryResult>({ turns: await partnerTurn(conv, userId), spend: spend(userId, conv.id) });
   });
 
   app.post("/api/conversations/:id/how", async (c) => {

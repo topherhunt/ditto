@@ -20,7 +20,7 @@ function silentWav(): Buffer {
 
 export function fakeSpeech(): Speech {
   return {
-    say: async (_text, _language, out) => {
+    say: async (_text, _voice, out) => {
       writeFileSync(out, silentWav());
       return { seconds: 0.1 };
     },
@@ -36,6 +36,7 @@ export function fakeAI(): ConversationAI {
         line: history.length
           ? [{ text: "Certo!", gloss: "Sure!" }, { text: "Altro?", gloss: "Anything else?" }]
           : [{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }],
+        learnerLine: history.length ? history.at(-1)!.text.split(" ").map((w) => ({ text: w, gloss: `(${w})` })) : null,
         suggestions: [
           [{ text: "Vorrei un caffè,", gloss: "I'd like a coffee," }, { text: "per favore.", gloss: "please." }],
           [{ text: "Un tè,", gloss: "A tea," }, { text: "grazie.", gloss: "thanks." }],

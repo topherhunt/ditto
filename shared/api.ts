@@ -148,8 +148,9 @@ export type TurnOut = {
   id: number;
   role: "partner" | "learner";
   text: string;
-  /** Partner turns only. */
+  /** A learner turn's arrive with the partner's answer to it. */
   chunks: Chunk[] | null;
+  /** Partner turns only. */
   suggestions: Chunk[][] | null;
   audioUrl: string | null;
   /** Learner turns only. */
@@ -190,6 +191,8 @@ export type ConversationsOut = { conversations: ConversationSummary[]; weakPhras
 /** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
 export type SpeakAttemptResult = { attempt: SpeakAttemptOut; turns: TurnOut[]; reliance: Reliance; spend: Spend };
 export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend };
+/** `turns`: the learner's last turn, now with chunks, and the partner's answer. */
+export type PartnerRetryResult = { turns: TurnOut[]; spend: Spend };
 export type HowOut = { sentence: string; chunks: Chunk[]; spend: Spend };
 export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };
 export type AdminSpeakReport = SpeakAttemptOut & {

@@ -12,12 +12,21 @@ async function record(page: import("@playwright/test").Page) {
 }
 
 test("a learner starts a café conversation, fails a reply, retries the coach's sentence and gets an answer", async ({ page }) => {
+  // Logs the source of every audio play() call.
+  await page.addInitScript(() => {
+    const w = window as unknown as { played: string[] };
+    w.played = [];
+    const play = HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play = function () { w.played.push(this.src); return play.call(this); };
+  });
   await signIn(page, "speaker@example.com");
   await page.goto("/it");
   await page.locator(".qa-nav-speak").click();
   await page.locator(".qa-speak-starter-cafe").click();
 
   await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
+  // The opening line plays by itself.
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/\/audio\/[^/]+\.wav$/);
   const opening = page.locator(".qa-turn-partner").first();
   await expect(opening.locator(".qa-chunk")).toHaveText(["Buongiorno!", "Cosa prende?"]);
   await opening.locator(".qa-chunk").first().click();
@@ -53,7 +62,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry-reported")).toBeVisible();
 
   await record(page);
-  await expect(page.locator(".qa-turn-learner .qa-turn-text")).toHaveText("Vorrei un caffè, per favore.");
+  await expect(page.locator(".qa-turn-learner .qa-chunk")).toHaveText(["Vorrei", "un", "caffè,", "per", "favore."]);
+  await page.locator(".qa-turn-learner .qa-chunk").first().click();
+  await expect(page.locator(".qa-gloss")).toHaveText("(Vorrei)");
   await expect(page.locator(".qa-turn-learner .qa-turn-level")).toHaveText("A2");
   await expect(page.locator(".qa-turn-partner").nth(1).locator(".qa-chunk")).toHaveText(["Certo!", "Altro?"]);
   await expect(page.locator(".qa-retry")).toHaveCount(0);

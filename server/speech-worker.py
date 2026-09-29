@@ -17,7 +17,7 @@ voices = {}
 
 def synth(text, voice, out):
     if voice["model"] not in voices:
-        voices.clear()  # one voice at a time: each holds 60-120 MB, and a conversation speaks one language
+        voices.clear()  # one voice at a time: each holds 60-120 MB and reloads in ~0.5 s, and a conversation speaks in one
         voices[voice["model"]] = PiperVoice.load(f"{tools}/piper-voices/{voice['model']}.onnx")
     chunks = list(voices[voice["model"]].synthesize(text, SynthesisConfig(speaker_id=voice.get("speaker"))))
     audio = np.concatenate([c.audio_float_array for c in chunks])

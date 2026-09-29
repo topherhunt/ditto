@@ -2,13 +2,15 @@
 - [x] Finish generating the Gaelic audio
 - [x] Also plan out & build a fully-voice-convo based mode, that's fully AI driven conversation trees.
 - [ ] Polish up the Talk feature
-  - [ ] When you start a convo, it should speak out the speaker's words.
-- [ ] Polish up the current featureset (Type and Talk) 
+  - [x] When you start a convo, it should speak out the speaker's words.
+  - [ ] When you're in a conversation, you should be able to press `space` to trigger the "Record reply" and "Stop" and "Re-record" buttons. So you can progress the convo without needing to click on buttons. (Most users will be on their phones, so we don't need any visual hint to indicate this.)
+  - [ ] Remove the "Leaned on help in N of N replies" text, it's not a useful metric because it's a false negative if you alter anything about the word order. Or do you think it would be easy to use the LLM to determine whether you whether your reply was substantially influenced or substantially similar to one of the stock replies? but anyway, this text is less important than the more key metric, which is how many replies you've done. Can you please instead state the total # of replies, and then we can think separately about whether we want a 2nd number for # where you used a hint sentence?
+- [ ] Polish up the current featureset (Type and Talk)
 - [ ] Polish up the onboarding & settings user flow
-- [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection. 
-- [ ]  Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way.
+- [ ] redeploy to a European host VPS since I can't use US hosting for this app. confirm that the trip across the Atlantic will not be a significant drawback for people in Colombia with a slow internet connection.
+- [ ] Draft up industry standard privacy policy in terms of use and data policy. ensure that this is GDPR compliant in a low-maintenance easy-to-follow way.
 - [ ] Publish the Google Oauth app so people aren't blocked from accessing.
-- [ ] test and confirm with Luis and others that people can access the app fine. 
+- [ ] test and confirm with Luis and others that people can access the app fine.
 
 - [ ] When you first go to ditto.topherhunt.com, see the home page w an overview of features, what you can do , what to expect, how to make the most out if it. And then you can log in.
 - [ ] Port Quizzer app into Ditto. As "Quiz" mode.

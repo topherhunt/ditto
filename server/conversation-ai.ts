@@ -12,6 +12,7 @@ const ChunkSchema = z.strictObject({ text: z.string().min(1), gloss: z.string().
 const PartnerSchema = z.strictObject({
   title: z.string().min(1),
   line: z.array(ChunkSchema).min(1),
+  learnerLine: z.array(ChunkSchema).min(1).nullable(),
   suggestions: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })).length(3),
 });
 const CoachSchema = z.strictObject({
@@ -26,7 +27,8 @@ const HowSchema = z.strictObject({ chunks: z.array(ChunkSchema).min(1) });
 export type Line = { role: "partner" | "learner"; text: string };
 /** `locale` is the learner's support language: glosses, titles and coaching are written in it. */
 export type Setting = { language: Language; locale: Locale; level: string; scenario: string };
-export type PartnerOut = { title: string; line: Chunk[]; suggestions: Chunk[][] };
+/** `learnerLine`: the learner's last line in chunks, null when opening. */
+export type PartnerOut = { title: string; line: Chunk[]; learnerLine: Chunk[] | null; suggestions: Chunk[][] };
 export type CoachIn = Setting & {
   partnerLine: string;
   /** The sentence a retry is judged against; null on a first try. */
@@ -48,12 +50,13 @@ export const joinChunks = (chunks: Chunk[]) => chunks.map((c) => c.text).join(" 
 
 const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", C1: "C2", C2: "C2" };
 
-const CHUNKING = `Split every sentence into chunks: the smallest runs of words that translate as a unit ("ci vediamo" = "see you", not word by word). The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
+const CHUNKING = `Split every sentence into chunks: the smallest runs of words that translate as a unit ("ci vediamo" = "see you", not word by word). A chunk is usually one to three words and never a whole sentence or clause, unless the sentence is one fixed expression ("Buongiorno!"). The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
 
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
 Scenario: ${s.scenario}
 - title: a short title for this conversation in {locale}.
 - line: your next line.
+- learnerLine: the learner's last line in the conversation so far, exactly as written, split into chunks; null when opening the conversation.
 - suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way.
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
@@ -99,7 +102,7 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
     async partner(setting, history) {
       const input = history.length ? `Conversation so far:\n${transcript(history)}` : "Open the conversation.";
       const { result, usage } = await parse(PartnerSchema, "partner", partnerInstructions(setting), input);
-      return { result: { title: result.title, line: result.line, suggestions: result.suggestions.map((s) => s.chunks) }, usage };
+      return { result: { ...result, suggestions: result.suggestions.map((s) => s.chunks) }, usage };
     },
     async coach(c) {
       const input = [
