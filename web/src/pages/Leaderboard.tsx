@@ -4,6 +4,7 @@ import { LEADERBOARD_WINDOWS, type LeaderboardOut, type LeaderboardRow, type Lea
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { displayName, lessonCount } from "../social.ts";
+import { MakeFriendsButton } from "./FriendBoard.tsx";
 
 const WINDOWS = Object.keys(LEADERBOARD_WINDOWS) as LeaderboardWindow[];
 
@@ -36,6 +37,7 @@ export function Leaderboard() {
           </>
         )}
       </Show>
+      <MakeFriendsButton />
     </div>
   );
 }

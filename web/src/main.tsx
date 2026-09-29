@@ -9,6 +9,7 @@ import { About } from "./pages/About.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
 import { CourseSettings } from "./pages/CourseSettings.tsx";
 import { Dashboard } from "./pages/Dashboard.tsx";
+import { FriendBoard } from "./pages/FriendBoard.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
@@ -39,6 +40,7 @@ render(
       <Route path="/about" component={About} />
       <Route path="/cap" component={CapReached} />
       <Route path="/friends" component={Friends} />
+      <Route path="/friends/board" component={FriendBoard} />
       <Route path="/leaderboard" component={Leaderboard} />
       <Route path="/settings" component={Settings} />
       <Route path="/people/:id" component={Profile} />

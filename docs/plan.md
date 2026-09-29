@@ -25,10 +25,11 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Admins watch usage and abuse at `/admin/users` (account menu > Users): every account with registration, last seen (`users.last_seen_at`, stamped by signed-in requests at most every 5 minutes), last practice, items, active days, friends, pending requests, blocks received, reports filed and AI spend, searchable, filterable and sortable in the browser. A user's page adds practice per language, daily activity, friends, blocks, reports and a link to their public profile. `/admin/metrics` (account menu > Metrics) shows daily learners, engaged time per activity, traffic, errors and latency ([metrics.md](metrics.md)).
 - Scheduled review (FSRS).
 - AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
-- Friends, found on the Friends page by exact username (a leading `@` is ignored) or exact email, or added from a profile. A search shows only the username and how you stand, so people can connect without sharing an email. The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
+- Friends, found on the Friends page by exact username (a leading `@` is ignored) or exact email, or added from a profile. A search shows only the username and how you stand, so people can connect without sharing an email. A learner can send 3 new requests in any 24 hours (declined ones count; accepting someone else's doesn't). The other person can accept, decline (the request is deleted) or block (silently: the requester sees a pending request forever). Either side can unfriend.
 - Usernames: picked on a blocking screen right after first sign-in, changeable under Account settings (`/account`). ASCII `[A-Za-z0-9_.-]{3,20}`, unique regardless of capitals. Lists, races, notifications and leaderboards show only the username.
 - Identity privacy: learners know each other only by username. Email, Google name and Google photo are never shown to another learner, friends included; the Google name and photo aren't stored. The email is shown only to its owner (Settings) and the operator (`/admin`). Users appear in URLs and the API by `users.public_id` (random, 10 characters from a 64-character alphabet), never by the numeric row ID.
 - Profiles (`/people/:publicId`, `/people/me`). Your own profile carries a note on what strangers see, linking to Settings. A public profile (the default) shows anyone the username, the language most recently practiced, the activity line and lessons completed in the past day/week/month, with an Add friend button. A private one (Settings > "Public profile" off) shows strangers only the username and the button. Only you and your friends see the rest: accuracy, the current module per language, a step graph of lessons completed with level markers, and recent lessons with a Play link. Activity is the shortest window (day/week/month/year) with 2+ lessons, else the last completion date. Accuracy covers the last 10 lessons worked on. "Lessons completed" always means first completions.
+- Make new friends board (`/friends/board`, from a button at the bottom of the Friends and Leaderboard pages): opt-in. Post an entry with an optional one-line blurb (140 chars) to see the board; take it down in one click. It lists up to 50 entries in a fresh random order, with no search or filter: username, language, level, activity line, blurb and an Add friend button, and your own entry labeled "(Hey, this is you!)". Posting shows these even if your profile is private. A block in either direction hides two learners from each other. No DMs, and no way yet to report a blurb.
 - A lesson any friend has started is playable out of sequence. Its done screen compares your latest run with friends who have played it.
 - Races between friends, which start once the opponent accepts: most lessons in 1/3/7/14/30 days, or first to N lessons (15-200). A first-to race has a 30-day deadline, where the leader wins and a tie is a draw. One open race per pair. Races are settled lazily when races or notifications are read.
 - A leaderboard (`/leaderboard`) of lessons completed in the past 1, 7 or 30 days, among you and your friends only, with a note saying so and a link to find friends. Strangers and friends of friends never appear. Top 20, ties share a rank, and your own row is added below if you're outside it. Each name links to the profile.
@@ -223,6 +224,7 @@ reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. openai
         )
 friendships(requester_id, addressee_id, status  -- pending|accepted|blocked
             , created_at, responded_at, PK(requester_id, addressee_id))
+friend_board(user_id PK, blurb, created_at)  -- retracting deletes the row
 challenges(id PK, challenger_id, opponent_id, kind  -- most|first_to
            , days, target, status  -- pending|active|declined|cancelled|finished
            , created_at, started_at, ends_at, finished_at, winner_id  -- NULL on a draw
@@ -260,8 +262,11 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | GET | `/api/friends` | Friends and incoming/outgoing/blocked requests |
 | GET | `/api/leaderboard?window=(day\|week\|month)` | You and your friends: `{rows, me}`; `me` is your row when it's outside the top 20 |
 | GET | `/api/friends/search?q=` | Exact username or email. Only whether the account exists, its person (id and username) and how you stand with it |
-| POST | `/api/friends/requests` | `{userId}`, a public ID from a search or profile. If they already asked you, this accepts their request |
+| POST | `/api/friends/requests` | `{userId}`, a public ID from a search or profile. If they already asked you, this accepts their request. 403 past 3 new requests in 24 hours |
 | POST | `/api/friends/:id/(accept\|decline\|block\|unblock\|unfriend)` | Unfriending cancels open races |
+| GET | `/api/friend-board` | `{posted: false}`, or `{posted: true, entries}` in random order (`BoardEntry`) |
+| PUT | `/api/friend-board` | `{blurb}`, empty for none. Posts or updates your entry; needs a username. Returns the board |
+| DELETE | `/api/friend-board` | Takes your entry down |
 | GET | `/api/profile/(:publicId\|me)` | Person and relation. `summary` (language, activity, lesson counts) is null for a stranger viewing a private profile; `details` is null unless self or friends. Never includes email. Every `:id`, `userId` and `opponentId` naming a user is a public ID |
 | GET | `/api/lessons/:lessonId/compare` | Your latest run of the lesson next to your friends' |
 | GET | `/api/challenges` | Settles due races; lists open ones and the past 30 days |

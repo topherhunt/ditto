@@ -108,10 +108,12 @@ export function Layout(props: RouteSectionProps) {
         </Match>
       </Switch>
       <footer class="container py-3 small text-body-secondary d-flex flex-wrap justify-content-between gap-2" style={{ "max-width": "52rem" }}>
-        <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
-          <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
-        </a>
-        <Show when={me()}><A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A></Show>
+        <span>
+          <Show when={me()}><A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span></Show>
+          <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
+            <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
+          </a>
+        </span>
         <Show when={me() && spend()}>
           {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
         </Show>

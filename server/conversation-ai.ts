@@ -45,7 +45,7 @@ export interface ConversationAI {
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
   howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
-  /** Each of `lines`, consecutive lines of the conversation, in chunks. */
+  /** Each of `lines`, consecutive lines of the conversation, in chunks; the model can return a different number of lines. */
   gloss(setting: Setting, lines: string[]): Promise<Paid<Chunk[][]>>;
 }
 
@@ -130,9 +130,6 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
     async gloss(setting, lines) {
       const { result, usage } = await parse(GlossSchema, "gloss", fill(GLOSS_INSTRUCTIONS, setting),
         `${lines.length} lines:\n${lines.map((l, i) => `${i + 1}. ${l}`).join("\n")}`);
-      if (result.lines.length !== lines.length) {
-        throw new Error(`${model} glossed ${lines.length} lines as ${result.lines.length}: ${JSON.stringify(result.lines.map((l) => joinChunks(l.chunks)))}`);
-      }
       return { result: result.lines.map((l) => l.chunks), usage };
     },
   };

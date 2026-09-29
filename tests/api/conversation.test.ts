@@ -174,19 +174,55 @@ describe("conversation mode", () => {
     expect((await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).status).toBe(409);
   });
 
-  it("glosses the learner's line and the partner's answer in one call, and fails the answer when that call fails", async () => {
+  it("glosses the learner's line and the partner's answer in one call", async () => {
     const t = await speak();
     const conv = await t.start();
     const gloss = t.ai.gloss;
     const glossed: string[][] = [];
     t.ai.coach = passFirstTry("Vorrei un caffè.");
-    t.ai.gloss = async () => { throw new Error("model down"); };
-    expect((await t.reply(conv.id)).status).toBe(500);
-    expect((await t.req("GET", `/api/conversations/${conv.id}`)).json.turns.at(-1)).toMatchObject({ role: "learner", chunks: null });
     t.ai.gloss = (s, lines) => { glossed.push(lines); return gloss(s, lines); };
-    const res = (await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).json;
+    const res = await t.reply(conv.id);
     expect(glossed).toEqual([["Vorrei un caffè.", "Certo! Altro?"]]);
-    expect(res.turns.map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
+    expect(res.json.turns.map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
+  });
+
+  it("retries a gloss that fails or returns the wrong number of lines, metering each try", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const t = await speak();
+      const gloss = t.ai.gloss;
+      let calls = 0;
+      t.ai.gloss = async (s, lines) => {
+        calls++;
+        const g = await gloss(s, lines);
+        return calls === 1 ? { ...g, result: [...g.result, ...g.result] } : g;
+      };
+      const conv = await t.start();
+      expect(calls).toBe(2);
+      expect(conv.turns[0].chunks.map((c: { text: string }) => c.text)).toEqual(["Buongiorno!", "Cosa prende?"]);
+      // The partner's line and two glosses.
+      expect(conv.spend.conversation).toBeCloseTo(3 * FAKE_COST, 6);
+      expect(warn).toHaveBeenCalledWith(expect.stringMatching(/^Gloss failed in conversation \d+, try 1 of 2: 1 lines came back as /));
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it("keeps the partner's answer, spoken but without chunks, when both glossing tries fail", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const t = await speak();
+      const conv = await t.start();
+      t.ai.coach = passFirstTry("Vorrei un caffè.");
+      t.ai.gloss = async () => { throw new Error("model down"); };
+      const res = await t.reply(conv.id);
+      expect(res.status).toBe(200);
+      expect(res.json.turns).toMatchObject([{ role: "learner", chunks: null }, { role: "partner", text: "Certo! Altro?", chunks: null }]);
+      expect((await t.req("GET", res.json.turns[1].audioUrl)).status).toBe(200);
+      expect(warn.mock.calls.map((c) => c[0])).toEqual([1, 2].map((n) => `Gloss failed in conversation ${conv.id}, try ${n} of 2: model down`));
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it("warns when a line's chunks don't join back into the line, and stores them anyway", async () => {

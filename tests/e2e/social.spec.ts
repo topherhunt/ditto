@@ -167,6 +167,36 @@ test("a new account picks a username, finds a stranger by username, sees only th
   await expect(page.locator(".qa-user")).toHaveText("wren.b");
 });
 
+test("make new friends: post from the leaderboard, see yourself labeled on the board, befriend someone on it, and take your entry down", async ({ page }) => {
+  await signIn(page, "poster@example.com");
+  await openFriends(page);
+  await page.locator(".qa-make-friends").click();
+  await page.locator(".qa-board-blurb").fill("Hello from Rome");
+  await page.locator(".qa-board-post").click();
+  await expect(page.locator(".qa-board-entry .qa-board-you")).toHaveCount(1);
+  await signOut(page);
+
+  await signIn(page, "joiner@example.com");
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-leaderboard").click();
+  await page.locator(".qa-make-friends").click();
+  await expect(page).toHaveURL(/\/friends\/board$/);
+  await expect(page.locator(".qa-board")).toHaveCount(0);
+  await page.locator(".qa-board-post").click();
+  const mine = page.locator(".qa-board-entry").filter({ hasText: "joiner" });
+  await expect(mine.locator(".qa-board-you")).toBeVisible();
+  await expect(mine.locator(".qa-board-add")).toHaveCount(0);
+  const poster = page.locator(".qa-board-entry").filter({ hasText: "poster" });
+  await expect(poster.locator(".qa-board-entry-blurb")).toHaveText("Hello from Rome");
+  await expect(poster).toContainText("Italian · A1");
+  await poster.locator(".qa-board-add").click();
+  await expect(poster.locator(".qa-board-sent")).toBeVisible();
+
+  await page.locator(".qa-board-retract").click();
+  await expect(page.locator(".qa-board-form")).toBeVisible();
+  await expect(page.locator(".qa-board")).toHaveCount(0);
+});
+
 test("your own profile says who sees what, never shows your email, and going private hides it from strangers", async ({ page }) => {
   await signIn(page, "hider@example.com");
   await page.goto("/it/lesson/it-a1-bar-1");

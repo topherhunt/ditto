@@ -1,13 +1,14 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import {
-  RACE_DAYS, RACE_DEADLINE_DAYS, RACE_MIN_TARGET,
+  FRIEND_REQUESTS_PER_DAY, RACE_DAYS, RACE_DEADLINE_DAYS, RACE_MIN_TARGET,
   type ChallengeBody, type ChallengeOut, type FriendSearchOut, type FriendsOut, type Person, type Relation,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
-import { dayCount, daysLeft, displayName, raceLabel } from "../social.ts";
+import { dayCount, daysLeft, displayName, raceLabel, sendFriendRequest } from "../social.ts";
+import { MakeFriendsButton } from "./FriendBoard.tsx";
 
 /** What a search says about an account; `none` and `incoming` show a button instead. */
 const SEARCH_RESULT: Record<Exclude<Relation, "none" | "incoming">, Key> = {
@@ -28,8 +29,10 @@ export function Friends() {
     e.preventDefault();
     setFound(await api.get<FriendSearchOut>(`/api/friends/search?q=${encodeURIComponent(query().trim())}`));
   }
+  const [limited, setLimited] = createSignal(false);
   async function request(f: Extract<FriendSearchOut, { found: true }>) {
-    const { relation } = await api.post<{ relation: Relation }>("/api/friends/requests", { userId: f.person.id });
+    const relation = await sendFriendRequest(f.person.id);
+    if (relation === null) return setLimited(true);
     setFound({ ...f, relation });
     await refresh();
   }
@@ -75,6 +78,7 @@ export function Friends() {
             </div>
           )}
         </Show>
+        <Show when={limited()}><p class="qa-friend-limit alert alert-info mb-0">{t("friends.limit", { n: FRIEND_REQUESTS_PER_DAY })}</p></Show>
       </div></section>
 
       <Show when={friends()}>
@@ -129,6 +133,7 @@ export function Friends() {
           </>
         )}
       </Show>
+      <MakeFriendsButton />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { LEADERBOARD_SIZE } from "../../shared/api.ts";
+import { FRIEND_REQUESTS_PER_DAY, LEADERBOARD_SIZE, type BoardEntry } from "../../shared/api.ts";
 import { setup } from "./helpers.ts";
 
 type T = ReturnType<typeof setup>;
@@ -109,6 +109,29 @@ describe("friend requests", () => {
     expect((await t.req("GET", `/api/friends/search?q=${A}`)).json.relation).toBe("none");
   });
 
+  it(`allows ${FRIEND_REQUESTS_PER_DAY} new requests in any 24 hours, counting declined ones but not accepting someone else's`, async () => {
+    const t = setup();
+    const [ana] = await accounts(t, A, B, C, "dee@example.com", "eve@example.com");
+    await t.login(A);
+    expect((await request(t, B)).status).toBe(200);
+    await t.login(B);
+    await t.req("POST", `/api/friends/${ana}/decline`, {});
+    await t.login(A);
+    expect((await request(t, C)).status).toBe(200);
+    expect((await request(t, "dee@example.com")).status).toBe(200);
+    const over = await request(t, B);
+    expect(over.status).toBe(403);
+    expect(over.json.error).toContain("today");
+    expect((await request(t, C)).json.relation).toBe("outgoing");
+
+    await t.login("eve@example.com");
+    await request(t, A);
+    await t.login(A);
+    expect((await request(t, "eve@example.com")).json.relation).toBe("friends");
+    later(t, DAY);
+    expect((await request(t, B)).json.relation).toBe("outgoing");
+  });
+
   it("declining deletes the request; unfriending ends the friendship and any open race", async () => {
     const t = setup();
     const [ana, bo] = await accounts(t, A, B);
@@ -125,6 +148,75 @@ describe("friend requests", () => {
     await t.login(A);
     expect((await t.req("GET", "/api/friends")).json.friends).toEqual([]);
     expect((await t.req("GET", "/api/challenges")).json[0]).toMatchObject({ status: "cancelled", challenger: { id: bo } });
+  });
+});
+
+describe("friend board", () => {
+  const get = async (t: T) => (await t.req("GET", "/api/friend-board")).json;
+  const post = (t: T, blurb: string) => t.req("PUT", "/api/friend-board", { blurb });
+  const names = (entries: BoardEntry[]) => entries.map((e) => e.person.username).sort();
+
+  it("is seen only by learners on it, shows language, level, activity and blurb but no email, and retracting takes you off", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B);
+    await t.login(A);
+    await completeBar1(t);
+    expect(await get(t)).toEqual({ posted: false });
+    expect((await post(t, "x".repeat(141))).status).toBe(400);
+    expect((await post(t, "two\nlines")).status).toBe(400);
+    const mine = { person: { id: ana, username: "ana" }, isMe: true, language: "it", level: "A1", activity: { lastCompletedAt: t.clock.now.toISOString() }, blurb: "Ciao! Study buddies?" };
+    expect((await post(t, " Ciao! Study buddies? ")).json).toEqual({ posted: true, entries: [{ ...mine, relation: "self" }] });
+
+    await t.login(B);
+    expect(await get(t)).toEqual({ posted: false });
+    expect((await post(t, "")).status).toBe(200);
+    const entries: BoardEntry[] = (await get(t)).entries;
+    expect(names(entries)).toEqual(["ana", "bob"]);
+    expect(entries.find((e) => e.isMe)).toEqual({ person: { id: bo, username: "bob" }, relation: "self", isMe: true, language: null, level: null, activity: null, blurb: null });
+    expect(entries.find((e) => !e.isMe)).toEqual({ ...mine, relation: "none", isMe: false });
+    expect(JSON.stringify(entries)).not.toContain("@example.com");
+
+    await t.login(A);
+    expect((await t.req("DELETE", "/api/friend-board")).json).toEqual({ posted: false });
+    await t.login(B);
+    expect(names((await get(t)).entries)).toEqual(["bob"]);
+  });
+
+  it("comes back in a new random order", async () => {
+    const t = setup();
+    await accounts(t, A, B, C);
+    for (const e of [A, B, C]) {
+      await t.login(e);
+      await post(t, "");
+    }
+    const orders = new Set<string>();
+    for (let i = 0; i < 20; i++) orders.add((await get(t)).entries.map((e: BoardEntry) => e.person.username).join());
+    expect(orders.size).toBeGreaterThan(1);
+  });
+
+  it("needs a username to post", async () => {
+    const t = setup();
+    await t.login(A);
+    expect((await post(t, "hi")).status).toBe(400);
+    expect(await get(t)).toEqual({ posted: false });
+  });
+
+  it("hides two learners from each other when either blocked the other", async () => {
+    const t = setup();
+    const [ana] = await accounts(t, A, B, C);
+    await t.login(A);
+    await request(t, B);
+    await t.login(B);
+    await t.req("POST", `/api/friends/${ana}/block`, {});
+    for (const e of [A, B, C]) {
+      await t.login(e);
+      await post(t, "");
+    }
+    expect(names((await get(t)).entries)).toEqual(["ana", "bob", "cyd"]);
+    await t.login(A);
+    expect(names((await get(t)).entries)).toEqual(["ana", "cyd"]);
+    await t.login(B);
+    expect(names((await get(t)).entries)).toEqual(["bob", "cyd"]);
   });
 });
 
@@ -185,7 +277,8 @@ describe("leaderboard", () => {
     for (let i = 0; i < LEADERBOARD_SIZE; i++) {
       const email = `u${String(i).padStart(2, "0")}@example.com`;
       await accounts(t, email);
-      await befriend(t, "zed@example.com", email);
+      await befriend(t, email, "zed@example.com");
+      await t.login(email);
       await completeBar1(t);
     }
     await t.login("zed@example.com");

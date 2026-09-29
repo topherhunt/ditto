@@ -2,8 +2,8 @@ import type { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
-  CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
-  PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
+  BOARD_SIZE, CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FRIEND_REQUESTS_PER_DAY, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
+  PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile,
   type Relation,
 } from "../shared/api.ts";
@@ -172,6 +172,10 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const rel = relation(me, other);
     if (rel === "self") throw new HTTPException(400, { message: "That's you" });
     if (rel === "blocked") throw new HTTPException(409, { message: "You blocked them; unblock them first" });
+    // Counted from notifications, which outlive a declined request.
+    const sent = db.prepare("SELECT count(*) AS n FROM notifications WHERE actor_id = ? AND kind = 'friend_request' AND created_at > ?")
+      .get(me, daysAgo(1)) as { n: number };
+    if (rel === "none" && sent.n >= FRIEND_REQUESTS_PER_DAY) throw new HTTPException(403, { message: `You've sent ${FRIEND_REQUESTS_PER_DAY} friend requests today` });
     transaction(db, () => {
       if (rel === "none") {
         db.prepare("INSERT INTO friendships (requester_id, addressee_id, status, created_at) VALUES (?, ?, 'pending', ?)").run(me, other, iso());
@@ -203,10 +207,12 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     return c.json({ ok: true });
   });
 
+  const mainTrack = (language: Language) =>
+    courses.filter((c) => c.language === language && c.track === "main").sort((a, b) => a.level.localeCompare(b.level) || a.order - b.order);
   const languageProfile = (language: Language, worked: { lesson_id: string; last: string }[], doneAt: Map<string, string>): LanguageProfile => {
     const inLanguage = courses.filter((c) => c.language === language);
     const complete = (c: ServedCourse) => c.lessons.every((l) => doneAt.has(l.id));
-    const main = inLanguage.filter((c) => c.track === "main").sort((a, b) => a.level.localeCompare(b.level) || a.order - b.order);
+    const main = mainTrack(language);
     const next = main.findIndex((c) => !complete(c));
     return {
       language,
@@ -225,6 +231,21 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     };
   };
 
+  /** Lessons done and worked on, plus the language and activity a public profile or board entry shows. */
+  const summarize = (id: number) => {
+    const done = completions(id);
+    const worked = (db.prepare("SELECT lesson_id, max(created_at) AS last FROM attempts WHERE user_id = ? AND mode = 'learn' GROUP BY lesson_id ORDER BY last DESC")
+      .all(id) as { lesson_id: string; last: string }[]).filter((r) => courseOf.has(r.lesson_id));
+    const firstStudied = db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid LIMIT 1").get(id) as { language: Language } | undefined;
+    const windowed = ACTIVITY_WINDOWS.map(([window, days]) => ({ window, lessons: done.filter((r) => r.at >= daysAgo(days)).length }))
+      .find((w) => w.lessons >= 2);
+    return {
+      done, worked,
+      language: worked.length ? courseOf.get(worked[0].lesson_id)!.language : (firstStudied?.language ?? null),
+      activity: windowed ?? (done.length ? { lastCompletedAt: done.at(-1)!.at } : null),
+    };
+  };
+
   app.get("/api/profile/:id", (c) => {
     const me = c.get("user").id;
     const id = c.req.param("id") === "me" ? me : userId(c.req.param("id"));
@@ -233,17 +254,10 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const { profile_public } = db.prepare("SELECT profile_public FROM users WHERE id = ?").get(id) as { profile_public: number };
     if (!insider && profile_public === 0) return c.json<Profile>({ person: person(id), relation: rel, summary: null, details: null });
 
-    const done = completions(id);
-    const windowed = ACTIVITY_WINDOWS.map(([window, days]) => ({ window, lessons: done.filter((r) => r.at >= daysAgo(days)).length }))
-      .find((w) => w.lessons >= 2);
+    const { done, worked, language, activity } = summarize(id);
     const since = (window: LeaderboardWindow) => done.filter((r) => r.at >= daysAgo(LEADERBOARD_WINDOWS[window])).length;
-    const worked = (db.prepare("SELECT lesson_id, max(created_at) AS last FROM attempts WHERE user_id = ? AND mode = 'learn' GROUP BY lesson_id ORDER BY last DESC")
-      .all(id) as { lesson_id: string; last: string }[]).filter((r) => courseOf.has(r.lesson_id));
-    const firstStudied = db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid LIMIT 1").get(id) as { language: Language } | undefined;
     const base = { person: person(id), relation: rel, summary: {
-      language: worked.length ? courseOf.get(worked[0].lesson_id)!.language : (firstStudied?.language ?? null),
-      activity: windowed ?? (done.length ? { lastCompletedAt: done.at(-1)!.at } : null),
-      lessons: { day: since("day"), week: since("week"), month: since("month") },
+      language, activity, lessons: { day: since("day"), week: since("week"), month: since("month") },
     } };
     if (!insider) return c.json<Profile>({ ...base, details: null });
     const accuracyLessons = worked.slice(0, ACCURACY_LESSONS).map((r) => r.lesson_id);
@@ -252,6 +266,45 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
       accuracy: { lessons: accuracyLessons.length, ...accuracyOf(latestAttempts(id, accuracyLessons)) },
       languages: [...new Set(worked.map((r) => courseOf.get(r.lesson_id)!.language))].map((l) => languageProfile(l, worked, doneAt)),
     } });
+  });
+
+  const board = (me: number): BoardOut => {
+    if (!db.prepare("SELECT 1 FROM friend_board WHERE user_id = ?").get(me)) return { posted: false };
+    // A block in either direction hides each from the other, silently.
+    const rows = db.prepare(
+      `SELECT user_id, blurb FROM friend_board b WHERE user_id = ?1 OR NOT EXISTS (
+         SELECT 1 FROM friendships f WHERE f.status = 'blocked'
+         AND ((f.requester_id = ?1 AND f.addressee_id = b.user_id) OR (f.requester_id = b.user_id AND f.addressee_id = ?1))
+       ) ORDER BY user_id = ?1 DESC, random() LIMIT ?2`,
+    ).all(me, BOARD_SIZE) as { user_id: number; blurb: string | null }[];
+    // SQL keeps the viewer within the limit; this puts them somewhere random.
+    for (let i = rows.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [rows[i], rows[j]] = [rows[j], rows[i]];
+    }
+    return { posted: true, entries: rows.map((r) => {
+      const { done, language, activity } = summarize(r.user_id);
+      const doneIds = new Set(done.map((d) => d.lesson_id));
+      const main = language ? mainTrack(language) : [];
+      const level = (main.find((c) => !c.lessons.every((l) => doneIds.has(l.id))) ?? main.at(-1))?.level ?? null;
+      return { person: person(r.user_id), relation: relation(me, r.user_id), isMe: r.user_id === me, language, level, activity, blurb: r.blurb };
+    }) };
+  };
+
+  app.get("/api/friend-board", (c) => c.json<BoardOut>(board(c.get("user").id)));
+
+  app.put("/api/friend-board", async (c) => {
+    const { blurb } = PostBoardSchema.parse(await c.req.json());
+    const me = c.get("user");
+    if (me.username === null) throw new HTTPException(400, { message: "Pick a username first" });
+    db.prepare("INSERT INTO friend_board (user_id, blurb, created_at) VALUES (?, ?, ?) ON CONFLICT (user_id) DO UPDATE SET blurb = excluded.blurb")
+      .run(me.id, blurb || null, iso());
+    return c.json<BoardOut>(board(me.id));
+  });
+
+  app.delete("/api/friend-board", (c) => {
+    db.prepare("DELETE FROM friend_board WHERE user_id = ?").run(c.get("user").id);
+    return c.json<BoardOut>({ posted: false });
   });
 
   app.get("/api/lessons/:lessonId/compare", (c) => {

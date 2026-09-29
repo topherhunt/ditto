@@ -118,6 +118,12 @@ export const PublicIdSchema = z.string().regex(/^[A-Za-z0-9_-]{10}$/);
 
 /** By id, from a search result or a profile. */
 export const FriendRequestSchema = z.strictObject({ userId: PublicIdSchema });
+/** New requests one learner may send in any 24 hours; accepting someone else's doesn't count. Going over is a 403. */
+export const FRIEND_REQUESTS_PER_DAY = 3;
+export const BOARD_BLURB_MAX = 140;
+/** One line; empty means no blurb. */
+export const PostBoardSchema = z.strictObject({ blurb: z.string().trim().max(BOARD_BLURB_MAX).regex(/^[^\r\n]*$/) });
+export const BOARD_SIZE = 50;
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
 
 export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
@@ -338,6 +344,23 @@ export type LeaderboardRow = { rank: number; person: Person; lessons: number; is
 export type LeaderboardOut = { rows: LeaderboardRow[]; me: LeaderboardRow | null };
 
 export type ActivityWindow = "day" | "week" | "month" | "year";
+/** The smallest window with at least two lessons completed, else when the last one was. */
+export type RecentActivity = { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
+
+/** What a learner who opted into the board shows strangers, whether or not their profile is public. */
+export type BoardEntry = {
+  person: Person;
+  relation: Relation;
+  isMe: boolean;
+  language: Language | null;
+  /** The CEFR level of their first unfinished main-track module in `language`. */
+  level: string | null;
+  activity: RecentActivity;
+  blurb: string | null;
+};
+/** Only learners with an entry see the board: up to BOARD_SIZE entries in a new random order each time, with no search or filter. */
+export type BoardOut = { posted: false } | { posted: true; entries: BoardEntry[] };
+
 /** A profile never includes the account's email or anything from Google. */
 export type Profile = {
   person: Person;
@@ -346,8 +369,7 @@ export type Profile = {
   summary: {
     /** The language of the lesson worked on most recently, else the first one studied; null with neither. */
     language: Language | null;
-    /** The smallest window with at least two lessons completed, else when the last one was. */
-    activity: { window: ActivityWindow; lessons: number } | { lastCompletedAt: string } | null;
+    activity: RecentActivity;
     lessons: Record<LeaderboardWindow, number>;
   } | null;
   /** For yourself and friends only. */

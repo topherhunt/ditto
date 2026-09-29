@@ -1,23 +1,14 @@
 import { A, useNavigate, useParams } from "@solidjs/router";
-import { createResource, For, Match, Show, Switch } from "solid-js";
-import type { ActivityWindow, LeaderboardWindow, Profile as ProfileOut } from "../../../shared/api.ts";
+import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
+import { FRIEND_REQUESTS_PER_DAY, type LeaderboardWindow, type Profile as ProfileOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ProgressGraph } from "../components/ProgressGraph.tsx";
 import { languageName, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS } from "../learning.ts";
 import { me } from "../session.ts";
-import { displayName, lessonCount, shortDate } from "../social.ts";
+import { activityText, displayName, lessonCount, sendFriendRequest, shortDate } from "../social.ts";
 
-const ACTIVITY_KEYS = {
-  day: "profile.activity.day", week: "profile.activity.week", month: "profile.activity.month", year: "profile.activity.year",
-} as const satisfies Record<ActivityWindow, string>;
 const LESSONS_KEYS = { day: "profile.lessonsDay", week: "profile.lessonsWeek", month: "profile.lessonsMonth" } as const satisfies Record<LeaderboardWindow, string>;
-
-function activityText(a: NonNullable<ProfileOut["summary"]>["activity"]) {
-  if (a === null) return t("profile.noLessons");
-  if ("lastCompletedAt" in a) return t("profile.lastCompleted", { date: shortDate(a.lastCompletedAt) });
-  return t(ACTIVITY_KEYS[a.window], { lessons: lessonCount(a.lessons) });
-}
 
 /** The username for anyone; the language and lesson counts unless the account is private; progress only for themselves and friends. `/people/me` is the signed-in learner. */
 export function Profile() {
@@ -31,9 +22,10 @@ export function Profile() {
     navigate("/friends");
   }
   /** Sends a request, or accepts theirs. */
+  const [limited, setLimited] = createSignal(false);
   async function befriend(p: ProfileOut) {
-    await api.post("/api/friends/requests", { userId: p.person.id });
-    await refetch();
+    if ((await sendFriendRequest(p.person.id)) === null) setLimited(true);
+    else await refetch();
   }
 
   return (
@@ -67,6 +59,7 @@ export function Profile() {
               <Match when={p().relation === "blocked"}><span class="small text-body-secondary">{t("profile.blockedThem")}</span></Match>
             </Switch>
           </div>
+          <Show when={limited()}><p class="qa-friend-limit alert alert-info mb-0">{t("friends.limit", { n: FRIEND_REQUESTS_PER_DAY })}</p></Show>
           <Show when={p().summary} fallback={
             <Show when={p().relation !== "blocked"}><p class="qa-profile-hidden text-body-secondary mb-0">{t("profile.hidden")}</p></Show>
           }>

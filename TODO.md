@@ -36,7 +36,8 @@
     - Sending challenges to friends. "Ghost races" and similar.
   - [ ] Score a general proxy for activity across Type, Talk and Quiz, not just typed lessons.
   - [ ] Empty state: when you have no friends yet, prompt you to invite some.
-  - [ ] "Match me with another learner" button that pairs you with someone studying the same language.
+  - [x] "Make new friends" board: opt in with a one-line blurb, see everyone else on it in random order, 3 friend requests a day.
+  - [ ] Let learners report a board blurb, and let the operator hide it.
   - [ ] Send friends words of encouragement.
 - Support slowing down audio as a user setting. Only up to A2.
 - Stream on-demand audio to reduce wait times, rather than waiting until the full clip is returned?

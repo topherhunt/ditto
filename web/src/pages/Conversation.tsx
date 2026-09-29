@@ -54,7 +54,9 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
     }>
       <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded bg-body-secondary" style={{ "max-width": "85%" }}>
         <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" />
-        <ChunkLine class="qa-turn-text fs-5" chunks={turn().chunks!} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />
+        <Show when={turn().chunks} fallback={<span class="qa-turn-text fs-5">{turn().text}</span>}>
+          {(chunks) => <ChunkLine class="qa-turn-text fs-5" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
+        </Show>
       </div>
     </Show>
   );

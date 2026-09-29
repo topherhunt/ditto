@@ -104,6 +104,25 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return file;
   };
 
+  /** `lines` in chunks for tooltips, tried twice; null leaves the lines shown without them, since glossing is only an aid. */
+  const glossLines = async (conv: ConversationRow, userId: number, lines: string[]): Promise<Chunk[][] | null> => {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const { result, usage } = await speak().ai.gloss(setting(conv), lines);
+        paid(userId, conv.id, "gloss", usage);
+        if (result.length !== lines.length) throw new Error(`${lines.length} lines came back as ${JSON.stringify(result.map(joinChunks))}`);
+        // The chunks are shown as the line, so a mismatch shows the learner text other than what was spoken or said.
+        result.forEach((c, i) => {
+          if (joinChunks(c) !== lines[i]) console.warn(`Gloss mismatch in conversation ${conv.id}: "${lines[i]}" was chunked as "${joinChunks(c)}"`);
+        });
+        return result;
+      } catch (e) {
+        console.warn(`Gloss failed in conversation ${conv.id}, try ${attempt} of 2: ${e instanceof Error ? e.message : e}`);
+      }
+    }
+    return null;
+  };
+
   /**
    * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. A second call, run while
    * the line is spoken, glosses it and the learner's line it answers, so it returns that turn too, then its own.
@@ -116,15 +135,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const text = result.line;
     const file = saveAudio(conv.id, "wav");
     const lines = learner ? [learner.text, text] : [text];
-    const [glossed] = await Promise.all([
-      ai.gloss(setting(conv), lines).then((g) => { paid(userId, conv.id, "gloss", g.usage); return g.result; }),
-      say(conv, userId, text, pace(conv), join(audioDir, file)),
-    ]);
-    // The chunks are shown as the line, so a mismatch shows the learner text other than what was spoken or said.
-    glossed.forEach((c, i) => {
-      if (joinChunks(c) !== lines[i]) console.warn(`Gloss mismatch in conversation ${conv.id}: "${lines[i]}" was chunked as "${joinChunks(c)}"`);
-    });
-    const [learnerChunks, chunks] = learner ? glossed : [null, glossed[0]];
+    const [glossed] = await Promise.all([glossLines(conv, userId, lines), say(conv, userId, text, pace(conv), join(audioDir, file))]);
+    const [learnerChunks, chunks] = glossed === null ? [null, null] : learner ? glossed : [null, glossed[0]];
     const now = deps.now().toISOString();
     transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
