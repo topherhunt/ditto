@@ -15,16 +15,19 @@ export const prefsOf = (user: User): Record<Language, Prefs> => {
   return Object.fromEntries(LANGUAGES.map((l) => [l, PrefsSchema.parse({ ...DEFAULT_PREFS, ...stored[l] })])) as Record<Language, Prefs>;
 };
 
-/** The language AI writes glosses and titles in for `language`: the learner's own, or the course's support language if that is the one practiced. */
+/** The language AI writes glosses in for `language`: the learner's own, or the course's support language if that is the one practiced. */
 export const ownLocale = (user: User, language: Language): Locale =>
   (user.locale as string) === language ? supportLocale(language, user.locale) : user.locale;
 
-/** The language of explanations and coaching: the course's own with help immersion on, else as `ownLocale`. */
-export function helpLocale(user: User, language: Language): Locale {
-  if (!prefsOf(user)[language].immerseHelp) return ownLocale(user, language);
-  if (!immersible(language)) throw new Error(`Help immersion is on for ${language}, which has no locale`);
+function immersedLocale(user: User, language: Language, pref: "immerseUi" | "immerseHelp"): Locale {
+  if (!prefsOf(user)[language][pref]) return ownLocale(user, language);
+  if (!immersible(language)) throw new Error(`${pref} is on for ${language}, which has no locale`);
   return language;
 }
+/** The language of explanations and coaching: the course's own with help immersion on, else as `ownLocale`. */
+export const helpLocale = (user: User, language: Language) => immersedLocale(user, language, "immerseHelp");
+/** The language of AI-written interface text, such as conversation titles: the course's own with interface immersion on, else as `ownLocale`. */
+export const uiLocale = (user: User, language: Language) => immersedLocale(user, language, "immerseUi");
 
 export const SESSION_COOKIE = "lp_session";
 export const SESSION_DAYS = 30;

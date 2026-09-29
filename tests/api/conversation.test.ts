@@ -300,11 +300,26 @@ describe("conversation mode", () => {
     expect(settings.map((s) => [s.locale, s.helpLocale])).toEqual([["es-419", "es-419"], ["es-419", "it"]]);
   });
 
-  it("glosses and coaches in the support language when the learner's own language is the one practiced", async () => {
+  it("titles in the course's language only with interface immersion, while glosses stay in the learner's own", async () => {
+    const t = await speak();
+    await t.req("PUT", "/api/locale", { locale: "es-419" });
+    const settings: Setting[] = [];
+    const partner = t.ai.partner;
+    t.ai.partner = (s, h) => { settings.push(s); return partner(s, h); };
+    await t.start();
+
+    const prefs = (await t.req("GET", "/api/me")).json.prefs.it;
+    await t.req("PUT", "/api/prefs", { language: "it", prefs: { ...prefs, immerseUi: true } });
+    await t.start();
+    expect(settings.map((s) => [s.locale, s.uiLocale])).toEqual([["es-419", "es-419"], ["es-419", "it"]]);
+  });
+
+  it("glosses, coaches and titles in the support language when the learner's own language is the one practiced", async () => {
     const t = await speak();
     await t.req("PUT", "/api/locale", { locale: "it" });
     const { id } = await t.start();
-    expect(t.deps.db.prepare("SELECT locale, help_locale FROM conversations WHERE id = ?").get(id)).toEqual({ locale: "en", help_locale: "en" });
+    expect(t.deps.db.prepare("SELECT locale, help_locale, ui_locale FROM conversations WHERE id = ?").get(id))
+      .toEqual({ locale: "en", help_locale: "en", ui_locale: "en" });
   });
 
   it("keeps hard mode per conversation", async () => {

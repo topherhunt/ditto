@@ -26,8 +26,8 @@ const HowSchema = z.strictObject({ chunks: z.array(ChunkSchema).min(1) });
 const GlossSchema = z.strictObject({ lines: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })) });
 
 export type Line = { role: "partner" | "learner"; text: string };
-/** Glosses and titles are written in `locale`, the learner's own language; coaching in `helpLocale`, the course's language when immersed. */
-export type Setting = { language: Language; locale: Locale; helpLocale: Locale; level: string; scenario: string };
+/** Glosses are written in `locale`, the learner's own language; coaching in `helpLocale` and titles in `uiLocale`, each the course's language when immersed. */
+export type Setting = { language: Language; locale: Locale; helpLocale: Locale; uiLocale: Locale; level: string; scenario: string };
 export type PartnerOut = { title: string; line: string; suggestions: Chunk[][] };
 export type CoachIn = Setting & {
   partnerLine: string;
@@ -59,7 +59,7 @@ const CHUNKING = `Chunks are for word-by-word glossing: by default each chunk is
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
 The conversation is open-ended: never steer toward ending it (no goodbyes, no wrapping up). When the scenario's task is done (the order is taken, the room is booked), you can ask if they need anything else, but always leave an opening too: ask something personal or contextual that invites more talk, such as how their day is going, how long they're visiting, or whether they've seen something nearby.
 Scenario: ${s.scenario}
-- title: a short title for this conversation in {locale}.
+- title: a short title for this conversation in ${LOCALE_NAMES[s.uiLocale]}.
 - line: your next line.
 - suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore." rather than "Sì, grazie." Split each suggestion into chunks.
 ${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);

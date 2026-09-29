@@ -11,13 +11,20 @@ const DICTIONARIES: Record<Locale, Dictionary> = { en, "es-419": es419, nl, it }
 export const LOCALE_LABELS: Record<Locale, string> = { en: "English", "es-419": "Español (Latinoamérica)", nl: "Nederlands", it: "Italiano" };
 
 const STORAGE_KEY = "locale";
+const IMMERSION_KEY = "immersion";
+
+function storedLocale(key: string): Locale | null {
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved && (LOCALES as readonly string[]).includes(saved)) return saved as Locale;
+  } catch { /* storage unavailable */ }
+  return null;
+}
 
 /** Before sign-in: the last locale used on this device, else the browser's first language we have, else English. */
 function initialLocale(): Locale {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && (LOCALES as readonly string[]).includes(saved)) return saved as Locale;
-  } catch { /* storage unavailable: use the browser language */ }
+  const saved = storedLocale(STORAGE_KEY);
+  if (saved) return saved;
   for (const tag of navigator.languages) {
     const base = tag.toLowerCase().split("-")[0];
     if (base === "es") return "es-419";
@@ -28,15 +35,20 @@ function initialLocale(): Locale {
 
 /** The learner's own language, which the UI is in unless `setImmersion` overrides it. */
 export const [ownLocale, setLocale] = createSignal<Locale>(initialLocale());
-/** The course language an immersed course page shows the UI in; null elsewhere. */
-export const [immersion, setImmersion] = createSignal<Locale | null>(null);
+/** The course language the whole UI is in while the learner's current course has interface immersion on, else null. Kept on the device, so signed-out pages stay immersed. */
+export const [immersion, setImmersion] = createSignal<Locale | null>(storedLocale(IMMERSION_KEY));
 /** The UI's language. */
 export const locale = () => immersion() ?? ownLocale();
 
 createRoot(() =>
   createEffect(() => {
     document.documentElement.lang = locale();
-    try { localStorage.setItem(STORAGE_KEY, ownLocale()); } catch { /* storage unavailable */ }
+    try {
+      localStorage.setItem(STORAGE_KEY, ownLocale());
+      const i = immersion();
+      if (i) localStorage.setItem(IMMERSION_KEY, i);
+      else localStorage.removeItem(IMMERSION_KEY);
+    } catch { /* storage unavailable */ }
   }),
 );
 

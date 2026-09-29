@@ -36,7 +36,7 @@ test("switching your language localizes the UI and the meaning check, and surviv
   await expect(page.locator(".qa-check")).toHaveText("Comprobar");
 });
 
-test("interface immersion shows a course's pages in its language, while translations, Settings and the course's settings stay in yours", async ({ page }) => {
+test("interface immersion shows every page in the course's language, signed out too, while translations stay in yours", async ({ page }) => {
   await signIn(page, "immerse1@example.com");
   await page.goto("/it/settings");
   await page.locator(".qa-settings-path").selectOption("sentences");
@@ -45,8 +45,8 @@ test("interface immersion shows a course's pages in its language, while translat
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
   await expect(page.locator("label[for=immerseUi]")).toHaveText("Show the app in Italian");
   await page.locator(".qa-settings-immerseUi").check();
-  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
-  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator("html")).toHaveAttribute("lang", "it");
+  await expect(page.locator("label[for=immerseUi]")).toHaveText("Mostra l'app in italiano");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
@@ -59,8 +59,16 @@ test("interface immersion shows a course's pages in its language, while translat
 
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-settings-title")).toHaveText("Impostazioni");
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-logout").click();
+  await page.reload();
+  await expect(page.locator(".qa-welcome")).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("lang", "it");
+  await expect(page.locator(".qa-welcome-speak-en")).toHaveAttribute("aria-pressed", "true");
+  await page.locator(".qa-welcome-speak-en").click();
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.locator(".qa-settings-title")).toHaveText("Settings");
 });
 
 test("a course the app isn't translated into offers no immersion", async ({ page }) => {

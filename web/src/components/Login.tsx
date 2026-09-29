@@ -3,7 +3,7 @@ import { createEffect, createSignal, onMount, Show } from "solid-js";
 import type { Config } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { locale, t } from "../i18n/index.ts";
+import { locale, ownLocale, t } from "../i18n/index.ts";
 import { homeLanguage } from "../learning.ts";
 import { me, refetchMe } from "../session.ts";
 
@@ -56,7 +56,7 @@ export function SignIn(props: { config: Config; learning: Language | null }) {
 
   async function signIn(path: string, body: object) {
     try {
-      await api.post(path, { ...body, locale: locale(), ...(props.learning && { learning: props.learning }) });
+      await api.post(path, { ...body, locale: ownLocale(),...(props.learning && { learning: props.learning }) });
     } catch (e) {
       setError((e as Error).message);
       return;

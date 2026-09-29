@@ -9,7 +9,7 @@ import { LearnPicker } from "../components/LearnPicker.tsx";
 import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import type { Key } from "../i18n/en.ts";
-import { languageInSentence, locale, LOCALE_LABELS, setLocale, t } from "../i18n/index.ts";
+import { languageInSentence, locale, LOCALE_LABELS, ownLocale, setImmersion, setLocale, t } from "../i18n/index.ts";
 import { homeLanguage, learnable, rememberLanguage, storedLanguage } from "../learning.ts";
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
@@ -53,8 +53,8 @@ const languageList = (ls: readonly Language[]) => new Intl.ListFormat(locale(), 
 export function Welcome() {
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const [picked, setPicked] = createSignal(storedLanguage());
-  // A pick the chosen interface language has no translations for doesn't count.
-  const learning = () => { const l = picked(); return l && learnable(locale()).includes(l) ? l : null; };
+  // A pick the visitor's own language has no translations for doesn't count.
+  const learning = () => { const l = picked(); return l && learnable(ownLocale()).includes(l) ? l : null; };
   const samples = () => SAMPLES[learning() ?? "it"];
   const typeSample = () => samples().type;
   const typeDiff = () => grade({ mode: "free", text: typeSample().typed }, { language: learning() ?? "it", text: typeSample().answer });
@@ -77,8 +77,8 @@ export function Welcome() {
                 <div class="d-flex flex-wrap gap-2">
                   <For each={LOCALES}>
                     {(l) => (
-                      <button type="button" class={`qa-welcome-speak-${l} btn btn-outline-primary`} classList={{ active: locale() === l }}
-                        aria-pressed={locale() === l} onClick={() => setLocale(l)}>
+                      <button type="button" class={`qa-welcome-speak-${l} btn btn-outline-primary`} classList={{ active: ownLocale() === l }}
+                        aria-pressed={ownLocale() === l} onClick={() => { setLocale(l); setImmersion(null); }}>
                         {LOCALE_LABELS[l]}
                       </button>
                     )}
@@ -87,7 +87,7 @@ export function Welcome() {
               </div>
               <div>
                 <h2 class="h6">{t("welcome.learnQ")}</h2>
-                <LearnPicker locale={locale()} chosen={learning()} onChoose={(l) => { rememberLanguage(l); setPicked(l); }} />
+                <LearnPicker locale={ownLocale()}chosen={learning()} onChoose={(l) => { rememberLanguage(l); setPicked(l); }} />
               </div>
               <div>
                 <h2 class="h6">

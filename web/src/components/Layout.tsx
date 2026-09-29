@@ -22,11 +22,12 @@ export function Layout(props: RouteSectionProps) {
   };
   /** The language the nav points at: the current route's, else the learner's home course. Only read once they study one. */
   const navLang = () => lang() ?? homeLanguage(me()!.learning);
-  // A course's settings page stays in the learner's own language, so the switch that turns immersion off is always readable.
+  // Every page follows the current course's immersion. Signed out or still loading, the device's last value stays.
   createEffect(() => {
-    const l = lang();
     const user = me();
-    setImmersion(user && l && immersible(l) && user.prefs[l].immerseUi && location.pathname !== `/${l}/settings` ? l : null);
+    if (!user) return;
+    const l = user.learning.length ? navLang() : null;
+    setImmersion(l && immersible(l) && user.prefs[l].immerseUi ? l : null);
   });
   const navigate = useNavigate();
   createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
