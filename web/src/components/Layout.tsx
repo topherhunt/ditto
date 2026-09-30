@@ -1,7 +1,7 @@
 import { A, useLocation, useNavigate, type RouteSectionProps } from "@solidjs/router";
 import { createEffect, createResource, createSignal, ErrorBoundary, Match, on, onCleanup, Show, Switch } from "solid-js";
-import { immersible, SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
-import { LANGUAGES, type Language } from "../../../shared/content.ts";
+import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
+import { LANGUAGES, languageLocale, type Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { setImmersion, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage } from "../learning.ts";
@@ -30,7 +30,7 @@ export function Layout(props: RouteSectionProps) {
     const user = me();
     if (!user) return;
     const l = user.learning.length ? navLang() : null;
-    setImmersion(l && immersible(l) && user.prefs[l].immerseUi ? l : null);
+    setImmersion(l && user.prefs[l].immerseUi ? languageLocale(l) : null);
   });
   const navigate = useNavigate();
   createEffect(on(capHits, () => navigate("/cap"), { defer: true }));

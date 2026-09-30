@@ -1,6 +1,6 @@
 // Conversation mode (docs/conversation.md): a role-play with an AI partner, gated by a coach that judges each spoken reply's grammar.
 import { randomUUID } from "node:crypto";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import type { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
@@ -34,7 +34,6 @@ const STARTER_PROMPTS: Record<Starter, string> = {
 const SURPRISE = "Surprise the learner: pick an everyday situation yourself and set it up in your first line.";
 
 const EXT: Record<string, string> = { "audio/webm": "webm", "audio/mp4": "m4a" };
-const MIME: Record<string, string> = { webm: "audio/webm", m4a: "audio/mp4", wav: "audio/wav" };
 const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 
 
@@ -48,7 +47,7 @@ type TurnRow = {
 };
 type AttemptRow = {
   id: number; conversation_id: number; target: string; transcript: string; verdict: string;
-  passed: number; audio_file: string | null; target_audio_file: string | null; turn_id: number;
+  passed: number; target_audio_file: string | null; turn_id: number;
 };
 
 export function registerConversation(app: Hono<{ Variables: { user: User } }>, deps: AppDeps) {
@@ -98,11 +97,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (usage) paid(userId, conv.id, "speech", usage);
   };
 
-  const saveAudio = (conversationId: number, ext: string, data?: Buffer) => {
-    const file = `${conversationId}-${randomUUID()}.${ext}`;
-    if (data) writeFileSync(join(speak().audioDir, file), data);
-    return file;
-  };
+  const newAudioFile = (conversationId: number) => `${conversationId}-${randomUUID()}.wav`;
 
   /** `lines` in chunks for tooltips, tried twice; null leaves the lines shown without them, since glossing is only an aid. */
   const glossLines = async (conv: ConversationRow, userId: number, lines: string[]): Promise<Chunk[][] | null> => {
@@ -133,7 +128,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const { result, usage } = await ai.partner(setting(conv), history(conv.id));
     paid(userId, conv.id, "partner", usage);
     const text = result.line;
-    const file = saveAudio(conv.id, "wav");
+    const file = newAudioFile(conv.id);
     const lines = learner ? [learner.text, text] : [text];
     const [glossed] = await Promise.all([glossLines(conv, userId, lines), say(conv, userId, text, pace(conv), join(audioDir, file))]);
     const [learnerChunks, chunks] = glossed === null ? [null, null] : learner ? glossed : [null, glossed[0]];
@@ -150,10 +145,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   };
 
   /** Returned by the partnerTurn that answers it, with its chunks. */
-  const learnerTurn = (conv: ConversationRow, text: string, source: TurnSource, level: string | null, taps: number, file: string | null) => {
+  const learnerTurn = (conv: ConversationRow, text: string, source: TurnSource, level: string | null, taps: number) => {
     db.prepare(
-      "INSERT INTO conversation_turns (conversation_id, role, text, audio_file, source, level, taps, created_at) VALUES (?, 'learner', ?, ?, ?, ?, ?, ?)",
-    ).run(conv.id, text, file, source, level, taps, deps.now().toISOString());
+      "INSERT INTO conversation_turns (conversation_id, role, text, source, level, taps, created_at) VALUES (?, 'learner', ?, ?, ?, ?, ?)",
+    ).run(conv.id, text, source, level, taps, deps.now().toISOString());
   };
 
   /** The partner line being answered; a conversation whose partner failed to answer must get one first (POST .../partner). */
@@ -167,7 +162,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const toAttempt = (r: AttemptRow): SpeakAttemptOut => ({
     id: r.id, passed: r.passed === 1, target: r.target, transcript: r.transcript,
     verdict: JSON.parse(r.verdict) as CoachVerdict, failures: failures(r.turn_id, r.target),
-    audioUrl: r.audio_file === null ? null : audioUrl(r.conversation_id, r.audio_file),
     targetAudioUrl: r.target_audio_file === null ? null : audioUrl(r.conversation_id, r.target_audio_file),
   });
   /** The partner voice saying a retry target, rendered once per target per turn. */
@@ -175,7 +169,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const done = db.prepare("SELECT target_audio_file AS f FROM conversation_attempts WHERE turn_id = ? AND target = ? AND target_audio_file IS NOT NULL")
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
-    const file = saveAudio(conv.id, "wav");
+    const file = newAudioFile(conv.id);
     await say(conv, userId, target, pace(conv), join(speak().audioDir, file));
     return file;
   };
@@ -233,13 +227,11 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   app.post("/api/conversations/:id/attempts", async (c) => {
     const body = SpeakAttemptSchema.parse(await c.req.json());
     const { ai } = speak();
-    const user = c.get("user");
-    const userId = user.id;
+    const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     const turn = awaitingReply(conv.id);
+    // Sent to transcription and never stored, for anyone (docs/privacy.md); the browser keeps it for replay.
     const audio = Buffer.from(body.audio, "base64");
-    // A learner's voice is sent to transcription and never stored (docs/privacy.md); admins keep their own to diagnose the coach.
-    const file = isAdmin(deps, user) ? saveAudio(conv.id, EXT[body.mime], audio) : null;
 
     const check = async (step: (s: CheckStep) => Promise<unknown>): Promise<SpeakAttemptResult> => {
       await step("listening");
@@ -256,14 +248,14 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       const targetFile = passed ? null : await targetAudio(conv, userId, turn.id, target);
 
       const attemptId = Number(db.prepare(
-        `INSERT INTO conversation_attempts (conversation_id, turn_id, retry, target, transcript, verdict, passed, audio_file, target_audio_file, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      ).run(conv.id, turn.id, Number(body.target !== null), target, transcript, JSON.stringify(verdict), Number(passed), file, targetFile, deps.now().toISOString())
+        `INSERT INTO conversation_attempts (conversation_id, turn_id, retry, target, transcript, verdict, passed, target_audio_file, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ).run(conv.id, turn.id, Number(body.target !== null), target, transcript, JSON.stringify(verdict), Number(passed), targetFile, deps.now().toISOString())
         .lastInsertRowid);
       let turns: TurnOut[] = [];
       if (passed) {
         await step("answering");
-        learnerTurn(conv, target, body.usedHow ? "how" : verdict.fromSuggestion ? "suggestion" : "own", verdict.level, body.taps, file);
+        learnerTurn(conv, target, body.usedHow ? "how" : verdict.fromSuggestion ? "suggestion" : "own", verdict.level, body.taps);
         turns = await partnerTurn(conv, userId);
       }
       const attempt = toAttempt(db.prepare("SELECT * FROM conversation_attempts WHERE id = ?").get(attemptId) as AttemptRow);
@@ -293,7 +285,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     transaction(db, () => {
       db.prepare("INSERT INTO weak_phrases (user_id, language, text, conversation_id, created_at) VALUES (?, ?, ?, ?, ?)")
         .run(userId, conv.language, target, conv.id, deps.now().toISOString());
-      learnerTurn(conv, target, "moved_on", null, taps, null);
+      learnerTurn(conv, target, "moved_on", null, taps);
     });
     const turns = await partnerTurn(conv, userId);
     return c.json<MoveOnResult>({ turns, reliance: reliance(conv.id), spend: spend(userId, conv.id) });
@@ -342,7 +334,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     }
   });
 
-  // Only files this conversation's rows name are served, to its owner or an admin.
+  // Partner lines only (learners' recordings are never stored), and only files this conversation's rows name, to its owner or an admin.
   app.get("/api/conversations/:id/audio/:file", (c) => {
     const { audioDir } = speak();
     const user = c.get("user");
@@ -351,10 +343,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const owner = db.prepare("SELECT user_id FROM conversations WHERE id = ?").get(id) as { user_id: number } | undefined;
     const known = db.prepare(
       `SELECT 1 FROM conversation_turns WHERE conversation_id = ? AND audio_file = ?
-       UNION SELECT 1 FROM conversation_attempts WHERE conversation_id = ? AND ? IN (audio_file, target_audio_file)`,
+       UNION SELECT 1 FROM conversation_attempts WHERE conversation_id = ? AND target_audio_file = ?`,
     ).get(id, file, id, file);
     if (!owner || !known || (owner.user_id !== user.id && !isAdmin(deps, user))) throw new HTTPException(404, { message: "Not found" });
-    return c.body(readFileSync(join(audioDir, file)), 200, { "Content-Type": MIME[file.split(".").pop()!] });
+    return c.body(readFileSync(join(audioDir, file)), 200, { "Content-Type": "audio/wav" });
   });
 
   // /api/admin/* is admin-only (server/admin.ts).

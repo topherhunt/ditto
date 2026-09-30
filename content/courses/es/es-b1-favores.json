@@ -1,0 +1,4068 @@
+{
+  "id": "es-b1-favores",
+  "language": "es",
+  "level": "B1",
+  "order": 23,
+  "title": "¿Me lo prestas?",
+  "description": {
+    "en": "Asking for and doing favors: lending, borrowing and returning things, looking after a friend's home, and counting on each other",
+    "it": "Chiedere e fare favori: prestare, farsi prestare e restituire cose, badare alla casa di un amico e contare gli uni sugli altri",
+    "nl": "Om een gunst vragen en iemand helpen: dingen uitlenen, lenen en terugbrengen, op het huis van een vriend passen en op elkaar rekenen"
+  },
+  "track": "main",
+  "requires": [
+    "es-b1-imprevistos"
+  ],
+  "introduces": [
+    "prestar",
+    "prometer",
+    "promesa",
+    "confiar",
+    "cuidar",
+    "acabar",
+    "regar",
+    "recoger",
+    "encargar",
+    "mío",
+    "tuyo",
+    "suyo",
+    "propio",
+    "taladro",
+    "herramienta",
+    "planta",
+    "cargador",
+    "paraguas",
+    "molestia",
+    "generoso"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to; also marks a person as object: recoger a los niños = pick up the kids",
+        "it": "a; segna anche la persona oggetto: recoger a los niños = andare a prendere i bambini (non si traduce)",
+        "nl": "aan, naar; staat ook vóór een persoon als lijdend voorwerp: recoger a los niños = de kinderen ophalen (niet vertaald)"
+      }
+    },
+    "acabar": {
+      "lemma": "acabar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to finish; acabarse = run out: se acabó el café = we're out of coffee",
+        "it": "finire; acabarse = finire, esaurirsi: se acabó el café = è finito il caffè",
+        "nl": "afmaken; acabarse = opraken: se acabó el café = de koffie is op"
+      }
+    },
+    "acabó": {
+      "lemma": "acabar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finished, ran out; se acabó = it ran out; se nos acabó = we ran out of (acabar)",
+        "it": "è finito; se nos acabó = abbiamo finito (acabar)",
+        "nl": "raakte op; se acabó = het is op; se nos acabó = onze ... was op (acabar)"
+      }
+    },
+    "ahora": {
+      "lemma": "ahora",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "it": "adesso, ora",
+        "nl": "nu"
+      }
+    },
+    "algo": {
+      "lemma": "algo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "something, anything",
+        "it": "qualcosa",
+        "nl": "iets"
+      }
+    },
+    "amigos": {
+      "lemma": "amigo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (m pl)",
+        "it": "amici (m pl)",
+        "nl": "vrienden (m mv)"
+      }
+    },
+    "aquí": {
+      "lemma": "aquí",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here; aquí estoy = I'm here (for you)",
+        "it": "qui; aquí estoy = eccomi, ci sono",
+        "nl": "hier; aquí estoy = ik ben er (voor je)"
+      }
+    },
+    "ayudamos": {
+      "lemma": "ayudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we help; nos ayudamos = we help each other (ayudar)",
+        "it": "aiutiamo; nos ayudamos = ci aiutiamo (ayudar)",
+        "nl": "we helpen; nos ayudamos = we helpen elkaar (ayudar)"
+      }
+    },
+    "barrio": {
+      "lemma": "barrio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighborhood (m)",
+        "it": "quartiere (m)",
+        "nl": "buurt, wijk (m)"
+      }
+    },
+    "bicicleta": {
+      "lemma": "bicicleta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bicycle, bike (f)",
+        "it": "bicicletta (f)",
+        "nl": "fiets (f)"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coffee (m)",
+        "it": "caffè (m)",
+        "nl": "koffie (m)"
+      }
+    },
+    "cambio": {
+      "lemma": "cambio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "change (money back) (m)",
+        "it": "resto (m)",
+        "nl": "wisselgeld (m)"
+      }
+    },
+    "cargador": {
+      "lemma": "cargador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "charger (m)",
+        "it": "caricabatterie (m)",
+        "nl": "oplader (m)"
+      }
+    },
+    "carro": {
+      "lemma": "carro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "car (m)",
+        "it": "macchina, auto (m)",
+        "nl": "auto (m)"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); casa de la playa = beach house",
+        "it": "casa (f); casa de la playa = casa al mare",
+        "nl": "huis (f); casa de la playa = strandhuis"
+      }
+    },
+    "celular": {
+      "lemma": "celular",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cell phone (m)",
+        "it": "cellulare (m)",
+        "nl": "mobiele telefoon (m)"
+      }
+    },
+    "chaqueta": {
+      "lemma": "chaqueta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jacket (f)",
+        "it": "giacca (f)",
+        "nl": "jas, jasje (f)"
+      }
+    },
+    "claro": {
+      "lemma": "claro",
+      "pos": "ADV",
+      "gloss": {
+        "en": "sure, of course",
+        "it": "certo",
+        "nl": "natuurlijk"
+      }
+    },
+    "comió": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ate (he, she; usted); se comió = ate up (comerse)",
+        "it": "ha mangiato; se comió = si è mangiato (comerse)",
+        "nl": "at (hij, zij; usted); se comió = at op (comerse)"
+      }
+    },
+    "comprar": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to buy",
+        "it": "comprare",
+        "nl": "kopen"
+      }
+    },
+    "compras": {
+      "lemma": "compra",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shopping, groceries (f pl); las compras = the shopping",
+        "it": "spesa, acquisti (f pl); las compras = la spesa",
+        "nl": "boodschappen (f mv); las compras = de boodschappen"
+      }
+    },
+    "compro": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I buy, I'll buy (comprar)",
+        "it": "compro (comprar)",
+        "nl": "ik koop (comprar)"
+      }
+    },
+    "comí": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I ate; me la comí = I ate it (all) (comerse)",
+        "it": "ho mangiato; me la comí = l'ho mangiata (comerse)",
+        "nl": "ik at; me la comí = ik heb het opgegeten (comerse)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with; quedarse con = keep; contar con = count on",
+        "it": "con; quedarse con = tenersi; contar con = contare su",
+        "nl": "met; quedarse con = houden; contar con = rekenen op"
+      }
+    },
+    "confiar": {
+      "lemma": "confiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to trust; confiar en alguien = trust someone",
+        "it": "fidarsi; confiar en alguien = fidarsi di qualcuno; attenzione: en, non de",
+        "nl": "vertrouwen; confiar en alguien = iemand vertrouwen"
+      }
+    },
+    "confío": {
+      "lemma": "confiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I trust; confío en ti = I trust you (confiar)",
+        "it": "mi fido; confío en ti = mi fido di te (confiar)",
+        "nl": "ik vertrouw; confío en ti = ik vertrouw je (confiar)"
+      }
+    },
+    "conmigo": {
+      "lemma": "conmigo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "with me; contar conmigo = count on me",
+        "it": "con me; contar conmigo = contare su di me",
+        "nl": "met mij; contar conmigo = op mij rekenen"
+      }
+    },
+    "conocen": {
+      "lemma": "conocer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they know; se conocen = they know each other (conocer)",
+        "it": "conoscono; se conocen = si conoscono (conocer)",
+        "nl": "ze kennen; se conocen = ze kennen elkaar (conocer)"
+      }
+    },
+    "cuando": {
+      "lemma": "cuando",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "when (no accent outside questions)",
+        "it": "quando (senza accento fuori dalle domande)",
+        "nl": "als, wanneer (zonder accent buiten vragen)"
+      }
+    },
+    "cuenta#contar": {
+      "lemma": "contar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "count (tú imperative of contar); contar con = count on: cuenta conmigo = count on me; la cuenta = the bill",
+        "it": "conta (imperativo di contar); contar con = contare su: cuenta conmigo = conta su di me; la cuenta = il conto",
+        "nl": "reken (gebiedende wijs van contar); contar con = rekenen op: cuenta conmigo = reken op mij; la cuenta = de rekening"
+      }
+    },
+    "cuentan": {
+      "lemma": "contar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they tell; se cuentan todo = they tell each other everything (contar)",
+        "it": "raccontano; se cuentan todo = si raccontano tutto (contar)",
+        "nl": "ze vertellen; se cuentan todo = ze vertellen elkaar alles (contar)"
+      }
+    },
+    "cuida": {
+      "lemma": "cuidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "looks after (he, she; usted); nos cuida el perro = looks after our dog (cuidar)",
+        "it": "si occupa di; nos cuida el perro = si occupa del nostro cane (cuidar)",
+        "nl": "zorgt voor, past op (hij, zij; usted); nos cuida el perro = past op onze hond (cuidar)"
+      }
+    },
+    "cuidar": {
+      "lemma": "cuidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to look after, take care of",
+        "it": "prendersi cura di, badare a",
+        "nl": "zorgen voor, passen op"
+      }
+    },
+    "cuidas": {
+      "lemma": "cuidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you look after (tú); ¿Me cuidas...? = Can you look after my...? (cuidar)",
+        "it": "ti occupi di (tú); ¿Me cuidas...? = Ti occupi del mio...? (cuidar)",
+        "nl": "je zorgt voor (tú); ¿Me cuidas...? = Zorg jij voor mijn...? (cuidar)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; de viaje = away, traveling; de vacaciones = on vacation",
+        "it": "di, da; de viaje = in viaggio; de vacaciones = in vacanza",
+        "nl": "van, uit; de viaje = op reis; de vacaciones = op vakantie"
+      }
+    },
+    "dejo": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I leave (something with someone) (dejar)",
+        "it": "lascio (dejar)",
+        "nl": "ik laat (achter) (dejar)"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the (de + el)",
+        "it": "del (de + el)",
+        "nl": "van de (de + el)"
+      }
+    },
+    "desde": {
+      "lemma": "desde",
+      "pos": "ADP",
+      "gloss": {
+        "en": "since; desde niños = since they were kids",
+        "it": "da; desde niños = da bambini",
+        "nl": "sinds, vanaf; desde niños = van kinds af aan"
+      }
+    },
+    "devolvió": {
+      "lemma": "devolver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gave back (he, she; usted) (devolver)",
+        "it": "ha restituito (devolver)",
+        "nl": "gaf terug (hij, zij; usted) (devolver)"
+      }
+    },
+    "devuelvo": {
+      "lemma": "devolver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I give back, I'll give back (devolver, o>ue)",
+        "it": "restituisco (devolver, o>ue)",
+        "nl": "ik geef terug (devolver, o>ue)"
+      }
+    },
+    "devuélvemelo": {
+      "lemma": "devolver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "give it back to me (devuelve + me + lo)",
+        "it": "ridammelo (devuelve + me + lo)",
+        "nl": "geef het me terug (devuelve + me + lo)"
+      }
+    },
+    "domingo": {
+      "lemma": "domingo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m)",
+        "it": "domenica (m)",
+        "nl": "zondag (m)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m); el mío = mine; el lunes = on Monday",
+        "it": "il, lo (m); el mío = il mio; el lunes = lunedì",
+        "nl": "de, het (m); el mío = de mijne; el lunes = op maandag"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on; confiar en = trust",
+        "it": "in; confiar en = fidarsi di",
+        "nl": "in, op; confiar en = vertrouwen"
+      }
+    },
+    "encargar": {
+      "lemma": "encargar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave in someone's care; also to order (goods)",
+        "it": "affidare, incaricare; anche ordinare (merce)",
+        "nl": "toevertrouwen; ook bestellen"
+      }
+    },
+    "encargo": {
+      "lemma": "encargar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I leave in your care; te encargo la casa = I'm leaving the house in your hands (encargar)",
+        "it": "affido; te encargo la casa = ti affido la casa (encargar)",
+        "nl": "ik vertrouw toe; te encargo la casa = ik laat het huis aan jou over (encargar)"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "escuela": {
+      "lemma": "escuela",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "school (f)",
+        "it": "scuola (f)",
+        "nl": "school (f)"
+      }
+    },
+    "eso": {
+      "lemma": "eso",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that; por eso = that's why; para eso = that's what ... for",
+        "it": "ciò, quello; por eso = per questo; para eso = per questo",
+        "nl": "dat; por eso = daarom; para eso = daarvoor"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (f)",
+        "it": "questa (f)",
+        "nl": "deze, dit (f)"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (m); este fin de semana = this weekend",
+        "it": "questo (m); este fin de semana = questo fine settimana",
+        "nl": "deze, dit (m); este fin de semana = dit weekend"
+      }
+    },
+    "estoy": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I am (estar); aquí estoy = I'm here (for you)",
+        "it": "sono, sto (estar); aquí estoy = eccomi, ci sono",
+        "nl": "ik ben (estar); aquí estoy = ik ben er (voor je)"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar); está lloviendo = it's raining",
+        "it": "è, sta (estar); está lloviendo = sta piovendo",
+        "nl": "is (estar); está lloviendo = het regent"
+      }
+    },
+    "están": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "are (they) (estar); para eso están los amigos = that's what friends are for",
+        "it": "sono (estar); para eso están los amigos = gli amici servono a questo",
+        "nl": "zijn (estar); para eso están los amigos = daar zijn vrienden voor"
+      }
+    },
+    "favor": {
+      "lemma": "favor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "favor (m); por favor = please",
+        "it": "favore (m); por favor = per favore",
+        "nl": "gunst (m); por favor = alsjeblieft"
+      }
+    },
+    "fin": {
+      "lemma": "fin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); fin de semana = weekend",
+        "it": "fine (m); fin de semana = fine settimana",
+        "nl": "einde (m); fin de semana = weekend"
+      }
+    },
+    "fácil": {
+      "lemma": "fácil",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "easy",
+        "it": "facile",
+        "nl": "makkelijk"
+      }
+    },
+    "galleta": {
+      "lemma": "galleta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cookie (f)",
+        "it": "biscotto (f)",
+        "nl": "koekje (f)"
+      }
+    },
+    "generosa": {
+      "lemma": "generoso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "generous (f)",
+        "it": "generosa (f)",
+        "nl": "gul, vrijgevig (f)"
+      }
+    },
+    "generoso": {
+      "lemma": "generoso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "generous",
+        "it": "generoso",
+        "nl": "gul, vrijgevig"
+      }
+    },
+    "gracias": {
+      "lemma": "gracias",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "thanks; gracias por = thanks for",
+        "it": "grazie; gracias por = grazie per",
+        "nl": "bedankt; gracias por = bedankt voor"
+      }
+    },
+    "hacerlo": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do it (hacer + lo)",
+        "it": "farlo (hacer + lo)",
+        "nl": "het doen (hacer + lo)"
+      }
+    },
+    "hasta": {
+      "lemma": "hasta",
+      "pos": "ADP",
+      "gloss": {
+        "en": "until",
+        "it": "fino a",
+        "nl": "tot"
+      }
+    },
+    "hermano": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "herramienta": {
+      "lemma": "herramienta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tool (f)",
+        "it": "attrezzo, utensile (f)",
+        "nl": "stuk gereedschap (f)"
+      }
+    },
+    "herramientas": {
+      "lemma": "herramienta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tools (f pl)",
+        "it": "attrezzi (f pl)",
+        "nl": "gereedschap (f mv)"
+      }
+    },
+    "hice": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I did, I made (hacer)",
+        "it": "ho fatto (hacer)",
+        "nl": "ik deed, ik maakte (hacer)"
+      }
+    },
+    "hoy": {
+      "lemma": "hoy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f)",
+        "it": "la (f)",
+        "nl": "de, het (f)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, her (direct object, feminine): me la comí = I ate it",
+        "it": "la (oggetto diretto femminile): me la comí = l'ho mangiata",
+        "nl": "het, hem, haar (lijdend voorwerp, vrouwelijk): me la comí = ik heb het opgegeten"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f pl); las mías = mine",
+        "it": "le (f pl); las mías = le mie",
+        "nl": "de (f mv); las mías = de mijne"
+      }
+    },
+    "las#pron": {
+      "lemma": "las",
+      "pos": "PRON",
+      "gloss": {
+        "en": "them (direct object, feminine): te las riego = I'll water them for you",
+        "it": "le (oggetto diretto femminile): te las riego = te le annaffio",
+        "nl": "ze (lijdend voorwerp, vrouwelijk): te las riego = ik geef ze water voor je"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "to him, to her, to you (usted); indirect object, often doubled: le presté mi bicicleta a Marta",
+        "it": "gli, le, Le (complemento indiretto), spesso raddoppiato: le presté mi bicicleta a Marta = ho prestato la bici a Marta",
+        "nl": "(aan) hem, haar, u (meewerkend voorwerp), vaak dubbel: le presté mi bicicleta a Marta = ik heb Marta mijn fiets geleend"
+      }
+    },
+    "leche": {
+      "lemma": "leche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "milk (f)",
+        "it": "latte (f); attenzione: femminile in spagnolo",
+        "nl": "melk (f)"
+      }
+    },
+    "llave": {
+      "lemma": "llave",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "key (f)",
+        "it": "chiave (f)",
+        "nl": "sleutel (f)"
+      }
+    },
+    "llaves": {
+      "lemma": "llave",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "keys (f pl)",
+        "it": "chiavi (f pl)",
+        "nl": "sleutels (f mv)"
+      }
+    },
+    "llevo": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I take (along); me lo llevo = I'll take it with me (llevar)",
+        "it": "porto; me lo llevo = me lo porto via (llevar)",
+        "nl": "ik breng, neem mee; me lo llevo = ik neem het mee (llevar)"
+      }
+    },
+    "llevó": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "took (he, she; usted); se llevó = took away (llevarse)",
+        "it": "ha portato; se llevó = si è preso, ha portato via (llevarse)",
+        "nl": "nam mee (hij, zij; usted); se llevó = nam mee (llevarse)"
+      }
+    },
+    "lloviendo": {
+      "lemma": "llover",
+      "pos": "VERB",
+      "gloss": {
+        "en": "raining (gerund of llover)",
+        "it": "piovendo (gerundio di llover)",
+        "nl": "regenend (gerundium van llover)"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (direct object); before the verb, or attached to an infinitive or imperative",
+        "it": "lo (oggetto diretto); prima del verbo, o attaccato a infinito e imperativo",
+        "nl": "het, hem (lijdend voorwerp); vóór het werkwoord, of vast aan infinitief of gebiedende wijs"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m pl)",
+        "it": "i, gli (m pl)",
+        "nl": "de (m mv)"
+      }
+    },
+    "los#pron": {
+      "lemma": "los",
+      "pos": "PRON",
+      "gloss": {
+        "en": "them (direct object, masculine or mixed): te los recojo = I'll pick them up for you",
+        "it": "li (oggetto diretto maschile): te los recojo = te li vado a prendere",
+        "nl": "ze, hen (lijdend voorwerp, mannelijk of gemengd): te los recojo = ik haal ze voor je op"
+      }
+    },
+    "luis": {
+      "lemma": "Luis",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Luis (a man's name)",
+        "it": "Luis (nome di uomo)",
+        "nl": "Luis (mannennaam)"
+      }
+    },
+    "lunes": {
+      "lemma": "lunes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m)",
+        "it": "lunedì (m)",
+        "nl": "maandag (m)"
+      }
+    },
+    "mamá": {
+      "lemma": "mamá",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mom (f)",
+        "it": "mamma (f)",
+        "nl": "mama (f)"
+      }
+    },
+    "marta": {
+      "lemma": "Marta",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Marta (a woman's name)",
+        "it": "Marta (nome di donna)",
+        "nl": "Marta (vrouwennaam)"
+      }
+    },
+    "mañana": {
+      "lemma": "mañana",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me, for me; before lo, la, los, las: me lo prestas = you lend it to me",
+        "it": "mi, me; davanti a lo, la, los, las: me lo prestas = me lo presti",
+        "nl": "me, mij, aan mij; vóór lo, la, los, las: me lo prestas = je leent het me"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia",
+        "nl": "mijn"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural)",
+        "it": "miei, mie",
+        "nl": "mijn (meervoud)"
+      }
+    },
+    "mismo": {
+      "lemma": "mismo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "same; after a pronoun, -self: yo mismo = I myself, uno mismo = oneself",
+        "it": "stesso; dopo un pronome: yo mismo = io stesso, uno mismo = se stessi",
+        "nl": "zelfde; na een voornaamwoord, zelf: yo mismo = ik zelf, uno mismo = jezelf"
+      }
+    },
+    "molestia": {
+      "lemma": "molestia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bother, trouble (f); no es ninguna molestia = it's no bother at all",
+        "it": "disturbo, fastidio (f); attenzione: non ha il senso di molestia in italiano; no es ninguna molestia = non è affatto un disturbo",
+        "nl": "moeite, last (f); no es ninguna molestia = het is helemaal geen moeite"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto",
+        "nl": "heel, erg"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; más fácil = easier",
+        "it": "più; más fácil = più facile",
+        "nl": "meer; más fácil = makkelijker"
+      }
+    },
+    "mías": {
+      "lemma": "mío",
+      "pos": "PRON",
+      "gloss": {
+        "en": "mine (f pl); las mías = mine, for feminine things",
+        "it": "mie (f pl); las mías = le mie",
+        "nl": "van mij (f mv); las mías = de mijne"
+      }
+    },
+    "mío": {
+      "lemma": "mío",
+      "pos": "PRON",
+      "gloss": {
+        "en": "mine (m); es mío = it's mine; el mío = mine",
+        "it": "mio (m); es mío = è mio; el mío = il mio",
+        "nl": "van mij (m); es mío = het is van mij; el mío = de mijne, het mijne"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing, anything (after no)",
+        "it": "niente, nulla",
+        "nl": "niets"
+      }
+    },
+    "nadie": {
+      "lemma": "nadie",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody, anybody (after no): no le pido nada a nadie = I don't ask anyone for anything",
+        "it": "nessuno: no le pido nada a nadie = non chiedo niente a nessuno",
+        "nl": "niemand: no le pido nada a nadie = ik vraag niemand iets"
+      }
+    },
+    "necesitaba": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "needed (he, she; I) (necesitar, imperfect)",
+        "it": "aveva bisogno di (necesitar, imperfetto)",
+        "nl": "had nodig (hij, zij; ik) (necesitar, imperfectum)"
+      }
+    },
+    "necesitas": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you need (tú) (necesitar)",
+        "it": "hai bisogno di (necesitar)",
+        "nl": "je hebt nodig (tú) (necesitar)"
+      }
+    },
+    "necesito": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I need (necesitar)",
+        "it": "ho bisogno di, mi serve (necesitar)",
+        "nl": "ik heb nodig (necesitar)"
+      }
+    },
+    "negro": {
+      "lemma": "negro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "black",
+        "it": "nero",
+        "nl": "zwart"
+      }
+    },
+    "ninguna": {
+      "lemma": "ninguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "no, not any (f); no es ninguna molestia = it's no bother at all",
+        "it": "nessuna (f); no es ninguna molestia = non è affatto un disturbo",
+        "nl": "geen enkele (f); no es ninguna molestia = het is helemaal geen moeite"
+      }
+    },
+    "niños": {
+      "lemma": "niño",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "children, kids (m pl); desde niños = since they were kids",
+        "it": "bambini (m pl); desde niños = da bambini",
+        "nl": "kinderen (m mv); desde niños = van kinds af aan"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "no, not",
+        "it": "no, non",
+        "nl": "nee, niet"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us, for us; ourselves, each other: nos ayudamos = we help each other",
+        "it": "ci; nos ayudamos = ci aiutiamo",
+        "nl": "ons, aan ons; elkaar: nos ayudamos = we helpen elkaar"
+      }
+    },
+    "nunca": {
+      "lemma": "nunca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never",
+        "it": "mai",
+        "nl": "nooit"
+      }
+    },
+    "o": {
+      "lemma": "o",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "olvidé": {
+      "lemma": "olvidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I forgot (olvidar)",
+        "it": "ho dimenticato (olvidar)",
+        "nl": "ik ben vergeten (olvidar)"
+      }
+    },
+    "papá": {
+      "lemma": "papá",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dad (m)",
+        "it": "papà (m)",
+        "nl": "papa (m)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; para eso = for that",
+        "it": "per; para eso = per questo",
+        "nl": "voor; para eso = daarvoor"
+      }
+    },
+    "paraguas": {
+      "lemma": "paraguas",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "umbrella (m); same in the plural: los paraguas",
+        "it": "ombrello (m); uguale al plurale: los paraguas",
+        "nl": "paraplu (m); zelfde in het meervoud: los paraguas"
+      }
+    },
+    "pasada": {
+      "lemma": "pasado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last, past (f); la semana pasada = last week",
+        "it": "scorsa (f); la semana pasada = la settimana scorsa",
+        "nl": "vorige (f); la semana pasada = vorige week"
+      }
+    },
+    "pedir": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask for; pedir prestado = to borrow",
+        "it": "chiedere; pedir prestado = farsi prestare",
+        "nl": "vragen om; pedir prestado = lenen van iemand"
+      }
+    },
+    "pedirle": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask him or her for (pedir + le)",
+        "it": "chiedergli, chiederle (pedir + le)",
+        "nl": "hem of haar vragen om (pedir + le)"
+      }
+    },
+    "pedí": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I asked for (pedir); le pedí prestado = I borrowed from him or her",
+        "it": "ho chiesto (pedir)",
+        "nl": "ik vroeg om (pedir)"
+      }
+    },
+    "perdón": {
+      "lemma": "perdón",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sorry",
+        "it": "scusa",
+        "nl": "sorry"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "perro": {
+      "lemma": "perro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dog (m)",
+        "it": "cane (m)",
+        "nl": "hond (m)"
+      }
+    },
+    "pido": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I ask for (pedir, e>i)",
+        "it": "chiedo (pedir, e>i)",
+        "nl": "ik vraag om (pedir, e>i)"
+      }
+    },
+    "planta": {
+      "lemma": "planta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plant (f)",
+        "it": "pianta (f)",
+        "nl": "plant (f)"
+      }
+    },
+    "plantas": {
+      "lemma": "planta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plants (f pl)",
+        "it": "piante (f pl)",
+        "nl": "planten (f mv)"
+      }
+    },
+    "playa": {
+      "lemma": "playa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beach (f)",
+        "it": "spiaggia (f)",
+        "nl": "strand (f)"
+      }
+    },
+    "poco": {
+      "lemma": "poco",
+      "pos": "ADV",
+      "gloss": {
+        "en": "little; un poco = a little, some",
+        "it": "poco; un poco = un po'",
+        "nl": "weinig; un poco = een beetje, wat"
+      }
+    },
+    "podrías": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could you (tú) (poder, conditional)",
+        "it": "potresti (poder, condizionale)",
+        "nl": "zou je kunnen (tú) (poder, voorwaardelijk)"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; gracias por = thanks for; por eso = that's why; por favor = please",
+        "it": "per; gracias por = grazie per; por eso = per questo; por favor = per favore",
+        "nl": "voor, door; gracias por = bedankt voor; por eso = daarom; por favor = alsjeblieft"
+      }
+    },
+    "preocupes": {
+      "lemma": "preocupar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "no te preocupes = don't worry (preocuparse)",
+        "it": "no te preocupes = non preoccuparti (preocuparse)",
+        "nl": "no te preocupes = maak je geen zorgen (preocuparse)"
+      }
+    },
+    "presta": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lends (he, she; usted) (prestar)",
+        "it": "presta (prestar)",
+        "nl": "leent (uit) (hij, zij; usted) (prestar)"
+      }
+    },
+    "prestado": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lent (participle of prestar); pedir prestado = to borrow",
+        "it": "prestato (participio di prestar); pedir prestado = farsi prestare",
+        "nl": "geleend (voltooid deelwoord van prestar); pedir prestado = lenen van iemand"
+      }
+    },
+    "prestar": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lend; pedir prestado = to borrow",
+        "it": "prestare; pedir prestado = farsi prestare",
+        "nl": "uitlenen, lenen aan iemand; let op: lenen van iemand = pedir prestado"
+      }
+    },
+    "prestas": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you lend (tú); ¿Me prestas...? = Can you lend me...? (prestar)",
+        "it": "presti; ¿Me prestas...? = Mi presti...? (prestar)",
+        "nl": "je leent (uit) (tú); ¿Me prestas...? = Kun je me ... lenen? (prestar)"
+      }
+    },
+    "presto": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I lend, I'll lend (prestar)",
+        "it": "presto (prestar)",
+        "nl": "ik leen (uit) (prestar)"
+      }
+    },
+    "presté": {
+      "lemma": "prestar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I lent (prestar)",
+        "it": "ho prestato (prestar)",
+        "nl": "ik heb geleend, ik leende (uit) (prestar)"
+      }
+    },
+    "promesa": {
+      "lemma": "promesa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "promise (f)",
+        "it": "promessa (f)",
+        "nl": "belofte (f)"
+      }
+    },
+    "prometer": {
+      "lemma": "prometer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to promise",
+        "it": "promettere",
+        "nl": "beloven"
+      }
+    },
+    "prometo": {
+      "lemma": "prometer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I promise; te lo prometo = I promise (you) (prometer)",
+        "it": "prometto; te lo prometo = te lo prometto (prometer)",
+        "nl": "ik beloof; te lo prometo = dat beloof ik (je) (prometer)"
+      }
+    },
+    "prometí": {
+      "lemma": "prometer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I promised (prometer)",
+        "it": "ho promesso (prometer)",
+        "nl": "ik heb beloofd (prometer)"
+      }
+    },
+    "propias": {
+      "lemma": "propio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "own (f pl): mis propias herramientas = my own tools",
+        "it": "propri (f pl): mis propias herramientas = i miei attrezzi",
+        "nl": "eigen (f mv): mis propias herramientas = mijn eigen gereedschap"
+      }
+    },
+    "propio": {
+      "lemma": "propio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "own; before the noun: mi propio carro = my own car",
+        "it": "proprio (possessivo), prima del nome: mi propio carro = la mia macchina",
+        "nl": "eigen, vóór het zelfstandig naamwoord: mi propio carro = mijn eigen auto"
+      }
+    },
+    "puedes": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (tú) (poder)",
+        "it": "puoi (poder)",
+        "nl": "je kunt (tú) (poder)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that; tener que = have to",
+        "it": "che; tener que = dovere",
+        "nl": "dat; tener que = moeten"
+      }
+    },
+    "quieres": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you want (tú) (querer); si quieres = if you like",
+        "it": "vuoi (querer); si quieres = se vuoi",
+        "nl": "je wilt (tú) (querer); si quieres = als je wilt"
+      }
+    },
+    "quién": {
+      "lemma": "quién",
+      "pos": "PRON",
+      "gloss": {
+        "en": "who",
+        "it": "chi",
+        "nl": "wie"
+      }
+    },
+    "quédate": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "keep (tú imperative of quedarse); quédate con el cambio = keep the change",
+        "it": "tieni (imperativo di quedarse); quédate con el cambio = tieni il resto",
+        "nl": "hou (gebiedende wijs van quedarse); quédate con el cambio = hou het wisselgeld maar"
+      }
+    },
+    "recoger": {
+      "lemma": "recoger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pick up, collect: recojo, recoges",
+        "it": "andare a prendere, ritirare: recojo, recoges",
+        "nl": "ophalen: recojo, recoges"
+      }
+    },
+    "recojo": {
+      "lemma": "recoger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I pick up, I'll pick up (recoger; g>j before o)",
+        "it": "vado a prendere (recoger; g>j davanti a o)",
+        "nl": "ik haal op (recoger; g>j vóór o)"
+      }
+    },
+    "regar": {
+      "lemma": "regar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to water (plants): riego, riegas, riega",
+        "it": "annaffiare: riego, riegas, riega",
+        "nl": "water geven (planten): riego, riegas, riega"
+      }
+    },
+    "riego": {
+      "lemma": "regar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I water, I'll water (regar, e>ie)",
+        "it": "annaffio (regar, e>ie)",
+        "nl": "ik geef water (regar, e>ie)"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "himself, herself, themselves, each other; also le or les before lo, la, los, las: se lo presté = I lent it to him, her or you (usted)",
+        "it": "si; anche le o les davanti a lo, la, los, las: se lo presté = gliel'ho prestato; attenzione: se lo = glielo",
+        "nl": "zich, elkaar; ook le of les vóór lo, la, los, las: se lo presté = ik heb het hem, haar of u geleend"
+      }
+    },
+    "semana": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); fin de semana = weekend",
+        "it": "settimana (f); fin de semana = fine settimana",
+        "nl": "week (f); fin de semana = weekend"
+      }
+    },
+    "señora": {
+      "lemma": "señor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ma'am, madam, lady (f)",
+        "it": "signora (f)",
+        "nl": "mevrouw (f)"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if; no accent, unlike sí = yes",
+        "it": "se; senza accento, diverso da sí = sì",
+        "nl": "als, indien; zonder accent, anders dan sí = ja"
+      }
+    },
+    "siempre": {
+      "lemma": "siempre",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always",
+        "it": "sempre",
+        "nl": "altijd"
+      }
+    },
+    "su": {
+      "lemma": "su",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its, their; your (usted)",
+        "it": "suo, sua, loro; Suo (con usted)",
+        "nl": "zijn, haar, hun; uw (bij usted)"
+      }
+    },
+    "suya": {
+      "lemma": "suyo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "his, hers, theirs, yours (usted), for a feminine thing",
+        "it": "sua, loro; Sua (con usted), per una cosa femminile",
+        "nl": "van hem, van haar, van hen, van u, bij een vrouwelijk woord"
+      }
+    },
+    "suyo": {
+      "lemma": "suyo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "his, hers, theirs, yours (usted, ustedes)",
+        "it": "suo, loro; Suo (con usted)",
+        "nl": "van hem, van haar, van hen, van u"
+      }
+    },
+    "sábado": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m)"
+      }
+    },
+    "taladro": {
+      "lemma": "taladro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "drill (m)",
+        "it": "trapano (m)",
+        "nl": "boormachine (m)"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you, to you, for you (tú); before lo, la, los, las: te lo devuelvo = I'll give it back to you",
+        "it": "ti, te; davanti a lo, la, los, las: te lo devuelvo = te lo restituisco",
+        "nl": "je, jou, aan jou (tú); vóór lo, la, los, las: te lo devuelvo = ik geef het je terug"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener)",
+        "it": "ho (tener)",
+        "nl": "ik heb (tener)"
+      }
+    },
+    "ti": {
+      "lemma": "ti",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (tú, after a preposition): en ti = in you",
+        "it": "te (dopo una preposizione): en ti = di te",
+        "nl": "jou (tú, na een voorzetsel): en ti = jou"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still; todavía no = not yet, still not",
+        "it": "ancora; todavía no = non ancora",
+        "nl": "nog; todavía no = nog niet"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "everything, all",
+        "it": "tutto",
+        "nl": "alles"
+      }
+    },
+    "trae": {
+      "lemma": "traer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "brings (he, she; usted) (traer)",
+        "it": "porta (traer)",
+        "nl": "brengt, neemt mee (hij, zij; usted) (traer)"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (tú); no accent, unlike tú = you",
+        "it": "tuo, tua; attenzione: tu senza accento = tuo, tú = tu",
+        "nl": "jouw, je (tú); zonder accent, anders dan tú = jij"
+      }
+    },
+    "tuvimos": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we had; tuvimos que = we had to (tener)",
+        "it": "abbiamo avuto; tuvimos que = abbiamo dovuto (tener)",
+        "nl": "we hadden; tuvimos que = we moesten (tener)"
+      }
+    },
+    "tuyo": {
+      "lemma": "tuyo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "yours (tú, m); ¿Es tuyo? = Is it yours?; el tuyo = yours",
+        "it": "tuo (m); ¿Es tuyo? = È tuo?; el tuyo = il tuo",
+        "nl": "van jou (m); ¿Es tuyo? = Is het van jou?; el tuyo = de jouwe, het jouwe"
+      }
+    },
+    "tía": {
+      "lemma": "tío",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "aunt (f)",
+        "it": "zia (f)",
+        "nl": "tante (f)"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (m); un poco = a little, some",
+        "it": "un, uno (m); un poco = un po'",
+        "nl": "een (m); un poco = een beetje, wat"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (f)",
+        "it": "una (f)",
+        "nl": "een (f)"
+      }
+    },
+    "uno": {
+      "lemma": "uno",
+      "pos": "PRON",
+      "gloss": {
+        "en": "one, someone in general; uno mismo = oneself",
+        "it": "uno, si (impersonale); uno mismo = se stessi",
+        "nl": "men, je (in het algemeen); uno mismo = jezelf"
+      }
+    },
+    "usas": {
+      "lemma": "usar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you use (tú) (usar)",
+        "it": "usi (usar)",
+        "nl": "je gebruikt (tú) (usar)"
+      }
+    },
+    "vacaciones": {
+      "lemma": "vacaciones",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vacation, holidays (f pl); irse de vacaciones = go on vacation",
+        "it": "vacanze (f pl); irse de vacaciones = andare in vacanza",
+        "nl": "vakantie (f mv); irse de vacaciones = op vakantie gaan"
+      }
+    },
+    "vamos": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go; irse = leave: nos vamos de vacaciones = we go (away) on vacation (ir)",
+        "it": "andiamo; irse = andarsene: nos vamos de vacaciones = andiamo in vacanza (ir)",
+        "nl": "we gaan; irse = weggaan: nos vamos de vacaciones = we gaan op vakantie (ir)"
+      }
+    },
+    "veces": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "times (f pl of vez); dos veces = twice; a veces = sometimes",
+        "it": "volte (f pl di vez); dos veces = due volte; a veces = a volte",
+        "nl": "keer, keren (f mv van vez); dos veces = twee keer; a veces = soms"
+      }
+    },
+    "vecina": {
+      "lemma": "vecino",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighbor (f)",
+        "it": "vicina di casa (f)",
+        "nl": "buurvrouw (f)"
+      }
+    },
+    "vecino": {
+      "lemma": "vecino",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighbor (m)",
+        "it": "vicino di casa (m)",
+        "nl": "buurman (m)"
+      }
+    },
+    "vecinos": {
+      "lemma": "vecino",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighbors (m pl)",
+        "it": "vicini di casa (m pl)",
+        "nl": "buren (m mv)"
+      }
+    },
+    "viaje": {
+      "lemma": "viaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip (m); irse de viaje = go away on a trip",
+        "it": "viaggio (m); irse de viaje = partire (per un viaggio)",
+        "nl": "reis (m); irse de viaje = op reis gaan"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go; irse = leave: ya me voy = I'm leaving now; me voy de viaje = I'm going away (ir)",
+        "it": "vado; irse = andarsene: ya me voy = me ne vado; me voy de viaje = parto (ir)",
+        "nl": "ik ga; irse = weggaan: ya me voy = ik ga nu; me voy de viaje = ik ga op reis (ir)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; now; ya no = not anymore; ya me voy = I'm leaving now",
+        "it": "già; ora; ya no = non più; ya me voy = adesso me ne vado",
+        "nl": "al; nu; ya no = niet meer; ya me voy = ik ga nu"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I; after the verb for emphasis: lo hice yo = I did it",
+        "it": "io; dopo il verbo per enfasi: lo hice yo = l'ho fatto io",
+        "nl": "ik; na het werkwoord voor nadruk: lo hice yo = ik heb het gedaan"
+      }
+    },
+    "última": {
+      "lemma": "último",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last (f)",
+        "it": "ultima (f)",
+        "nl": "laatste (f)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-b1-favores-1",
+      "title": "¿Me prestas tu taladro?",
+      "grammarFocus": {
+        "en": [
+          "¿Me prestas...? = Can you lend me...?",
+          "combined pronouns: indirect before direct, me lo, te lo",
+          "prestar = lend; pedir prestado = borrow"
+        ],
+        "it": [
+          "¿Me prestas...? = Mi presti...?",
+          "pronomi combinati: indiretto prima del diretto, me lo, te lo (come in italiano)",
+          "prestar = prestare; pedir prestado = farsi prestare"
+        ],
+        "nl": [
+          "¿Me prestas...? = Kun je me ... lenen?",
+          "gecombineerde voornaamwoorden: meewerkend vóór lijdend, me lo, te lo",
+          "prestar = uitlenen; pedir prestado = lenen van iemand"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "prestar",
+          "translation": {
+            "en": "to lend",
+            "it": "prestare",
+            "nl": "uitlenen"
+          },
+          "distractors": {
+            "en": [
+              "to give back",
+              "to sell"
+            ],
+            "it": [
+              "restituire",
+              "vendere"
+            ],
+            "nl": [
+              "teruggeven",
+              "verkopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "taladro",
+          "translation": {
+            "en": "drill",
+            "it": "trapano",
+            "nl": "boormachine"
+          },
+          "distractors": {
+            "en": [
+              "hammer",
+              "saw"
+            ],
+            "it": [
+              "martello",
+              "sega"
+            ],
+            "nl": [
+              "hamer",
+              "zaag"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me prestas tu taladro?",
+          "translation": {
+            "en": "Can you lend me your drill?",
+            "it": "Mi presti il tuo trapano?",
+            "nl": "Kun je me je boormachine lenen?"
+          },
+          "distractors": {
+            "en": [
+              "Can I lend you my drill?",
+              "Can you sell me your drill?"
+            ],
+            "it": [
+              "Ti presto il mio trapano?",
+              "Mi vendi il tuo trapano?"
+            ],
+            "nl": [
+              "Zal ik je mijn boormachine lenen?",
+              "Kun je me je boormachine verkopen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me lo prestas",
+          "translation": {
+            "en": "will you lend it to me",
+            "it": "me lo presti",
+            "nl": "leen je het me"
+          },
+          "distractors": {
+            "en": [
+              "will you give it to me",
+              "will you lend it to her"
+            ],
+            "it": [
+              "me lo dai",
+              "glielo presti"
+            ],
+            "nl": [
+              "geef je het me",
+              "leen je het haar"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me lo prestas hasta el sábado?",
+          "translation": {
+            "en": "Will you lend it to me until Saturday?",
+            "it": "Me lo presti fino a sabato?",
+            "nl": "Wil je het me tot zaterdag lenen?"
+          },
+          "distractors": {
+            "en": [
+              "Will you lend it to me until Sunday?",
+              "Will you lend it to me on Saturday?"
+            ],
+            "it": [
+              "Me lo presti fino a domenica?",
+              "Me lo presti sabato?"
+            ],
+            "nl": [
+              "Wil je het me tot zondag lenen?",
+              "Wil je het me zaterdag lenen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "herramienta",
+          "translation": {
+            "en": "tool",
+            "it": "attrezzo",
+            "nl": "stuk gereedschap"
+          },
+          "distractors": {
+            "en": [
+              "toy",
+              "lamp"
+            ],
+            "it": [
+              "giocattolo",
+              "lampada"
+            ],
+            "nl": [
+              "speelgoed",
+              "lamp"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "las herramientas de mi papá",
+          "translation": {
+            "en": "my dad's tools",
+            "it": "gli attrezzi di mio papà",
+            "nl": "het gereedschap van mijn vader"
+          },
+          "distractors": {
+            "en": [
+              "my brother's tools",
+              "my dad's books"
+            ],
+            "it": [
+              "gli attrezzi di mio fratello",
+              "i libri di mio papà"
+            ],
+            "nl": [
+              "het gereedschap van mijn broer",
+              "de boeken van mijn vader"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pedir prestado",
+          "translation": {
+            "en": "to borrow",
+            "it": "farsi prestare",
+            "nl": "lenen van iemand"
+          },
+          "distractors": {
+            "en": [
+              "to give back",
+              "to pay back"
+            ],
+            "it": [
+              "restituire",
+              "ripagare"
+            ],
+            "nl": [
+              "teruggeven",
+              "terugbetalen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le pedí prestado el taladro a mi vecino.",
+          "translation": {
+            "en": "I borrowed the drill from my neighbor.",
+            "it": "Ho chiesto in prestito il trapano al mio vicino.",
+            "nl": "Ik heb de boormachine van mijn buurman geleend."
+          },
+          "distractors": {
+            "en": [
+              "I borrowed the ladder from my neighbor.",
+              "I lent the drill to my neighbor."
+            ],
+            "it": [
+              "Ho chiesto in prestito la scala al mio vicino.",
+              "Ho prestato il trapano al mio vicino."
+            ],
+            "nl": [
+              "Ik heb de ladder van mijn buurman geleend.",
+              "Ik heb de boormachine aan mijn buurman uitgeleend."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "cargador",
+          "translation": {
+            "en": "charger",
+            "it": "caricabatterie",
+            "nl": "oplader"
+          },
+          "distractors": {
+            "en": [
+              "battery",
+              "cable"
+            ],
+            "it": [
+              "batteria",
+              "cavo"
+            ],
+            "nl": [
+              "batterij",
+              "kabel"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el cargador del celular",
+          "translation": {
+            "en": "the phone charger",
+            "it": "il caricabatterie del cellulare",
+            "nl": "de oplader van de telefoon"
+          },
+          "distractors": {
+            "en": [
+              "the phone case",
+              "the computer charger"
+            ],
+            "it": [
+              "la custodia del cellulare",
+              "il caricabatterie del computer"
+            ],
+            "nl": [
+              "het hoesje van de telefoon",
+              "de oplader van de computer"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Olvidé mi cargador, ¿me prestas el tuyo?",
+          "translation": {
+            "en": "I forgot my charger, can you lend me yours?",
+            "it": "Ho dimenticato il mio caricabatterie, mi presti il tuo?",
+            "nl": "Ik ben mijn oplader vergeten, kun je me de jouwe lenen?"
+          },
+          "distractors": {
+            "en": [
+              "I lost my charger, can you lend me yours?",
+              "I forgot my charger, can you lend me your phone?"
+            ],
+            "it": [
+              "Ho perso il mio caricabatterie, mi presti il tuo?",
+              "Ho dimenticato il mio caricabatterie, mi presti il tuo telefono?"
+            ],
+            "nl": [
+              "Ik ben mijn oplader kwijt, kun je me de jouwe lenen?",
+              "Ik ben mijn oplader vergeten, kun je me je telefoon lenen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "paraguas",
+          "translation": {
+            "en": "umbrella",
+            "it": "ombrello",
+            "nl": "paraplu"
+          },
+          "distractors": {
+            "en": [
+              "raincoat",
+              "backpack"
+            ],
+            "it": [
+              "impermeabile",
+              "zaino"
+            ],
+            "nl": [
+              "regenjas",
+              "rugzak"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Está lloviendo, ¿me prestas un paraguas?",
+          "translation": {
+            "en": "It's raining, can you lend me an umbrella?",
+            "it": "Sta piovendo, mi presti un ombrello?",
+            "nl": "Het regent, kun je me een paraplu lenen?"
+          },
+          "distractors": {
+            "en": [
+              "It's snowing, can you lend me an umbrella?",
+              "It's raining, can you lend me a jacket?"
+            ],
+            "it": [
+              "Sta nevicando, mi presti un ombrello?",
+              "Sta piovendo, mi presti una giacca?"
+            ],
+            "nl": [
+              "Het sneeuwt, kun je me een paraplu lenen?",
+              "Het regent, kun je me een jas lenen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Claro, te lo presto, pero lo necesito mañana.",
+          "translation": {
+            "en": "Sure, I'll lend it to you, but I need it tomorrow.",
+            "it": "Certo, te lo presto, ma mi serve domani.",
+            "nl": "Natuurlijk leen ik het je, maar ik heb het morgen nodig."
+          },
+          "distractors": {
+            "en": [
+              "Sure, I'll lend it to you, but I need it tonight.",
+              "Sure, I'll bring it to you, but I need it tomorrow."
+            ],
+            "it": [
+              "Certo, te lo presto, ma mi serve stasera.",
+              "Certo, te lo porto, ma mi serve domani."
+            ],
+            "nl": [
+              "Natuurlijk leen ik het je, maar ik heb het vanavond nodig.",
+              "Natuurlijk breng ik het je, maar ik heb het morgen nodig."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-favores-2",
+      "title": "Te lo devuelvo mañana",
+      "grammarFocus": {
+        "en": [
+          "le and les become se before lo, la, los, las: Se lo presté (not le lo)",
+          "te lo devuelvo = I'll give it back to you",
+          "the present for a promise: te lo devuelvo el lunes"
+        ],
+        "it": [
+          "le e les diventano se davanti a lo, la, los, las: Se lo presté = Gliel'ho prestato",
+          "te lo devuelvo = te lo restituisco",
+          "il presente per una promessa: te lo devuelvo el lunes"
+        ],
+        "nl": [
+          "le en les worden se vóór lo, la, los, las: Se lo presté (niet le lo)",
+          "te lo devuelvo = ik geef het je terug",
+          "de tegenwoordige tijd voor een belofte: te lo devuelvo el lunes"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "prometer",
+          "translation": {
+            "en": "to promise",
+            "it": "promettere",
+            "nl": "beloven"
+          },
+          "distractors": {
+            "en": [
+              "to forget",
+              "to lend"
+            ],
+            "it": [
+              "dimenticare",
+              "prestare"
+            ],
+            "nl": [
+              "vergeten",
+              "uitlenen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "te lo devuelvo",
+          "translation": {
+            "en": "I'll give it back to you",
+            "it": "te lo restituisco",
+            "nl": "ik geef het je terug"
+          },
+          "distractors": {
+            "en": [
+              "I'll lend it to you",
+              "you give it back to me"
+            ],
+            "it": [
+              "te lo presto",
+              "me lo restituisci"
+            ],
+            "nl": [
+              "ik leen het je",
+              "jij geeft het me terug"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Te lo devuelvo mañana, te lo prometo.",
+          "translation": {
+            "en": "I'll give it back to you tomorrow, I promise.",
+            "it": "Te lo restituisco domani, te lo prometto.",
+            "nl": "Ik geef het je morgen terug, dat beloof ik."
+          },
+          "distractors": {
+            "en": [
+              "I'll give it back to you tonight, I promise.",
+              "I'll lend it to you tomorrow, I promise."
+            ],
+            "it": [
+              "Te lo restituisco stasera, te lo prometto.",
+              "Te lo presto domani, te lo prometto."
+            ],
+            "nl": [
+              "Ik geef het je vanavond terug, dat beloof ik.",
+              "Ik leen het je morgen, dat beloof ik."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se lo presté",
+          "translation": {
+            "en": "I lent it to him",
+            "it": "gliel'ho prestato",
+            "nl": "ik heb het hem geleend"
+          },
+          "distractors": {
+            "en": [
+              "I sold it to him",
+              "he lent it to me"
+            ],
+            "it": [
+              "gliel'ho venduto",
+              "me l'ha prestato"
+            ],
+            "nl": [
+              "ik heb het hem verkocht",
+              "hij heeft het mij geleend"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi hermano necesitaba el carro y se lo presté.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "My brother needed the car and I lent it to him.",
+            "it": "Mio fratello aveva bisogno della macchina e gliel'ho prestata.",
+            "nl": "Mijn broer had de auto nodig en ik heb hem die geleend."
+          },
+          "distractors": {
+            "en": [
+              "My brother needed the car and I sold it to him.",
+              "My sister needed the car and I lent it to her."
+            ],
+            "it": [
+              "Mio fratello aveva bisogno della macchina e gliel'ho venduta.",
+              "Mia sorella aveva bisogno della macchina e gliel'ho prestata."
+            ],
+            "nl": [
+              "Mijn broer had de auto nodig en ik heb hem die verkocht.",
+              "Mijn zus had de auto nodig en ik heb haar die geleend."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la semana pasada",
+          "translation": {
+            "en": "last week",
+            "it": "la settimana scorsa",
+            "nl": "vorige week"
+          },
+          "distractors": {
+            "en": [
+              "next week",
+              "last month"
+            ],
+            "it": [
+              "la settimana prossima",
+              "il mese scorso"
+            ],
+            "nl": [
+              "volgende week",
+              "vorige maand"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le presté mi bicicleta a Marta la semana pasada y todavía no me la devolvió.",
+          "commas": [
+            8
+          ],
+          "senses": {
+            "13": "pron"
+          },
+          "translation": {
+            "en": "I lent Marta my bike last week and she still hasn't given it back.",
+            "it": "Ho prestato la mia bici a Marta la settimana scorsa e non me l'ha ancora restituita.",
+            "nl": "Ik heb Marta vorige week mijn fiets geleend en ze heeft hem nog steeds niet teruggegeven."
+          },
+          "distractors": {
+            "en": [
+              "I lent Marta my bike last month and she still hasn't given it back.",
+              "I lent Marta my bike last week and she already gave it back."
+            ],
+            "it": [
+              "Ho prestato la mia bici a Marta il mese scorso e non me l'ha ancora restituita.",
+              "Ho prestato la mia bici a Marta la settimana scorsa e me l'ha già restituita."
+            ],
+            "nl": [
+              "Ik heb Marta vorige maand mijn fiets geleend en ze heeft hem nog steeds niet teruggegeven.",
+              "Ik heb Marta vorige week mijn fiets geleend en ze heeft hem al teruggegeven."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya se la pedí",
+          "senses": {
+            "2": "pron"
+          },
+          "translation": {
+            "en": "I already asked her for it",
+            "it": "gliel'ho già chiesta",
+            "nl": "ik heb haar er al om gevraagd"
+          },
+          "distractors": {
+            "en": [
+              "I already gave it to her",
+              "I already lent it to her"
+            ],
+            "it": [
+              "gliel'ho già data",
+              "gliel'ho già prestata"
+            ],
+            "nl": [
+              "ik heb hem haar al gegeven",
+              "ik heb hem haar al geleend"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dos veces",
+          "variants": [
+            "2 veces"
+          ],
+          "translation": {
+            "en": "twice",
+            "it": "due volte",
+            "nl": "twee keer"
+          },
+          "distractors": {
+            "en": [
+              "three times",
+              "once"
+            ],
+            "it": [
+              "tre volte",
+              "una volta"
+            ],
+            "nl": [
+              "drie keer",
+              "één keer"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ya se la pedí dos veces, pero nunca la trae.",
+          "variants": [
+            "Ya se la pedí 2 veces, pero nunca la trae."
+          ],
+          "senses": {
+            "2": "pron",
+            "8": "pron"
+          },
+          "translation": {
+            "en": "I've already asked her for it twice, but she never brings it.",
+            "it": "Gliel'ho già chiesta due volte, ma non la porta mai.",
+            "nl": "Ik heb haar er al twee keer om gevraagd, maar ze neemt hem nooit mee."
+          },
+          "distractors": {
+            "en": [
+              "I've already asked her for it three times, but she never brings it.",
+              "I've already lent it to her twice, but she never brings it."
+            ],
+            "it": [
+              "Gliel'ho già chiesta tre volte, ma non la porta mai.",
+              "Gliel'ho già prestata due volte, ma non la porta mai."
+            ],
+            "nl": [
+              "Ik heb haar er al drie keer om gevraagd, maar ze neemt hem nooit mee.",
+              "Ik heb hem haar al twee keer geleend, maar ze neemt hem nooit mee."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "devuélvemelo",
+          "translation": {
+            "en": "give it back to me",
+            "it": "ridammelo",
+            "nl": "geef het me terug"
+          },
+          "distractors": {
+            "en": [
+              "lend it to me",
+              "give it back to him"
+            ],
+            "it": [
+              "prestamelo",
+              "ridaglielo"
+            ],
+            "nl": [
+              "leen het me",
+              "geef het hem terug"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si ya no lo usas, devuélvemelo, por favor.",
+          "translation": {
+            "en": "If you're not using it anymore, give it back to me, please.",
+            "it": "Se non lo usi più, ridammelo, per favore.",
+            "nl": "Als je het niet meer gebruikt, geef het me dan terug, alsjeblieft."
+          },
+          "distractors": {
+            "en": [
+              "If you're not using it today, give it back to me, please.",
+              "If you're not using it anymore, keep it, please."
+            ],
+            "it": [
+              "Se oggi non lo usi, ridammelo, per favore.",
+              "Se non lo usi più, tienilo, per favore."
+            ],
+            "nl": [
+              "Als je het vandaag niet gebruikt, geef het me dan terug, alsjeblieft.",
+              "Als je het niet meer gebruikt, hou het dan maar, alsjeblieft."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No te preocupes, te lo devuelvo el lunes.",
+          "translation": {
+            "en": "Don't worry, I'll give it back to you on Monday.",
+            "it": "Non preoccuparti, te lo restituisco lunedì.",
+            "nl": "Maak je geen zorgen, ik geef het je maandag terug."
+          },
+          "distractors": {
+            "en": [
+              "Don't worry, I'll give it back to you on Friday.",
+              "Don't worry, I'll lend it to you on Monday."
+            ],
+            "it": [
+              "Non preoccuparti, te lo restituisco venerdì.",
+              "Non preoccuparti, te lo presto lunedì."
+            ],
+            "nl": [
+              "Maak je geen zorgen, ik geef het je vrijdag terug.",
+              "Maak je geen zorgen, ik leen het je maandag."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Se lo prometí a mi mamá.",
+          "translation": {
+            "en": "I promised my mom.",
+            "it": "L'ho promesso a mia mamma.",
+            "nl": "Ik heb het mijn moeder beloofd."
+          },
+          "distractors": {
+            "en": [
+              "I promised my dad.",
+              "I explained it to my mom."
+            ],
+            "it": [
+              "L'ho promesso a mio papà.",
+              "L'ho spiegato a mia mamma."
+            ],
+            "nl": [
+              "Ik heb het mijn vader beloofd.",
+              "Ik heb het mijn moeder uitgelegd."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-favores-3",
+      "title": "¿Me cuidas las plantas?",
+      "grammarFocus": {
+        "en": [
+          "me, te, le for whose thing it is: ¿Me cuidas las plantas? = Can you look after my plants?",
+          "regar (e>ie): riego, riegas, riega",
+          "plural combined pronouns: te las riego, te los recojo"
+        ],
+        "it": [
+          "me, te, le per dire di chi è la cosa: ¿Me cuidas las plantas? = Ti occupi delle mie piante?",
+          "regar (e>ie): riego, riegas, riega",
+          "pronomi combinati al plurale: te las riego, te los recojo"
+        ],
+        "nl": [
+          "me, te, le voor wiens iets het is: ¿Me cuidas las plantas? = Zorg jij voor mijn planten?",
+          "regar (e>ie): riego, riegas, riega",
+          "gecombineerde voornaamwoorden in het meervoud: te las riego, te los recojo"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "planta",
+          "translation": {
+            "en": "plant",
+            "it": "pianta",
+            "nl": "plant"
+          },
+          "distractors": {
+            "en": [
+              "flower",
+              "tree"
+            ],
+            "it": [
+              "fiore",
+              "albero"
+            ],
+            "nl": [
+              "bloem",
+              "boom"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "regar",
+          "translation": {
+            "en": "to water",
+            "it": "annaffiare",
+            "nl": "water geven"
+          },
+          "distractors": {
+            "en": [
+              "to clean",
+              "to plant"
+            ],
+            "it": [
+              "pulire",
+              "piantare"
+            ],
+            "nl": [
+              "schoonmaken",
+              "planten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "regar las plantas",
+          "translation": {
+            "en": "water the plants",
+            "it": "annaffiare le piante",
+            "nl": "de planten water geven"
+          },
+          "distractors": {
+            "en": [
+              "water the flowers",
+              "buy the plants"
+            ],
+            "it": [
+              "annaffiare i fiori",
+              "comprare le piante"
+            ],
+            "nl": [
+              "de bloemen water geven",
+              "de planten kopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuidar",
+          "translation": {
+            "en": "to look after",
+            "it": "prendersi cura di",
+            "nl": "zorgen voor"
+          },
+          "distractors": {
+            "en": [
+              "to feed",
+              "to walk"
+            ],
+            "it": [
+              "dare da mangiare a",
+              "portare a spasso"
+            ],
+            "nl": [
+              "eten geven aan",
+              "uitlaten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me cuidas las plantas este fin de semana?",
+          "translation": {
+            "en": "Can you look after my plants this weekend?",
+            "it": "Ti occupi delle mie piante questo fine settimana?",
+            "nl": "Kun jij dit weekend voor mijn planten zorgen?"
+          },
+          "distractors": {
+            "en": [
+              "Can you look after my plants next weekend?",
+              "Can you look after my cat this weekend?"
+            ],
+            "it": [
+              "Ti occupi delle mie piante il prossimo fine settimana?",
+              "Ti occupi del mio gatto questo fine settimana?"
+            ],
+            "nl": [
+              "Kun jij volgend weekend voor mijn planten zorgen?",
+              "Kun jij dit weekend voor mijn kat zorgen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "te las riego",
+          "senses": {
+            "1": "pron"
+          },
+          "translation": {
+            "en": "I'll water them for you",
+            "it": "te le annaffio",
+            "nl": "ik geef ze water voor je"
+          },
+          "distractors": {
+            "en": [
+              "I'll buy them for you",
+              "you water them for me"
+            ],
+            "it": [
+              "te le compro",
+              "me le annaffi"
+            ],
+            "nl": [
+              "ik koop ze voor je",
+              "jij geeft ze water voor mij"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Claro, te las riego el sábado y el domingo.",
+          "senses": {
+            "2": "pron"
+          },
+          "translation": {
+            "en": "Sure, I'll water them for you on Saturday and Sunday.",
+            "it": "Certo, te le annaffio sabato e domenica.",
+            "nl": "Natuurlijk, ik geef ze zaterdag en zondag water voor je."
+          },
+          "distractors": {
+            "en": [
+              "Sure, I'll water them for you on Friday and Saturday.",
+              "Sure, I'll buy them for you on Saturday and Sunday."
+            ],
+            "it": [
+              "Certo, te le annaffio venerdì e sabato.",
+              "Certo, te le compro sabato e domenica."
+            ],
+            "nl": [
+              "Natuurlijk, ik geef ze vrijdag en zaterdag water voor je.",
+              "Natuurlijk, ik koop ze zaterdag en zondag voor je."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "encargar",
+          "translation": {
+            "en": "to leave in someone's care",
+            "it": "affidare",
+            "nl": "toevertrouwen"
+          },
+          "distractors": {
+            "en": [
+              "to lend",
+              "to promise"
+            ],
+            "it": [
+              "prestare",
+              "promettere"
+            ],
+            "nl": [
+              "uitlenen",
+              "beloven"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me voy de viaje el lunes, te encargo la casa.",
+          "translation": {
+            "en": "I'm going away on Monday, so I'm leaving the house in your hands.",
+            "it": "Lunedì parto, ti affido la casa.",
+            "nl": "Maandag ga ik op reis, dus ik vertrouw het huis aan jou toe."
+          },
+          "distractors": {
+            "en": [
+              "I'm going away on Friday, so I'm leaving the house in your hands.",
+              "I'm going away on Monday, so I'm leaving the car in your hands."
+            ],
+            "it": [
+              "Venerdì parto, ti affido la casa.",
+              "Lunedì parto, ti affido la macchina."
+            ],
+            "nl": [
+              "Vrijdag ga ik op reis, dus ik vertrouw het huis aan jou toe.",
+              "Maandag ga ik op reis, dus ik vertrouw de auto aan jou toe."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "recoger",
+          "translation": {
+            "en": "to pick up",
+            "it": "andare a prendere",
+            "nl": "ophalen"
+          },
+          "distractors": {
+            "en": [
+              "to drop off",
+              "to send"
+            ],
+            "it": [
+              "accompagnare",
+              "spedire"
+            ],
+            "nl": [
+              "wegbrengen",
+              "versturen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "recoger a los niños",
+          "translation": {
+            "en": "pick up the kids",
+            "it": "andare a prendere i bambini",
+            "nl": "de kinderen ophalen"
+          },
+          "distractors": {
+            "en": [
+              "drop off the kids",
+              "pick up the packages"
+            ],
+            "it": [
+              "accompagnare i bambini",
+              "andare a prendere i pacchi"
+            ],
+            "nl": [
+              "de kinderen wegbrengen",
+              "de pakketten ophalen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Podrías recoger a los niños de la escuela hoy?",
+          "translation": {
+            "en": "Could you pick the kids up from school today?",
+            "it": "Potresti andare a prendere i bambini a scuola oggi?",
+            "nl": "Zou jij vandaag de kinderen van school kunnen ophalen?"
+          },
+          "distractors": {
+            "en": [
+              "Could you pick the kids up from school tomorrow?",
+              "Could you take the kids to school today?"
+            ],
+            "it": [
+              "Potresti andare a prendere i bambini a scuola domani?",
+              "Potresti portare i bambini a scuola oggi?"
+            ],
+            "nl": [
+              "Zou jij morgen de kinderen van school kunnen ophalen?",
+              "Zou jij vandaag de kinderen naar school kunnen brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando nos vamos de vacaciones, mi mamá nos cuida el perro.",
+          "translation": {
+            "en": "When we go on vacation, my mom looks after our dog.",
+            "it": "Quando andiamo in vacanza, mia mamma si occupa del nostro cane.",
+            "nl": "Als wij op vakantie gaan, past mijn moeder op onze hond."
+          },
+          "distractors": {
+            "en": [
+              "When we go on vacation, my dad looks after our dog.",
+              "When we go on vacation, my mom looks after our plants."
+            ],
+            "it": [
+              "Quando andiamo in vacanza, mio papà si occupa del nostro cane.",
+              "Quando andiamo in vacanza, mia mamma si occupa delle nostre piante."
+            ],
+            "nl": [
+              "Als wij op vakantie gaan, past mijn vader op onze hond.",
+              "Als wij op vakantie gaan, zorgt mijn moeder voor onze planten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "te los recojo",
+          "senses": {
+            "1": "pron"
+          },
+          "translation": {
+            "en": "I'll pick them up for you",
+            "it": "te li vado a prendere",
+            "nl": "ik haal ze voor je op"
+          },
+          "distractors": {
+            "en": [
+              "I'll drop them off for you",
+              "you pick them up for me"
+            ],
+            "it": [
+              "te li accompagno",
+              "me li vai a prendere"
+            ],
+            "nl": [
+              "ik breng ze voor je weg",
+              "jij haalt ze voor mij op"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si quieres, yo te los recojo y te los llevo a tu casa.",
+          "commas": [
+            5
+          ],
+          "senses": {
+            "4": "pron",
+            "8": "pron"
+          },
+          "translation": {
+            "en": "If you want, I'll pick them up and take them to your house for you.",
+            "it": "Se vuoi, te li vado a prendere e te li porto a casa.",
+            "nl": "Als je wilt, haal ik ze voor je op en breng ik ze naar je huis."
+          },
+          "distractors": {
+            "en": [
+              "If you want, I'll pick them up and take them to school for you.",
+              "If you want, I'll pick them up and take them to my house."
+            ],
+            "it": [
+              "Se vuoi, te li vado a prendere e te li porto a scuola.",
+              "Se vuoi, te li vado a prendere e li porto a casa mia."
+            ],
+            "nl": [
+              "Als je wilt, haal ik ze voor je op en breng ik ze naar school.",
+              "Als je wilt, haal ik ze voor je op en breng ik ze naar mijn huis."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-favores-4",
+      "title": "Se acabó la leche",
+      "grammarFocus": {
+        "en": [
+          "acabarse = run out: Se acabó la leche = We're out of milk; se nos acabó = we ran out",
+          "llevarse, irse, comerse: se llevó = took (away), me voy = I'm leaving, se comió = ate (up)",
+          "quedarse con = keep"
+        ],
+        "it": [
+          "acabarse = finire: Se acabó la leche = È finito il latte; se nos acabó = abbiamo finito",
+          "llevarse, irse, comerse: se llevó = si è preso, me voy = me ne vado, se comió = si è mangiato",
+          "quedarse con = tenersi"
+        ],
+        "nl": [
+          "acabarse = opraken: Se acabó la leche = De melk is op; se nos acabó = onze ... was op",
+          "llevarse, irse, comerse: se llevó = nam mee, me voy = ik ga weg, se comió = at op",
+          "quedarse con = houden"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "acabar",
+          "translation": {
+            "en": "to finish",
+            "it": "finire",
+            "nl": "afmaken"
+          },
+          "distractors": {
+            "en": [
+              "to start",
+              "to buy"
+            ],
+            "it": [
+              "cominciare",
+              "comprare"
+            ],
+            "nl": [
+              "beginnen",
+              "kopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se acabó la leche",
+          "translation": {
+            "en": "we're out of milk",
+            "it": "è finito il latte",
+            "nl": "de melk is op"
+          },
+          "distractors": {
+            "en": [
+              "we're out of coffee",
+              "we bought milk"
+            ],
+            "it": [
+              "è finito il caffè",
+              "abbiamo comprato il latte"
+            ],
+            "nl": [
+              "de koffie is op",
+              "we hebben melk gekocht"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Se acabó la leche, ¿puedes comprar más?",
+          "translation": {
+            "en": "We're out of milk, can you buy some more?",
+            "it": "Il latte è finito, puoi comprarne ancora?",
+            "nl": "De melk is op, kun jij nieuwe halen?"
+          },
+          "distractors": {
+            "en": [
+              "We're out of coffee, can you buy some more?",
+              "We're out of milk, can I buy some more?"
+            ],
+            "it": [
+              "Il caffè è finito, puoi comprarne ancora?",
+              "Il latte è finito, posso comprarne ancora?"
+            ],
+            "nl": [
+              "De koffie is op, kun jij nieuwe halen?",
+              "De melk is op, zal ik nieuwe halen?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se nos acabó el café",
+          "translation": {
+            "en": "we ran out of coffee",
+            "it": "abbiamo finito il caffè",
+            "nl": "onze koffie was op"
+          },
+          "distractors": {
+            "en": [
+              "we ran out of sugar",
+              "they ran out of coffee"
+            ],
+            "it": [
+              "abbiamo finito lo zucchero",
+              "hanno finito il caffè"
+            ],
+            "nl": [
+              "onze suiker was op",
+              "hun koffie was op"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Se nos acabó el café y tuvimos que pedirle un poco a la vecina.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "We ran out of coffee and had to ask the neighbor for some.",
+            "it": "Abbiamo finito il caffè e abbiamo dovuto chiederne un po' alla vicina.",
+            "nl": "Onze koffie was op en we moesten de buurvrouw om wat vragen."
+          },
+          "distractors": {
+            "en": [
+              "We ran out of sugar and had to ask the neighbor for some.",
+              "We ran out of coffee and had to buy some at the store."
+            ],
+            "it": [
+              "Abbiamo finito lo zucchero e abbiamo dovuto chiederne un po' alla vicina.",
+              "Abbiamo finito il caffè e abbiamo dovuto comprarne un po' al negozio."
+            ],
+            "nl": [
+              "Onze suiker was op en we moesten de buurvrouw om wat vragen.",
+              "Onze koffie was op en we moesten wat in de winkel kopen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quédate con el cambio",
+          "translation": {
+            "en": "keep the change",
+            "it": "tieni il resto",
+            "nl": "hou het wisselgeld maar"
+          },
+          "distractors": {
+            "en": [
+              "give me the change",
+              "keep the receipt"
+            ],
+            "it": [
+              "dammi il resto",
+              "tieni lo scontrino"
+            ],
+            "nl": [
+              "geef me het wisselgeld",
+              "hou het bonnetje maar"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Gracias por las compras, quédate con el cambio.",
+          "translation": {
+            "en": "Thanks for doing the shopping, keep the change.",
+            "it": "Grazie per la spesa, tieni il resto.",
+            "nl": "Bedankt voor de boodschappen, hou het wisselgeld maar."
+          },
+          "distractors": {
+            "en": [
+              "Thanks for doing the shopping, give me the change.",
+              "Thanks for the flowers, keep the change."
+            ],
+            "it": [
+              "Grazie per la spesa, dammi il resto.",
+              "Grazie per i fiori, tieni il resto."
+            ],
+            "nl": [
+              "Bedankt voor de boodschappen, geef me het wisselgeld.",
+              "Bedankt voor de bloemen, hou het wisselgeld maar."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me lo llevo",
+          "translation": {
+            "en": "I'll take it with me",
+            "it": "me lo porto via",
+            "nl": "ik neem het mee"
+          },
+          "distractors": {
+            "en": [
+              "I'll leave it here",
+              "I'll bring it back"
+            ],
+            "it": [
+              "lo lascio qui",
+              "lo riporto"
+            ],
+            "nl": [
+              "ik laat het hier",
+              "ik breng het terug"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quién se llevó mi paraguas?",
+          "translation": {
+            "en": "Who took my umbrella?",
+            "it": "Chi si è preso il mio ombrello?",
+            "nl": "Wie heeft mijn paraplu meegenomen?"
+          },
+          "distractors": {
+            "en": [
+              "Who took my charger?",
+              "Who brought back my umbrella?"
+            ],
+            "it": [
+              "Chi si è preso il mio caricabatterie?",
+              "Chi mi ha riportato l'ombrello?"
+            ],
+            "nl": [
+              "Wie heeft mijn oplader meegenomen?",
+              "Wie heeft mijn paraplu teruggebracht?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya me voy",
+          "translation": {
+            "en": "I'm leaving now",
+            "it": "adesso me ne vado",
+            "nl": "ik ga nu"
+          },
+          "distractors": {
+            "en": [
+              "I'm staying",
+              "I'm coming"
+            ],
+            "it": [
+              "resto qui",
+              "arrivo"
+            ],
+            "nl": [
+              "ik blijf nog",
+              "ik kom eraan"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ya me voy, pero mañana te devuelvo la llave.",
+          "translation": {
+            "en": "I'm leaving now, but tomorrow I'll give you back the key.",
+            "it": "Adesso me ne vado, ma domani ti restituisco la chiave.",
+            "nl": "Ik ga nu, maar morgen geef ik je de sleutel terug."
+          },
+          "distractors": {
+            "en": [
+              "I'm leaving now, but tomorrow I'll give you back the umbrella.",
+              "I'm leaving now, but next week I'll give you back the key."
+            ],
+            "it": [
+              "Adesso me ne vado, ma domani ti restituisco l'ombrello.",
+              "Adesso me ne vado, ma la settimana prossima ti restituisco la chiave."
+            ],
+            "nl": [
+              "Ik ga nu, maar morgen geef ik je de paraplu terug.",
+              "Ik ga nu, maar volgende week geef ik je de sleutel terug."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la última galleta",
+          "translation": {
+            "en": "the last cookie",
+            "it": "l'ultimo biscotto",
+            "nl": "het laatste koekje"
+          },
+          "distractors": {
+            "en": [
+              "the first cookie",
+              "the last piece of cake"
+            ],
+            "it": [
+              "il primo biscotto",
+              "l'ultima fetta di torta"
+            ],
+            "nl": [
+              "het eerste koekje",
+              "het laatste stuk taart"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quién se comió la última galleta?",
+          "translation": {
+            "en": "Who ate the last cookie?",
+            "it": "Chi si è mangiato l'ultimo biscotto?",
+            "nl": "Wie heeft het laatste koekje opgegeten?"
+          },
+          "distractors": {
+            "en": [
+              "Who ate the first cookie?",
+              "Who ate the last piece of cake?"
+            ],
+            "it": [
+              "Chi si è mangiato il primo biscotto?",
+              "Chi si è mangiato l'ultima fetta di torta?"
+            ],
+            "nl": [
+              "Wie heeft het eerste koekje opgegeten?",
+              "Wie heeft het laatste stuk taart opgegeten?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, me la comí yo, pero mañana compro más.",
+          "senses": {
+            "2": "pron"
+          },
+          "translation": {
+            "en": "Sorry, I ate it, but I'll buy more tomorrow.",
+            "it": "Scusa, l'ho mangiato io, ma domani ne compro altri.",
+            "nl": "Sorry, ik heb het opgegeten, maar morgen koop ik er meer."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, I ate it, but I'll buy more tonight.",
+              "Sorry, I dropped it, but I'll buy more tomorrow."
+            ],
+            "it": [
+              "Scusa, l'ho mangiato io, ma stasera ne compro altri.",
+              "Scusa, mi è caduto, ma domani ne compro altri."
+            ],
+            "nl": [
+              "Sorry, ik heb het opgegeten, maar vanavond koop ik er meer.",
+              "Sorry, ik heb het laten vallen, maar morgen koop ik er meer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-favores-5",
+      "title": "Lo hice yo mismo",
+      "grammarFocus": {
+        "en": [
+          "yo mismo = I myself; uno mismo = oneself, yourself in general",
+          "possessive pronouns: mío, tuyo, suyo; with the article for 'mine': el mío, las mías",
+          "propio = own: mis propias herramientas"
+        ],
+        "it": [
+          "yo mismo = io stesso; uno mismo = se stessi, da soli",
+          "pronomi possessivi: mío, tuyo, suyo; con l'articolo come in italiano: el mío = il mio; ¿Es tuyo? = È tuo?",
+          "propio = proprio (possessivo): mis propias herramientas"
+        ],
+        "nl": [
+          "yo mismo = ik zelf; uno mismo = jezelf (in het algemeen)",
+          "bezittelijke voornaamwoorden: mío, tuyo, suyo; es mío = het is van mij; el mío = de mijne, het mijne",
+          "propio = eigen: mis propias herramientas"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "yo mismo",
+          "speaker": "M",
+          "translation": {
+            "en": "I myself",
+            "it": "io stesso",
+            "nl": "ik zelf"
+          },
+          "distractors": {
+            "en": [
+              "you yourself",
+              "we ourselves"
+            ],
+            "it": [
+              "tu stesso",
+              "noi stessi"
+            ],
+            "nl": [
+              "jij zelf",
+              "wij zelf"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lo hice yo mismo.",
+          "speaker": "M",
+          "translation": {
+            "en": "I made it myself.",
+            "it": "L'ho fatto io stesso.",
+            "nl": "Ik heb het zelf gemaakt."
+          },
+          "distractors": {
+            "en": [
+              "I bought it myself.",
+              "He made it himself."
+            ],
+            "it": [
+              "L'ho comprato io stesso.",
+              "L'ha fatto lui stesso."
+            ],
+            "nl": [
+              "Ik heb het zelf gekocht.",
+              "Hij heeft het zelf gemaakt."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "propio",
+          "translation": {
+            "en": "own",
+            "it": "proprio",
+            "nl": "eigen"
+          },
+          "distractors": {
+            "en": [
+              "new",
+              "borrowed"
+            ],
+            "it": [
+              "nuovo",
+              "prestato"
+            ],
+            "nl": [
+              "nieuw",
+              "geleend"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mis propias herramientas",
+          "translation": {
+            "en": "my own tools",
+            "it": "i miei attrezzi personali",
+            "nl": "mijn eigen gereedschap"
+          },
+          "distractors": {
+            "en": [
+              "my new tools",
+              "my dad's tools"
+            ],
+            "it": [
+              "i miei attrezzi nuovi",
+              "gli attrezzi di mio papà"
+            ],
+            "nl": [
+              "mijn nieuwe gereedschap",
+              "het gereedschap van mijn vader"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ahora tengo mis propias herramientas y ya no le pido nada a nadie.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "Now I have my own tools and I don't ask anyone for anything anymore.",
+            "it": "Adesso ho i miei attrezzi personali e non chiedo più niente a nessuno.",
+            "nl": "Nu heb ik mijn eigen gereedschap en vraag ik niemand meer iets."
+          },
+          "distractors": {
+            "en": [
+              "Now I have my own car and I don't ask anyone for anything anymore.",
+              "Now I have my dad's tools and I don't ask anyone for anything anymore."
+            ],
+            "it": [
+              "Adesso ho la mia macchina e non chiedo più niente a nessuno.",
+              "Adesso ho gli attrezzi di mio papà e non chiedo più niente a nessuno."
+            ],
+            "nl": [
+              "Nu heb ik mijn eigen auto en vraag ik niemand meer iets.",
+              "Nu heb ik het gereedschap van mijn vader en vraag ik niemand meer iets."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "mío",
+          "translation": {
+            "en": "mine",
+            "it": "mio",
+            "nl": "van mij"
+          },
+          "distractors": {
+            "en": [
+              "yours",
+              "ours"
+            ],
+            "it": [
+              "tuo",
+              "nostro"
+            ],
+            "nl": [
+              "van jou",
+              "van ons"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si quieres, te presto las mías.",
+          "translation": {
+            "en": "If you want, I'll lend you mine.",
+            "it": "Se vuoi, ti presto i miei.",
+            "nl": "Als je wilt, leen ik je het mijne."
+          },
+          "distractors": {
+            "en": [
+              "If you want, you can lend me yours.",
+              "If you want, I'll sell you mine."
+            ],
+            "it": [
+              "Se vuoi, mi presti i tuoi.",
+              "Se vuoi, ti vendo i miei."
+            ],
+            "nl": [
+              "Als je wilt, kun jij mij het jouwe lenen.",
+              "Als je wilt, verkoop ik je het mijne."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "es tuyo",
+          "translation": {
+            "en": "it's yours",
+            "it": "è tuo",
+            "nl": "het is van jou"
+          },
+          "distractors": {
+            "en": [
+              "it's mine",
+              "it's ours"
+            ],
+            "it": [
+              "è mio",
+              "è nostro"
+            ],
+            "nl": [
+              "het is van mij",
+              "het is van ons"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Este paraguas es tuyo o es mío?",
+          "translation": {
+            "en": "Is this umbrella yours or mine?",
+            "it": "Quest'ombrello è tuo o è mio?",
+            "nl": "Is deze paraplu van jou of van mij?"
+          },
+          "distractors": {
+            "en": [
+              "Is this charger yours or mine?",
+              "Is this umbrella yours or ours?"
+            ],
+            "it": [
+              "Questo caricabatterie è tuo o è mio?",
+              "Quest'ombrello è tuo o è nostro?"
+            ],
+            "nl": [
+              "Is deze oplader van jou of van mij?",
+              "Is deze paraplu van jou of van ons?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No es mío, el mío es negro.",
+          "translation": {
+            "en": "It's not mine, mine is black.",
+            "it": "Non è mio, il mio è nero.",
+            "nl": "Hij is niet van mij, de mijne is zwart."
+          },
+          "distractors": {
+            "en": [
+              "It's not mine, mine is blue.",
+              "It's mine, yours is black."
+            ],
+            "it": [
+              "Non è mio, il mio è blu.",
+              "È mio, il tuo è nero."
+            ],
+            "nl": [
+              "Hij is niet van mij, de mijne is blauw.",
+              "Hij is van mij, de jouwe is zwart."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "suyo",
+          "translation": {
+            "en": "his, hers, theirs",
+            "it": "suo, loro",
+            "nl": "van hem, van haar, van hen"
+          },
+          "distractors": {
+            "en": [
+              "mine",
+              "ours"
+            ],
+            "it": [
+              "mio",
+              "nostro"
+            ],
+            "nl": [
+              "van mij",
+              "van ons"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Señora, ¿esta chaqueta es suya?",
+          "translation": {
+            "en": "Ma'am, is this jacket yours?",
+            "it": "Signora, questa giacca è Sua?",
+            "nl": "Mevrouw, is deze jas van u?"
+          },
+          "distractors": {
+            "en": [
+              "Ma'am, is this bag yours?",
+              "Ma'am, is this jacket new?"
+            ],
+            "it": [
+              "Signora, questa borsa è Sua?",
+              "Signora, questa giacca è nuova?"
+            ],
+            "nl": [
+              "Mevrouw, is deze tas van u?",
+              "Mevrouw, is deze jas nieuw?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "uno mismo",
+          "translation": {
+            "en": "oneself",
+            "it": "se stessi",
+            "nl": "jezelf"
+          },
+          "distractors": {
+            "en": [
+              "each other",
+              "someone else"
+            ],
+            "it": [
+              "l'un l'altro",
+              "qualcun altro"
+            ],
+            "nl": [
+              "elkaar",
+              "iemand anders"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A veces es más fácil hacerlo uno mismo.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "Sometimes it's easier to do it yourself.",
+            "it": "A volte è più facile farlo da soli.",
+            "nl": "Soms is het makkelijker om het zelf te doen."
+          },
+          "distractors": {
+            "en": [
+              "Sometimes it's harder to do it yourself.",
+              "Sometimes it's easier to ask for help."
+            ],
+            "it": [
+              "A volte è più difficile farlo da soli.",
+              "A volte è più facile chiedere aiuto."
+            ],
+            "nl": [
+              "Soms is het moeilijker om het zelf te doen.",
+              "Soms is het makkelijker om hulp te vragen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-favores-6",
+      "title": "Cuenta conmigo",
+      "grammarFocus": {
+        "en": [
+          "reciprocal nos and se = each other: nos ayudamos, se conocen",
+          "contar con = count on; confiar en = trust",
+          "cuenta conmigo: tú imperative of contar"
+        ],
+        "it": [
+          "nos e se reciproci: nos ayudamos = ci aiutiamo, se conocen = si conoscono",
+          "contar con = contare su; confiar en = fidarsi di (attenzione: en, non de)",
+          "cuenta conmigo: imperativo di contar con tú"
+        ],
+        "nl": [
+          "wederkerig nos en se = elkaar: nos ayudamos, se conocen",
+          "contar con = rekenen op; confiar en = vertrouwen",
+          "cuenta conmigo: gebiedende wijs van contar bij tú"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-favores-6-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cuenta conmigo",
+          "senses": {
+            "0": "contar"
+          },
+          "translation": {
+            "en": "count on me",
+            "it": "conta su di me",
+            "nl": "reken op mij"
+          },
+          "distractors": {
+            "en": [
+              "come with me",
+              "talk to me"
+            ],
+            "it": [
+              "vieni con me",
+              "parla con me"
+            ],
+            "nl": [
+              "kom met mij mee",
+              "praat met mij"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si necesitas algo, cuenta conmigo.",
+          "senses": {
+            "3": "contar"
+          },
+          "translation": {
+            "en": "If you need anything, you can count on me.",
+            "it": "Se hai bisogno di qualcosa, conta su di me.",
+            "nl": "Als je iets nodig hebt, kun je op mij rekenen."
+          },
+          "distractors": {
+            "en": [
+              "If you need anything, you can call me.",
+              "If you need money, you can count on me."
+            ],
+            "it": [
+              "Se hai bisogno di qualcosa, chiamami.",
+              "Se hai bisogno di soldi, conta su di me."
+            ],
+            "nl": [
+              "Als je iets nodig hebt, kun je me bellen.",
+              "Als je geld nodig hebt, kun je op mij rekenen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "confiar",
+          "translation": {
+            "en": "to trust",
+            "it": "fidarsi",
+            "nl": "vertrouwen"
+          },
+          "distractors": {
+            "en": [
+              "to lie",
+              "to promise"
+            ],
+            "it": [
+              "mentire",
+              "promettere"
+            ],
+            "nl": [
+              "liegen",
+              "beloven"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Confío en ti, por eso te dejo las llaves.",
+          "translation": {
+            "en": "I trust you, that's why I'm leaving you the keys.",
+            "it": "Mi fido di te, per questo ti lascio le chiavi.",
+            "nl": "Ik vertrouw je, daarom laat ik de sleutels bij jou."
+          },
+          "distractors": {
+            "en": [
+              "I trust you, that's why I'm leaving you the car.",
+              "I don't trust you, that's why I'm keeping the keys."
+            ],
+            "it": [
+              "Mi fido di te, per questo ti lascio la macchina.",
+              "Non mi fido di te, per questo tengo le chiavi."
+            ],
+            "nl": [
+              "Ik vertrouw je, daarom laat ik de auto bij jou.",
+              "Ik vertrouw je niet, daarom hou ik de sleutels."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nos ayudamos",
+          "translation": {
+            "en": "we help each other",
+            "it": "ci aiutiamo",
+            "nl": "we helpen elkaar"
+          },
+          "distractors": {
+            "en": [
+              "we help them",
+              "they help each other"
+            ],
+            "it": [
+              "li aiutiamo",
+              "si aiutano"
+            ],
+            "nl": [
+              "we helpen hen",
+              "ze helpen elkaar"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En mi barrio los vecinos nos ayudamos mucho.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "In my neighborhood, we neighbors help each other a lot.",
+            "it": "Nel mio quartiere noi vicini ci aiutiamo molto.",
+            "nl": "In mijn buurt helpen wij buren elkaar veel."
+          },
+          "distractors": {
+            "en": [
+              "In my family, we help each other a lot.",
+              "In my neighborhood, we neighbors see each other a lot."
+            ],
+            "it": [
+              "Nella mia famiglia ci aiutiamo molto.",
+              "Nel mio quartiere noi vicini ci vediamo molto."
+            ],
+            "nl": [
+              "In mijn familie helpen we elkaar veel.",
+              "In mijn buurt zien wij buren elkaar veel."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se conocen",
+          "translation": {
+            "en": "they know each other",
+            "it": "si conoscono",
+            "nl": "ze kennen elkaar"
+          },
+          "distractors": {
+            "en": [
+              "we know each other",
+              "they know him"
+            ],
+            "it": [
+              "ci conosciamo",
+              "lo conoscono"
+            ],
+            "nl": [
+              "we kennen elkaar",
+              "ze kennen hem"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Marta y Luis se conocen desde niños y se cuentan todo.",
+          "commas": [
+            6
+          ],
+          "translation": {
+            "en": "Marta and Luis have known each other since they were kids and tell each other everything.",
+            "it": "Marta e Luis si conoscono da bambini e si raccontano tutto.",
+            "nl": "Marta en Luis kennen elkaar al van kinds af aan en vertellen elkaar alles."
+          },
+          "distractors": {
+            "en": [
+              "Marta and Luis have known each other since they were kids and never talk to each other.",
+              "Marta and Luis have known each other since college and tell each other everything."
+            ],
+            "it": [
+              "Marta e Luis si conoscono da bambini e non si parlano mai.",
+              "Marta e Luis si conoscono dall'università e si raccontano tutto."
+            ],
+            "nl": [
+              "Marta en Luis kennen elkaar al van kinds af aan en praten nooit met elkaar.",
+              "Marta en Luis kennen elkaar al sinds de universiteit en vertellen elkaar alles."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "molestia",
+          "translation": {
+            "en": "bother",
+            "it": "disturbo",
+            "nl": "moeite"
+          },
+          "distractors": {
+            "en": [
+              "favor",
+              "mistake"
+            ],
+            "it": [
+              "favore",
+              "errore"
+            ],
+            "nl": [
+              "gunst",
+              "fout"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No es ninguna molestia, para eso están los amigos.",
+          "translation": {
+            "en": "It's no bother at all, that's what friends are for.",
+            "it": "Non è affatto un disturbo, gli amici servono a questo.",
+            "nl": "Het is helemaal geen moeite, daar zijn vrienden voor."
+          },
+          "distractors": {
+            "en": [
+              "It's no bother at all, that's what neighbors are for.",
+              "It's a real bother, but that's what friends are for."
+            ],
+            "it": [
+              "Non è affatto un disturbo, i vicini servono a questo.",
+              "È proprio un disturbo, ma gli amici servono a questo."
+            ],
+            "nl": [
+              "Het is helemaal geen moeite, daar zijn buren voor.",
+              "Het is echt veel moeite, maar daar zijn vrienden voor."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "generoso",
+          "translation": {
+            "en": "generous",
+            "it": "generoso",
+            "nl": "gul"
+          },
+          "distractors": {
+            "en": [
+              "patient",
+              "honest"
+            ],
+            "it": [
+              "paziente",
+              "onesto"
+            ],
+            "nl": [
+              "geduldig",
+              "eerlijk"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi tía es muy generosa: siempre nos presta su casa de la playa.",
+          "translation": {
+            "en": "My aunt is very generous: she always lends us her beach house.",
+            "it": "Mia zia è molto generosa: ci presta sempre la sua casa al mare.",
+            "nl": "Mijn tante is heel gul: ze leent ons altijd haar strandhuis."
+          },
+          "distractors": {
+            "en": [
+              "My aunt is very generous: she always lends us her car.",
+              "My aunt is very stingy: she never lends us her beach house."
+            ],
+            "it": [
+              "Mia zia è molto generosa: ci presta sempre la sua macchina.",
+              "Mia zia è molto tirchia: non ci presta mai la sua casa al mare."
+            ],
+            "nl": [
+              "Mijn tante is heel gul: ze leent ons altijd haar auto.",
+              "Mijn tante is heel gierig: ze leent ons nooit haar strandhuis."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "promesa",
+          "translation": {
+            "en": "promise",
+            "it": "promessa",
+            "nl": "belofte"
+          },
+          "distractors": {
+            "en": [
+              "secret",
+              "debt"
+            ],
+            "it": [
+              "segreto",
+              "debito"
+            ],
+            "nl": [
+              "geheim",
+              "schuld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-favores-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es una promesa: si me necesitas, aquí estoy.",
+          "translation": {
+            "en": "It's a promise: if you need me, I'm here.",
+            "it": "È una promessa: se hai bisogno di me, io ci sono.",
+            "nl": "Dat is een belofte: als je me nodig hebt, ben ik er."
+          },
+          "distractors": {
+            "en": [
+              "It's a secret: if you need me, I'm here.",
+              "It's a promise: if you need money, I'm here."
+            ],
+            "it": [
+              "È un segreto: se hai bisogno di me, io ci sono.",
+              "È una promessa: se hai bisogno di soldi, io ci sono."
+            ],
+            "nl": [
+              "Dat is een geheim: als je me nodig hebt, ben ik er.",
+              "Dat is een belofte: als je geld nodig hebt, ben ik er."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

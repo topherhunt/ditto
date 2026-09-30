@@ -1,0 +1,4130 @@
+{
+  "id": "es-a2-arte",
+  "language": "es",
+  "level": "A2",
+  "order": 106,
+  "title": "Arte y cultura",
+  "description": {
+    "en": "Visiting museums and ruins, going to concerts and the theater, and a little history",
+    "it": "Visitare musei e rovine, andare a concerti e a teatro, e un po' di storia",
+    "nl": "Musea en ruïnes bezoeken, naar concerten en het theater gaan, en een beetje geschiedenis"
+  },
+  "track": "optional",
+  "requires": [
+    "es-a2-que-paso"
+  ],
+  "introduces": [
+    "arte",
+    "artista",
+    "cuadro",
+    "pintor",
+    "pintar",
+    "escultura",
+    "estatua",
+    "exposición",
+    "obra",
+    "siglo",
+    "mural",
+    "arquitectura",
+    "edificio",
+    "ruina",
+    "pirámide",
+    "guía",
+    "famoso",
+    "antiguo",
+    "moderno",
+    "espectáculo",
+    "actor",
+    "director",
+    "novela",
+    "escritor",
+    "poema",
+    "escenario",
+    "cantante",
+    "durar",
+    "impresionante",
+    "aplaudir",
+    "maya",
+    "azteca",
+    "inca",
+    "templo",
+    "piedra"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as object it isn't translated: vi a un amigo",
+        "it": "a; davanti a una persona come oggetto non si traduce: vi a un amigo",
+        "nl": "naar, om; vóór een persoon als lijdend voorwerp wordt het niet vertaald: vi a un amigo"
+      }
+    },
+    "actor": {
+      "lemma": "actor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "actor (m; plural actores); an actress is la actriz",
+        "it": "attore (m; plurale actores); l'attrice è la actriz",
+        "nl": "acteur (m; meervoud actores); een actrice is la actriz"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (a + el); al principio = at first, al final = in the end",
+        "it": "al (a + el); al principio = all'inizio, al final = alla fine",
+        "nl": "naar de (a + el); al principio = in het begin, al final = uiteindelijk"
+      }
+    },
+    "alguna": {
+      "lemma": "alguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, any (f); alguna vez = ever, in a question",
+        "it": "qualche (f); alguna vez = mai, in una domanda",
+        "nl": "een, enige (f); alguna vez = ooit, in een vraag"
+      }
+    },
+    "alta": {
+      "lemma": "alto",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tall, high (feminine of alto)",
+        "it": "alta (femminile di alto)",
+        "nl": "hoog, lang (vrouwelijk van alto)"
+      }
+    },
+    "anoche": {
+      "lemma": "anoche",
+      "pos": "ADV",
+      "gloss": {
+        "en": "last night, yesterday evening; watch out: tonight = esta noche",
+        "it": "ieri sera, stanotte (passata); attenzione: stasera = esta noche",
+        "nl": "gisteravond, vannacht (voorbij); let op: vanavond = esta noche"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before; formerly, in the past; antes de = before",
+        "it": "prima; un tempo; antes de = prima di",
+        "nl": "eerder, vroeger; antes de = voor, voordat"
+      }
+    },
+    "antiguo": {
+      "lemma": "antiguo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "old, ancient (for things and places; old people are viejo or mayor)",
+        "it": "antico, vecchio (per cose e luoghi; per le persone viejo o mayor)",
+        "nl": "oud, antiek (voor dingen en plaatsen; oude mensen zijn viejo of mayor)"
+      }
+    },
+    "antiguos": {
+      "lemma": "antiguo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "old, ancient (masculine plural of antiguo)",
+        "it": "antichi (maschile plurale di antiguo)",
+        "nl": "oud (mannelijk meervoud van antiguo)"
+      }
+    },
+    "aplaudir": {
+      "lemma": "aplaudir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to applaud, clap",
+        "it": "applaudire",
+        "nl": "applaudisseren, klappen"
+      }
+    },
+    "aplaudió": {
+      "lemma": "aplaudir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "applauded, clapped (aplaudir)",
+        "it": "ha applaudito (aplaudir)",
+        "nl": "applaudisseerde, klapte (aplaudir)"
+      }
+    },
+    "aprendí": {
+      "lemma": "aprender",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I learned (aprender)",
+        "it": "ho imparato (aprender)",
+        "nl": "ik heb geleerd (aprender)"
+      }
+    },
+    "aquí": {
+      "lemma": "aquí",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here; aquí tiene = here you are",
+        "it": "qui; aquí tiene = ecco (a Lei)",
+        "nl": "hier; aquí tiene = alstublieft, hier is het"
+      }
+    },
+    "arquitectura": {
+      "lemma": "arquitectura",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "architecture (f)",
+        "it": "architettura (f)",
+        "nl": "architectuur (f)"
+      }
+    },
+    "arte": {
+      "lemma": "arte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "art (m); el arte moderno = modern art",
+        "it": "arte (m in spagnolo); el arte moderno = l'arte moderna",
+        "nl": "kunst (m); el arte moderno = moderne kunst"
+      }
+    },
+    "artista": {
+      "lemma": "artista",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "artist (m/f: el artista, la artista)",
+        "it": "artista (m/f: el artista, la artista)",
+        "nl": "kunstenaar (m/f: el artista, la artista)"
+      }
+    },
+    "ayer": {
+      "lemma": "ayer",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "azteca": {
+      "lemma": "azteca",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Aztec; lowercase in Spanish",
+        "it": "azteco",
+        "nl": "Azteeks; klein geschreven in het Spaans"
+      }
+    },
+    "años": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (plural of año, m); tener ocho años = be eight",
+        "it": "anni (plurale di año, m)",
+        "nl": "jaren (meervoud van año, m); tener ocho años = acht jaar zijn"
+      }
+    },
+    "bailaba": {
+      "lemma": "bailar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was dancing, used to dance (bailar, imperfecto)",
+        "it": "ballava (bailar, imperfecto)",
+        "nl": "danste (bailar, imperfecto)"
+      }
+    },
+    "bonitas": {
+      "lemma": "bonito",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "pretty, beautiful (feminine plural of bonito)",
+        "it": "belle (femminile plurale di bonito)",
+        "nl": "mooi (vrouwelijk meervoud van bonito)"
+      }
+    },
+    "cantaba": {
+      "lemma": "cantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was singing, used to sing (cantar, imperfecto)",
+        "it": "cantava (cantar, imperfecto)",
+        "nl": "zong (cantar, imperfecto)"
+      }
+    },
+    "cantante": {
+      "lemma": "cantante",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "singer (m/f: el cantante, la cantante)",
+        "it": "cantante (m/f: el cantante, la cantante)",
+        "nl": "zanger, zangeres (m/f: el cantante, la cantante)"
+      }
+    },
+    "capital": {
+      "lemma": "capital",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "capital city (f)",
+        "it": "capitale (f)",
+        "nl": "hoofdstad (f)"
+      }
+    },
+    "centro": {
+      "lemma": "centro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "downtown, city center (m)",
+        "it": "centro (m)",
+        "nl": "centrum (m)"
+      }
+    },
+    "cerca": {
+      "lemma": "cerca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "near; cerca de = near",
+        "it": "vicino; cerca de = vicino a",
+        "nl": "dichtbij; cerca de = bij, vlak bij"
+      }
+    },
+    "cerrado": {
+      "lemma": "cerrado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed",
+        "it": "chiuso",
+        "nl": "dicht, gesloten"
+      }
+    },
+    "ciudad": {
+      "lemma": "ciudad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "colombiana": {
+      "lemma": "colombiano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Colombian (feminine; lowercase in Spanish)",
+        "it": "colombiana (minuscolo in spagnolo)",
+        "nl": "Colombiaans (vrouwelijk; in het Spaans met kleine letter)"
+      }
+    },
+    "colores": {
+      "lemma": "color",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "colors (plural of color, m)",
+        "it": "colori (plurale di color, m)",
+        "nl": "kleuren (meervoud van color, m)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "concierto": {
+      "lemma": "concierto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "concert (m)",
+        "it": "concerto (m)",
+        "nl": "concert (m)"
+      }
+    },
+    "conocí": {
+      "lemma": "conocer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I met (conocer, preterite); conocer a alguien = to meet someone for the first time",
+        "it": "ho conosciuto (conocer, indefinido)",
+        "nl": "ik leerde kennen (conocer, indefinido)"
+      }
+    },
+    "contó": {
+      "lemma": "contar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "told (contar, preterite); me contó = told me",
+        "it": "ha raccontato (contar, indefinido); me contó = mi ha raccontato",
+        "nl": "vertelde (contar, indefinido); me contó = vertelde me"
+      }
+    },
+    "cuadro": {
+      "lemma": "cuadro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "painting, picture (m)",
+        "it": "quadro, dipinto (m)",
+        "nl": "schilderij (m)"
+      }
+    },
+    "cuando": {
+      "lemma": "cuando",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "when (no accent: not a question)",
+        "it": "quando (senza accento: non è una domanda)",
+        "nl": "toen, wanneer (zonder accent: geen vraag)"
+      }
+    },
+    "cuzco": {
+      "lemma": "Cuzco",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cuzco, a city in Peru",
+        "it": "Cuzco, città del Perù",
+        "nl": "Cuzco, een stad in Peru"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; by (an artist): un cuadro de Frida Kahlo; de niña = as a girl",
+        "it": "di, da; un cuadro de Frida Kahlo = un quadro di Frida Kahlo; de niña = da bambina",
+        "nl": "van, uit; un cuadro de Frida Kahlo = een schilderij van Frida Kahlo; de niña = als meisje"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el)",
+        "it": "del, dal (de + el)",
+        "nl": "van de, uit het (de + el)"
+      }
+    },
+    "después": {
+      "lemma": "después",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, afterward; después de = after",
+        "it": "poi, dopo; después de = dopo",
+        "nl": "daarna, later; después de = na"
+      }
+    },
+    "dieciséis": {
+      "lemma": "dieciséis",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixteen (one word, with an accent)",
+        "it": "sedici (una sola parola, con accento)",
+        "nl": "zestien (één woord, met accent)"
+      }
+    },
+    "diego": {
+      "lemma": "Diego",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Diego (first name)",
+        "it": "Diego (nome)",
+        "nl": "Diego (voornaam)"
+      }
+    },
+    "diez": {
+      "lemma": "diez",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "director": {
+      "lemma": "director",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "director (m; feminine directora); of a film or play, also of a school or company",
+        "it": "regista (m; femminile directora); attenzione: anche direttore, preside",
+        "nl": "regisseur (m; vrouwelijk directora); ook directeur"
+      }
+    },
+    "durante": {
+      "lemma": "durante",
+      "pos": "ADP",
+      "gloss": {
+        "en": "during",
+        "it": "durante",
+        "nl": "tijdens"
+      }
+    },
+    "durar": {
+      "lemma": "durar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to last, take (time)",
+        "it": "durare",
+        "nl": "duren"
+      }
+    },
+    "duró": {
+      "lemma": "durar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lasted (durar)",
+        "it": "è durato (durar)",
+        "nl": "duurde (durar)"
+      }
+    },
+    "edificio": {
+      "lemma": "edificio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "building (m)",
+        "it": "edificio, palazzo (m)",
+        "nl": "gebouw (m)"
+      }
+    },
+    "edificios": {
+      "lemma": "edificio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "buildings (plural of edificio, m)",
+        "it": "edifici (plurale di edificio, m)",
+        "nl": "gebouwen (meervoud van edificio, m)"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine)",
+        "it": "il, lo (maschile)",
+        "nl": "de, het (mannelijk)"
+      }
+    },
+    "empezó": {
+      "lemma": "empezar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "started, began (empezar)",
+        "it": "è cominciato (empezar)",
+        "nl": "begon (empezar)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on, at; en diez minutos = in ten minutes",
+        "it": "in, su, a; en diez minutos = in dieci minuti",
+        "nl": "in, op; en diez minutos = binnen tien minuten"
+      }
+    },
+    "encanta": {
+      "lemma": "encantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "me encanta = I love (it), like gustar: the thing is the subject",
+        "it": "me encanta = mi piace tantissimo, adoro; in italiano non c'è un verbo gemello",
+        "nl": "me encanta = ik vind het heerlijk, ik hou van (zoals gustar)"
+      }
+    },
+    "enfrente": {
+      "lemma": "enfrente",
+      "pos": "ADV",
+      "gloss": {
+        "en": "opposite, across the street; enfrente de = across from",
+        "it": "di fronte; enfrente de = di fronte a",
+        "nl": "tegenover, aan de overkant; enfrente de = tegenover"
+      }
+    },
+    "era": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was (ser, imperfecto: era, eras, era); era sábado = it was Saturday",
+        "it": "era (ser, imperfecto); era sábado = era sabato",
+        "nl": "was (ser, imperfecto); era sábado = het was zaterdag"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "escenario": {
+      "lemma": "escenario",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "stage (m); en el escenario = on stage; watch out: not a scenario",
+        "it": "palco (m); en el escenario = sul palco; attenzione: non lo scenario",
+        "nl": "podium, toneel (m); en el escenario = op het podium; let op: geen scenario"
+      }
+    },
+    "escribió": {
+      "lemma": "escribir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wrote (escribir, past)",
+        "it": "ha scritto, scrisse (escribir, passato)",
+        "nl": "schreef (escribir, verleden tijd)"
+      }
+    },
+    "escribía": {
+      "lemma": "escribir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wrote, used to write (escribir, imperfecto)",
+        "it": "scriveva (escribir, imperfecto)",
+        "nl": "schreef (escribir, imperfecto)"
+      }
+    },
+    "escritor": {
+      "lemma": "escritor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "writer (m; feminine escritora)",
+        "it": "scrittore (m; femminile escritora)",
+        "nl": "schrijver (m; vrouwelijk escritora)"
+      }
+    },
+    "escultura": {
+      "lemma": "escultura",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sculpture (f)",
+        "it": "scultura (f)",
+        "nl": "beeldhouwwerk, beeld (f)"
+      }
+    },
+    "esculturas": {
+      "lemma": "escultura",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sculptures (plural of escultura, f)",
+        "it": "sculture (plurale di escultura, f)",
+        "nl": "beeldhouwwerken (meervoud van escultura, f)"
+      }
+    },
+    "españoles": {
+      "lemma": "español",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Spaniards, the Spanish (plural of español); lowercase in Spanish",
+        "it": "spagnoli (plurale di español)",
+        "nl": "Spanjaarden (meervoud van español); klein geschreven in het Spaans"
+      }
+    },
+    "espectáculo": {
+      "lemma": "espectáculo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "show, performance (m)",
+        "it": "spettacolo (m)",
+        "nl": "voorstelling, show (m)"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (f)",
+        "it": "questa",
+        "nl": "deze, dit (vrouwelijk)"
+      }
+    },
+    "estatua": {
+      "lemma": "estatua",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "statue (f)",
+        "it": "statua (f)",
+        "nl": "standbeeld (f)"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (masculine)",
+        "it": "questo (maschile)",
+        "nl": "deze, dit (mannelijk)"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is, for place and state (estar); está cerrado = it's closed",
+        "it": "è, per luogo e stato (estar); está cerrado = è chiuso",
+        "nl": "is, voor plaats en toestand (estar); está cerrado = is gesloten"
+      }
+    },
+    "exposición": {
+      "lemma": "exposición",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "exhibition (f; plural exposiciones)",
+        "it": "mostra, esposizione (f)",
+        "nl": "tentoonstelling (f)"
+      }
+    },
+    "famosa": {
+      "lemma": "famoso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "famous (feminine of famoso)",
+        "it": "famosa (femminile di famoso)",
+        "nl": "beroemd (vrouwelijk van famoso)"
+      }
+    },
+    "famoso": {
+      "lemma": "famoso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "famous",
+        "it": "famoso",
+        "nl": "beroemd"
+      }
+    },
+    "final": {
+      "lemma": "final",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); al final = in the end",
+        "it": "fine (m); al final = alla fine",
+        "nl": "einde (m); al final = uiteindelijk, aan het eind"
+      }
+    },
+    "fotos": {
+      "lemma": "foto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "photos (f, plural of foto: la foto, although it ends in -o)",
+        "it": "foto (f, plurale di foto)",
+        "nl": "foto's (f, meervoud van foto: la foto, al eindigt het op -o)"
+      }
+    },
+    "frida": {
+      "lemma": "Frida",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Frida (first name)",
+        "it": "Frida (nome)",
+        "nl": "Frida (voornaam)"
+      }
+    },
+    "fue": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was (ser, preterite); fue un espectáculo = it was a show; the same form also means went (ir)",
+        "it": "è stato (ser); la stessa forma vuol dire anche è andato (ir)",
+        "nl": "was (ser, verleden tijd); dezelfde vorm betekent ook ging (ir)"
+      }
+    },
+    "fuertes": {
+      "lemma": "fuerte",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "strong; for colors, bold, bright (plural of fuerte)",
+        "it": "forti; per i colori, vivaci (plurale di fuerte)",
+        "nl": "sterk; voor kleuren fel (meervoud van fuerte)"
+      }
+    },
+    "fuimos#ir": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we went (ir); the same form means we were (ser)",
+        "it": "siamo andati (ir); la stessa forma vuol dire anche siamo stati (ser)",
+        "nl": "we gingen (ir); dezelfde vorm betekent ook we waren (ser)"
+      }
+    },
+    "garcía": {
+      "lemma": "García",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "García (surname)",
+        "it": "García (cognome)",
+        "nl": "García (achternaam)"
+      }
+    },
+    "gente": {
+      "lemma": "gente",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (f); watch out: singular in Spanish, la gente es = people are",
+        "it": "gente (f)",
+        "nl": "mensen (f); let op: enkelvoud in het Spaans, la gente es = de mensen zijn"
+      }
+    },
+    "grande": {
+      "lemma": "grande",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large",
+        "it": "grande",
+        "nl": "groot"
+      }
+    },
+    "gustaron": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "me gustaron = I liked (them) (gustar, plural thing)",
+        "it": "me gustaron = mi sono piaciuti, mi sono piaciute (gustar)",
+        "nl": "me gustaron = ik vond ze leuk, mooi (gustar)"
+      }
+    },
+    "guía": {
+      "lemma": "guía",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "guide (m/f: el guía, la guía); also a guidebook",
+        "it": "guida (m/f: el guía, la guía)",
+        "nl": "gids (m/f: el guía, la guía); ook een reisgids"
+      }
+    },
+    "había": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there was, there were (haber, imperfecto of hay)",
+        "it": "c'era, c'erano (haber, imperfecto di hay)",
+        "nl": "er was, er waren (haber, imperfecto van hay)"
+      }
+    },
+    "hace#ago": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ago: hace diez años = ten years ago",
+        "it": "fa: hace diez años = dieci anni fa",
+        "nl": "geleden: hace diez años = tien jaar geleden"
+      }
+    },
+    "has": {
+      "lemma": "haber",
+      "pos": "AUX",
+      "gloss": {
+        "en": "you have (haber, tú); ¿has estado? = have you been?",
+        "it": "hai (haber, tú); ¿has estado? = sei stato?",
+        "nl": "je hebt (haber, tú); ¿has estado? = ben je geweest?"
+      }
+    },
+    "hay": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there are (haber)",
+        "it": "c'è, ci sono (haber)",
+        "nl": "er is, er zijn (haber)"
+      }
+    },
+    "hermana": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sister (f)",
+        "it": "sorella (f)",
+        "nl": "zus (f)"
+      }
+    },
+    "historia": {
+      "lemma": "historia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "story; history (f)",
+        "it": "storia (f)",
+        "nl": "verhaal; geschiedenis (f)"
+      }
+    },
+    "hora": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hour, time (f); ¿a qué hora? = at what time?",
+        "it": "ora (f); ¿a qué hora? = a che ora?",
+        "nl": "uur, tijd (f); ¿a qué hora? = hoe laat?"
+      }
+    },
+    "horas": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours (plural of hora, f)",
+        "it": "ore (plurale di hora, f)",
+        "nl": "uren (meervoud van hora, f)"
+      }
+    },
+    "hospital": {
+      "lemma": "hospital",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hospital (m)",
+        "it": "ospedale (m)",
+        "nl": "ziekenhuis (m)"
+      }
+    },
+    "iglesia": {
+      "lemma": "iglesia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "church (f)",
+        "it": "chiesa (f)",
+        "nl": "kerk (f)"
+      }
+    },
+    "impresionante": {
+      "lemma": "impresionante",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "impressive, amazing",
+        "it": "impressionante, straordinario",
+        "nl": "indrukwekkend"
+      }
+    },
+    "inca": {
+      "lemma": "inca",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Inca; lowercase in Spanish; los incas = the Incas",
+        "it": "inca; los incas = gli inca",
+        "nl": "Inca; klein geschreven in het Spaans; los incas = de Inca's"
+      }
+    },
+    "incas": {
+      "lemma": "inca",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Incas (plural of inca)",
+        "it": "inca (plurale di inca)",
+        "nl": "Inca's (meervoud van inca)"
+      }
+    },
+    "kahlo": {
+      "lemma": "Kahlo",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Kahlo (surname); Frida Kahlo, a Mexican painter",
+        "it": "Kahlo (cognome); Frida Kahlo, pittrice messicana",
+        "nl": "Kahlo (achternaam); Frida Kahlo, Mexicaanse schilderes"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "it": "la (femminile)",
+        "nl": "de (vrouwelijk)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural); a las cinco = at five",
+        "it": "le (femminile plurale); a las cinco = alle cinque",
+        "nl": "de (vrouwelijk meervoud); a las cinco = om vijf uur"
+      }
+    },
+    "leído": {
+      "lemma": "leer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (participle of leer); he leído = I have read",
+        "it": "letto (participio di leer); he leído = ho letto",
+        "nl": "gelezen (deelwoord van leer); he leído = ik heb gelezen"
+      }
+    },
+    "leímos": {
+      "lemma": "leer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we read (leer, past); also we read (present)",
+        "it": "abbiamo letto (leer); anche leggiamo",
+        "nl": "we lazen (leer); ook we lezen"
+      }
+    },
+    "llegamos": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we arrived; also we arrive (llegar); yo: llegué (g > gu)",
+        "it": "siamo arrivati; anche arriviamo (llegar); yo: llegué (g > gu)",
+        "nl": "we kwamen aan; ook: we komen aan (llegar); yo: llegué (g > gu)"
+      }
+    },
+    "llegaron": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they arrived (llegar); llegar a = arrive in",
+        "it": "sono arrivati (llegar); llegar a = arrivare a, in",
+        "nl": "ze kwamen aan (llegar); llegar a = aankomen in"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural)",
+        "it": "i, gli (maschile plurale)",
+        "nl": "de (mannelijk meervoud)"
+      }
+    },
+    "lunes": {
+      "lemma": "lunes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m); los lunes = on Mondays",
+        "it": "lunedì (m); los lunes = il lunedì",
+        "nl": "maandag (m); los lunes = op maandag"
+      }
+    },
+    "mayas": {
+      "lemma": "maya",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Maya (plural of maya); lowercase in Spanish; los mayas = the Maya",
+        "it": "maya (plurale di maya); los mayas = i maya",
+        "nl": "Maya- (meervoud van maya); klein geschreven in het Spaans; los mayas = de Maya's"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me, myself; me gusta = I like",
+        "it": "mi; me gusta = mi piace",
+        "nl": "me, mij, mezelf; me gusta = ik vind het leuk"
+      }
+    },
+    "media": {
+      "lemma": "medio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "half (feminine of medio); las nueve y media = nine thirty",
+        "it": "mezza (femminile di medio); las nueve y media = le nove e mezza",
+        "nl": "half (vrouwelijk van medio); las nueve y media = half tien; let op: niet half negen"
+      }
+    },
+    "mexicana": {
+      "lemma": "mexicano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Mexican (feminine); lowercase in Spanish",
+        "it": "messicana; minuscolo in spagnolo",
+        "nl": "Mexicaans (vrouwelijk); kleine letter in het Spaans"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia (senza articolo: mi hermano = mio fratello)",
+        "nl": "mijn"
+      }
+    },
+    "mil": {
+      "lemma": "mil",
+      "pos": "NUM",
+      "gloss": {
+        "en": "a thousand (no un before it); in years: mil novecientos noventa = 1990, dos mil doce = 2012",
+        "it": "mille; negli anni: mil novecientos noventa = 1990, dos mil doce = 2012",
+        "nl": "duizend; in jaartallen: mil novecientos noventa = 1990, dos mil doce = 2012"
+      }
+    },
+    "minutos": {
+      "lemma": "minuto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (plural of minuto, m)",
+        "it": "minuti (plurale di minuto, m)",
+        "nl": "minuten (meervoud van minuto, m)"
+      }
+    },
+    "moderno": {
+      "lemma": "moderno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "modern",
+        "it": "moderno",
+        "nl": "modern"
+      }
+    },
+    "mucha": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much (feminine of mucho)",
+        "it": "molta (femminile di mucho)",
+        "nl": "veel (vrouwelijk van mucho)"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, very much; llovía mucho = it was raining hard",
+        "it": "molto; llovía mucho = pioveva molto",
+        "nl": "veel, erg; llovía mucho = het regende hard"
+      }
+    },
+    "muchos": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "many, lots of (masculine plural)",
+        "it": "molti, tanti (maschile plurale)",
+        "nl": "veel"
+      }
+    },
+    "mural": {
+      "lemma": "mural",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mural (m; plural murales), a painting on a wall",
+        "it": "murale, dipinto murale (m; plurale murales)",
+        "nl": "muurschildering (m; meervoud murales)"
+      }
+    },
+    "murales": {
+      "lemma": "mural",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "murals (plural of mural, m)",
+        "it": "murales (plurale di mural, m)",
+        "nl": "muurschilderingen (meervoud van mural, m)"
+      }
+    },
+    "museo": {
+      "lemma": "museo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "museum (m)",
+        "it": "museo (m)",
+        "nl": "museum (m)"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto",
+        "nl": "heel, erg"
+      }
+    },
+    "márquez": {
+      "lemma": "Márquez",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Márquez (surname); Gabriel García Márquez, a Colombian writer",
+        "it": "Márquez (cognome); Gabriel García Márquez, scrittore colombiano",
+        "nl": "Márquez (achternaam); Gabriel García Márquez, Colombiaanse schrijver"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; más de + number = more than",
+        "it": "più; más de + numero = più di",
+        "nl": "meer; más de + getal = meer dan"
+      }
+    },
+    "mí": {
+      "lemma": "mí",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me (after a preposition): para mí = for me",
+        "it": "me (dopo una preposizione): para mí = per me",
+        "nl": "mij (na een voorzetsel): para mí = voor mij"
+      }
+    },
+    "niña": {
+      "lemma": "niño",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "girl, child (f); de niña = as a girl",
+        "it": "bambina (f); de niña = da bambina",
+        "nl": "meisje, kind (f); de niña = als meisje"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us, ourselves; nos contó = told us; nos sentamos = we sat down",
+        "it": "ci; nos contó = ci ha raccontato",
+        "nl": "ons; nos contó = vertelde ons; nos sentamos = we gingen zitten"
+      }
+    },
+    "novela": {
+      "lemma": "novela",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "novel (f)",
+        "it": "romanzo (f); attenzione: non novella",
+        "nl": "roman (f)"
+      }
+    },
+    "novelas": {
+      "lemma": "novela",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "novels (plural of novela, f)",
+        "it": "romanzi (plurale di novela, f)",
+        "nl": "romans (meervoud van novela, f)"
+      }
+    },
+    "obra": {
+      "lemma": "obra",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work (f); una obra de arte = a work of art; una obra de teatro = a play",
+        "it": "opera (f); una obra de arte = un'opera d'arte; una obra de teatro = uno spettacolo teatrale; attenzione: l'opera lirica è la ópera",
+        "nl": "werk (f); una obra de arte = een kunstwerk; una obra de teatro = een toneelstuk"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "piedra": {
+      "lemma": "piedra",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "stone (f); de piedra = (made of) stone",
+        "it": "pietra (f); de piedra = di pietra",
+        "nl": "steen (f); de piedra = stenen"
+      }
+    },
+    "pintar": {
+      "lemma": "pintar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to paint",
+        "it": "dipingere; anche pitturare (una parete)",
+        "nl": "schilderen, verven"
+      }
+    },
+    "pintor": {
+      "lemma": "pintor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "painter (m; feminine pintora)",
+        "it": "pittore (m; femminile pintora)",
+        "nl": "schilder (m; vrouwelijk pintora)"
+      }
+    },
+    "pintó": {
+      "lemma": "pintar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "painted (pintar)",
+        "it": "ha dipinto (pintar)",
+        "nl": "schilderde (pintar)"
+      }
+    },
+    "pirámide": {
+      "lemma": "pirámide",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pyramid (f)",
+        "it": "piramide (f)",
+        "nl": "piramide (f)"
+      }
+    },
+    "poco": {
+      "lemma": "poco",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a little; un poco = a bit",
+        "it": "poco; un poco = un po'",
+        "nl": "weinig; un poco = een beetje"
+      }
+    },
+    "poema": {
+      "lemma": "poema",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "poem (m); watch out: masculine although it ends in -a: el poema",
+        "it": "poesia (m); attenzione: maschile: el poema",
+        "nl": "gedicht (m); let op: mannelijk ondanks de -a: el poema"
+      }
+    },
+    "poemas": {
+      "lemma": "poema",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "poems (plural of poema, m)",
+        "it": "poesie (plurale di poema, m)",
+        "nl": "gedichten (meervoud van poema, m)"
+      }
+    },
+    "pueden": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can (poder, plural); ¿Se pueden tomar fotos? = Can you take pictures?",
+        "it": "possono (poder); ¿Se pueden tomar fotos? = Si possono fare foto?",
+        "nl": "kunnen, mogen (poder); ¿Se pueden tomar fotos? = Mag je foto's maken?"
+      }
+    },
+    "quinientos": {
+      "lemma": "quinientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five hundred; watch out: not cincocientos",
+        "it": "cinquecento; attenzione: non cincocientos",
+        "nl": "vijfhonderd; let op: niet cincocientos"
+      }
+    },
+    "quién": {
+      "lemma": "quién",
+      "pos": "PRON",
+      "gloss": {
+        "en": "who",
+        "it": "chi",
+        "nl": "wie"
+      }
+    },
+    "retraso": {
+      "lemma": "retraso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "delay (m); tener retraso = be late, be delayed",
+        "it": "ritardo (m); tener retraso = essere in ritardo",
+        "nl": "vertraging (m); tener retraso = vertraging hebben"
+      }
+    },
+    "rivera": {
+      "lemma": "Rivera",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Rivera (surname); Diego Rivera, a Mexican painter",
+        "it": "Rivera (cognome); Diego Rivera, pittore messicano",
+        "nl": "Rivera (achternaam); Diego Rivera, Mexicaanse schilder"
+      }
+    },
+    "ruina": {
+      "lemma": "ruina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ruin (f); las ruinas = the ruins",
+        "it": "rovina (f); las ruinas = le rovine",
+        "nl": "ruïne (f); las ruinas = de ruïnes"
+      }
+    },
+    "ruinas": {
+      "lemma": "ruina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ruins (plural of ruina, f)",
+        "it": "rovine (plurale di ruina, f)",
+        "nl": "ruïnes (meervoud van ruina, f)"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "impersonal se: ¿Se puede...? = Is it OK to...?, Can you...?",
+        "it": "si impersonale: ¿Se puede...? = Si può...?",
+        "nl": "onpersoonlijk se: ¿Se puede...? = Mag je...?, Mag men...?"
+      }
+    },
+    "sentamos": {
+      "lemma": "sentar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "nos sentamos = we sat down; also we sit down (sentarse)",
+        "it": "nos sentamos = ci siamo seduti; anche ci sediamo (sentarse)",
+        "nl": "nos sentamos = we gingen zitten; ook we gaan zitten (sentarse)"
+      }
+    },
+    "siglo": {
+      "lemma": "siglo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "century (m); written in Roman numerals: el siglo XX = the twentieth century",
+        "it": "secolo (m); si scrive in numeri romani: el siglo XX = il Novecento",
+        "nl": "eeuw (m); geschreven met Romeinse cijfers: el siglo XX = de twintigste eeuw"
+      }
+    },
+    "siglos": {
+      "lemma": "siglo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "centuries (plural of siglo, m)",
+        "it": "secoli (plurale di siglo, m)",
+        "nl": "eeuwen (meervoud van siglo, m)"
+      }
+    },
+    "simpática": {
+      "lemma": "simpático",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "nice, friendly (feminine of simpático)",
+        "it": "simpatica (femminile di simpático)",
+        "nl": "aardig (vrouwelijk van simpático)"
+      }
+    },
+    "subimos": {
+      "lemma": "subir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we went up, we climbed; also we go up (subir); subir a = climb, go up",
+        "it": "siamo saliti; anche saliamo (subir); subir a = salire su",
+        "nl": "we gingen omhoog, we beklommen; ook we gaan omhoog (subir); subir a = beklimmen"
+      }
+    },
+    "sábado": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m, lowercase in Spanish)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m, met kleine letter)"
+      }
+    },
+    "también": {
+      "lemma": "también",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, too",
+        "it": "anche",
+        "nl": "ook"
+      }
+    },
+    "teatro": {
+      "lemma": "teatro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "theater (m)",
+        "it": "teatro (m)",
+        "nl": "theater, schouwburg (m)"
+      }
+    },
+    "templo": {
+      "lemma": "templo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "temple (m)",
+        "it": "tempio (m)",
+        "nl": "tempel (m)"
+      }
+    },
+    "tiene": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has (tener); tiene quinientos años = it is five hundred years old",
+        "it": "ha (tener); tiene quinientos años = ha cinquecento anni",
+        "nl": "heeft (tener); tiene quinientos años = is vijfhonderd jaar oud"
+      }
+    },
+    "tomar": {
+      "lemma": "tomar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to take; tomar fotos = take pictures",
+        "it": "prendere; tomar fotos = fare foto",
+        "nl": "nemen; tomar fotos = foto's maken"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine)",
+        "it": "un, uno (maschile)",
+        "nl": "een (mannelijk)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una (femminile)",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "unas": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some; before a number, about: unas seis horas = about six hours",
+        "it": "delle; davanti a un numero, circa: unas seis horas = circa sei ore",
+        "nl": "een paar; vóór een getal, ongeveer: unas seis horas = ongeveer zes uur"
+      }
+    },
+    "usaba": {
+      "lemma": "usar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "used, used to use (usar, imperfecto)",
+        "it": "usava (usar, imperfecto)",
+        "nl": "gebruikte (usar, imperfecto)"
+      }
+    },
+    "veinte": {
+      "lemma": "veinte",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty",
+        "it": "venti",
+        "nl": "twintig"
+      }
+    },
+    "ver": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to see, to watch",
+        "it": "vedere, guardare",
+        "nl": "zien, kijken"
+      }
+    },
+    "visitamos": {
+      "lemma": "visitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we visited; also we visit (visitar)",
+        "it": "abbiamo visitato; anche visitiamo (visitar)",
+        "nl": "we bezochten; ook: we bezoeken (visitar)"
+      }
+    },
+    "visitar": {
+      "lemma": "visitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to visit; a person takes a: visitar a mis abuelos",
+        "it": "visitare, andare a trovare; una persona vuole la a: visitar a mis abuelos",
+        "nl": "bezoeken, op bezoek gaan bij; een persoon krijgt a: visitar a mis abuelos"
+      }
+    },
+    "vivían": {
+      "lemma": "vivir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lived, used to live (vivir, imperfecto: they)",
+        "it": "vivevano (vivir, imperfecto)",
+        "nl": "woonden, leefden (vivir, imperfecto)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; in a question, yet: ¿Ya comiste? = Have you eaten yet?",
+        "it": "già; ¿Ya comiste? = Hai già mangiato?",
+        "nl": "al; ¿Ya comiste? = Heb je al gegeten?"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a2-arte-1",
+      "title": "En el museo",
+      "grammarFocus": {
+        "en": [
+          "hay + noun: Hay una exposición",
+          "indefinido for a visit: Visitamos el museo",
+          "¿Se puede...? / ¿Se pueden...? = Is it allowed...?"
+        ],
+        "it": [
+          "hay + nome = c'è, ci sono: Hay una exposición",
+          "indefinido per una visita: Visitamos el museo",
+          "¿Se puede...? / ¿Se pueden...? = Si può...?"
+        ],
+        "nl": [
+          "hay + zelfstandig naamwoord = er is, er zijn: Hay una exposición",
+          "indefinido voor een bezoek: Visitamos el museo",
+          "¿Se puede...? / ¿Se pueden...? = Mag je...?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "arte",
+          "translation": {
+            "en": "art",
+            "it": "arte",
+            "nl": "kunst"
+          },
+          "distractors": {
+            "en": [
+              "history",
+              "music"
+            ],
+            "it": [
+              "storia",
+              "musica"
+            ],
+            "nl": [
+              "geschiedenis",
+              "muziek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "arte moderno",
+          "translation": {
+            "en": "modern art",
+            "it": "arte moderna",
+            "nl": "moderne kunst"
+          },
+          "distractors": {
+            "en": [
+              "ancient art",
+              "modern music"
+            ],
+            "it": [
+              "arte antica",
+              "musica moderna"
+            ],
+            "nl": [
+              "oude kunst",
+              "moderne muziek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "exposición",
+          "translation": {
+            "en": "exhibition",
+            "it": "mostra",
+            "nl": "tentoonstelling"
+          },
+          "distractors": {
+            "en": [
+              "museum",
+              "concert"
+            ],
+            "it": [
+              "museo",
+              "concerto"
+            ],
+            "nl": [
+              "museum",
+              "concert"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el museo hay una exposición de arte moderno.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "There's a modern art exhibition at the museum.",
+            "it": "Al museo c'è una mostra d'arte moderna.",
+            "nl": "In het museum is een tentoonstelling over moderne kunst."
+          },
+          "distractors": {
+            "en": [
+              "There's a modern art exhibition at the library.",
+              "There's a modern art store at the museum."
+            ],
+            "it": [
+              "In biblioteca c'è una mostra d'arte moderna.",
+              "Al museo c'è un negozio d'arte moderna."
+            ],
+            "nl": [
+              "In de bibliotheek is een tentoonstelling over moderne kunst.",
+              "In het museum is een winkel met moderne kunst."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "guía",
+          "translation": {
+            "en": "guide",
+            "it": "guida",
+            "nl": "gids"
+          },
+          "distractors": {
+            "en": [
+              "teacher",
+              "driver"
+            ],
+            "it": [
+              "insegnante",
+              "autista"
+            ],
+            "nl": [
+              "leraar",
+              "chauffeur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "con una guía",
+          "translation": {
+            "en": "with a guide",
+            "it": "con una guida",
+            "nl": "met een gids"
+          },
+          "distractors": {
+            "en": [
+              "without a guide",
+              "with a map"
+            ],
+            "it": [
+              "senza una guida",
+              "con una cartina"
+            ],
+            "nl": [
+              "zonder gids",
+              "met een kaart"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Visitamos el museo con una guía muy simpática.",
+          "translation": {
+            "en": "We visited the museum with a very nice guide.",
+            "it": "Abbiamo visitato il museo con una guida molto simpatica.",
+            "nl": "We hebben het museum bezocht met een heel aardige gids."
+          },
+          "distractors": {
+            "en": [
+              "We visited the church with a very nice guide.",
+              "We visited the museum with a very boring guide."
+            ],
+            "it": [
+              "Abbiamo visitato la chiesa con una guida molto simpatica.",
+              "Abbiamo visitato il museo con una guida molto noiosa."
+            ],
+            "nl": [
+              "We hebben de kerk bezocht met een heel aardige gids.",
+              "We hebben het museum bezocht met een heel saaie gids."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "escultura",
+          "translation": {
+            "en": "sculpture",
+            "it": "scultura",
+            "nl": "beeldhouwwerk"
+          },
+          "distractors": {
+            "en": [
+              "painting",
+              "building"
+            ],
+            "it": [
+              "quadro",
+              "edificio"
+            ],
+            "nl": [
+              "schilderij",
+              "gebouw"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "estatua",
+          "translation": {
+            "en": "statue",
+            "it": "statua",
+            "nl": "standbeeld"
+          },
+          "distractors": {
+            "en": [
+              "fountain",
+              "church"
+            ],
+            "it": [
+              "fontana",
+              "chiesa"
+            ],
+            "nl": [
+              "fontein",
+              "kerk"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "enfrente del museo",
+          "translation": {
+            "en": "across from the museum",
+            "it": "di fronte al museo",
+            "nl": "tegenover het museum"
+          },
+          "distractors": {
+            "en": [
+              "behind the museum",
+              "inside the museum"
+            ],
+            "it": [
+              "dietro il museo",
+              "dentro il museo"
+            ],
+            "nl": [
+              "achter het museum",
+              "in het museum"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Enfrente del museo hay una estatua muy grande.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "There's a very big statue across from the museum.",
+            "it": "Di fronte al museo c'è una statua molto grande.",
+            "nl": "Tegenover het museum staat een heel groot standbeeld."
+          },
+          "distractors": {
+            "en": [
+              "There's a very small statue across from the museum.",
+              "There's a very big statue behind the museum."
+            ],
+            "it": [
+              "Di fronte al museo c'è una statua molto piccola.",
+              "Dietro il museo c'è una statua molto grande."
+            ],
+            "nl": [
+              "Tegenover het museum staat een heel klein standbeeld.",
+              "Achter het museum staat een heel groot standbeeld."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me gustaron mucho las esculturas de la exposición.",
+          "translation": {
+            "en": "I really liked the sculptures in the exhibition.",
+            "it": "Mi sono piaciute molto le sculture della mostra.",
+            "nl": "Ik vond de beeldhouwwerken op de tentoonstelling erg mooi."
+          },
+          "distractors": {
+            "en": [
+              "I didn't like the sculptures in the exhibition.",
+              "I really liked the photos in the exhibition."
+            ],
+            "it": [
+              "Non mi sono piaciute le sculture della mostra.",
+              "Mi sono piaciute molto le foto della mostra."
+            ],
+            "nl": [
+              "Ik vond de beeldhouwwerken op de tentoonstelling niet mooi.",
+              "Ik vond de foto's op de tentoonstelling erg mooi."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tomar fotos",
+          "translation": {
+            "en": "take pictures",
+            "it": "fare foto",
+            "nl": "foto's maken"
+          },
+          "distractors": {
+            "en": [
+              "look at pictures",
+              "sell pictures"
+            ],
+            "it": [
+              "guardare le foto",
+              "vendere foto"
+            ],
+            "nl": [
+              "foto's bekijken",
+              "foto's verkopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Se pueden tomar fotos aquí?",
+          "translation": {
+            "en": "Can you take pictures here?",
+            "it": "Si possono fare foto qui?",
+            "nl": "Mag je hier foto's maken?"
+          },
+          "distractors": {
+            "en": [
+              "Can you buy pictures here?",
+              "Can you eat here?"
+            ],
+            "it": [
+              "Si possono comprare foto qui?",
+              "Si può mangiare qui?"
+            ],
+            "nl": [
+              "Kun je hier foto's kopen?",
+              "Mag je hier eten?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando llegamos, ya había mucha gente.",
+          "translation": {
+            "en": "When we arrived, there were already a lot of people.",
+            "it": "Quando siamo arrivati, c'era già tanta gente.",
+            "nl": "Toen we aankwamen, waren er al veel mensen."
+          },
+          "distractors": {
+            "en": [
+              "When we arrived, there was nobody there yet.",
+              "When we left, there were already a lot of people."
+            ],
+            "it": [
+              "Quando siamo arrivati, non c'era ancora nessuno.",
+              "Quando siamo usciti, c'era già tanta gente."
+            ],
+            "nl": [
+              "Toen we aankwamen, was er nog niemand.",
+              "Toen we weggingen, waren er al veel mensen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El museo está cerrado los lunes.",
+          "translation": {
+            "en": "The museum is closed on Mondays.",
+            "it": "Il museo è chiuso il lunedì.",
+            "nl": "Het museum is op maandag gesloten."
+          },
+          "distractors": {
+            "en": [
+              "The museum is open on Mondays.",
+              "The museum is closed on Sundays."
+            ],
+            "it": [
+              "Il museo è aperto il lunedì.",
+              "Il museo è chiuso la domenica."
+            ],
+            "nl": [
+              "Het museum is op maandag open.",
+              "Het museum is op zondag gesloten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-arte-2",
+      "title": "Un cuadro famoso",
+      "grammarFocus": {
+        "en": [
+          "de for the artist: un cuadro de Frida Kahlo",
+          "indefinido pintó vs. imperfecto usaba",
+          "en el siglo veinte: centuries are written in Roman numerals (siglo XX)"
+        ],
+        "it": [
+          "de per l'autore: un cuadro de Frida Kahlo",
+          "indefinido pintó e imperfecto usaba",
+          "en el siglo veinte = nel Novecento; per iscritto siglo XX"
+        ],
+        "nl": [
+          "de voor de maker: un cuadro de Frida Kahlo",
+          "indefinido pintó tegenover imperfecto usaba",
+          "en el siglo veinte = in de twintigste eeuw; geschreven siglo XX"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuadro",
+          "translation": {
+            "en": "painting",
+            "it": "quadro",
+            "nl": "schilderij"
+          },
+          "distractors": {
+            "en": [
+              "statue",
+              "photo"
+            ],
+            "it": [
+              "statua",
+              "foto"
+            ],
+            "nl": [
+              "standbeeld",
+              "foto"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un cuadro famoso",
+          "translation": {
+            "en": "a famous painting",
+            "it": "un quadro famoso",
+            "nl": "een beroemd schilderij"
+          },
+          "distractors": {
+            "en": [
+              "a famous statue",
+              "an ugly painting"
+            ],
+            "it": [
+              "una statua famosa",
+              "un quadro brutto"
+            ],
+            "nl": [
+              "een beroemd standbeeld",
+              "een lelijk schilderij"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Este cuadro es muy famoso.",
+          "translation": {
+            "en": "This painting is very famous.",
+            "it": "Questo quadro è molto famoso.",
+            "nl": "Dit schilderij is heel beroemd."
+          },
+          "distractors": {
+            "en": [
+              "This statue is very famous.",
+              "This painting is very old."
+            ],
+            "it": [
+              "Questa statua è molto famosa.",
+              "Questo quadro è molto vecchio."
+            ],
+            "nl": [
+              "Dit standbeeld is heel beroemd.",
+              "Dit schilderij is heel oud."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "pintar",
+          "translation": {
+            "en": "to paint",
+            "it": "dipingere",
+            "nl": "schilderen"
+          },
+          "distractors": {
+            "en": [
+              "to draw",
+              "to sell"
+            ],
+            "it": [
+              "disegnare",
+              "vendere"
+            ],
+            "nl": [
+              "tekenen",
+              "verkopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quién pintó este cuadro?",
+          "translation": {
+            "en": "Who painted this picture?",
+            "it": "Chi ha dipinto questo quadro?",
+            "nl": "Wie heeft dit schilderij geschilderd?"
+          },
+          "distractors": {
+            "en": [
+              "Who bought this picture?",
+              "Who painted this wall?"
+            ],
+            "it": [
+              "Chi ha comprato questo quadro?",
+              "Chi ha dipinto questo muro?"
+            ],
+            "nl": [
+              "Wie heeft dit schilderij gekocht?",
+              "Wie heeft deze muur geschilderd?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es un cuadro de Frida Kahlo.",
+          "translation": {
+            "en": "It's a painting by Frida Kahlo.",
+            "it": "È un quadro di Frida Kahlo.",
+            "nl": "Het is een schilderij van Frida Kahlo."
+          },
+          "distractors": {
+            "en": [
+              "It's a photo of Frida Kahlo.",
+              "It's a painting by Diego Rivera."
+            ],
+            "it": [
+              "È una foto di Frida Kahlo.",
+              "È un quadro di Diego Rivera."
+            ],
+            "nl": [
+              "Het is een foto van Frida Kahlo.",
+              "Het is een schilderij van Diego Rivera."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "pintor",
+          "translation": {
+            "en": "painter",
+            "it": "pittore",
+            "nl": "schilder"
+          },
+          "distractors": {
+            "en": [
+              "writer",
+              "singer"
+            ],
+            "it": [
+              "scrittore",
+              "cantante"
+            ],
+            "nl": [
+              "schrijver",
+              "zanger"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El pintor usaba colores muy fuertes.",
+          "translation": {
+            "en": "The painter used very bold colors.",
+            "it": "Il pittore usava colori molto forti.",
+            "nl": "De schilder gebruikte heel felle kleuren."
+          },
+          "distractors": {
+            "en": [
+              "The painter used very dark colors.",
+              "The painter hated very bold colors."
+            ],
+            "it": [
+              "Il pittore usava colori molto scuri.",
+              "Il pittore odiava i colori molto forti."
+            ],
+            "nl": [
+              "De schilder gebruikte heel donkere kleuren.",
+              "De schilder haatte heel felle kleuren."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "artista",
+          "translation": {
+            "en": "artist",
+            "it": "artista",
+            "nl": "kunstenaar"
+          },
+          "distractors": {
+            "en": [
+              "actor",
+              "doctor"
+            ],
+            "it": [
+              "attore",
+              "medico"
+            ],
+            "nl": [
+              "acteur",
+              "arts"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Frida Kahlo era una artista mexicana muy famosa.",
+          "translation": {
+            "en": "Frida Kahlo was a very famous Mexican artist.",
+            "it": "Frida Kahlo era un'artista messicana molto famosa.",
+            "nl": "Frida Kahlo was een heel beroemde Mexicaanse kunstenares."
+          },
+          "distractors": {
+            "en": [
+              "Frida Kahlo was a very famous Mexican writer.",
+              "Frida Kahlo was a very famous Colombian artist."
+            ],
+            "it": [
+              "Frida Kahlo era una scrittrice messicana molto famosa.",
+              "Frida Kahlo era un'artista colombiana molto famosa."
+            ],
+            "nl": [
+              "Frida Kahlo was een heel beroemde Mexicaanse schrijfster.",
+              "Frida Kahlo was een heel beroemde Colombiaanse kunstenares."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "mural",
+          "translation": {
+            "en": "mural",
+            "it": "murale",
+            "nl": "muurschildering"
+          },
+          "distractors": {
+            "en": [
+              "poster",
+              "window"
+            ],
+            "it": [
+              "manifesto",
+              "finestra"
+            ],
+            "nl": [
+              "affiche",
+              "raam"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "siglo",
+          "translation": {
+            "en": "century",
+            "it": "secolo",
+            "nl": "eeuw"
+          },
+          "distractors": {
+            "en": [
+              "year",
+              "week"
+            ],
+            "it": [
+              "anno",
+              "settimana"
+            ],
+            "nl": [
+              "jaar",
+              "week"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en el siglo veinte",
+          "variants": [
+            "en el siglo 20",
+            "en el siglo XX"
+          ],
+          "translation": {
+            "en": "in the twentieth century",
+            "it": "nel ventesimo secolo",
+            "nl": "in de twintigste eeuw"
+          },
+          "distractors": {
+            "en": [
+              "in the nineteenth century",
+              "in the year twenty"
+            ],
+            "it": [
+              "nel diciannovesimo secolo",
+              "nell'anno venti"
+            ],
+            "nl": [
+              "in de negentiende eeuw",
+              "in het jaar twintig"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Diego Rivera pintó muchos murales en el siglo veinte.",
+          "variants": [
+            "Diego Rivera pintó muchos murales en el siglo 20.",
+            "Diego Rivera pintó muchos murales en el siglo XX."
+          ],
+          "translation": {
+            "en": "Diego Rivera painted many murals in the twentieth century.",
+            "it": "Diego Rivera ha dipinto molti murales nel ventesimo secolo.",
+            "nl": "Diego Rivera heeft in de twintigste eeuw veel muurschilderingen gemaakt."
+          },
+          "distractors": {
+            "en": [
+              "Diego Rivera painted a few murals in the twentieth century.",
+              "Diego Rivera saw many murals in the twentieth century."
+            ],
+            "it": [
+              "Diego Rivera ha dipinto pochi murales nel ventesimo secolo.",
+              "Diego Rivera ha visto molti murales nel ventesimo secolo."
+            ],
+            "nl": [
+              "Diego Rivera heeft in de twintigste eeuw weinig muurschilderingen gemaakt.",
+              "Diego Rivera heeft in de twintigste eeuw veel muurschilderingen gezien."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una obra de arte",
+          "translation": {
+            "en": "a work of art",
+            "it": "un'opera d'arte",
+            "nl": "een kunstwerk"
+          },
+          "distractors": {
+            "en": [
+              "a history book",
+              "an art school"
+            ],
+            "it": [
+              "un libro di storia",
+              "una scuola d'arte"
+            ],
+            "nl": [
+              "een geschiedenisboek",
+              "een kunstacademie"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Para mí es una obra de arte.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "To me, it's a work of art.",
+            "it": "Per me è un'opera d'arte.",
+            "nl": "Voor mij is het een kunstwerk."
+          },
+          "distractors": {
+            "en": [
+              "To me, it's a bad copy.",
+              "To me, it's an ugly picture."
+            ],
+            "it": [
+              "Per me è una brutta copia.",
+              "Per me è un quadro brutto."
+            ],
+            "nl": [
+              "Voor mij is het een slechte kopie.",
+              "Voor mij is het een lelijk schilderij."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-arte-3",
+      "title": "Edificios antiguos",
+      "grammarFocus": {
+        "en": [
+          "imperfecto for description: Los mayas vivían aquí, había un templo",
+          "hace + time = ago: hace más de mil años",
+          "antiguo = old, ancient (for things); for people, use viejo or mayor"
+        ],
+        "it": [
+          "imperfecto per descrivere: Los mayas vivían aquí, había un templo",
+          "hace + tempo = fa: hace más de mil años",
+          "antiguo = antico; per le persone si usa viejo o mayor"
+        ],
+        "nl": [
+          "imperfecto om te beschrijven: Los mayas vivían aquí, había un templo",
+          "hace + tijd = geleden: hace más de mil años",
+          "antiguo = oud, antiek (voor dingen); voor mensen viejo of mayor"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "edificio",
+          "translation": {
+            "en": "building",
+            "it": "edificio",
+            "nl": "gebouw"
+          },
+          "distractors": {
+            "en": [
+              "street",
+              "square"
+            ],
+            "it": [
+              "strada",
+              "piazza"
+            ],
+            "nl": [
+              "straat",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un edificio antiguo",
+          "translation": {
+            "en": "an old building",
+            "it": "un edificio antico",
+            "nl": "een oud gebouw"
+          },
+          "distractors": {
+            "en": [
+              "a modern building",
+              "an old church"
+            ],
+            "it": [
+              "un edificio moderno",
+              "una chiesa antica"
+            ],
+            "nl": [
+              "een modern gebouw",
+              "een oude kerk"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el centro hay muchos edificios antiguos.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "There are a lot of old buildings downtown.",
+            "it": "In centro ci sono molti edifici antichi.",
+            "nl": "In het centrum staan veel oude gebouwen."
+          },
+          "distractors": {
+            "en": [
+              "There are a lot of modern buildings downtown.",
+              "There are a lot of old churches downtown."
+            ],
+            "it": [
+              "In centro ci sono molti edifici moderni.",
+              "In centro ci sono molte chiese antiche."
+            ],
+            "nl": [
+              "In het centrum staan veel moderne gebouwen.",
+              "In het centrum staan veel oude kerken."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "arquitectura",
+          "translation": {
+            "en": "architecture",
+            "it": "architettura",
+            "nl": "architectuur"
+          },
+          "distractors": {
+            "en": [
+              "history",
+              "culture"
+            ],
+            "it": [
+              "storia",
+              "cultura"
+            ],
+            "nl": [
+              "geschiedenis",
+              "cultuur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me encanta la arquitectura de esta ciudad.",
+          "translation": {
+            "en": "I love the architecture of this city.",
+            "it": "Adoro l'architettura di questa città.",
+            "nl": "Ik ben dol op de architectuur van deze stad."
+          },
+          "distractors": {
+            "en": [
+              "I love the food of this city.",
+              "I don't like the architecture of this city."
+            ],
+            "it": [
+              "Adoro il cibo di questa città.",
+              "Non mi piace l'architettura di questa città."
+            ],
+            "nl": [
+              "Ik ben dol op het eten van deze stad.",
+              "Ik hou niet van de architectuur van deze stad."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "ruina",
+          "translation": {
+            "en": "ruin",
+            "it": "rovina",
+            "nl": "ruïne"
+          },
+          "distractors": {
+            "en": [
+              "tower",
+              "bridge"
+            ],
+            "it": [
+              "torre",
+              "ponte"
+            ],
+            "nl": [
+              "toren",
+              "brug"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "unas ruinas mayas",
+          "translation": {
+            "en": "some Maya ruins",
+            "it": "delle rovine maya",
+            "nl": "Mayaruïnes"
+          },
+          "distractors": {
+            "en": [
+              "some Aztec ruins",
+              "some Maya temples"
+            ],
+            "it": [
+              "delle rovine azteche",
+              "dei templi maya"
+            ],
+            "nl": [
+              "Azteekse ruïnes",
+              "Mayatempels"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ayer visitamos unas ruinas mayas muy bonitas.",
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Yesterday we visited some very beautiful Maya ruins.",
+            "it": "Ieri abbiamo visitato delle rovine maya molto belle.",
+            "nl": "Gisteren hebben we heel mooie Mayaruïnes bezocht."
+          },
+          "distractors": {
+            "en": [
+              "Yesterday we visited some very beautiful Aztec ruins.",
+              "Yesterday we looked for some very beautiful Maya ruins."
+            ],
+            "it": [
+              "Ieri abbiamo visitato delle rovine azteche molto belle.",
+              "Ieri abbiamo cercato delle rovine maya molto belle."
+            ],
+            "nl": [
+              "Gisteren hebben we heel mooie Azteekse ruïnes bezocht.",
+              "Gisteren hebben we heel mooie Mayaruïnes gezocht."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hace más de mil años",
+          "variants": [
+            "hace más de 1000 años"
+          ],
+          "senses": {
+            "0": "ago"
+          },
+          "translation": {
+            "en": "more than a thousand years ago",
+            "it": "più di mille anni fa",
+            "nl": "meer dan duizend jaar geleden"
+          },
+          "distractors": {
+            "en": [
+              "more than a hundred years ago",
+              "in more than a thousand years"
+            ],
+            "it": [
+              "più di cento anni fa",
+              "fra più di mille anni"
+            ],
+            "nl": [
+              "meer dan honderd jaar geleden",
+              "over meer dan duizend jaar"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Los mayas vivían aquí hace más de mil años.",
+          "variants": [
+            "Los mayas vivían aquí hace más de 1000 años."
+          ],
+          "senses": {
+            "4": "ago"
+          },
+          "translation": {
+            "en": "The Maya lived here more than a thousand years ago.",
+            "it": "I maya vivevano qui più di mille anni fa.",
+            "nl": "De Maya's woonden hier meer dan duizend jaar geleden."
+          },
+          "distractors": {
+            "en": [
+              "The Maya lived here more than a hundred years ago.",
+              "The Maya worked here more than a thousand years ago."
+            ],
+            "it": [
+              "I maya vivevano qui più di cento anni fa.",
+              "I maya lavoravano qui più di mille anni fa."
+            ],
+            "nl": [
+              "De Maya's woonden hier meer dan honderd jaar geleden.",
+              "De Maya's werkten hier meer dan duizend jaar geleden."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "pirámide",
+          "translation": {
+            "en": "pyramid",
+            "it": "piramide",
+            "nl": "piramide"
+          },
+          "distractors": {
+            "en": [
+              "temple",
+              "tower"
+            ],
+            "it": [
+              "tempio",
+              "torre"
+            ],
+            "nl": [
+              "tempel",
+              "toren"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una pirámide de piedra",
+          "translation": {
+            "en": "a stone pyramid",
+            "it": "una piramide di pietra",
+            "nl": "een stenen piramide"
+          },
+          "distractors": {
+            "en": [
+              "a stone church",
+              "a stone statue"
+            ],
+            "it": [
+              "una chiesa di pietra",
+              "una statua di pietra"
+            ],
+            "nl": [
+              "een stenen kerk",
+              "een stenen standbeeld"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Subimos a una pirámide de piedra muy alta.",
+          "translation": {
+            "en": "We climbed a very tall stone pyramid.",
+            "it": "Siamo saliti su una piramide di pietra molto alta.",
+            "nl": "We zijn op een heel hoge stenen piramide geklommen."
+          },
+          "distractors": {
+            "en": [
+              "We saw a very tall stone pyramid.",
+              "We climbed a very small stone pyramid."
+            ],
+            "it": [
+              "Abbiamo visto una piramide di pietra molto alta.",
+              "Siamo saliti su una piramide di pietra molto piccola."
+            ],
+            "nl": [
+              "We hebben een heel hoge stenen piramide gezien.",
+              "We zijn op een heel kleine stenen piramide geklommen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "templo",
+          "translation": {
+            "en": "temple",
+            "it": "tempio",
+            "nl": "tempel"
+          },
+          "distractors": {
+            "en": [
+              "palace",
+              "market"
+            ],
+            "it": [
+              "palazzo",
+              "mercato"
+            ],
+            "nl": [
+              "paleis",
+              "markt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hace muchos siglos",
+          "senses": {
+            "0": "ago"
+          },
+          "translation": {
+            "en": "many centuries ago",
+            "it": "molti secoli fa",
+            "nl": "vele eeuwen geleden"
+          },
+          "distractors": {
+            "en": [
+              "many years ago",
+              "a few centuries ago"
+            ],
+            "it": [
+              "molti anni fa",
+              "pochi secoli fa"
+            ],
+            "nl": [
+              "vele jaren geleden",
+              "een paar eeuwen geleden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hace muchos siglos, aquí había un templo azteca.",
+          "senses": {
+            "0": "ago"
+          },
+          "translation": {
+            "en": "Many centuries ago, there was an Aztec temple here.",
+            "it": "Molti secoli fa, qui c'era un tempio azteco.",
+            "nl": "Vele eeuwen geleden stond hier een Azteekse tempel."
+          },
+          "distractors": {
+            "en": [
+              "Many centuries ago, there was an Aztec market here.",
+              "Many years ago, there was an Aztec temple here."
+            ],
+            "it": [
+              "Molti secoli fa, qui c'era un mercato azteco.",
+              "Molti anni fa, qui c'era un tempio azteco."
+            ],
+            "nl": [
+              "Vele eeuwen geleden was hier een Azteekse markt.",
+              "Vele jaren geleden stond hier een Azteekse tempel."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-arte-4",
+      "title": "Un concierto",
+      "grammarFocus": {
+        "en": [
+          "indefinido for the events: empezó, duró, aplaudió",
+          "imperfecto for what was going on: bailaba y cantaba",
+          "ir a + place in the past: fuimos al concierto"
+        ],
+        "it": [
+          "indefinido per i fatti: empezó, duró, aplaudió",
+          "imperfecto per ciò che succedeva: bailaba y cantaba",
+          "fuimos al concierto = siamo andati al concerto"
+        ],
+        "nl": [
+          "indefinido voor de gebeurtenissen: empezó, duró, aplaudió",
+          "imperfecto voor wat er gaande was: bailaba y cantaba",
+          "fuimos al concierto = we gingen naar het concert"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "cantante",
+          "translation": {
+            "en": "singer",
+            "it": "cantante",
+            "nl": "zanger"
+          },
+          "distractors": {
+            "en": [
+              "dancer",
+              "musician"
+            ],
+            "it": [
+              "ballerino",
+              "musicista"
+            ],
+            "nl": [
+              "danser",
+              "muzikant"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una cantante colombiana",
+          "translation": {
+            "en": "a Colombian singer",
+            "it": "una cantante colombiana",
+            "nl": "een Colombiaanse zangeres"
+          },
+          "distractors": {
+            "en": [
+              "a Mexican singer",
+              "a Colombian actress"
+            ],
+            "it": [
+              "una cantante messicana",
+              "un'attrice colombiana"
+            ],
+            "nl": [
+              "een Mexicaanse zangeres",
+              "een Colombiaanse actrice"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Anoche fuimos al concierto de una cantante colombiana.",
+          "commas": [
+            0
+          ],
+          "senses": {
+            "1": "ir"
+          },
+          "translation": {
+            "en": "Last night we went to a Colombian singer's concert.",
+            "it": "Ieri sera siamo andati al concerto di una cantante colombiana.",
+            "nl": "Gisteravond zijn we naar het concert van een Colombiaanse zangeres geweest."
+          },
+          "distractors": {
+            "en": [
+              "Last night we went to a Mexican singer's concert.",
+              "Tomorrow night we're going to a Colombian singer's concert."
+            ],
+            "it": [
+              "Ieri sera siamo andati al concerto di una cantante messicana.",
+              "Domani sera andiamo al concerto di una cantante colombiana."
+            ],
+            "nl": [
+              "Gisteravond zijn we naar het concert van een Mexicaanse zangeres geweest.",
+              "Morgenavond gaan we naar het concert van een Colombiaanse zangeres."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "espectáculo",
+          "translation": {
+            "en": "show",
+            "it": "spettacolo",
+            "nl": "voorstelling"
+          },
+          "distractors": {
+            "en": [
+              "ticket",
+              "song"
+            ],
+            "it": [
+              "biglietto",
+              "canzone"
+            ],
+            "nl": [
+              "kaartje",
+              "liedje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El espectáculo empezó con media hora de retraso.",
+          "translation": {
+            "en": "The show started half an hour late.",
+            "it": "Lo spettacolo è cominciato con mezz'ora di ritardo.",
+            "nl": "De voorstelling begon een half uur te laat."
+          },
+          "distractors": {
+            "en": [
+              "The show ended half an hour late.",
+              "The show started an hour late."
+            ],
+            "it": [
+              "Lo spettacolo è finito con mezz'ora di ritardo.",
+              "Lo spettacolo è cominciato con un'ora di ritardo."
+            ],
+            "nl": [
+              "De voorstelling eindigde een half uur te laat.",
+              "De voorstelling begon een uur te laat."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "escenario",
+          "translation": {
+            "en": "stage",
+            "it": "palco",
+            "nl": "podium"
+          },
+          "distractors": {
+            "en": [
+              "audience",
+              "seat"
+            ],
+            "it": [
+              "pubblico",
+              "posto"
+            ],
+            "nl": [
+              "publiek",
+              "stoel"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en el escenario",
+          "translation": {
+            "en": "on stage",
+            "it": "sul palco",
+            "nl": "op het podium"
+          },
+          "distractors": {
+            "en": [
+              "behind the stage",
+              "in the audience"
+            ],
+            "it": [
+              "dietro il palco",
+              "tra il pubblico"
+            ],
+            "nl": [
+              "achter het podium",
+              "in het publiek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La cantante bailaba y cantaba en el escenario.",
+          "translation": {
+            "en": "The singer was dancing and singing on stage.",
+            "it": "La cantante ballava e cantava sul palco.",
+            "nl": "De zangeres danste en zong op het podium."
+          },
+          "distractors": {
+            "en": [
+              "The singer was dancing and singing in the street.",
+              "The singer was talking and laughing on stage."
+            ],
+            "it": [
+              "La cantante ballava e cantava per strada.",
+              "La cantante parlava e rideva sul palco."
+            ],
+            "nl": [
+              "De zangeres danste en zong op straat.",
+              "De zangeres praatte en lachte op het podium."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "durar",
+          "translation": {
+            "en": "to last",
+            "it": "durare",
+            "nl": "duren"
+          },
+          "distractors": {
+            "en": [
+              "to start",
+              "to wait"
+            ],
+            "it": [
+              "cominciare",
+              "aspettare"
+            ],
+            "nl": [
+              "beginnen",
+              "wachten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "duró tres horas",
+          "variants": [
+            "duró 3 horas"
+          ],
+          "translation": {
+            "en": "it lasted three hours",
+            "it": "è durato tre ore",
+            "nl": "het duurde drie uur"
+          },
+          "distractors": {
+            "en": [
+              "it started at three",
+              "it lasted two hours"
+            ],
+            "it": [
+              "è cominciato alle tre",
+              "è durato due ore"
+            ],
+            "nl": [
+              "het begon om drie uur",
+              "het duurde twee uur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El concierto duró tres horas.",
+          "variants": [
+            "El concierto duró 3 horas."
+          ],
+          "translation": {
+            "en": "The concert lasted three hours.",
+            "it": "Il concerto è durato tre ore.",
+            "nl": "Het concert duurde drie uur."
+          },
+          "distractors": {
+            "en": [
+              "The concert lasted two hours.",
+              "The concert started at three."
+            ],
+            "it": [
+              "Il concerto è durato due ore.",
+              "Il concerto è cominciato alle tre."
+            ],
+            "nl": [
+              "Het concert duurde twee uur.",
+              "Het concert begon om drie uur."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "impresionante",
+          "translation": {
+            "en": "impressive",
+            "it": "impressionante",
+            "nl": "indrukwekkend"
+          },
+          "distractors": {
+            "en": [
+              "boring",
+              "expensive"
+            ],
+            "it": [
+              "noioso",
+              "costoso"
+            ],
+            "nl": [
+              "saai",
+              "duur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Fue un espectáculo impresionante!",
+          "translation": {
+            "en": "It was an amazing show!",
+            "it": "È stato uno spettacolo impressionante!",
+            "nl": "Het was een indrukwekkende voorstelling!"
+          },
+          "distractors": {
+            "en": [
+              "It was a boring show!",
+              "It was an amazing party!"
+            ],
+            "it": [
+              "È stato uno spettacolo noioso!",
+              "È stata una festa impressionante!"
+            ],
+            "nl": [
+              "Het was een saaie voorstelling!",
+              "Het was een indrukwekkend feest!"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "aplaudir",
+          "translation": {
+            "en": "to applaud",
+            "it": "applaudire",
+            "nl": "applaudisseren"
+          },
+          "distractors": {
+            "en": [
+              "to shout",
+              "to dance"
+            ],
+            "it": [
+              "gridare",
+              "ballare"
+            ],
+            "nl": [
+              "schreeuwen",
+              "dansen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "durante diez minutos",
+          "variants": [
+            "durante 10 minutos"
+          ],
+          "translation": {
+            "en": "for ten minutes",
+            "it": "per dieci minuti",
+            "nl": "tien minuten lang"
+          },
+          "distractors": {
+            "en": [
+              "for two minutes",
+              "after ten minutes"
+            ],
+            "it": [
+              "per due minuti",
+              "dopo dieci minuti"
+            ],
+            "nl": [
+              "twee minuten lang",
+              "na tien minuten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Al final, la gente aplaudió durante diez minutos.",
+          "variants": [
+            "Al final, la gente aplaudió durante 10 minutos."
+          ],
+          "translation": {
+            "en": "At the end, the audience clapped for ten minutes.",
+            "it": "Alla fine, la gente ha applaudito per dieci minuti.",
+            "nl": "Aan het eind klapte het publiek tien minuten lang."
+          },
+          "distractors": {
+            "en": [
+              "At the end, the audience sang for ten minutes.",
+              "At the end, the audience clapped for two minutes."
+            ],
+            "it": [
+              "Alla fine, la gente ha cantato per dieci minuti.",
+              "Alla fine, la gente ha applaudito per due minuti."
+            ],
+            "nl": [
+              "Aan het eind zong het publiek tien minuten lang.",
+              "Aan het eind klapte het publiek twee minuten lang."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-arte-5",
+      "title": "En el teatro",
+      "grammarFocus": {
+        "en": [
+          "una obra de teatro = a play; una obra de arte = a work of art",
+          "conocer in the indefinido = to meet: conocí a un actor",
+          "perfecto compuesto for experience: ¿Has leído...?"
+        ],
+        "it": [
+          "una obra de teatro = uno spettacolo teatrale; una obra de arte = un'opera d'arte",
+          "conocer all'indefinido = conoscere qualcuno per la prima volta: conocí a un actor",
+          "perfecto compuesto per l'esperienza: ¿Has leído...?"
+        ],
+        "nl": [
+          "una obra de teatro = een toneelstuk; una obra de arte = een kunstwerk",
+          "conocer in de indefinido = ontmoeten, leren kennen: conocí a un actor",
+          "perfecto compuesto voor ervaring: ¿Has leído...?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-5-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una obra de teatro",
+          "translation": {
+            "en": "a play",
+            "it": "uno spettacolo teatrale",
+            "nl": "een toneelstuk"
+          },
+          "distractors": {
+            "en": [
+              "a movie",
+              "a concert"
+            ],
+            "it": [
+              "un film",
+              "un concerto"
+            ],
+            "nl": [
+              "een film",
+              "een concert"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El sábado fuimos a ver una obra de teatro.",
+          "commas": [
+            1
+          ],
+          "senses": {
+            "2": "ir"
+          },
+          "translation": {
+            "en": "On Saturday we went to see a play.",
+            "it": "Sabato siamo andati a vedere uno spettacolo teatrale.",
+            "nl": "Zaterdag zijn we naar een toneelstuk geweest."
+          },
+          "distractors": {
+            "en": [
+              "On Saturday we went to see a movie.",
+              "On Sunday we went to see a play."
+            ],
+            "it": [
+              "Sabato siamo andati a vedere un film.",
+              "Domenica siamo andati a vedere uno spettacolo teatrale."
+            ],
+            "nl": [
+              "Zaterdag zijn we naar een film geweest.",
+              "Zondag zijn we naar een toneelstuk geweest."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "cerca del escenario",
+          "translation": {
+            "en": "close to the stage",
+            "it": "vicino al palco",
+            "nl": "dicht bij het podium"
+          },
+          "distractors": {
+            "en": [
+              "far from the stage",
+              "close to the door"
+            ],
+            "it": [
+              "lontano dal palco",
+              "vicino alla porta"
+            ],
+            "nl": [
+              "ver van het podium",
+              "dicht bij de deur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nos sentamos muy cerca del escenario.",
+          "translation": {
+            "en": "We sat very close to the stage.",
+            "it": "Ci siamo seduti molto vicino al palco.",
+            "nl": "We zaten heel dicht bij het podium."
+          },
+          "distractors": {
+            "en": [
+              "We sat very far from the stage.",
+              "We stood very close to the stage."
+            ],
+            "it": [
+              "Ci siamo seduti molto lontano dal palco.",
+              "Siamo rimasti in piedi molto vicino al palco."
+            ],
+            "nl": [
+              "We zaten heel ver van het podium.",
+              "We stonden heel dicht bij het podium."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "actor",
+          "translation": {
+            "en": "actor",
+            "it": "attore",
+            "nl": "acteur"
+          },
+          "distractors": {
+            "en": [
+              "writer",
+              "director"
+            ],
+            "it": [
+              "scrittore",
+              "regista"
+            ],
+            "nl": [
+              "schrijver",
+              "regisseur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un actor famoso",
+          "translation": {
+            "en": "a famous actor",
+            "it": "un attore famoso",
+            "nl": "een beroemde acteur"
+          },
+          "distractors": {
+            "en": [
+              "a young actor",
+              "a famous singer"
+            ],
+            "it": [
+              "un attore giovane",
+              "un cantante famoso"
+            ],
+            "nl": [
+              "een jonge acteur",
+              "een beroemde zanger"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después de la obra, conocí a un actor muy famoso.",
+          "translation": {
+            "en": "After the play, I met a very famous actor.",
+            "it": "Dopo lo spettacolo, ho conosciuto un attore molto famoso.",
+            "nl": "Na het toneelstuk heb ik een heel beroemde acteur ontmoet."
+          },
+          "distractors": {
+            "en": [
+              "Before the play, I met a very famous actor.",
+              "After the play, I met a very famous writer."
+            ],
+            "it": [
+              "Prima dello spettacolo, ho conosciuto un attore molto famoso.",
+              "Dopo lo spettacolo, ho conosciuto uno scrittore molto famoso."
+            ],
+            "nl": [
+              "Voor het toneelstuk heb ik een heel beroemde acteur ontmoet.",
+              "Na het toneelstuk heb ik een heel beroemde schrijver ontmoet."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "director",
+          "translation": {
+            "en": "director",
+            "it": "regista",
+            "nl": "regisseur"
+          },
+          "distractors": {
+            "en": [
+              "actor",
+              "singer"
+            ],
+            "it": [
+              "attore",
+              "cantante"
+            ],
+            "nl": [
+              "acteur",
+              "zanger"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El director de la obra también es actor.",
+          "translation": {
+            "en": "The director of the play is also an actor.",
+            "it": "Il regista dello spettacolo è anche attore.",
+            "nl": "De regisseur van het toneelstuk is ook acteur."
+          },
+          "distractors": {
+            "en": [
+              "The director of the play is also a writer.",
+              "The director of the play is not an actor."
+            ],
+            "it": [
+              "Il regista dello spettacolo è anche scrittore.",
+              "Il regista dello spettacolo non è un attore."
+            ],
+            "nl": [
+              "De regisseur van het toneelstuk is ook schrijver.",
+              "De regisseur van het toneelstuk is geen acteur."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "escritor",
+          "translation": {
+            "en": "writer",
+            "it": "scrittore",
+            "nl": "schrijver"
+          },
+          "distractors": {
+            "en": [
+              "painter",
+              "teacher"
+            ],
+            "it": [
+              "pittore",
+              "insegnante"
+            ],
+            "nl": [
+              "schilder",
+              "leraar"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "novela",
+          "translation": {
+            "en": "novel",
+            "it": "romanzo",
+            "nl": "roman"
+          },
+          "distractors": {
+            "en": [
+              "newspaper",
+              "song"
+            ],
+            "it": [
+              "giornale",
+              "canzone"
+            ],
+            "nl": [
+              "krant",
+              "liedje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "poema",
+          "translation": {
+            "en": "poem",
+            "it": "poesia",
+            "nl": "gedicht"
+          },
+          "distractors": {
+            "en": [
+              "novel",
+              "song"
+            ],
+            "it": [
+              "romanzo",
+              "canzone"
+            ],
+            "nl": [
+              "roman",
+              "liedje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Este escritor escribió tres novelas y muchos poemas.",
+          "variants": [
+            "Este escritor escribió 3 novelas y muchos poemas."
+          ],
+          "translation": {
+            "en": "This writer wrote three novels and many poems.",
+            "it": "Questo scrittore ha scritto tre romanzi e molte poesie.",
+            "nl": "Deze schrijver heeft drie romans en veel gedichten geschreven."
+          },
+          "distractors": {
+            "en": [
+              "This writer wrote two novels and many poems.",
+              "This writer read three novels and many poems."
+            ],
+            "it": [
+              "Questo scrittore ha scritto due romanzi e molte poesie.",
+              "Questo scrittore ha letto tre romanzi e molte poesie."
+            ],
+            "nl": [
+              "Deze schrijver heeft twee romans en veel gedichten geschreven.",
+              "Deze schrijver heeft drie romans en veel gedichten gelezen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "has leído",
+          "translation": {
+            "en": "you've read",
+            "it": "hai letto",
+            "nl": "je hebt gelezen"
+          },
+          "distractors": {
+            "en": [
+              "you've written",
+              "you've seen"
+            ],
+            "it": [
+              "hai scritto",
+              "hai visto"
+            ],
+            "nl": [
+              "je hebt geschreven",
+              "je hebt gezien"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Has leído alguna novela de García Márquez?",
+          "translation": {
+            "en": "Have you ever read a novel by García Márquez?",
+            "it": "Hai mai letto un romanzo di García Márquez?",
+            "nl": "Heb je weleens een roman van García Márquez gelezen?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever bought a novel by García Márquez?",
+              "Have you ever read a poem by García Márquez?"
+            ],
+            "it": [
+              "Hai mai comprato un romanzo di García Márquez?",
+              "Hai mai letto una poesia di García Márquez?"
+            ],
+            "nl": [
+              "Heb je weleens een roman van García Márquez gekocht?",
+              "Heb je weleens een gedicht van García Márquez gelezen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "De niña, mi hermana escribía poemas.",
+          "translation": {
+            "en": "As a girl, my sister used to write poems.",
+            "it": "Da bambina, mia sorella scriveva poesie.",
+            "nl": "Als meisje schreef mijn zus gedichten."
+          },
+          "distractors": {
+            "en": [
+              "As a girl, my sister used to read poems.",
+              "As a girl, my sister used to write songs."
+            ],
+            "it": [
+              "Da bambina, mia sorella leggeva poesie.",
+              "Da bambina, mia sorella scriveva canzoni."
+            ],
+            "nl": [
+              "Als meisje las mijn zus gedichten.",
+              "Als meisje schreef mijn zus liedjes."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-arte-6",
+      "title": "Un poco de historia",
+      "grammarFocus": {
+        "en": [
+          "imperfecto for how things were: Cuzco era la capital",
+          "indefinido for events: Los españoles llegaron",
+          "tener + years for age of things: tiene más de quinientos años"
+        ],
+        "it": [
+          "imperfecto per com'erano le cose: Cuzco era la capital",
+          "indefinido per i fatti: Los españoles llegaron",
+          "tener + anni anche per le cose: tiene más de quinientos años"
+        ],
+        "nl": [
+          "imperfecto voor hoe het was: Cuzco era la capital",
+          "indefinido voor gebeurtenissen: Los españoles llegaron",
+          "tener + jaren, ook voor dingen: tiene más de quinientos años = is meer dan vijfhonderd jaar oud"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-arte-6-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un poco de historia",
+          "translation": {
+            "en": "a little history",
+            "it": "un po' di storia",
+            "nl": "een beetje geschiedenis"
+          },
+          "distractors": {
+            "en": [
+              "a lot of history",
+              "a little art"
+            ],
+            "it": [
+              "tanta storia",
+              "un po' d'arte"
+            ],
+            "nl": [
+              "veel geschiedenis",
+              "een beetje kunst"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes de visitar las ruinas, leímos un poco de historia.",
+          "translation": {
+            "en": "Before visiting the ruins, we read a little history.",
+            "it": "Prima di visitare le rovine, abbiamo letto un po' di storia.",
+            "nl": "Voordat we de ruïnes bezochten, lazen we iets over de geschiedenis."
+          },
+          "distractors": {
+            "en": [
+              "After visiting the ruins, we read a little history.",
+              "Before visiting the museum, we read a little history."
+            ],
+            "it": [
+              "Dopo aver visitato le rovine, abbiamo letto un po' di storia.",
+              "Prima di visitare il museo, abbiamo letto un po' di storia."
+            ],
+            "nl": [
+              "Nadat we de ruïnes bezochten, lazen we iets over de geschiedenis.",
+              "Voordat we het museum bezochten, lazen we iets over de geschiedenis."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "la historia de la ciudad",
+          "translation": {
+            "en": "the history of the city",
+            "it": "la storia della città",
+            "nl": "de geschiedenis van de stad"
+          },
+          "distractors": {
+            "en": [
+              "the history of the church",
+              "the map of the city"
+            ],
+            "it": [
+              "la storia della chiesa",
+              "la cartina della città"
+            ],
+            "nl": [
+              "de geschiedenis van de kerk",
+              "de kaart van de stad"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La guía nos contó la historia de la ciudad.",
+          "translation": {
+            "en": "The guide told us the history of the city.",
+            "it": "La guida ci ha raccontato la storia della città.",
+            "nl": "De gids vertelde ons de geschiedenis van de stad."
+          },
+          "distractors": {
+            "en": [
+              "The guide showed us the map of the city.",
+              "The guide told us the history of the church."
+            ],
+            "it": [
+              "La guida ci ha mostrato la cartina della città.",
+              "La guida ci ha raccontato la storia della chiesa."
+            ],
+            "nl": [
+              "De gids liet ons de kaart van de stad zien.",
+              "De gids vertelde ons de geschiedenis van de kerk."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "inca",
+          "translation": {
+            "en": "Inca",
+            "it": "inca",
+            "nl": "Inca"
+          },
+          "distractors": {
+            "en": [
+              "Aztec",
+              "Maya"
+            ],
+            "it": [
+              "azteco",
+              "maya"
+            ],
+            "nl": [
+              "Azteek",
+              "Maya"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la capital de los incas",
+          "translation": {
+            "en": "the capital of the Incas",
+            "it": "la capitale degli inca",
+            "nl": "de hoofdstad van de Inca's"
+          },
+          "distractors": {
+            "en": [
+              "the capital of the Aztecs",
+              "the temple of the Incas"
+            ],
+            "it": [
+              "la capitale degli aztechi",
+              "il tempio degli inca"
+            ],
+            "nl": [
+              "de hoofdstad van de Azteken",
+              "de tempel van de Inca's"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuzco era la capital de los incas.",
+          "translation": {
+            "en": "Cuzco was the capital of the Incas.",
+            "it": "Cuzco era la capitale degli inca.",
+            "nl": "Cuzco was de hoofdstad van de Inca's."
+          },
+          "distractors": {
+            "en": [
+              "Cuzco was the capital of the Aztecs.",
+              "Cuzco is the capital of Peru."
+            ],
+            "it": [
+              "Cuzco era la capitale degli aztechi.",
+              "Cuzco è la capitale del Perù."
+            ],
+            "nl": [
+              "Cuzco was de hoofdstad van de Azteken.",
+              "Cuzco is de hoofdstad van Peru."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en el siglo dieciséis",
+          "variants": [
+            "en el siglo 16",
+            "en el siglo XVI"
+          ],
+          "translation": {
+            "en": "in the sixteenth century",
+            "it": "nel sedicesimo secolo",
+            "nl": "in de zestiende eeuw"
+          },
+          "distractors": {
+            "en": [
+              "in the seventeenth century",
+              "sixteen centuries ago"
+            ],
+            "it": [
+              "nel diciassettesimo secolo",
+              "sedici secoli fa"
+            ],
+            "nl": [
+              "in de zeventiende eeuw",
+              "zestien eeuwen geleden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Los españoles llegaron a Cuzco en el siglo dieciséis.",
+          "variants": [
+            "Los españoles llegaron a Cuzco en el siglo 16.",
+            "Los españoles llegaron a Cuzco en el siglo XVI."
+          ],
+          "translation": {
+            "en": "The Spanish arrived in Cuzco in the sixteenth century.",
+            "it": "Gli spagnoli sono arrivati a Cuzco nel sedicesimo secolo.",
+            "nl": "De Spanjaarden kwamen in de zestiende eeuw in Cuzco aan."
+          },
+          "distractors": {
+            "en": [
+              "The Spanish left Cuzco in the sixteenth century.",
+              "The Spanish arrived in Cuzco in the seventeenth century."
+            ],
+            "it": [
+              "Gli spagnoli sono partiti da Cuzco nel sedicesimo secolo.",
+              "Gli spagnoli sono arrivati a Cuzco nel diciassettesimo secolo."
+            ],
+            "nl": [
+              "De Spanjaarden vertrokken in de zestiende eeuw uit Cuzco.",
+              "De Spanjaarden kwamen in de zeventiende eeuw in Cuzco aan."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "más de quinientos años",
+          "variants": [
+            "más de 500 años"
+          ],
+          "translation": {
+            "en": "more than five hundred years",
+            "it": "più di cinquecento anni",
+            "nl": "meer dan vijfhonderd jaar"
+          },
+          "distractors": {
+            "en": [
+              "less than five hundred years",
+              "more than fifty years"
+            ],
+            "it": [
+              "meno di cinquecento anni",
+              "più di cinquanta anni"
+            ],
+            "nl": [
+              "minder dan vijfhonderd jaar",
+              "meer dan vijftig jaar"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esta iglesia tiene más de quinientos años.",
+          "variants": [
+            "Esta iglesia tiene más de 500 años."
+          ],
+          "translation": {
+            "en": "This church is more than five hundred years old.",
+            "it": "Questa chiesa ha più di cinquecento anni.",
+            "nl": "Deze kerk is meer dan vijfhonderd jaar oud."
+          },
+          "distractors": {
+            "en": [
+              "This church is less than five hundred years old.",
+              "This museum is more than five hundred years old."
+            ],
+            "it": [
+              "Questa chiesa ha meno di cinquecento anni.",
+              "Questo museo ha più di cinquecento anni."
+            ],
+            "nl": [
+              "Deze kerk is minder dan vijfhonderd jaar oud.",
+              "Dit museum is meer dan vijfhonderd jaar oud."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes, este edificio era un hospital.",
+          "translation": {
+            "en": "This building used to be a hospital.",
+            "it": "Prima, questo edificio era un ospedale.",
+            "nl": "Vroeger was dit gebouw een ziekenhuis."
+          },
+          "distractors": {
+            "en": [
+              "This building used to be a school.",
+              "This building used to be a museum."
+            ],
+            "it": [
+              "Prima, questo edificio era una scuola.",
+              "Prima, questo edificio era un museo."
+            ],
+            "nl": [
+              "Vroeger was dit gebouw een school.",
+              "Vroeger was dit gebouw een museum."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el museo de historia",
+          "translation": {
+            "en": "the history museum",
+            "it": "il museo di storia",
+            "nl": "het geschiedenismuseum"
+          },
+          "distractors": {
+            "en": [
+              "the art museum",
+              "the history book"
+            ],
+            "it": [
+              "il museo d'arte",
+              "il libro di storia"
+            ],
+            "nl": [
+              "het kunstmuseum",
+              "het geschiedenisboek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-arte-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aprendí mucho en el museo de historia.",
+          "translation": {
+            "en": "I learned a lot at the history museum.",
+            "it": "Ho imparato molto al museo di storia.",
+            "nl": "Ik heb veel geleerd in het geschiedenismuseum."
+          },
+          "distractors": {
+            "en": [
+              "I learned a lot at the art museum.",
+              "I learned very little at the history museum."
+            ],
+            "it": [
+              "Ho imparato molto al museo d'arte.",
+              "Ho imparato poco al museo di storia."
+            ],
+            "nl": [
+              "Ik heb veel geleerd in het kunstmuseum.",
+              "Ik heb weinig geleerd in het geschiedenismuseum."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

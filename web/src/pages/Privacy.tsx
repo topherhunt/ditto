@@ -3,18 +3,18 @@ import { CONTACT_EMAIL, FEEDBACK_URL } from "../links.ts";
 
 // Every claim here must match the code. docs/privacy.md lists what to update when data handling changes.
 export function Privacy() {
-  const mail = <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
+  const mail = () => <a class="qa-contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
   return (
     <article class="qa-privacy">
       <h1 class="h4 mb-1">Privacy policy</h1>
       <p class="text-body-secondary small">Last updated 30 September 2026</p>
 
       <div class="alert alert-secondary">
-        <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, without your name or email. You can get a copy of your data or have your account deleted by emailing {mail}.
+        <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, without your name or email. We never store your voice. You can get a copy of your data or have your account deleted by emailing {mail()}.
       </div>
 
       <h2 class="h5 mt-4">Who we are</h2>
-      <p>Ditto (ditto.topherhunt.com) is a free language-practice app run by Topher Hunt, an individual, who is the controller of your personal data. For anything about your data, email {mail}.</p>
+      <p>Ditto (ditto.topherhunt.com) is a free language-practice app run by Topher Hunt, an individual, who is the controller of your personal data. For anything about your data, email {mail()}.</p>
 
       <h2 class="h5 mt-4">What we store and why</h2>
       <ul class="d-flex flex-column gap-2">
@@ -55,7 +55,7 @@ export function Privacy() {
       <p>Your account, practice and conversations are kept while your account exists. Per-person usage metrics are kept for 90 days. Nightly backups are kept for 14 days, so data you delete is gone from them within two weeks. Explanations the AI writes are cached by exercise and answer, not by who asked, so they stay after your account is deleted without any link to you.</p>
 
       <h2 class="h5 mt-4">Your rights</h2>
-      <p>You can change your username, profile visibility and settings any time in Settings. By emailing {mail}, you can also:</p>
+      <p>You can change your username, profile visibility and settings any time in Settings. By emailing {mail()}, you can also:</p>
       <ul>
         <li>get a copy of your data, in a machine-readable format;</li>
         <li>have anything inaccurate corrected;</li>

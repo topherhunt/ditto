@@ -321,6 +321,19 @@ describe("conversation mode", () => {
       .toEqual({ locale: "en", help_locale: "en", ui_locale: "en" });
   });
 
+  it("maps Spanish to the es-419 locale, for immersion and for a learner whose own language it is", async () => {
+    const t = await speak();
+    const startEs = async () => (await t.req("POST", "/api/conversations", { language: "es", level: "A2", scenario: { starter: "cafe" }, hardMode: false })).json.id;
+    const row = (id: number) => t.deps.db.prepare("SELECT locale, help_locale, ui_locale FROM conversations WHERE id = ?").get(id);
+    const prefs = (await t.req("GET", "/api/me")).json.prefs.es;
+    await t.req("PUT", "/api/prefs", { language: "es", prefs: { ...prefs, immerseUi: true, immerseHelp: true } });
+    expect(row(await startEs())).toEqual({ locale: "en", help_locale: "es-419", ui_locale: "es-419" });
+
+    await t.req("PUT", "/api/prefs", { language: "es", prefs });
+    await t.req("PUT", "/api/locale", { locale: "es-419" });
+    expect(row(await startEs())).toEqual({ locale: "en", help_locale: "en", ui_locale: "en" });
+  });
+
   it("keeps hard mode per conversation", async () => {
     const t = await speak();
     const conv = await t.start();
@@ -334,7 +347,7 @@ describe("conversation mode", () => {
     expect(shown).toEqual([]);
   });
 
-  it("sends a learner's recording to transcription without storing it, but keeps an admin's own", async () => {
+  it("sends a recording to transcription without storing it, even an admin's", async () => {
     const t = await speak();
     const heard: [string, string][] = [];
     const transcribe = t.ai.transcribe;
@@ -345,15 +358,13 @@ describe("conversation mode", () => {
     const first = (await t.reply(conv.id)).json;
     const retry = (await t.reply(conv.id, { target: first.attempt.target })).json;
     expect(heard).toEqual([[audio, "reply.webm"], [audio, "reply.webm"]]);
-    expect(first.attempt.audioUrl).toBeNull();
     expect(retry.turns[0]).toMatchObject({ role: "learner", audioUrl: null });
-    expect(recordings()).toEqual([]);
 
     await t.login("admin@example.com");
     const own = await t.start();
-    const kept = (await t.reply(own.id)).json.attempt;
-    expect(recordings()).toHaveLength(1);
-    expect((await t.req("GET", kept.audioUrl)).headers.get("content-type")).toBe("audio/webm");
+    await t.reply(own.id);
+    expect(heard).toHaveLength(3);
+    expect(recordings()).toEqual([]);
   });
 
   it("hides a conversation and its audio from other learners, but lets admins hear it", async () => {

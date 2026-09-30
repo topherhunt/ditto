@@ -1,0 +1,4306 @@
+{
+  "id": "es-b1-imprevistos",
+  "language": "es",
+  "level": "B1",
+  "order": 22,
+  "title": "Imprevistos de viaje",
+  "description": {
+    "en": "Handling canceled flights, strikes and lost luggage, and telling what had already happened",
+    "it": "Affrontare voli cancellati, scioperi e bagagli smarriti, e raccontare cosa era già successo",
+    "nl": "Omgaan met geannuleerde vluchten, stakingen en verloren bagage, en vertellen wat er al gebeurd was"
+  },
+  "track": "main",
+  "requires": [
+    "es-a2-cortesia"
+  ],
+  "introduces": [
+    "aerolínea",
+    "equipaje",
+    "huelga",
+    "aduana",
+    "frontera",
+    "pasajero",
+    "abordar",
+    "aterrizar",
+    "despegar",
+    "escala",
+    "conexión",
+    "cancelar",
+    "reclamar",
+    "mostrador",
+    "advertir",
+    "paciencia",
+    "aventura",
+    "mochila",
+    "piloto",
+    "terminal",
+    "compensación",
+    "cuanto",
+    "resultar",
+    "aún",
+    "asiento",
+    "avisar",
+    "anterior",
+    "imprevisto",
+    "dólar"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as object it isn't translated: le mandé un mensaje a mi mamá",
+        "it": "a; davanti a una persona oggetto non si traduce sempre: le mandé un mensaje a mi mamá",
+        "nl": "naar, aan; vóór een persoon als voorwerp vaak niet vertaald: le mandé un mensaje a mi mamá"
+      }
+    },
+    "abierto#abrir": {
+      "lemma": "abrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "opened, irregular (participle of abrir)",
+        "it": "aperto, irregolare (participio di abrir)",
+        "nl": "geopend, onregelmatig (voltooid deelwoord van abrir)"
+      }
+    },
+    "abordado": {
+      "lemma": "abordar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "boarded (participle of abordar)",
+        "it": "imbarcato (participio di abordar)",
+        "nl": "ingestapt (voltooid deelwoord van abordar)"
+      }
+    },
+    "abordar": {
+      "lemma": "abordar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to board (a plane, bus or ship)",
+        "it": "imbarcarsi, salire a bordo",
+        "nl": "instappen, aan boord gaan"
+      }
+    },
+    "aduana": {
+      "lemma": "aduana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "customs (f); pasar por la aduana = go through customs",
+        "it": "dogana (f); pasar por la aduana = passare la dogana",
+        "nl": "douane (f); pasar por la aduana = door de douane gaan"
+      }
+    },
+    "advertido": {
+      "lemma": "advertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "warned (participle of advertir)",
+        "it": "avvertito (participio di advertir)",
+        "nl": "gewaarschuwd (voltooid deelwoord van advertir)"
+      }
+    },
+    "advertir": {
+      "lemma": "advertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to warn; advertir de = warn about; watch out: not advertise",
+        "it": "avvertire; advertir de = avvertire di",
+        "nl": "waarschuwen; advertir de = waarschuwen voor; let op: niet adverteren"
+      }
+    },
+    "aerolínea": {
+      "lemma": "aerolínea",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "airline (f)",
+        "it": "compagnia aerea (f)",
+        "nl": "luchtvaartmaatschappij (f)"
+      }
+    },
+    "aeropuerto": {
+      "lemma": "aeropuerto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "airport (m)",
+        "it": "aeroporto (m)",
+        "nl": "vliegveld (m)"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (a + el)",
+        "it": "al (a + el)",
+        "nl": "naar de, naar het (a + el)"
+      }
+    },
+    "alguien": {
+      "lemma": "alguien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "someone, somebody",
+        "it": "qualcuno",
+        "nl": "iemand"
+      }
+    },
+    "alguna": {
+      "lemma": "alguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, any (feminine; alguno); ¿Alguna vez...? = Have you ever...?",
+        "it": "qualche (femminile; alguno); ¿Alguna vez...? = ... mai?",
+        "nl": "een, enige (vrouwelijk; alguno); ¿Alguna vez...? = ooit?"
+      }
+    },
+    "anterior": {
+      "lemma": "anterior",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "previous, before; la noche anterior = the night before",
+        "it": "precedente; la noche anterior = la sera prima",
+        "nl": "vorig, voorafgaand; la noche anterior = de avond ervoor"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before, earlier; antes de + infinitive = before ...ing; tres horas antes = three hours early",
+        "it": "prima; antes de + infinito = prima di; tres horas antes = tre ore prima",
+        "nl": "eerder, van tevoren; antes de + infinitief = voordat; tres horas antes = drie uur van tevoren"
+      }
+    },
+    "apagué": {
+      "lemma": "apagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I turned off (apagar; spelled apagué)",
+        "it": "ho spento (apagar; si scrive apagué)",
+        "nl": "ik zette uit (apagar; gespeld apagué)"
+      }
+    },
+    "asiento": {
+      "lemma": "asiento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "seat (m)",
+        "it": "posto, sedile (m)",
+        "nl": "stoel, zitplaats (m)"
+      }
+    },
+    "asientos": {
+      "lemma": "asiento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "seats (plural of asiento, m)",
+        "it": "posti (plurale di asiento, m)",
+        "nl": "stoelen (meervoud van asiento, m)"
+      }
+    },
+    "así": {
+      "lemma": "así",
+      "pos": "ADV",
+      "gloss": {
+        "en": "like this, so; así que = so, therefore",
+        "it": "così; así que = quindi",
+        "nl": "zo; así que = dus"
+      }
+    },
+    "aterrizamos": {
+      "lemma": "aterrizar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we landed (aterrizar; the same form means we land)",
+        "it": "siamo atterrati (aterrizar; la stessa forma vale per il presente)",
+        "nl": "we landden (aterrizar; dezelfde vorm is ook tegenwoordige tijd)"
+      }
+    },
+    "aterrizar": {
+      "lemma": "aterrizar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to land (a plane)",
+        "it": "atterrare",
+        "nl": "landen"
+      }
+    },
+    "autobús": {
+      "lemma": "autobús",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bus (m)",
+        "it": "autobus (m)",
+        "nl": "bus (m)"
+      }
+    },
+    "aventura": {
+      "lemma": "aventura",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "adventure (f); ¡Qué aventura! = What an adventure!",
+        "it": "avventura (f); ¡Qué aventura! = Che avventura!",
+        "nl": "avontuur (f); ¡Qué aventura! = Wat een avontuur!"
+      }
+    },
+    "avisar": {
+      "lemma": "avisar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to let know, to tell in advance; sin avisar = without warning",
+        "it": "avvisare; sin avisar = senza avvisare",
+        "nl": "laten weten, van tevoren zeggen; sin avisar = zonder iets te laten weten"
+      }
+    },
+    "avión": {
+      "lemma": "avión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "airplane (m); en avión = by plane",
+        "it": "aereo (m); en avión = in aereo",
+        "nl": "vliegtuig (m); en avión = met het vliegtuig"
+      }
+    },
+    "aún": {
+      "lemma": "aún",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet; aún no = not yet (like todavía no); without the accent, aun = even",
+        "it": "ancora; aún no = non ancora (come todavía no); senza accento, aun = perfino",
+        "nl": "nog; aún no = nog niet (zoals todavía no); zonder accent betekent aun zelfs"
+      }
+    },
+    "bajamos": {
+      "lemma": "bajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we got off, we went down (bajar); the same form means we get off",
+        "it": "siamo scesi (bajar); la stessa forma vale per il presente",
+        "nl": "we stapten uit, we gingen naar beneden (bajar); dezelfde vorm is ook tegenwoordige tijd"
+      }
+    },
+    "bajar": {
+      "lemma": "bajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go down; bajar del avión = get off the plane",
+        "it": "scendere; bajar del avión = scendere dall'aereo",
+        "nl": "naar beneden gaan; bajar del avión = uit het vliegtuig stappen"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "well, fine; salir bien = turn out fine",
+        "it": "bene; salir bien = andare bene",
+        "nl": "goed; salir bien = goed aflopen"
+      }
+    },
+    "busqué": {
+      "lemma": "buscar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I looked for (buscar; spelled busqué); no word for for: busqué el autobús",
+        "it": "ho cercato (buscar; si scrive busqué)",
+        "nl": "ik zocht (buscar; gespeld busqué); zonder naar: busqué el autobús"
+      }
+    },
+    "cambiamos": {
+      "lemma": "cambiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we changed (cambiar); cambiar dólares a pesos = change dollars into pesos",
+        "it": "abbiamo cambiato (cambiar); cambiar dólares a pesos = cambiare dollari in pesos",
+        "nl": "we wisselden (cambiar); cambiar dólares a pesos = dollars in pesos wisselen"
+      }
+    },
+    "cambió": {
+      "lemma": "cambiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "changed (cambiar)",
+        "it": "ha cambiato (cambiar)",
+        "nl": "veranderde (cambiar)"
+      }
+    },
+    "cancelado": {
+      "lemma": "cancelar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "canceled (participle of cancelar)",
+        "it": "cancellato (participio di cancelar)",
+        "nl": "geannuleerd (voltooid deelwoord van cancelar)"
+      }
+    },
+    "cancelar": {
+      "lemma": "cancelar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to cancel",
+        "it": "cancellare, annullare",
+        "nl": "annuleren"
+      }
+    },
+    "canceló": {
+      "lemma": "cancelar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "canceled (cancelar)",
+        "it": "ha cancellato (cancelar)",
+        "nl": "annuleerde (cancelar)"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); volver a casa = come back home",
+        "it": "casa (f); volver a casa = tornare a casa",
+        "nl": "huis (f); volver a casa = naar huis terugkomen"
+      }
+    },
+    "celular": {
+      "lemma": "celular",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cell phone (m)",
+        "it": "cellulare (m)",
+        "nl": "mobiele telefoon (m)"
+      }
+    },
+    "centro": {
+      "lemma": "centro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "center, downtown (m); en el centro = downtown",
+        "it": "centro (m)",
+        "nl": "centrum (m)"
+      }
+    },
+    "cerca": {
+      "lemma": "cerca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "near, close; cerca de = near",
+        "it": "vicino; cerca de = vicino a",
+        "nl": "dichtbij; cerca de = dicht bij"
+      }
+    },
+    "cerrada": {
+      "lemma": "cerrado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed (feminine; cerrado)",
+        "it": "chiusa (femminile; cerrado)",
+        "nl": "dicht, gesloten (vrouwelijk; cerrado)"
+      }
+    },
+    "cerrado#cerrar": {
+      "lemma": "cerrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "closed (participle of cerrar)",
+        "it": "chiuso (participio di cerrar)",
+        "nl": "gesloten (voltooid deelwoord van cerrar)"
+      }
+    },
+    "cerré": {
+      "lemma": "cerrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I closed (cerrar); cerrar los ojos = close your eyes",
+        "it": "ho chiuso (cerrar); cerrar los ojos = chiudere gli occhi",
+        "nl": "ik deed dicht (cerrar); cerrar los ojos = je ogen dichtdoen"
+      }
+    },
+    "chaqueta": {
+      "lemma": "chaqueta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jacket (f)",
+        "it": "giacca (f)",
+        "nl": "jas, jasje (f)"
+      }
+    },
+    "ciudad": {
+      "lemma": "ciudad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "como": {
+      "lemma": "como",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "like, as; at the start of a sentence, since: Como no había vuelos... = Since there were no flights...",
+        "it": "come; all'inizio della frase, siccome: Como no había vuelos... = Siccome non c'erano voli...",
+        "nl": "zoals, als; aan het begin van de zin, omdat: Como no había vuelos... = Omdat er geen vluchten waren..."
+      }
+    },
+    "compensación": {
+      "lemma": "compensación",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "compensation (f)",
+        "it": "risarcimento, indennizzo (f)",
+        "nl": "schadevergoeding, compensatie (f)"
+      }
+    },
+    "comprado": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "bought (participle of comprar)",
+        "it": "comprato (participio di comprar)",
+        "nl": "gekocht (voltooid deelwoord van comprar)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "conexión": {
+      "lemma": "conexión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "connection, connecting flight (f); perder la conexión = miss your connection",
+        "it": "coincidenza (f); perder la conexión = perdere la coincidenza",
+        "nl": "aansluiting, overstap (f); perder la conexión = je aansluiting missen"
+      }
+    },
+    "corrimos": {
+      "lemma": "correr",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we ran (correr)",
+        "it": "siamo corsi (correr)",
+        "nl": "we renden (correr)"
+      }
+    },
+    "cuando": {
+      "lemma": "cuando",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "when (no accent; ¿cuándo? asks the question)",
+        "it": "quando (senza accento; ¿cuándo? nelle domande)",
+        "nl": "toen, wanneer (zonder accent; ¿cuándo? in vragen)"
+      }
+    },
+    "cuanto": {
+      "lemma": "cuanto",
+      "pos": "ADV",
+      "gloss": {
+        "en": "en cuanto = as soon as; no accent, unlike ¿cuánto? = how much",
+        "it": "en cuanto = appena; attenzione: non significa in quanto; senza accento, a differenza di ¿cuánto?",
+        "nl": "en cuanto = zodra; zonder accent, anders dan ¿cuánto? = hoeveel"
+      }
+    },
+    "cuenta#idiom": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "darse cuenta (de) = realize, notice; watch out: realize is not realizar",
+        "it": "darse cuenta (de) = accorgersi (di), rendersi conto (di)",
+        "nl": "darse cuenta (de) = merken, beseffen"
+      }
+    },
+    "cuzco": {
+      "lemma": "Cuzco",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cuzco, a city in Peru",
+        "it": "Cuzco, città del Perù",
+        "nl": "Cuzco, een stad in Peru"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from, about; advertir de = warn about; salir de = leave",
+        "it": "di, da; advertir de = avvertire di; salir de = uscire da",
+        "nl": "van, over, uit; advertir de = waarschuwen voor; salir de = verlaten"
+      }
+    },
+    "dejado": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "left (participle of dejar)",
+        "it": "lasciato (participio di dejar)",
+        "nl": "gelaten, laten liggen (voltooid deelwoord van dejar)"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el); bajar del avión = get off the plane",
+        "it": "del, dal (de + el); bajar del avión = scendere dall'aereo",
+        "nl": "van de, uit de (de + el); bajar del avión = uit het vliegtuig stappen"
+      }
+    },
+    "despegado": {
+      "lemma": "despegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "taken off (participle of despegar)",
+        "it": "decollato (participio di despegar)",
+        "nl": "opgestegen (voltooid deelwoord van despegar)"
+      }
+    },
+    "despegar": {
+      "lemma": "despegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to take off (a plane)",
+        "it": "decollare",
+        "nl": "opstijgen"
+      }
+    },
+    "después": {
+      "lemma": "después",
+      "pos": "ADV",
+      "gloss": {
+        "en": "after, later; después de + infinitive = after ...ing; tres días después = three days later",
+        "it": "dopo; después de + infinito = dopo aver...; tres días después = tre giorni dopo",
+        "nl": "daarna, later; después de + infinitief = na het ...; tres días después = drie dagen later"
+      }
+    },
+    "devuelto": {
+      "lemma": "devolver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "given back, irregular (participle of devolver)",
+        "it": "restituito, irregolare (participio di devolver)",
+        "nl": "teruggegeven, onregelmatig (voltooid deelwoord van devolver)"
+      }
+    },
+    "di": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I gave (dar: di, dio); me di cuenta = I realized",
+        "it": "ho dato (dar: di, dio); me di cuenta = ho capito, me ne sono reso conto",
+        "nl": "ik gaf (dar: di, dio); me di cuenta = ik besefte"
+      }
+    },
+    "dijeron": {
+      "lemma": "decir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they said, they told (decir: dijeron); me dijeron que = they told me that",
+        "it": "hanno detto (decir: dijeron); me dijeron que = mi hanno detto che",
+        "nl": "ze zeiden (decir: dijeron); me dijeron que = ze zeiden me dat"
+      }
+    },
+    "dinero": {
+      "lemma": "dinero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "money (m)",
+        "it": "soldi, denaro (m; singolare: el dinero)",
+        "nl": "geld (m)"
+      }
+    },
+    "dormí": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I slept (dormir)",
+        "it": "ho dormito (dormir)",
+        "nl": "ik sliep (dormir)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "día": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day (m, although it ends in -a)",
+        "it": "giorno (m)",
+        "nl": "dag (m)"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (plural of día, m)",
+        "it": "giorni (plurale di día, m)",
+        "nl": "dagen (meervoud van día, m)"
+      }
+    },
+    "dólares": {
+      "lemma": "dólar",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dollars (plural of dólar, m)",
+        "it": "dollari (plurale di dólar, m)",
+        "nl": "dollars (meervoud van dólar, m)"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine singular)",
+        "it": "il, lo (maschile singolare)",
+        "nl": "de, het (mannelijk enkelvoud)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on, at; en el avión = on the plane; en cuanto = as soon as",
+        "it": "in, su, a; en el avión = in aereo; en cuanto = appena",
+        "nl": "in, op; en el avión = in het vliegtuig; en cuanto = zodra"
+      }
+    },
+    "encontraba": {
+      "lemma": "encontrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I was finding (encontrar, imperfect); no encontraba = I couldn't find",
+        "it": "trovavo (encontrar, imperfetto); no encontraba = non trovavo",
+        "nl": "ik vond (encontrar, onvoltooid verleden tijd); no encontraba = ik kon niet vinden"
+      }
+    },
+    "encontraron": {
+      "lemma": "encontrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they found (encontrar)",
+        "it": "hanno trovato (encontrar)",
+        "nl": "ze vonden (encontrar)"
+      }
+    },
+    "equipaje": {
+      "lemma": "equipaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "luggage, baggage (m); singular in Spanish: el equipaje",
+        "it": "bagaglio, bagagli (m); singolare in spagnolo: el equipaje",
+        "nl": "bagage (m)"
+      }
+    },
+    "escala": {
+      "lemma": "escala",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "layover, stopover (f); hacer escala = stop over",
+        "it": "scalo (f); hacer escala = fare scalo",
+        "nl": "tussenstop, tussenlanding (f); hacer escala = een tussenstop maken"
+      }
+    },
+    "ese": {
+      "lemma": "ese",
+      "pos": "DET",
+      "gloss": {
+        "en": "that (masculine); ese viaje = that trip",
+        "it": "quel, quello; ese viaje = quel viaggio",
+        "nl": "die, dat; ese viaje = die reis"
+      }
+    },
+    "esperar": {
+      "lemma": "esperar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wait; also to hope",
+        "it": "aspettare; attenzione: esperar = aspettare e anche sperare",
+        "nl": "wachten; ook hopen"
+      }
+    },
+    "estaba": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was (estar, imperfect); estaba cerrada = was closed",
+        "it": "era (estar, imperfetto); estaba cerrada = era chiusa",
+        "nl": "was (estar, onvoltooid verleden tijd); estaba cerrada = was dicht"
+      }
+    },
+    "final": {
+      "lemma": "final",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); al final = in the end",
+        "it": "fine (m); al final = alla fine",
+        "nl": "einde (m); al final = uiteindelijk"
+      }
+    },
+    "frontera": {
+      "lemma": "frontera",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "border (f); la frontera con = the border with",
+        "it": "frontiera, confine (f)",
+        "nl": "grens (f); la frontera con = de grens met"
+      }
+    },
+    "fruta": {
+      "lemma": "fruta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fruit (f)",
+        "it": "frutta (f); una fruta = un frutto",
+        "nl": "fruit (f); una fruta = een vrucht"
+      }
+    },
+    "fuimos#ir": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we went (ir; the same form is we were, from ser); fuimos a reclamar = we went to complain",
+        "it": "siamo andati (ir; la stessa forma vale per ser: siamo stati)",
+        "nl": "we gingen (ir; dezelfde vorm betekent ook we waren, van ser)"
+      }
+    },
+    "guatemala": {
+      "lemma": "Guatemala",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Guatemala",
+        "it": "Guatemala",
+        "nl": "Guatemala"
+      }
+    },
+    "había": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (haber + participle: había salido = had left); alone, there was, there were: no había vuelos",
+        "it": "avevo, aveva, ero, era (haber + participio: había salido = era partito); da solo, c'era, c'erano; attenzione: sempre haber, mai ser",
+        "nl": "had, was (haber + deelwoord: había salido = was vertrokken); alleen: er was, er waren; let op: altijd haber, nooit ser"
+      }
+    },
+    "habíamos": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we had (haber + participle: habíamos llegado = we had arrived)",
+        "it": "avevamo, eravamo (haber + participio: habíamos llegado = eravamo arrivati); attenzione: sempre haber, mai ser",
+        "nl": "we hadden, we waren (haber + deelwoord: habíamos llegado = we waren aangekomen); let op: altijd haber"
+      }
+    },
+    "habían": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they had (haber + participle: habían cancelado = they had canceled)",
+        "it": "avevano, erano (haber + participio: habían cancelado = avevano cancellato)",
+        "nl": "ze hadden, ze waren (haber + deelwoord: habían cancelado = ze hadden geannuleerd)"
+      }
+    },
+    "has": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (haber + participle, tú); ¿Alguna vez has...? = Have you ever...?",
+        "it": "hai (haber + participio, tú); ¿Alguna vez has...? = Hai mai...?",
+        "nl": "je hebt (haber + deelwoord, tú); ¿Alguna vez has...? = Heb je ooit...?"
+      }
+    },
+    "hasta": {
+      "lemma": "hasta",
+      "pos": "ADP",
+      "gloss": {
+        "en": "until",
+        "it": "fino a",
+        "nl": "tot"
+      }
+    },
+    "hora": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hour; time (f); ¿a qué hora? = at what time?",
+        "it": "ora (f); ¿a qué hora? = a che ora?",
+        "nl": "uur (f); ¿a qué hora? = hoe laat?"
+      }
+    },
+    "horas": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours (f)",
+        "it": "ore (f)",
+        "nl": "uren (f)"
+      }
+    },
+    "hotel": {
+      "lemma": "hotel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hotel (m)",
+        "it": "albergo, hotel (m)",
+        "nl": "hotel (m)"
+      }
+    },
+    "huelga": {
+      "lemma": "huelga",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "strike, stoppage of work (f); una huelga de pilotos = a pilots' strike",
+        "it": "sciopero (f); una huelga de pilotos = uno sciopero dei piloti",
+        "nl": "staking (f); una huelga de pilotos = een staking van de piloten"
+      }
+    },
+    "imprevisto": {
+      "lemma": "imprevisto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "unexpected problem, hitch (m)",
+        "it": "imprevisto (m)",
+        "nl": "onverwacht probleem, tegenvaller (m)"
+      }
+    },
+    "imprevistos": {
+      "lemma": "imprevisto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "unexpected problems (plural of imprevisto, m)",
+        "it": "imprevisti (plurale di imprevisto, m)",
+        "nl": "onverwachte problemen (meervoud van imprevisto, m)"
+      }
+    },
+    "juntos": {
+      "lemma": "junto",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "together (masculine plural of junto)",
+        "it": "insieme (plurale maschile di junto)",
+        "nl": "samen (mannelijk meervoud van junto)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine singular)",
+        "it": "la (femminile singolare)",
+        "nl": "de, het (vrouwelijk enkelvoud)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, her (object pronoun)",
+        "it": "la (pronome oggetto)",
+        "nl": "het, haar (lijdend voorwerp)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "to him, to her, to you (usted), indirect object; often doubled: le mandé un mensaje a mi mamá",
+        "it": "gli, le, Le (complemento di termine); spesso raddoppiato: le mandé un mensaje a mi mamá",
+        "nl": "(aan) hem, haar, u (meewerkend voorwerp); vaak dubbel: le mandé un mensaje a mi mamá"
+      }
+    },
+    "lima": {
+      "lemma": "Lima",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lima (capital of Peru)",
+        "it": "Lima (capitale del Perù)",
+        "nl": "Lima (hoofdstad van Peru)"
+      }
+    },
+    "limpia": {
+      "lemma": "limpio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "clean (feminine of limpio)",
+        "it": "pulita (femminile di limpio)",
+        "nl": "schoon (vrouwelijk van limpio)"
+      }
+    },
+    "lista": {
+      "lemma": "listo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ready (f); estar listo = to be ready",
+        "it": "pronta (f); estar listo = essere pronto",
+        "nl": "klaar (f); estar listo = klaar zijn"
+      }
+    },
+    "llegado": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrived (participle of llegar)",
+        "it": "arrivato (participio di llegar)",
+        "nl": "aangekomen (voltooid deelwoord van llegar)"
+      }
+    },
+    "llegamos": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we arrived, we got to (llegar; the same form means we arrive)",
+        "it": "siamo arrivati (llegar; la stessa forma vale per il presente)",
+        "nl": "we kwamen aan (llegar; dezelfde vorm is ook tegenwoordige tijd)"
+      }
+    },
+    "llegué": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I arrived, I got (llegar, preterite; g>gu before e); llegué tarde = I was late",
+        "it": "sono arrivato (llegar, indefinido; g>gu davanti a e); llegué tarde = ho fatto tardi",
+        "nl": "ik kwam aan (llegar, indefinido; g>gu vóór e); llegué tarde = ik kwam te laat"
+      }
+    },
+    "llegó": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrived, got there (he, she; you formal)",
+        "it": "è arrivato, è arrivata (lui, lei; Lei)",
+        "nl": "kwam aan (hij, zij; u)"
+      }
+    },
+    "llevar": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to take (along), to carry",
+        "it": "portare",
+        "nl": "meenemen, dragen"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (direct object, before the verb): lo había dejado = I had left it",
+        "it": "lo (oggetto diretto, prima del verbo): lo había dejado = l'avevo lasciato",
+        "nl": "het, hem (lijdend voorwerp, vóór het werkwoord): lo había dejado = ik had het laten liggen"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural); los lunes = on Mondays",
+        "it": "i, gli (maschile plurale); los lunes = il lunedì",
+        "nl": "de (mannelijk meervoud); los lunes = op maandag"
+      }
+    },
+    "los#pron": {
+      "lemma": "los",
+      "pos": "PRON",
+      "gloss": {
+        "en": "them (direct object, masculine or mixed): los cambió = changed them",
+        "it": "li (oggetto diretto maschile): los cambió = li ha cambiati",
+        "nl": "ze, hen (lijdend voorwerp, mannelijk of gemengd): los cambió = veranderde ze"
+      }
+    },
+    "maleta": {
+      "lemma": "maleta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "suitcase (f)",
+        "it": "valigia (f)",
+        "nl": "koffer (f)"
+      }
+    },
+    "mamá": {
+      "lemma": "mamá",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mom (f)",
+        "it": "mamma (f)",
+        "nl": "mama (f)"
+      }
+    },
+    "mandé": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I sent (mandar)",
+        "it": "ho mandato (mandar)",
+        "nl": "ik stuurde (mandar)"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me, myself; me dijeron = they told me; me di cuenta = I realized",
+        "it": "mi; me dijeron = mi hanno detto; me di cuenta = mi sono accorto",
+        "nl": "me, mij, mezelf; me dijeron = ze zeiden me; me di cuenta = ik besefte"
+      }
+    },
+    "mensaje": {
+      "lemma": "mensaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "message (m)",
+        "it": "messaggio (m)",
+        "nl": "bericht (m)"
+      }
+    },
+    "meses": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "months (plural of mes)",
+        "it": "mesi (plurale di mes)",
+        "nl": "maanden (meervoud van mes)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "il mio, la mia",
+        "nl": "mijn"
+      }
+    },
+    "mochila": {
+      "lemma": "mochila",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "backpack (f)",
+        "it": "zaino (f)",
+        "nl": "rugzak (f)"
+      }
+    },
+    "mostrador": {
+      "lemma": "mostrador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "counter, desk (m); el mostrador de la aerolínea = the airline counter",
+        "it": "banco, bancone (m); el mostrador de la aerolínea = il banco della compagnia aerea",
+        "nl": "balie (m); el mostrador de la aerolínea = de balie van de luchtvaartmaatschappij"
+      }
+    },
+    "mucha": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much (feminine of mucho)",
+        "it": "molta, tanta (femminile di mucho)",
+        "nl": "veel (vrouwelijk van mucho)"
+      }
+    },
+    "muchos": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "many, lots of (masculine plural)",
+        "it": "molti, tanti (maschile plurale)",
+        "nl": "veel"
+      }
+    },
+    "méxico": {
+      "lemma": "México",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Mexico",
+        "it": "Messico",
+        "nl": "Mexico"
+      }
+    },
+    "mí": {
+      "lemma": "mí",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me (after a preposition); a mí me pasó = it happened to me",
+        "it": "me (dopo una preposizione); a mí me pasó = a me è successo",
+        "nl": "mij (na een voorzetsel); a mí me pasó = mij is het overkomen"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing, anything; nadie sabía nada = nobody knew anything",
+        "it": "niente; nadie sabía nada = nessuno sapeva niente",
+        "nl": "niets; nadie sabía nada = niemand wist iets"
+      }
+    },
+    "nadie": {
+      "lemma": "nadie",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody, no one",
+        "it": "nessuno",
+        "nl": "niemand"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not (before the verb); no",
+        "it": "non (davanti al verbo); no",
+        "nl": "niet (vóór het werkwoord); nee"
+      }
+    },
+    "noche": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night, evening (f); esta noche = tonight; de noche = at night",
+        "it": "notte, sera (f); esta noche = stasera; de noche = di notte",
+        "nl": "nacht, avond (f); esta noche = vanavond; de noche = 's nachts"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us, ourselves; nos pidieron = they asked us",
+        "it": "ci; nos pidieron = ci hanno chiesto",
+        "nl": "ons; nos pidieron = ze vroegen ons"
+      }
+    },
+    "nunca": {
+      "lemma": "nunca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never",
+        "it": "mai",
+        "nl": "nooit"
+      }
+    },
+    "oficina": {
+      "lemma": "oficina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office (f)",
+        "it": "ufficio (f); attenzione: non è l'officina (taller)",
+        "nl": "kantoor (f)"
+      }
+    },
+    "ojos": {
+      "lemma": "ojo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "eyes (plural of ojo, m); cerrar los ojos = close your eyes",
+        "it": "occhi (plurale di ojo, m); cerrar los ojos = chiudere gli occhi",
+        "nl": "ogen (meervoud van ojo, m); cerrar los ojos = je ogen dichtdoen"
+      }
+    },
+    "olvidar": {
+      "lemma": "olvidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to forget; olvidarse = forget",
+        "it": "dimenticare; olvidarse = dimenticarsi",
+        "nl": "vergeten; olvidarse = vergeten"
+      }
+    },
+    "otra": {
+      "lemma": "otro",
+      "pos": "DET",
+      "gloss": {
+        "en": "other, another (feminine); otra vez = again; otra persona = someone else",
+        "it": "altra; otra vez = di nuovo; otra persona = qualcun altro",
+        "nl": "ander (vrouwelijk); otra vez = weer, opnieuw; otra persona = iemand anders"
+      }
+    },
+    "paciencia": {
+      "lemma": "paciencia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "patience (f); tener paciencia = be patient",
+        "it": "pazienza (f)",
+        "nl": "geduld (f); tener paciencia = geduld hebben"
+      }
+    },
+    "pagado": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "paid (participle of pagar)",
+        "it": "pagato (participio di pagar)",
+        "nl": "betaald (voltooid deelwoord van pagar)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, to, in order to; para mí = for me",
+        "it": "per; para mí = per me",
+        "nl": "voor, om te; para mí = voor mij"
+      }
+    },
+    "pasajero": {
+      "lemma": "pasajero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "passenger (m; f: pasajera)",
+        "it": "passeggero (m; f: pasajera)",
+        "nl": "passagier (m; v: pasajera)"
+      }
+    },
+    "pasajeros": {
+      "lemma": "pasajero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "passengers (plural of pasajero, m)",
+        "it": "passeggeri (plurale di pasajero, m)",
+        "nl": "passagiers (meervoud van pasajero, m)"
+      }
+    },
+    "pasamos": {
+      "lemma": "pasar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we spent (pasar); pasar la noche = spend the night",
+        "it": "abbiamo passato (pasar); pasar la noche = passare la notte",
+        "nl": "we brachten door (pasar); pasar la noche = de nacht doorbrengen"
+      }
+    },
+    "pasar": {
+      "lemma": "pasar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pass, to go through; to spend (time); to happen; pasar por la aduana = go through customs",
+        "it": "passare; succedere; pasar por la aduana = passare la dogana",
+        "nl": "passeren, door iets heen gaan; doorbrengen; gebeuren; pasar por la aduana = door de douane gaan"
+      }
+    },
+    "pasó": {
+      "lemma": "pasar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "happened (pasar); me pasó una vez = it happened to me once",
+        "it": "è successo (pasar); me pasó una vez = mi è successo una volta",
+        "nl": "gebeurde (pasar); me pasó una vez = het is me een keer overkomen"
+      }
+    },
+    "perdido": {
+      "lemma": "perdido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "lost (f: perdida)",
+        "it": "perso (f: perdida); estoy perdido = mi sono perso",
+        "nl": "verdwaald, kwijt (v: perdida)"
+      }
+    },
+    "perdido#perder": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lost, missed (participle of perder); perder un vuelo = miss a flight",
+        "it": "perso (participio di perder); perder un vuelo = perdere un volo",
+        "nl": "verloren, gemist (voltooid deelwoord van perder); perder un vuelo = een vlucht missen"
+      }
+    },
+    "perdieron": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they lost (perder)",
+        "it": "hanno perso (perder)",
+        "nl": "ze raakten kwijt (perder)"
+      }
+    },
+    "perdió": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lost (perder)",
+        "it": "ha perso (perder)",
+        "nl": "raakte kwijt (perder)"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "pesos": {
+      "lemma": "peso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pesos (m), the currency",
+        "it": "pesos (m), la moneta",
+        "nl": "peso's (m), de munt"
+      }
+    },
+    "pidieron": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they asked for (pedir: pidieron); nos pidieron paciencia = they asked us to be patient",
+        "it": "hanno chiesto (pedir: pidieron)",
+        "nl": "ze vroegen om (pedir: pidieron); nos pidieron paciencia = ze vroegen ons geduld te hebben"
+      }
+    },
+    "piloto": {
+      "lemma": "piloto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pilot (m; for a woman: la piloto)",
+        "it": "pilota (m; per una donna: la piloto)",
+        "nl": "piloot (m; voor een vrouw: la piloto)"
+      }
+    },
+    "pilotos": {
+      "lemma": "piloto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pilots (plural of piloto, m)",
+        "it": "piloti (plurale di piloto, m)",
+        "nl": "piloten (meervoud van piloto, m)"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "through, by, because of; por suerte = luckily; por la huelga = because of the strike; pasar por = go through",
+        "it": "per, attraverso; por suerte = per fortuna; por la huelga = per lo sciopero",
+        "nl": "door, via, vanwege; por suerte = gelukkig; por la huelga = vanwege de staking; pasar por = door iets heen gaan"
+      }
+    },
+    "porque": {
+      "lemma": "porque",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "because",
+        "it": "perché (risposta)",
+        "nl": "omdat, want"
+      }
+    },
+    "próxima": {
+      "lemma": "próximo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "next (feminine of próximo); la próxima vez = next time",
+        "it": "prossima (femminile di próximo); la próxima vez = la prossima volta",
+        "nl": "volgende (vrouwelijk van próximo); la próxima vez = de volgende keer"
+      }
+    },
+    "puerta": {
+      "lemma": "puerta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "door (f); at an airport, gate",
+        "it": "porta (f); in aeroporto, gate",
+        "nl": "deur (f); op het vliegveld, gate"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that; tener que = have to; decir que sí = say yes",
+        "it": "che; tener que = dovere; decir que sí = dire di sì",
+        "nl": "dat; tener que = moeten; decir que sí = ja zeggen"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what",
+        "it": "che cosa",
+        "nl": "wat"
+      }
+    },
+    "reclamar": {
+      "lemma": "reclamar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to claim, to file a complaint; reclamar una compensación = claim compensation",
+        "it": "reclamare, fare reclamo; reclamar una compensación = chiedere un risarcimento",
+        "nl": "een klacht indienen, eisen; reclamar una compensación = een vergoeding eisen"
+      }
+    },
+    "reclamé": {
+      "lemma": "reclamar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I claimed, I complained (reclamar)",
+        "it": "ho reclamato, ho chiesto (reclamar)",
+        "nl": "ik eiste, ik diende een klacht in (reclamar)"
+      }
+    },
+    "reserva": {
+      "lemma": "reserva",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reservation, booking (f)",
+        "it": "prenotazione (f)",
+        "nl": "reservering (f)"
+      }
+    },
+    "reservado": {
+      "lemma": "reservar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "booked (participle of reservar)",
+        "it": "prenotato (participio di reservar)",
+        "nl": "geboekt (voltooid deelwoord van reservar)"
+      }
+    },
+    "respondió": {
+      "lemma": "responder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "answered, replied (responder)",
+        "it": "ha risposto (responder)",
+        "nl": "antwoordde (responder)"
+      }
+    },
+    "resulta": {
+      "lemma": "resultar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "turns out (resultar); resulta que = it turns out that",
+        "it": "risulta (resultar); resulta que = viene fuori che",
+        "nl": "blijkt (resultar); resulta que = het blijkt dat"
+      }
+    },
+    "resultar": {
+      "lemma": "resultar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to turn out; resulta que... = it turns out that..., the thing is...",
+        "it": "risultare; resulta que... = viene fuori che..., il fatto è che...",
+        "nl": "blijken; resulta que... = het blijkt dat..., het zit zo..."
+      }
+    },
+    "revisar": {
+      "lemma": "revisar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to check, to inspect; revisar la maleta = search the suitcase",
+        "it": "controllare; revisar la maleta = controllare la valigia",
+        "nl": "controleren, nakijken; revisar la maleta = de koffer doorzoeken"
+      }
+    },
+    "revisaron": {
+      "lemma": "revisar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they checked, they searched (revisar); me revisaron la maleta = they searched my suitcase",
+        "it": "hanno controllato (revisar); me revisaron la maleta = mi hanno controllato la valigia",
+        "nl": "ze controleerden, ze doorzochten (revisar); me revisaron la maleta = ze doorzochten mijn koffer"
+      }
+    },
+    "ropa": {
+      "lemma": "ropa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "clothes (f, singular in Spanish)",
+        "it": "vestiti (f, singolare in spagnolo)",
+        "nl": "kleren (f, enkelvoud in het Spaans)"
+      }
+    },
+    "sabía": {
+      "lemma": "saber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "knew (saber, imperfect); nadie sabía = nobody knew",
+        "it": "sapeva (saber, imperfetto); nadie sabía = nessuno sapeva",
+        "nl": "wist (saber, onvoltooid verleden tijd); nadie sabía = niemand wist"
+      }
+    },
+    "salido": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "left (participle of salir)",
+        "it": "partito, uscito (participio di salir)",
+        "nl": "vertrokken (voltooid deelwoord van salir)"
+      }
+    },
+    "salimos": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we left, we came out (salir; the same form means we leave); salir de = leave, get out of",
+        "it": "siamo usciti (salir; la stessa forma vale per il presente); salir de = uscire da",
+        "nl": "we gingen weg, we kwamen uit (salir; dezelfde vorm is ook tegenwoordige tijd); salir de = verlaten"
+      }
+    },
+    "salir": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go out, to leave (salgo)",
+        "it": "uscire, partire (salgo); attenzione: non salire (= subir)",
+        "nl": "uitgaan, vertrekken (salgo)"
+      }
+    },
+    "salió": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "left, went out (salir); todo salió bien = everything turned out fine",
+        "it": "è uscito, è partito (salir); todo salió bien = è andato tutto bene",
+        "nl": "ging weg (salir); todo salió bien = alles liep goed af"
+      }
+    },
+    "siguiente": {
+      "lemma": "siguiente",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "next, following; al día siguiente = the next day",
+        "it": "seguente; al día siguiente = il giorno dopo",
+        "nl": "volgend; al día siguiente = de volgende dag"
+      }
+    },
+    "sin": {
+      "lemma": "sin",
+      "pos": "ADP",
+      "gloss": {
+        "en": "without; sin + infinitive: sin avisar = without warning",
+        "it": "senza; sin + infinito: sin avisar = senza avvisare",
+        "nl": "zonder; sin + infinitief: sin avisar = zonder iets te laten weten"
+      }
+    },
+    "suerte": {
+      "lemma": "suerte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "luck (f); por suerte = luckily",
+        "it": "fortuna (f); por suerte = per fortuna",
+        "nl": "geluk (f); por suerte = gelukkig"
+      }
+    },
+    "tenía": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I had, he or she had (tener, imperfect); no tenía ropa = I had no clothes",
+        "it": "avevo, aveva (tener, imperfetto); no tenía ropa = non avevo vestiti",
+        "nl": "ik had, hij of zij had (tener, onvoltooid verleden tijd); no tenía ropa = ik had geen kleren"
+      }
+    },
+    "teníamos": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we had (tener, imperfect)",
+        "it": "avevamo (tener, imperfetto)",
+        "nl": "we hadden (tener, onvoltooid verleden tijd)"
+      }
+    },
+    "tenían": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they had (tener, imperfect)",
+        "it": "avevano (tener, imperfetto)",
+        "nl": "ze hadden (tener, onvoltooid verleden tijd)"
+      }
+    },
+    "terminal": {
+      "lemma": "terminal",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "terminal, at an airport or bus station (f, la terminal)",
+        "it": "terminal (f in spagnolo: la terminal)",
+        "nl": "terminal (f, la terminal)"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still; todavía no = not yet",
+        "it": "ancora; todavía no = non ancora; attenzione: non significa tuttavia",
+        "nl": "nog; todavía no = nog niet"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "everything, all",
+        "it": "tutto",
+        "nl": "alles"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, everyone (plural of todo); todos los pasajeros = all the passengers",
+        "it": "tutti (plurale di todo); todos los pasajeros = tutti i passeggeri",
+        "nl": "alle, iedereen (meervoud van todo); todos los pasajeros = alle passagiers"
+      }
+    },
+    "tomamos": {
+      "lemma": "tomar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we took (tomar); tomar un autobús = take a bus",
+        "it": "abbiamo preso (tomar); tomar un autobús = prendere un autobus",
+        "nl": "we namen (tomar); tomar un autobús = een bus nemen"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three; a las tres = at three",
+        "it": "tre; a las tres = alle tre",
+        "nl": "drie; a las tres = om drie uur"
+      }
+    },
+    "tuvimos": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we had (tener: tuvimos); tuvimos que = we had to",
+        "it": "abbiamo avuto (tener: tuvimos); tuvimos que = abbiamo dovuto",
+        "nl": "we hadden (tener: tuvimos); tuvimos que = we moesten"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a masculine noun); also one",
+        "it": "un, uno; anche il numero uno",
+        "nl": "een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a feminine noun); also one",
+        "it": "una; anche il numero una",
+        "nl": "een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "uno": {
+      "lemma": "uno",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one; la terminal uno = terminal one",
+        "it": "uno; la terminal uno = il terminal uno",
+        "nl": "één; la terminal uno = terminal één"
+      }
+    },
+    "vez": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); tal vez = maybe",
+        "it": "volta (f); tal vez = forse",
+        "nl": "keer (f); tal vez = misschien"
+      }
+    },
+    "viaje": {
+      "lemma": "viaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip (m); irse de viaje = go away on a trip",
+        "it": "viaggio (m); irse de viaje = partire (per un viaggio)",
+        "nl": "reis (m); irse de viaje = op reis gaan"
+      }
+    },
+    "volvimos": {
+      "lemma": "volver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we came back, we returned (volver)",
+        "it": "siamo tornati (volver)",
+        "nl": "we kwamen terug (volver)"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (ir); voy a + infinitive = I'm going to",
+        "it": "vado (ir); voy a + infinito = sto per, ho intenzione di",
+        "nl": "ik ga (ir); voy a + infinitief = ik ga (iets doen)"
+      }
+    },
+    "vuelo": {
+      "lemma": "vuelo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "flight (m)",
+        "it": "volo (m)",
+        "nl": "vlucht (m)"
+      }
+    },
+    "vuelos": {
+      "lemma": "vuelo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "flights (plural of vuelo, m)",
+        "it": "voli (plurale di vuelo, m)",
+        "nl": "vluchten (meervoud van vuelo, m)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; ya había salido = had already left; ya no = no longer",
+        "it": "già; ya había salido = era già partito; ya no = non più; attenzione: ya = già, todavía = ancora",
+        "nl": "al; ya había salido = was al vertrokken; ya no = niet meer"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I; used for emphasis: ¡Pero yo había pagado! = But I had paid!",
+        "it": "io; per enfasi: ¡Pero yo había pagado! = Ma io avevo pagato!",
+        "nl": "ik; als nadruk: ¡Pero yo había pagado! = Maar ik had betaald!"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-b1-imprevistos-1",
+      "title": "Ya había reservado",
+      "grammarFocus": {
+        "en": [
+          "pluperfect: había + participle (Ya había reservado = I had already booked)",
+          "cuando + preterite, with the earlier event in the pluperfect"
+        ],
+        "it": [
+          "trapassato: había + participio (Ya había reservado = avevo già prenotato)",
+          "cuando + indefinido, con l'azione precedente al trapassato"
+        ],
+        "nl": [
+          "voltooid verleden tijd: había + deelwoord (Ya había reservado = ik had al geboekt)",
+          "cuando + verleden tijd, met de eerdere gebeurtenis in de voltooid verleden tijd"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "aerolínea",
+          "translation": {
+            "en": "airline",
+            "it": "compagnia aerea",
+            "nl": "luchtvaartmaatschappij"
+          },
+          "distractors": {
+            "en": [
+              "airport",
+              "travel agency"
+            ],
+            "it": [
+              "aeroporto",
+              "agenzia di viaggi"
+            ],
+            "nl": [
+              "vliegveld",
+              "reisbureau"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "cancelar",
+          "translation": {
+            "en": "to cancel",
+            "it": "cancellare",
+            "nl": "annuleren"
+          },
+          "distractors": {
+            "en": [
+              "to book",
+              "to change"
+            ],
+            "it": [
+              "prenotare",
+              "cambiare"
+            ],
+            "nl": [
+              "boeken",
+              "wijzigen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya había reservado",
+          "translation": {
+            "en": "I had already booked",
+            "it": "avevo già prenotato",
+            "nl": "ik had al geboekt"
+          },
+          "distractors": {
+            "en": [
+              "I hadn't booked yet",
+              "I had already paid"
+            ],
+            "it": [
+              "non avevo ancora prenotato",
+              "avevo già pagato"
+            ],
+            "nl": [
+              "ik had nog niet geboekt",
+              "ik had al betaald"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ya había reservado el hotel cuando la aerolínea canceló mi vuelo.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "I had already booked the hotel when the airline canceled my flight.",
+            "it": "Avevo già prenotato l'albergo quando la compagnia aerea ha cancellato il mio volo.",
+            "nl": "Ik had het hotel al geboekt toen de luchtvaartmaatschappij mijn vlucht annuleerde."
+          },
+          "distractors": {
+            "en": [
+              "I had already booked the hotel when the airline moved my flight.",
+              "I hadn't booked the hotel yet when the airline canceled my flight."
+            ],
+            "it": [
+              "Avevo già prenotato l'albergo quando la compagnia aerea ha spostato il mio volo.",
+              "Non avevo ancora prenotato l'albergo quando la compagnia aerea ha cancellato il mio volo."
+            ],
+            "nl": [
+              "Ik had het hotel al geboekt toen de luchtvaartmaatschappij mijn vlucht verplaatste.",
+              "Ik had het hotel nog niet geboekt toen de luchtvaartmaatschappij mijn vlucht annuleerde."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "asiento",
+          "translation": {
+            "en": "seat",
+            "it": "posto",
+            "nl": "zitplaats"
+          },
+          "distractors": {
+            "en": [
+              "window",
+              "ticket"
+            ],
+            "it": [
+              "finestrino",
+              "biglietto"
+            ],
+            "nl": [
+              "raam",
+              "kaartje"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dos asientos juntos",
+          "variants": [
+            "2 asientos juntos"
+          ],
+          "translation": {
+            "en": "two seats together",
+            "it": "due posti vicini",
+            "nl": "twee stoelen naast elkaar"
+          },
+          "distractors": {
+            "en": [
+              "two separate seats",
+              "three seats together"
+            ],
+            "it": [
+              "due posti separati",
+              "tre posti vicini"
+            ],
+            "nl": [
+              "twee aparte stoelen",
+              "drie stoelen naast elkaar"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "avisar",
+          "translation": {
+            "en": "to let know",
+            "it": "avvisare",
+            "nl": "laten weten"
+          },
+          "distractors": {
+            "en": [
+              "to complain",
+              "to wait"
+            ],
+            "it": [
+              "lamentarsi",
+              "aspettare"
+            ],
+            "nl": [
+              "klagen",
+              "wachten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Habíamos reservado dos asientos juntos, pero la aerolínea los cambió sin avisar.",
+          "variants": [
+            "Habíamos reservado 2 asientos juntos, pero la aerolínea los cambió sin avisar."
+          ],
+          "senses": {
+            "8": "pron"
+          },
+          "translation": {
+            "en": "We had booked two seats together, but the airline changed them without telling us.",
+            "it": "Avevamo prenotato due posti vicini, ma la compagnia aerea li ha cambiati senza avvisare.",
+            "nl": "We hadden twee stoelen naast elkaar geboekt, maar de luchtvaartmaatschappij heeft ze zonder bericht veranderd."
+          },
+          "distractors": {
+            "en": [
+              "We had booked two seats together, but the airline canceled them without telling us.",
+              "We had booked three seats together, but the airline changed them without telling us."
+            ],
+            "it": [
+              "Avevamo prenotato due posti vicini, ma la compagnia aerea li ha cancellati senza avvisare.",
+              "Avevamo prenotato tre posti vicini, ma la compagnia aerea li ha cambiati senza avvisare."
+            ],
+            "nl": [
+              "We hadden twee stoelen naast elkaar geboekt, maar de luchtvaartmaatschappij heeft ze zonder bericht geannuleerd.",
+              "We hadden drie stoelen naast elkaar geboekt, maar de luchtvaartmaatschappij heeft ze zonder bericht veranderd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "mochila",
+          "translation": {
+            "en": "backpack",
+            "it": "zaino",
+            "nl": "rugzak"
+          },
+          "distractors": {
+            "en": [
+              "suitcase",
+              "handbag"
+            ],
+            "it": [
+              "valigia",
+              "borsetta"
+            ],
+            "nl": [
+              "koffer",
+              "handtas"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la noche anterior",
+          "translation": {
+            "en": "the night before",
+            "it": "la sera prima",
+            "nl": "de avond ervoor"
+          },
+          "distractors": {
+            "en": [
+              "the next night",
+              "the week before"
+            ],
+            "it": [
+              "la sera dopo",
+              "la settimana prima"
+            ],
+            "nl": [
+              "de avond erna",
+              "de week ervoor"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Había dejado la mochila lista la noche anterior.",
+          "translation": {
+            "en": "I had gotten my backpack ready the night before.",
+            "it": "Avevo preparato lo zaino la sera prima.",
+            "nl": "Ik had mijn rugzak de avond ervoor klaargezet."
+          },
+          "distractors": {
+            "en": [
+              "I had gotten my suitcase ready the night before.",
+              "I had gotten my backpack ready the week before."
+            ],
+            "it": [
+              "Avevo preparato la valigia la sera prima.",
+              "Avevo preparato lo zaino la settimana prima."
+            ],
+            "nl": [
+              "Ik had mijn koffer de avond ervoor klaargezet.",
+              "Ik had mijn rugzak de week ervoor klaargezet."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "mostrador",
+          "translation": {
+            "en": "counter",
+            "it": "banco",
+            "nl": "balie"
+          },
+          "distractors": {
+            "en": [
+              "exit",
+              "waiting room"
+            ],
+            "it": [
+              "uscita",
+              "sala d'attesa"
+            ],
+            "nl": [
+              "uitgang",
+              "wachtruimte"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en el mostrador de la aerolínea",
+          "translation": {
+            "en": "at the airline counter",
+            "it": "al banco della compagnia aerea",
+            "nl": "bij de balie van de luchtvaartmaatschappij"
+          },
+          "distractors": {
+            "en": [
+              "at the hotel front desk",
+              "at the airline's office"
+            ],
+            "it": [
+              "alla reception dell'albergo",
+              "all'ufficio della compagnia aerea"
+            ],
+            "nl": [
+              "bij de receptie van het hotel",
+              "op het kantoor van de luchtvaartmaatschappij"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el mostrador de la aerolínea me dijeron que no tenían mi reserva.",
+          "commas": [
+            5
+          ],
+          "translation": {
+            "en": "At the airline counter, they told me they didn't have my reservation.",
+            "it": "Al banco della compagnia aerea mi hanno detto che non avevano la mia prenotazione.",
+            "nl": "Bij de balie van de luchtvaartmaatschappij zeiden ze dat ze mijn reservering niet hadden."
+          },
+          "distractors": {
+            "en": [
+              "At the hotel front desk, they told me they didn't have my reservation.",
+              "At the airline counter, they told me they had changed my reservation."
+            ],
+            "it": [
+              "Alla reception dell'albergo mi hanno detto che non avevano la mia prenotazione.",
+              "Al banco della compagnia aerea mi hanno detto che avevano cambiato la mia prenotazione."
+            ],
+            "nl": [
+              "Bij de receptie van het hotel zeiden ze dat ze mijn reservering niet hadden.",
+              "Bij de balie van de luchtvaartmaatschappij zeiden ze dat ze mijn reservering hadden veranderd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Pero yo había pagado todo dos meses antes!",
+          "variants": [
+            "¡Pero yo había pagado todo 2 meses antes!"
+          ],
+          "translation": {
+            "en": "But I had paid for everything two months before!",
+            "it": "Ma io avevo pagato tutto due mesi prima!",
+            "nl": "Maar ik had alles twee maanden van tevoren betaald!"
+          },
+          "distractors": {
+            "en": [
+              "But I had paid for everything two weeks before!",
+              "But I had booked everything two months before!"
+            ],
+            "it": [
+              "Ma io avevo pagato tutto due settimane prima!",
+              "Ma io avevo prenotato tutto due mesi prima!"
+            ],
+            "nl": [
+              "Maar ik had alles twee weken van tevoren betaald!",
+              "Maar ik had alles twee maanden van tevoren geboekt!"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Por suerte, habíamos llegado al aeropuerto tres horas antes.",
+          "variants": [
+            "Por suerte, habíamos llegado al aeropuerto 3 horas antes."
+          ],
+          "translation": {
+            "en": "Luckily, we had gotten to the airport three hours early.",
+            "it": "Per fortuna eravamo arrivati in aeroporto tre ore prima.",
+            "nl": "Gelukkig waren we drie uur van tevoren op het vliegveld aangekomen."
+          },
+          "distractors": {
+            "en": [
+              "Luckily, we had gotten to the station three hours early.",
+              "Luckily, we had gotten to the airport two hours early."
+            ],
+            "it": [
+              "Per fortuna eravamo arrivati in stazione tre ore prima.",
+              "Per fortuna eravamo arrivati in aeroporto due ore prima."
+            ],
+            "nl": [
+              "Gelukkig waren we drie uur van tevoren op het station aangekomen.",
+              "Gelukkig waren we twee uur van tevoren op het vliegveld aangekomen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-imprevistos-2",
+      "title": "El avión ya había salido",
+      "grammarFocus": {
+        "en": [
+          "pluperfect of salir, llegar and other movement verbs: El avión ya había salido",
+          "aún no / todavía no + pluperfect (still hadn't)"
+        ],
+        "it": [
+          "sempre haber, mai essere: había salido = era partito, había llegado = era arrivato",
+          "aún no / todavía no + trapassato (non... ancora)"
+        ],
+        "nl": [
+          "altijd haber, nooit ser: había salido = was vertrokken, había llegado = was aangekomen",
+          "aún no / todavía no + voltooid verleden tijd (nog niet)"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-2-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya había salido",
+          "translation": {
+            "en": "it had already left",
+            "it": "era già partito",
+            "nl": "het was al vertrokken"
+          },
+          "distractors": {
+            "en": [
+              "it hadn't left yet",
+              "it had already landed"
+            ],
+            "it": [
+              "non era ancora partito",
+              "era già atterrato"
+            ],
+            "nl": [
+              "het was nog niet vertrokken",
+              "het was al geland"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando llegué a la puerta, el avión ya había salido.",
+          "translation": {
+            "en": "When I got to the gate, the plane had already left.",
+            "it": "Quando ho raggiunto il gate, l'aereo era già partito.",
+            "nl": "Toen ik bij de gate aankwam, was het vliegtuig al vertrokken."
+          },
+          "distractors": {
+            "en": [
+              "When I got to the gate, the plane hadn't left yet.",
+              "When I got to the counter, the plane had already left."
+            ],
+            "it": [
+              "Quando ho raggiunto il gate, l'aereo non era ancora partito.",
+              "Quando ho raggiunto il banco, l'aereo era già partito."
+            ],
+            "nl": [
+              "Toen ik bij de gate aankwam, was het vliegtuig nog niet vertrokken.",
+              "Toen ik bij de balie aankwam, was het vliegtuig al vertrokken."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "abordar",
+          "translation": {
+            "en": "to board",
+            "it": "imbarcarsi",
+            "nl": "instappen"
+          },
+          "distractors": {
+            "en": [
+              "to land",
+              "to take off"
+            ],
+            "it": [
+              "atterrare",
+              "decollare"
+            ],
+            "nl": [
+              "landen",
+              "opstijgen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "pasajero",
+          "translation": {
+            "en": "passenger",
+            "it": "passeggero",
+            "nl": "passagier"
+          },
+          "distractors": {
+            "en": [
+              "pilot",
+              "driver"
+            ],
+            "it": [
+              "pilota",
+              "autista"
+            ],
+            "nl": [
+              "piloot",
+              "chauffeur"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "todos los pasajeros",
+          "translation": {
+            "en": "all the passengers",
+            "it": "tutti i passeggeri",
+            "nl": "alle passagiers"
+          },
+          "distractors": {
+            "en": [
+              "some of the passengers",
+              "all the pilots"
+            ],
+            "it": [
+              "alcuni passeggeri",
+              "tutti i piloti"
+            ],
+            "nl": [
+              "een paar passagiers",
+              "alle piloten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Todos los pasajeros ya habían abordado y la puerta estaba cerrada.",
+          "commas": [
+            5
+          ],
+          "translation": {
+            "en": "All the passengers had already boarded and the gate was closed.",
+            "it": "Tutti i passeggeri erano già saliti a bordo e il gate era chiuso.",
+            "nl": "Alle passagiers waren al ingestapt en de gate was dicht."
+          },
+          "distractors": {
+            "en": [
+              "All the passengers had already boarded and the gate was still open.",
+              "None of the passengers had boarded and the gate was closed."
+            ],
+            "it": [
+              "Tutti i passeggeri erano già saliti a bordo e il gate era ancora aperto.",
+              "Nessun passeggero era salito a bordo e il gate era chiuso."
+            ],
+            "nl": [
+              "Alle passagiers waren al ingestapt en de gate was nog open.",
+              "Geen enkele passagier was ingestapt en de gate was dicht."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "despegar",
+          "translation": {
+            "en": "to take off",
+            "it": "decollare",
+            "nl": "opstijgen"
+          },
+          "distractors": {
+            "en": [
+              "to land",
+              "to board"
+            ],
+            "it": [
+              "atterrare",
+              "imbarcarsi"
+            ],
+            "nl": [
+              "landen",
+              "instappen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "aún",
+          "translation": {
+            "en": "still",
+            "it": "ancora",
+            "nl": "nog"
+          },
+          "distractors": {
+            "en": [
+              "already",
+              "never"
+            ],
+            "it": [
+              "già",
+              "mai"
+            ],
+            "nl": [
+              "al",
+              "nooit"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "aún no había despegado",
+          "translation": {
+            "en": "it hadn't taken off yet",
+            "it": "non era ancora decollato",
+            "nl": "het was nog niet opgestegen"
+          },
+          "distractors": {
+            "en": [
+              "it had already taken off",
+              "it hadn't landed yet"
+            ],
+            "it": [
+              "era già decollato",
+              "non era ancora atterrato"
+            ],
+            "nl": [
+              "het was al opgestegen",
+              "het was nog niet geland"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después de una hora, el avión aún no había despegado.",
+          "translation": {
+            "en": "After an hour, the plane still hadn't taken off.",
+            "it": "Dopo un'ora, l'aereo non era ancora decollato.",
+            "nl": "Na een uur was het vliegtuig nog steeds niet opgestegen."
+          },
+          "distractors": {
+            "en": [
+              "After an hour, the plane had already taken off.",
+              "After two hours, the plane still hadn't taken off."
+            ],
+            "it": [
+              "Dopo un'ora, l'aereo era già decollato.",
+              "Dopo due ore, l'aereo non era ancora decollato."
+            ],
+            "nl": [
+              "Na een uur was het vliegtuig al opgestegen.",
+              "Na twee uur was het vliegtuig nog steeds niet opgestegen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "piloto",
+          "translation": {
+            "en": "pilot",
+            "it": "pilota",
+            "nl": "piloot"
+          },
+          "distractors": {
+            "en": [
+              "passenger",
+              "customs officer"
+            ],
+            "it": [
+              "passeggero",
+              "doganiere"
+            ],
+            "nl": [
+              "passagier",
+              "douanier"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El piloto todavía no había llegado, así que tuvimos que esperar.",
+          "translation": {
+            "en": "The pilot hadn't arrived yet, so we had to wait.",
+            "it": "Il pilota non era ancora arrivato, quindi abbiamo dovuto aspettare.",
+            "nl": "De piloot was nog niet aangekomen, dus moesten we wachten."
+          },
+          "distractors": {
+            "en": [
+              "The pilot hadn't arrived yet, so we had to get off.",
+              "The pilot had already arrived, so we didn't have to wait."
+            ],
+            "it": [
+              "Il pilota non era ancora arrivato, quindi siamo dovuti scendere.",
+              "Il pilota era già arrivato, quindi non abbiamo dovuto aspettare."
+            ],
+            "nl": [
+              "De piloot was nog niet aangekomen, dus moesten we uitstappen.",
+              "De piloot was al aangekomen, dus hoefden we niet te wachten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "escala",
+          "translation": {
+            "en": "layover",
+            "it": "scalo",
+            "nl": "tussenstop"
+          },
+          "distractors": {
+            "en": [
+              "delay",
+              "departure"
+            ],
+            "it": [
+              "ritardo",
+              "partenza"
+            ],
+            "nl": [
+              "vertraging",
+              "vertrek"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "conexión",
+          "translation": {
+            "en": "connection",
+            "it": "coincidenza",
+            "nl": "aansluiting"
+          },
+          "distractors": {
+            "en": [
+              "reservation",
+              "arrival"
+            ],
+            "it": [
+              "prenotazione",
+              "arrivo"
+            ],
+            "nl": [
+              "reservering",
+              "aankomst"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "habíamos perdido la conexión",
+          "senses": {
+            "1": "perder"
+          },
+          "translation": {
+            "en": "we had missed our connection",
+            "it": "avevamo perso la coincidenza",
+            "nl": "we hadden onze aansluiting gemist"
+          },
+          "distractors": {
+            "en": [
+              "we had made our connection",
+              "we had missed our bus"
+            ],
+            "it": [
+              "avevamo preso la coincidenza",
+              "avevamo perso l'autobus"
+            ],
+            "nl": [
+              "we hadden onze aansluiting gehaald",
+              "we hadden onze bus gemist"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Teníamos una escala en Lima, pero cuando llegamos, ya habíamos perdido la conexión a Cuzco.",
+          "senses": {
+            "10": "perder"
+          },
+          "translation": {
+            "en": "We had a layover in Lima, but when we got there, we had already missed our connection to Cuzco.",
+            "it": "Avevamo uno scalo a Lima, ma quando siamo arrivati, avevamo già perso la coincidenza per Cuzco.",
+            "nl": "We hadden een tussenstop in Lima, maar toen we aankwamen, hadden we onze aansluiting naar Cuzco al gemist."
+          },
+          "distractors": {
+            "en": [
+              "We had a layover in Quito, but when we got there, we had already missed our connection to Cuzco.",
+              "We had a layover in Lima, but when we got there, our connection to Cuzco hadn't left yet."
+            ],
+            "it": [
+              "Avevamo uno scalo a Quito, ma quando siamo arrivati, avevamo già perso la coincidenza per Cuzco.",
+              "Avevamo uno scalo a Lima, ma quando siamo arrivati, la coincidenza per Cuzco non era ancora partita."
+            ],
+            "nl": [
+              "We hadden een tussenstop in Quito, maar toen we aankwamen, hadden we onze aansluiting naar Cuzco al gemist.",
+              "We hadden een tussenstop in Lima, maar toen we aankwamen, was onze aansluiting naar Cuzco nog niet vertrokken."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-imprevistos-3",
+      "title": "Perdieron mi equipaje",
+      "grammarFocus": {
+        "en": [
+          "object pronouns before the pluperfect: lo había dejado, la habían abierto",
+          "reclamar: file a claim, complain about"
+        ],
+        "it": [
+          "pronomi prima del trapassato: lo había dejado = l'avevo lasciato",
+          "reclamar = fare reclamo"
+        ],
+        "nl": [
+          "voornaamwoorden vóór de voltooid verleden tijd: lo había dejado = ik had het laten liggen",
+          "reclamar = een klacht indienen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "equipaje",
+          "translation": {
+            "en": "luggage",
+            "it": "bagaglio",
+            "nl": "bagage"
+          },
+          "distractors": {
+            "en": [
+              "passport",
+              "ticket"
+            ],
+            "it": [
+              "passaporto",
+              "biglietto"
+            ],
+            "nl": [
+              "paspoort",
+              "kaartje"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "perdieron mi equipaje",
+          "translation": {
+            "en": "they lost my luggage",
+            "it": "hanno perso il mio bagaglio",
+            "nl": "ze zijn mijn bagage kwijtgeraakt"
+          },
+          "distractors": {
+            "en": [
+              "they found my luggage",
+              "they lost my passport"
+            ],
+            "it": [
+              "hanno trovato il mio bagaglio",
+              "hanno perso il mio passaporto"
+            ],
+            "nl": [
+              "ze hebben mijn bagage gevonden",
+              "ze zijn mijn paspoort kwijtgeraakt"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La aerolínea perdió mi equipaje y no tenía ropa para el día siguiente.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "The airline lost my luggage and I had no clothes for the next day.",
+            "it": "La compagnia aerea ha perso il mio bagaglio e non avevo vestiti per il giorno dopo.",
+            "nl": "De luchtvaartmaatschappij raakte mijn bagage kwijt en ik had geen kleren voor de volgende dag."
+          },
+          "distractors": {
+            "en": [
+              "The airline lost my luggage and I had no money for the next day.",
+              "The hotel lost my luggage and I had no clothes for the next day."
+            ],
+            "it": [
+              "La compagnia aerea ha perso il mio bagaglio e non avevo soldi per il giorno dopo.",
+              "L'albergo ha perso il mio bagaglio e non avevo vestiti per il giorno dopo."
+            ],
+            "nl": [
+              "De luchtvaartmaatschappij raakte mijn bagage kwijt en ik had geen geld voor de volgende dag.",
+              "Het hotel raakte mijn bagage kwijt en ik had geen kleren voor de volgende dag."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "reclamar",
+          "translation": {
+            "en": "to file a claim",
+            "it": "fare reclamo",
+            "nl": "een klacht indienen"
+          },
+          "distractors": {
+            "en": [
+              "to pay a fine",
+              "to ask for directions"
+            ],
+            "it": [
+              "pagare una multa",
+              "chiedere indicazioni"
+            ],
+            "nl": [
+              "een boete betalen",
+              "de weg vragen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la oficina de equipaje perdido",
+          "translation": {
+            "en": "the lost luggage office",
+            "it": "l'ufficio bagagli smarriti",
+            "nl": "het bureau voor verloren bagage"
+          },
+          "distractors": {
+            "en": [
+              "the ticket office",
+              "the customs office"
+            ],
+            "it": [
+              "la biglietteria",
+              "l'ufficio doganale"
+            ],
+            "nl": [
+              "het kaartjesloket",
+              "het douanekantoor"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Fuimos a reclamar a la oficina de equipaje perdido, pero ya había cerrado.",
+          "senses": {
+            "0": "ir",
+            "12": "cerrar"
+          },
+          "translation": {
+            "en": "We went to file a claim at the lost luggage office, but it had already closed.",
+            "it": "Siamo andati a fare reclamo all'ufficio bagagli smarriti, ma aveva già chiuso.",
+            "nl": "We gingen een klacht indienen bij het bureau voor verloren bagage, maar het was al dicht."
+          },
+          "distractors": {
+            "en": [
+              "We went to file a claim at the lost luggage office, but it hadn't opened yet.",
+              "We went to file a claim at the ticket office, but it had already closed."
+            ],
+            "it": [
+              "Siamo andati a fare reclamo all'ufficio bagagli smarriti, ma non aveva ancora aperto.",
+              "Siamo andati a fare reclamo alla biglietteria, ma aveva già chiuso."
+            ],
+            "nl": [
+              "We gingen een klacht indienen bij het bureau voor verloren bagage, maar het was nog niet open.",
+              "We gingen een klacht indienen bij het kaartjesloket, maar het was al dicht."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "lo había dejado",
+          "translation": {
+            "en": "I had left it",
+            "it": "l'avevo lasciato",
+            "nl": "ik had het laten liggen"
+          },
+          "distractors": {
+            "en": [
+              "I had found it",
+              "I had bought it"
+            ],
+            "it": [
+              "l'avevo trovato",
+              "l'avevo comprato"
+            ],
+            "nl": [
+              "ik had het gevonden",
+              "ik had het gekocht"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No encontraba el celular porque lo había dejado en el avión.",
+          "commas": [
+            3
+          ],
+          "translation": {
+            "en": "I couldn't find my phone because I had left it on the plane.",
+            "it": "Non trovavo il cellulare perché l'avevo lasciato in aereo.",
+            "nl": "Ik kon mijn telefoon niet vinden, want ik had hem in het vliegtuig laten liggen."
+          },
+          "distractors": {
+            "en": [
+              "I couldn't find my phone because I had left it at the hotel.",
+              "I couldn't find my passport because I had left it on the plane."
+            ],
+            "it": [
+              "Non trovavo il cellulare perché l'avevo lasciato in albergo.",
+              "Non trovavo il passaporto perché l'avevo lasciato in aereo."
+            ],
+            "nl": [
+              "Ik kon mijn telefoon niet vinden, want ik had hem in het hotel laten liggen.",
+              "Ik kon mijn paspoort niet vinden, want ik had het in het vliegtuig laten liggen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "aduana",
+          "translation": {
+            "en": "customs",
+            "it": "dogana",
+            "nl": "douane"
+          },
+          "distractors": {
+            "en": [
+              "baggage claim",
+              "security check"
+            ],
+            "it": [
+              "ritiro bagagli",
+              "controllo di sicurezza"
+            ],
+            "nl": [
+              "bagageband",
+              "veiligheidscontrole"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "revisar",
+          "translation": {
+            "en": "to check",
+            "it": "controllare",
+            "nl": "controleren"
+          },
+          "distractors": {
+            "en": [
+              "to pay",
+              "to close"
+            ],
+            "it": [
+              "pagare",
+              "chiudere"
+            ],
+            "nl": [
+              "betalen",
+              "sluiten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en la aduana",
+          "translation": {
+            "en": "at customs",
+            "it": "alla dogana",
+            "nl": "bij de douane"
+          },
+          "distractors": {
+            "en": [
+              "at the border",
+              "at the gate"
+            ],
+            "it": [
+              "alla frontiera",
+              "al gate"
+            ],
+            "nl": [
+              "bij de grens",
+              "bij de gate"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En la aduana me revisaron la maleta y encontraron la fruta que había comprado.",
+          "commas": [
+            2,
+            6
+          ],
+          "translation": {
+            "en": "At customs they searched my suitcase and found the fruit I had bought.",
+            "it": "Alla dogana mi hanno controllato la valigia e hanno trovato la frutta che avevo comprato.",
+            "nl": "Bij de douane doorzochten ze mijn koffer en vonden ze het fruit dat ik had gekocht."
+          },
+          "distractors": {
+            "en": [
+              "At customs they searched my suitcase and found the cheese I had bought.",
+              "At the border they searched my suitcase and found the fruit I had bought."
+            ],
+            "it": [
+              "Alla dogana mi hanno controllato la valigia e hanno trovato il formaggio che avevo comprato.",
+              "Alla frontiera mi hanno controllato la valigia e hanno trovato la frutta che avevo comprato."
+            ],
+            "nl": [
+              "Bij de douane doorzochten ze mijn koffer en vonden ze de kaas die ik had gekocht.",
+              "Bij de grens doorzochten ze mijn koffer en vonden ze het fruit dat ik had gekocht."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "alguien la había abierto",
+          "senses": {
+            "1": "pron",
+            "3": "abrir"
+          },
+          "translation": {
+            "en": "someone had opened it",
+            "it": "qualcuno l'aveva aperta",
+            "nl": "iemand had hem opengemaakt"
+          },
+          "distractors": {
+            "en": [
+              "someone had closed it",
+              "nobody had opened it"
+            ],
+            "it": [
+              "qualcuno l'aveva chiusa",
+              "nessuno l'aveva aperta"
+            ],
+            "nl": [
+              "iemand had hem dichtgedaan",
+              "niemand had hem opengemaakt"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La maleta llegó tres días después, pero alguien la había abierto.",
+          "variants": [
+            "La maleta llegó 3 días después, pero alguien la había abierto."
+          ],
+          "senses": {
+            "8": "pron",
+            "10": "abrir"
+          },
+          "translation": {
+            "en": "The suitcase arrived three days later, but someone had opened it.",
+            "it": "La valigia è arrivata tre giorni dopo, ma qualcuno l'aveva aperta.",
+            "nl": "De koffer kwam drie dagen later aan, maar iemand had hem opengemaakt."
+          },
+          "distractors": {
+            "en": [
+              "The suitcase arrived two days later, but someone had opened it.",
+              "The suitcase arrived three days later, but someone had broken it."
+            ],
+            "it": [
+              "La valigia è arrivata due giorni dopo, ma qualcuno l'aveva aperta.",
+              "La valigia è arrivata tre giorni dopo, ma qualcuno l'aveva rotta."
+            ],
+            "nl": [
+              "De koffer kwam twee dagen later aan, maar iemand had hem opengemaakt.",
+              "De koffer kwam drie dagen later aan, maar iemand had hem kapotgemaakt."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "compensación",
+          "translation": {
+            "en": "compensation",
+            "it": "risarcimento",
+            "nl": "schadevergoeding"
+          },
+          "distractors": {
+            "en": [
+              "fine",
+              "receipt"
+            ],
+            "it": [
+              "multa",
+              "ricevuta"
+            ],
+            "nl": [
+              "boete",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Reclamé una compensación, pero la aerolínea nunca me respondió.",
+          "translation": {
+            "en": "I claimed compensation, but the airline never answered me.",
+            "it": "Ho chiesto un risarcimento, ma la compagnia aerea non mi ha mai risposto.",
+            "nl": "Ik heb een schadevergoeding geëist, maar de luchtvaartmaatschappij heeft me nooit geantwoord."
+          },
+          "distractors": {
+            "en": [
+              "I claimed compensation, but the hotel never answered me.",
+              "I claimed compensation, but the airline never paid me."
+            ],
+            "it": [
+              "Ho chiesto un risarcimento, ma l'albergo non mi ha mai risposto.",
+              "Ho chiesto un risarcimento, ma la compagnia aerea non mi ha mai pagato."
+            ],
+            "nl": [
+              "Ik heb een schadevergoeding geëist, maar het hotel heeft me nooit geantwoord.",
+              "Ik heb een schadevergoeding geëist, maar de luchtvaartmaatschappij heeft me nooit betaald."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-imprevistos-4",
+      "title": "La huelga",
+      "grammarFocus": {
+        "en": [
+          "the pluperfect to explain what had happened: Nadie nos había advertido",
+          "advertir de = warn about; como at the start of a sentence = since"
+        ],
+        "it": [
+          "il trapassato per spiegare cosa era successo: Nadie nos había advertido",
+          "advertir de = avvertire di; como a inizio frase = siccome"
+        ],
+        "nl": [
+          "de voltooid verleden tijd om uit te leggen wat er gebeurd was: Nadie nos había advertido",
+          "advertir de = waarschuwen voor; como aan het begin van de zin = omdat"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "huelga",
+          "translation": {
+            "en": "strike",
+            "it": "sciopero",
+            "nl": "staking"
+          },
+          "distractors": {
+            "en": [
+              "delay",
+              "holiday"
+            ],
+            "it": [
+              "ritardo",
+              "festa"
+            ],
+            "nl": [
+              "vertraging",
+              "feestdag"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una huelga de pilotos",
+          "translation": {
+            "en": "a pilots' strike",
+            "it": "uno sciopero dei piloti",
+            "nl": "een staking van piloten"
+          },
+          "distractors": {
+            "en": [
+              "a taxi drivers' strike",
+              "a pilots' meeting"
+            ],
+            "it": [
+              "uno sciopero dei tassisti",
+              "una riunione dei piloti"
+            ],
+            "nl": [
+              "een staking van taxichauffeurs",
+              "een vergadering van piloten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "advertir",
+          "translation": {
+            "en": "to warn",
+            "it": "avvertire",
+            "nl": "waarschuwen"
+          },
+          "distractors": {
+            "en": [
+              "to explain",
+              "to forget"
+            ],
+            "it": [
+              "spiegare",
+              "dimenticare"
+            ],
+            "nl": [
+              "uitleggen",
+              "vergeten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nadie nos había advertido",
+          "translation": {
+            "en": "nobody had warned us",
+            "it": "nessuno ci aveva avvertiti",
+            "nl": "niemand had ons gewaarschuwd"
+          },
+          "distractors": {
+            "en": [
+              "somebody had warned us",
+              "nobody had asked us"
+            ],
+            "it": [
+              "qualcuno ci aveva avvertiti",
+              "nessuno ci aveva chiesto niente"
+            ],
+            "nl": [
+              "iemand had ons gewaarschuwd",
+              "niemand had het ons gevraagd"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nadie nos había advertido de la huelga de pilotos.",
+          "translation": {
+            "en": "Nobody had warned us about the pilots' strike.",
+            "it": "Nessuno ci aveva avvertiti dello sciopero dei piloti.",
+            "nl": "Niemand had ons gewaarschuwd voor de staking van de piloten."
+          },
+          "distractors": {
+            "en": [
+              "Nobody had warned us about the taxi drivers' strike.",
+              "Somebody had warned us about the pilots' strike."
+            ],
+            "it": [
+              "Nessuno ci aveva avvertiti dello sciopero dei tassisti.",
+              "Qualcuno ci aveva avvertiti dello sciopero dei piloti."
+            ],
+            "nl": [
+              "Niemand had ons gewaarschuwd voor de staking van de taxichauffeurs.",
+              "Iemand had ons gewaarschuwd voor de staking van de piloten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "habían cancelado todos los vuelos",
+          "translation": {
+            "en": "they had canceled all the flights",
+            "it": "avevano cancellato tutti i voli",
+            "nl": "ze hadden alle vluchten geannuleerd"
+          },
+          "distractors": {
+            "en": [
+              "they had canceled all the trains",
+              "they had delayed all the flights"
+            ],
+            "it": [
+              "avevano cancellato tutti i treni",
+              "avevano rimandato tutti i voli"
+            ],
+            "nl": [
+              "ze hadden alle treinen geannuleerd",
+              "ze hadden alle vluchten uitgesteld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando llegamos al aeropuerto, ya habían cancelado todos los vuelos a México.",
+          "translation": {
+            "en": "When we got to the airport, they had already canceled all the flights to Mexico.",
+            "it": "Quando siamo arrivati in aeroporto, avevano già cancellato tutti i voli per il Messico.",
+            "nl": "Toen we op het vliegveld aankwamen, hadden ze alle vluchten naar Mexico al geannuleerd."
+          },
+          "distractors": {
+            "en": [
+              "When we got to the airport, they had already canceled all the flights to Chile.",
+              "When we got to the station, they had already canceled all the trains to Mexico."
+            ],
+            "it": [
+              "Quando siamo arrivati in aeroporto, avevano già cancellato tutti i voli per il Cile.",
+              "Quando siamo arrivati in stazione, avevano già cancellato tutti i treni per il Messico."
+            ],
+            "nl": [
+              "Toen we op het vliegveld aankwamen, hadden ze alle vluchten naar Chili al geannuleerd.",
+              "Toen we op het station aankwamen, hadden ze alle treinen naar Mexico al geannuleerd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "paciencia",
+          "translation": {
+            "en": "patience",
+            "it": "pazienza",
+            "nl": "geduld"
+          },
+          "distractors": {
+            "en": [
+              "luck",
+              "courage"
+            ],
+            "it": [
+              "fortuna",
+              "coraggio"
+            ],
+            "nl": [
+              "geluk",
+              "moed"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mucha paciencia",
+          "translation": {
+            "en": "a lot of patience",
+            "it": "tanta pazienza",
+            "nl": "veel geduld"
+          },
+          "distractors": {
+            "en": [
+              "a lot of luck",
+              "a little patience"
+            ],
+            "it": [
+              "tanta fortuna",
+              "un po' di pazienza"
+            ],
+            "nl": [
+              "veel geluk",
+              "een beetje geduld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el mostrador nos pidieron mucha paciencia, pero nadie sabía nada de la huelga.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "At the counter they asked us to be very patient, but nobody knew anything about the strike.",
+            "it": "Al banco ci hanno chiesto tanta pazienza, ma nessuno sapeva niente dello sciopero.",
+            "nl": "Bij de balie vroegen ze ons om veel geduld, maar niemand wist iets van de staking."
+          },
+          "distractors": {
+            "en": [
+              "At the counter they asked us to be very patient, but everybody knew about the strike.",
+              "At the counter they asked us for our passports, but nobody knew anything about the strike."
+            ],
+            "it": [
+              "Al banco ci hanno chiesto tanta pazienza, ma tutti sapevano dello sciopero.",
+              "Al banco ci hanno chiesto i passaporti, ma nessuno sapeva niente dello sciopero."
+            ],
+            "nl": [
+              "Bij de balie vroegen ze ons om veel geduld, maar iedereen wist van de staking.",
+              "Bij de balie vroegen ze om onze paspoorten, maar niemand wist iets van de staking."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "frontera",
+          "translation": {
+            "en": "border",
+            "it": "confine",
+            "nl": "grens"
+          },
+          "distractors": {
+            "en": [
+              "customs",
+              "bridge"
+            ],
+            "it": [
+              "dogana",
+              "ponte"
+            ],
+            "nl": [
+              "douane",
+              "brug"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la frontera con Guatemala",
+          "translation": {
+            "en": "the border with Guatemala",
+            "it": "il confine con il Guatemala",
+            "nl": "de grens met Guatemala"
+          },
+          "distractors": {
+            "en": [
+              "the border with Belize",
+              "the road to Guatemala"
+            ],
+            "it": [
+              "il confine con il Belize",
+              "la strada per il Guatemala"
+            ],
+            "nl": [
+              "de grens met Belize",
+              "de weg naar Guatemala"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Como no había vuelos, tomamos un autobús hasta la frontera con Guatemala.",
+          "translation": {
+            "en": "Since there were no flights, we took a bus to the border with Guatemala.",
+            "it": "Visto che non c'erano voli, abbiamo preso un autobus fino al confine con il Guatemala.",
+            "nl": "Omdat er geen vluchten waren, namen we een bus naar de grens met Guatemala."
+          },
+          "distractors": {
+            "en": [
+              "Since there were no flights, we took a taxi to the border with Guatemala.",
+              "Since there were no flights, we took a bus to the border with Belize."
+            ],
+            "it": [
+              "Visto che non c'erano voli, abbiamo preso un taxi fino al confine con il Guatemala.",
+              "Visto che non c'erano voli, abbiamo preso un autobus fino al confine con il Belize."
+            ],
+            "nl": [
+              "Omdat er geen vluchten waren, namen we een taxi naar de grens met Guatemala.",
+              "Omdat er geen vluchten waren, namen we een bus naar de grens met Belize."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando llegamos a la frontera, ya la habían cerrado por la noche.",
+          "senses": {
+            "6": "pron",
+            "8": "cerrar"
+          },
+          "translation": {
+            "en": "When we got to the border, they had already closed it for the night.",
+            "it": "Quando siamo arrivati al confine, l'avevano già chiuso per la notte.",
+            "nl": "Toen we bij de grens aankwamen, hadden ze die al gesloten voor de nacht."
+          },
+          "distractors": {
+            "en": [
+              "When we got to the border, they had already closed it because of the strike.",
+              "When we got to the bridge, they had already closed it for the night."
+            ],
+            "it": [
+              "Quando siamo arrivati al confine, l'avevano già chiuso per lo sciopero.",
+              "Quando siamo arrivati al ponte, l'avevano già chiuso per la notte."
+            ],
+            "nl": [
+              "Toen we bij de grens aankwamen, hadden ze die al gesloten vanwege de staking.",
+              "Toen we bij de brug aankwamen, hadden ze die al gesloten voor de nacht."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Al final pasamos la noche en un hotel cerca de la frontera.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "In the end we spent the night at a hotel near the border.",
+            "it": "Alla fine abbiamo passato la notte in un albergo vicino al confine.",
+            "nl": "Uiteindelijk hebben we de nacht in een hotel bij de grens doorgebracht."
+          },
+          "distractors": {
+            "en": [
+              "In the end we spent the night at a hotel near the airport.",
+              "In the end we spent two nights at a hotel near the border."
+            ],
+            "it": [
+              "Alla fine abbiamo passato la notte in un albergo vicino all'aeroporto.",
+              "Alla fine abbiamo passato due notti in un albergo vicino al confine."
+            ],
+            "nl": [
+              "Uiteindelijk hebben we de nacht in een hotel bij het vliegveld doorgebracht.",
+              "Uiteindelijk hebben we twee nachten in een hotel bij de grens doorgebracht."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-imprevistos-5",
+      "title": "En cuanto aterrizamos",
+      "grammarFocus": {
+        "en": [
+          "en cuanto + preterite (as soon as): En cuanto aterrizamos",
+          "después de / antes de + infinitive: después de aterrizar, antes de despegar"
+        ],
+        "it": [
+          "en cuanto + indefinido (appena): En cuanto aterrizamos = Appena siamo atterrati",
+          "después de / antes de + infinito: después de aterrizar = dopo essere atterrati"
+        ],
+        "nl": [
+          "en cuanto + verleden tijd (zodra): En cuanto aterrizamos",
+          "después de / antes de + infinitief: después de aterrizar = na de landing"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "aterrizar",
+          "translation": {
+            "en": "to land",
+            "it": "atterrare",
+            "nl": "landen"
+          },
+          "distractors": {
+            "en": [
+              "to take off",
+              "to board"
+            ],
+            "it": [
+              "decollare",
+              "imbarcarsi"
+            ],
+            "nl": [
+              "opstijgen",
+              "instappen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en cuanto aterrizamos",
+          "translation": {
+            "en": "as soon as we landed",
+            "it": "appena siamo atterrati",
+            "nl": "zodra we geland waren"
+          },
+          "distractors": {
+            "en": [
+              "as soon as we took off",
+              "just before we landed"
+            ],
+            "it": [
+              "appena siamo decollati",
+              "poco prima di atterrare"
+            ],
+            "nl": [
+              "zodra we opgestegen waren",
+              "vlak voordat we landden"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En cuanto aterrizamos, le mandé un mensaje a mi mamá.",
+          "translation": {
+            "en": "As soon as we landed, I sent my mom a message.",
+            "it": "Appena siamo atterrati, ho mandato un messaggio a mia mamma.",
+            "nl": "Zodra we geland waren, stuurde ik mijn moeder een berichtje."
+          },
+          "distractors": {
+            "en": [
+              "As soon as we landed, I sent my dad a message.",
+              "As soon as we took off, I sent my mom a message."
+            ],
+            "it": [
+              "Appena siamo atterrati, ho mandato un messaggio a mio papà.",
+              "Appena siamo decollati, ho mandato un messaggio a mia mamma."
+            ],
+            "nl": [
+              "Zodra we geland waren, stuurde ik mijn vader een berichtje.",
+              "Zodra we opgestegen waren, stuurde ik mijn moeder een berichtje."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "después de aterrizar",
+          "translation": {
+            "en": "after landing",
+            "it": "dopo l'atterraggio",
+            "nl": "na de landing"
+          },
+          "distractors": {
+            "en": [
+              "before landing",
+              "after takeoff"
+            ],
+            "it": [
+              "prima dell'atterraggio",
+              "dopo il decollo"
+            ],
+            "nl": [
+              "voor de landing",
+              "na het opstijgen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después de aterrizar, tuvimos que esperar una hora para bajar del avión.",
+          "translation": {
+            "en": "After landing, we had to wait an hour to get off the plane.",
+            "it": "Dopo l'atterraggio, abbiamo dovuto aspettare un'ora per scendere dall'aereo.",
+            "nl": "Na de landing moesten we een uur wachten voordat we uit het vliegtuig konden."
+          },
+          "distractors": {
+            "en": [
+              "After landing, we had to wait two hours to get off the plane.",
+              "After landing, we had to wait an hour to get our luggage."
+            ],
+            "it": [
+              "Dopo l'atterraggio, abbiamo dovuto aspettare due ore per scendere dall'aereo.",
+              "Dopo l'atterraggio, abbiamo dovuto aspettare un'ora per prendere i bagagli."
+            ],
+            "nl": [
+              "Na de landing moesten we twee uur wachten voordat we uit het vliegtuig konden.",
+              "Na de landing moesten we een uur wachten op onze bagage."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "antes de despegar",
+          "translation": {
+            "en": "before takeoff",
+            "it": "prima del decollo",
+            "nl": "voor het opstijgen"
+          },
+          "distractors": {
+            "en": [
+              "after takeoff",
+              "before landing"
+            ],
+            "it": [
+              "dopo il decollo",
+              "prima dell'atterraggio"
+            ],
+            "nl": [
+              "na het opstijgen",
+              "voor de landing"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes de despegar, apagué el celular y cerré los ojos.",
+          "commas": [
+            5
+          ],
+          "translation": {
+            "en": "Before takeoff, I turned off my phone and closed my eyes.",
+            "it": "Prima del decollo ho spento il cellulare e ho chiuso gli occhi.",
+            "nl": "Voor het opstijgen zette ik mijn telefoon uit en deed ik mijn ogen dicht."
+          },
+          "distractors": {
+            "en": [
+              "Before takeoff, I turned off my phone and opened a book.",
+              "After takeoff, I turned off my phone and closed my eyes."
+            ],
+            "it": [
+              "Prima del decollo ho spento il cellulare e ho aperto un libro.",
+              "Dopo il decollo ho spento il cellulare e ho chiuso gli occhi."
+            ],
+            "nl": [
+              "Voor het opstijgen zette ik mijn telefoon uit en sloeg ik een boek open.",
+              "Na het opstijgen zette ik mijn telefoon uit en deed ik mijn ogen dicht."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "terminal",
+          "translation": {
+            "en": "terminal",
+            "it": "terminal",
+            "nl": "terminal"
+          },
+          "distractors": {
+            "en": [
+              "runway",
+              "gate"
+            ],
+            "it": [
+              "pista",
+              "gate"
+            ],
+            "nl": [
+              "landingsbaan",
+              "gate"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la terminal uno",
+          "variants": [
+            "la terminal 1"
+          ],
+          "translation": {
+            "en": "terminal one",
+            "it": "il terminal uno",
+            "nl": "terminal één"
+          },
+          "distractors": {
+            "en": [
+              "terminal two",
+              "gate one"
+            ],
+            "it": [
+              "il terminal due",
+              "il gate uno"
+            ],
+            "nl": [
+              "terminal twee",
+              "gate één"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En cuanto salimos de la aduana, corrimos a la terminal uno.",
+          "variants": [
+            "En cuanto salimos de la aduana, corrimos a la terminal 1."
+          ],
+          "translation": {
+            "en": "As soon as we got out of customs, we ran to terminal one.",
+            "it": "Appena siamo usciti dalla dogana, siamo corsi al terminal uno.",
+            "nl": "Zodra we door de douane waren, renden we naar terminal één."
+          },
+          "distractors": {
+            "en": [
+              "As soon as we got out of customs, we ran to terminal two.",
+              "As soon as we got out of customs, we walked to terminal one."
+            ],
+            "it": [
+              "Appena siamo usciti dalla dogana, siamo corsi al terminal due.",
+              "Appena siamo usciti dalla dogana, siamo andati a piedi al terminal uno."
+            ],
+            "nl": [
+              "Zodra we door de douane waren, renden we naar terminal twee.",
+              "Zodra we door de douane waren, liepen we naar terminal één."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me di cuenta de que",
+          "senses": {
+            "2": "idiom"
+          },
+          "translation": {
+            "en": "I realized that",
+            "it": "ho capito che",
+            "nl": "ik besefte dat"
+          },
+          "distractors": {
+            "en": [
+              "I forgot that",
+              "I thought that"
+            ],
+            "it": [
+              "ho dimenticato che",
+              "ho pensato che"
+            ],
+            "nl": [
+              "ik vergat dat",
+              "ik dacht dat"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En cuanto bajamos, me di cuenta de que había dejado la chaqueta en el avión.",
+          "senses": {
+            "5": "idiom"
+          },
+          "translation": {
+            "en": "As soon as we got off, I realized I had left my jacket on the plane.",
+            "it": "Appena siamo scesi, ho capito che avevo lasciato la giacca in aereo.",
+            "nl": "Zodra we uitgestapt waren, besefte ik dat ik mijn jas in het vliegtuig had laten liggen."
+          },
+          "distractors": {
+            "en": [
+              "As soon as we got off, I realized I had left my backpack on the plane.",
+              "As soon as we got off, I realized I had left my jacket at the hotel."
+            ],
+            "it": [
+              "Appena siamo scesi, ho capito che avevo lasciato lo zaino in aereo.",
+              "Appena siamo scesi, ho capito che avevo lasciato la giacca in albergo."
+            ],
+            "nl": [
+              "Zodra we uitgestapt waren, besefte ik dat ik mijn rugzak in het vliegtuig had laten liggen.",
+              "Zodra we uitgestapt waren, besefte ik dat ik mijn jas in het hotel had laten liggen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "después de pasar por la aduana",
+          "translation": {
+            "en": "after going through customs",
+            "it": "dopo aver passato la dogana",
+            "nl": "na de douane"
+          },
+          "distractors": {
+            "en": [
+              "before going through customs",
+              "after going through security"
+            ],
+            "it": [
+              "prima di passare la dogana",
+              "dopo aver passato i controlli"
+            ],
+            "nl": [
+              "voor de douane",
+              "na de veiligheidscontrole"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después de pasar por la aduana, busqué el autobús al centro, pero ya había salido.",
+          "translation": {
+            "en": "After going through customs, I looked for the bus downtown, but it had already left.",
+            "it": "Dopo aver passato la dogana, ho cercato l'autobus per il centro, ma era già partito.",
+            "nl": "Na de douane zocht ik de bus naar het centrum, maar die was al vertrokken."
+          },
+          "distractors": {
+            "en": [
+              "After going through customs, I looked for the train downtown, but it had already left.",
+              "After going through customs, I looked for the bus downtown, but it hadn't arrived yet."
+            ],
+            "it": [
+              "Dopo aver passato la dogana, ho cercato il treno per il centro, ma era già partito.",
+              "Dopo aver passato la dogana, ho cercato l'autobus per il centro, ma non era ancora arrivato."
+            ],
+            "nl": [
+              "Na de douane zocht ik de trein naar het centrum, maar die was al vertrokken.",
+              "Na de douane zocht ik de bus naar het centrum, maar die was nog niet aangekomen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes de salir del aeropuerto, cambiamos dólares a pesos.",
+          "translation": {
+            "en": "Before leaving the airport, we changed dollars into pesos.",
+            "it": "Prima di uscire dall'aeroporto, abbiamo cambiato dollari in pesos.",
+            "nl": "Voordat we het vliegveld verlieten, wisselden we dollars in voor pesos."
+          },
+          "distractors": {
+            "en": [
+              "Before leaving the airport, we changed pesos into dollars.",
+              "Before leaving the hotel, we changed dollars into pesos."
+            ],
+            "it": [
+              "Prima di uscire dall'aeroporto, abbiamo cambiato pesos in dollari.",
+              "Prima di uscire dall'albergo, abbiamo cambiato dollari in pesos."
+            ],
+            "nl": [
+              "Voordat we het vliegveld verlieten, wisselden we pesos in voor dollars.",
+              "Voordat we het hotel verlieten, wisselden we dollars in voor pesos."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-imprevistos-6",
+      "title": "¡Qué aventura!",
+      "grammarFocus": {
+        "en": [
+          "resulta que (it turns out that) to tell a surprise",
+          "telling a trip: preterite, imperfect and pluperfect together"
+        ],
+        "it": [
+          "resulta que (viene fuori che) per raccontare una sorpresa",
+          "raccontare un viaggio: indefinido, imperfetto e trapassato insieme"
+        ],
+        "nl": [
+          "resulta que (het blijkt dat) om een verrassing te vertellen",
+          "een reis vertellen: verleden tijd, imperfectum en voltooid verleden tijd samen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-imprevistos-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "aventura",
+          "translation": {
+            "en": "adventure",
+            "it": "avventura",
+            "nl": "avontuur"
+          },
+          "distractors": {
+            "en": [
+              "vacation",
+              "problem"
+            ],
+            "it": [
+              "vacanza",
+              "problema"
+            ],
+            "nl": [
+              "vakantie",
+              "probleem"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "qué aventura",
+          "translation": {
+            "en": "what an adventure",
+            "it": "che avventura",
+            "nl": "wat een avontuur"
+          },
+          "distractors": {
+            "en": [
+              "what a disaster",
+              "what a vacation"
+            ],
+            "it": [
+              "che disastro",
+              "che vacanza"
+            ],
+            "nl": [
+              "wat een ramp",
+              "wat een vakantie"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nunca voy a olvidar ese viaje, ¡qué aventura!",
+          "translation": {
+            "en": "I'm never going to forget that trip, what an adventure!",
+            "it": "Non dimenticherò mai quel viaggio, che avventura!",
+            "nl": "Die reis vergeet ik nooit meer, wat een avontuur!"
+          },
+          "distractors": {
+            "en": [
+              "I'm never going to repeat that trip, what an adventure!",
+              "I'm never going to forget that trip, what a disaster!"
+            ],
+            "it": [
+              "Non ripeterò mai quel viaggio, che avventura!",
+              "Non dimenticherò mai quel viaggio, che disastro!"
+            ],
+            "nl": [
+              "Die reis maak ik nooit meer, wat een avontuur!",
+              "Die reis vergeet ik nooit meer, wat een ramp!"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "resultar",
+          "translation": {
+            "en": "to turn out",
+            "it": "risultare",
+            "nl": "blijken"
+          },
+          "distractors": {
+            "en": [
+              "to remember",
+              "to explain"
+            ],
+            "it": [
+              "ricordare",
+              "spiegare"
+            ],
+            "nl": [
+              "herinneren",
+              "uitleggen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "resulta que",
+          "translation": {
+            "en": "it turns out that",
+            "it": "viene fuori che",
+            "nl": "het blijkt dat"
+          },
+          "distractors": {
+            "en": [
+              "I thought that",
+              "people say that"
+            ],
+            "it": [
+              "pensavo che",
+              "si dice che"
+            ],
+            "nl": [
+              "ik dacht dat",
+              "men zegt dat"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Resulta que el hotel que habíamos reservado estaba en otra ciudad.",
+          "translation": {
+            "en": "It turns out the hotel we had booked was in another city.",
+            "it": "Viene fuori che l'albergo che avevamo prenotato era in un'altra città.",
+            "nl": "Het bleek dat het hotel dat we hadden geboekt in een andere stad lag."
+          },
+          "distractors": {
+            "en": [
+              "It turns out the hotel we had booked was in another country.",
+              "It turns out the hotel we had booked was full."
+            ],
+            "it": [
+              "Viene fuori che l'albergo che avevamo prenotato era in un altro paese.",
+              "Viene fuori che l'albergo che avevamo prenotato era pieno."
+            ],
+            "nl": [
+              "Het bleek dat het hotel dat we hadden geboekt in een ander land lag.",
+              "Het bleek dat het hotel dat we hadden geboekt vol was."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "imprevisto",
+          "translation": {
+            "en": "unexpected problem",
+            "it": "imprevisto",
+            "nl": "onverwacht probleem"
+          },
+          "distractors": {
+            "en": [
+              "appointment",
+              "detour"
+            ],
+            "it": [
+              "appuntamento",
+              "deviazione"
+            ],
+            "nl": [
+              "afspraak",
+              "omweg"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "muchos imprevistos",
+          "translation": {
+            "en": "lots of unexpected problems",
+            "it": "tanti imprevisti",
+            "nl": "veel onverwachte problemen"
+          },
+          "distractors": {
+            "en": [
+              "lots of delays",
+              "few unexpected problems"
+            ],
+            "it": [
+              "tanti ritardi",
+              "pochi imprevisti"
+            ],
+            "nl": [
+              "veel vertragingen",
+              "weinig onverwachte problemen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tuvimos muchos imprevistos, pero al final todo salió bien.",
+          "commas": [
+            5
+          ],
+          "translation": {
+            "en": "We had lots of unexpected problems, but in the end everything turned out fine.",
+            "it": "Abbiamo avuto tanti imprevisti, ma alla fine è andato tutto bene.",
+            "nl": "We hadden veel onverwachte problemen, maar uiteindelijk ging alles goed."
+          },
+          "distractors": {
+            "en": [
+              "We had lots of delays, but in the end everything turned out fine.",
+              "We had lots of unexpected problems, and in the end everything went wrong."
+            ],
+            "it": [
+              "Abbiamo avuto tanti ritardi, ma alla fine è andato tutto bene.",
+              "Abbiamo avuto tanti imprevisti, e alla fine è andato tutto storto."
+            ],
+            "nl": [
+              "We hadden veel vertragingen, maar uiteindelijk ging alles goed.",
+              "We hadden veel onverwachte problemen, en uiteindelijk ging alles mis."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Alguna vez has perdido un vuelo?",
+          "senses": {
+            "3": "perder"
+          },
+          "translation": {
+            "en": "Have you ever missed a flight?",
+            "it": "Hai mai perso un volo?",
+            "nl": "Heb je ooit een vlucht gemist?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever canceled a flight?",
+              "Have you ever missed a train?"
+            ],
+            "it": [
+              "Hai mai cancellato un volo?",
+              "Hai mai perso un treno?"
+            ],
+            "nl": [
+              "Heb je ooit een vlucht geannuleerd?",
+              "Heb je ooit een trein gemist?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A mí me pasó una vez: dormí en el aeropuerto por una huelga.",
+          "translation": {
+            "en": "It happened to me once: I slept at the airport because of a strike.",
+            "it": "A me è successo una volta: ho dormito in aeroporto per uno sciopero.",
+            "nl": "Mij is het een keer overkomen: ik heb op het vliegveld geslapen vanwege een staking."
+          },
+          "distractors": {
+            "en": [
+              "It happened to me once: I slept at the station because of a strike.",
+              "It happened to me once: I slept at the airport because of a storm."
+            ],
+            "it": [
+              "A me è successo una volta: ho dormito in stazione per uno sciopero.",
+              "A me è successo una volta: ho dormito in aeroporto per una tempesta."
+            ],
+            "nl": [
+              "Mij is het een keer overkomen: ik heb op het station geslapen vanwege een staking.",
+              "Mij is het een keer overkomen: ik heb op het vliegveld geslapen vanwege een storm."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "aún no nos había devuelto",
+          "translation": {
+            "en": "still hadn't given us back",
+            "it": "non ci aveva ancora restituito",
+            "nl": "had ons nog niet teruggegeven"
+          },
+          "distractors": {
+            "en": [
+              "had already given us back",
+              "still hadn't sent us"
+            ],
+            "it": [
+              "ci aveva già restituito",
+              "non ci aveva ancora mandato"
+            ],
+            "nl": [
+              "had ons al teruggegeven",
+              "had ons nog niet gestuurd"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando volvimos a casa, la aerolínea aún no nos había devuelto el dinero.",
+          "translation": {
+            "en": "When we got back home, the airline still hadn't given us our money back.",
+            "it": "Quando siamo tornati a casa, la compagnia aerea non ci aveva ancora restituito i soldi.",
+            "nl": "Toen we weer thuis waren, had de luchtvaartmaatschappij ons het geld nog steeds niet teruggegeven."
+          },
+          "distractors": {
+            "en": [
+              "When we got back home, the airline had already given us our money back.",
+              "When we got back home, the hotel still hadn't given us our money back."
+            ],
+            "it": [
+              "Quando siamo tornati a casa, la compagnia aerea ci aveva già restituito i soldi.",
+              "Quando siamo tornati a casa, l'albergo non ci aveva ancora restituito i soldi."
+            ],
+            "nl": [
+              "Toen we weer thuis waren, had de luchtvaartmaatschappij ons het geld al teruggegeven.",
+              "Toen we weer thuis waren, had het hotel ons het geld nog steeds niet teruggegeven."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-imprevistos-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La próxima vez voy a llevar ropa limpia en la mochila.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "Next time I'm going to carry clean clothes in my backpack.",
+            "it": "La prossima volta porterò dei vestiti puliti nello zaino.",
+            "nl": "De volgende keer neem ik schone kleren mee in mijn rugzak."
+          },
+          "distractors": {
+            "en": [
+              "Next time I'm going to carry clean clothes in my suitcase.",
+              "Next time I'm going to carry some money in my backpack."
+            ],
+            "it": [
+              "La prossima volta porterò dei vestiti puliti nella valigia.",
+              "La prossima volta porterò dei soldi nello zaino."
+            ],
+            "nl": [
+              "De volgende keer neem ik schone kleren mee in mijn koffer.",
+              "De volgende keer neem ik wat geld mee in mijn rugzak."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

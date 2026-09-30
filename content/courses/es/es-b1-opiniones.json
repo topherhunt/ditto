@@ -1,0 +1,4585 @@
+{
+  "id": "es-b1-opiniones",
+  "language": "es",
+  "level": "B1",
+  "order": 25,
+  "title": "En mi opinión",
+  "description": {
+    "en": "Giving and asking for opinions, agreeing and disagreeing, doubting and weighing arguments",
+    "it": "Dare e chiedere opinioni, essere d'accordo o no, esprimere dubbi e valutare argomenti",
+    "nl": "Je mening geven en vragen, het eens of oneens zijn, twijfelen en argumenten afwegen"
+  },
+  "track": "main",
+  "requires": [
+    "es-b1-empleo"
+  ],
+  "introduces": [
+    "opinión",
+    "duda",
+    "dudar",
+    "convencer",
+    "discutir",
+    "debate",
+    "argumento",
+    "apoyar",
+    "criticar",
+    "exagerar",
+    "juzgar",
+    "sociedad",
+    "social",
+    "generación",
+    "solución",
+    "tema",
+    "obvio",
+    "falso",
+    "prejuicio",
+    "contra",
+    "según",
+    "depender",
+    "acuerdo",
+    "razón",
+    "hecho",
+    "realidad",
+    "cierto",
+    "vista",
+    "mayoría",
+    "general",
+    "además",
+    "sino",
+    "opinar",
+    "transporte"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as object it isn't translated: juzgar a las personas",
+        "it": "a; davanti a una persona come oggetto non si traduce: juzgar a las personas",
+        "nl": "naar, aan; vóór een persoon als lijdend voorwerp wordt het niet vertaald: juzgar a las personas"
+      }
+    },
+    "acuerdo": {
+      "lemma": "acuerdo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "agreement (m); de acuerdo = agreed, okay; estar de acuerdo con = to agree with",
+        "it": "accordo (m); de acuerdo = d'accordo; estar de acuerdo con = essere d'accordo con",
+        "nl": "akkoord (m); de acuerdo = akkoord, oké; estar de acuerdo con = het eens zijn met"
+      }
+    },
+    "además": {
+      "lemma": "además",
+      "pos": "ADV",
+      "gloss": {
+        "en": "besides, moreover, also",
+        "it": "inoltre, per di più",
+        "nl": "bovendien, daarnaast"
+      }
+    },
+    "ahora": {
+      "lemma": "ahora",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now; por ahora = for now",
+        "it": "ora, adesso; por ahora = per ora",
+        "nl": "nu; por ahora = voorlopig"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (a + el)",
+        "it": "al (a + el)",
+        "nl": "aan de, naar de (a + el)"
+      }
+    },
+    "alquiler": {
+      "lemma": "alquiler",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rent (m)",
+        "it": "affitto (m)",
+        "nl": "huur (m)"
+      }
+    },
+    "amable": {
+      "lemma": "amable",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "kind, friendly",
+        "it": "gentile",
+        "nl": "vriendelijk, aardig"
+      }
+    },
+    "ana": {
+      "lemma": "Ana",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Ana (a woman's name)",
+        "it": "Ana (nome femminile)",
+        "nl": "Ana (vrouwennaam)"
+      }
+    },
+    "anoche": {
+      "lemma": "anoche",
+      "pos": "ADV",
+      "gloss": {
+        "en": "last night",
+        "it": "ieri sera",
+        "nl": "gisteravond"
+      }
+    },
+    "apoyo": {
+      "lemma": "apoyar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I support (apoyar); apoyo tu idea = I support your idea",
+        "it": "sostengo, appoggio (apoyar)",
+        "nl": "ik steun (apoyar)"
+      }
+    },
+    "argumento": {
+      "lemma": "argumento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "argument, reason given for a view (m); watch out: a quarrel is a discusión, and argumento is also the plot of a story",
+        "it": "argomentazione, ragionamento (m); attenzione: argomento nel senso di tema = tema",
+        "nl": "argument (m), een reden voor een standpunt"
+      }
+    },
+    "argumentos": {
+      "lemma": "argumento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "arguments, reasons (plural of argumento, m)",
+        "it": "argomentazioni (plurale di argumento, m)",
+        "nl": "argumenten (meervoud van argumento, m)"
+      }
+    },
+    "así": {
+      "lemma": "así",
+      "pos": "ADV",
+      "gloss": {
+        "en": "like this, so; así que = so",
+        "it": "così; así que = quindi",
+        "nl": "zo; así que = dus"
+      }
+    },
+    "ayude": {
+      "lemma": "ayudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I help (present subjunctive of ayudar): no es verdad que te ayude = it's not true that I help you",
+        "it": "aiuti (congiuntivo presente di ayudar)",
+        "nl": "ik help (subjuntivo van ayudar)"
+      }
+    },
+    "año": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (m)",
+        "it": "anno (m)",
+        "nl": "jaar (m)"
+      }
+    },
+    "barato": {
+      "lemma": "barato",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cheap",
+        "it": "economico",
+        "nl": "goedkoop"
+      }
+    },
+    "barrio": {
+      "lemma": "barrio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighborhood (m)",
+        "it": "quartiere (m)",
+        "nl": "wijk, buurt (m)"
+      }
+    },
+    "bastante": {
+      "lemma": "bastante",
+      "pos": "ADV",
+      "gloss": {
+        "en": "quite, pretty, fairly",
+        "it": "piuttosto, abbastanza",
+        "nl": "best, vrij"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "well",
+        "it": "bene",
+        "nl": "goed"
+      }
+    },
+    "buena": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (feminine of bueno)",
+        "it": "buona (femminile di bueno)",
+        "nl": "goed, goede (vrouwelijk van bueno)"
+      }
+    },
+    "cada": {
+      "lemma": "cada",
+      "pos": "DET",
+      "gloss": {
+        "en": "each, every; same for masculine and feminine",
+        "it": "ogni",
+        "nl": "elk, ieder"
+      }
+    },
+    "caro": {
+      "lemma": "caro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "expensive",
+        "it": "caro",
+        "nl": "duur"
+      }
+    },
+    "carro": {
+      "lemma": "carro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "car (m)",
+        "it": "macchina (m)",
+        "nl": "auto (m)"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); desde casa = from home",
+        "it": "casa (f); desde casa = da casa",
+        "nl": "huis (f); desde casa = vanuit huis"
+      }
+    },
+    "casi": {
+      "lemma": "casi",
+      "pos": "ADV",
+      "gloss": {
+        "en": "almost",
+        "it": "quasi",
+        "nl": "bijna"
+      }
+    },
+    "cerrado": {
+      "lemma": "cerrado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed",
+        "it": "chiuso",
+        "nl": "dicht, gesloten"
+      }
+    },
+    "cierto": {
+      "lemma": "cierto",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "true, certain; es cierto = it's true",
+        "it": "vero, certo; es cierto = è vero",
+        "nl": "waar, zeker; es cierto = het is waar"
+      }
+    },
+    "clima": {
+      "lemma": "clima",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weather; climate (m, although it ends in -a)",
+        "it": "tempo, clima (m)",
+        "nl": "weer; klimaat (m, al eindigt het op -a)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "contigo": {
+      "lemma": "contigo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "with you (informal)",
+        "it": "con te",
+        "nl": "met jou"
+      }
+    },
+    "contra": {
+      "lemma": "contra",
+      "pos": "ADP",
+      "gloss": {
+        "en": "against; en contra de = against",
+        "it": "contro; en contra de = contro",
+        "nl": "tegen; en contra de = tegen"
+      }
+    },
+    "convence": {
+      "lemma": "convencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "convinces (convencer); no me convence = I'm not convinced",
+        "it": "convince (convencer); no me convence = non mi convince",
+        "nl": "overtuigt (convencer); no me convence = het overtuigt me niet"
+      }
+    },
+    "convencer": {
+      "lemma": "convencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to convince",
+        "it": "convincere",
+        "nl": "overtuigen"
+      }
+    },
+    "crees": {
+      "lemma": "creer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you think, you believe (creer, informal)",
+        "it": "credi, pensi (creer, informale); ¿Crees que...? + indicativo",
+        "nl": "je denkt, je gelooft (creer, informeel)"
+      }
+    },
+    "creo": {
+      "lemma": "creer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I think, I believe (creer); creo que + indicative: creo que tienes razón",
+        "it": "credo, penso (creer); attenzione: creo que + indicativo, non congiuntivo: creo que tienes razón = credo che tu abbia ragione",
+        "nl": "ik denk, ik geloof (creer); creo que + indicatief: creo que tienes razón"
+      }
+    },
+    "critican": {
+      "lemma": "criticar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they criticize (criticar); lo critican = people criticize him",
+        "it": "criticano (criticar); lo critican = lo criticano",
+        "nl": "ze bekritiseren (criticar); lo critican = hij krijgt kritiek"
+      }
+    },
+    "criticar": {
+      "lemma": "criticar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to criticize",
+        "it": "criticare",
+        "nl": "bekritiseren, kritiek hebben op"
+      }
+    },
+    "daniel": {
+      "lemma": "Daniel",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Daniel (a man's name)",
+        "it": "Daniel (nome maschile)",
+        "nl": "Daniel (mannennaam)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from, about; hablar de = to talk about",
+        "it": "di, da; hablar de = parlare di",
+        "nl": "van, uit, over; hablar de = praten over"
+      }
+    },
+    "debate": {
+      "lemma": "debate",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "debate (m)",
+        "it": "dibattito (m)",
+        "nl": "debat (m)"
+      }
+    },
+    "decir": {
+      "lemma": "decir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to say, to tell; decir que... = saying that...",
+        "it": "dire",
+        "nl": "zeggen, vertellen"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el)",
+        "it": "del, dal (de + el)",
+        "nl": "van de (de + el)"
+      }
+    },
+    "depende": {
+      "lemma": "depender",
+      "pos": "VERB",
+      "gloss": {
+        "en": "depends (depender); depende de... = it depends on...; ¡Depende! = It depends!",
+        "it": "dipende (depender); depende de... = dipende da...",
+        "nl": "hangt af (depender); depende de... = het hangt af van..."
+      }
+    },
+    "depender": {
+      "lemma": "depender",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to depend; depender de = to depend on",
+        "it": "dipendere; depender de = dipendere da",
+        "nl": "afhangen; depender de = afhangen van"
+      }
+    },
+    "descanses": {
+      "lemma": "descansar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you rest (present subjunctive of descansar, informal): es mejor que descanses = you'd better rest",
+        "it": "tu riposi (congiuntivo presente di descansar)",
+        "nl": "je rust uit (subjuntivo van descansar, informeel): es mejor que descanses = je kunt beter rusten"
+      }
+    },
+    "desde": {
+      "lemma": "desde",
+      "pos": "ADP",
+      "gloss": {
+        "en": "from, since; desde casa = from home; desde mi punto de vista = from my point of view",
+        "it": "da; desde casa = da casa",
+        "nl": "vanaf, vanuit; desde casa = vanuit huis"
+      }
+    },
+    "dice": {
+      "lemma": "decir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "says, tells (decir)",
+        "it": "dice (decir)",
+        "nl": "zegt (decir)"
+      }
+    },
+    "difícil": {
+      "lemma": "difícil",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "hard, difficult",
+        "it": "difficile",
+        "nl": "moeilijk"
+      }
+    },
+    "digas": {
+      "lemma": "decir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you say, you tell (present subjunctive of decir, informal): es mejor que no digas nada = you'd better not say anything",
+        "it": "tu dica (congiuntivo presente di decir)",
+        "nl": "je zegt (subjuntivo van decir, informeel): es mejor que no digas nada = je kunt beter niets zeggen"
+      }
+    },
+    "dijo": {
+      "lemma": "decir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "said, told (decir, preterite)",
+        "it": "disse, ha detto (decir, passato)",
+        "nl": "zei, vertelde (decir, verleden tijd)"
+      }
+    },
+    "dinero": {
+      "lemma": "dinero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "money (m)",
+        "it": "soldi, denaro (m)",
+        "nl": "geld (m)"
+      }
+    },
+    "discutir": {
+      "lemma": "discutir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to argue; also to discuss; watch out: discutir con alguien usually means to argue, to quarrel",
+        "it": "discutere; discutir con alguien = litigare con qualcuno",
+        "nl": "ruziemaken, discussiëren; ook bespreken; let op: discutir con alguien = ruzie maken met iemand"
+      }
+    },
+    "duda": {
+      "lemma": "duda",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doubt (f); sin duda = without a doubt",
+        "it": "dubbio (f); sin duda = senza dubbio",
+        "nl": "twijfel (f); sin duda = zonder twijfel"
+      }
+    },
+    "dudar": {
+      "lemma": "dudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to doubt; dudar que + subjunctive",
+        "it": "dubitare; dudar que + congiuntivo, come in italiano",
+        "nl": "twijfelen, betwijfelen; dudar que + subjuntivo"
+      }
+    },
+    "dudo": {
+      "lemma": "dudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I doubt (dudar); dudo que + subjunctive: dudo que puedan = I doubt they can",
+        "it": "dubito (dudar); dudo que + congiuntivo: dudo que puedan = dubito che possano",
+        "nl": "ik betwijfel (dudar); dudo que + subjuntivo: dudo que puedan = ik betwijfel of ze kunnen"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (plural of día, m)",
+        "it": "giorni (plurale di día, m)",
+        "nl": "dagen (meervoud van día, m)"
+      }
+    },
+    "edad": {
+      "lemma": "edad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "age (f)",
+        "it": "età (f)",
+        "nl": "leeftijd (f)"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine)",
+        "it": "il, lo (maschile)",
+        "nl": "de, het (mannelijk)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on, at",
+        "it": "in, a, su",
+        "nl": "in, op"
+      }
+    },
+    "encontré": {
+      "lemma": "encontrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I found (encontrar, preterite)",
+        "it": "ho trovato (encontrar, passato)",
+        "nl": "ik vond, ik heb gevonden (encontrar, verleden tijd)"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (ser); es posible que + subjunctive = it's possible that",
+        "it": "è (ser); es posible que + congiuntivo = è possibile che",
+        "nl": "is (ser); es posible que + subjuntivo = het is mogelijk dat"
+      }
+    },
+    "esa": {
+      "lemma": "ese",
+      "pos": "DET",
+      "gloss": {
+        "en": "that (feminine of ese)",
+        "it": "quella (femminile di ese)",
+        "nl": "die (vrouwelijk van ese)"
+      }
+    },
+    "eso": {
+      "lemma": "eso",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that (neuter)",
+        "it": "questo, quello (neutro)",
+        "nl": "dat (onzijdig)"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this",
+        "it": "questo",
+        "nl": "deze, dit"
+      }
+    },
+    "esto": {
+      "lemma": "esto",
+      "pos": "PRON",
+      "gloss": {
+        "en": "this (neuter)",
+        "it": "questo, ciò (neutro)",
+        "nl": "dit (onzijdig)"
+      }
+    },
+    "estoy": {
+      "lemma": "estar",
+      "pos": "AUX",
+      "gloss": {
+        "en": "I am (estar); estoy de acuerdo = I agree",
+        "it": "sono, sto (estar); estoy de acuerdo = sono d'accordo",
+        "nl": "ik ben (estar); estoy de acuerdo = ik ben het eens"
+      }
+    },
+    "estudiar": {
+      "lemma": "estudiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to study",
+        "it": "studiare",
+        "nl": "studeren, leren"
+      }
+    },
+    "estuvo": {
+      "lemma": "estar",
+      "pos": "AUX",
+      "gloss": {
+        "en": "was (estar, preterite); estuvo de acuerdo = agreed",
+        "it": "fu, è stato (estar, passato); estuvo de acuerdo = era d'accordo",
+        "nl": "was (estar, verleden tijd); estuvo de acuerdo = was het eens"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (estar); está exagerando = he's exaggerating",
+        "it": "è, sta (estar); está exagerando = sta esagerando",
+        "nl": "is (estar); está exagerando = hij overdrijft"
+      }
+    },
+    "estás": {
+      "lemma": "estar",
+      "pos": "AUX",
+      "gloss": {
+        "en": "you are (estar, informal)",
+        "it": "sei, stai (estar, informale)",
+        "nl": "je bent (estar, informeel)"
+      }
+    },
+    "esté": {
+      "lemma": "estar",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (present subjunctive of estar): no es cierto que esté cerrado = it's not true that it's closed",
+        "it": "sia, stia (congiuntivo presente di estar)",
+        "nl": "is (subjuntivo van estar): no es cierto que esté cerrado = het is niet waar dat het dicht is"
+      }
+    },
+    "exagerando": {
+      "lemma": "exagerar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "exaggerating (gerund of exagerar); está exagerando = he's exaggerating",
+        "it": "esagerando (gerundio di exagerar); está exagerando = sta esagerando",
+        "nl": "overdrijvend (gerundio van exagerar); está exagerando = hij overdrijft"
+      }
+    },
+    "exagerar": {
+      "lemma": "exagerar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to exaggerate",
+        "it": "esagerare",
+        "nl": "overdrijven"
+      }
+    },
+    "examen": {
+      "lemma": "examen",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "exam, test (m)",
+        "it": "esame (m)",
+        "nl": "examen, toets (m)"
+      }
+    },
+    "falsa": {
+      "lemma": "falso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "false, fake (feminine of falso)",
+        "it": "falsa (femminile di falso)",
+        "nl": "onwaar, nep (vrouwelijk van falso)"
+      }
+    },
+    "falso": {
+      "lemma": "falso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "false, fake",
+        "it": "falso",
+        "nl": "onwaar, vals, nep"
+      }
+    },
+    "favor": {
+      "lemma": "favor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "favor (m); a favor de = in favor of",
+        "it": "favore (m); a favor de = a favore di",
+        "nl": "gunst (m); a favor de = voor, vóór"
+      }
+    },
+    "fácil": {
+      "lemma": "fácil",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "easy",
+        "it": "facile",
+        "nl": "makkelijk"
+      }
+    },
+    "generación": {
+      "lemma": "generación",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "generation (f)",
+        "it": "generazione (f)",
+        "nl": "generatie (f)"
+      }
+    },
+    "general": {
+      "lemma": "general",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "general; en general = in general",
+        "it": "generale; en general = in generale",
+        "nl": "algemeen; en general = over het algemeen"
+      }
+    },
+    "gente": {
+      "lemma": "gente",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (f, singular in Spanish: la gente es...)",
+        "it": "gente (f)",
+        "nl": "mensen (f, enkelvoud in het Spaans: la gente es...)"
+      }
+    },
+    "guste": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pleases (present subjunctive of gustar): dudo que le guste = I doubt he'll like it",
+        "it": "piaccia (congiuntivo presente di gustar): dudo que le guste = dubito che gli piaccia",
+        "nl": "bevalt (subjuntivo van gustar): dudo que le guste = ik betwijfel of hij het leuk vindt"
+      }
+    },
+    "hablemos": {
+      "lemma": "hablar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we talk (present subjunctive of hablar): es importante que hablemos = it's important that we talk",
+        "it": "parliamo (congiuntivo presente di hablar)",
+        "nl": "we praten (subjuntivo van hablar): es importante que hablemos = het is belangrijk dat we praten"
+      }
+    },
+    "hace": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "does, makes (hacer); hace bien su trabajo = he does his job well",
+        "it": "fa (hacer); hace bien su trabajo = fa bene il suo lavoro",
+        "nl": "doet, maakt (hacer); hace bien su trabajo = hij doet zijn werk goed"
+      }
+    },
+    "haga": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "does (present subjunctive of hacer): es necesario que haga más = it needs to do more",
+        "it": "faccia (congiuntivo presente di hacer)",
+        "nl": "doet (subjuntivo van hacer): es necesario que haga más = het moet meer doen"
+      }
+    },
+    "hay": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there are (haber); hay que + infinitive = one must; no hay que = you shouldn't",
+        "it": "c'è, ci sono (haber); hay que + infinito = bisogna; no hay que = non bisogna",
+        "nl": "er is, er zijn (haber); hay que + infinitief = je moet; no hay que = je moet niet"
+      }
+    },
+    "haya": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there are (present subjunctive of haber): es posible que no haya = there may not be",
+        "it": "ci sia (congiuntivo presente di haber): es posible que no haya = è possibile che non ci sia",
+        "nl": "er is (subjuntivo van haber): es posible que no haya = misschien is er geen"
+      }
+    },
+    "hecho": {
+      "lemma": "hecho",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fact (m); de hecho = in fact",
+        "it": "fatto (m); de hecho = infatti, anzi",
+        "nl": "feit (m); de hecho = sterker nog, in feite"
+      }
+    },
+    "hermano": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "hoy": {
+      "lemma": "hoy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "idea": {
+      "lemma": "idea",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "idea (f)",
+        "it": "idea (f)",
+        "nl": "idee (f)"
+      }
+    },
+    "importante": {
+      "lemma": "importante",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "important; es importante que + subjunctive",
+        "it": "importante; es importante que + congiuntivo",
+        "nl": "belangrijk; es importante que + subjuntivo"
+      }
+    },
+    "inteligente": {
+      "lemma": "inteligente",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "smart, intelligent",
+        "it": "intelligente",
+        "nl": "slim, intelligent"
+      }
+    },
+    "jefe": {
+      "lemma": "jefe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boss (m)",
+        "it": "capo (m)",
+        "nl": "baas (m)"
+      }
+    },
+    "juzgar": {
+      "lemma": "juzgar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to judge; a person takes a: juzgar a las personas",
+        "it": "giudicare; una persona vuole la a: juzgar a las personas",
+        "nl": "oordelen, beoordelen; een persoon krijgt a: juzgar a las personas"
+      }
+    },
+    "jóvenes": {
+      "lemma": "joven",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "young people (plural of joven)",
+        "it": "giovani (plurale di joven)",
+        "nl": "jongeren (meervoud van joven)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "it": "la (femminile)",
+        "nl": "de, het (vrouwelijk)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, her (object pronoun)",
+        "it": "la (pronome oggetto)",
+        "nl": "het, haar (lijdend voorwerp)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural)",
+        "it": "le (femminile plurale)",
+        "nl": "de (vrouwelijk meervoud)"
+      }
+    },
+    "laura": {
+      "lemma": "Laura",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Laura (a woman's name)",
+        "it": "Laura (nome femminile)",
+        "nl": "Laura (vrouwennaam)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "to him, to her, to you (formal)",
+        "it": "gli, le",
+        "nl": "hem, haar, u"
+      }
+    },
+    "lleva": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "take (llevar, informal imperative); lleva tu paraguas = take your umbrella",
+        "it": "porta (llevar, imperativo informale); lleva tu paraguas = porta l'ombrello",
+        "nl": "neem mee (llevar, gebiedende wijs, informeel)"
+      }
+    },
+    "llueva": {
+      "lemma": "llover",
+      "pos": "VERB",
+      "gloss": {
+        "en": "it rains (present subjunctive of llover): es posible que llueva = it might rain",
+        "it": "piova (congiuntivo presente di llover)",
+        "nl": "het regent (subjuntivo van llover): es posible que llueva = het kan gaan regenen"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him",
+        "it": "lo",
+        "nl": "het, hem"
+      }
+    },
+    "lo#art": {
+      "lemma": "lo",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter); lo mismo = the same thing; de lo que = than",
+        "it": "lo neutro; lo mismo = la stessa cosa; de lo que = di quanto",
+        "nl": "het (onzijdig); lo mismo = hetzelfde; de lo que = dan"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural); los lunes = on Mondays",
+        "it": "i, gli (maschile plurale); los lunes = il lunedì",
+        "nl": "de (mannelijk meervoud); los lunes = op maandag"
+      }
+    },
+    "lunes": {
+      "lemma": "lunes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m, same in the plural); los lunes = on Mondays",
+        "it": "lunedì (m, uguale al plurale); los lunes = il lunedì",
+        "nl": "maandag (m, zelfde in het meervoud); los lunes = op maandag"
+      }
+    },
+    "manera": {
+      "lemma": "manera",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "way, manner (f); de otra manera = differently",
+        "it": "modo, maniera (f); de otra manera = in un altro modo",
+        "nl": "manier (f); de otra manera = anders"
+      }
+    },
+    "marta": {
+      "lemma": "Marta",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Marta (a woman's name)",
+        "it": "Marta (nome femminile)",
+        "nl": "Marta (vrouwennaam)"
+      }
+    },
+    "mayores": {
+      "lemma": "mayor",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "older (plural of mayor); las personas mayores = older people",
+        "it": "anziani (plurale di mayor); las personas mayores = le persone anziane",
+        "nl": "ouder (meervoud van mayor); las personas mayores = ouderen"
+      }
+    },
+    "mayoría": {
+      "lemma": "mayoría",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "majority (f); la mayoría de = most",
+        "it": "maggioranza (f); la mayoría de = la maggior parte di",
+        "nl": "meerderheid (f); la mayoría de = de meeste"
+      }
+    },
+    "mañana": {
+      "lemma": "mañana",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me; me parece = it seems to me",
+        "it": "mi; me parece = mi sembra",
+        "nl": "me, mij; me parece = het lijkt me"
+      }
+    },
+    "mejor": {
+      "lemma": "mejor",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "better, best; es mejor que + subjunctive = it's better if",
+        "it": "migliore, meglio; es mejor que + congiuntivo = è meglio che",
+        "nl": "beter, best; es mejor que + subjuntivo = het is beter dat"
+      }
+    },
+    "metro": {
+      "lemma": "metro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "subway, metro (m)",
+        "it": "metropolitana (m)",
+        "nl": "metro (m)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia",
+        "nl": "mijn"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural)",
+        "it": "miei, mie",
+        "nl": "mijn (meervoud)"
+      }
+    },
+    "mismo": {
+      "lemma": "mismo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "same; lo mismo = the same (thing)",
+        "it": "stesso; lo mismo = la stessa cosa",
+        "nl": "zelfde; lo mismo = hetzelfde"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, much",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "mundo": {
+      "lemma": "mundo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "world (m)",
+        "it": "mondo (m)",
+        "nl": "wereld (m)"
+      }
+    },
+    "museo": {
+      "lemma": "museo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "museum (m)",
+        "it": "museo (m)",
+        "nl": "museum (m)"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto",
+        "nl": "heel, erg"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more, most; unos días más = a few more days",
+        "it": "più, di più; unos días más = qualche giorno in più",
+        "nl": "meer, meest; unos días más = nog een paar dagen"
+      }
+    },
+    "médico": {
+      "lemma": "médico",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor (m)",
+        "it": "medico (m)",
+        "nl": "dokter, arts (m)"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing, anything (after no): no digas nada = don't say anything",
+        "it": "niente, nulla: no digas nada = non dire niente",
+        "nl": "niets: no digas nada = zeg niets"
+      }
+    },
+    "nadie": {
+      "lemma": "nadie",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody, no one",
+        "it": "nessuno",
+        "nl": "niemand"
+      }
+    },
+    "necesario": {
+      "lemma": "necesario",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "necessary; es necesario que + subjunctive",
+        "it": "necessario; es necesario que + congiuntivo",
+        "nl": "nodig, noodzakelijk; es necesario que + subjuntivo"
+      }
+    },
+    "ni": {
+      "lemma": "ni",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "nor, or (after a negative): no... ni... = not... or...",
+        "it": "né",
+        "nl": "noch, of (na een ontkenning)"
+      }
+    },
+    "ningún": {
+      "lemma": "ninguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "no, not any (ninguno before a masculine noun): en ningún periódico = in no newspaper",
+        "it": "nessun (ninguno davanti a un nome maschile)",
+        "nl": "geen enkel (ninguno vóór een mannelijk woord)"
+      }
+    },
+    "niños": {
+      "lemma": "niño",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "children, kids (plural of niño, m)",
+        "it": "bambini (plurale di niño, m)",
+        "nl": "kinderen (meervoud van niño, m)"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not, no",
+        "it": "non, no",
+        "nl": "niet, nee"
+      }
+    },
+    "normal": {
+      "lemma": "normal",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "normal; es normal que + subjunctive",
+        "it": "normale; es normal que + congiuntivo",
+        "nl": "normaal; es normal que + subjuntivo"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us",
+        "it": "ci",
+        "nl": "ons"
+      }
+    },
+    "noticia": {
+      "lemma": "noticia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "news story, piece of news (f)",
+        "it": "notizia (f)",
+        "nl": "nieuwsbericht, nieuwtje (f)"
+      }
+    },
+    "nuestra": {
+      "lemma": "nuestro",
+      "pos": "DET",
+      "gloss": {
+        "en": "our (feminine of nuestro)",
+        "it": "nostra (femminile di nuestro)",
+        "nl": "onze (vrouwelijk van nuestro)"
+      }
+    },
+    "nueva": {
+      "lemma": "nuevo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new (feminine of nuevo)",
+        "it": "nuova (femminile di nuevo)",
+        "nl": "nieuw, nieuwe (vrouwelijk van nuevo)"
+      }
+    },
+    "nunca": {
+      "lemma": "nunca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never; after the verb it needs no: no... nunca",
+        "it": "mai; yo nunca te ayude = io non ti aiuti mai",
+        "nl": "nooit"
+      }
+    },
+    "o": {
+      "lemma": "o",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "obvio": {
+      "lemma": "obvio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "obvious; es obvio que + indicative",
+        "it": "ovvio; es obvio que + indicativo",
+        "nl": "duidelijk, vanzelfsprekend; es obvio que + indicatief"
+      }
+    },
+    "oficina": {
+      "lemma": "oficina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office (f)",
+        "it": "ufficio (f); attenzione: non è l'officina (taller)",
+        "nl": "kantoor (f)"
+      }
+    },
+    "opinas": {
+      "lemma": "opinar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you think, your opinion is (opinar, informal); ¿Qué opinas de...? = What do you think of...?",
+        "it": "pensi (opinar, informale); ¿Qué opinas de...? = Che ne pensi di...?",
+        "nl": "je vindt (opinar, informeel); ¿Qué opinas de...? = Wat vind je van...?"
+      }
+    },
+    "opinión": {
+      "lemma": "opinión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "opinion (f); en mi opinión = in my opinion",
+        "it": "opinione (f); en mi opinión = secondo me",
+        "nl": "mening (f); en mi opinión = volgens mij"
+      }
+    },
+    "otra": {
+      "lemma": "otro",
+      "pos": "DET",
+      "gloss": {
+        "en": "another, other (feminine of otro); never un otro: otra manera = another way",
+        "it": "un'altra (femminile di otro); mai un otro: otra manera = un altro modo",
+        "nl": "ander, andere (vrouwelijk van otro)"
+      }
+    },
+    "padres": {
+      "lemma": "padre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parents; fathers (plural of padre, m)",
+        "it": "genitori (plurale di padre, m)",
+        "nl": "ouders (meervoud van padre, m)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; para mí = for me, in my view",
+        "it": "per; para mí = per me",
+        "nl": "voor; para mí = voor mij, volgens mij"
+      }
+    },
+    "paraguas": {
+      "lemma": "paraguas",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "umbrella (m, same in the plural)",
+        "it": "ombrello (m)",
+        "nl": "paraplu (m)"
+      }
+    },
+    "parece": {
+      "lemma": "parecer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "seems, looks (parecer); me parece que + indicative = I think that, it seems to me that",
+        "it": "sembra (parecer); attenzione: me parece que + indicativo: me parece que es caro = mi sembra che sia caro",
+        "nl": "lijkt (parecer); me parece que + indicatief = ik vind dat, volgens mij"
+      }
+    },
+    "película": {
+      "lemma": "película",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "movie, film (f)",
+        "it": "film (f)",
+        "nl": "film (f)"
+      }
+    },
+    "peor": {
+      "lemma": "peor",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "worse, worst; peor de lo que crees = worse than you think",
+        "it": "peggio, peggiore; peor de lo que crees = peggio di quanto pensi",
+        "nl": "erger, slechter; peor de lo que crees = erger dan je denkt"
+      }
+    },
+    "perezosos": {
+      "lemma": "perezoso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "lazy (masculine plural of perezoso)",
+        "it": "pigri (maschile plurale di perezoso)",
+        "nl": "lui (mannelijk meervoud van perezoso)"
+      }
+    },
+    "periódico": {
+      "lemma": "periódico",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "newspaper (m)",
+        "it": "giornale (m)",
+        "nl": "krant (m)"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "persona": {
+      "lemma": "persona",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "person (f, also for men)",
+        "it": "persona (f)",
+        "nl": "persoon (f, ook voor mannen)"
+      }
+    },
+    "personas": {
+      "lemma": "persona",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people, persons (plural of persona, f); las personas mayores = older people",
+        "it": "persone (plurale di persona, f); las personas mayores = gli anziani",
+        "nl": "mensen, personen (meervoud van persona, f); las personas mayores = ouderen"
+      }
+    },
+    "piensa": {
+      "lemma": "pensar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "thinks (pensar); no piensa lo mismo = doesn't think so, disagrees",
+        "it": "pensa (pensar); no piensa lo mismo = non la pensa così",
+        "nl": "denkt (pensar); no piensa lo mismo = denkt er anders over"
+      }
+    },
+    "pienso": {
+      "lemma": "pensar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I think (pensar); pienso que + indicative",
+        "it": "penso (pensar); attenzione: pienso que + indicativo, non congiuntivo",
+        "nl": "ik denk (pensar); pienso que + indicatief"
+      }
+    },
+    "playa": {
+      "lemma": "playa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beach (f); ir a la playa = to go to the beach",
+        "it": "spiaggia (f); ir a la playa = andare al mare",
+        "nl": "strand (f)"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; por ahora = for now; ¿por qué? = why?",
+        "it": "per; por ahora = per ora; ¿por qué? = perché?",
+        "nl": "voor, door; por ahora = voorlopig; ¿por qué? = waarom?"
+      }
+    },
+    "porque": {
+      "lemma": "porque",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "because",
+        "it": "perché (nelle risposte)",
+        "nl": "omdat, want"
+      }
+    },
+    "posible": {
+      "lemma": "posible",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "possible; es posible que + subjunctive = it might",
+        "it": "possibile; es posible que + congiuntivo",
+        "nl": "mogelijk; es posible que + subjuntivo = misschien, het kan dat"
+      }
+    },
+    "preguntarle": {
+      "lemma": "preguntar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "preguntarle = preguntar + le: to ask him, to ask her",
+        "it": "preguntarle = preguntar + le: chiedergli, chiederle",
+        "nl": "preguntarle = preguntar + le: hem vragen, haar vragen"
+      }
+    },
+    "prejuicio": {
+      "lemma": "prejuicio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prejudice (m)",
+        "it": "pregiudizio (m)",
+        "nl": "vooroordeel (m)"
+      }
+    },
+    "problema": {
+      "lemma": "problema",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "problem (m, although it ends in -a)",
+        "it": "problema (m)",
+        "nl": "probleem (m, al eindigt het op -a)"
+      }
+    },
+    "profesora": {
+      "lemma": "profesor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "teacher (f, feminine of profesor)",
+        "it": "professoressa (f, femminile di profesor)",
+        "nl": "lerares (f, vrouwelijk van profesor)"
+      }
+    },
+    "pueblo": {
+      "lemma": "pueblo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "town, village (m)",
+        "it": "paese, paesino (m)",
+        "nl": "dorp (m)"
+      }
+    },
+    "puedan": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they can (present subjunctive of poder): dudo que puedan = I doubt they can",
+        "it": "possano (congiuntivo presente di poder)",
+        "nl": "ze kunnen (subjuntivo van poder): dudo que puedan = ik betwijfel of ze kunnen"
+      }
+    },
+    "puedes": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (poder, informal)",
+        "it": "puoi (poder, informale)",
+        "nl": "je kunt (poder, informeel)"
+      }
+    },
+    "punto": {
+      "lemma": "punto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "point (m); punto de vista = point of view",
+        "it": "punto (m); punto de vista = punto di vista",
+        "nl": "punt (m); punto de vista = standpunt"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that; often left out in English: creo que... = I think...",
+        "it": "che",
+        "nl": "dat"
+      }
+    },
+    "quiere": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wants (querer)",
+        "it": "vuole (querer)",
+        "nl": "wil (querer)"
+      }
+    },
+    "quiero": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want (querer)",
+        "it": "voglio (querer)",
+        "nl": "ik wil (querer)"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what; ¿por qué? = why?",
+        "it": "che, cosa; ¿por qué? = perché?",
+        "nl": "wat; ¿por qué? = waarom?"
+      }
+    },
+    "razón": {
+      "lemma": "razón",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reason (f); tener razón = to be right",
+        "it": "ragione, motivo (f); tener razón = avere ragione",
+        "nl": "reden (f); tener razón = gelijk hebben"
+      }
+    },
+    "realidad": {
+      "lemma": "realidad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reality (f); en realidad = actually; watch out: actual means current, not actual",
+        "it": "realtà (f); en realidad = in realtà",
+        "nl": "werkelijkheid (f); en realidad = eigenlijk"
+      }
+    },
+    "ropa": {
+      "lemma": "ropa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "clothes (f, singular in Spanish)",
+        "it": "vestiti (f, singolare in spagnolo)",
+        "nl": "kleren (f, enkelvoud in het Spaans)"
+      }
+    },
+    "rápido": {
+      "lemma": "rápido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fast, quick",
+        "it": "veloce",
+        "nl": "snel"
+      }
+    },
+    "sea": {
+      "lemma": "ser",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is, be (present subjunctive of ser): no creo que sea verdad = I don't think it's true",
+        "it": "sia (congiuntivo presente di ser): no creo que sea verdad = non credo che sia vero",
+        "nl": "is (subjuntivo van ser): no creo que sea verdad = ik denk niet dat het waar is"
+      }
+    },
+    "según": {
+      "lemma": "según",
+      "pos": "ADP",
+      "gloss": {
+        "en": "according to; según el médico = according to the doctor",
+        "it": "secondo; según el médico = secondo il medico",
+        "nl": "volgens; según el médico = volgens de dokter"
+      }
+    },
+    "sepa": {
+      "lemma": "saber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "knows (present subjunctive of saber): no creo que lo sepa = I don't think she knows",
+        "it": "sappia (congiuntivo presente di saber)",
+        "nl": "weet (subjuntivo van saber): no creo que lo sepa = ik denk niet dat ze het weet"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if, whether",
+        "it": "se",
+        "nl": "als, of"
+      }
+    },
+    "sin": {
+      "lemma": "sin",
+      "pos": "ADP",
+      "gloss": {
+        "en": "without",
+        "it": "senza",
+        "nl": "zonder"
+      }
+    },
+    "sino": {
+      "lemma": "sino",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but (rather), only after a negative: no A sino B = not A but B; otherwise use pero",
+        "it": "ma, bensì, solo dopo una negazione: no A sino B = non A ma B; altrimenti pero",
+        "nl": "maar (wel), alleen na een ontkenning: no A sino B = niet A maar B; anders pero"
+      }
+    },
+    "social": {
+      "lemma": "social",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "social; same form for masculine and feminine",
+        "it": "sociale; stessa forma al maschile e al femminile",
+        "nl": "sociaal, maatschappelijk; zelfde vorm voor mannelijk en vrouwelijk"
+      }
+    },
+    "sociedad": {
+      "lemma": "sociedad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "society (f)",
+        "it": "società (f)",
+        "nl": "maatschappij, samenleving (f)"
+      }
+    },
+    "sofía": {
+      "lemma": "Sofía",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Sofía (a woman's name)",
+        "it": "Sofía (nome femminile)",
+        "nl": "Sofía (vrouwennaam)"
+      }
+    },
+    "solo": {
+      "lemma": "solo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just; no solo... sino también = not only... but also",
+        "it": "solo, soltanto; no solo... sino también = non solo... ma anche",
+        "nl": "alleen, maar; no solo... sino también = niet alleen... maar ook"
+      }
+    },
+    "solución": {
+      "lemma": "solución",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "solution (f)",
+        "it": "soluzione (f)",
+        "nl": "oplossing (f)"
+      }
+    },
+    "son": {
+      "lemma": "ser",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are (ser, plural)",
+        "it": "sono (ser, plurale)",
+        "nl": "zijn (ser, meervoud)"
+      }
+    },
+    "su": {
+      "lemma": "su",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its, their, your (formal)",
+        "it": "suo, sua, loro",
+        "nl": "zijn, haar, hun, uw"
+      }
+    },
+    "sábado": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m); el sábado = on Saturday",
+        "it": "sabato (m); el sábado = sabato",
+        "nl": "zaterdag (m); el sábado = op zaterdag"
+      }
+    },
+    "sé": {
+      "lemma": "saber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I know (saber); no sé si... = I don't know if...",
+        "it": "so (saber); no sé si... = non so se...",
+        "nl": "ik weet (saber); no sé si... = ik weet niet of..."
+      }
+    },
+    "también": {
+      "lemma": "también",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, too",
+        "it": "anche",
+        "nl": "ook"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you, to you (informal)",
+        "it": "ti",
+        "nl": "je, jou"
+      }
+    },
+    "tema": {
+      "lemma": "tema",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "topic, subject (m, although it ends in -a)",
+        "it": "tema, argomento (m)",
+        "nl": "onderwerp (m, al eindigt het op -a)"
+      }
+    },
+    "tiempo": {
+      "lemma": "tiempo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time (m)",
+        "it": "tempo (m)",
+        "nl": "tijd (m)"
+      }
+    },
+    "tiene": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has (tener); tiene razón = he's right, she's right",
+        "it": "ha (tener); tiene razón = ha ragione",
+        "nl": "heeft (tener); tiene razón = hij heeft gelijk, zij heeft gelijk"
+      }
+    },
+    "tienen": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they have (tener); tienen que = they have to",
+        "it": "hanno (tener); tienen que = devono",
+        "nl": "ze hebben (tener); tienen que = ze moeten"
+      }
+    },
+    "tienes": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (tener, informal); tienes razón = you're right",
+        "it": "hai (tener, informale); tienes razón = hai ragione",
+        "nl": "je hebt (tener, informeel); tienes razón = je hebt gelijk"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet",
+        "it": "ancora",
+        "nl": "nog"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "everything, all; todo esto = all this",
+        "it": "tutto; todo esto = tutto questo",
+        "nl": "alles; todo esto = dit alles"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, every (masculine plural of todo); todos tus argumentos = all your arguments",
+        "it": "tutti (maschile plurale di todo)",
+        "nl": "alle (mannelijk meervoud van todo)"
+      }
+    },
+    "trabajar": {
+      "lemma": "trabajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to work",
+        "it": "lavorare",
+        "nl": "werken"
+      }
+    },
+    "trabajo": {
+      "lemma": "trabajo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (m)",
+        "it": "lavoro (m)",
+        "nl": "werk, baan (m)"
+      }
+    },
+    "transporte": {
+      "lemma": "transporte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "transportation (m)",
+        "it": "trasporto (m)",
+        "nl": "vervoer (m)"
+      }
+    },
+    "tráfico": {
+      "lemma": "tráfico",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "traffic (m)",
+        "it": "traffico (m)",
+        "nl": "verkeer (m)"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (informal)",
+        "it": "tuo, tua",
+        "nl": "jouw, je"
+      }
+    },
+    "turistas": {
+      "lemma": "turista",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tourists (plural of turista)",
+        "it": "turisti (plurale di turista)",
+        "nl": "toeristen (meervoud van turista)"
+      }
+    },
+    "tus": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (informal, plural)",
+        "it": "tuoi, tue",
+        "nl": "jouw, je (meervoud)"
+      }
+    },
+    "tú": {
+      "lemma": "tú",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal); ¿Y tú? = And you?",
+        "it": "tu",
+        "nl": "jij"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine)",
+        "it": "un, uno (maschile)",
+        "nl": "een (mannelijk)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una (femminile)",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "unos": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, a few (masculine plural of uno)",
+        "it": "alcuni, qualche (maschile plurale di uno)",
+        "nl": "een paar (mannelijk meervoud van uno)"
+      }
+    },
+    "vamos": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go, we're going (ir)",
+        "it": "andiamo (ir)",
+        "nl": "we gaan (ir)"
+      }
+    },
+    "vea": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sees (present subjunctive of ver)",
+        "it": "veda (congiuntivo presente di ver)",
+        "nl": "ziet (subjuntivo van ver)"
+      }
+    },
+    "venir": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to come",
+        "it": "venire",
+        "nl": "komen"
+      }
+    },
+    "verdad": {
+      "lemma": "verdad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "truth (f); es verdad = it's true; la verdad es que... = the truth is...",
+        "it": "verità (f); es verdad = è vero",
+        "nl": "waarheid (f); es verdad = het is waar; la verdad es que... = eerlijk gezegd..."
+      }
+    },
+    "vista": {
+      "lemma": "vista",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "view, sight (f); punto de vista = point of view",
+        "it": "vista (f); punto de vista = punto di vista",
+        "nl": "uitzicht, zicht (f); punto de vista = standpunt"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (ir); voy a + infinitive = I'm going to",
+        "it": "vado (ir); voy a + infinito = sto per, ho intenzione di",
+        "nl": "ik ga (ir); voy a + infinitief = ik ga (iets doen)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I; stressed here: yo nunca te ayude",
+        "it": "io",
+        "nl": "ik"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-b1-opiniones-1",
+      "title": "Creo que tienes razón",
+      "grammarFocus": {
+        "en": [
+          "creo que, pienso que, me parece que + indicative: Creo que tienes razón",
+          "tener razón = to be right",
+          "¿Qué opinas de...? = What do you think of...?"
+        ],
+        "it": [
+          "creo que, pienso que, me parece que + indicativo: Creo que tienes razón (in italiano: credo che tu abbia ragione)",
+          "tener razón = avere ragione",
+          "¿Qué opinas de...? = Che ne pensi di...?"
+        ],
+        "nl": [
+          "creo que, pienso que, me parece que + indicatief: Creo que tienes razón",
+          "tener razón = gelijk hebben",
+          "¿Qué opinas de...? = Wat vind je van...?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "razón",
+          "translation": {
+            "en": "reason",
+            "it": "ragione, motivo",
+            "nl": "reden"
+          },
+          "distractors": {
+            "en": [
+              "answer",
+              "result"
+            ],
+            "it": [
+              "risposta",
+              "risultato"
+            ],
+            "nl": [
+              "antwoord",
+              "resultaat"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "tienes razón",
+          "translation": {
+            "en": "you're right",
+            "it": "hai ragione",
+            "nl": "je hebt gelijk"
+          },
+          "distractors": {
+            "en": [
+              "you're wrong",
+              "you're lucky"
+            ],
+            "it": [
+              "hai torto",
+              "sei fortunato"
+            ],
+            "nl": [
+              "je hebt ongelijk",
+              "je hebt geluk"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "creo que tienes razón",
+          "translation": {
+            "en": "I think you're right",
+            "it": "credo che tu abbia ragione",
+            "nl": "ik denk dat je gelijk hebt"
+          },
+          "distractors": {
+            "en": [
+              "I think you're wrong",
+              "I know you're right"
+            ],
+            "it": [
+              "credo che tu abbia torto",
+              "so che hai ragione"
+            ],
+            "nl": [
+              "ik denk dat je ongelijk hebt",
+              "ik weet dat je gelijk hebt"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Creo que tienes razón, pero tu hermano no piensa lo mismo.",
+          "senses": {
+            "9": "art"
+          },
+          "translation": {
+            "en": "I think you're right, but your brother doesn't think so.",
+            "it": "Credo che tu abbia ragione, ma tuo fratello non la pensa così.",
+            "nl": "Ik denk dat je gelijk hebt, maar je broer denkt er anders over."
+          },
+          "distractors": {
+            "en": [
+              "I think you're wrong, but your brother doesn't think so.",
+              "I think you're right, but your sister doesn't think so."
+            ],
+            "it": [
+              "Credo che tu abbia torto, ma tuo fratello non la pensa così.",
+              "Credo che tu abbia ragione, ma tuo padre non la pensa così."
+            ],
+            "nl": [
+              "Ik denk dat je ongelijk hebt, maar je broer denkt er anders over.",
+              "Ik denk dat je gelijk hebt, maar je vader denkt er anders over."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "opinión",
+          "translation": {
+            "en": "opinion",
+            "it": "opinione",
+            "nl": "mening"
+          },
+          "distractors": {
+            "en": [
+              "advice",
+              "answer"
+            ],
+            "it": [
+              "consiglio",
+              "risposta"
+            ],
+            "nl": [
+              "advies",
+              "antwoord"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en mi opinión",
+          "translation": {
+            "en": "in my opinion",
+            "it": "secondo me",
+            "nl": "volgens mij"
+          },
+          "distractors": {
+            "en": [
+              "in your opinion",
+              "in their opinion"
+            ],
+            "it": [
+              "secondo te",
+              "secondo loro"
+            ],
+            "nl": [
+              "volgens jou",
+              "volgens hen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En mi opinión, es la mejor película del año.",
+          "translation": {
+            "en": "In my opinion, it's the best movie of the year.",
+            "it": "Secondo me, è il miglior film dell'anno.",
+            "nl": "Volgens mij is het de beste film van het jaar."
+          },
+          "distractors": {
+            "en": [
+              "In my opinion, it's the worst movie of the year.",
+              "In my opinion, it's the best song of the year."
+            ],
+            "it": [
+              "Secondo me, è il peggior film dell'anno.",
+              "Secondo me, è il miglior film del mese."
+            ],
+            "nl": [
+              "Volgens mij is het de slechtste film van het jaar.",
+              "Volgens mij is het het beste boek van het jaar."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Y tú qué opinas de todo esto?",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "And what do you think about all this?",
+            "it": "E tu che ne pensi di tutto questo?",
+            "nl": "En wat vind jij van dit alles?"
+          },
+          "distractors": {
+            "en": [
+              "And what do you know about all this?",
+              "And what does he think about all this?"
+            ],
+            "it": [
+              "E tu che ne sai di tutto questo?",
+              "E lui che ne pensa di tutto questo?"
+            ],
+            "nl": [
+              "En wat weet jij van dit alles?",
+              "En wat vindt hij van dit alles?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me parece que es muy caro",
+          "translation": {
+            "en": "I think it's very expensive",
+            "it": "mi sembra molto caro",
+            "nl": "ik vind het erg duur"
+          },
+          "distractors": {
+            "en": [
+              "I think it's very cheap",
+              "I think it's a bit expensive"
+            ],
+            "it": [
+              "mi sembra molto economico",
+              "mi sembra un po' caro"
+            ],
+            "nl": [
+              "ik vind het erg goedkoop",
+              "ik vind het een beetje duur"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me parece que el alquiler en este barrio es muy caro.",
+          "translation": {
+            "en": "I think the rent in this neighborhood is very expensive.",
+            "it": "Mi sembra che l'affitto in questo quartiere sia molto caro.",
+            "nl": "Ik vind de huur in deze wijk erg duur."
+          },
+          "distractors": {
+            "en": [
+              "I think the rent in this neighborhood is very cheap.",
+              "I think the rent in this city is very expensive."
+            ],
+            "it": [
+              "Mi sembra che l'affitto in questo quartiere sia molto economico.",
+              "Mi sembra che l'affitto in questa città sia molto caro."
+            ],
+            "nl": [
+              "Ik vind de huur in deze wijk erg laag.",
+              "Ik vind de huur in deze stad erg duur."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "falso",
+          "translation": {
+            "en": "false, fake",
+            "it": "falso",
+            "nl": "onwaar, nep"
+          },
+          "distractors": {
+            "en": [
+              "true",
+              "strange"
+            ],
+            "it": [
+              "vero",
+              "strano"
+            ],
+            "nl": [
+              "waar",
+              "vreemd"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pienso que esa noticia es falsa porque no la encontré en ningún periódico.",
+          "commas": [
+            5
+          ],
+          "senses": {
+            "8": "pron"
+          },
+          "translation": {
+            "en": "I think that news story is fake because I couldn't find it in any newspaper.",
+            "it": "Penso che quella notizia sia falsa perché non l'ho trovata in nessun giornale.",
+            "nl": "Ik denk dat dat nieuwsbericht nep is, want ik heb het in geen enkele krant gevonden."
+          },
+          "distractors": {
+            "en": [
+              "I think that news story is true because I found it in every newspaper.",
+              "I think that news story is fake because I couldn't find it on any website."
+            ],
+            "it": [
+              "Penso che quella notizia sia vera perché l'ho trovata in tutti i giornali.",
+              "Penso che quella notizia sia falsa perché non l'ho trovata in nessun sito."
+            ],
+            "nl": [
+              "Ik denk dat dat nieuwsbericht klopt, want ik heb het in elke krant gevonden.",
+              "Ik denk dat dat nieuwsbericht nep is, want ik heb het op geen enkele website gevonden."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "exagerar",
+          "translation": {
+            "en": "to exaggerate",
+            "it": "esagerare",
+            "nl": "overdrijven"
+          },
+          "distractors": {
+            "en": [
+              "to complain",
+              "to lie"
+            ],
+            "it": [
+              "lamentarsi",
+              "mentire"
+            ],
+            "nl": [
+              "klagen",
+              "liegen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Crees que Daniel tiene razón o está exagerando?",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "Do you think Daniel is right or is he exaggerating?",
+            "it": "Pensi che Daniel abbia ragione o che stia esagerando?",
+            "nl": "Denk je dat Daniel gelijk heeft, of overdrijft hij?"
+          },
+          "distractors": {
+            "en": [
+              "Do you think Daniel is wrong or is he exaggerating?",
+              "Do you think Daniel is right or is he lying?"
+            ],
+            "it": [
+              "Pensi che Daniel abbia torto o che stia esagerando?",
+              "Pensi che Daniel abbia ragione o che stia mentendo?"
+            ],
+            "nl": [
+              "Denk je dat Daniel ongelijk heeft, of overdrijft hij?",
+              "Denk je dat Daniel gelijk heeft, of liegt hij?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "es obvio",
+          "translation": {
+            "en": "it's obvious",
+            "it": "è ovvio",
+            "nl": "het is duidelijk"
+          },
+          "distractors": {
+            "en": [
+              "it's possible",
+              "it's strange"
+            ],
+            "it": [
+              "è possibile",
+              "è strano"
+            ],
+            "nl": [
+              "het is mogelijk",
+              "het is vreemd"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es obvio que Sofía no quiere venir, pero no nos dice por qué.",
+          "translation": {
+            "en": "It's obvious Sofía doesn't want to come, but she won't tell us why.",
+            "it": "È ovvio che Sofía non vuole venire, ma non ci dice perché.",
+            "nl": "Het is duidelijk dat Sofía niet wil komen, maar ze zegt niet waarom."
+          },
+          "distractors": {
+            "en": [
+              "It's obvious Sofía wants to come, but she won't tell us why.",
+              "It's obvious Sofía doesn't want to come, but she won't tell us when."
+            ],
+            "it": [
+              "È ovvio che Sofía vuole venire, ma non ci dice perché.",
+              "È ovvio che Sofía non vuole venire, ma non ci dice quando."
+            ],
+            "nl": [
+              "Het is duidelijk dat Sofía wil komen, maar ze zegt niet waarom.",
+              "Het is duidelijk dat Sofía niet wil komen, maar ze zegt niet wanneer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-opiniones-2",
+      "title": "No creo que sea verdad",
+      "grammarFocus": {
+        "en": [
+          "present subjunctive after doubt and denial: No creo que sea, Dudo que puedan, No es cierto que esté",
+          "regular subjunctive: -ar verbs take -e (guste), -er/-ir verbs take -a",
+          "Spanish marks the doubt on the verb; English leaves it to context"
+        ],
+        "it": [
+          "congiuntivo presente dopo dubbio e negazione: No creo que sea, Dudo que puedan, No es cierto que esté (come in italiano)",
+          "congiuntivo regolare: i verbi in -ar prendono -e (guste), quelli in -er/-ir prendono -a"
+        ],
+        "nl": [
+          "aanvoegende wijs (subjuntivo) na twijfel en ontkenning: No creo que sea, Dudo que puedan, No es cierto que esté",
+          "regelmatige subjuntivo: werkwoorden op -ar krijgen -e (guste), op -er/-ir krijgen -a",
+          "het Spaans laat de twijfel in het werkwoord zien; het Nederlands niet"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "duda",
+          "translation": {
+            "en": "doubt",
+            "it": "dubbio",
+            "nl": "twijfel"
+          },
+          "distractors": {
+            "en": [
+              "fear",
+              "mistake"
+            ],
+            "it": [
+              "paura",
+              "errore"
+            ],
+            "nl": [
+              "angst",
+              "fout"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "sin duda",
+          "translation": {
+            "en": "without a doubt",
+            "it": "senza dubbio",
+            "nl": "zonder twijfel"
+          },
+          "distractors": {
+            "en": [
+              "without a problem",
+              "without a plan"
+            ],
+            "it": [
+              "senza problemi",
+              "senza un piano"
+            ],
+            "nl": [
+              "zonder probleem",
+              "zonder plan"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sin duda, Laura es la persona más inteligente de la oficina.",
+          "translation": {
+            "en": "Without a doubt, Laura is the smartest person in the office.",
+            "it": "Senza dubbio, Laura è la persona più intelligente dell'ufficio.",
+            "nl": "Laura is zonder twijfel de slimste persoon op kantoor."
+          },
+          "distractors": {
+            "en": [
+              "Without a doubt, Laura is the kindest person in the office.",
+              "Without a doubt, Laura is the smartest person in the family."
+            ],
+            "it": [
+              "Senza dubbio, Laura è la persona più gentile dell'ufficio.",
+              "Senza dubbio, Laura è la persona più intelligente della famiglia."
+            ],
+            "nl": [
+              "Laura is zonder twijfel de aardigste persoon op kantoor.",
+              "Laura is zonder twijfel de slimste persoon in de familie."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no creo que sea verdad",
+          "translation": {
+            "en": "I don't think it's true",
+            "it": "non credo che sia vero",
+            "nl": "ik denk niet dat het waar is"
+          },
+          "distractors": {
+            "en": [
+              "I think it's true",
+              "I don't think it's fair"
+            ],
+            "it": [
+              "credo che sia vero",
+              "non credo che sia giusto"
+            ],
+            "nl": [
+              "ik denk dat het waar is",
+              "ik denk niet dat het eerlijk is"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No creo que sea verdad, pero voy a preguntarle a Marta.",
+          "translation": {
+            "en": "I don't think it's true, but I'm going to ask Marta.",
+            "it": "Non credo che sia vero, ma lo chiederò a Marta.",
+            "nl": "Ik denk niet dat het waar is, maar ik ga het aan Marta vragen."
+          },
+          "distractors": {
+            "en": [
+              "I think it's true, but I'm going to ask Marta.",
+              "I don't think it's true, but I'm going to tell Marta."
+            ],
+            "it": [
+              "Credo che sia vero, ma lo chiederò a Marta.",
+              "Non credo che sia vero, ma lo dirò a Marta."
+            ],
+            "nl": [
+              "Ik denk dat het waar is, maar ik ga het aan Marta vragen.",
+              "Ik denk niet dat het waar is, maar ik ga het aan Marta vertellen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "dudar",
+          "translation": {
+            "en": "to doubt",
+            "it": "dubitare",
+            "nl": "twijfelen"
+          },
+          "distractors": {
+            "en": [
+              "to decide",
+              "to hope"
+            ],
+            "it": [
+              "decidere",
+              "sperare"
+            ],
+            "nl": [
+              "beslissen",
+              "hopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dudo que puedan venir",
+          "translation": {
+            "en": "I doubt they can come",
+            "it": "dubito che possano venire",
+            "nl": "ik betwijfel of ze kunnen komen"
+          },
+          "distractors": {
+            "en": [
+              "I'm sure they can come",
+              "I doubt they want to come"
+            ],
+            "it": [
+              "sono sicuro che possono venire",
+              "dubito che vogliano venire"
+            ],
+            "nl": [
+              "ik weet zeker dat ze kunnen komen",
+              "ik betwijfel of ze willen komen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dudo que mis padres puedan venir el sábado porque tienen que trabajar.",
+          "commas": [
+            7
+          ],
+          "translation": {
+            "en": "I doubt my parents can come on Saturday because they have to work.",
+            "it": "Dubito che i miei genitori possano venire sabato perché devono lavorare.",
+            "nl": "Ik betwijfel of mijn ouders zaterdag kunnen komen, want ze moeten werken."
+          },
+          "distractors": {
+            "en": [
+              "I doubt my parents can come on Sunday because they have to work.",
+              "I doubt my friends can come on Saturday because they have to work."
+            ],
+            "it": [
+              "Dubito che i miei genitori possano venire domenica perché devono lavorare.",
+              "Dubito che i miei amici possano venire sabato perché devono lavorare."
+            ],
+            "nl": [
+              "Ik betwijfel of mijn ouders zondag kunnen komen, want ze moeten werken.",
+              "Ik betwijfel of mijn vrienden zaterdag kunnen komen, want ze moeten werken."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "cierto",
+          "translation": {
+            "en": "true, certain",
+            "it": "vero, certo",
+            "nl": "waar, zeker"
+          },
+          "distractors": {
+            "en": [
+              "false",
+              "fair"
+            ],
+            "it": [
+              "falso",
+              "giusto"
+            ],
+            "nl": [
+              "onwaar",
+              "eerlijk"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "no es cierto",
+          "translation": {
+            "en": "it's not true",
+            "it": "non è vero",
+            "nl": "het is niet waar"
+          },
+          "distractors": {
+            "en": [
+              "it's true",
+              "it's not fair"
+            ],
+            "it": [
+              "è vero",
+              "non è giusto"
+            ],
+            "nl": [
+              "het is waar",
+              "het is niet eerlijk"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No es cierto que el museo esté cerrado los lunes.",
+          "translation": {
+            "en": "It's not true that the museum is closed on Mondays.",
+            "it": "Non è vero che il museo sia chiuso il lunedì.",
+            "nl": "Het is niet waar dat het museum op maandag dicht is."
+          },
+          "distractors": {
+            "en": [
+              "It's true that the museum is closed on Mondays.",
+              "It's not true that the museum is open on Mondays."
+            ],
+            "it": [
+              "È vero che il museo è chiuso il lunedì.",
+              "Non è vero che il museo sia aperto il lunedì."
+            ],
+            "nl": [
+              "Het is waar dat het museum op maandag dicht is.",
+              "Het is niet waar dat het museum op maandag open is."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no creo que Ana lo sepa",
+          "translation": {
+            "en": "I don't think Ana knows",
+            "it": "non credo che Ana lo sappia",
+            "nl": "ik denk niet dat Ana het weet"
+          },
+          "distractors": {
+            "en": [
+              "I think Ana knows",
+              "I don't think Ana remembers"
+            ],
+            "it": [
+              "credo che Ana lo sappia",
+              "non credo che Ana se lo ricordi"
+            ],
+            "nl": [
+              "ik denk dat Ana het weet",
+              "ik denk niet dat Ana het nog weet"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No creo que Ana lo sepa todavía porque nadie le dijo nada.",
+          "commas": [
+            6
+          ],
+          "translation": {
+            "en": "I don't think Ana knows yet because nobody told her anything.",
+            "it": "Non credo che Ana lo sappia ancora perché nessuno le ha detto niente.",
+            "nl": "Ik denk niet dat Ana het al weet, want niemand heeft haar iets verteld."
+          },
+          "distractors": {
+            "en": [
+              "I think Ana already knows because everybody told her.",
+              "I don't think Ana knows yet because nobody asked her anything."
+            ],
+            "it": [
+              "Credo che Ana lo sappia già perché tutti glielo hanno detto.",
+              "Non credo che Ana lo sappia ancora perché nessuno le ha chiesto niente."
+            ],
+            "nl": [
+              "Ik denk dat Ana het al weet, want iedereen heeft het haar verteld.",
+              "Ik denk niet dat Ana het al weet, want niemand heeft haar iets gevraagd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "convencer",
+          "translation": {
+            "en": "to convince",
+            "it": "convincere",
+            "nl": "overtuigen"
+          },
+          "distractors": {
+            "en": [
+              "to invite",
+              "to confuse"
+            ],
+            "it": [
+              "invitare",
+              "confondere"
+            ],
+            "nl": [
+              "uitnodigen",
+              "verwarren"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no me convence",
+          "translation": {
+            "en": "I'm not convinced",
+            "it": "non mi convince",
+            "nl": "het overtuigt me niet"
+          },
+          "distractors": {
+            "en": [
+              "I'm convinced",
+              "I'm not interested"
+            ],
+            "it": [
+              "mi convince",
+              "non mi interessa"
+            ],
+            "nl": [
+              "het overtuigt me",
+              "het interesseert me niet"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu idea no me convence y dudo que al jefe le guste.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "I'm not convinced by your idea, and I doubt the boss will like it.",
+            "it": "La tua idea non mi convince e dubito che al capo piaccia.",
+            "nl": "Jouw idee overtuigt me niet, en ik betwijfel of de baas het goed vindt."
+          },
+          "distractors": {
+            "en": [
+              "I'm convinced by your idea, and I'm sure the boss will like it.",
+              "I'm not convinced by your idea, and I doubt the client will like it."
+            ],
+            "it": [
+              "La tua idea mi convince e sono sicuro che al capo piacerà.",
+              "La tua idea non mi convince e dubito che al cliente piaccia."
+            ],
+            "nl": [
+              "Jouw idee overtuigt me, en ik weet zeker dat de baas het goed vindt.",
+              "Jouw idee overtuigt me niet, en ik betwijfel of de klant het goed vindt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-opiniones-3",
+      "title": "Es posible que...",
+      "grammarFocus": {
+        "en": [
+          "impersonal judgments + subjunctive: Es posible que llueva, Es importante que hablemos, Es mejor que no digas nada",
+          "irregular subjunctive: haya (haber), haga (hacer), digas (decir), vea (ver)",
+          "English often uses may, should or for... to where Spanish uses es... que + subjunctive"
+        ],
+        "it": [
+          "giudizi impersonali + congiuntivo: Es posible que llueva, Es importante que hablemos, Es mejor que no digas nada (come in italiano)",
+          "congiuntivo irregolare: haya (haber), haga (hacer), digas (decir), vea (ver)"
+        ],
+        "nl": [
+          "onpersoonlijke oordelen + subjuntivo: Es posible que llueva, Es importante que hablemos, Es mejor que no digas nada",
+          "onregelmatige subjuntivo: haya (haber), haga (hacer), digas (decir), vea (ver)",
+          "het Nederlands gebruikt vaak kunnen of moeten waar het Spaans es... que + subjuntivo gebruikt"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-3-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "es posible que llueva",
+          "translation": {
+            "en": "it might rain",
+            "it": "è possibile che piova",
+            "nl": "het kan gaan regenen"
+          },
+          "distractors": {
+            "en": [
+              "it might snow",
+              "it won't rain"
+            ],
+            "it": [
+              "è possibile che nevichi",
+              "non pioverà"
+            ],
+            "nl": [
+              "het kan gaan sneeuwen",
+              "het gaat niet regenen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es posible que llueva mañana, así que lleva tu paraguas.",
+          "translation": {
+            "en": "It might rain tomorrow, so take your umbrella.",
+            "it": "È possibile che domani piova, quindi porta l'ombrello.",
+            "nl": "Het kan morgen gaan regenen, dus neem je paraplu mee."
+          },
+          "distractors": {
+            "en": [
+              "It might snow tomorrow, so take your umbrella.",
+              "It might rain tonight, so take your umbrella."
+            ],
+            "it": [
+              "È possibile che domani nevichi, quindi porta l'ombrello.",
+              "È possibile che stasera piova, quindi porta l'ombrello."
+            ],
+            "nl": [
+              "Het kan morgen gaan sneeuwen, dus neem je paraplu mee.",
+              "Het kan vanavond gaan regenen, dus neem je paraplu mee."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "solución",
+          "translation": {
+            "en": "solution",
+            "it": "soluzione",
+            "nl": "oplossing"
+          },
+          "distractors": {
+            "en": [
+              "question",
+              "reason"
+            ],
+            "it": [
+              "domanda",
+              "ragione"
+            ],
+            "nl": [
+              "vraag",
+              "reden"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una buena solución",
+          "translation": {
+            "en": "a good solution",
+            "it": "una buona soluzione",
+            "nl": "een goede oplossing"
+          },
+          "distractors": {
+            "en": [
+              "a bad solution",
+              "a good question"
+            ],
+            "it": [
+              "una cattiva soluzione",
+              "una buona domanda"
+            ],
+            "nl": [
+              "een slechte oplossing",
+              "een goede vraag"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es posible que no haya una solución fácil para este problema.",
+          "translation": {
+            "en": "There may not be an easy solution to this problem.",
+            "it": "È possibile che non ci sia una soluzione facile a questo problema.",
+            "nl": "Misschien is er geen makkelijke oplossing voor dit probleem."
+          },
+          "distractors": {
+            "en": [
+              "There may not be a quick solution to this problem.",
+              "There's surely an easy solution to this problem."
+            ],
+            "it": [
+              "È possibile che non ci sia una soluzione rapida a questo problema.",
+              "Di sicuro c'è una soluzione facile a questo problema."
+            ],
+            "nl": [
+              "Misschien is er geen snelle oplossing voor dit probleem.",
+              "Er is vast een makkelijke oplossing voor dit probleem."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "tema",
+          "translation": {
+            "en": "topic, subject",
+            "it": "tema, argomento",
+            "nl": "onderwerp"
+          },
+          "distractors": {
+            "en": [
+              "story",
+              "rule"
+            ],
+            "it": [
+              "storia",
+              "regola"
+            ],
+            "nl": [
+              "verhaal",
+              "regel"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "es importante que hablemos",
+          "translation": {
+            "en": "it's important that we talk",
+            "it": "è importante che parliamo",
+            "nl": "het is belangrijk dat we praten"
+          },
+          "distractors": {
+            "en": [
+              "it's important that they talk",
+              "it's better that we don't talk"
+            ],
+            "it": [
+              "è importante che parlino",
+              "è meglio che non parliamo"
+            ],
+            "nl": [
+              "het is belangrijk dat ze praten",
+              "het is beter dat we niet praten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es importante que hablemos de este tema con los niños.",
+          "translation": {
+            "en": "It's important that we talk about this subject with the kids.",
+            "it": "È importante che parliamo di questo tema con i bambini.",
+            "nl": "Het is belangrijk dat we met de kinderen over dit onderwerp praten."
+          },
+          "distractors": {
+            "en": [
+              "It's important that we talk about this subject with the teachers.",
+              "It's important that they talk about this subject with the kids."
+            ],
+            "it": [
+              "È importante che parliamo di questo tema con gli insegnanti.",
+              "È importante che parlino di questo tema con i bambini."
+            ],
+            "nl": [
+              "Het is belangrijk dat we met de leraren over dit onderwerp praten.",
+              "Het is belangrijk dat zij met de kinderen over dit onderwerp praten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "es mejor que no digas nada",
+          "translation": {
+            "en": "you'd better not say anything",
+            "it": "è meglio che tu non dica niente",
+            "nl": "je kunt beter niets zeggen"
+          },
+          "distractors": {
+            "en": [
+              "you'd better say everything",
+              "I'd better not say anything"
+            ],
+            "it": [
+              "è meglio che tu dica tutto",
+              "è meglio che io non dica niente"
+            ],
+            "nl": [
+              "je kunt beter alles vertellen",
+              "ik kan beter niets zeggen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es mejor que no le digas nada a tu jefe por ahora.",
+          "commas": [
+            9
+          ],
+          "translation": {
+            "en": "You'd better not tell your boss anything for now.",
+            "it": "È meglio che per ora tu non dica niente al tuo capo.",
+            "nl": "Je kunt voorlopig beter niets tegen je baas zeggen."
+          },
+          "distractors": {
+            "en": [
+              "You'd better tell your boss everything right now.",
+              "You'd better not tell your parents anything for now."
+            ],
+            "it": [
+              "È meglio che tu dica subito tutto al tuo capo.",
+              "È meglio che per ora tu non dica niente ai tuoi genitori."
+            ],
+            "nl": [
+              "Je kunt beter meteen alles tegen je baas zeggen.",
+              "Je kunt voorlopig beter niets tegen je ouders zeggen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "sociedad",
+          "translation": {
+            "en": "society",
+            "it": "società",
+            "nl": "maatschappij, samenleving"
+          },
+          "distractors": {
+            "en": [
+              "family",
+              "government"
+            ],
+            "it": [
+              "famiglia",
+              "governo"
+            ],
+            "nl": [
+              "familie",
+              "regering"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "nuestra sociedad",
+          "translation": {
+            "en": "our society",
+            "it": "la nostra società",
+            "nl": "onze samenleving"
+          },
+          "distractors": {
+            "en": [
+              "our family",
+              "our city"
+            ],
+            "it": [
+              "la nostra famiglia",
+              "la nostra città"
+            ],
+            "nl": [
+              "onze familie",
+              "onze stad"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es necesario que nuestra sociedad haga más por las personas mayores.",
+          "translation": {
+            "en": "Our society needs to do more for older people.",
+            "it": "È necessario che la nostra società faccia di più per le persone anziane.",
+            "nl": "Onze samenleving moet meer doen voor ouderen."
+          },
+          "distractors": {
+            "en": [
+              "Our society needs to do more for young people.",
+              "Our city needs to do more for older people."
+            ],
+            "it": [
+              "È necessario che la nostra società faccia di più per i giovani.",
+              "È necessario che la nostra città faccia di più per le persone anziane."
+            ],
+            "nl": [
+              "Onze samenleving moet meer doen voor jongeren.",
+              "Onze stad moet meer doen voor ouderen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "generación",
+          "translation": {
+            "en": "generation",
+            "it": "generazione",
+            "nl": "generatie"
+          },
+          "distractors": {
+            "en": [
+              "government",
+              "society"
+            ],
+            "it": [
+              "governo",
+              "società"
+            ],
+            "nl": [
+              "regering",
+              "samenleving"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la nueva generación",
+          "translation": {
+            "en": "the new generation",
+            "it": "la nuova generazione",
+            "nl": "de nieuwe generatie"
+          },
+          "distractors": {
+            "en": [
+              "the old generation",
+              "the new government"
+            ],
+            "it": [
+              "la vecchia generazione",
+              "il nuovo governo"
+            ],
+            "nl": [
+              "de oude generatie",
+              "de nieuwe regering"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es normal que cada generación vea el mundo de otra manera.",
+          "translation": {
+            "en": "It's normal for every generation to see the world differently.",
+            "it": "È normale che ogni generazione veda il mondo in un altro modo.",
+            "nl": "Het is normaal dat elke generatie de wereld anders ziet."
+          },
+          "distractors": {
+            "en": [
+              "It's strange for every generation to see the world differently.",
+              "It's normal for every family to see the world differently."
+            ],
+            "it": [
+              "È strano che ogni generazione veda il mondo in un altro modo.",
+              "È normale che ogni famiglia veda il mondo in un altro modo."
+            ],
+            "nl": [
+              "Het is vreemd dat elke generatie de wereld anders ziet.",
+              "Het is normaal dat elke familie de wereld anders ziet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-opiniones-4",
+      "title": "Estoy de acuerdo",
+      "grammarFocus": {
+        "en": [
+          "estar de acuerdo con = to agree with: Estoy de acuerdo contigo",
+          "No es verdad que + subjunctive: No es verdad que yo nunca te ayude",
+          "la mayoría de = most"
+        ],
+        "it": [
+          "estar de acuerdo con = essere d'accordo con: Estoy de acuerdo contigo",
+          "No es verdad que + congiuntivo: No es verdad que yo nunca te ayude",
+          "la mayoría de = la maggior parte di"
+        ],
+        "nl": [
+          "estar de acuerdo con = het eens zijn met: Estoy de acuerdo contigo",
+          "No es verdad que + subjuntivo: No es verdad que yo nunca te ayude",
+          "la mayoría de = de meeste"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-4-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de acuerdo",
+          "translation": {
+            "en": "agreed, okay",
+            "it": "d'accordo",
+            "nl": "akkoord, oké"
+          },
+          "distractors": {
+            "en": [
+              "no way",
+              "maybe"
+            ],
+            "it": [
+              "neanche per sogno",
+              "forse"
+            ],
+            "nl": [
+              "echt niet",
+              "misschien"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "estoy de acuerdo contigo",
+          "translation": {
+            "en": "I agree with you",
+            "it": "sono d'accordo con te",
+            "nl": "ik ben het met je eens"
+          },
+          "distractors": {
+            "en": [
+              "I disagree with you",
+              "I agree with her"
+            ],
+            "it": [
+              "non sono d'accordo con te",
+              "sono d'accordo con lei"
+            ],
+            "nl": [
+              "ik ben het niet met je eens",
+              "ik ben het met haar eens"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estoy de acuerdo contigo en casi todo, pero no en eso.",
+          "translation": {
+            "en": "I agree with you on almost everything, but not on that.",
+            "it": "Sono d'accordo con te su quasi tutto, ma non su questo.",
+            "nl": "Ik ben het over bijna alles met je eens, maar daar niet over."
+          },
+          "distractors": {
+            "en": [
+              "I agree with you on almost everything, and on that too.",
+              "I agree with her on almost everything, but not on that."
+            ],
+            "it": [
+              "Sono d'accordo con te su quasi tutto, e anche su questo.",
+              "Sono d'accordo con lei su quasi tutto, ma non su questo."
+            ],
+            "nl": [
+              "Ik ben het over bijna alles met je eens, en daar ook over.",
+              "Ik ben het over bijna alles met haar eens, maar daar niet over."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "debate",
+          "translation": {
+            "en": "debate",
+            "it": "dibattito",
+            "nl": "debat"
+          },
+          "distractors": {
+            "en": [
+              "meeting",
+              "lesson"
+            ],
+            "it": [
+              "riunione",
+              "lezione"
+            ],
+            "nl": [
+              "vergadering",
+              "les"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el debate de anoche",
+          "translation": {
+            "en": "last night's debate",
+            "it": "il dibattito di ieri sera",
+            "nl": "het debat van gisteravond"
+          },
+          "distractors": {
+            "en": [
+              "this morning's debate",
+              "last night's concert"
+            ],
+            "it": [
+              "il dibattito di stamattina",
+              "il concerto di ieri sera"
+            ],
+            "nl": [
+              "het debat van vanochtend",
+              "het concert van gisteravond"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "la mayoría de la gente",
+          "translation": {
+            "en": "most people",
+            "it": "la maggior parte della gente",
+            "nl": "de meeste mensen"
+          },
+          "distractors": {
+            "en": [
+              "very few people",
+              "all the people"
+            ],
+            "it": [
+              "pochissime persone",
+              "tutta la gente"
+            ],
+            "nl": [
+              "heel weinig mensen",
+              "alle mensen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el debate de anoche, la mayoría de la gente estuvo de acuerdo con la profesora.",
+          "translation": {
+            "en": "In last night's debate, most people agreed with the teacher.",
+            "it": "Nel dibattito di ieri sera, la maggior parte della gente era d'accordo con la professoressa.",
+            "nl": "Bij het debat van gisteravond waren de meeste mensen het eens met de lerares."
+          },
+          "distractors": {
+            "en": [
+              "In last night's debate, most people disagreed with the teacher.",
+              "In this morning's debate, most people agreed with the teacher."
+            ],
+            "it": [
+              "Nel dibattito di ieri sera, la maggior parte della gente non era d'accordo con la professoressa.",
+              "Nel dibattito di stamattina, la maggior parte della gente era d'accordo con la professoressa."
+            ],
+            "nl": [
+              "Bij het debat van gisteravond waren de meeste mensen het oneens met de lerares.",
+              "Bij het debat van vanochtend waren de meeste mensen het eens met de lerares."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "apoyo tu idea",
+          "translation": {
+            "en": "I support your idea",
+            "it": "sostengo la tua idea",
+            "nl": "ik steun jouw idee"
+          },
+          "distractors": {
+            "en": [
+              "I criticize your idea",
+              "I support his idea"
+            ],
+            "it": [
+              "critico la tua idea",
+              "sostengo la sua idea"
+            ],
+            "nl": [
+              "ik bekritiseer jouw idee",
+              "ik steun zijn idee"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "argumento",
+          "translation": {
+            "en": "argument, reason",
+            "it": "argomentazione, ragionamento",
+            "nl": "argument"
+          },
+          "distractors": {
+            "en": [
+              "example",
+              "result"
+            ],
+            "it": [
+              "esempio",
+              "risultato"
+            ],
+            "nl": [
+              "voorbeeld",
+              "resultaat"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Apoyo tu idea, pero no estoy de acuerdo con todos tus argumentos.",
+          "translation": {
+            "en": "I support your idea, but I don't agree with all your arguments.",
+            "it": "Sostengo la tua idea, ma non sono d'accordo con tutte le tue argomentazioni.",
+            "nl": "Ik steun jouw idee, maar ik ben het niet eens met al je argumenten."
+          },
+          "distractors": {
+            "en": [
+              "I support your idea, and I agree with all your arguments.",
+              "I support your plan, but I don't agree with all your arguments."
+            ],
+            "it": [
+              "Sostengo la tua idea, e sono d'accordo con tutte le tue argomentazioni.",
+              "Sostengo il tuo piano, ma non sono d'accordo con tutte le tue argomentazioni."
+            ],
+            "nl": [
+              "Ik steun jouw idee, en ik ben het eens met al je argumenten.",
+              "Ik steun jouw plan, maar ik ben het niet eens met al je argumenten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "criticar",
+          "translation": {
+            "en": "to criticize",
+            "it": "criticare",
+            "nl": "bekritiseren"
+          },
+          "distractors": {
+            "en": [
+              "to praise",
+              "to explain"
+            ],
+            "it": [
+              "lodare",
+              "spiegare"
+            ],
+            "nl": [
+              "prijzen",
+              "uitleggen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "lo critican mucho",
+          "translation": {
+            "en": "people criticize him a lot",
+            "it": "lo criticano molto",
+            "nl": "hij krijgt veel kritiek"
+          },
+          "distractors": {
+            "en": [
+              "people help him a lot",
+              "people criticize him a little"
+            ],
+            "it": [
+              "lo aiutano molto",
+              "lo criticano poco"
+            ],
+            "nl": [
+              "hij krijgt veel hulp",
+              "hij krijgt weinig kritiek"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lo critican mucho, pero la verdad es que hace bien su trabajo.",
+          "translation": {
+            "en": "People criticize him a lot, but the truth is he does his job well.",
+            "it": "Lo criticano molto, ma la verità è che fa bene il suo lavoro.",
+            "nl": "Hij krijgt veel kritiek, maar eerlijk gezegd doet hij zijn werk goed."
+          },
+          "distractors": {
+            "en": [
+              "People criticize him a lot, but the truth is he does his job badly.",
+              "People help him a lot, but the truth is he does his job well."
+            ],
+            "it": [
+              "Lo criticano molto, ma la verità è che fa male il suo lavoro.",
+              "Lo aiutano molto, ma la verità è che fa bene il suo lavoro."
+            ],
+            "nl": [
+              "Hij krijgt veel kritiek, en eerlijk gezegd doet hij zijn werk slecht.",
+              "Hij krijgt veel hulp, maar eerlijk gezegd doet hij zijn werk goed."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "discutir",
+          "translation": {
+            "en": "to argue, to discuss",
+            "it": "discutere",
+            "nl": "ruziemaken, discussiëren"
+          },
+          "distractors": {
+            "en": [
+              "to complain",
+              "to explain"
+            ],
+            "it": [
+              "lamentarsi",
+              "spiegare"
+            ],
+            "nl": [
+              "klagen",
+              "uitleggen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no quiero discutir contigo",
+          "translation": {
+            "en": "I don't want to argue with you",
+            "it": "non voglio litigare con te",
+            "nl": "ik wil geen ruzie met je"
+          },
+          "distractors": {
+            "en": [
+              "I want to argue with you",
+              "I don't want to go out with you"
+            ],
+            "it": [
+              "voglio litigare con te",
+              "non voglio uscire con te"
+            ],
+            "nl": [
+              "ik wil ruzie met je",
+              "ik wil niet met je uitgaan"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No quiero discutir contigo, pero no es verdad que yo nunca te ayude.",
+          "translation": {
+            "en": "I don't want to argue with you, but it's not true that I never help you.",
+            "it": "Non voglio litigare con te, ma non è vero che io non ti aiuti mai.",
+            "nl": "Ik wil geen ruzie met je, maar het is niet waar dat ik je nooit help."
+          },
+          "distractors": {
+            "en": [
+              "I don't want to argue with you, but it's true that I never help you.",
+              "I don't want to argue with you, but it's not true that I never listen to you."
+            ],
+            "it": [
+              "Non voglio litigare con te, ma è vero che non ti aiuto mai.",
+              "Non voglio litigare con te, ma non è vero che io non ti ascolti mai."
+            ],
+            "nl": [
+              "Ik wil geen ruzie met je, maar het is waar dat ik je nooit help.",
+              "Ik wil geen ruzie met je, maar het is niet waar dat ik nooit naar je luister."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-opiniones-5",
+      "title": "Depende",
+      "grammarFocus": {
+        "en": [
+          "depender de = to depend on: Depende del clima",
+          "según + noun: según el médico = according to the doctor",
+          "a favor o en contra de = for or against"
+        ],
+        "it": [
+          "depender de = dipendere da: Depende del clima",
+          "según + nome: según el médico = secondo il medico",
+          "a favor o en contra de = a favore o contro"
+        ],
+        "nl": [
+          "depender de = afhangen van: Depende del clima",
+          "según + zelfstandig naamwoord: según el médico = volgens de dokter",
+          "a favor o en contra de = voor of tegen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "depender",
+          "translation": {
+            "en": "to depend",
+            "it": "dipendere",
+            "nl": "afhangen"
+          },
+          "distractors": {
+            "en": [
+              "to decide",
+              "to change"
+            ],
+            "it": [
+              "decidere",
+              "cambiare"
+            ],
+            "nl": [
+              "beslissen",
+              "veranderen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "depende del clima",
+          "translation": {
+            "en": "it depends on the weather",
+            "it": "dipende dal tempo",
+            "nl": "het hangt van het weer af"
+          },
+          "distractors": {
+            "en": [
+              "it depends on the price",
+              "it depends on the time"
+            ],
+            "it": [
+              "dipende dal prezzo",
+              "dipende dall'orario"
+            ],
+            "nl": [
+              "het hangt van de prijs af",
+              "het hangt van de tijd af"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No sé si vamos a la playa; depende del clima.",
+          "translation": {
+            "en": "I don't know if we're going to the beach; it depends on the weather.",
+            "it": "Non so se andiamo al mare; dipende dal tempo.",
+            "nl": "Ik weet niet of we naar het strand gaan; het hangt van het weer af."
+          },
+          "distractors": {
+            "en": [
+              "I don't know if we're going to the mountains; it depends on the weather.",
+              "I don't know if we're going to the beach; it depends on the price."
+            ],
+            "it": [
+              "Non so se andiamo in montagna; dipende dal tempo.",
+              "Non so se andiamo al mare; dipende dal prezzo."
+            ],
+            "nl": [
+              "Ik weet niet of we naar de bergen gaan; het hangt van het weer af.",
+              "Ik weet niet of we naar het strand gaan; het hangt van de prijs af."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "según",
+          "translation": {
+            "en": "according to",
+            "it": "secondo",
+            "nl": "volgens"
+          },
+          "distractors": {
+            "en": [
+              "against",
+              "without"
+            ],
+            "it": [
+              "contro",
+              "senza"
+            ],
+            "nl": [
+              "tegen",
+              "zonder"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "según el médico",
+          "translation": {
+            "en": "according to the doctor",
+            "it": "secondo il medico",
+            "nl": "volgens de dokter"
+          },
+          "distractors": {
+            "en": [
+              "according to the nurse",
+              "according to my father"
+            ],
+            "it": [
+              "secondo l'infermiere",
+              "secondo mio padre"
+            ],
+            "nl": [
+              "volgens de verpleegkundige",
+              "volgens mijn vader"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Según el médico, es mejor que descanses unos días más.",
+          "translation": {
+            "en": "According to the doctor, you'd better rest a few more days.",
+            "it": "Secondo il medico, è meglio che tu ti riposi ancora qualche giorno.",
+            "nl": "Volgens de dokter kun je beter nog een paar dagen rusten."
+          },
+          "distractors": {
+            "en": [
+              "According to the doctor, you'd better work a few more days.",
+              "According to the nurse, you'd better rest a few more days."
+            ],
+            "it": [
+              "Secondo il medico, è meglio che tu lavori ancora qualche giorno.",
+              "Secondo l'infermiere, è meglio che tu ti riposi ancora qualche giorno."
+            ],
+            "nl": [
+              "Volgens de dokter kun je beter nog een paar dagen werken.",
+              "Volgens de verpleegkundige kun je beter nog een paar dagen rusten."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en general",
+          "translation": {
+            "en": "in general",
+            "it": "in generale",
+            "nl": "over het algemeen"
+          },
+          "distractors": {
+            "en": [
+              "in the end",
+              "at first"
+            ],
+            "it": [
+              "alla fine",
+              "all'inizio"
+            ],
+            "nl": [
+              "uiteindelijk",
+              "in het begin"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En general, la gente de mi pueblo es muy amable con los turistas.",
+          "translation": {
+            "en": "In general, the people in my town are very friendly to tourists.",
+            "it": "In generale, la gente del mio paese è molto gentile con i turisti.",
+            "nl": "Over het algemeen zijn de mensen in mijn dorp heel vriendelijk tegen toeristen."
+          },
+          "distractors": {
+            "en": [
+              "In general, the people in my town are very friendly to children.",
+              "In general, the people in my town don't like tourists."
+            ],
+            "it": [
+              "In generale, la gente del mio paese è molto gentile con i bambini.",
+              "In generale, alla gente del mio paese non piacciono i turisti."
+            ],
+            "nl": [
+              "Over het algemeen zijn de mensen in mijn dorp heel vriendelijk tegen kinderen.",
+              "Over het algemeen houden de mensen in mijn dorp niet van toeristen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "prejuicio",
+          "translation": {
+            "en": "prejudice",
+            "it": "pregiudizio",
+            "nl": "vooroordeel"
+          },
+          "distractors": {
+            "en": [
+              "habit",
+              "rule"
+            ],
+            "it": [
+              "abitudine",
+              "regola"
+            ],
+            "nl": [
+              "gewoonte",
+              "regel"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "eso es un prejuicio",
+          "translation": {
+            "en": "that's a prejudice",
+            "it": "questo è un pregiudizio",
+            "nl": "dat is een vooroordeel"
+          },
+          "distractors": {
+            "en": [
+              "that's a fact",
+              "that's a joke"
+            ],
+            "it": [
+              "questo è un fatto",
+              "questo è uno scherzo"
+            ],
+            "nl": [
+              "dat is een feit",
+              "dat is een grap"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Decir que todos los jóvenes son perezosos es un prejuicio.",
+          "translation": {
+            "en": "Saying that all young people are lazy is a prejudice.",
+            "it": "Dire che tutti i giovani sono pigri è un pregiudizio.",
+            "nl": "Zeggen dat alle jongeren lui zijn, is een vooroordeel."
+          },
+          "distractors": {
+            "en": [
+              "Saying that all young people are lazy is a fact.",
+              "Saying that all old people are lazy is a prejudice."
+            ],
+            "it": [
+              "Dire che tutti i giovani sono pigri è un dato di fatto.",
+              "Dire che tutti gli anziani sono pigri è un pregiudizio."
+            ],
+            "nl": [
+              "Zeggen dat alle jongeren lui zijn, is een feit.",
+              "Zeggen dat alle ouderen lui zijn, is een vooroordeel."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "juzgar",
+          "translation": {
+            "en": "to judge",
+            "it": "giudicare",
+            "nl": "oordelen, beoordelen"
+          },
+          "distractors": {
+            "en": [
+              "to believe",
+              "to forget"
+            ],
+            "it": [
+              "credere",
+              "dimenticare"
+            ],
+            "nl": [
+              "geloven",
+              "vergeten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No hay que juzgar a las personas por su ropa ni por su edad.",
+          "translation": {
+            "en": "You shouldn't judge people by their clothes or their age.",
+            "it": "Non bisogna giudicare le persone dai vestiti né dall'età.",
+            "nl": "Je moet mensen niet beoordelen op hun kleren of hun leeftijd."
+          },
+          "distractors": {
+            "en": [
+              "You should judge people by their clothes and their age.",
+              "You shouldn't judge people by their clothes or their accent."
+            ],
+            "it": [
+              "Bisogna giudicare le persone dai vestiti e dall'età.",
+              "Non bisogna giudicare le persone dai vestiti né dall'accento."
+            ],
+            "nl": [
+              "Je moet mensen beoordelen op hun kleren en hun leeftijd.",
+              "Je moet mensen niet beoordelen op hun kleren of hun accent."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "contra",
+          "translation": {
+            "en": "against",
+            "it": "contro",
+            "nl": "tegen"
+          },
+          "distractors": {
+            "en": [
+              "without",
+              "among"
+            ],
+            "it": [
+              "senza",
+              "tra"
+            ],
+            "nl": [
+              "zonder",
+              "tussen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "a favor o en contra",
+          "translation": {
+            "en": "for or against",
+            "it": "a favore o contro",
+            "nl": "voor of tegen"
+          },
+          "distractors": {
+            "en": [
+              "for and against",
+              "neither for nor against"
+            ],
+            "it": [
+              "a favore e contro",
+              "né a favore né contro"
+            ],
+            "nl": [
+              "voor en tegen",
+              "voor noch tegen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Estás a favor o en contra de trabajar desde casa?",
+          "translation": {
+            "en": "Are you for or against working from home?",
+            "it": "Sei a favore o contro il lavoro da casa?",
+            "nl": "Ben je voor of tegen thuiswerken?"
+          },
+          "distractors": {
+            "en": [
+              "Are you for or against studying from home?",
+              "Are you for or against working at night?"
+            ],
+            "it": [
+              "Sei a favore o contro lo studio da casa?",
+              "Sei a favore o contro il lavoro di notte?"
+            ],
+            "nl": [
+              "Ben je voor of tegen thuis studeren?",
+              "Ben je voor of tegen 's nachts werken?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-opiniones-6",
+      "title": "Mi punto de vista",
+      "grammarFocus": {
+        "en": [
+          "no... sino = not... but (rather): no es el dinero sino el tiempo",
+          "linking an argument: además, de hecho, en realidad",
+          "watch out: en realidad = actually (actual = current)"
+        ],
+        "it": [
+          "no... sino = non... ma (bensì): no es el dinero sino el tiempo",
+          "collegare un ragionamento: además, de hecho, en realidad"
+        ],
+        "nl": [
+          "no... sino = niet... maar (wel): no es el dinero sino el tiempo",
+          "een betoog opbouwen: además, de hecho, en realidad"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-opiniones-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "vista",
+          "translation": {
+            "en": "view, sight",
+            "it": "vista",
+            "nl": "uitzicht, zicht"
+          },
+          "distractors": {
+            "en": [
+              "voice",
+              "idea"
+            ],
+            "it": [
+              "voce",
+              "idea"
+            ],
+            "nl": [
+              "stem",
+              "idee"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mi punto de vista",
+          "translation": {
+            "en": "my point of view",
+            "it": "il mio punto di vista",
+            "nl": "mijn standpunt"
+          },
+          "distractors": {
+            "en": [
+              "your point of view",
+              "their point of view"
+            ],
+            "it": [
+              "il tuo punto di vista",
+              "il loro punto di vista"
+            ],
+            "nl": [
+              "jouw standpunt",
+              "hun standpunt"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Desde mi punto de vista, el problema no es el dinero sino el tiempo.",
+          "commas": [
+            10
+          ],
+          "translation": {
+            "en": "From my point of view, the problem isn't money but time.",
+            "it": "Dal mio punto di vista, il problema non sono i soldi ma il tempo.",
+            "nl": "Vanuit mijn standpunt is het probleem niet het geld, maar de tijd."
+          },
+          "distractors": {
+            "en": [
+              "From my point of view, the problem isn't time but money.",
+              "From her point of view, the problem isn't money but time."
+            ],
+            "it": [
+              "Dal mio punto di vista, il problema non è il tempo ma i soldi.",
+              "Dal suo punto di vista, il problema non sono i soldi ma il tempo."
+            ],
+            "nl": [
+              "Vanuit mijn standpunt is het probleem niet de tijd, maar het geld.",
+              "Vanuit haar standpunt is het probleem niet het geld, maar de tijd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "sino",
+          "translation": {
+            "en": "but (rather)",
+            "it": "ma, bensì",
+            "nl": "maar (wel)"
+          },
+          "distractors": {
+            "en": [
+              "because",
+              "unless"
+            ],
+            "it": [
+              "perché",
+              "a meno che"
+            ],
+            "nl": [
+              "omdat",
+              "tenzij"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no hoy sino mañana",
+          "translation": {
+            "en": "not today but tomorrow",
+            "it": "non oggi ma domani",
+            "nl": "niet vandaag maar morgen"
+          },
+          "distractors": {
+            "en": [
+              "today and tomorrow",
+              "not tomorrow but today"
+            ],
+            "it": [
+              "oggi e domani",
+              "non domani ma oggi"
+            ],
+            "nl": [
+              "vandaag en morgen",
+              "niet morgen maar vandaag"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El examen no es hoy sino mañana, así que todavía puedes estudiar.",
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "The exam isn't today but tomorrow, so you can still study.",
+            "it": "L'esame non è oggi ma domani, quindi puoi ancora studiare.",
+            "nl": "Het examen is niet vandaag maar morgen, dus je kunt nog studeren."
+          },
+          "distractors": {
+            "en": [
+              "The exam isn't tomorrow but today, so you can't study anymore.",
+              "The class isn't today but tomorrow, so you can still study."
+            ],
+            "it": [
+              "L'esame non è domani ma oggi, quindi non puoi più studiare.",
+              "La lezione non è oggi ma domani, quindi puoi ancora studiare."
+            ],
+            "nl": [
+              "Het examen is niet morgen maar vandaag, dus je kunt niet meer studeren.",
+              "De les is niet vandaag maar morgen, dus je kunt nog studeren."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "realidad",
+          "translation": {
+            "en": "reality",
+            "it": "realtà",
+            "nl": "werkelijkheid"
+          },
+          "distractors": {
+            "en": [
+              "dream",
+              "habit"
+            ],
+            "it": [
+              "sogno",
+              "abitudine"
+            ],
+            "nl": [
+              "droom",
+              "gewoonte"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en realidad",
+          "translation": {
+            "en": "actually",
+            "it": "in realtà",
+            "nl": "eigenlijk"
+          },
+          "distractors": {
+            "en": [
+              "in general",
+              "in the end"
+            ],
+            "it": [
+              "in generale",
+              "alla fine"
+            ],
+            "nl": [
+              "over het algemeen",
+              "uiteindelijk"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Parece fácil, pero en realidad es bastante difícil.",
+          "commas": [
+            2,
+            4
+          ],
+          "translation": {
+            "en": "It looks easy, but it's actually pretty hard.",
+            "it": "Sembra facile, ma in realtà è piuttosto difficile.",
+            "nl": "Het lijkt makkelijk, maar eigenlijk is het best moeilijk."
+          },
+          "distractors": {
+            "en": [
+              "It looks hard, but it's actually pretty easy.",
+              "It looks easy, but it's actually pretty expensive."
+            ],
+            "it": [
+              "Sembra difficile, ma in realtà è piuttosto facile.",
+              "Sembra facile, ma in realtà è piuttosto caro."
+            ],
+            "nl": [
+              "Het lijkt moeilijk, maar eigenlijk is het best makkelijk.",
+              "Het lijkt makkelijk, maar eigenlijk is het best duur."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de hecho",
+          "translation": {
+            "en": "in fact",
+            "it": "infatti, di fatto",
+            "nl": "sterker nog, in feite"
+          },
+          "distractors": {
+            "en": [
+              "of course",
+              "by the way"
+            ],
+            "it": [
+              "certo",
+              "a proposito"
+            ],
+            "nl": [
+              "natuurlijk",
+              "trouwens"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No estoy exagerando; de hecho, es peor de lo que crees.",
+          "senses": {
+            "8": "art"
+          },
+          "translation": {
+            "en": "I'm not exaggerating; in fact, it's worse than you think.",
+            "it": "Non sto esagerando; anzi, è peggio di quanto pensi.",
+            "nl": "Ik overdrijf niet; sterker nog, het is erger dan je denkt."
+          },
+          "distractors": {
+            "en": [
+              "I'm not lying; in fact, it's worse than you think.",
+              "I'm not exaggerating; in fact, it's better than you think."
+            ],
+            "it": [
+              "Non sto mentendo; anzi, è peggio di quanto pensi.",
+              "Non sto esagerando; anzi, è meglio di quanto pensi."
+            ],
+            "nl": [
+              "Ik lieg niet; sterker nog, het is erger dan je denkt.",
+              "Ik overdrijf niet; sterker nog, het is beter dan je denkt."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "además",
+          "translation": {
+            "en": "besides, moreover",
+            "it": "inoltre",
+            "nl": "bovendien"
+          },
+          "distractors": {
+            "en": [
+              "instead",
+              "however"
+            ],
+            "it": [
+              "invece",
+              "tuttavia"
+            ],
+            "nl": [
+              "in plaats daarvan",
+              "echter"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El metro es más rápido que el carro y, además, es más barato.",
+          "translation": {
+            "en": "The subway is faster than the car and, besides, it's cheaper.",
+            "it": "La metropolitana è più veloce della macchina e, inoltre, costa meno.",
+            "nl": "De metro is sneller dan de auto en bovendien is hij goedkoper."
+          },
+          "distractors": {
+            "en": [
+              "The subway is slower than the car and, besides, it's cheaper.",
+              "The subway is faster than the car and, besides, it's more expensive."
+            ],
+            "it": [
+              "La metropolitana è più lenta della macchina e, inoltre, costa meno.",
+              "La metropolitana è più veloce della macchina e, inoltre, costa di più."
+            ],
+            "nl": [
+              "De metro is langzamer dan de auto en bovendien is hij goedkoper.",
+              "De metro is sneller dan de auto en bovendien is hij duurder."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "un problema social",
+          "translation": {
+            "en": "a social problem",
+            "it": "un problema sociale",
+            "nl": "een maatschappelijk probleem"
+          },
+          "distractors": {
+            "en": [
+              "a personal problem",
+              "a health problem"
+            ],
+            "it": [
+              "un problema personale",
+              "un problema di salute"
+            ],
+            "nl": [
+              "een persoonlijk probleem",
+              "een gezondheidsprobleem"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-opiniones-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En mi opinión, el tráfico no es solo un problema de transporte, sino también un problema social.",
+          "translation": {
+            "en": "In my opinion, traffic isn't just a transportation problem, but a social problem too.",
+            "it": "Secondo me, il traffico non è solo un problema di trasporti, ma anche un problema sociale.",
+            "nl": "Volgens mij is het verkeer niet alleen een vervoersprobleem, maar ook een maatschappelijk probleem."
+          },
+          "distractors": {
+            "en": [
+              "In my opinion, traffic isn't just a transportation problem, but a health problem too.",
+              "In my opinion, traffic is just a transportation problem, not a social problem."
+            ],
+            "it": [
+              "Secondo me, il traffico non è solo un problema di trasporti, ma anche un problema di salute.",
+              "Secondo me, il traffico è solo un problema di trasporti, non un problema sociale."
+            ],
+            "nl": [
+              "Volgens mij is het verkeer niet alleen een vervoersprobleem, maar ook een gezondheidsprobleem.",
+              "Volgens mij is het verkeer alleen een vervoersprobleem, geen maatschappelijk probleem."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

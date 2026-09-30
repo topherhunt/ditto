@@ -2,16 +2,18 @@
 
 What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin American laws, which ask for the same things), and what's still open. The public texts are [`web/src/pages/Privacy.tsx`](../web/src/pages/Privacy.tsx) and [`web/src/pages/Terms.tsx`](../web/src/pages/Terms.tsx); every claim in them must match the code. Usage metrics are detailed in [metrics.md](metrics.md).
 
+## Processors
+
+- **OpenAI:** its [DPA](https://openai.com/policies/data-processing-addendum/) is incorporated into the Services Agreement every API account accepts, so it's in effect with nothing to sign. It includes the Standard Contractual Clauses, and OpenAI is DPF-certified. The version in effect is saved in [legal/](legal/2026-09-openai-data-processing-addendum.pdf); save the new one there when it changes.
+- **RackNerd:** no DPA (see Accepted gaps).
+- **Google:** sign-in (Google acts as its own controller) and the feedback form (Google Forms).
+
 ## Before this deploy
 
-1. **Sign OpenAI's Data Processing Addendum.** The privacy policy already says OpenAI processes data under one, so this comes first. OpenAI is DPF-certified; the DPA adds the Standard Contractual Clauses.
-2. **Set the contact email.** `CONTACT_EMAIL` in `web/src/links.ts` is a placeholder that shows on both pages. Use a forwarding address (a dedicated Gmail or an addy.io/SimpleLogin alias).
-3. **Add the URLs to the Google OAuth consent screen:** `https://ditto.topherhunt.com/privacy` and `/terms`.
-4. **Delete learner recordings saved before migration 029.** The policy says voice isn't kept, but older recordings are still in `SPEAK_AUDIO_DIR`, named in `conversation_attempts.audio_file` and learner `conversation_turns.audio_file`. Delete those files (keeping admins' and the partner's `.wav` lines) and null the columns.
+- **Add the URLs to the Google OAuth consent screen:** `https://ditto.topherhunt.com/privacy` and `/terms`.
 
 ## Soon
 
-- **Pass `store: false` on OpenAI Responses calls** (`server/conversation-ai.ts`, `server/explain.ts`). By default the Responses API also stores each response on OpenAI's side for 30 days, which Ditto never reads back.
 - **Self-serve account deletion.** Until it exists, deletion is manual: `DELETE FROM users WHERE id = ?` (cascades remove everything else). It leaves the conversation's partner audio files in `SPEAK_AUDIO_DIR`, which hold no personal data.
 - **Data export.** A request for a copy has no tooling yet; a script dumping every row keyed to the user as JSON would answer it.
 - **Translate the policy and terms into Latin American Spanish**, then Dutch and Italian. Both GDPR and LGPD expect a notice people can understand.

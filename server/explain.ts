@@ -72,6 +72,8 @@ export function openAIExplainer(apiKey: string): Explainer {
         input: text,
         reasoning: { effort: "low" },
         text: { format: zodTextFormat(ExplanationSchema, "explanation") },
+        // Or OpenAI keeps each response for 30 days (docs/privacy.md).
+        store: false,
       });
       if (!res.output_parsed) throw new Error(`Explainer returned no parsed output (status ${res.status})`);
       if (!res.usage) throw new Error(`${model} returned no usage for the explanation`);

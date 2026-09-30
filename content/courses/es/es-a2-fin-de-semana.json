@@ -1,0 +1,4234 @@
+{
+  "id": "es-a2-fin-de-semana",
+  "language": "es",
+  "level": "A2",
+  "order": 12,
+  "title": "El fin de semana pasado",
+  "description": {
+    "en": "Telling what you did last weekend, yesterday and last night: the past tense of regular and common irregular verbs, time words like ayer and hace una semana, and ya and todavía no",
+    "it": "Raccontare cosa hai fatto lo scorso fine settimana, ieri e ieri sera: il passato dei verbi regolari e di alcuni irregolari comuni, espressioni di tempo come ayer e hace una semana, e ya e todavía no",
+    "nl": "Vertellen wat je afgelopen weekend, gisteren en gisteravond hebt gedaan: de verleden tijd van regelmatige en veelgebruikte onregelmatige werkwoorden, tijdwoorden als ayer en hace una semana, en ya en todavía no"
+  },
+  "track": "main",
+  "requires": [
+    "es-a1-viaje"
+  ],
+  "introduces": [
+    "ayer",
+    "anoche",
+    "ya",
+    "todavía",
+    "último",
+    "perder",
+    "olvidar",
+    "limpiar",
+    "sacar",
+    "compra",
+    "mensaje",
+    "mandar",
+    "contar",
+    "preguntar",
+    "responder",
+    "oír",
+    "decidir",
+    "elegir",
+    "pensar",
+    "regresar",
+    "divertir",
+    "alguien",
+    "nadie",
+    "ninguno",
+    "ni",
+    "foto",
+    "afuera",
+    "puerta"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as object it isn't translated: conocí a Sofía",
+        "it": "a; davanti a una persona come oggetto non si traduce: conocí a Sofía",
+        "nl": "naar, om; vóór een persoon als lijdend voorwerp wordt het niet vertaald: conocí a Sofía"
+      }
+    },
+    "abuela": {
+      "lemma": "abuelo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grandmother (f)",
+        "it": "nonna (f)",
+        "nl": "oma, grootmoeder (f)"
+      }
+    },
+    "afuera": {
+      "lemma": "afuera",
+      "pos": "ADV",
+      "gloss": {
+        "en": "outside, out; comer afuera = eat out",
+        "it": "fuori; comer afuera = mangiare fuori",
+        "nl": "buiten; comer afuera = uit eten gaan"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (a + el); ir al museo = go to the museum",
+        "it": "al (a + el); ir al museo = andare al museo",
+        "nl": "naar de, naar het (a + el); ir al museo = naar het museum gaan"
+      }
+    },
+    "alguien": {
+      "lemma": "alguien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "someone, somebody; in a question, anyone",
+        "it": "qualcuno",
+        "nl": "iemand"
+      }
+    },
+    "amigos": {
+      "lemma": "amigo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (plural of amigo)",
+        "it": "amici (plurale di amigo)",
+        "nl": "vrienden (meervoud van amigo)"
+      }
+    },
+    "anoche": {
+      "lemma": "anoche",
+      "pos": "ADV",
+      "gloss": {
+        "en": "last night, yesterday evening; watch out: tonight = esta noche",
+        "it": "ieri sera, stanotte (passata); attenzione: stasera = esta noche",
+        "nl": "gisteravond, vannacht (voorbij); let op: vanavond = esta noche"
+      }
+    },
+    "ayer": {
+      "lemma": "ayer",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "año": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (m)",
+        "it": "anno (m)",
+        "nl": "jaar (m)"
+      }
+    },
+    "años": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (m, plural of año)",
+        "it": "anni (m, plurale di año)",
+        "nl": "jaren (m, meervoud van año)"
+      }
+    },
+    "blanco": {
+      "lemma": "blanco",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "white",
+        "it": "bianco",
+        "nl": "wit"
+      }
+    },
+    "bogotá": {
+      "lemma": "Bogotá",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Bogotá, the capital of Colombia",
+        "it": "Bogotá, la capitale della Colombia",
+        "nl": "Bogotá, de hoofdstad van Colombia"
+      }
+    },
+    "boleto": {
+      "lemma": "boleto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ticket (m), for a bus, train, plane, movie or concert",
+        "it": "biglietto (m), per autobus, treno, aereo, cinema o concerto",
+        "nl": "kaartje, ticket (m), voor bus, trein, vliegtuig, film of concert"
+      }
+    },
+    "bolsa": {
+      "lemma": "bolsa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bag, purse (f)",
+        "it": "borsa (f)",
+        "nl": "tas (f)"
+      }
+    },
+    "botella": {
+      "lemma": "botella",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bottle (f)",
+        "it": "bottiglia (f)",
+        "nl": "fles (f)"
+      }
+    },
+    "busqué": {
+      "lemma": "buscar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I looked for, I searched (buscar; c > qu before e)",
+        "it": "ho cercato (buscar; c > qu davanti a e)",
+        "nl": "ik zocht (buscar; c > qu vóór e)"
+      }
+    },
+    "cancún": {
+      "lemma": "Cancún",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cancún, a beach city in Mexico",
+        "it": "Cancún, città di mare in Messico",
+        "nl": "Cancún, een badplaats in Mexico"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); en casa = at home",
+        "it": "casa (f); en casa = a casa",
+        "nl": "huis (f); en casa = thuis"
+      }
+    },
+    "celular": {
+      "lemma": "celular",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cell phone (m)",
+        "it": "cellulare (m)",
+        "nl": "mobiel, mobieltje (m)"
+      }
+    },
+    "cerraste": {
+      "lemma": "cerrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you closed (cerrar); cerrar con llave = lock",
+        "it": "hai chiuso (cerrar); cerrar con llave = chiudere a chiave",
+        "nl": "je deed dicht (cerrar); cerrar con llave = op slot doen"
+      }
+    },
+    "cociné": {
+      "lemma": "cocinar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I cooked (cocinar)",
+        "it": "ho cucinato (cocinar)",
+        "nl": "ik kookte (cocinar)"
+      }
+    },
+    "comer": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to eat",
+        "it": "mangiare",
+        "nl": "eten"
+      }
+    },
+    "comida": {
+      "lemma": "comida",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "food, meal (f); hacer la comida = cook, make lunch",
+        "it": "cibo, pasto (f); hacer la comida = cucinare; attenzione: comida = cibo o pasto",
+        "nl": "eten, maaltijd (f); hacer la comida = koken"
+      }
+    },
+    "compras": {
+      "lemma": "compra",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shopping, purchases (f, plural of compra); hacer las compras = do the shopping",
+        "it": "acquisti, spesa (f, plurale di compra); hacer las compras = fare la spesa",
+        "nl": "boodschappen, aankopen (f, meervoud van compra); hacer las compras = boodschappen doen"
+      }
+    },
+    "compraste": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you bought (comprar)",
+        "it": "hai comprato (comprar)",
+        "nl": "je kocht (comprar)"
+      }
+    },
+    "compré": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I bought (comprar)",
+        "it": "ho comprato (comprar)",
+        "nl": "ik kocht (comprar)"
+      }
+    },
+    "comí": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I ate (comer: comí, comiste, comió)",
+        "it": "ho mangiato (comer: comí, comiste, comió)",
+        "nl": "ik at (comer: comí, comiste, comió)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with; con llave = with the key, locked",
+        "it": "con; con llave = a chiave",
+        "nl": "met; con llave = op slot"
+      }
+    },
+    "concierto": {
+      "lemma": "concierto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "concert (m)",
+        "it": "concerto (m)",
+        "nl": "concert (m)"
+      }
+    },
+    "conocí": {
+      "lemma": "conocer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I met, got to know (conocer); a person takes a: conocí a Sofía",
+        "it": "ho conosciuto (conocer); una persona vuole la a: conocí a Sofía",
+        "nl": "ik leerde kennen (conocer); een persoon krijgt a: conocí a Sofía"
+      }
+    },
+    "cuenta": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bill, check (f)",
+        "it": "conto (f)",
+        "nl": "rekening (f)"
+      }
+    },
+    "cuzco": {
+      "lemma": "Cuzco",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cuzco, a city in Peru",
+        "it": "Cuzco, città del Perù",
+        "nl": "Cuzco, een stad in Peru"
+      }
+    },
+    "cuéntame": {
+      "lemma": "contar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tell me (cuenta + me: contar = to tell; also to count; o > ue: cuento)",
+        "it": "raccontami (cuenta + me: contar = raccontare; anche contare; o > ue: cuento)",
+        "nl": "vertel me (cuenta + me: contar = vertellen; ook tellen; o > ue: cuento)"
+      }
+    },
+    "daniela": {
+      "lemma": "Daniela",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Daniela (first name)",
+        "it": "Daniela (nome)",
+        "nl": "Daniela (voornaam)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; salir de la casa = leave the house",
+        "it": "di, da; salir de la casa = uscire di casa",
+        "nl": "van, uit; salir de la casa = het huis uit gaan"
+      }
+    },
+    "decidimos": {
+      "lemma": "decidir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we decided; also we decide (decidir)",
+        "it": "abbiamo deciso; anche decidiamo (decidir)",
+        "nl": "we besloten; ook: we besluiten (decidir)"
+      }
+    },
+    "decidir": {
+      "lemma": "decidir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to decide",
+        "it": "decidere",
+        "nl": "besluiten, beslissen"
+      }
+    },
+    "descansé": {
+      "lemma": "descansar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I rested (descansar)",
+        "it": "ho riposato (descansar)",
+        "nl": "ik rustte uit (descansar)"
+      }
+    },
+    "divertido": {
+      "lemma": "divertido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fun, funny",
+        "it": "divertente",
+        "nl": "leuk, grappig"
+      }
+    },
+    "divertimos": {
+      "lemma": "divertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "nos divertimos = we had fun; also we have fun (divertirse)",
+        "it": "nos divertimos = ci siamo divertiti; anche ci divertiamo (divertirse)",
+        "nl": "nos divertimos = we hadden plezier; ook: we hebben plezier (divertirse)"
+      }
+    },
+    "domingo": {
+      "lemma": "domingo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m, lowercase in Spanish); el domingo = on Sunday",
+        "it": "domenica (m); el domingo = domenica",
+        "nl": "zondag (m, met kleine letter); el domingo = (op) zondag"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "día": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day (m, although it ends in -a)",
+        "it": "giorno (m)",
+        "nl": "dag (m, al eindigt het op -a)"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m)",
+        "it": "il, lo (m)",
+        "nl": "de, het (m)"
+      }
+    },
+    "elegir": {
+      "lemma": "elegir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to choose, to pick",
+        "it": "scegliere",
+        "nl": "kiezen"
+      }
+    },
+    "elegí": {
+      "lemma": "elegir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I chose (elegir)",
+        "it": "ho scelto (elegir)",
+        "nl": "ik koos (elegir)"
+      }
+    },
+    "empecé": {
+      "lemma": "empezar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I started (empezar; z > c before e); empezar a + infinitive = start doing",
+        "it": "ho cominciato (empezar; z > c davanti a e); empezar a + infinito = cominciare a",
+        "nl": "ik begon (empezar; z > c vóór e); empezar a + infinitief = beginnen te"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on, at",
+        "it": "in, a, su",
+        "nl": "in, op"
+      }
+    },
+    "encontré": {
+      "lemma": "encontrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I found (encontrar)",
+        "it": "ho trovato (encontrar)",
+        "nl": "ik vond (encontrar)"
+      }
+    },
+    "español": {
+      "lemma": "español",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Spanish (the language, m); lowercase in Spanish",
+        "it": "spagnolo (la lingua, m)",
+        "nl": "Spaans (de taal, m); met kleine letter"
+      }
+    },
+    "esposa": {
+      "lemma": "esposo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wife (f)",
+        "it": "moglie (f); attenzione: esposa = moglie, non sposa",
+        "nl": "echtgenote, vrouw (f)"
+      }
+    },
+    "estudiar": {
+      "lemma": "estudiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to study",
+        "it": "studiare",
+        "nl": "studeren, leren"
+      }
+    },
+    "familia": {
+      "lemma": "familia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "fiesta": {
+      "lemma": "fiesta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "party (f)",
+        "it": "festa (f)",
+        "nl": "feest (f)"
+      }
+    },
+    "fin": {
+      "lemma": "fin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); fin de semana = weekend; por fin = finally",
+        "it": "fine (m); fin de semana = fine settimana; por fin = finalmente",
+        "nl": "einde (m); fin de semana = weekend; por fin = eindelijk"
+      }
+    },
+    "foto": {
+      "lemma": "foto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "photo (f: la foto, although it ends in -o)",
+        "it": "foto (f)",
+        "nl": "foto (f: la foto, al eindigt het op -o)"
+      }
+    },
+    "fotos": {
+      "lemma": "foto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "photos (f, plural of foto: la foto, although it ends in -o)",
+        "it": "foto (f, plurale di foto)",
+        "nl": "foto's (f, meervoud van foto: la foto, al eindigt het op -o)"
+      }
+    },
+    "fue": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was (ser: he, she, it; usted); fue genial = it was great; the same form means went (ir)",
+        "it": "è stato, è stata (ser); fue genial = è stato fantastico; la stessa forma vuol dire anche è andato (ir)",
+        "nl": "was (ser: hij, zij, het; usted); fue genial = het was geweldig; dezelfde vorm betekent ook ging (ir)"
+      }
+    },
+    "fue#ir": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "went (ir: he, she; usted); the same form means was (ser)",
+        "it": "è andato, è andata (ir: lui, lei; usted); la stessa forma vuol dire anche fu, è stato (ser)",
+        "nl": "ging (ir: hij, zij; usted); dezelfde vorm betekent ook was (ser)"
+      }
+    },
+    "fuimos#ir": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we went (ir); the same form means we were (ser)",
+        "it": "siamo andati (ir); la stessa forma vuol dire anche siamo stati (ser)",
+        "nl": "we gingen (ir); dezelfde vorm betekent ook we waren (ser)"
+      }
+    },
+    "genial": {
+      "lemma": "genial",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "great, brilliant",
+        "it": "fantastico, geniale",
+        "nl": "geweldig, super"
+      }
+    },
+    "hace#ago": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ago, with a time: hace una semana = a week ago (hacer)",
+        "it": "fa, con un'indicazione di tempo: hace una semana = una settimana fa (hacer)",
+        "nl": "geleden, met een tijdsduur: hace una semana = een week geleden (hacer)"
+      }
+    },
+    "hermano": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "hice": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I did, I made (hacer); hice las compras = I did the shopping",
+        "it": "ho fatto (hacer); hice las compras = ho fatto la spesa",
+        "nl": "ik deed, ik maakte (hacer); hice las compras = ik deed de boodschappen"
+      }
+    },
+    "hiciste": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you did, you made (hacer: hice, hiciste, hizo)",
+        "it": "hai fatto (hacer: hice, hiciste, hizo)",
+        "nl": "je deed, je maakte (hacer: hice, hiciste, hizo)"
+      }
+    },
+    "hizo": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "did, made (hacer: he, she; usted); hizo la comida = cooked",
+        "it": "ha fatto (hacer: lui, lei; usted); hizo la comida = ha cucinato",
+        "nl": "deed, maakte (hacer: hij, zij; usted); hizo la comida = kookte"
+      }
+    },
+    "hotel": {
+      "lemma": "hotel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hotel (m)",
+        "it": "albergo, hotel (m)",
+        "nl": "hotel (m)"
+      }
+    },
+    "ir": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go; pensar en ir = think about going",
+        "it": "andare",
+        "nl": "gaan"
+      }
+    },
+    "julio": {
+      "lemma": "julio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "July (m, lowercase in Spanish)",
+        "it": "luglio (m)",
+        "nl": "juli (m, met kleine letter)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f)",
+        "it": "la (f)",
+        "nl": "de, het (f)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "her, it (f); you (usted, f) (direct object): la vi = I saw her",
+        "it": "la (complemento oggetto): la vi = l'ho vista",
+        "nl": "haar, hem, het (lijdend voorwerp): la vi = ik zag haar"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f pl); a las ocho = at eight",
+        "it": "le (f pl); a las ocho = alle otto",
+        "nl": "de (f mv); a las ocho = om acht uur"
+      }
+    },
+    "laura": {
+      "lemma": "Laura",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Laura (first name)",
+        "it": "Laura (nome)",
+        "nl": "Laura (voornaam)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "(to) him, (to) her, (to) you (usted) (indirect object); le mandé un mensaje a Daniela = I sent Daniela a message",
+        "it": "gli, le, Le (complemento indiretto); le mandé un mensaje a Daniela = ho mandato un messaggio a Daniela",
+        "nl": "(aan) hem, haar, u (meewerkend voorwerp); le mandé un mensaje a Daniela = ik stuurde Daniela een bericht"
+      }
+    },
+    "leyó": {
+      "lemma": "leer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (leer: he, she; usted; i > y between vowels)",
+        "it": "ha letto (leer: lui, lei; usted; i > y tra vocali)",
+        "nl": "las (leer: hij, zij; usted; i > y tussen klinkers)"
+      }
+    },
+    "lima": {
+      "lemma": "Lima",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lima, the capital of Peru",
+        "it": "Lima, la capitale del Perù",
+        "nl": "Lima, de hoofdstad van Peru"
+      }
+    },
+    "limpiar": {
+      "lemma": "limpiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to clean",
+        "it": "pulire",
+        "nl": "schoonmaken"
+      }
+    },
+    "limpié": {
+      "lemma": "limpiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I cleaned (limpiar)",
+        "it": "ho pulito (limpiar)",
+        "nl": "ik maakte schoon (limpiar)"
+      }
+    },
+    "llamé": {
+      "lemma": "llamar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I called (llamar)",
+        "it": "ho chiamato (llamar)",
+        "nl": "ik belde (llamar)"
+      }
+    },
+    "llave": {
+      "lemma": "llave",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "key (f); cerrar con llave = lock",
+        "it": "chiave (f); cerrar con llave = chiudere a chiave",
+        "nl": "sleutel (f); cerrar con llave = op slot doen"
+      }
+    },
+    "llaves": {
+      "lemma": "llave",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "keys (f, plural of llave)",
+        "it": "chiavi (f, plurale di llave)",
+        "nl": "sleutels (f, meervoud van llave)"
+      }
+    },
+    "llegamos": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we arrived; also we arrive (llegar); yo: llegué (g > gu)",
+        "it": "siamo arrivati; anche arriviamo (llegar); yo: llegué (g > gu)",
+        "nl": "we kwamen aan; ook: we komen aan (llegar); yo: llegué (g > gu)"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him; you (usted, m) (direct object): ya lo compré = I already bought it",
+        "it": "lo (complemento oggetto): ya lo compré = l'ho già comprato",
+        "nl": "het, hem (lijdend voorwerp): ya lo compré = ik heb het al gekocht"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m pl)",
+        "it": "i, gli (m pl)",
+        "nl": "de (m mv)"
+      }
+    },
+    "mandar": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to send",
+        "it": "mandare",
+        "nl": "sturen"
+      }
+    },
+    "mandé": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I sent (mandar)",
+        "it": "ho mandato (mandar)",
+        "nl": "ik stuurde (mandar)"
+      }
+    },
+    "mañana#noun": {
+      "lemma": "mañana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (f); por la mañana = in the morning",
+        "it": "mattina (f); por la mañana = la mattina",
+        "nl": "ochtend (f); por la mañana = 's ochtends"
+      }
+    },
+    "mensaje": {
+      "lemma": "mensaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "message, text (m)",
+        "it": "messaggio (m)",
+        "nl": "bericht, berichtje (m)"
+      }
+    },
+    "mes": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "month (m)",
+        "it": "mese (m)",
+        "nl": "maand (m); let op: niet mes (= cuchillo)"
+      }
+    },
+    "meses": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "months (plural of mes)",
+        "it": "mesi (plurale di mes)",
+        "nl": "maanden (meervoud van mes)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia (senza articolo: mi hermano = mio fratello)",
+        "nl": "mijn"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural of mi)",
+        "it": "miei, mie (plurale di mi)",
+        "nl": "mijn (meervoud van mi)"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, very much",
+        "it": "molto",
+        "nl": "veel, erg"
+      }
+    },
+    "museo": {
+      "lemma": "museo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "museum (m)",
+        "it": "museo (m)",
+        "nl": "museum (m)"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto",
+        "nl": "heel, erg"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing, anything; after the verb it needs no: no hice nada = I didn't do anything",
+        "it": "niente; dopo il verbo vuole no: no hice nada = non ho fatto niente",
+        "nl": "niets; na het werkwoord komt er no bij: no hice nada = ik heb niets gedaan"
+      }
+    },
+    "nadie": {
+      "lemma": "nadie",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody, no one; after the verb it needs no: No vino nadie; watch out: nadie vio nada = nobody saw anything",
+        "it": "nessuno; dopo il verbo vuole no: No vino nadie",
+        "nl": "niemand; na het werkwoord komt er no bij: No vino nadie; let op: nadie vio nada = niemand zag iets"
+      }
+    },
+    "ni": {
+      "lemma": "ni",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "nor, not even; ni... ni = neither... nor",
+        "it": "né; ni... ni = né... né",
+        "nl": "noch, zelfs niet; ni... ni = noch... noch"
+      }
+    },
+    "ninguna": {
+      "lemma": "ninguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "no, not a single (f); after the verb it needs no: No saqué ninguna foto",
+        "it": "nessuna (f); dopo il verbo vuole no: No saqué ninguna foto",
+        "nl": "geen enkele (f); na het werkwoord komt er no bij: No saqué ninguna foto"
+      }
+    },
+    "ninguno": {
+      "lemma": "ninguno",
+      "pos": "PRON",
+      "gloss": {
+        "en": "none, not a single one; ningún before a masculine noun",
+        "it": "nessuno; ningún davanti a un nome maschile",
+        "nl": "geen enkele, niet één; ningún vóór een mannelijk zelfstandig naamwoord"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "no, not",
+        "it": "no, non",
+        "nl": "nee, niet"
+      }
+    },
+    "noche": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night, evening (f)",
+        "it": "notte, sera (f)",
+        "nl": "nacht, avond (f)"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, ourselves; nos divertimos = we had fun",
+        "it": "ci; nos divertimos = ci siamo divertiti",
+        "nl": "ons; nos divertimos = we hadden plezier"
+      }
+    },
+    "noticia": {
+      "lemma": "noticia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "piece of news (f); la noticia = the news",
+        "it": "notizia (f)",
+        "nl": "nieuwtje, nieuwsbericht (f); la noticia = het nieuws"
+      }
+    },
+    "novio": {
+      "lemma": "novio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boyfriend (m)",
+        "it": "fidanzato, ragazzo (m)",
+        "nl": "vriend, partner (m)"
+      }
+    },
+    "ocho": {
+      "lemma": "ocho",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "oficina": {
+      "lemma": "oficina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office (f)",
+        "it": "ufficio (f); attenzione: non officina (= taller)",
+        "nl": "kantoor (f)"
+      }
+    },
+    "olvidar": {
+      "lemma": "olvidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to forget; also to leave behind",
+        "it": "dimenticare",
+        "nl": "vergeten; ook: laten liggen"
+      }
+    },
+    "olvidé": {
+      "lemma": "olvidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I forgot, I left behind (olvidar)",
+        "it": "ho dimenticato (olvidar)",
+        "nl": "ik vergat, ik liet liggen (olvidar)"
+      }
+    },
+    "oír": {
+      "lemma": "oír",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hear; oí, oíste, oyó",
+        "it": "sentire, udire; oí, oíste, oyó",
+        "nl": "horen; oí, oíste, oyó"
+      }
+    },
+    "oíste": {
+      "lemma": "oír",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you heard (oír)",
+        "it": "hai sentito (oír)",
+        "nl": "je hoorde (oír)"
+      }
+    },
+    "pablo": {
+      "lemma": "Pablo",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Pablo (first name)",
+        "it": "Pablo (nome)",
+        "nl": "Pablo (voornaam)"
+      }
+    },
+    "padres": {
+      "lemma": "padre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parents (m, plural of padre); watch out: los padres = father and mother",
+        "it": "genitori (m, plurale di padre); attenzione: los padres = i genitori",
+        "nl": "ouders (m, meervoud van padre); let op: los padres = vader en moeder"
+      }
+    },
+    "pagué": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I paid (pagar; g > gu before e)",
+        "it": "ho pagato (pagar; g > gu davanti a e)",
+        "nl": "ik betaalde (pagar; g > gu vóór e)"
+      }
+    },
+    "pagó": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "paid (pagar: he, she; usted)",
+        "it": "ha pagato (pagar: lui, lei; usted)",
+        "nl": "betaalde (pagar: hij, zij; usted)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "partes": {
+      "lemma": "parte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parts, places (f, plural of parte); por todas partes = everywhere",
+        "it": "parti (f, plurale di parte); por todas partes = dappertutto",
+        "nl": "delen, plekken (f, meervoud van parte); por todas partes = overal"
+      }
+    },
+    "pasada": {
+      "lemma": "pasado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last (f); la semana pasada = last week",
+        "it": "scorsa (f); la semana pasada = la settimana scorsa",
+        "nl": "vorige (f); la semana pasada = vorige week"
+      }
+    },
+    "pasado": {
+      "lemma": "pasado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last, past; el año pasado = last year",
+        "it": "scorso, passato; el año pasado = l'anno scorso",
+        "nl": "vorig, afgelopen; el año pasado = vorig jaar"
+      }
+    },
+    "pasaporte": {
+      "lemma": "pasaporte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "passport (m)",
+        "it": "passaporto (m)",
+        "nl": "paspoort (m)"
+      }
+    },
+    "película": {
+      "lemma": "película",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "movie, film (f)",
+        "it": "film (f)",
+        "nl": "film (f)"
+      }
+    },
+    "pensamos": {
+      "lemma": "pensar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we thought; also we think (pensar); pensar en ir = think about going",
+        "it": "abbiamo pensato; anche pensiamo (pensar); pensar en ir = pensare di andare",
+        "nl": "we dachten; ook: we denken (pensar); pensar en ir = erover denken te gaan"
+      }
+    },
+    "pensar": {
+      "lemma": "pensar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to think (e > ie: pienso); pensar en = think about",
+        "it": "pensare (e > ie: pienso); pensar en = pensare a",
+        "nl": "denken (e > ie: pienso); pensar en = denken aan"
+      }
+    },
+    "perder": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lose; also to miss (a bus, a train)",
+        "it": "perdere",
+        "nl": "verliezen, kwijtraken; ook: missen (een bus, een trein)"
+      }
+    },
+    "perdí": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I lost (perder)",
+        "it": "ho perso (perder)",
+        "nl": "ik verloor, ik ben ... kwijt (perder)"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "pescado": {
+      "lemma": "pescado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fish, as food (m)",
+        "it": "pesce, da mangiare (m)",
+        "nl": "vis, als eten (m)"
+      }
+    },
+    "playa": {
+      "lemma": "playa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beach (f); ir a la playa = go to the beach",
+        "it": "spiaggia (f); ir a la playa = andare al mare",
+        "nl": "strand (f); ir a la playa = naar het strand gaan"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "by, through, around; por la mañana = in the morning; por todas partes = everywhere; por fin = finally",
+        "it": "per; por la mañana = la mattina; por todas partes = dappertutto; por fin = finalmente",
+        "nl": "door, via; por la mañana = 's ochtends; por todas partes = overal; por fin = eindelijk"
+      }
+    },
+    "preguntar": {
+      "lemma": "preguntar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask (a question); watch out: ask for something = pedir",
+        "it": "chiedere, domandare (una domanda); attenzione: chiedere qualcosa = pedir",
+        "nl": "vragen (een vraag stellen); let op: vragen om iets = pedir"
+      }
+    },
+    "pregunté": {
+      "lemma": "preguntar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I asked (preguntar)",
+        "it": "ho chiesto (preguntar)",
+        "nl": "ik vroeg (preguntar)"
+      }
+    },
+    "primos": {
+      "lemma": "primo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cousins (m, plural of primo)",
+        "it": "cugini (m, plurale di primo); attenzione: primo = cugino (primo = primero)",
+        "nl": "neven en nichten, kinderen van oom of tante (m, meervoud van primo)"
+      }
+    },
+    "probó": {
+      "lemma": "probar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tried, tasted (probar: he, she; usted)",
+        "it": "ha assaggiato (probar: lui, lei; usted)",
+        "nl": "proefde, probeerde (probar: hij, zij; usted)"
+      }
+    },
+    "puerta": {
+      "lemma": "puerta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "door (f)",
+        "it": "porta (f)",
+        "nl": "deur (f)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, which, who (no accent); la vez que = the time (that); las fotos que saqué = the photos (that) I took",
+        "it": "che (senza accento); las fotos que saqué = le foto che ho fatto",
+        "nl": "dat, die (zonder accent); las fotos que saqué = de foto's die ik maakte"
+      }
+    },
+    "quedarnos": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(for us) to stay (quedarse = stay; quedar + nos)",
+        "it": "restare, rimanere (quedarse; quedar + nos)",
+        "nl": "(voor ons) blijven (quedarse = blijven; quedar + nos)"
+      }
+    },
+    "quién": {
+      "lemma": "quién",
+      "pos": "PRON",
+      "gloss": {
+        "en": "who",
+        "it": "chi",
+        "nl": "wie"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what",
+        "it": "che, cosa",
+        "nl": "wat"
+      }
+    },
+    "regresar": {
+      "lemma": "regresar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go back, to come back, to return",
+        "it": "tornare",
+        "nl": "teruggaan, terugkomen"
+      }
+    },
+    "regresaron": {
+      "lemma": "regresar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "went back, came back (regresar: they; ustedes)",
+        "it": "sono tornati (regresar: loro; ustedes)",
+        "nl": "gingen terug, kwamen terug (regresar: zij; ustedes)"
+      }
+    },
+    "responder": {
+      "lemma": "responder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to answer, to reply",
+        "it": "rispondere",
+        "nl": "antwoorden"
+      }
+    },
+    "respondió": {
+      "lemma": "responder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "answered, replied (responder: he, she; usted)",
+        "it": "ha risposto (responder: lui, lei; usted)",
+        "nl": "antwoordde (responder: hij, zij; usted)"
+      }
+    },
+    "sacar": {
+      "lemma": "sacar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to take out; sacar fotos = take photos; saqué = I took (c > qu before e)",
+        "it": "tirare fuori; sacar fotos = fare foto; saqué = ho fatto (c > qu davanti a e)",
+        "nl": "eruit halen; sacar fotos = foto's maken; saqué = ik maakte (c > qu vóór e)"
+      }
+    },
+    "salimos": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we left, we went out; also we leave (salir)",
+        "it": "siamo usciti; anche usciamo (salir)",
+        "nl": "we gingen weg, we gingen uit; ook: we gaan weg (salir)"
+      }
+    },
+    "saqué": {
+      "lemma": "sacar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I took, I took out (sacar; c > qu before e)",
+        "it": "ho fatto, ho tirato fuori (sacar; c > qu davanti a e)",
+        "nl": "ik maakte, ik haalde eruit (sacar; c > qu vóór e)"
+      }
+    },
+    "semana": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); fin de semana = weekend",
+        "it": "settimana (f); fin de semana = fine settimana",
+        "nl": "week (f); fin de semana = weekend"
+      }
+    },
+    "sofía": {
+      "lemma": "Sofía",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Sofía (first name)",
+        "it": "Sofía (nome)",
+        "nl": "Sofía (voornaam)"
+      }
+    },
+    "solo": {
+      "lemma": "solo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just (no accent)",
+        "it": "solo, soltanto",
+        "nl": "alleen, maar"
+      }
+    },
+    "su": {
+      "lemma": "su",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its, their; your (usted, ustedes)",
+        "it": "suo, sua, loro; Suo (usted)",
+        "nl": "zijn, haar, hun; uw"
+      }
+    },
+    "sábado": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m, lowercase in Spanish); el sábado = on Saturday",
+        "it": "sabato (m); el sábado = sabato",
+        "nl": "zaterdag (m, met kleine letter); el sábado = (op) zaterdag"
+      }
+    },
+    "sí": {
+      "lemma": "sí",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "yes",
+        "it": "sì",
+        "nl": "ja"
+      }
+    },
+    "tacos": {
+      "lemma": "taco",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tacos (plural of taco, m)",
+        "it": "tacos (plurale di taco, m)",
+        "nl": "taco's (meervoud van taco, m)"
+      }
+    },
+    "tarjeta": {
+      "lemma": "tarjeta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "card (f); con tarjeta = by card",
+        "it": "carta, tessera (f); con tarjeta = con la carta",
+        "nl": "kaart, pinpas (f); con tarjeta = met de kaart"
+      }
+    },
+    "taxi": {
+      "lemma": "taxi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "taxi (m)",
+        "it": "taxi (m)",
+        "nl": "taxi (m)"
+      }
+    },
+    "todas": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all (f pl); por todas partes = everywhere",
+        "it": "tutte (f pl); por todas partes = dappertutto",
+        "nl": "alle (f mv); por todas partes = overal"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet; todavía no = not yet",
+        "it": "ancora; todavía no = non ancora; attenzione: todavía = ancora, già = ya",
+        "nl": "nog; todavía no = nog niet"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, the whole; todo el día = all day; as a pronoun, everything",
+        "it": "tutto; todo el día = tutto il giorno",
+        "nl": "heel, alle; todo el día = de hele dag; als voornaamwoord: alles"
+      }
+    },
+    "tomamos": {
+      "lemma": "tomar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we took, we drank; also we take (tomar)",
+        "it": "abbiamo preso, abbiamo bevuto; anche prendiamo (tomar)",
+        "nl": "we namen, we dronken; ook: we nemen (tomar)"
+      }
+    },
+    "trabajé": {
+      "lemma": "trabajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I worked (trabajar: -é = I, in the indefinido)",
+        "it": "ho lavorato (trabajar: -é = io, all'indefinido)",
+        "nl": "ik werkte (trabajar: -é = ik, in de indefinido)"
+      }
+    },
+    "tranquilo": {
+      "lemma": "tranquilo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "calm, quiet, peaceful",
+        "it": "tranquillo",
+        "nl": "rustig, kalm"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (m)",
+        "it": "un, uno (m)",
+        "nl": "een (m)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (f)",
+        "it": "una (f)",
+        "nl": "een (f)"
+      }
+    },
+    "unos": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, a few (m pl)",
+        "it": "dei, alcuni (m pl)",
+        "nl": "een paar, wat (m mv)"
+      }
+    },
+    "vez": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); la última vez = the last time",
+        "it": "volta (f); la última vez = l'ultima volta",
+        "nl": "keer (f); la última vez = de laatste keer"
+      }
+    },
+    "vi": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I saw, I watched (ver: vi, viste, vio; no accent)",
+        "it": "ho visto (ver: vi, viste, vio; senza accento)",
+        "nl": "ik zag, ik keek (ver: vi, viste, vio; zonder accent)"
+      }
+    },
+    "vino": {
+      "lemma": "vino",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wine (m); vino blanco = white wine",
+        "it": "vino (m); vino blanco = vino bianco",
+        "nl": "wijn (m); vino blanco = witte wijn"
+      }
+    },
+    "vio": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "saw (ver: he, she; usted)",
+        "it": "ha visto (ver: lui, lei; usted)",
+        "nl": "zag (ver: hij, zij; usted)"
+      }
+    },
+    "visitamos": {
+      "lemma": "visitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we visited; also we visit (visitar)",
+        "it": "abbiamo visitato; anche visitiamo (visitar)",
+        "nl": "we bezochten; ook: we bezoeken (visitar)"
+      }
+    },
+    "viste": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you saw (ver); ¿Ya viste...? = Have you seen...?",
+        "it": "hai visto (ver); ¿Ya viste...? = Hai già visto...?",
+        "nl": "je zag (ver); ¿Ya viste...? = Heb je ... al gezien?"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; in a question, yet: ¿Ya comiste? = Have you eaten yet?",
+        "it": "già; ¿Ya comiste? = Hai già mangiato?",
+        "nl": "al; ¿Ya comiste? = Heb je al gegeten?"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I; used for contrast or emphasis: la pagué yo = I paid it (not someone else)",
+        "it": "io; si usa per contrasto o enfasi: la pagué yo = l'ho pagata io",
+        "nl": "ik; gebruikt voor contrast of nadruk: la pagué yo = ik heb hem betaald (niet iemand anders)"
+      }
+    },
+    "última": {
+      "lemma": "último",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last (f); la última vez = the last time",
+        "it": "ultima (f); la última vez = l'ultima volta",
+        "nl": "laatste (f); la última vez = de laatste keer"
+      }
+    },
+    "último": {
+      "lemma": "último",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last, latest",
+        "it": "ultimo",
+        "nl": "laatst(e)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a2-fin-de-semana-1",
+      "title": "¿Qué hiciste ayer?",
+      "grammarFocus": {
+        "en": [
+          "pretérito indefinido of -ar verbs: trabajé, trabajaste, trabajó",
+          "hacer: hice, hiciste, hizo",
+          "ayer, anoche"
+        ],
+        "it": [
+          "pretérito indefinido dei verbi in -ar: trabajé, trabajaste, trabajó",
+          "hacer: hice, hiciste, hizo",
+          "ayer = ieri, anoche = ieri sera",
+          "attenzione: per un passato concluso lo spagnolo usa l'indefinido dove l'italiano usa il passato prossimo: Ayer trabajé = Ieri ho lavorato"
+        ],
+        "nl": [
+          "pretérito indefinido van werkwoorden op -ar: trabajé, trabajaste, trabajó",
+          "hacer: hice, hiciste, hizo",
+          "ayer = gisteren, anoche = gisteravond",
+          "let op: voor een afgesloten verleden gebruikt het Spaans de indefinido waar het Nederlands vaak de voltooide tijd gebruikt: Ayer trabajé = Gisteren heb ik gewerkt"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ayer",
+          "translation": {
+            "en": "yesterday",
+            "it": "ieri",
+            "nl": "gisteren"
+          },
+          "distractors": {
+            "en": [
+              "today",
+              "tomorrow"
+            ],
+            "it": [
+              "oggi",
+              "domani"
+            ],
+            "nl": [
+              "vandaag",
+              "morgen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "qué hiciste",
+          "translation": {
+            "en": "what did you do",
+            "it": "cosa hai fatto",
+            "nl": "wat heb je gedaan"
+          },
+          "distractors": {
+            "en": [
+              "what are you doing",
+              "what will you do"
+            ],
+            "it": [
+              "cosa fai",
+              "cosa farai"
+            ],
+            "nl": [
+              "wat doe je",
+              "wat ga je doen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Qué hiciste ayer?",
+          "translation": {
+            "en": "What did you do yesterday?",
+            "it": "Cosa hai fatto ieri?",
+            "nl": "Wat heb je gisteren gedaan?"
+          },
+          "distractors": {
+            "en": [
+              "What are you doing today?",
+              "What did you buy yesterday?"
+            ],
+            "it": [
+              "Cosa fai oggi?",
+              "Cosa hai comprato ieri?"
+            ],
+            "nl": [
+              "Wat doe je vandaag?",
+              "Wat heb je gisteren gekocht?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "trabajé todo el día",
+          "translation": {
+            "en": "I worked all day",
+            "it": "ho lavorato tutto il giorno",
+            "nl": "ik heb de hele dag gewerkt"
+          },
+          "distractors": {
+            "en": [
+              "I work all day",
+              "I slept all day"
+            ],
+            "it": [
+              "lavoro tutto il giorno",
+              "ho dormito tutto il giorno"
+            ],
+            "nl": [
+              "ik werk de hele dag",
+              "ik heb de hele dag geslapen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ayer trabajé todo el día.",
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Yesterday I worked all day.",
+            "it": "Ieri ho lavorato tutto il giorno.",
+            "nl": "Gisteren heb ik de hele dag gewerkt."
+          },
+          "distractors": {
+            "en": [
+              "Yesterday I studied all day.",
+              "Today I worked all day."
+            ],
+            "it": [
+              "Ieri ho studiato tutto il giorno.",
+              "Oggi ho lavorato tutto il giorno."
+            ],
+            "nl": [
+              "Gisteren heb ik de hele dag gestudeerd.",
+              "Vandaag heb ik de hele dag gewerkt."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "anoche",
+          "translation": {
+            "en": "last night",
+            "it": "ieri sera",
+            "nl": "gisteravond"
+          },
+          "distractors": {
+            "en": [
+              "tonight",
+              "tomorrow night"
+            ],
+            "it": [
+              "stasera",
+              "domani sera"
+            ],
+            "nl": [
+              "vanavond",
+              "morgenavond"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "vi una película",
+          "translation": {
+            "en": "I watched a movie",
+            "it": "ho visto un film",
+            "nl": "ik heb een film gekeken"
+          },
+          "distractors": {
+            "en": [
+              "I'm watching a movie",
+              "I watched a game"
+            ],
+            "it": [
+              "guardo un film",
+              "ho visto una partita"
+            ],
+            "nl": [
+              "ik kijk een film",
+              "ik heb een wedstrijd gekeken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Anoche vi una película en casa.",
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Last night I watched a movie at home.",
+            "it": "Ieri sera ho visto un film a casa.",
+            "nl": "Gisteravond heb ik thuis een film gekeken."
+          },
+          "distractors": {
+            "en": [
+              "Last night I watched a game at home.",
+              "Tonight I'm watching a movie at home."
+            ],
+            "it": [
+              "Ieri sera ho visto una partita a casa.",
+              "Stasera guardo un film a casa."
+            ],
+            "nl": [
+              "Gisteravond heb ik thuis een wedstrijd gekeken.",
+              "Vanavond kijk ik thuis een film."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "limpiar",
+          "translation": {
+            "en": "to clean",
+            "it": "pulire",
+            "nl": "schoonmaken"
+          },
+          "distractors": {
+            "en": [
+              "to cook",
+              "to rest"
+            ],
+            "it": [
+              "cucinare",
+              "riposare"
+            ],
+            "nl": [
+              "koken",
+              "uitrusten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "limpié la casa",
+          "translation": {
+            "en": "I cleaned the house",
+            "it": "ho pulito la casa",
+            "nl": "ik heb het huis schoongemaakt"
+          },
+          "distractors": {
+            "en": [
+              "I sold the house",
+              "you cleaned the house"
+            ],
+            "it": [
+              "ho venduto la casa",
+              "hai pulito la casa"
+            ],
+            "nl": [
+              "ik heb het huis verkocht",
+              "jij hebt het huis schoongemaakt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El sábado limpié la casa y cociné para mi familia.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "On Saturday I cleaned the house and cooked for my family.",
+            "it": "Sabato ho pulito la casa e ho cucinato per la mia famiglia.",
+            "nl": "Zaterdag heb ik het huis schoongemaakt en voor mijn familie gekookt."
+          },
+          "distractors": {
+            "en": [
+              "On Sunday I cleaned the house and cooked for my family.",
+              "On Saturday I cleaned the house and cooked for my friends."
+            ],
+            "it": [
+              "Domenica ho pulito la casa e ho cucinato per la mia famiglia.",
+              "Sabato ho pulito la casa e ho cucinato per i miei amici."
+            ],
+            "nl": [
+              "Zondag heb ik het huis schoongemaakt en voor mijn familie gekookt.",
+              "Zaterdag heb ik het huis schoongemaakt en voor mijn vrienden gekookt."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hice las compras",
+          "translation": {
+            "en": "I did the shopping",
+            "it": "ho fatto la spesa",
+            "nl": "ik heb boodschappen gedaan"
+          },
+          "distractors": {
+            "en": [
+              "I did the cooking",
+              "you did the shopping"
+            ],
+            "it": [
+              "ho cucinato io",
+              "hai fatto la spesa"
+            ],
+            "nl": [
+              "ik heb gekookt",
+              "jij hebt boodschappen gedaan"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Por la mañana hice las compras y mi hermano hizo la comida.",
+          "commas": [
+            2
+          ],
+          "senses": {
+            "2": "noun"
+          },
+          "translation": {
+            "en": "In the morning I did the shopping and my brother did the cooking.",
+            "it": "La mattina ho fatto la spesa e mio fratello ha cucinato.",
+            "nl": "'s Ochtends deed ik de boodschappen en kookte mijn broer."
+          },
+          "distractors": {
+            "en": [
+              "In the morning I did the cooking and my brother did the shopping.",
+              "In the evening I did the shopping and my brother did the cooking."
+            ],
+            "it": [
+              "La mattina ho cucinato io e mio fratello ha fatto la spesa.",
+              "La sera ho fatto la spesa e mio fratello ha cucinato."
+            ],
+            "nl": [
+              "'s Ochtends kookte ik en deed mijn broer de boodschappen.",
+              "'s Avonds deed ik de boodschappen en kookte mijn broer."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "no hice nada",
+          "translation": {
+            "en": "I didn't do anything",
+            "it": "non ho fatto niente",
+            "nl": "ik heb niets gedaan"
+          },
+          "distractors": {
+            "en": [
+              "I did everything",
+              "you didn't do anything"
+            ],
+            "it": [
+              "ho fatto tutto",
+              "non hai fatto niente"
+            ],
+            "nl": [
+              "ik heb alles gedaan",
+              "jij hebt niets gedaan"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El domingo no hice nada, solo descansé.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "On Sunday I didn't do anything, I just rested.",
+            "it": "Domenica non ho fatto niente, ho solo riposato.",
+            "nl": "Zondag heb ik niets gedaan, ik heb alleen uitgerust."
+          },
+          "distractors": {
+            "en": [
+              "On Sunday I didn't do anything, I just slept.",
+              "On Saturday I didn't do anything, I just rested."
+            ],
+            "it": [
+              "Domenica non ho fatto niente, ho solo dormito.",
+              "Sabato non ho fatto niente, ho solo riposato."
+            ],
+            "nl": [
+              "Zondag heb ik niets gedaan, ik heb alleen geslapen.",
+              "Zaterdag heb ik niets gedaan, ik heb alleen uitgerust."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-fin-de-semana-2",
+      "title": "Comimos afuera",
+      "grammarFocus": {
+        "en": [
+          "pretérito indefinido of -er and -ir verbs: comí, comiste, comió, comimos, comieron",
+          "nosotros: -amos and -imos look the same as the present; the context tells",
+          "spelling change: pagar -> pagué"
+        ],
+        "it": [
+          "pretérito indefinido dei verbi in -er e -ir: comí, comiste, comió, comimos, comieron",
+          "nosotros: -amos e -imos sono uguali al presente; lo dice il contesto",
+          "cambio di grafia: pagar -> pagué"
+        ],
+        "nl": [
+          "pretérito indefinido van werkwoorden op -er en -ir: comí, comiste, comió, comimos, comieron",
+          "nosotros: -amos en -imos zijn gelijk aan de tegenwoordige tijd; de context beslist",
+          "spellingswijziging: pagar -> pagué"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "afuera",
+          "translation": {
+            "en": "outside",
+            "it": "fuori",
+            "nl": "buiten"
+          },
+          "distractors": {
+            "en": [
+              "inside",
+              "upstairs"
+            ],
+            "it": [
+              "dentro",
+              "di sopra"
+            ],
+            "nl": [
+              "binnen",
+              "boven"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "comer afuera",
+          "translation": {
+            "en": "to eat out",
+            "it": "mangiare fuori",
+            "nl": "uit eten gaan"
+          },
+          "distractors": {
+            "en": [
+              "to eat at home",
+              "to eat early"
+            ],
+            "it": [
+              "mangiare a casa",
+              "mangiare presto"
+            ],
+            "nl": [
+              "thuis eten",
+              "vroeg eten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Anoche fuimos a comer afuera con unos amigos.",
+          "commas": [
+            0
+          ],
+          "senses": {
+            "1": "ir"
+          },
+          "translation": {
+            "en": "Last night we went out to eat with some friends.",
+            "it": "Ieri sera siamo andati a mangiare fuori con degli amici.",
+            "nl": "Gisteravond zijn we met een paar vrienden uit eten gegaan."
+          },
+          "distractors": {
+            "en": [
+              "Last night we went out to eat with some cousins.",
+              "Tomorrow night we're going out to eat with some friends."
+            ],
+            "it": [
+              "Ieri sera siamo andati a mangiare fuori con dei cugini.",
+              "Domani sera andiamo a mangiare fuori con degli amici."
+            ],
+            "nl": [
+              "Gisteravond zijn we met een paar neven uit eten gegaan.",
+              "Morgenavond gaan we met een paar vrienden uit eten."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "salimos a las ocho",
+          "variants": [
+            "salimos a las 8"
+          ],
+          "translation": {
+            "en": "we left at eight",
+            "it": "siamo usciti alle otto",
+            "nl": "we gingen om acht uur weg"
+          },
+          "distractors": {
+            "en": [
+              "we arrived at eight",
+              "we left at nine"
+            ],
+            "it": [
+              "siamo arrivati alle otto",
+              "siamo usciti alle nove"
+            ],
+            "nl": [
+              "we kwamen om acht uur aan",
+              "we gingen om negen uur weg"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Salimos de la casa a las ocho y tomamos un taxi.",
+          "variants": [
+            "Salimos de la casa a las 8 y tomamos un taxi."
+          ],
+          "commas": [
+            6
+          ],
+          "translation": {
+            "en": "We left the house at eight and took a taxi.",
+            "it": "Siamo usciti di casa alle otto e abbiamo preso un taxi.",
+            "nl": "We gingen om acht uur de deur uit en namen een taxi."
+          },
+          "distractors": {
+            "en": [
+              "We left the house at eight and took the bus.",
+              "We left the house at nine and took a taxi."
+            ],
+            "it": [
+              "Siamo usciti di casa alle otto e abbiamo preso l'autobus.",
+              "Siamo usciti di casa alle nove e abbiamo preso un taxi."
+            ],
+            "nl": [
+              "We gingen om acht uur de deur uit en namen de bus.",
+              "We gingen om negen uur de deur uit en namen een taxi."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "elegir",
+          "translation": {
+            "en": "to choose",
+            "it": "scegliere",
+            "nl": "kiezen"
+          },
+          "distractors": {
+            "en": [
+              "to order",
+              "to try"
+            ],
+            "it": [
+              "ordinare",
+              "assaggiare"
+            ],
+            "nl": [
+              "bestellen",
+              "proeven"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elegí el pescado",
+          "translation": {
+            "en": "I chose the fish",
+            "it": "ho scelto il pesce",
+            "nl": "ik koos de vis"
+          },
+          "distractors": {
+            "en": [
+              "I chose the chicken",
+              "you chose the fish"
+            ],
+            "it": [
+              "ho scelto il pollo",
+              "hai scelto il pesce"
+            ],
+            "nl": [
+              "ik koos de kip",
+              "jij koos de vis"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Yo elegí el pescado y mi esposa probó los tacos.",
+          "commas": [
+            3
+          ],
+          "translation": {
+            "en": "I chose the fish and my wife tried the tacos.",
+            "it": "Io ho scelto il pesce e mia moglie ha assaggiato i tacos.",
+            "nl": "Ik koos de vis en mijn vrouw probeerde de taco's."
+          },
+          "distractors": {
+            "en": [
+              "I chose the chicken and my wife tried the tacos.",
+              "I chose the fish and my wife tried the soup."
+            ],
+            "it": [
+              "Io ho scelto il pollo e mia moglie ha assaggiato i tacos.",
+              "Io ho scelto il pesce e mia moglie ha assaggiato la zuppa."
+            ],
+            "nl": [
+              "Ik koos de kip en mijn vrouw probeerde de taco's.",
+              "Ik koos de vis en mijn vrouw probeerde de soep."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "vino blanco",
+          "translation": {
+            "en": "white wine",
+            "it": "vino bianco",
+            "nl": "witte wijn"
+          },
+          "distractors": {
+            "en": [
+              "red wine",
+              "white bread"
+            ],
+            "it": [
+              "vino rosso",
+              "pane bianco"
+            ],
+            "nl": [
+              "rode wijn",
+              "wit brood"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tomamos una botella de vino blanco.",
+          "translation": {
+            "en": "We drank a bottle of white wine.",
+            "it": "Abbiamo bevuto una bottiglia di vino bianco.",
+            "nl": "We dronken een fles witte wijn."
+          },
+          "distractors": {
+            "en": [
+              "We drank a glass of white wine.",
+              "We drank a bottle of red wine."
+            ],
+            "it": [
+              "Abbiamo bevuto un bicchiere di vino bianco.",
+              "Abbiamo bevuto una bottiglia di vino rosso."
+            ],
+            "nl": [
+              "We dronken een glas witte wijn.",
+              "We dronken een fles rode wijn."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quién pagó",
+          "translation": {
+            "en": "who paid",
+            "it": "chi ha pagato",
+            "nl": "wie heeft betaald"
+          },
+          "distractors": {
+            "en": [
+              "who ordered",
+              "who's paying"
+            ],
+            "it": [
+              "chi ha ordinato",
+              "chi paga"
+            ],
+            "nl": [
+              "wie heeft besteld",
+              "wie betaalt er"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quién pagó la cuenta?",
+          "translation": {
+            "en": "Who paid the bill?",
+            "it": "Chi ha pagato il conto?",
+            "nl": "Wie heeft de rekening betaald?"
+          },
+          "distractors": {
+            "en": [
+              "Who asked for the bill?",
+              "Who paid for the wine?"
+            ],
+            "it": [
+              "Chi ha chiesto il conto?",
+              "Chi ha pagato il vino?"
+            ],
+            "nl": [
+              "Wie heeft om de rekening gevraagd?",
+              "Wie heeft de wijn betaald?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "pagué con tarjeta",
+          "translation": {
+            "en": "I paid by card",
+            "it": "ho pagato con la carta",
+            "nl": "ik heb met de kaart betaald"
+          },
+          "distractors": {
+            "en": [
+              "I paid in cash",
+              "you paid by card"
+            ],
+            "it": [
+              "ho pagato in contanti",
+              "hai pagato con la carta"
+            ],
+            "nl": [
+              "ik heb contant betaald",
+              "jij hebt met de kaart betaald"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La pagué yo con tarjeta.",
+          "commas": [
+            2
+          ],
+          "senses": {
+            "0": "pron"
+          },
+          "translation": {
+            "en": "I paid it myself, by card.",
+            "it": "L'ho pagato io, con la carta.",
+            "nl": "Ik heb hem betaald, met de kaart."
+          },
+          "distractors": {
+            "en": [
+              "I paid it myself, in cash.",
+              "Andrés paid it, by card."
+            ],
+            "it": [
+              "L'ho pagato io, in contanti.",
+              "L'ha pagato Andrés, con la carta."
+            ],
+            "nl": [
+              "Ik heb hem betaald, contant.",
+              "Andrés heeft hem betaald, met de kaart."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "nos divertimos mucho",
+          "translation": {
+            "en": "we had a lot of fun",
+            "it": "ci siamo divertiti molto",
+            "nl": "we hebben ons goed vermaakt"
+          },
+          "distractors": {
+            "en": [
+              "we ate a lot",
+              "we worked a lot"
+            ],
+            "it": [
+              "abbiamo mangiato molto",
+              "abbiamo lavorato molto"
+            ],
+            "nl": [
+              "we hebben veel gegeten",
+              "we hebben veel gewerkt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Fue una noche genial y nos divertimos mucho.",
+          "commas": [
+            3
+          ],
+          "translation": {
+            "en": "It was a great night and we had a lot of fun.",
+            "it": "È stata una serata fantastica e ci siamo divertiti molto.",
+            "nl": "Het was een geweldige avond en we hebben ons goed vermaakt."
+          },
+          "distractors": {
+            "en": [
+              "It was a long night and we had a lot of fun.",
+              "It was a great night and we ate a lot."
+            ],
+            "it": [
+              "È stata una serata lunga e ci siamo divertiti molto.",
+              "È stata una serata fantastica e abbiamo mangiato molto."
+            ],
+            "nl": [
+              "Het was een lange avond en we hebben ons goed vermaakt.",
+              "Het was een geweldige avond en we hebben veel gegeten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-fin-de-semana-3",
+      "title": "Hace una semana",
+      "grammarFocus": {
+        "en": [
+          "hace + time = ago: hace una semana = a week ago",
+          "pasado: la semana pasada, el año pasado, el sábado pasado",
+          "spelling change: empezar -> empecé"
+        ],
+        "it": [
+          "hace + tempo = fa: hace una semana = una settimana fa",
+          "pasado = scorso: la semana pasada, el año pasado",
+          "cambio di grafia: empezar -> empecé"
+        ],
+        "nl": [
+          "hace + tijd = geleden: hace una semana = een week geleden",
+          "pasado = vorig: la semana pasada, el año pasado",
+          "spellingswijziging: empezar -> empecé"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-3-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "hace una semana",
+          "senses": {
+            "0": "ago"
+          },
+          "translation": {
+            "en": "a week ago",
+            "it": "una settimana fa",
+            "nl": "een week geleden"
+          },
+          "distractors": {
+            "en": [
+              "in a week",
+              "a month ago"
+            ],
+            "it": [
+              "tra una settimana",
+              "un mese fa"
+            ],
+            "nl": [
+              "over een week",
+              "een maand geleden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Llegamos a Lima hace una semana.",
+          "senses": {
+            "3": "ago"
+          },
+          "translation": {
+            "en": "We arrived in Lima a week ago.",
+            "it": "Siamo arrivati a Lima una settimana fa.",
+            "nl": "We zijn een week geleden in Lima aangekomen."
+          },
+          "distractors": {
+            "en": [
+              "We arrived in Lima a month ago.",
+              "We left Lima a week ago."
+            ],
+            "it": [
+              "Siamo arrivati a Lima un mese fa.",
+              "Siamo partiti da Lima una settimana fa."
+            ],
+            "nl": [
+              "We zijn een maand geleden in Lima aangekomen.",
+              "We zijn een week geleden uit Lima vertrokken."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "regresar",
+          "translation": {
+            "en": "to go back, to return",
+            "it": "tornare",
+            "nl": "teruggaan, terugkomen"
+          },
+          "distractors": {
+            "en": [
+              "to arrive",
+              "to leave"
+            ],
+            "it": [
+              "arrivare",
+              "partire"
+            ],
+            "nl": [
+              "aankomen",
+              "vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la semana pasada",
+          "translation": {
+            "en": "last week",
+            "it": "la settimana scorsa",
+            "nl": "vorige week"
+          },
+          "distractors": {
+            "en": [
+              "next week",
+              "this week"
+            ],
+            "it": [
+              "la settimana prossima",
+              "questa settimana"
+            ],
+            "nl": [
+              "volgende week",
+              "deze week"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mis padres regresaron a Bogotá la semana pasada.",
+          "translation": {
+            "en": "My parents went back to Bogotá last week.",
+            "it": "I miei genitori sono tornati a Bogotá la settimana scorsa.",
+            "nl": "Mijn ouders zijn vorige week teruggegaan naar Bogotá."
+          },
+          "distractors": {
+            "en": [
+              "My parents went back to Bogotá last month.",
+              "My parents arrived in Bogotá last week."
+            ],
+            "it": [
+              "I miei genitori sono tornati a Bogotá il mese scorso.",
+              "I miei genitori sono arrivati a Bogotá la settimana scorsa."
+            ],
+            "nl": [
+              "Mijn ouders zijn vorige maand teruggegaan naar Bogotá.",
+              "Mijn ouders zijn vorige week in Bogotá aangekomen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el año pasado",
+          "translation": {
+            "en": "last year",
+            "it": "l'anno scorso",
+            "nl": "vorig jaar"
+          },
+          "distractors": {
+            "en": [
+              "next year",
+              "every year"
+            ],
+            "it": [
+              "l'anno prossimo",
+              "ogni anno"
+            ],
+            "nl": [
+              "volgend jaar",
+              "elk jaar"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El año pasado visitamos Cuzco en julio.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "Last year we visited Cuzco in July.",
+            "it": "L'anno scorso abbiamo visitato Cuzco a luglio.",
+            "nl": "Vorig jaar hebben we in juli Cuzco bezocht."
+          },
+          "distractors": {
+            "en": [
+              "Next year we're visiting Cuzco in July.",
+              "Last year we visited Cuzco in June."
+            ],
+            "it": [
+              "L'anno prossimo visitiamo Cuzco a luglio.",
+              "L'anno scorso abbiamo visitato Cuzco a giugno."
+            ],
+            "nl": [
+              "Volgend jaar bezoeken we in juli Cuzco.",
+              "Vorig jaar hebben we in juni Cuzco bezocht."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "hace dos años",
+          "variants": [
+            "hace 2 años"
+          ],
+          "senses": {
+            "0": "ago"
+          },
+          "translation": {
+            "en": "two years ago",
+            "it": "due anni fa",
+            "nl": "twee jaar geleden"
+          },
+          "distractors": {
+            "en": [
+              "in two years",
+              "two months ago"
+            ],
+            "it": [
+              "tra due anni",
+              "due mesi fa"
+            ],
+            "nl": [
+              "over twee jaar",
+              "twee maanden geleden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "empecé a estudiar",
+          "translation": {
+            "en": "I started studying",
+            "it": "ho cominciato a studiare",
+            "nl": "ik ben begonnen met studeren"
+          },
+          "distractors": {
+            "en": [
+              "I finished studying",
+              "I started working"
+            ],
+            "it": [
+              "ho finito di studiare",
+              "ho cominciato a lavorare"
+            ],
+            "nl": [
+              "ik ben gestopt met studeren",
+              "ik ben begonnen met werken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Empecé a estudiar español hace dos años.",
+          "variants": [
+            "Empecé a estudiar español hace 2 años."
+          ],
+          "senses": {
+            "4": "ago"
+          },
+          "translation": {
+            "en": "I started studying Spanish two years ago.",
+            "it": "Ho cominciato a studiare spagnolo due anni fa.",
+            "nl": "Ik ben twee jaar geleden met Spaans begonnen."
+          },
+          "distractors": {
+            "en": [
+              "I started studying Spanish two months ago.",
+              "I started studying English two years ago."
+            ],
+            "it": [
+              "Ho cominciato a studiare spagnolo due mesi fa.",
+              "Ho cominciato a studiare inglese due anni fa."
+            ],
+            "nl": [
+              "Ik ben twee maanden geleden met Spaans begonnen.",
+              "Ik ben twee jaar geleden met Engels begonnen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "conocí a Sofía",
+          "translation": {
+            "en": "I met Sofía",
+            "it": "ho conosciuto Sofía",
+            "nl": "ik heb Sofía leren kennen"
+          },
+          "distractors": {
+            "en": [
+              "I called Sofía",
+              "I helped Sofía"
+            ],
+            "it": [
+              "ho chiamato Sofía",
+              "ho aiutato Sofía"
+            ],
+            "nl": [
+              "ik heb Sofía gebeld",
+              "ik heb Sofía bezocht"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Conocí a Sofía hace tres meses en una fiesta.",
+          "variants": [
+            "Conocí a Sofía hace 3 meses en una fiesta."
+          ],
+          "senses": {
+            "3": "ago"
+          },
+          "translation": {
+            "en": "I met Sofía three months ago at a party.",
+            "it": "Ho conosciuto Sofía tre mesi fa a una festa.",
+            "nl": "Ik heb Sofía drie maanden geleden op een feest leren kennen."
+          },
+          "distractors": {
+            "en": [
+              "I met Sofía three weeks ago at a party.",
+              "I met Sofía three months ago at a concert."
+            ],
+            "it": [
+              "Ho conosciuto Sofía tre settimane fa a una festa.",
+              "Ho conosciuto Sofía tre mesi fa a un concerto."
+            ],
+            "nl": [
+              "Ik heb Sofía drie weken geleden op een feest leren kennen.",
+              "Ik heb Sofía drie maanden geleden op een concert leren kennen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el sábado pasado",
+          "translation": {
+            "en": "last Saturday",
+            "it": "sabato scorso",
+            "nl": "vorige zaterdag"
+          },
+          "distractors": {
+            "en": [
+              "next Saturday",
+              "every Saturday"
+            ],
+            "it": [
+              "sabato prossimo",
+              "ogni sabato"
+            ],
+            "nl": [
+              "volgende zaterdag",
+              "elke zaterdag"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El sábado pasado llamé a mi abuela.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "Last Saturday I called my grandmother.",
+            "it": "Sabato scorso ho chiamato mia nonna.",
+            "nl": "Vorige zaterdag heb ik mijn oma gebeld."
+          },
+          "distractors": {
+            "en": [
+              "Next Saturday I'm calling my grandmother.",
+              "Last Saturday I visited my grandmother."
+            ],
+            "it": [
+              "Sabato prossimo chiamo mia nonna.",
+              "Sabato scorso ho chiamato mio nonno."
+            ],
+            "nl": [
+              "Volgende zaterdag bel ik mijn oma.",
+              "Vorige zaterdag heb ik mijn oma bezocht."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "último",
+          "translation": {
+            "en": "last",
+            "it": "ultimo",
+            "nl": "laatste"
+          },
+          "distractors": {
+            "en": [
+              "first",
+              "next"
+            ],
+            "it": [
+              "primo",
+              "prossimo"
+            ],
+            "nl": [
+              "eerste",
+              "volgende"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La última vez que la vi fue hace un mes.",
+          "senses": {
+            "4": "pron",
+            "7": "ago"
+          },
+          "translation": {
+            "en": "The last time I saw her was a month ago.",
+            "it": "L'ultima volta che l'ho vista è stato un mese fa.",
+            "nl": "De laatste keer dat ik haar zag, was een maand geleden."
+          },
+          "distractors": {
+            "en": [
+              "The first time I saw her was a month ago.",
+              "The last time I saw her was a year ago."
+            ],
+            "it": [
+              "La prima volta che l'ho vista è stato un mese fa.",
+              "L'ultima volta che l'ho vista è stato un anno fa."
+            ],
+            "nl": [
+              "De eerste keer dat ik haar zag, was een maand geleden.",
+              "De laatste keer dat ik haar zag, was een jaar geleden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-fin-de-semana-4",
+      "title": "¿Ya lo compraste?",
+      "grammarFocus": {
+        "en": [
+          "ya + indefinido: ¿Ya comiste? = Have you eaten yet?",
+          "todavía no + indefinido: Todavía no respondió = She hasn't answered yet",
+          "spelling changes: sacar -> saqué, leer -> leyó"
+        ],
+        "it": [
+          "ya + indefinido: ¿Ya comiste? = Hai già mangiato?",
+          "todavía no + indefinido: Todavía no respondió = Non ha ancora risposto",
+          "cambi di grafia: sacar -> saqué, leer -> leyó"
+        ],
+        "nl": [
+          "ya + indefinido: ¿Ya comiste? = Heb je al gegeten?",
+          "todavía no + indefinido: Todavía no respondió = Ze heeft nog niet geantwoord",
+          "spellingswijzigingen: sacar -> saqué, leer -> leyó"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ya",
+          "translation": {
+            "en": "already",
+            "it": "già",
+            "nl": "al"
+          },
+          "distractors": {
+            "en": [
+              "still",
+              "never"
+            ],
+            "it": [
+              "ancora",
+              "mai"
+            ],
+            "nl": [
+              "nog",
+              "nooit"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya lo compraste",
+          "translation": {
+            "en": "did you already buy it",
+            "it": "l'hai già comprato",
+            "nl": "heb je het al gekocht"
+          },
+          "distractors": {
+            "en": [
+              "are you buying it now",
+              "did you already sell it"
+            ],
+            "it": [
+              "lo compri adesso",
+              "l'hai già venduto"
+            ],
+            "nl": [
+              "koop je het nu",
+              "heb je het al verkocht"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Ya compraste el boleto para el concierto?",
+          "translation": {
+            "en": "Did you already buy the ticket for the concert?",
+            "it": "Hai già comprato il biglietto per il concerto?",
+            "nl": "Heb je het kaartje voor het concert al gekocht?"
+          },
+          "distractors": {
+            "en": [
+              "Did you already sell the ticket for the concert?",
+              "Did you already buy the ticket for the game?"
+            ],
+            "it": [
+              "Hai già venduto il biglietto per il concerto?",
+              "Hai già comprato il biglietto per la partita?"
+            ],
+            "nl": [
+              "Heb je het kaartje voor het concert al verkocht?",
+              "Heb je het kaartje voor de wedstrijd al gekocht?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sí, ya lo compré ayer.",
+          "translation": {
+            "en": "Yes, I already bought it yesterday.",
+            "it": "Sì, l'ho già comprato ieri.",
+            "nl": "Ja, ik heb het gisteren al gekocht."
+          },
+          "distractors": {
+            "en": [
+              "Yes, I'm buying it tomorrow.",
+              "Yes, I already sold it yesterday."
+            ],
+            "it": [
+              "Sì, lo compro domani.",
+              "Sì, l'ho già venduto ieri."
+            ],
+            "nl": [
+              "Ja, ik koop het morgen.",
+              "Ja, ik heb het gisteren al verkocht."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "todavía no",
+          "translation": {
+            "en": "not yet",
+            "it": "non ancora",
+            "nl": "nog niet"
+          },
+          "distractors": {
+            "en": [
+              "not anymore",
+              "not today"
+            ],
+            "it": [
+              "non più",
+              "non oggi"
+            ],
+            "nl": [
+              "niet meer",
+              "vandaag niet"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No, todavía no comí nada.",
+          "translation": {
+            "en": "No, I haven't eaten anything yet.",
+            "it": "No, non ho ancora mangiato niente.",
+            "nl": "Nee, ik heb nog niets gegeten."
+          },
+          "distractors": {
+            "en": [
+              "No, I haven't cooked anything yet.",
+              "No, I haven't drunk anything yet."
+            ],
+            "it": [
+              "No, non ho ancora cucinato niente.",
+              "No, non ho ancora bevuto niente."
+            ],
+            "nl": [
+              "Nee, ik heb nog niets gekookt.",
+              "Nee, ik heb vandaag niets gegeten."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "mensaje",
+          "translation": {
+            "en": "message",
+            "it": "messaggio",
+            "nl": "bericht"
+          },
+          "distractors": {
+            "en": [
+              "photo",
+              "letter"
+            ],
+            "it": [
+              "foto",
+              "lettera"
+            ],
+            "nl": [
+              "foto",
+              "brief"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mandar un mensaje",
+          "translation": {
+            "en": "to send a message",
+            "it": "mandare un messaggio",
+            "nl": "een bericht sturen"
+          },
+          "distractors": {
+            "en": [
+              "to read a message",
+              "to send a photo"
+            ],
+            "it": [
+              "leggere un messaggio",
+              "mandare una foto"
+            ],
+            "nl": [
+              "een bericht lezen",
+              "een foto sturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ya le mandé un mensaje a Daniela.",
+          "translation": {
+            "en": "I already sent Daniela a message.",
+            "it": "Ho già mandato un messaggio a Daniela.",
+            "nl": "Ik heb Daniela al een bericht gestuurd."
+          },
+          "distractors": {
+            "en": [
+              "I haven't sent Daniela a message yet.",
+              "I already sent Daniela a photo."
+            ],
+            "it": [
+              "Non ho ancora mandato un messaggio a Daniela.",
+              "Ho già mandato una foto a Daniela."
+            ],
+            "nl": [
+              "Ik heb Daniela nog geen bericht gestuurd.",
+              "Ik heb Daniela al een foto gestuurd."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "responder",
+          "translation": {
+            "en": "to answer, to reply",
+            "it": "rispondere",
+            "nl": "antwoorden"
+          },
+          "distractors": {
+            "en": [
+              "to ask",
+              "to call"
+            ],
+            "it": [
+              "chiedere",
+              "chiamare"
+            ],
+            "nl": [
+              "vragen",
+              "bellen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Daniela ya leyó el mensaje, pero todavía no respondió.",
+          "translation": {
+            "en": "Daniela already read the message, but she hasn't answered yet.",
+            "it": "Daniela ha già letto il messaggio, ma non ha ancora risposto.",
+            "nl": "Daniela heeft het bericht al gelezen, maar ze heeft nog niet geantwoord."
+          },
+          "distractors": {
+            "en": [
+              "Daniela already read the message, and she answered right away.",
+              "Daniela already saw the photo, but she hasn't answered yet."
+            ],
+            "it": [
+              "Daniela ha già letto il messaggio e ha risposto subito.",
+              "Daniela ha già visto la foto, ma non ha ancora risposto."
+            ],
+            "nl": [
+              "Daniela heeft het bericht al gelezen en meteen geantwoord.",
+              "Daniela heeft de foto al gezien, maar ze heeft nog niet geantwoord."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "sacar fotos",
+          "translation": {
+            "en": "to take photos",
+            "it": "fare foto",
+            "nl": "foto's maken"
+          },
+          "distractors": {
+            "en": [
+              "to look at photos",
+              "to send photos"
+            ],
+            "it": [
+              "guardare foto",
+              "mandare foto"
+            ],
+            "nl": [
+              "foto's bekijken",
+              "foto's sturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Ya viste las fotos que saqué en la playa?",
+          "translation": {
+            "en": "Have you seen the photos I took at the beach yet?",
+            "it": "Hai già visto le foto che ho fatto in spiaggia?",
+            "nl": "Heb je de foto's die ik op het strand heb gemaakt al gezien?"
+          },
+          "distractors": {
+            "en": [
+              "Have you seen the photos I took in the mountains yet?",
+              "Have you sent the photos I took at the beach yet?"
+            ],
+            "it": [
+              "Hai già visto le foto che ho fatto in montagna?",
+              "Hai già mandato le foto che ho fatto in spiaggia?"
+            ],
+            "nl": [
+              "Heb je de foto's die ik in de bergen heb gemaakt al gezien?",
+              "Heb je de foto's die ik op het strand heb gemaakt al gestuurd?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "preguntar",
+          "translation": {
+            "en": "to ask",
+            "it": "chiedere, domandare",
+            "nl": "vragen"
+          },
+          "distractors": {
+            "en": [
+              "to answer",
+              "to tell"
+            ],
+            "it": [
+              "rispondere",
+              "raccontare"
+            ],
+            "nl": [
+              "antwoorden",
+              "vertellen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le pregunté a Pablo",
+          "translation": {
+            "en": "I asked Pablo",
+            "it": "ho chiesto a Pablo",
+            "nl": "ik heb Pablo gevraagd"
+          },
+          "distractors": {
+            "en": [
+              "I told Pablo",
+              "Pablo asked me"
+            ],
+            "it": [
+              "ho raccontato a Pablo",
+              "Pablo mi ha chiesto"
+            ],
+            "nl": [
+              "ik heb Pablo verteld",
+              "Pablo heeft mij gevraagd"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le pregunté a Pablo qué hizo el sábado.",
+          "translation": {
+            "en": "I asked Pablo what he did on Saturday.",
+            "it": "Ho chiesto a Pablo cosa ha fatto sabato.",
+            "nl": "Ik heb Pablo gevraagd wat hij zaterdag heeft gedaan."
+          },
+          "distractors": {
+            "en": [
+              "I asked Pablo what he did on Sunday.",
+              "I told Pablo what I did on Saturday."
+            ],
+            "it": [
+              "Ho chiesto a Pablo cosa ha fatto domenica.",
+              "Ho raccontato a Pablo cosa ho fatto sabato."
+            ],
+            "nl": [
+              "Ik heb Pablo gevraagd wat hij zondag heeft gedaan.",
+              "Ik heb Pablo verteld wat ik zaterdag heb gedaan."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-fin-de-semana-5",
+      "title": "Perdí las llaves",
+      "grammarFocus": {
+        "en": [
+          "spelling change: buscar -> busqué",
+          "alguien, nadie; double negation: No, nadie vio nada",
+          "por fin = finally"
+        ],
+        "it": [
+          "cambio di grafia: buscar -> busqué",
+          "alguien = qualcuno, nadie = nessuno; No, nadie vio nada = No, nessuno ha visto niente",
+          "por fin = finalmente"
+        ],
+        "nl": [
+          "spellingswijziging: buscar -> busqué",
+          "alguien = iemand, nadie = niemand; dubbele ontkenning: No, nadie vio nada = Nee, niemand heeft iets gezien",
+          "por fin = eindelijk"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "perder",
+          "translation": {
+            "en": "to lose",
+            "it": "perdere",
+            "nl": "verliezen"
+          },
+          "distractors": {
+            "en": [
+              "to find",
+              "to forget"
+            ],
+            "it": [
+              "trovare",
+              "dimenticare"
+            ],
+            "nl": [
+              "vinden",
+              "vergeten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "perdí las llaves",
+          "translation": {
+            "en": "I lost the keys",
+            "it": "ho perso le chiavi",
+            "nl": "ik ben de sleutels kwijt"
+          },
+          "distractors": {
+            "en": [
+              "I found the keys",
+              "you lost the keys"
+            ],
+            "it": [
+              "ho trovato le chiavi",
+              "hai perso le chiavi"
+            ],
+            "nl": [
+              "ik heb de sleutels gevonden",
+              "jij bent de sleutels kwijt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Perdí las llaves de la casa!",
+          "translation": {
+            "en": "I lost my house keys!",
+            "it": "Ho perso le chiavi di casa!",
+            "nl": "Ik ben mijn huissleutels kwijt!"
+          },
+          "distractors": {
+            "en": [
+              "I found my house keys!",
+              "I lost my car keys!"
+            ],
+            "it": [
+              "Ho trovato le chiavi di casa!",
+              "Ho perso le chiavi della macchina!"
+            ],
+            "nl": [
+              "Ik heb mijn huissleutels gevonden!",
+              "Ik ben mijn autosleutels kwijt!"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "busqué por todas partes",
+          "translation": {
+            "en": "I looked everywhere",
+            "it": "ho cercato dappertutto",
+            "nl": "ik heb overal gezocht"
+          },
+          "distractors": {
+            "en": [
+              "I cleaned everywhere",
+              "I looked in the car"
+            ],
+            "it": [
+              "ho pulito dappertutto",
+              "ho cercato in macchina"
+            ],
+            "nl": [
+              "ik heb overal schoongemaakt",
+              "ik heb in de auto gezocht"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Busqué por todas partes, pero no encontré nada.",
+          "translation": {
+            "en": "I looked everywhere, but I didn't find anything.",
+            "it": "Ho cercato dappertutto, ma non ho trovato niente.",
+            "nl": "Ik heb overal gezocht, maar ik heb niets gevonden."
+          },
+          "distractors": {
+            "en": [
+              "I cleaned everywhere, but I didn't find anything.",
+              "I looked in the car, but I didn't find anything."
+            ],
+            "it": [
+              "Ho pulito dappertutto, ma non ho trovato niente.",
+              "Ho cercato in macchina, ma non ho trovato niente."
+            ],
+            "nl": [
+              "Ik heb overal schoongemaakt, maar ik heb niets gevonden.",
+              "Ik heb in de auto gezocht, maar ik heb niets gevonden."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "olvidar",
+          "translation": {
+            "en": "to forget",
+            "it": "dimenticare",
+            "nl": "vergeten"
+          },
+          "distractors": {
+            "en": [
+              "to lose",
+              "to find"
+            ],
+            "it": [
+              "perdere",
+              "trovare"
+            ],
+            "nl": [
+              "verliezen",
+              "vinden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Olvidé el celular en la oficina.",
+          "translation": {
+            "en": "I forgot my phone at the office.",
+            "it": "Ho dimenticato il cellulare in ufficio.",
+            "nl": "Ik heb mijn mobiel op kantoor laten liggen."
+          },
+          "distractors": {
+            "en": [
+              "I found my phone at the office.",
+              "I forgot my keys at the office."
+            ],
+            "it": [
+              "Ho trovato il cellulare in ufficio.",
+              "Ho dimenticato le chiavi in ufficio."
+            ],
+            "nl": [
+              "Ik heb mijn mobiel op kantoor gevonden.",
+              "Ik heb mijn sleutels op kantoor laten liggen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "alguien",
+          "translation": {
+            "en": "someone",
+            "it": "qualcuno",
+            "nl": "iemand"
+          },
+          "distractors": {
+            "en": [
+              "no one",
+              "everyone"
+            ],
+            "it": [
+              "nessuno",
+              "tutti"
+            ],
+            "nl": [
+              "niemand",
+              "iedereen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "alguien vio",
+          "translation": {
+            "en": "did anyone see",
+            "it": "qualcuno ha visto",
+            "nl": "heeft iemand gezien"
+          },
+          "distractors": {
+            "en": [
+              "did anyone find",
+              "nobody saw"
+            ],
+            "it": [
+              "qualcuno ha trovato",
+              "nessuno ha visto"
+            ],
+            "nl": [
+              "heeft iemand gevonden",
+              "niemand heeft gezien"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Alguien vio mi pasaporte?",
+          "translation": {
+            "en": "Has anyone seen my passport?",
+            "it": "Qualcuno ha visto il mio passaporto?",
+            "nl": "Heeft iemand mijn paspoort gezien?"
+          },
+          "distractors": {
+            "en": [
+              "Has anyone found my passport?",
+              "Has anyone seen my suitcase?"
+            ],
+            "it": [
+              "Qualcuno ha trovato il mio passaporto?",
+              "Qualcuno ha visto la mia valigia?"
+            ],
+            "nl": [
+              "Heeft iemand mijn paspoort gevonden?",
+              "Heeft iemand mijn koffer gezien?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "nadie",
+          "translation": {
+            "en": "nobody",
+            "it": "nessuno",
+            "nl": "niemand"
+          },
+          "distractors": {
+            "en": [
+              "somebody",
+              "everybody"
+            ],
+            "it": [
+              "qualcuno",
+              "tutti"
+            ],
+            "nl": [
+              "iemand",
+              "iedereen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No, nadie vio nada.",
+          "translation": {
+            "en": "No, nobody saw anything.",
+            "it": "No, nessuno ha visto niente.",
+            "nl": "Nee, niemand heeft iets gezien."
+          },
+          "distractors": {
+            "en": [
+              "No, nobody heard anything.",
+              "Yes, everybody saw something."
+            ],
+            "it": [
+              "No, nessuno ha sentito niente.",
+              "Sì, tutti hanno visto qualcosa."
+            ],
+            "nl": [
+              "Nee, niemand heeft iets gehoord.",
+              "Ja, iedereen heeft iets gezien."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "puerta",
+          "translation": {
+            "en": "door",
+            "it": "porta",
+            "nl": "deur"
+          },
+          "distractors": {
+            "en": [
+              "window",
+              "key"
+            ],
+            "it": [
+              "finestra",
+              "chiave"
+            ],
+            "nl": [
+              "raam",
+              "sleutel"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cerraste la puerta con llave?",
+          "translation": {
+            "en": "Did you lock the door?",
+            "it": "Hai chiuso la porta a chiave?",
+            "nl": "Heb je de deur op slot gedaan?"
+          },
+          "distractors": {
+            "en": [
+              "Did you lock the car?",
+              "Did you close the window?"
+            ],
+            "it": [
+              "Hai chiuso la macchina a chiave?",
+              "Hai chiuso la finestra?"
+            ],
+            "nl": [
+              "Heb je de auto op slot gedaan?",
+              "Heb je het raam dichtgedaan?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en mi bolsa",
+          "translation": {
+            "en": "in my bag",
+            "it": "nella mia borsa",
+            "nl": "in mijn tas"
+          },
+          "distractors": {
+            "en": [
+              "in my car",
+              "under my bag"
+            ],
+            "it": [
+              "nella mia macchina",
+              "sotto la mia borsa"
+            ],
+            "nl": [
+              "in mijn auto",
+              "onder mijn tas"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Por fin encontré las llaves en mi bolsa!",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "I finally found the keys in my bag!",
+            "it": "Finalmente ho trovato le chiavi nella borsa!",
+            "nl": "Eindelijk heb ik de sleutels in mijn tas gevonden!"
+          },
+          "distractors": {
+            "en": [
+              "I finally found the keys in the car!",
+              "I finally found my phone in my bag!"
+            ],
+            "it": [
+              "Finalmente ho trovato le chiavi in macchina!",
+              "Finalmente ho trovato il cellulare nella borsa!"
+            ],
+            "nl": [
+              "Eindelijk heb ik de sleutels in de auto gevonden!",
+              "Eindelijk heb ik mijn mobiel in mijn tas gevonden!"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-fin-de-semana-6",
+      "title": "Mi fin de semana",
+      "grammarFocus": {
+        "en": [
+          "ir in the indefinido: fui, fuiste, fue, fuimos, fueron (the same forms as ser)",
+          "oír: oí, oíste, oyó",
+          "ni... ni = neither... nor; ningún, ninguna"
+        ],
+        "it": [
+          "ir all'indefinido: fui, fuiste, fue, fuimos, fueron (le stesse forme di ser)",
+          "oír: oí, oíste, oyó",
+          "ni... ni = né... né; ningún, ninguna = nessuno, nessuna"
+        ],
+        "nl": [
+          "ir in de indefinido: fui, fuiste, fue, fuimos, fueron (dezelfde vormen als ser)",
+          "oír: oí, oíste, oyó",
+          "ni... ni = noch... noch; ningún, ninguna = geen enkel(e)"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-fin-de-semana-6-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el fin de semana pasado",
+          "translation": {
+            "en": "last weekend",
+            "it": "il fine settimana scorso",
+            "nl": "vorig weekend"
+          },
+          "distractors": {
+            "en": [
+              "next weekend",
+              "every weekend"
+            ],
+            "it": [
+              "il fine settimana prossimo",
+              "ogni fine settimana"
+            ],
+            "nl": [
+              "volgend weekend",
+              "elk weekend"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "fuimos a la playa",
+          "senses": {
+            "0": "ir"
+          },
+          "translation": {
+            "en": "we went to the beach",
+            "it": "siamo andati al mare",
+            "nl": "we zijn naar het strand gegaan"
+          },
+          "distractors": {
+            "en": [
+              "we're going to the beach",
+              "we went to the lake"
+            ],
+            "it": [
+              "andiamo al mare",
+              "siamo andati al lago"
+            ],
+            "nl": [
+              "we gaan naar het strand",
+              "we zijn naar het meer gegaan"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El fin de semana pasado fuimos a la playa con mis primos.",
+          "commas": [
+            4
+          ],
+          "senses": {
+            "5": "ir"
+          },
+          "translation": {
+            "en": "Last weekend we went to the beach with my cousins.",
+            "it": "Il fine settimana scorso siamo andati al mare con i miei cugini.",
+            "nl": "Vorig weekend zijn we met mijn neven naar het strand gegaan."
+          },
+          "distractors": {
+            "en": [
+              "Next weekend we're going to the beach with my cousins.",
+              "Last weekend we went to the mountains with my cousins."
+            ],
+            "it": [
+              "Il fine settimana prossimo andiamo al mare con i miei cugini.",
+              "Il fine settimana scorso siamo andati in montagna con i miei cugini."
+            ],
+            "nl": [
+              "Volgend weekend gaan we met mijn neven naar het strand.",
+              "Vorig weekend zijn we met mijn neven naar de bergen gegaan."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "pensar",
+          "translation": {
+            "en": "to think",
+            "it": "pensare",
+            "nl": "denken"
+          },
+          "distractors": {
+            "en": [
+              "to say",
+              "to know"
+            ],
+            "it": [
+              "dire",
+              "sapere"
+            ],
+            "nl": [
+              "zeggen",
+              "weten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "decidir",
+          "translation": {
+            "en": "to decide",
+            "it": "decidere",
+            "nl": "besluiten"
+          },
+          "distractors": {
+            "en": [
+              "to choose",
+              "to forget"
+            ],
+            "it": [
+              "scegliere",
+              "dimenticare"
+            ],
+            "nl": [
+              "kiezen",
+              "vergeten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pensamos en ir al museo, pero decidimos quedarnos en el hotel.",
+          "translation": {
+            "en": "We thought about going to the museum, but we decided to stay at the hotel.",
+            "it": "Abbiamo pensato di andare al museo, ma abbiamo deciso di restare in albergo.",
+            "nl": "We dachten erover naar het museum te gaan, maar we besloten in het hotel te blijven."
+          },
+          "distractors": {
+            "en": [
+              "We thought about going to the movies, but we decided to stay at the hotel.",
+              "We thought about staying at the hotel, but we decided to go to the museum."
+            ],
+            "it": [
+              "Abbiamo pensato di andare al cinema, ma abbiamo deciso di restare in albergo.",
+              "Abbiamo pensato di restare in albergo, ma abbiamo deciso di andare al museo."
+            ],
+            "nl": [
+              "We dachten erover naar de bioscoop te gaan, maar we besloten in het hotel te blijven.",
+              "We dachten erover in het hotel te blijven, maar we besloten naar het museum te gaan."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "oír",
+          "translation": {
+            "en": "to hear",
+            "it": "sentire, udire",
+            "nl": "horen"
+          },
+          "distractors": {
+            "en": [
+              "to see",
+              "to answer"
+            ],
+            "it": [
+              "vedere",
+              "rispondere"
+            ],
+            "nl": [
+              "zien",
+              "antwoorden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Oíste la noticia? Laura fue a Cancún con su novio.",
+          "senses": {
+            "4": "ir"
+          },
+          "translation": {
+            "en": "Did you hear the news? Laura went to Cancún with her boyfriend.",
+            "it": "Hai sentito la notizia? Laura è andata a Cancún con il suo ragazzo.",
+            "nl": "Heb je het nieuws gehoord? Laura is met haar vriend naar Cancún gegaan."
+          },
+          "distractors": {
+            "en": [
+              "Did you hear the news? Laura went to Cancún with her brother.",
+              "Did you read the news? Laura went to Cancún with her boyfriend."
+            ],
+            "it": [
+              "Hai sentito la notizia? Laura è andata a Cancún con suo fratello.",
+              "Hai letto la notizia? Laura è andata a Cancún con il suo ragazzo."
+            ],
+            "nl": [
+              "Heb je het nieuws gehoord? Laura is met haar broer naar Cancún gegaan.",
+              "Heb je het nieuws gelezen? Laura is met haar vriend naar Cancún gegaan."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuéntame",
+          "translation": {
+            "en": "tell me",
+            "it": "raccontami",
+            "nl": "vertel eens"
+          },
+          "distractors": {
+            "en": [
+              "ask me",
+              "show me"
+            ],
+            "it": [
+              "chiedimi",
+              "mostrami"
+            ],
+            "nl": [
+              "vraag het me",
+              "laat eens zien"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuéntame, ¿qué hiciste el fin de semana?",
+          "translation": {
+            "en": "Tell me, what did you do on the weekend?",
+            "it": "Raccontami, cosa hai fatto nel fine settimana?",
+            "nl": "Vertel eens, wat heb je in het weekend gedaan?"
+          },
+          "distractors": {
+            "en": [
+              "Tell me, what are you doing on the weekend?",
+              "Tell me, what did you do last night?"
+            ],
+            "it": [
+              "Raccontami, cosa fai nel fine settimana?",
+              "Raccontami, cosa hai fatto ieri sera?"
+            ],
+            "nl": [
+              "Vertel eens, wat doe je in het weekend?",
+              "Vertel eens, wat heb je gisteravond gedaan?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "ninguno",
+          "translation": {
+            "en": "none, not a single one",
+            "it": "nessuno",
+            "nl": "geen enkele"
+          },
+          "distractors": {
+            "en": [
+              "all of them",
+              "a few"
+            ],
+            "it": [
+              "tutti",
+              "alcuni"
+            ],
+            "nl": [
+              "allemaal",
+              "een paar"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No saqué ninguna foto en la playa.",
+          "translation": {
+            "en": "I didn't take a single photo at the beach.",
+            "it": "Non ho fatto nessuna foto al mare.",
+            "nl": "Ik heb op het strand geen enkele foto gemaakt."
+          },
+          "distractors": {
+            "en": [
+              "I took a lot of photos at the beach.",
+              "I didn't take a single photo at the museum."
+            ],
+            "it": [
+              "Ho fatto tante foto al mare.",
+              "Non ho fatto nessuna foto al museo."
+            ],
+            "nl": [
+              "Ik heb op het strand veel foto's gemaakt.",
+              "Ik heb in het museum geen enkele foto gemaakt."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ni el sábado ni el domingo",
+          "translation": {
+            "en": "neither on Saturday nor on Sunday",
+            "it": "né sabato né domenica",
+            "nl": "zaterdag niet en zondag ook niet"
+          },
+          "distractors": {
+            "en": [
+              "on Saturday and on Sunday",
+              "on Saturday but not on Sunday"
+            ],
+            "it": [
+              "sabato e domenica",
+              "sabato ma non domenica"
+            ],
+            "nl": [
+              "zaterdag en zondag",
+              "zaterdag wel en zondag niet"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No trabajé ni el sábado ni el domingo.",
+          "translation": {
+            "en": "I didn't work on Saturday or on Sunday.",
+            "it": "Non ho lavorato né sabato né domenica.",
+            "nl": "Ik heb zaterdag en zondag niet gewerkt."
+          },
+          "distractors": {
+            "en": [
+              "I didn't work on Friday or on Saturday.",
+              "I worked on Saturday but not on Sunday."
+            ],
+            "it": [
+              "Non ho lavorato né venerdì né sabato.",
+              "Ho lavorato sabato ma non domenica."
+            ],
+            "nl": [
+              "Ik heb vrijdag en zaterdag niet gewerkt.",
+              "Ik heb zaterdag gewerkt, maar zondag niet."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "muy divertido",
+          "translation": {
+            "en": "a lot of fun",
+            "it": "molto divertente",
+            "nl": "heel leuk"
+          },
+          "distractors": {
+            "en": [
+              "very boring",
+              "very quiet"
+            ],
+            "it": [
+              "molto noioso",
+              "molto tranquillo"
+            ],
+            "nl": [
+              "heel saai",
+              "heel rustig"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-fin-de-semana-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Fue un fin de semana tranquilo, pero muy divertido.",
+          "translation": {
+            "en": "It was a quiet weekend, but a lot of fun.",
+            "it": "È stato un fine settimana tranquillo, ma molto divertente.",
+            "nl": "Het was een rustig weekend, maar wel heel leuk."
+          },
+          "distractors": {
+            "en": [
+              "It was a busy weekend, but a lot of fun.",
+              "It was a quiet weekend, and very boring."
+            ],
+            "it": [
+              "È stato un fine settimana pieno, ma molto divertente.",
+              "È stato un fine settimana tranquillo, e molto noioso."
+            ],
+            "nl": [
+              "Het was een druk weekend, maar wel heel leuk.",
+              "Het was een rustig weekend, en heel saai."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

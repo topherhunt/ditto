@@ -80,6 +80,14 @@ test("a course the app isn't translated into offers no immersion", async ({ page
   await expect(page.locator(".qa-settings-immersion")).toBeVisible();
 });
 
+test("interface immersion in the Spanish course shows the app in its es-419 locale", async ({ page }) => {
+  await signIn(page, "immerse3@example.com");
+  await page.goto("/es/settings");
+  await page.locator(".qa-settings-immerseUi").check();
+  await expect(page.locator("html")).toHaveAttribute("lang", "es-419");
+  await expect(page.locator("label[for=immerseUi]")).toHaveText("Mostrar la app en español");
+});
+
 test("a language picked before sign-in becomes a new account's language", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-welcome-speak-nl").click();

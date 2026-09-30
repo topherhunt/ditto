@@ -1,0 +1,3820 @@
+{
+  "id": "es-a2-tramites",
+  "language": "es",
+  "level": "A2",
+  "order": 107,
+  "title": "Trámites",
+  "description": {
+    "en": "Handling paperwork: the post office, the bank, forms, immigration, ID and appointments",
+    "it": "Sbrigare pratiche: la posta, la banca, i moduli, l'immigrazione, i documenti e gli appuntamenti",
+    "nl": "Zaken regelen: het postkantoor, de bank, formulieren, de immigratiedienst, identiteitsbewijzen en afspraken"
+  },
+  "track": "optional",
+  "requires": [
+    "es-a2-cortesia"
+  ],
+  "introduces": [
+    "correo",
+    "paquete",
+    "enviar",
+    "estampilla",
+    "transferencia",
+    "depositar",
+    "retirar",
+    "formulario",
+    "llenar",
+    "firma",
+    "firmar",
+    "documento",
+    "identificación",
+    "licencia",
+    "conducir",
+    "domicilio",
+    "certificado",
+    "vencer",
+    "renovar",
+    "visa",
+    "migración",
+    "residencia",
+    "fila",
+    "trámite",
+    "carta",
+    "ventanilla",
+    "comprobante",
+    "dato",
+    "nacimiento",
+    "copia",
+    "temporal",
+    "válido",
+    "entregar"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; a las ocho = at eight",
+        "it": "a; a las ocho = alle otto",
+        "nl": "naar, om; a las ocho = om acht uur"
+      }
+    },
+    "abajo": {
+      "lemma": "abajo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "down, below; aquí abajo = down here",
+        "it": "sotto, giù; aquí abajo = qui sotto",
+        "nl": "beneden, onder; aquí abajo = hier onderaan"
+      }
+    },
+    "abre": {
+      "lemma": "abrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "opens (abrir)",
+        "it": "apre (abrir)",
+        "nl": "gaat open (abrir)"
+      }
+    },
+    "abrir": {
+      "lemma": "abrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "open; abrir una cuenta = open an account",
+        "it": "aprire; abrir una cuenta = aprire un conto",
+        "nl": "openen; abrir una cuenta = een rekening openen"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before; antes de + infinitive = before ...ing",
+        "it": "prima; antes de + infinito = prima di",
+        "nl": "voor, eerder; antes de + infinitief = voordat"
+      }
+    },
+    "aquí": {
+      "lemma": "aquí",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here; aquí tiene = here you are",
+        "it": "qui; aquí tiene = ecco a Lei",
+        "nl": "hier; aquí tiene = alstublieft (bij het geven)"
+      }
+    },
+    "ayudar": {
+      "lemma": "ayudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "help",
+        "it": "aiutare",
+        "nl": "helpen"
+      }
+    },
+    "banco": {
+      "lemma": "banco",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bank (m)",
+        "it": "banca (m)",
+        "nl": "bank (m); let op: ook een zitbank"
+      }
+    },
+    "cajero": {
+      "lemma": "cajero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ATM (m; short for cajero automático); also cashier",
+        "it": "bancomat (m; da cajero automático); anche cassiere",
+        "nl": "geldautomaat (m; van cajero automático); ook kassier"
+      }
+    },
+    "cambiar": {
+      "lemma": "cambiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "change; cambiar una cita = move an appointment",
+        "it": "cambiare; cambiar una cita = spostare un appuntamento",
+        "nl": "veranderen; cambiar una cita = een afspraak verzetten"
+      }
+    },
+    "carta": {
+      "lemma": "carta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "letter (mail) (f)",
+        "it": "lettera (f); attenzione: carta = lettera, la carta (materiale) = papel",
+        "nl": "brief (f); let op: carta = brief, een kaart = tarjeta"
+      }
+    },
+    "certificado": {
+      "lemma": "certificado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "certificate (m); el certificado de nacimiento = the birth certificate",
+        "it": "certificato (m); el certificado de nacimiento = il certificato di nascita",
+        "nl": "certificaat, akte (m); el certificado de nacimiento = de geboorteakte"
+      }
+    },
+    "cita": {
+      "lemma": "cita",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "appointment (f); pedir una cita = make an appointment; tengo cita = I have an appointment",
+        "it": "appuntamento (f); pedir una cita = prendere un appuntamento",
+        "nl": "afspraak (f); pedir una cita = een afspraak maken"
+      }
+    },
+    "colombia": {
+      "lemma": "Colombia",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Colombia",
+        "it": "Colombia",
+        "nl": "Colombia"
+      }
+    },
+    "comprobante": {
+      "lemma": "comprobante",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "receipt, proof (m); el comprobante de la transferencia = the transfer receipt",
+        "it": "ricevuta, attestato (m)",
+        "nl": "bewijs, bonnetje (m)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "conducir": {
+      "lemma": "conducir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "drive (conduzco); in Latin America the everyday verb is manejar, but a driver's license is una licencia de conducir",
+        "it": "guidare (conduzco); in America Latina si dice di solito manejar",
+        "nl": "rijden, besturen (conduzco); in Latijns-Amerika zeg je meestal manejar"
+      }
+    },
+    "copia": {
+      "lemma": "copia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "copy (f); una copia de = a copy of",
+        "it": "copia (f)",
+        "nl": "kopie (f)"
+      }
+    },
+    "correo": {
+      "lemma": "correo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "post office; mail (m); el correo = the post office",
+        "it": "posta, ufficio postale (m); el correo = l'ufficio postale",
+        "nl": "postkantoor; post (m); el correo = het postkantoor"
+      }
+    },
+    "cuenta": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "account (f); also the bill in a restaurant",
+        "it": "conto (f), in banca e al ristorante",
+        "nl": "rekening (f), bij de bank en in het restaurant"
+      }
+    },
+    "cuesta": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "costs (costar: o > ue)",
+        "it": "costa (costar: o > ue)",
+        "nl": "kost (costar: o > ue)"
+      }
+    },
+    "cuánto": {
+      "lemma": "cuánto",
+      "pos": "PRON",
+      "gloss": {
+        "en": "how much; ¿cuánto tarda? = how long does it take?",
+        "it": "quanto; ¿cuánto tarda? = quanto ci mette?",
+        "nl": "hoeveel; ¿cuánto tarda? = hoe lang duurt het?"
+      }
+    },
+    "datos": {
+      "lemma": "dato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "details, data (m, plural of dato); sus datos = your details",
+        "it": "dati (m, plurale di dato); sus datos = i Suoi dati",
+        "nl": "gegevens (m, meervoud van dato); sus datos = uw gegevens"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; la oficina de migración = the immigration office",
+        "it": "di, da; la oficina de migración = l'ufficio immigrazione",
+        "nl": "van, uit; la oficina de migración = het immigratiekantoor"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el)",
+        "it": "del, dal (de + el)",
+        "nl": "van de, uit de (de + el)"
+      }
+    },
+    "depositar": {
+      "lemma": "depositar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "deposit, pay in (money)",
+        "it": "versare, depositare (soldi)",
+        "nl": "storten (geld)"
+      }
+    },
+    "diez": {
+      "lemma": "diez",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "dinero": {
+      "lemma": "dinero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "money (m)",
+        "it": "soldi, denaro (m)",
+        "nl": "geld (m)"
+      }
+    },
+    "dio": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gave (dar, past)",
+        "it": "ha dato (dar, passato)",
+        "nl": "gaf (dar, verleden tijd)"
+      }
+    },
+    "disculpe": {
+      "lemma": "disculpar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excuse me (usted)",
+        "it": "mi scusi",
+        "nl": "pardon, neemt u me niet kwalijk"
+      }
+    },
+    "documento": {
+      "lemma": "documento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "document (m)",
+        "it": "documento (m)",
+        "nl": "document (m)"
+      }
+    },
+    "documentos": {
+      "lemma": "documento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "documents (m, plural of documento)",
+        "it": "documenti (m, plurale di documento)",
+        "nl": "documenten (m, meervoud van documento)"
+      }
+    },
+    "domicilio": {
+      "lemma": "domicilio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "home address, residence (m); a formal word for dirección",
+        "it": "domicilio, indirizzo (m)",
+        "nl": "woonadres, woonplaats (m); formeel woord voor dirección"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (m, plural of día)",
+        "it": "giorni (m, plurale di día)",
+        "nl": "dagen (m, meervoud van día)"
+      }
+    },
+    "dónde": {
+      "lemma": "dónde",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where?",
+        "it": "dove?",
+        "nl": "waar?"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine singular); el martes = on Tuesday",
+        "it": "il, lo (maschile singolare); el martes = martedì",
+        "nl": "de, het (mannelijk enkelvoud); el martes = op dinsdag"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on, at; en tres días = in three days",
+        "it": "in, a; en tres días = tra tre giorni",
+        "nl": "in, op, bij; en tres días = over drie dagen"
+      }
+    },
+    "entregar": {
+      "lemma": "entregar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "hand in, hand over, deliver",
+        "it": "consegnare",
+        "nl": "inleveren, afgeven"
+      }
+    },
+    "entregue": {
+      "lemma": "entregar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "hand in (usted command of entregar)",
+        "it": "consegni (imperativo di entregar con usted)",
+        "nl": "levert u in (gebiedende wijs van entregar met usted)"
+      }
+    },
+    "enviar": {
+      "lemma": "enviar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "send (envío, envías, envía); enviar un paquete a Colombia = send a package to Colombia",
+        "it": "spedire, inviare (envío, envías, envía)",
+        "nl": "versturen, sturen (envío, envías, envía)"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "escriba": {
+      "lemma": "escribir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "write (usted command of escribir)",
+        "it": "scriva (imperativo di escribir con usted)",
+        "nl": "schrijft u (gebiedende wijs van escribir met usted)"
+      }
+    },
+    "ese": {
+      "lemma": "ese",
+      "pos": "DET",
+      "gloss": {
+        "en": "that",
+        "it": "quello",
+        "nl": "die, dat"
+      }
+    },
+    "esquina": {
+      "lemma": "esquina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "corner (f); de la esquina = on the corner",
+        "it": "angolo (f); de la esquina = all'angolo",
+        "nl": "hoek (f); de la esquina = op de hoek"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (feminine)",
+        "it": "questa",
+        "nl": "deze, dit (vrouwelijk)"
+      }
+    },
+    "estampilla": {
+      "lemma": "estampilla",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "postage stamp (f)",
+        "it": "francobollo (f)",
+        "nl": "postzegel (f)"
+      }
+    },
+    "estampillas": {
+      "lemma": "estampilla",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "postage stamps (f, plural of estampilla)",
+        "it": "francobolli (f, plurale di estampilla)",
+        "nl": "postzegels (f, meervoud van estampilla)"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (masculine)",
+        "it": "questo",
+        "nl": "deze, dit (mannelijk)"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar, for location)",
+        "it": "è, si trova (estar)",
+        "nl": "is, ligt (estar, voor plaats)"
+      }
+    },
+    "europa": {
+      "lemma": "Europa",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Europe",
+        "it": "Europa",
+        "nl": "Europa"
+      }
+    },
+    "faltan": {
+      "lemma": "faltar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "are missing (faltar, like gustar: the missing things are the subject)",
+        "it": "mancano (faltar)",
+        "nl": "ontbreken (faltar, zoals gustar: wat ontbreekt is het onderwerp)"
+      }
+    },
+    "favor": {
+      "lemma": "favor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "favor (m); por favor = please",
+        "it": "favore (m); por favor = per favore",
+        "nl": "gunst (m); por favor = alstublieft"
+      }
+    },
+    "fecha": {
+      "lemma": "fecha",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "date (f); fecha de nacimiento = date of birth",
+        "it": "data (f)",
+        "nl": "datum (f)"
+      }
+    },
+    "fila": {
+      "lemma": "fila",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "line, queue (f); hacer fila = stand in line",
+        "it": "fila, coda (f); hacer fila = fare la fila",
+        "nl": "rij (f); hacer fila = in de rij staan"
+      }
+    },
+    "fin": {
+      "lemma": "fin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); por fin = at last",
+        "it": "fine (m); por fin = finalmente",
+        "nl": "einde (m); por fin = eindelijk"
+      }
+    },
+    "firma": {
+      "lemma": "firma",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "signature (f); watch out: not a firm (a company is una empresa)",
+        "it": "firma (f)",
+        "nl": "handtekening (f); let op: geen firma (dat is una empresa)"
+      }
+    },
+    "firmar": {
+      "lemma": "firmar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sign",
+        "it": "firmare",
+        "nl": "ondertekenen, tekenen"
+      }
+    },
+    "firme": {
+      "lemma": "firmar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sign (usted command of firmar)",
+        "it": "firmi (imperativo di firmar con usted)",
+        "nl": "tekent u (gebiedende wijs van firmar met usted)"
+      }
+    },
+    "formulario": {
+      "lemma": "formulario",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "form (m)",
+        "it": "modulo (m)",
+        "nl": "formulier (m)"
+      }
+    },
+    "gustaría": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would please (gustar, conditional); me gustaría = I'd like",
+        "it": "piacerebbe (gustar, condizionale); me gustaría = mi piacerebbe, vorrei",
+        "nl": "zou bevallen (gustar, voorwaardelijke wijs); me gustaría = ik zou graag"
+      }
+    },
+    "hace#ago": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "hace + time = ... ago: hace dos meses = two months ago (hacer)",
+        "it": "hace + tempo = ... fa: hace dos meses = due mesi fa (hacer)",
+        "nl": "hace + tijd = ... geleden: hace dos meses = twee maanden geleden (hacer)"
+      }
+    },
+    "hacer": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "do, make; hacer fila = stand in line; hacer una transferencia = make a transfer",
+        "it": "fare; hacer fila = fare la fila",
+        "nl": "doen, maken; hacer fila = in de rij staan"
+      }
+    },
+    "hay": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there are (haber); hay que + infinitive = you have to",
+        "it": "c'è, ci sono (haber); hay que + infinito = bisogna",
+        "nl": "er is, er zijn (haber); hay que + infinitief = je moet"
+      }
+    },
+    "identificación": {
+      "lemma": "identificación",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ID, identification (f)",
+        "it": "documento d'identità (f)",
+        "nl": "identiteitsbewijs (f)"
+      }
+    },
+    "inglés": {
+      "lemma": "inglés",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "English (language); en inglés = in English",
+        "it": "inglese (lingua); en inglés = in inglese",
+        "nl": "Engels (taal); en inglés = in het Engels"
+      }
+    },
+    "jueves": {
+      "lemma": "jueves",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Thursday (m); para el jueves = to Thursday, for Thursday",
+        "it": "giovedì (m)",
+        "nl": "donderdag (m)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine singular)",
+        "it": "la (femminile singolare)",
+        "nl": "de, het (vrouwelijk enkelvoud)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural); a las diez = at ten",
+        "it": "le; a las diez = alle dieci",
+        "nl": "de (vrouwelijk meervoud); a las diez = om tien uur"
+      }
+    },
+    "libre": {
+      "lemma": "libre",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "free, available; una cita libre = an available appointment",
+        "it": "libero",
+        "nl": "vrij"
+      }
+    },
+    "licencia": {
+      "lemma": "licencia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "license (f); licencia de conducir = driver's license",
+        "it": "licenza (f); attenzione: licencia de conducir = patente",
+        "nl": "vergunning (f); licencia de conducir = rijbewijs"
+      }
+    },
+    "llegar": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrive",
+        "it": "arrivare",
+        "nl": "aankomen"
+      }
+    },
+    "llegue": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrive (usted command of llegar; the u keeps the g hard)",
+        "it": "arrivi (imperativo di llegar con usted)",
+        "nl": "komt u (gebiedende wijs van llegar met usted)"
+      }
+    },
+    "llenar": {
+      "lemma": "llenar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fill; llenar un formulario = fill out a form",
+        "it": "riempire; llenar un formulario = compilare un modulo",
+        "nl": "vullen; llenar un formulario = een formulier invullen"
+      }
+    },
+    "llene": {
+      "lemma": "llenar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fill out (usted command of llenar)",
+        "it": "compili (imperativo di llenar con usted)",
+        "nl": "vult u in (gebiedende wijs van llenar met usted)"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it; lo siento = I'm sorry",
+        "it": "lo; lo siento = mi dispiace",
+        "nl": "het; lo siento = het spijt me"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural)",
+        "it": "i, gli",
+        "nl": "de (mannelijk meervoud)"
+      }
+    },
+    "manejar": {
+      "lemma": "manejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "drive (the everyday Latin American verb)",
+        "it": "guidare",
+        "nl": "rijden, autorijden"
+      }
+    },
+    "martes": {
+      "lemma": "martes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Tuesday (m); el martes = on Tuesday",
+        "it": "martedì (m); el martes = martedì",
+        "nl": "dinsdag (m); el martes = op dinsdag"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me; ¿me muestra...? = would you show me...?",
+        "it": "mi; ¿me muestra...? = mi mostra...?",
+        "nl": "mij, me; ¿me muestra...? = laat u me ... zien?"
+      }
+    },
+    "mes": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "month (m); el próximo mes = next month",
+        "it": "mese (m); el próximo mes = il mese prossimo",
+        "nl": "maand (m); el próximo mes = volgende maand; let op: mes = maand, niet een mes (cuchillo)"
+      }
+    },
+    "meses": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "months (m, plural of mes)",
+        "it": "mesi (m, plurale di mes)",
+        "nl": "maanden (m, meervoud van mes)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia",
+        "nl": "mijn"
+      }
+    },
+    "migración": {
+      "lemma": "migración",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "immigration (f); la oficina de migración = the immigration office",
+        "it": "immigrazione (f); la oficina de migración = l'ufficio immigrazione",
+        "nl": "immigratie (f); la oficina de migración = het immigratiekantoor"
+      }
+    },
+    "mil": {
+      "lemma": "mil",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thousand; dos mil = two thousand",
+        "it": "mille; dos mil = duemila",
+        "nl": "duizend; dos mil = tweeduizend"
+      }
+    },
+    "muestra": {
+      "lemma": "mostrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "shows (mostrar: o > ue); ¿me muestra...? = could you show me...? (usted)",
+        "it": "mostra (mostrar: o > ue); ¿me muestra...? = mi fa vedere...?",
+        "nl": "laat zien (mostrar: o > ue); ¿me muestra...? = mag ik ... zien?"
+      }
+    },
+    "nacimiento": {
+      "lemma": "nacimiento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "birth (m); fecha de nacimiento = date of birth",
+        "it": "nascita (m); fecha de nacimiento = data di nascita",
+        "nl": "geboorte (m); fecha de nacimiento = geboortedatum"
+      }
+    },
+    "necesita": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "needs (necesitar)",
+        "it": "ha bisogno di (necesitar)",
+        "nl": "heeft nodig (necesitar)"
+      }
+    },
+    "necesito": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I need (necesitar)",
+        "it": "ho bisogno di, mi serve (necesitar)",
+        "nl": "ik heb nodig (necesitar)"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not; ya no = no longer",
+        "it": "non; ya no = non più",
+        "nl": "niet; ya no = niet meer"
+      }
+    },
+    "o": {
+      "lemma": "o",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or; or else",
+        "it": "o, oppure",
+        "nl": "of, anders"
+      }
+    },
+    "ocho": {
+      "lemma": "ocho",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "oficina": {
+      "lemma": "oficina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office (f)",
+        "it": "ufficio (f); attenzione: non officina (= taller)",
+        "nl": "kantoor (f)"
+      }
+    },
+    "otra": {
+      "lemma": "otro",
+      "pos": "DET",
+      "gloss": {
+        "en": "another, the other (feminine)",
+        "it": "altra",
+        "nl": "andere (vrouwelijk)"
+      }
+    },
+    "otro": {
+      "lemma": "otro",
+      "pos": "DET",
+      "gloss": {
+        "en": "another, the other (masculine); never un otro",
+        "it": "altro; mai un otro",
+        "nl": "ander, een ander (mannelijk); nooit un otro"
+      }
+    },
+    "paquete": {
+      "lemma": "paquete",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "package, parcel (m)",
+        "it": "pacco (m)",
+        "nl": "pakket, pakje (m)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; to (for a date)",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "pasaporte": {
+      "lemma": "pasaporte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "passport (m)",
+        "it": "passaporto (m)",
+        "nl": "paspoort (m)"
+      }
+    },
+    "pedir": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ask for, request (pido, pides, pide); pedir una cita = make an appointment",
+        "it": "chiedere (pido, pides, pide); pedir una cita = prendere un appuntamento",
+        "nl": "vragen om (pido, pides, pide); pedir una cita = een afspraak maken"
+      }
+    },
+    "perder": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lose, miss (pierdo, pierdes, pierde)",
+        "it": "perdere (pierdo, pierdes, pierde)",
+        "nl": "verliezen, missen (pierdo, pierdes, pierde)"
+      }
+    },
+    "pesos": {
+      "lemma": "peso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pesos (m, plural of peso)",
+        "it": "pesos (m, plurale di peso)",
+        "nl": "peso's (m, meervoud van peso)"
+      }
+    },
+    "podría": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could (poder, conditional); ¿me podría ayudar? = could you help me?",
+        "it": "potrebbe (poder, condizionale)",
+        "nl": "zou kunnen (poder, voorwaardelijke wijs); ¿me podría ayudar? = kunt u me helpen?"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "by, through; por teléfono = by phone; por favor = please; por fin = at last",
+        "it": "per; por teléfono = per telefono; por fin = finalmente",
+        "nl": "via, door; por teléfono = telefonisch; por fin = eindelijk"
+      }
+    },
+    "primera": {
+      "lemma": "primero",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (feminine)",
+        "it": "prima",
+        "nl": "eerste (vrouwelijk)"
+      }
+    },
+    "primero": {
+      "lemma": "primero",
+      "pos": "ADV",
+      "gloss": {
+        "en": "first, first of all",
+        "it": "prima, per prima cosa",
+        "nl": "eerst"
+      }
+    },
+    "próximo": {
+      "lemma": "próximo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "next; el próximo mes = next month",
+        "it": "prossimo; el próximo mes = il mese prossimo",
+        "nl": "volgend; el próximo mes = volgende maand"
+      }
+    },
+    "puede": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can, may (poder: o > ue)",
+        "it": "può (poder: o > ue)",
+        "nl": "kan, mag (poder: o > ue)"
+      }
+    },
+    "puedo": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I can, may I (poder: o > ue)",
+        "it": "posso (poder: o > ue)",
+        "nl": "ik kan, mag ik (poder: o > ue)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that; tener que + infinitive = have to",
+        "it": "che; tener que = dovere",
+        "nl": "dat; tener que + infinitief = moeten"
+      }
+    },
+    "quiero": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want (querer)",
+        "it": "voglio (querer)",
+        "nl": "ik wil (querer)"
+      }
+    },
+    "quisiera": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'd like (querer, polite form)",
+        "it": "vorrei (querer, forma di cortesia)",
+        "nl": "ik wil graag (querer, beleefde vorm)"
+      }
+    },
+    "renovar": {
+      "lemma": "renovar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "renew (renuevo, renuevas, renueva)",
+        "it": "rinnovare (renuevo, renuevas, renueva)",
+        "nl": "verlengen, vernieuwen (renuevo, renuevas, renueva)"
+      }
+    },
+    "renovarla": {
+      "lemma": "renovar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "renovarla = renovar + la: renew it",
+        "it": "renovarla = renovar + la: rinnovarla",
+        "nl": "renovarla = renovar + la: het, hem verlengen"
+      }
+    },
+    "residencia": {
+      "lemma": "residencia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "residency, residence permit (f)",
+        "it": "residenza, permesso di soggiorno (f)",
+        "nl": "verblijfsvergunning (f)"
+      }
+    },
+    "retirar": {
+      "lemma": "retirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "withdraw, take out (money); also collect (a package)",
+        "it": "prelevare (soldi); anche ritirare (un pacco)",
+        "nl": "opnemen (geld); ook ophalen (een pakket)"
+      }
+    },
+    "siento": {
+      "lemma": "sentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I feel (sentir); lo siento = I'm sorry",
+        "it": "sento (sentir); lo siento = mi dispiace",
+        "nl": "ik voel (sentir); lo siento = het spijt me"
+      }
+    },
+    "su": {
+      "lemma": "su",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (usted); also his, her, their",
+        "it": "Suo, Sua (di usted); anche suo, sua, loro",
+        "nl": "uw (usted); ook zijn, haar, hun"
+      }
+    },
+    "sus": {
+      "lemma": "su",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (usted, plural); also his, her, their",
+        "it": "i Suoi, le Sue (di usted); anche suoi, loro",
+        "nl": "uw (usted, meervoud); ook zijn, haar, hun"
+      }
+    },
+    "también": {
+      "lemma": "también",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, too",
+        "it": "anche",
+        "nl": "ook"
+      }
+    },
+    "tarda": {
+      "lemma": "tardar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "takes (time) (tardar); ¿cuánto tarda? = how long does it take?",
+        "it": "ci mette (tardar); ¿cuánto tarda? = quanto ci mette?",
+        "nl": "duurt (tardar); ¿cuánto tarda? = hoe lang duurt het?"
+      }
+    },
+    "teléfono": {
+      "lemma": "teléfono",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "phone (m); por teléfono = by phone",
+        "it": "telefono (m); por teléfono = per telefono",
+        "nl": "telefoon (m); por teléfono = telefonisch"
+      }
+    },
+    "temporal": {
+      "lemma": "temporal",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "temporary (same for m and f)",
+        "it": "temporaneo; attenzione: non è il temporale (= tormenta)",
+        "nl": "tijdelijk"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener); tengo cita = I have an appointment",
+        "it": "ho (tener); tengo cita = ho un appuntamento",
+        "nl": "ik heb (tener); tengo cita = ik heb een afspraak"
+      }
+    },
+    "tiempo": {
+      "lemma": "tiempo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time (m); a tiempo = on time",
+        "it": "tempo (m); a tiempo = puntuale, in tempo",
+        "nl": "tijd (m); a tiempo = op tijd"
+      }
+    },
+    "tiene": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has; you have (usted) (tener); tiene que = you have to; aquí tiene = here you are",
+        "it": "ha (tener); tiene que = deve; aquí tiene = ecco a Lei",
+        "nl": "heeft (tener); tiene que = u moet; aquí tiene = alstublieft"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all (masculine plural); todos los documentos = all the documents",
+        "it": "tutti; todos los documentos = tutti i documenti",
+        "nl": "alle; todos los documentos = alle documenten"
+      }
+    },
+    "trabajar": {
+      "lemma": "trabajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "work",
+        "it": "lavorare",
+        "nl": "werken"
+      }
+    },
+    "trajo": {
+      "lemma": "traer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "brought (traer, past: traje, trajiste, trajo)",
+        "it": "ha portato (traer, passato: traje, trajiste, trajo)",
+        "nl": "bracht mee (traer, verleden tijd: traje, trajiste, trajo)"
+      }
+    },
+    "transferencia": {
+      "lemma": "transferencia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bank transfer (f); hacer una transferencia = make a transfer",
+        "it": "bonifico (f); hacer una transferencia = fare un bonifico",
+        "nl": "overschrijving (f); hacer una transferencia = geld overmaken"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "trámite": {
+      "lemma": "trámite",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "procedure, paperwork (m); hacer un trámite = go through a procedure",
+        "it": "pratica burocratica (m); hacer un trámite = sbrigare una pratica",
+        "nl": "procedure, formaliteit, aanvraag (m); hacer un trámite = iets regelen bij een instantie"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine)",
+        "it": "un, uno",
+        "nl": "een (mannelijk)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "va": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "goes (ir); va a + infinitive = is going to, will",
+        "it": "va (ir); va a + infinito = sta per, farà",
+        "nl": "gaat (ir); va a + infinitief = gaat, zal"
+      }
+    },
+    "vence": {
+      "lemma": "vencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "expires (vencer)",
+        "it": "scade (vencer)",
+        "nl": "verloopt (vencer)"
+      }
+    },
+    "vencer": {
+      "lemma": "vencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "expire (of a document); also defeat",
+        "it": "scadere (di un documento); anche vincere, sconfiggere",
+        "nl": "verlopen (van een document); ook verslaan"
+      }
+    },
+    "venció": {
+      "lemma": "vencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "expired (vencer, past)",
+        "it": "è scaduto (vencer, passato)",
+        "nl": "is verlopen (vencer, verleden tijd)"
+      }
+    },
+    "vengo": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I come (venir); vengo a + infinitive = I'm here to",
+        "it": "vengo (venir); vengo a + infinito = sono qui per",
+        "nl": "ik kom (venir); vengo a + infinitief = ik kom om te"
+      }
+    },
+    "ventanilla": {
+      "lemma": "ventanilla",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "service window, counter (f); also a car or train window",
+        "it": "sportello (f); anche il finestrino",
+        "nl": "loket (f); ook een autoraampje"
+      }
+    },
+    "visa": {
+      "lemma": "visa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "visa (f); una visa de turista = a tourist visa",
+        "it": "visto (f: la visa)",
+        "nl": "visum (f: la visa)"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (ir); voy a + infinitive = I'm going to",
+        "it": "vado (ir); voy a + infinito = sto per, vado a",
+        "nl": "ik ga (ir); voy a + infinitief = ik ga"
+      }
+    },
+    "válida": {
+      "lemma": "válido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "valid (feminine)",
+        "it": "valida",
+        "nl": "geldig (vrouwelijk)"
+      }
+    },
+    "válido": {
+      "lemma": "válido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "valid",
+        "it": "valido",
+        "nl": "geldig"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already, now; ya no = no longer; ya tengo = now I've got",
+        "it": "già, ormai; ya no = non più",
+        "nl": "al, nu; ya no = niet meer"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a2-tramites-1",
+      "title": "En el correo",
+      "grammarFocus": {
+        "en": [
+          "enviar + noun + a + place: enviar un paquete a Colombia",
+          "hay que + infinitive = you have to: Hay que hacer fila"
+        ],
+        "it": [
+          "enviar + nome + a + luogo: enviar un paquete a Colombia = spedire un pacco in Colombia",
+          "hay que + infinito = bisogna: Hay que hacer fila"
+        ],
+        "nl": [
+          "enviar + zelfstandig naamwoord + a + plaats: enviar un paquete a Colombia",
+          "hay que + infinitief = je moet: Hay que hacer fila"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "correo",
+          "translation": {
+            "en": "post office",
+            "it": "ufficio postale",
+            "nl": "postkantoor"
+          },
+          "distractors": {
+            "en": [
+              "bank",
+              "pharmacy"
+            ],
+            "it": [
+              "banca",
+              "farmacia"
+            ],
+            "nl": [
+              "bank",
+              "apotheek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Disculpe, ¿dónde está el correo?",
+          "translation": {
+            "en": "Excuse me, where's the post office?",
+            "it": "Mi scusi, dov'è l'ufficio postale?",
+            "nl": "Pardon, waar is het postkantoor?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, where's the bank?",
+              "Excuse me, is the post office open?"
+            ],
+            "it": [
+              "Mi scusi, dov'è la banca?",
+              "Mi scusi, l'ufficio postale è aperto?"
+            ],
+            "nl": [
+              "Pardon, waar is de bank?",
+              "Pardon, is het postkantoor open?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "paquete",
+          "translation": {
+            "en": "package",
+            "it": "pacco",
+            "nl": "pakket"
+          },
+          "distractors": {
+            "en": [
+              "letter",
+              "suitcase"
+            ],
+            "it": [
+              "valigia",
+              "busta"
+            ],
+            "nl": [
+              "koffer",
+              "envelop"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "enviar",
+          "translation": {
+            "en": "send",
+            "it": "spedire",
+            "nl": "versturen"
+          },
+          "distractors": {
+            "en": [
+              "receive",
+              "wrap"
+            ],
+            "it": [
+              "ricevere",
+              "incartare"
+            ],
+            "nl": [
+              "ontvangen",
+              "inpakken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "enviar un paquete",
+          "translation": {
+            "en": "send a package",
+            "it": "spedire un pacco",
+            "nl": "een pakket versturen"
+          },
+          "distractors": {
+            "en": [
+              "open a package",
+              "send a letter"
+            ],
+            "it": [
+              "aprire un pacco",
+              "ricevere un pacco"
+            ],
+            "nl": [
+              "een pakket openen",
+              "een brief versturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quisiera enviar este paquete a Colombia.",
+          "translation": {
+            "en": "I'd like to send this package to Colombia.",
+            "it": "Vorrei spedire questo pacco in Colombia.",
+            "nl": "Ik wil graag dit pakket naar Colombia sturen."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to send this letter to Colombia.",
+              "I'd like to send this package to Chile."
+            ],
+            "it": [
+              "Vorrei ricevere questo pacco dalla Colombia.",
+              "Vorrei spedire questo pacco in Cile."
+            ],
+            "nl": [
+              "Ik wil graag deze brief naar Colombia sturen.",
+              "Ik wil graag dit pakket naar Chili sturen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "carta",
+          "translation": {
+            "en": "letter",
+            "it": "lettera",
+            "nl": "brief"
+          },
+          "distractors": {
+            "en": [
+              "envelope",
+              "postcard"
+            ],
+            "it": [
+              "busta",
+              "cartolina"
+            ],
+            "nl": [
+              "envelop",
+              "ansichtkaart"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuánto cuesta enviar una carta a Europa?",
+          "translation": {
+            "en": "How much does it cost to send a letter to Europe?",
+            "it": "Quanto costa spedire una lettera in Europa?",
+            "nl": "Hoeveel kost het om een brief naar Europa te sturen?"
+          },
+          "distractors": {
+            "en": [
+              "How much does it cost to send a package to Europe?",
+              "How much does it cost to send a letter to Mexico?"
+            ],
+            "it": [
+              "Quanto costa spedire un pacco in Europa?",
+              "Quanto costa spedire una lettera in Messico?"
+            ],
+            "nl": [
+              "Hoeveel kost het om een pakket naar Europa te sturen?",
+              "Hoeveel kost het om een brief naar Mexico te sturen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "estampilla",
+          "translation": {
+            "en": "stamp",
+            "it": "francobollo",
+            "nl": "postzegel"
+          },
+          "distractors": {
+            "en": [
+              "envelope",
+              "receipt"
+            ],
+            "it": [
+              "ricevuta",
+              "busta"
+            ],
+            "nl": [
+              "bonnetje",
+              "envelop"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Necesito dos estampillas para Europa, por favor.",
+          "translation": {
+            "en": "I need two stamps for Europe, please.",
+            "it": "Mi servono due francobolli per l'Europa, per favore.",
+            "nl": "Ik heb twee postzegels voor Europa nodig."
+          },
+          "distractors": {
+            "en": [
+              "I need two envelopes for Europe, please.",
+              "I need ten stamps for Europe, please."
+            ],
+            "it": [
+              "Mi servono dieci francobolli per l'Europa, per favore.",
+              "Mi servono due buste per l'Europa, per favore."
+            ],
+            "nl": [
+              "Ik heb twee enveloppen voor Europa nodig.",
+              "Ik heb tien postzegels voor Europa nodig."
+            ]
+          },
+          "variants": [
+            "Necesito 2 estampillas para Europa, por favor."
+          ]
+        },
+        {
+          "id": "es-a2-tramites-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "fila",
+          "translation": {
+            "en": "line",
+            "it": "fila",
+            "nl": "rij"
+          },
+          "distractors": {
+            "en": [
+              "door",
+              "corner"
+            ],
+            "it": [
+              "porta",
+              "angolo"
+            ],
+            "nl": [
+              "deur",
+              "hoek"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hacer fila",
+          "translation": {
+            "en": "stand in line",
+            "it": "fare la fila",
+            "nl": "in de rij staan"
+          },
+          "distractors": {
+            "en": [
+              "skip the line",
+              "pay at the register"
+            ],
+            "it": [
+              "saltare la fila",
+              "pagare alla cassa"
+            ],
+            "nl": [
+              "voordringen",
+              "bij de kassa betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "ventanilla",
+          "translation": {
+            "en": "service window",
+            "it": "sportello",
+            "nl": "loket"
+          },
+          "distractors": {
+            "en": [
+              "waiting room",
+              "exit"
+            ],
+            "it": [
+              "sala d'attesa",
+              "uscita"
+            ],
+            "nl": [
+              "wachtkamer",
+              "uitgang"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hay que hacer fila en la otra ventanilla.",
+          "translation": {
+            "en": "You have to stand in line at the other window.",
+            "it": "Bisogna fare la fila all'altro sportello.",
+            "nl": "Je moet in de rij staan bij het andere loket."
+          },
+          "distractors": {
+            "en": [
+              "You have to pay at the other window.",
+              "You have to stand in line at the bank."
+            ],
+            "it": [
+              "Bisogna pagare all'altro sportello.",
+              "Bisogna fare la fila in banca."
+            ],
+            "nl": [
+              "Je moet betalen bij het andere loket.",
+              "Je moet in de rij staan bij de bank."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Su paquete va a llegar en tres días.",
+          "translation": {
+            "en": "Your package will arrive in three days.",
+            "it": "Il Suo pacco arriverà tra tre giorni.",
+            "nl": "Uw pakket komt over drie dagen aan."
+          },
+          "distractors": {
+            "en": [
+              "Your package will arrive in three weeks.",
+              "Your letter will arrive in three days."
+            ],
+            "it": [
+              "Il Suo pacco arriverà tra tre settimane.",
+              "La Sua lettera arriverà tra tre giorni."
+            ],
+            "nl": [
+              "Uw pakket komt over drie weken aan.",
+              "Uw brief komt over drie dagen aan."
+            ]
+          },
+          "variants": [
+            "Su paquete va a llegar en 3 días."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-a2-tramites-2",
+      "title": "En el banco",
+      "grammarFocus": {
+        "en": [
+          "polite requests: Me gustaría abrir una cuenta, ¿Me podría ayudar con...?",
+          "depositar dinero en la cuenta / retirar dinero del cajero"
+        ],
+        "it": [
+          "richieste gentili: Me gustaría = vorrei, ¿Me podría ayudar? = potrebbe aiutarmi?",
+          "depositar dinero en la cuenta = versare sul conto / retirar dinero del cajero = prelevare al bancomat"
+        ],
+        "nl": [
+          "beleefde verzoeken: Me gustaría abrir una cuenta, ¿Me podría ayudar con...?",
+          "depositar dinero en la cuenta = geld storten / retirar dinero del cajero = geld opnemen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-2-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "abrir una cuenta",
+          "translation": {
+            "en": "open an account",
+            "it": "aprire un conto",
+            "nl": "een rekening openen"
+          },
+          "distractors": {
+            "en": [
+              "close an account",
+              "open a letter"
+            ],
+            "it": [
+              "chiudere un conto",
+              "aprire una lettera"
+            ],
+            "nl": [
+              "een rekening opzeggen",
+              "een brief openen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me gustaría abrir una cuenta, por favor.",
+          "translation": {
+            "en": "I'd like to open an account, please.",
+            "it": "Vorrei aprire un conto, per favore.",
+            "nl": "Ik wil graag een rekening openen."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to close my account, please.",
+              "I'd like to open a store, please."
+            ],
+            "it": [
+              "Vorrei chiudere il mio conto, per favore.",
+              "Vorrei cambiare la carta, per favore."
+            ],
+            "nl": [
+              "Ik wil graag mijn rekening opzeggen.",
+              "Ik wil graag een nieuwe pinpas."
+            ]
+          },
+          "commas": [
+            3
+          ]
+        },
+        {
+          "id": "es-a2-tramites-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "depositar",
+          "translation": {
+            "en": "deposit",
+            "it": "versare",
+            "nl": "storten"
+          },
+          "distractors": {
+            "en": [
+              "withdraw",
+              "spend"
+            ],
+            "it": [
+              "prelevare",
+              "spendere"
+            ],
+            "nl": [
+              "opnemen",
+              "uitgeven"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "depositar dinero",
+          "translation": {
+            "en": "deposit money",
+            "it": "versare dei soldi",
+            "nl": "geld storten"
+          },
+          "distractors": {
+            "en": [
+              "count money",
+              "withdraw money"
+            ],
+            "it": [
+              "contare i soldi",
+              "prelevare dei soldi"
+            ],
+            "nl": [
+              "geld tellen",
+              "geld opnemen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quiero depositar dos mil pesos en mi cuenta.",
+          "translation": {
+            "en": "I want to deposit two thousand pesos into my account.",
+            "it": "Voglio versare duemila pesos sul mio conto.",
+            "nl": "Ik wil tweeduizend peso op mijn rekening storten."
+          },
+          "distractors": {
+            "en": [
+              "I want to deposit two hundred pesos into my account.",
+              "I want to withdraw two thousand pesos from my account."
+            ],
+            "it": [
+              "Voglio prelevare duemila pesos dal mio conto.",
+              "Voglio versare duecento pesos sul mio conto."
+            ],
+            "nl": [
+              "Ik wil tweehonderd peso op mijn rekening storten.",
+              "Ik wil tweeduizend peso van mijn rekening opnemen."
+            ]
+          },
+          "variants": [
+            "Quiero depositar 2000 pesos en mi cuenta.",
+            "Quiero depositar 2.000 pesos en mi cuenta."
+          ]
+        },
+        {
+          "id": "es-a2-tramites-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "retirar",
+          "translation": {
+            "en": "withdraw",
+            "it": "prelevare",
+            "nl": "opnemen"
+          },
+          "distractors": {
+            "en": [
+              "deposit",
+              "borrow"
+            ],
+            "it": [
+              "versare",
+              "prestare"
+            ],
+            "nl": [
+              "storten",
+              "lenen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el cajero de la esquina",
+          "translation": {
+            "en": "the ATM on the corner",
+            "it": "il bancomat all'angolo",
+            "nl": "de geldautomaat op de hoek"
+          },
+          "distractors": {
+            "en": [
+              "the bank on the corner",
+              "the ATM across the street"
+            ],
+            "it": [
+              "la banca all'angolo",
+              "il bancomat di fronte"
+            ],
+            "nl": [
+              "de bank op de hoek",
+              "de geldautomaat aan de overkant"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voy a retirar dinero del cajero.",
+          "translation": {
+            "en": "I'm going to withdraw money from the ATM.",
+            "it": "Vado a prelevare al bancomat.",
+            "nl": "Ik ga geld opnemen bij de geldautomaat."
+          },
+          "distractors": {
+            "en": [
+              "I'm going to deposit money at the ATM.",
+              "I'm going to withdraw money at the bank."
+            ],
+            "it": [
+              "Vado a versare dei soldi al bancomat.",
+              "Vado a prelevare in banca."
+            ],
+            "nl": [
+              "Ik ga geld storten bij de geldautomaat.",
+              "Ik ga geld opnemen bij de bank."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El cajero no me dio el dinero.",
+          "translation": {
+            "en": "The ATM didn't give me the money.",
+            "it": "Il bancomat non mi ha dato i soldi.",
+            "nl": "De geldautomaat heeft me het geld niet gegeven."
+          },
+          "distractors": {
+            "en": [
+              "The ATM didn't give me a receipt.",
+              "The ATM gave me too much money."
+            ],
+            "it": [
+              "Il bancomat non mi ha ridato la carta.",
+              "Il bancomat mi ha dato troppi soldi."
+            ],
+            "nl": [
+              "De geldautomaat heeft me geen bonnetje gegeven.",
+              "De geldautomaat heeft me te veel geld gegeven."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "transferencia",
+          "translation": {
+            "en": "transfer",
+            "it": "bonifico",
+            "nl": "overschrijving"
+          },
+          "distractors": {
+            "en": [
+              "loan",
+              "deposit"
+            ],
+            "it": [
+              "prestito",
+              "versamento"
+            ],
+            "nl": [
+              "lening",
+              "storting"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hacer una transferencia",
+          "translation": {
+            "en": "make a transfer",
+            "it": "fare un bonifico",
+            "nl": "geld overmaken"
+          },
+          "distractors": {
+            "en": [
+              "cancel a transfer",
+              "make a withdrawal"
+            ],
+            "it": [
+              "annullare un bonifico",
+              "fare un prelievo"
+            ],
+            "nl": [
+              "een overschrijving annuleren",
+              "geld opnemen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me podría ayudar con una transferencia?",
+          "translation": {
+            "en": "Could you help me with a transfer?",
+            "it": "Potrebbe aiutarmi con un bonifico?",
+            "nl": "Kunt u me helpen met een overschrijving?"
+          },
+          "distractors": {
+            "en": [
+              "Could you help me with a deposit?",
+              "Could you explain this transfer to me?"
+            ],
+            "it": [
+              "Potrebbe aiutarmi con un versamento?",
+              "Potrebbe spiegarmi questo bonifico?"
+            ],
+            "nl": [
+              "Kunt u me helpen met een storting?",
+              "Kunt u me deze overschrijving uitleggen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "comprobante",
+          "translation": {
+            "en": "receipt",
+            "it": "ricevuta",
+            "nl": "bewijs"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "check"
+            ],
+            "it": [
+              "contratto",
+              "assegno"
+            ],
+            "nl": [
+              "contract",
+              "cheque"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aquí tiene el comprobante de su transferencia.",
+          "translation": {
+            "en": "Here's the receipt for your transfer.",
+            "it": "Ecco la ricevuta del Suo bonifico.",
+            "nl": "Hier is het bewijs van uw overschrijving."
+          },
+          "distractors": {
+            "en": [
+              "Here's the receipt for your deposit.",
+              "Here's the contract for your account."
+            ],
+            "it": [
+              "Ecco la ricevuta del Suo versamento.",
+              "Ecco il contratto del Suo conto."
+            ],
+            "nl": [
+              "Hier is het bewijs van uw storting.",
+              "Hier is het contract van uw rekening."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuánto tarda una transferencia a otro banco?",
+          "translation": {
+            "en": "How long does a transfer to another bank take?",
+            "it": "Quanto ci mette un bonifico verso un'altra banca?",
+            "nl": "Hoe lang duurt een overschrijving naar een andere bank?"
+          },
+          "distractors": {
+            "en": [
+              "How much does a transfer to another bank cost?",
+              "How long does a transfer to another country take?"
+            ],
+            "it": [
+              "Quanto costa un bonifico verso un'altra banca?",
+              "Quanto ci mette un bonifico verso un altro paese?"
+            ],
+            "nl": [
+              "Hoeveel kost een overschrijving naar een andere bank?",
+              "Hoe lang duurt een overschrijving naar een ander land?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-tramites-3",
+      "title": "El formulario",
+      "grammarFocus": {
+        "en": [
+          "usted commands on forms: llene, escriba, firme",
+          "faltar like gustar, with the missing thing as subject: Faltan su firma y una copia"
+        ],
+        "it": [
+          "imperativo con usted nei moduli: llene = compili, escriba = scriva, firme = firmi",
+          "faltar come mancare: Faltan su firma y una copia = Mancano la Sua firma e una copia"
+        ],
+        "nl": [
+          "gebiedende wijs met usted op formulieren: llene, escriba, firme",
+          "faltar zoals gustar, met wat ontbreekt als onderwerp: Faltan su firma y una copia"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "formulario",
+          "translation": {
+            "en": "form",
+            "it": "modulo",
+            "nl": "formulier"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "envelope"
+            ],
+            "it": [
+              "busta",
+              "ricevuta"
+            ],
+            "nl": [
+              "envelop",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "llenar",
+          "translation": {
+            "en": "fill out",
+            "it": "compilare",
+            "nl": "invullen"
+          },
+          "distractors": {
+            "en": [
+              "sign",
+              "read"
+            ],
+            "it": [
+              "firmare",
+              "leggere"
+            ],
+            "nl": [
+              "ondertekenen",
+              "lezen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "llene este formulario",
+          "translation": {
+            "en": "fill out this form",
+            "it": "compili questo modulo",
+            "nl": "vult u dit formulier in"
+          },
+          "distractors": {
+            "en": [
+              "sign this form",
+              "take this form"
+            ],
+            "it": [
+              "prenda questo modulo",
+              "firmi questo modulo"
+            ],
+            "nl": [
+              "ondertekent u dit formulier",
+              "neemt u dit formulier mee"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "datos",
+          "translation": {
+            "en": "details",
+            "it": "dati",
+            "nl": "gegevens"
+          },
+          "distractors": {
+            "en": [
+              "photos",
+              "keys"
+            ],
+            "it": [
+              "chiavi",
+              "foto"
+            ],
+            "nl": [
+              "foto's",
+              "sleutels"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "con sus datos",
+          "translation": {
+            "en": "with your details",
+            "it": "con i Suoi dati",
+            "nl": "met uw gegevens"
+          },
+          "distractors": {
+            "en": [
+              "with your photo",
+              "without your details"
+            ],
+            "it": [
+              "senza i Suoi dati",
+              "con la Sua foto"
+            ],
+            "nl": [
+              "met uw foto",
+              "zonder uw gegevens"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Primero llene este formulario con sus datos.",
+          "translation": {
+            "en": "First, fill out this form with your details.",
+            "it": "Prima compili questo modulo con i Suoi dati.",
+            "nl": "Vult u eerst dit formulier in met uw gegevens."
+          },
+          "distractors": {
+            "en": [
+              "First, sign this form with your name.",
+              "First, fill out this form at home."
+            ],
+            "it": [
+              "Prima firmi questo modulo con il Suo nome.",
+              "Prima compili questo modulo a casa."
+            ],
+            "nl": [
+              "Ondertekent u eerst dit formulier met uw naam.",
+              "Vult u eerst dit formulier thuis in."
+            ]
+          },
+          "commas": [
+            0
+          ]
+        },
+        {
+          "id": "es-a2-tramites-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "nacimiento",
+          "translation": {
+            "en": "birth",
+            "it": "nascita",
+            "nl": "geboorte"
+          },
+          "distractors": {
+            "en": [
+              "wedding",
+              "arrival"
+            ],
+            "it": [
+              "matrimonio",
+              "arrivo"
+            ],
+            "nl": [
+              "bruiloft",
+              "aankomst"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "fecha de nacimiento",
+          "translation": {
+            "en": "date of birth",
+            "it": "data di nascita",
+            "nl": "geboortedatum"
+          },
+          "distractors": {
+            "en": [
+              "place of birth",
+              "date of arrival"
+            ],
+            "it": [
+              "data di arrivo",
+              "luogo di nascita"
+            ],
+            "nl": [
+              "geboorteplaats",
+              "aankomstdatum"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "domicilio",
+          "translation": {
+            "en": "home address",
+            "it": "indirizzo di residenza",
+            "nl": "woonadres"
+          },
+          "distractors": {
+            "en": [
+              "phone number",
+              "surname"
+            ],
+            "it": [
+              "numero di telefono",
+              "cognome"
+            ],
+            "nl": [
+              "telefoonnummer",
+              "achternaam"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Escriba su fecha de nacimiento y su domicilio.",
+          "translation": {
+            "en": "Write your date of birth and your address.",
+            "it": "Scriva la Sua data di nascita e il Suo indirizzo.",
+            "nl": "Schrijft u uw geboortedatum en uw adres op."
+          },
+          "distractors": {
+            "en": [
+              "Write your place of birth and your address.",
+              "Write your date of birth and your phone number."
+            ],
+            "it": [
+              "Scriva il Suo luogo di nascita e il Suo indirizzo.",
+              "Scriva la Sua data di nascita e il Suo cognome."
+            ],
+            "nl": [
+              "Schrijft u uw geboorteplaats en uw adres op.",
+              "Schrijft u uw geboortedatum en uw telefoonnummer op."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "firma",
+          "translation": {
+            "en": "signature",
+            "it": "firma",
+            "nl": "handtekening"
+          },
+          "distractors": {
+            "en": [
+              "date",
+              "photo"
+            ],
+            "it": [
+              "foto",
+              "data"
+            ],
+            "nl": [
+              "datum",
+              "foto"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "firmar",
+          "translation": {
+            "en": "sign",
+            "it": "firmare",
+            "nl": "ondertekenen"
+          },
+          "distractors": {
+            "en": [
+              "stamp",
+              "read"
+            ],
+            "it": [
+              "leggere",
+              "timbrare"
+            ],
+            "nl": [
+              "stempelen",
+              "lezen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Firme aquí abajo, por favor.",
+          "translation": {
+            "en": "Please sign down here.",
+            "it": "Firmi qui sotto, per favore.",
+            "nl": "Tekent u hier onderaan, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Please sign on the back.",
+              "Please write the date down here."
+            ],
+            "it": [
+              "Firmi sul retro, per favore.",
+              "Scriva la data qui sotto, per favore."
+            ],
+            "nl": [
+              "Tekent u op de achterkant, alstublieft.",
+              "Schrijft u hier onderaan de datum, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "copia",
+          "translation": {
+            "en": "copy",
+            "it": "copia",
+            "nl": "kopie"
+          },
+          "distractors": {
+            "en": [
+              "photo",
+              "original"
+            ],
+            "it": [
+              "originale",
+              "foto"
+            ],
+            "nl": [
+              "foto",
+              "origineel"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Faltan su firma y una copia de su pasaporte.",
+          "translation": {
+            "en": "Your signature and a copy of your passport are missing.",
+            "it": "Mancano la Sua firma e una copia del passaporto.",
+            "nl": "Uw handtekening en een kopie van uw paspoort ontbreken."
+          },
+          "distractors": {
+            "en": [
+              "Your photo and a copy of your passport are missing.",
+              "Your signature and a copy of your visa are missing."
+            ],
+            "it": [
+              "Mancano la Sua foto e una copia del passaporto.",
+              "Mancano la Sua firma e l'originale del passaporto."
+            ],
+            "nl": [
+              "Uw foto en een kopie van uw paspoort ontbreken.",
+              "Uw handtekening en een kopie van uw rijbewijs ontbreken."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Puedo llenar el formulario en inglés?",
+          "translation": {
+            "en": "Can I fill out the form in English?",
+            "it": "Posso compilare il modulo in inglese?",
+            "nl": "Mag ik het formulier in het Engels invullen?"
+          },
+          "distractors": {
+            "en": [
+              "Can I sign the form in English?",
+              "Can I fill out the form at home?"
+            ],
+            "it": [
+              "Posso compilare il modulo a casa?",
+              "Posso firmare il modulo in inglese?"
+            ],
+            "nl": [
+              "Mag ik het formulier thuis invullen?",
+              "Mag ik het formulier in het Engels ondertekenen?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-tramites-4",
+      "title": "La oficina de migración",
+      "grammarFocus": {
+        "en": [
+          "venir a + infinitive for the reason you've come: Vengo a hacer el trámite",
+          "de + noun as a label: la oficina de migración, el certificado de nacimiento"
+        ],
+        "it": [
+          "venir a + infinito per dire perché si è venuti: Vengo a hacer el trámite = Sono qui per la pratica",
+          "de + nome come etichetta: la oficina de migración = l'ufficio immigrazione, el certificado de nacimiento"
+        ],
+        "nl": [
+          "venir a + infinitief om te zeggen waarvoor je komt: Vengo a hacer el trámite",
+          "de + zelfstandig naamwoord als kenmerk: la oficina de migración = het immigratiekantoor, el certificado de nacimiento"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "migración",
+          "translation": {
+            "en": "immigration",
+            "it": "immigrazione",
+            "nl": "immigratie"
+          },
+          "distractors": {
+            "en": [
+              "customs",
+              "police"
+            ],
+            "it": [
+              "dogana",
+              "polizia"
+            ],
+            "nl": [
+              "douane",
+              "politie"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la oficina de migración",
+          "translation": {
+            "en": "the immigration office",
+            "it": "l'ufficio immigrazione",
+            "nl": "het immigratiekantoor"
+          },
+          "distractors": {
+            "en": [
+              "the tax office",
+              "the tourist office"
+            ],
+            "it": [
+              "l'ufficio turistico",
+              "l'ufficio delle imposte"
+            ],
+            "nl": [
+              "het belastingkantoor",
+              "het toeristenbureau"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La oficina de migración abre a las ocho.",
+          "translation": {
+            "en": "The immigration office opens at eight.",
+            "it": "L'ufficio immigrazione apre alle otto.",
+            "nl": "Het immigratiekantoor gaat om acht uur open."
+          },
+          "distractors": {
+            "en": [
+              "The immigration office closes at eight.",
+              "The immigration office opens at nine."
+            ],
+            "it": [
+              "L'ufficio immigrazione chiude alle otto.",
+              "L'ufficio immigrazione apre alle nove."
+            ],
+            "nl": [
+              "Het immigratiekantoor gaat om acht uur dicht.",
+              "Het immigratiekantoor gaat om negen uur open."
+            ]
+          },
+          "variants": [
+            "La oficina de migración abre a las 8."
+          ]
+        },
+        {
+          "id": "es-a2-tramites-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "visa",
+          "translation": {
+            "en": "visa",
+            "it": "visto",
+            "nl": "visum"
+          },
+          "distractors": {
+            "en": [
+              "passport",
+              "ticket"
+            ],
+            "it": [
+              "biglietto",
+              "passaporto"
+            ],
+            "nl": [
+              "paspoort",
+              "kaartje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "residencia",
+          "translation": {
+            "en": "residency",
+            "it": "residenza",
+            "nl": "verblijfsvergunning"
+          },
+          "distractors": {
+            "en": [
+              "citizenship",
+              "vacation"
+            ],
+            "it": [
+              "cittadinanza",
+              "vacanza"
+            ],
+            "nl": [
+              "staatsburgerschap",
+              "vakantie"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "temporal",
+          "translation": {
+            "en": "temporary",
+            "it": "temporaneo",
+            "nl": "tijdelijk"
+          },
+          "distractors": {
+            "en": [
+              "permanent",
+              "official"
+            ],
+            "it": [
+              "permanente",
+              "ufficiale"
+            ],
+            "nl": [
+              "officieel",
+              "permanent"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la residencia temporal",
+          "translation": {
+            "en": "temporary residency",
+            "it": "la residenza temporanea",
+            "nl": "de tijdelijke verblijfsvergunning"
+          },
+          "distractors": {
+            "en": [
+              "permanent residency",
+              "a temporary visa"
+            ],
+            "it": [
+              "la residenza permanente",
+              "il visto temporaneo"
+            ],
+            "nl": [
+              "de vaste verblijfsvergunning",
+              "het tijdelijke visum"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "trámite",
+          "translation": {
+            "en": "procedure",
+            "it": "pratica",
+            "nl": "procedure"
+          },
+          "distractors": {
+            "en": [
+              "fee",
+              "signature"
+            ],
+            "it": [
+              "tassa",
+              "firma"
+            ],
+            "nl": [
+              "kosten",
+              "handtekening"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vengo a hacer el trámite de la residencia temporal.",
+          "translation": {
+            "en": "I'm here to apply for temporary residency.",
+            "it": "Sono qui per la pratica della residenza temporanea.",
+            "nl": "Ik kom voor de aanvraag van een tijdelijke verblijfsvergunning."
+          },
+          "distractors": {
+            "en": [
+              "I'm here to apply for permanent residency.",
+              "I'm here to pick up my temporary visa."
+            ],
+            "it": [
+              "Sono qui per la pratica della residenza permanente.",
+              "Sono qui per ritirare il visto temporaneo."
+            ],
+            "nl": [
+              "Ik kom voor de aanvraag van een vaste verblijfsvergunning.",
+              "Ik kom mijn tijdelijke visum ophalen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "documento",
+          "translation": {
+            "en": "document",
+            "it": "documento",
+            "nl": "document"
+          },
+          "distractors": {
+            "en": [
+              "letter",
+              "receipt"
+            ],
+            "it": [
+              "ricevuta",
+              "lettera"
+            ],
+            "nl": [
+              "brief",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "todos los documentos",
+          "translation": {
+            "en": "all the documents",
+            "it": "tutti i documenti",
+            "nl": "alle documenten"
+          },
+          "distractors": {
+            "en": [
+              "some of the documents",
+              "all the photos"
+            ],
+            "it": [
+              "tutte le foto",
+              "alcuni documenti"
+            ],
+            "nl": [
+              "een paar documenten",
+              "alle foto's"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Trajo todos los documentos?",
+          "translation": {
+            "en": "Did you bring all the documents?",
+            "it": "Ha portato tutti i documenti?",
+            "nl": "Heeft u alle documenten meegebracht?"
+          },
+          "distractors": {
+            "en": [
+              "Did you sign all the documents?",
+              "Did you bring all the photos?"
+            ],
+            "it": [
+              "Ha firmato tutti i documenti?",
+              "Ha portato tutte le foto?"
+            ],
+            "nl": [
+              "Heeft u alle documenten ondertekend?",
+              "Heeft u alle foto's meegebracht?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "certificado",
+          "translation": {
+            "en": "certificate",
+            "it": "certificato",
+            "nl": "certificaat"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "passport"
+            ],
+            "it": [
+              "contratto",
+              "passaporto"
+            ],
+            "nl": [
+              "contract",
+              "paspoort"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el certificado de nacimiento",
+          "translation": {
+            "en": "the birth certificate",
+            "it": "il certificato di nascita",
+            "nl": "de geboorteakte"
+          },
+          "distractors": {
+            "en": [
+              "the marriage certificate",
+              "the death certificate"
+            ],
+            "it": [
+              "il certificato di morte",
+              "il certificato di matrimonio"
+            ],
+            "nl": [
+              "de huwelijksakte",
+              "de overlijdensakte"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "También necesita una copia del certificado de nacimiento.",
+          "translation": {
+            "en": "You also need a copy of your birth certificate.",
+            "it": "Le serve anche una copia del certificato di nascita.",
+            "nl": "U heeft ook een kopie van uw geboorteakte nodig."
+          },
+          "distractors": {
+            "en": [
+              "You also need a copy of your marriage certificate.",
+              "You also need two photos for your birth certificate."
+            ],
+            "it": [
+              "Le serve anche una copia del certificato di matrimonio.",
+              "Le serve anche una foto per il certificato di nascita."
+            ],
+            "nl": [
+              "U heeft ook een kopie van uw huwelijksakte nodig.",
+              "U heeft ook twee foto's voor uw geboorteakte nodig."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Con esta visa no puede trabajar aquí.",
+          "translation": {
+            "en": "You can't work here with this visa.",
+            "it": "Con questo visto non può lavorare qui.",
+            "nl": "Met dit visum mag u hier niet werken."
+          },
+          "distractors": {
+            "en": [
+              "You can work here with this visa.",
+              "You can't study here with this visa."
+            ],
+            "it": [
+              "Con questo visto può lavorare qui.",
+              "Con questo visto non può studiare qui."
+            ],
+            "nl": [
+              "Met dit visum mag u hier werken.",
+              "Met dit visum mag u hier niet studeren."
+            ]
+          },
+          "commas": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-a2-tramites-5",
+      "title": "Su identificación, por favor",
+      "grammarFocus": {
+        "en": [
+          "vencer and renovar: Mi pasaporte vence el próximo mes / venció hace dos meses",
+          "an object pronoun attached to the infinitive: Tiene que renovarla"
+        ],
+        "it": [
+          "vencer = scadere, renovar = rinnovare: Mi pasaporte vence el próximo mes / venció hace dos meses",
+          "pronome attaccato all'infinito: Tiene que renovarla = Deve rinnovarla"
+        ],
+        "nl": [
+          "vencer = verlopen, renovar = verlengen: Mi pasaporte vence el próximo mes / venció hace dos meses",
+          "voornaamwoord vast aan de infinitief: Tiene que renovarla = U moet het (rijbewijs) verlengen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "identificación",
+          "translation": {
+            "en": "ID",
+            "it": "documento d'identità",
+            "nl": "identiteitsbewijs"
+          },
+          "distractors": {
+            "en": [
+              "address",
+              "receipt"
+            ],
+            "it": [
+              "indirizzo",
+              "ricevuta"
+            ],
+            "nl": [
+              "adres",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me muestra su identificación, por favor?",
+          "translation": {
+            "en": "May I see your ID, please?",
+            "it": "Mi fa vedere un documento, per favore?",
+            "nl": "Mag ik uw identiteitsbewijs zien?"
+          },
+          "distractors": {
+            "en": [
+              "May I see your ticket, please?",
+              "May I keep your ID, please?"
+            ],
+            "it": [
+              "Mi fa vedere il biglietto, per favore?",
+              "Posso tenere il Suo documento, per favore?"
+            ],
+            "nl": [
+              "Mag ik uw kaartje zien?",
+              "Mag ik uw identiteitsbewijs houden?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "licencia",
+          "translation": {
+            "en": "license",
+            "it": "licenza",
+            "nl": "vergunning"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "fee"
+            ],
+            "it": [
+              "ricevuta",
+              "tassa"
+            ],
+            "nl": [
+              "bonnetje",
+              "kosten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "conducir",
+          "translation": {
+            "en": "drive",
+            "it": "guidare",
+            "nl": "rijden"
+          },
+          "distractors": {
+            "en": [
+              "park",
+              "walk"
+            ],
+            "it": [
+              "parcheggiare",
+              "camminare"
+            ],
+            "nl": [
+              "parkeren",
+              "lopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "licencia de conducir",
+          "translation": {
+            "en": "driver's license",
+            "it": "patente di guida",
+            "nl": "rijbewijs"
+          },
+          "distractors": {
+            "en": [
+              "driving school",
+              "license plate"
+            ],
+            "it": [
+              "scuola guida",
+              "targa"
+            ],
+            "nl": [
+              "rijschool",
+              "kenteken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Tiene licencia de conducir?",
+          "translation": {
+            "en": "Do you have a driver's license?",
+            "it": "Ha la patente?",
+            "nl": "Heeft u een rijbewijs?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have a car?",
+              "Do you need a driver's license?"
+            ],
+            "it": [
+              "Ha la macchina?",
+              "Le serve la patente?"
+            ],
+            "nl": [
+              "Heeft u een auto?",
+              "Heeft u een rijbewijs nodig?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "vencer",
+          "translation": {
+            "en": "expire",
+            "it": "scadere",
+            "nl": "verlopen"
+          },
+          "distractors": {
+            "en": [
+              "arrive",
+              "start"
+            ],
+            "it": [
+              "arrivare",
+              "cominciare"
+            ],
+            "nl": [
+              "aankomen",
+              "beginnen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi pasaporte vence el próximo mes.",
+          "translation": {
+            "en": "My passport expires next month.",
+            "it": "Il mio passaporto scade il mese prossimo.",
+            "nl": "Mijn paspoort verloopt volgende maand."
+          },
+          "distractors": {
+            "en": [
+              "My passport expires next week.",
+              "My passport arrives next month."
+            ],
+            "it": [
+              "Il mio passaporto scade la settimana prossima.",
+              "Il mio passaporto arriva il mese prossimo."
+            ],
+            "nl": [
+              "Mijn paspoort verloopt volgende week.",
+              "Mijn paspoort komt volgende maand."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "válido",
+          "translation": {
+            "en": "valid",
+            "it": "valido",
+            "nl": "geldig"
+          },
+          "distractors": {
+            "en": [
+              "expired",
+              "lost"
+            ],
+            "it": [
+              "scaduto",
+              "perso"
+            ],
+            "nl": [
+              "verlopen",
+              "kwijt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lo siento, esta licencia ya no es válida.",
+          "translation": {
+            "en": "I'm sorry, this license is no longer valid.",
+            "it": "Mi dispiace, questa patente non è più valida.",
+            "nl": "Het spijt me, dit rijbewijs is niet meer geldig."
+          },
+          "distractors": {
+            "en": [
+              "I'm sorry, this license is still valid.",
+              "I'm sorry, this passport is no longer valid."
+            ],
+            "it": [
+              "Mi dispiace, questa patente è ancora valida.",
+              "Mi dispiace, questo passaporto non è più valido."
+            ],
+            "nl": [
+              "Het spijt me, dit rijbewijs is nog geldig.",
+              "Het spijt me, dit paspoort is niet meer geldig."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "renovar",
+          "translation": {
+            "en": "renew",
+            "it": "rinnovare",
+            "nl": "verlengen"
+          },
+          "distractors": {
+            "en": [
+              "cancel",
+              "check"
+            ],
+            "it": [
+              "annullare",
+              "controllare"
+            ],
+            "nl": [
+              "annuleren",
+              "controleren"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "renovar la licencia",
+          "translation": {
+            "en": "renew the license",
+            "it": "rinnovare la patente",
+            "nl": "het rijbewijs verlengen"
+          },
+          "distractors": {
+            "en": [
+              "lose the license",
+              "renew the passport"
+            ],
+            "it": [
+              "perdere la patente",
+              "rinnovare il passaporto"
+            ],
+            "nl": [
+              "het rijbewijs kwijtraken",
+              "het paspoort verlengen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tiene que renovarla antes de manejar.",
+          "translation": {
+            "en": "You have to renew it before you drive.",
+            "it": "Deve rinnovarla prima di guidare.",
+            "nl": "U moet het verlengen voordat u gaat rijden."
+          },
+          "distractors": {
+            "en": [
+              "You have to show it before you drive.",
+              "You have to renew it before you travel."
+            ],
+            "it": [
+              "Deve mostrarla prima di guidare.",
+              "Deve rinnovarla prima di viaggiare."
+            ],
+            "nl": [
+              "U moet het laten zien voordat u gaat rijden.",
+              "U moet het verlengen voordat u gaat reizen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Dónde puedo renovar mi pasaporte?",
+          "translation": {
+            "en": "Where can I renew my passport?",
+            "it": "Dove posso rinnovare il passaporto?",
+            "nl": "Waar kan ik mijn paspoort verlengen?"
+          },
+          "distractors": {
+            "en": [
+              "When can I renew my passport?",
+              "Where can I pick up my passport?"
+            ],
+            "it": [
+              "Quando posso rinnovare il passaporto?",
+              "Dove posso ritirare il passaporto?"
+            ],
+            "nl": [
+              "Wanneer kan ik mijn paspoort verlengen?",
+              "Waar kan ik mijn paspoort ophalen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Su identificación venció hace dos meses.",
+          "translation": {
+            "en": "Your ID expired two months ago.",
+            "it": "Il Suo documento è scaduto due mesi fa.",
+            "nl": "Uw identiteitsbewijs is twee maanden geleden verlopen."
+          },
+          "distractors": {
+            "en": [
+              "Your ID expires in two months.",
+              "Your ID expired two weeks ago."
+            ],
+            "it": [
+              "Il Suo documento scade tra due mesi.",
+              "Il Suo documento è scaduto due settimane fa."
+            ],
+            "nl": [
+              "Uw identiteitsbewijs verloopt over twee maanden.",
+              "Uw identiteitsbewijs is twee weken geleden verlopen."
+            ]
+          },
+          "variants": [
+            "Su identificación venció hace 2 meses."
+          ],
+          "senses": {
+            "3": "ago"
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-tramites-6",
+      "title": "Una cita",
+      "grammarFocus": {
+        "en": [
+          "pedir una cita, tener cita a las...: Tengo cita a las nueve",
+          "usted commands: entregue, llegue (the u keeps the g hard)"
+        ],
+        "it": [
+          "pedir una cita = prendere un appuntamento",
+          "imperativo con usted: entregue = consegni, llegue = arrivi (la u mantiene la g dura)"
+        ],
+        "nl": [
+          "pedir una cita = een afspraak maken",
+          "gebiedende wijs met usted: entregue, llegue (de u houdt de g hard)"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-tramites-6-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pedir una cita",
+          "translation": {
+            "en": "make an appointment",
+            "it": "prendere un appuntamento",
+            "nl": "een afspraak maken"
+          },
+          "distractors": {
+            "en": [
+              "cancel an appointment",
+              "change an appointment"
+            ],
+            "it": [
+              "annullare un appuntamento",
+              "spostare un appuntamento"
+            ],
+            "nl": [
+              "een afspraak afzeggen",
+              "een afspraak verzetten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Para ese trámite necesita pedir una cita.",
+          "translation": {
+            "en": "You need to make an appointment for that procedure.",
+            "it": "Per quella pratica deve prendere un appuntamento.",
+            "nl": "Voor die aanvraag moet u een afspraak maken."
+          },
+          "distractors": {
+            "en": [
+              "You don't need an appointment for that procedure.",
+              "You need to pay a fee for that procedure."
+            ],
+            "it": [
+              "Per quella pratica non serve un appuntamento.",
+              "Per quella pratica deve pagare una tassa."
+            ],
+            "nl": [
+              "Voor die aanvraag hoeft u geen afspraak te maken.",
+              "Voor die aanvraag moet u eerst betalen."
+            ]
+          },
+          "commas": [
+            2
+          ]
+        },
+        {
+          "id": "es-a2-tramites-6-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "por teléfono",
+          "translation": {
+            "en": "by phone",
+            "it": "per telefono",
+            "nl": "telefonisch"
+          },
+          "distractors": {
+            "en": [
+              "in person",
+              "by email"
+            ],
+            "it": [
+              "di persona",
+              "per email"
+            ],
+            "nl": [
+              "persoonlijk",
+              "per e-mail"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Puedo pedir la cita por teléfono?",
+          "translation": {
+            "en": "Can I make the appointment by phone?",
+            "it": "Posso prendere l'appuntamento per telefono?",
+            "nl": "Kan ik de afspraak telefonisch maken?"
+          },
+          "distractors": {
+            "en": [
+              "Can I cancel the appointment by phone?",
+              "Can I make the appointment in person?"
+            ],
+            "it": [
+              "Posso annullare l'appuntamento per telefono?",
+              "Posso prendere l'appuntamento di persona?"
+            ],
+            "nl": [
+              "Kan ik de afspraak telefonisch afzeggen?",
+              "Kan ik de afspraak persoonlijk maken?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "la primera cita libre",
+          "translation": {
+            "en": "the first available appointment",
+            "it": "il primo appuntamento libero",
+            "nl": "de eerste vrije afspraak"
+          },
+          "distractors": {
+            "en": [
+              "the last available appointment",
+              "the first appointment of the day"
+            ],
+            "it": [
+              "l'ultimo appuntamento libero",
+              "il primo appuntamento del giorno"
+            ],
+            "nl": [
+              "de laatste vrije afspraak",
+              "de eerste afspraak van de dag"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La primera cita libre es el martes a las diez.",
+          "translation": {
+            "en": "The first available appointment is on Tuesday at ten.",
+            "it": "Il primo appuntamento libero è martedì alle dieci.",
+            "nl": "De eerste vrije afspraak is dinsdag om tien uur."
+          },
+          "distractors": {
+            "en": [
+              "The first available appointment is on Thursday at ten.",
+              "The first available appointment is on Tuesday at two."
+            ],
+            "it": [
+              "Il primo appuntamento libero è giovedì alle dieci.",
+              "Il primo appuntamento libero è martedì alle due."
+            ],
+            "nl": [
+              "De eerste vrije afspraak is donderdag om tien uur.",
+              "De eerste vrije afspraak is dinsdag om twee uur."
+            ]
+          },
+          "variants": [
+            "La primera cita libre es el martes a las 10."
+          ]
+        },
+        {
+          "id": "es-a2-tramites-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cambiar la cita",
+          "translation": {
+            "en": "change the appointment",
+            "it": "spostare l'appuntamento",
+            "nl": "de afspraak verzetten"
+          },
+          "distractors": {
+            "en": [
+              "confirm the appointment",
+              "cancel the appointment"
+            ],
+            "it": [
+              "confermare l'appuntamento",
+              "annullare l'appuntamento"
+            ],
+            "nl": [
+              "de afspraak bevestigen",
+              "de afspraak afzeggen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Puedo cambiar mi cita para el jueves?",
+          "translation": {
+            "en": "Can I move my appointment to Thursday?",
+            "it": "Posso spostare il mio appuntamento a giovedì?",
+            "nl": "Kan ik mijn afspraak naar donderdag verzetten?"
+          },
+          "distractors": {
+            "en": [
+              "Can I cancel my appointment on Thursday?",
+              "Can I move my appointment to Tuesday?"
+            ],
+            "it": [
+              "Posso annullare il mio appuntamento di giovedì?",
+              "Posso spostare il mio appuntamento a martedì?"
+            ],
+            "nl": [
+              "Kan ik mijn afspraak van donderdag afzeggen?",
+              "Kan ik mijn afspraak naar dinsdag verzetten?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "entregar",
+          "translation": {
+            "en": "hand in",
+            "it": "consegnare",
+            "nl": "inleveren"
+          },
+          "distractors": {
+            "en": [
+              "copy",
+              "receive"
+            ],
+            "it": [
+              "copiare",
+              "ricevere"
+            ],
+            "nl": [
+              "kopiëren",
+              "ontvangen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "entregar los documentos",
+          "translation": {
+            "en": "hand in the documents",
+            "it": "consegnare i documenti",
+            "nl": "de documenten inleveren"
+          },
+          "distractors": {
+            "en": [
+              "sign the documents",
+              "pick up the documents"
+            ],
+            "it": [
+              "firmare i documenti",
+              "ritirare i documenti"
+            ],
+            "nl": [
+              "de documenten ondertekenen",
+              "de documenten ophalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Entregue los documentos en la ventanilla tres.",
+          "translation": {
+            "en": "Hand in the documents at window three.",
+            "it": "Consegni i documenti allo sportello tre.",
+            "nl": "Levert u de documenten in bij loket drie."
+          },
+          "distractors": {
+            "en": [
+              "Hand in the documents at window two.",
+              "Sign the documents at window three."
+            ],
+            "it": [
+              "Consegni i documenti allo sportello due.",
+              "Firmi i documenti allo sportello tre."
+            ],
+            "nl": [
+              "Levert u de documenten in bij loket twee.",
+              "Ondertekent u de documenten bij loket drie."
+            ]
+          },
+          "variants": [
+            "Entregue los documentos en la ventanilla 3."
+          ]
+        },
+        {
+          "id": "es-a2-tramites-6-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "a tiempo",
+          "translation": {
+            "en": "on time",
+            "it": "puntuale",
+            "nl": "op tijd"
+          },
+          "distractors": {
+            "en": [
+              "too late",
+              "in a hurry"
+            ],
+            "it": [
+              "in ritardo",
+              "di fretta"
+            ],
+            "nl": [
+              "te laat",
+              "gehaast"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Por favor, llegue a tiempo o va a perder su cita.",
+          "translation": {
+            "en": "Please arrive on time or you'll lose your appointment.",
+            "it": "Per favore, arrivi puntuale o perderà l'appuntamento.",
+            "nl": "Komt u alstublieft op tijd, anders verliest u uw afspraak."
+          },
+          "distractors": {
+            "en": [
+              "Please arrive early or you'll have to wait.",
+              "Please arrive on time or you'll pay a fee."
+            ],
+            "it": [
+              "Per favore, arrivi presto o dovrà aspettare.",
+              "Per favore, arrivi puntuale o dovrà pagare una tassa."
+            ],
+            "nl": [
+              "Komt u alstublieft op tijd, anders moet u lang wachten.",
+              "Komt u alstublieft vroeg, anders moet u betalen."
+            ]
+          },
+          "commas": [
+            4
+          ]
+        },
+        {
+          "id": "es-a2-tramites-6-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "por fin",
+          "translation": {
+            "en": "at last",
+            "it": "finalmente",
+            "nl": "eindelijk"
+          },
+          "distractors": {
+            "en": [
+              "once again",
+              "right away"
+            ],
+            "it": [
+              "di nuovo",
+              "subito"
+            ],
+            "nl": [
+              "opnieuw",
+              "meteen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-tramites-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Por fin! Ya tengo la residencia.",
+          "translation": {
+            "en": "At last! I've got my residency.",
+            "it": "Finalmente! Ho il permesso di soggiorno.",
+            "nl": "Eindelijk! Ik heb mijn verblijfsvergunning."
+          },
+          "distractors": {
+            "en": [
+              "At last! I've got my visa.",
+              "At last! I've got an appointment."
+            ],
+            "it": [
+              "Finalmente! Ho il visto.",
+              "Finalmente! Ho un appuntamento."
+            ],
+            "nl": [
+              "Eindelijk! Ik heb mijn visum.",
+              "Eindelijk! Ik heb een afspraak."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -92,7 +92,8 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
 
   const parse = async <T extends z.ZodType>(schema: T, name: string, instructions: string, input: string): Promise<Paid<z.infer<T>>> => {
     const res = await client.responses.parse({
-      model, instructions, input, reasoning: { effort }, text: { format: zodTextFormat(schema, name) },
+      // store: false, or OpenAI keeps each response for 30 days (docs/privacy.md).
+      model, instructions, input, reasoning: { effort }, text: { format: zodTextFormat(schema, name) }, store: false,
     });
     if (!res.output_parsed) throw new Error(`${model} returned no parsed ${name} (status ${res.status})`);
     if (!res.usage) throw new Error(`${model} returned no usage for ${name}`);

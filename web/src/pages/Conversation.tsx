@@ -38,8 +38,8 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
 
 function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string, text: string) => void }) {
   const turn = () => props.turn;
-  /** A learner's reply replays from this browser; the server keeps only admins'. */
-  const [kept] = createResource(() => turn().role === "learner" && turn().audioUrl === null && turn().id, recordingUrl);
+  /** The learner's replies replay from this browser; the server never stores them. */
+  const [kept] = createResource(() => turn().role === "learner" && turn().id, recordingUrl);
   return (
     <Show when={turn().role === "partner"} fallback={
       <div class="qa-turn qa-turn-learner align-self-end text-end" style={{ "max-width": "85%" }}>
@@ -47,7 +47,7 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
           <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
             {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
           </Show>
-          <Show when={turn().audioUrl ?? kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
+          <Show when={kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
         </div>
         <div class="small text-body-secondary">
           <Show when={turn().source !== "own"}>{t(`speak.source.${turn().source as "suggestion" | "how" | "moved_on"}`)}</Show>
@@ -84,6 +84,8 @@ export function Conversation() {
   /** Where the server is in checking a reply; "sending" until its first step arrives. */
   const [step, setStep] = createSignal<CheckStep | "sending">("sending");
   const [attempt, setAttempt] = createSignal<SpeakAttemptOut | null>(null);
+  /** The failed attempt's recording, from this browser. */
+  const [ownUrl, setOwnUrl] = createSignal("");
   const [how, setHow] = createSignal<HowOut | null>(null);
   const [howText, setHowText] = createSignal("");
   const [howOpen, setHowOpen] = createSignal(false);
@@ -144,12 +146,13 @@ export function Conversation() {
       if (res.attempt.passed) {
         playResult(true);
         const mine = res.turns.find((x) => x.role === "learner");
-        if (mine && mine.audioUrl === null) keepRecording(mine.id, recording);
+        if (mine) keepRecording(mine.id, recording);
         advance(res.turns, { reliance: res.reliance, spend: res.spend });
       } else {
         playWarning();
         update({ spend: res.spend });
-        setAttempt({ ...res.attempt, audioUrl: res.attempt.audioUrl ?? URL.createObjectURL(recording) });
+        setOwnUrl(URL.createObjectURL(recording));
+        setAttempt(res.attempt);
       }
     } finally {
       setRecState("idle");
@@ -270,7 +273,7 @@ export function Conversation() {
                 </ul>
               </>
             }>
-              {(a) => <Retry attempt={a} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
+              {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
             </Show>
 
             <Show when={recState() === "checking"} fallback={
@@ -300,7 +303,7 @@ export function Conversation() {
 }
 
 /** A failed reply: the sentence to say, what went wrong, and the ways out. */
-function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse: () => void; onMoveOn: () => void; busy: boolean }) {
+function Retry(props: { attempt: SpeakAttemptOut; ownUrl: string; conversationId: number; onElse: () => void; onMoveOn: () => void; busy: boolean }) {
   const a = () => props.attempt;
   const [note, setNote] = createSignal("");
   const [reported, setReported] = createSignal(false);
@@ -327,7 +330,7 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>
         <div class="d-flex align-items-center gap-2 small text-body-secondary">
-          <Show when={a().audioUrl}>{(u) => <PlayButton url={u()} class="qa-retry-play-own" color="btn-outline-secondary" />}</Show>
+          <PlayButton url={props.ownUrl} class="qa-retry-play-own" color="btn-outline-secondary" />
           <span class="qa-retry-heard">{t("speak.youSaid", { text: a().transcript })}</span>
         </div>
       </div>

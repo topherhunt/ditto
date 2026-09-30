@@ -12,6 +12,15 @@ test("signed-out visitors can open the privacy policy and terms directly, as Goo
   await expect(page.locator(".qa-welcome")).toHaveCount(0);
 });
 
+test("every mention of the contact email on the privacy policy and terms shows the address", async ({ page }) => {
+  for (const [path, count] of [["/privacy", 3], ["/terms", 2]] as const) {
+    await page.goto(path);
+    const links = page.locator(".qa-contact-email");
+    await expect(links).toHaveCount(count);
+    for (const link of await links.all()) await expect(link).toHaveText(/@/);
+  }
+});
+
 test("the footer links to the privacy policy and terms, signed out and signed in", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-footer-privacy").click();

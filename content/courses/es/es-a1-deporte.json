@@ -1,0 +1,3872 @@
+{
+  "id": "es-a1-deporte",
+  "language": "es",
+  "level": "A1",
+  "order": 102,
+  "title": "Deporte",
+  "description": {
+    "en": "Talking about the sports you play, working out at the gym, and following a game, from winning and losing to your team",
+    "it": "Parlare degli sport che pratichi, allenarsi in palestra e seguire una partita, dal vincere e perdere alla tua squadra",
+    "nl": "Praten over de sporten die je doet, trainen in de sportschool en een wedstrijd volgen, van winnen en verliezen tot je team"
+  },
+  "track": "optional",
+  "requires": [
+    "es-a1-tiempo-libre"
+  ],
+  "introduces": [
+    "equipo",
+    "jugador",
+    "entrenador",
+    "entrenar",
+    "ganar",
+    "perder",
+    "empatar",
+    "gol",
+    "meter",
+    "aficionado",
+    "cancha",
+    "estadio",
+    "béisbol",
+    "básquetbol",
+    "voleibol",
+    "ciclismo",
+    "carrera",
+    "campeonato",
+    "forma",
+    "músculo",
+    "sudar",
+    "árbitro",
+    "pesa",
+    "contra",
+    "entrenamiento",
+    "estirar"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; in a score: dos a uno = two to one",
+        "it": "a; nei risultati: dos a uno = due a uno",
+        "nl": "naar, aan, om; bij een uitslag: dos a uno = twee-een"
+      }
+    },
+    "abuela": {
+      "lemma": "abuelo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grandmother (f)",
+        "it": "nonna (f)",
+        "nl": "oma, grootmoeder (f)"
+      }
+    },
+    "aficionado": {
+      "lemma": "aficionado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fan (m); aficionado al fútbol = soccer fan",
+        "it": "tifoso, appassionato (m); aficionado al fútbol = tifoso di calcio",
+        "nl": "fan, liefhebber (m); aficionado al fútbol = voetbalfan"
+      }
+    },
+    "aficionados": {
+      "lemma": "aficionado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fans (plural of aficionado)",
+        "it": "tifosi (plurale di aficionado)",
+        "nl": "fans, supporters (meervoud van aficionado)"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (a + el); jugar al fútbol = play soccer",
+        "it": "al, allo (a + el); jugar al fútbol = giocare a calcio",
+        "nl": "naar de (a + el); jugar al fútbol = voetballen"
+      }
+    },
+    "amigos": {
+      "lemma": "amigo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (plural of amigo)",
+        "it": "amici (plurale di amigo)",
+        "nl": "vrienden (meervoud van amigo)"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before; antes de dormir = before going to sleep",
+        "it": "prima; antes de dormir = prima di dormire",
+        "nl": "eerder, vooraf; antes de dormir = voor het slapengaan"
+      }
+    },
+    "argentina": {
+      "lemma": "Argentina",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Argentina",
+        "it": "Argentina",
+        "nl": "Argentinië"
+      }
+    },
+    "años": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (plural of año)",
+        "it": "anni (plurale di año)",
+        "nl": "jaren (meervoud van año)"
+      }
+    },
+    "bicicleta": {
+      "lemma": "bicicleta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bicycle, bike (f)",
+        "it": "bicicletta, bici (f)",
+        "nl": "fiets (f)"
+      }
+    },
+    "buena": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (feminine of bueno)",
+        "it": "buona, bella (femminile di bueno)",
+        "nl": "goed (vrouwelijk van bueno)"
+      }
+    },
+    "bueno": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good; at the start of a sentence: okay, well",
+        "it": "buono; a inizio frase: va bene, allora",
+        "nl": "goed; aan het begin van een zin: oké, nou"
+      }
+    },
+    "básquetbol": {
+      "lemma": "básquetbol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "basketball (m)",
+        "it": "pallacanestro, basket (m)",
+        "nl": "basketbal (m)"
+      }
+    },
+    "béisbol": {
+      "lemma": "béisbol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "baseball (m)",
+        "it": "baseball (m)",
+        "nl": "honkbal (m)"
+      }
+    },
+    "cada": {
+      "lemma": "cada",
+      "pos": "DET",
+      "gloss": {
+        "en": "every, each",
+        "it": "ogni",
+        "nl": "elke, ieder"
+      }
+    },
+    "campeonato": {
+      "lemma": "campeonato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "championship (m)",
+        "it": "campionato (m)",
+        "nl": "kampioenschap (m)"
+      }
+    },
+    "cancha": {
+      "lemma": "cancha",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "court, field for sports (f); la cancha de tenis = the tennis court",
+        "it": "campo (sportivo) (f); la cancha de tenis = il campo da tennis",
+        "nl": "veld, baan (f); la cancha de tenis = de tennisbaan"
+      }
+    },
+    "cansada": {
+      "lemma": "cansado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (feminine of cansado)",
+        "it": "stanca (femminile di cansado)",
+        "nl": "moe (vrouwelijk van cansado)"
+      }
+    },
+    "cansados": {
+      "lemma": "cansado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (masculine plural of cansado)",
+        "it": "stanchi (plurale di cansado)",
+        "nl": "moe (meervoud van cansado)"
+      }
+    },
+    "cantan": {
+      "lemma": "cantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they sing, you sing (ustedes) (cantar)",
+        "it": "cantano, cantate (ustedes) (cantar)",
+        "nl": "ze zingen, jullie zingen (cantar)"
+      }
+    },
+    "carrera": {
+      "lemma": "carrera",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "race (f); watch out: also degree or career",
+        "it": "gara, corsa (f); attenzione: anche corso di laurea o carriera",
+        "nl": "wedstrijd, loop (f); ook: studie of carrière"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); en casa = at home",
+        "it": "casa (f); en casa = a casa",
+        "nl": "huis (f); en casa = thuis"
+      }
+    },
+    "cero": {
+      "lemma": "cero",
+      "pos": "NUM",
+      "gloss": {
+        "en": "zero",
+        "it": "zero",
+        "nl": "nul"
+      }
+    },
+    "ciclismo": {
+      "lemma": "ciclismo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cycling (m)",
+        "it": "ciclismo (m)",
+        "nl": "wielrennen, fietssport (m)"
+      }
+    },
+    "cinco": {
+      "lemma": "cinco",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "claro": {
+      "lemma": "claro",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sure, of course; ¡Claro! = Sure!",
+        "it": "certo; ¡Claro! = Certo!",
+        "nl": "natuurlijk; ¡Claro! = Tuurlijk!"
+      }
+    },
+    "colombia": {
+      "lemma": "Colombia",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Colombia",
+        "it": "Colombia",
+        "nl": "Colombia"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "conmigo": {
+      "lemma": "conmigo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "with me (one word, not con mí)",
+        "it": "con me (una parola sola, non con mí)",
+        "nl": "met mij (een woord, niet con mí)"
+      }
+    },
+    "contra": {
+      "lemma": "contra",
+      "pos": "ADP",
+      "gloss": {
+        "en": "against; jugar contra = play against",
+        "it": "contro",
+        "nl": "tegen; perder contra = verliezen van"
+      }
+    },
+    "correr": {
+      "lemma": "correr",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to run",
+        "it": "correre",
+        "nl": "hardlopen, rennen"
+      }
+    },
+    "corro": {
+      "lemma": "correr",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I run (correr)",
+        "it": "corro (correr)",
+        "nl": "ik loop, ik ren (correr)"
+      }
+    },
+    "cuál": {
+      "lemma": "cuál",
+      "pos": "PRON",
+      "gloss": {
+        "en": "which, what (with ser: ¿Cuál es...? = What is...?)",
+        "it": "quale",
+        "nl": "welke, wat (¿Cuál es...? = Wat is...?)"
+      }
+    },
+    "cuándo": {
+      "lemma": "cuándo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "when? (with an accent in questions)",
+        "it": "quando? (con l'accento nelle domande)",
+        "nl": "wanneer? (met accent in vragen)"
+      }
+    },
+    "cómo": {
+      "lemma": "cómo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how",
+        "it": "come",
+        "nl": "hoe"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; la cancha de tenis = the tennis court",
+        "it": "di, da; la cancha de tenis = il campo da tennis",
+        "nl": "van, uit; la cancha de tenis = de tennisbaan"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the (de + el)",
+        "it": "del, dello (de + el)",
+        "nl": "van de (de + el)"
+      }
+    },
+    "deporte": {
+      "lemma": "deporte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sport (m); hacer deporte = do sports",
+        "it": "sport (m); hacer deporte = fare sport",
+        "nl": "sport (m); hacer deporte = sporten"
+      }
+    },
+    "después": {
+      "lemma": "después",
+      "pos": "ADV",
+      "gloss": {
+        "en": "after, then; después de = after",
+        "it": "dopo, poi; después de = dopo",
+        "nl": "daarna, dan; después de = na"
+      }
+    },
+    "diez": {
+      "lemma": "diez",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "domingo": {
+      "lemma": "domingo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m); el domingo = on Sunday",
+        "it": "domenica (m); el domingo = domenica",
+        "nl": "zondag (m); el domingo = (op) zondag"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (m; día); buenos días = good morning",
+        "it": "giorni (m; día); buenos días = buongiorno",
+        "nl": "dagen (m; día); buenos días = goedemorgen"
+      }
+    },
+    "ejercicio": {
+      "lemma": "ejercicio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "exercise (m); hacer ejercicio = work out, exercise",
+        "it": "esercizio (m); hacer ejercicio = fare sport, fare esercizio fisico",
+        "nl": "oefening, beweging (m); hacer ejercicio = sporten, bewegen"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (el, la, los, las); before a day: on (el sábado = on Saturday)",
+        "it": "il, lo (el, la, los, las); davanti a un giorno: el sábado = sabato",
+        "nl": "de, het (el, la, los, las); voor een dag: el sábado = (op) zaterdag"
+      }
+    },
+    "empatados": {
+      "lemma": "empatar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tied (participle of empatar); están empatados = they're tied, it's a tie",
+        "it": "in parità (participio di empatar); están empatados = sono in parità",
+        "nl": "gelijk (voltooid deelwoord van empatar); están empatados = ze staan gelijk"
+      }
+    },
+    "empatar": {
+      "lemma": "empatar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to tie, to draw (a game)",
+        "it": "pareggiare",
+        "nl": "gelijkspelen"
+      }
+    },
+    "empieza": {
+      "lemma": "empezar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "starts, begins (empezar, e>ie)",
+        "it": "comincia (empezar, e>ie)",
+        "nl": "begint (empezar, e>ie)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, on; en casa = at home; jugar en un equipo = play on a team",
+        "it": "in, a; en casa = in casa; jugar en un equipo = giocare in una squadra",
+        "nl": "in, op; en casa = thuis; jugar en un equipo = in een team spelen"
+      }
+    },
+    "entrenador": {
+      "lemma": "entrenador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coach, trainer (m); entrenadora = female coach",
+        "it": "allenatore (m); entrenadora = allenatrice",
+        "nl": "trainer, coach (m); entrenadora = trainster"
+      }
+    },
+    "entrenadora": {
+      "lemma": "entrenador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coach (a woman; feminine of entrenador)",
+        "it": "allenatrice (femminile di entrenador)",
+        "nl": "trainster, coach (vrouwelijk van entrenador)"
+      }
+    },
+    "entrenamiento": {
+      "lemma": "entrenamiento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "training, practice (m)",
+        "it": "allenamento (m)",
+        "nl": "training (m)"
+      }
+    },
+    "entrenando": {
+      "lemma": "entrenar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "training (gerund of entrenar); estoy entrenando = I'm training",
+        "it": "allenando (gerundio di entrenar); estoy entrenando = mi sto allenando",
+        "nl": "trainend; estoy entrenando = ik ben aan het trainen"
+      }
+    },
+    "entrenar": {
+      "lemma": "entrenar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to train, to practice (a sport)",
+        "it": "allenarsi, allenare",
+        "nl": "trainen"
+      }
+    },
+    "equipo": {
+      "lemma": "equipo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "team (m)",
+        "it": "squadra (m)",
+        "nl": "team, ploeg (m)"
+      }
+    },
+    "equipos": {
+      "lemma": "equipo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "teams (plural of equipo)",
+        "it": "squadre (plurale di equipo)",
+        "nl": "teams, ploegen (meervoud van equipo)"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "escuela": {
+      "lemma": "escuela",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "school (f)",
+        "it": "scuola (f)",
+        "nl": "school (f)"
+      }
+    },
+    "estadio": {
+      "lemma": "estadio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "stadium (m)",
+        "it": "stadio (m)",
+        "nl": "stadion (m)"
+      }
+    },
+    "estar": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to be (a state or location); estar en forma = be in shape",
+        "it": "essere, stare (stato o luogo); estar en forma = essere in forma",
+        "nl": "zijn (toestand of plaats); estar en forma = in vorm zijn"
+      }
+    },
+    "estirar": {
+      "lemma": "estirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to stretch",
+        "it": "allungare, fare stretching",
+        "nl": "rekken, strekken"
+      }
+    },
+    "estiro": {
+      "lemma": "estirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I stretch (estirar)",
+        "it": "allungo (estirar); estiro los músculos = faccio stretching",
+        "nl": "ik rek (estirar); estiro los músculos = ik rek mijn spieren"
+      }
+    },
+    "estoy": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I am (estar); estoy viendo = I'm watching",
+        "it": "sono, sto (estar); estoy viendo = sto guardando",
+        "nl": "ik ben (estar); estoy viendo = ik ben aan het kijken"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar); está ganando = is winning",
+        "it": "è, sta (estar); está ganando = sta vincendo",
+        "nl": "is (estar); está ganando = staat voor, is aan het winnen"
+      }
+    },
+    "están": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you are (ustedes), they are (estar)",
+        "it": "siete (ustedes), sono (estar)",
+        "nl": "jullie zijn, u bent, ze zijn (estar)"
+      }
+    },
+    "favorito": {
+      "lemma": "favorito",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "favorite",
+        "it": "preferito",
+        "nl": "favoriet, lievelings-"
+      }
+    },
+    "forma": {
+      "lemma": "forma",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shape, form (f); estar en forma = be in shape",
+        "it": "forma (f); estar en forma = essere in forma",
+        "nl": "vorm (f); estar en forma = in vorm zijn, een goede conditie hebben"
+      }
+    },
+    "fuertes": {
+      "lemma": "fuerte",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "strong (plural of fuerte)",
+        "it": "forti (plurale di fuerte)",
+        "nl": "sterk (meervoud van fuerte)"
+      }
+    },
+    "fútbol": {
+      "lemma": "fútbol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "soccer (m)",
+        "it": "calcio (m)",
+        "nl": "voetbal (m)"
+      }
+    },
+    "ganando": {
+      "lemma": "ganar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "winning (gerund of ganar); está ganando = is winning",
+        "it": "vincendo (gerundio di ganar); está ganando = sta vincendo",
+        "nl": "winnend; está ganando = staat voor, is aan het winnen"
+      }
+    },
+    "ganar": {
+      "lemma": "ganar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to win; also to earn (money)",
+        "it": "vincere; anche guadagnare (soldi)",
+        "nl": "winnen; ook verdienen (geld)"
+      }
+    },
+    "gente": {
+      "lemma": "gente",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (f); watch out: singular in Spanish, la gente es = people are",
+        "it": "gente (f)",
+        "nl": "mensen (f); let op: enkelvoud in het Spaans, la gente es = de mensen zijn"
+      }
+    },
+    "gimnasio": {
+      "lemma": "gimnasio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gym (m)",
+        "it": "palestra (m); attenzione: non è il ginnasio (scuola)",
+        "nl": "sportschool (m); let op: niet het gymnasium (school)"
+      }
+    },
+    "gol": {
+      "lemma": "gol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "goal, a point scored (m); plural goles",
+        "it": "gol (m); plurale goles",
+        "nl": "doelpunt, goal (m); meervoud goles"
+      }
+    },
+    "gran": {
+      "lemma": "grande",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "great, big (grande before a singular noun): un gran equipo",
+        "it": "grande (grande davanti a un nome singolare): un gran equipo",
+        "nl": "groot, geweldig (grande vóór een enkelvoudig woord): un gran equipo"
+      }
+    },
+    "habla": {
+      "lemma": "hablar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "he, she speaks; you speak, with usted (hablar)",
+        "it": "parla (hablar)",
+        "nl": "hij, zij spreekt; u spreekt, met usted (hablar)"
+      }
+    },
+    "hacer": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do, to make; hacer ejercicio = exercise",
+        "it": "fare; hacer ejercicio = fare esercizio fisico",
+        "nl": "doen, maken; hacer ejercicio = sporten"
+      }
+    },
+    "hambre": {
+      "lemma": "hambre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hunger (f; el hambre); tengo hambre = I'm hungry; watch out: Spanish uses tener",
+        "it": "fame (f; el hambre); tengo hambre = ho fame",
+        "nl": "honger (f; el hambre); tengo hambre = ik heb honger"
+      }
+    },
+    "hay": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there are; is there?, are there? (haber; one form for singular and plural)",
+        "it": "c'è, ci sono (haber; una sola forma per singolare e plurale)",
+        "nl": "er is, er zijn (haber; één vorm voor enkelvoud en meervoud)"
+      }
+    },
+    "hermano": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "hija": {
+      "lemma": "hijo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "daughter (f)",
+        "it": "figlia (f)",
+        "nl": "dochter (f)"
+      }
+    },
+    "juega": {
+      "lemma": "jugar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "plays: he, she plays, you play (usted) (jugar, u>ue)",
+        "it": "gioca (jugar, u>ue)",
+        "nl": "speelt: hij, zij speelt, u speelt (jugar, u>ue)"
+      }
+    },
+    "juegan": {
+      "lemma": "jugar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you play (ustedes), they play (jugar, u>ue)",
+        "it": "giocate (ustedes), giocano (jugar, u>ue)",
+        "nl": "jullie spelen, ze spelen (jugar, u>ue)"
+      }
+    },
+    "juego": {
+      "lemma": "juego",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "game (m); un juego de mesa = a board game",
+        "it": "gioco (m); un juego de mesa = un gioco da tavolo",
+        "nl": "spel (m); un juego de mesa = een bordspel"
+      }
+    },
+    "jugador": {
+      "lemma": "jugador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "player (m); jugadora = female player",
+        "it": "giocatore (m); jugadora = giocatrice",
+        "nl": "speler (m); jugadora = speelster"
+      }
+    },
+    "jugadoras": {
+      "lemma": "jugador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "female players (plural of jugadora)",
+        "it": "giocatrici (plurale di jugadora)",
+        "nl": "speelsters (meervoud van jugadora)"
+      }
+    },
+    "jugadores": {
+      "lemma": "jugador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "players (plural of jugador)",
+        "it": "giocatori (plurale di jugador)",
+        "nl": "spelers (meervoud van jugador)"
+      }
+    },
+    "jugar": {
+      "lemma": "jugar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to play (a sport or game); jugar al fútbol = play soccer; for music use tocar",
+        "it": "giocare; jugar al fútbol = giocare a calcio; per gli strumenti si usa tocar",
+        "nl": "spelen (sport, spel); jugar al fútbol = voetballen; voor muziek: tocar"
+      }
+    },
+    "kilómetro": {
+      "lemma": "kilómetro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilometer (m)",
+        "it": "chilometro (m)",
+        "nl": "kilometer (m)"
+      }
+    },
+    "kilómetros": {
+      "lemma": "kilómetro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilometers (m; kilómetro)",
+        "it": "chilometri (m; kilómetro)",
+        "nl": "kilometer (m; kilómetro)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "it": "la",
+        "nl": "de, het (vrouwelijk)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural)",
+        "it": "le (femminile plurale)",
+        "nl": "de (vrouwelijk meervoud)"
+      }
+    },
+    "levantar": {
+      "lemma": "levantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lift; levantarse = get up",
+        "it": "sollevare, alzare; levantarse = alzarsi",
+        "nl": "optillen, heffen; levantarse = opstaan"
+      }
+    },
+    "levanto": {
+      "lemma": "levantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I lift (levantar); levanto pesas = I lift weights",
+        "it": "sollevo (levantar); levanto pesas = sollevo pesi",
+        "nl": "ik til (levantar); levanto pesas = ik doe aan gewichtheffen"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural); los sábados = on Saturdays",
+        "it": "i, gli; los sábados = il sabato",
+        "nl": "de (mannelijk meervoud); los sábados = op zaterdag"
+      }
+    },
+    "mañana#noun": {
+      "lemma": "mañana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (f); de la mañana = in the morning; alone, mañana = tomorrow",
+        "it": "mattina (f); de la mañana = di mattina; da solo, mañana = domani",
+        "nl": "ochtend (f); de la mañana = 's ochtends; los: mañana = morgen"
+      }
+    },
+    "mete": {
+      "lemma": "meter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "puts in (meter); mete un gol = scores a goal",
+        "it": "mette (meter); mete un gol = segna un gol",
+        "nl": "stopt (meter); mete un gol = scoort een doelpunt"
+      }
+    },
+    "meter": {
+      "lemma": "meter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to put in; meter un gol = score a goal",
+        "it": "mettere; meter un gol = segnare un gol",
+        "nl": "stoppen, steken; meter un gol = een doelpunt maken"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia",
+        "nl": "mijn"
+      }
+    },
+    "minuto": {
+      "lemma": "minuto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minute (m)",
+        "it": "minuto (m)",
+        "nl": "minuut (m)"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural)",
+        "it": "miei, mie",
+        "nl": "mijn (meervoud)"
+      }
+    },
+    "mucha": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much (feminine); tengo mucha hambre = I'm really hungry",
+        "it": "tanta, molta; tengo mucha hambre = ho tanta fame",
+        "nl": "veel (vrouwelijk); tengo mucha hambre = ik heb erge honger"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "much, a lot of",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto",
+        "nl": "heel, erg"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; el más corto = the shortest",
+        "it": "più; el más corto = il più corto",
+        "nl": "meer; el más corto = de kortste"
+      }
+    },
+    "méxico": {
+      "lemma": "México",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Mexico",
+        "it": "Messico",
+        "nl": "Mexico"
+      }
+    },
+    "músculo": {
+      "lemma": "músculo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "muscle (m)",
+        "it": "muscolo (m)",
+        "nl": "spier (m)"
+      }
+    },
+    "músculos": {
+      "lemma": "músculo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "muscles (plural of músculo)",
+        "it": "muscoli (plurale di músculo)",
+        "nl": "spieren (meervoud van músculo)"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing; nada más = nothing else; de nada = you're welcome",
+        "it": "niente; nada más = nient'altro; de nada = prego",
+        "nl": "niets; nada más = verder niets; de nada = graag gedaan"
+      }
+    },
+    "necesitamos": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we need (necesitar)",
+        "it": "abbiamo bisogno di (necesitar); necesitamos un jugador = ci serve un giocatore",
+        "nl": "we hebben nodig (necesitar)"
+      }
+    },
+    "necesito": {
+      "lemma": "necesitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I need (necesitar); necesito estudiar = I need to study",
+        "it": "ho bisogno di (necesitar); necesito estudiar = devo studiare",
+        "nl": "ik heb nodig (necesitar); necesito estudiar = ik moet studeren"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "no, not (before the verb)",
+        "it": "no, non (prima del verbo)",
+        "nl": "nee, niet (voor het werkwoord)"
+      }
+    },
+    "noventa": {
+      "lemma": "noventa",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ninety",
+        "it": "novanta",
+        "nl": "negentig"
+      }
+    },
+    "nuestro": {
+      "lemma": "nuestro",
+      "pos": "DET",
+      "gloss": {
+        "en": "our (m); nuestra, nuestros, nuestras",
+        "it": "nostro (m); nuestra, nuestros, nuestras (senza articolo)",
+        "nl": "ons, onze (m); nuestra, nuestros, nuestras"
+      }
+    },
+    "nuestros": {
+      "lemma": "nuestro",
+      "pos": "DET",
+      "gloss": {
+        "en": "our (masculine plural of nuestro)",
+        "it": "nostri (plurale di nuestro; senza articolo)",
+        "nl": "onze (meervoud van nuestro)"
+      }
+    },
+    "nunca": {
+      "lemma": "nunca",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never; goes before the verb: nunca me acuesto = I never go to bed",
+        "it": "mai; prima del verbo e senza no: nunca me acuesto = non vado mai a letto",
+        "nl": "nooit; staat vóór het werkwoord: nunca me acuesto = ik ga nooit naar bed"
+      }
+    },
+    "número": {
+      "lemma": "número",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m)",
+        "it": "numero (m)",
+        "nl": "nummer (m)"
+      }
+    },
+    "once": {
+      "lemma": "once",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eleven; watch out: not the English word once",
+        "it": "undici",
+        "nl": "elf; let op: niet het Engelse once"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "parque": {
+      "lemma": "parque",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "park (m)",
+        "it": "parco (m)",
+        "nl": "park (m)"
+      }
+    },
+    "partido": {
+      "lemma": "partido",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "game, match (m); un partido de fútbol = a soccer game",
+        "it": "partita (m); un partido de fútbol = una partita di calcio; attenzione: partido è maschile",
+        "nl": "wedstrijd (m); un partido de fútbol = een voetbalwedstrijd"
+      }
+    },
+    "perdemos": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we lose (perder); perder contra = lose against",
+        "it": "perdiamo (perder); perder contra = perdere contro",
+        "nl": "we verliezen (perder); perder contra = verliezen van"
+      }
+    },
+    "perder": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lose (perder, e>ie: pierdo, pierdes, pierde)",
+        "it": "perdere (perder, e>ie: pierdo, pierdes, pierde)",
+        "nl": "verliezen (perder, e>ie: pierdo, pierdes, pierde)"
+      }
+    },
+    "perdón": {
+      "lemma": "perdón",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sorry, excuse me",
+        "it": "scusa, scusi",
+        "nl": "sorry, pardon"
+      }
+    },
+    "pesas": {
+      "lemma": "pesa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weights (plural of pesa, f); levantar pesas = lift weights",
+        "it": "pesi (plurale di pesa, f); levantar pesas = sollevare pesi",
+        "nl": "gewichten (meervoud van pesa, f); levantar pesas = gewichtheffen"
+      }
+    },
+    "pierde": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "loses (perder, e>ie)",
+        "it": "perde (perder, e>ie)",
+        "nl": "verliest (perder, e>ie)"
+      }
+    },
+    "practicas": {
+      "lemma": "practicar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you practice, you do (a sport) (practicar)",
+        "it": "pratichi (practicar)",
+        "nl": "jij beoefent, jij doet (een sport) (practicar)"
+      }
+    },
+    "practico": {
+      "lemma": "practicar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I practice, I do (a sport) (practicar)",
+        "it": "pratico (practicar)",
+        "nl": "ik beoefen, ik doe (een sport) (practicar)"
+      }
+    },
+    "primos": {
+      "lemma": "primo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cousins (m, plural of primo)",
+        "it": "cugini (m, plurale di primo); attenzione: primo = cugino (primo = primero)",
+        "nl": "neven en nichten, kinderen van oom of tante (m, meervoud van primo)"
+      }
+    },
+    "quieres": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you want (querer, e>ie); ¿Quieres venir? = Do you want to come?",
+        "it": "vuoi (querer, e>ie); ¿Quieres venir? = Vuoi venire?",
+        "nl": "jij wilt (querer, e>ie); ¿Quieres venir? = Wil je komen?"
+      }
+    },
+    "quiero": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want (querer, e>ie)",
+        "it": "voglio (querer, e>ie)",
+        "nl": "ik wil (querer, e>ie)"
+      }
+    },
+    "quién": {
+      "lemma": "quién",
+      "pos": "PRON",
+      "gloss": {
+        "en": "who; ¿con quién? = with whom?",
+        "it": "chi; ¿con quién? = con chi?",
+        "nl": "wie; ¿con quién? = met wie?"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what; ¡Qué lástima! = What a shame!",
+        "it": "che, cosa; ¡Qué lástima! = Che peccato!",
+        "nl": "wat; ¡Qué lástima! = Wat jammer!"
+      }
+    },
+    "salgo": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I leave, I go out (salir: salgo, sales, sale)",
+        "it": "esco (salir: salgo, sales, sale); attenzione: salir = uscire, salire = subir",
+        "nl": "ik ga weg, ik ga uit (salir: salgo, sales, sale)"
+      }
+    },
+    "seis": {
+      "lemma": "seis",
+      "pos": "NUM",
+      "gloss": {
+        "en": "six",
+        "it": "sei",
+        "nl": "zes"
+      }
+    },
+    "semana": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); fin de semana = weekend",
+        "it": "settimana (f); fin de semana = fine settimana",
+        "nl": "week (f); fin de semana = weekend"
+      }
+    },
+    "setenta": {
+      "lemma": "setenta",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seventy (setenta 70, sesenta 60)",
+        "it": "settanta (setenta 70, sesenta 60)",
+        "nl": "zeventig (setenta 70, sesenta 60)"
+      }
+    },
+    "siempre": {
+      "lemma": "siempre",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always",
+        "it": "sempre",
+        "nl": "altijd"
+      }
+    },
+    "solo": {
+      "lemma": "solo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just",
+        "it": "solo, soltanto",
+        "nl": "alleen, maar"
+      }
+    },
+    "somos": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we are (ser)",
+        "it": "siamo (ser)",
+        "nl": "we zijn (ser)"
+      }
+    },
+    "sudando": {
+      "lemma": "sudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sweating (gerund of sudar); estoy sudando = I'm sweating",
+        "it": "sudando (gerundio di sudar); estoy sudando = sto sudando",
+        "nl": "zwetend; estoy sudando = ik ben aan het zweten"
+      }
+    },
+    "sudar": {
+      "lemma": "sudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to sweat",
+        "it": "sudare",
+        "nl": "zweten"
+      }
+    },
+    "sábado": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m); el sábado = on Saturday",
+        "it": "sabato (m); el sábado = sabato",
+        "nl": "zaterdag (m); el sábado = (op) zaterdag"
+      }
+    },
+    "sábados": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturdays; los sábados = on Saturdays",
+        "it": "sabati; los sábados = il sabato",
+        "nl": "zaterdagen; los sábados = op zaterdag"
+      }
+    },
+    "tener": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have",
+        "it": "avere",
+        "nl": "hebben"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener); tengo que = I have to",
+        "it": "ho (tener); tengo que = devo",
+        "nl": "ik heb (tener); tengo que = ik moet"
+      }
+    },
+    "tiene": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has; you have (usted) (tener); tiene que = has to, you have to",
+        "it": "ha; Lei ha (tener); tiene que = deve",
+        "nl": "heeft; u heeft (tener); tiene que = moet, u moet"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, the whole; todo el partido = the whole game",
+        "it": "tutto; todo el partido = tutta la partita",
+        "nl": "heel, al; todo el partido = de hele wedstrijd"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all (plural of todo); todos mis amigos = all my friends",
+        "it": "tutti (plurale di todo); todos mis amigos = tutti i miei amici",
+        "nl": "alle (meervoud van todo); todos mis amigos = al mijn vrienden"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (no accent)",
+        "it": "tuo, tua (senza accento)",
+        "nl": "jouw, je (zonder accent)"
+      }
+    },
+    "tío": {
+      "lemma": "tío",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "uncle (m); tíos = uncles, or aunts and uncles",
+        "it": "zio (m); tíos = zii",
+        "nl": "oom (m); tíos = ooms, of ooms en tantes"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine)",
+        "it": "un, uno",
+        "nl": "een (mannelijk)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "uno": {
+      "lemma": "uno",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one; dos a uno = two to one (a score)",
+        "it": "uno; dos a uno = due a uno",
+        "nl": "één; dos a uno = twee-een"
+      }
+    },
+    "va": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "goes (ir); ¿Cómo va el partido? = How's the game going?",
+        "it": "va (ir); ¿Cómo va el partido? = Come va la partita?",
+        "nl": "gaat (ir); ¿Cómo va el partido? = Hoe staat de wedstrijd ervoor?"
+      }
+    },
+    "vamos": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go, we're going (ir); ¡Vamos! = Come on!, Let's go!",
+        "it": "andiamo (ir); ¡Vamos! = Dai!, Forza!",
+        "nl": "we gaan (ir); ¡Vamos! = Kom op!"
+      }
+    },
+    "ve": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sees (ver)",
+        "it": "vede (ver)",
+        "nl": "ziet (ver)"
+      }
+    },
+    "veces": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "times (f; vez, veces); a veces = sometimes; tres veces = three times",
+        "it": "volte (f; vez, veces); a veces = a volte; tres veces = tre volte",
+        "nl": "keer, keren (f; vez, veces); a veces = soms; tres veces = drie keer"
+      }
+    },
+    "voleibol": {
+      "lemma": "voleibol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "volleyball (m)",
+        "it": "pallavolo (m)",
+        "nl": "volleybal (m)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "árbitro": {
+      "lemma": "árbitro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "referee (m)",
+        "it": "arbitro (m)",
+        "nl": "scheidsrechter (m)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a1-deporte-1",
+      "title": "¿Qué deporte practicas?",
+      "grammarFocus": {
+        "en": [
+          "jugar al + sport: jugar al béisbol",
+          "practicar + sport, with no article: practico voleibol",
+          "¿Cuál es tu deporte favorito?"
+        ],
+        "it": [
+          "jugar al + sport = giocare a + sport",
+          "practicar + sport, senza articolo: practico voleibol",
+          "¿Cuál es tu deporte favorito? = qual è il tuo sport preferito?"
+        ],
+        "nl": [
+          "jugar al + sport: jugar al béisbol = honkballen",
+          "practicar + sport, zonder lidwoord: practico voleibol",
+          "¿Cuál es tu deporte favorito? = wat is je favoriete sport?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "béisbol",
+          "translation": {
+            "en": "baseball",
+            "it": "baseball",
+            "nl": "honkbal"
+          },
+          "distractors": {
+            "en": [
+              "soccer",
+              "tennis"
+            ],
+            "it": [
+              "calcio",
+              "tennis"
+            ],
+            "nl": [
+              "voetbal",
+              "tennis"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "jugar al béisbol",
+          "translation": {
+            "en": "to play baseball",
+            "it": "giocare a baseball",
+            "nl": "honkballen"
+          },
+          "distractors": {
+            "en": [
+              "to watch baseball",
+              "to play tennis"
+            ],
+            "it": [
+              "guardare il baseball",
+              "giocare a tennis"
+            ],
+            "nl": [
+              "naar honkbal kijken",
+              "voetballen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi hermano juega al béisbol en la escuela.",
+          "translation": {
+            "en": "My brother plays baseball at school.",
+            "it": "Mio fratello gioca a baseball a scuola.",
+            "nl": "Mijn broer honkbalt op school."
+          },
+          "distractors": {
+            "en": [
+              "My brother plays soccer at school.",
+              "My brother plays baseball in the park."
+            ],
+            "it": [
+              "Mio fratello gioca a baseball al parco.",
+              "Mio cugino gioca a baseball a scuola."
+            ],
+            "nl": [
+              "Mijn broer voetbalt op school.",
+              "Mijn broer honkbalt in het park."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "básquetbol",
+          "translation": {
+            "en": "basketball",
+            "it": "pallacanestro, basket",
+            "nl": "basketbal"
+          },
+          "distractors": {
+            "en": [
+              "volleyball",
+              "baseball"
+            ],
+            "it": [
+              "pallavolo",
+              "baseball"
+            ],
+            "nl": [
+              "volleybal",
+              "honkbal"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la cancha de básquetbol",
+          "translation": {
+            "en": "the basketball court",
+            "it": "il campo da basket",
+            "nl": "het basketbalveld"
+          },
+          "distractors": {
+            "en": [
+              "the tennis court",
+              "the basketball team"
+            ],
+            "it": [
+              "il campo da tennis",
+              "la squadra di basket"
+            ],
+            "nl": [
+              "de tennisbaan",
+              "het basketbalteam"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hay una cancha de básquetbol en el parque.",
+          "translation": {
+            "en": "There's a basketball court in the park.",
+            "it": "C'è un campo da basket nel parco.",
+            "nl": "Er is een basketbalveld in het park."
+          },
+          "distractors": {
+            "en": [
+              "There's a tennis court in the park.",
+              "There's a basketball court at the school."
+            ],
+            "it": [
+              "C'è un campo da tennis nel parco.",
+              "C'è un campo da basket a scuola."
+            ],
+            "nl": [
+              "Er is een tennisbaan in het park.",
+              "Er is een basketbalveld bij de school."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Qué deporte practicas?",
+          "translation": {
+            "en": "What sport do you play?",
+            "it": "Che sport pratichi?",
+            "nl": "Welke sport doe je?"
+          },
+          "distractors": {
+            "en": [
+              "What sport do you watch?",
+              "What sport do you teach?"
+            ],
+            "it": [
+              "Che sport guardi?",
+              "Che sport insegni?"
+            ],
+            "nl": [
+              "Naar welke sport kijk je?",
+              "In welke sport geef je les?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "voleibol",
+          "translation": {
+            "en": "volleyball",
+            "it": "pallavolo",
+            "nl": "volleybal"
+          },
+          "distractors": {
+            "en": [
+              "basketball",
+              "cycling"
+            ],
+            "it": [
+              "pallacanestro",
+              "ciclismo"
+            ],
+            "nl": [
+              "basketbal",
+              "wielrennen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Practico voleibol dos veces a la semana.",
+          "variants": [
+            "Practico voleibol 2 veces a la semana."
+          ],
+          "translation": {
+            "en": "I play volleyball twice a week.",
+            "it": "Gioco a pallavolo due volte a settimana.",
+            "nl": "Ik volleybal twee keer per week."
+          },
+          "distractors": {
+            "en": [
+              "I play volleyball three times a week.",
+              "I play basketball twice a week."
+            ],
+            "it": [
+              "Gioco a pallavolo tre volte a settimana.",
+              "Gioco a pallavolo due volte al mese."
+            ],
+            "nl": [
+              "Ik volleybal drie keer per week.",
+              "Ik basketbal twee keer per week."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "ciclismo",
+          "translation": {
+            "en": "cycling",
+            "it": "ciclismo",
+            "nl": "wielrennen"
+          },
+          "distractors": {
+            "en": [
+              "swimming",
+              "running"
+            ],
+            "it": [
+              "nuoto",
+              "corsa"
+            ],
+            "nl": [
+              "zwemmen",
+              "hardlopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El ciclismo es mi deporte favorito.",
+          "translation": {
+            "en": "Cycling is my favorite sport.",
+            "it": "Il ciclismo è il mio sport preferito.",
+            "nl": "Wielrennen is mijn favoriete sport."
+          },
+          "distractors": {
+            "en": [
+              "Swimming is my favorite sport.",
+              "Cycling is my brother's favorite sport."
+            ],
+            "it": [
+              "Il nuoto è il mio sport preferito.",
+              "Il ciclismo è uno sport molto difficile."
+            ],
+            "nl": [
+              "Zwemmen is mijn favoriete sport.",
+              "Wielrennen is een heel moeilijke sport."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en bicicleta",
+          "translation": {
+            "en": "by bike",
+            "it": "in bicicletta",
+            "nl": "op de fiets"
+          },
+          "distractors": {
+            "en": [
+              "on foot",
+              "by car"
+            ],
+            "it": [
+              "a piedi",
+              "in macchina"
+            ],
+            "nl": [
+              "te voet",
+              "met de auto"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Los sábados salgo en bicicleta con mis amigos.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "On Saturdays, I go for a bike ride with my friends.",
+            "it": "Il sabato esco in bicicletta con i miei amici.",
+            "nl": "Op zaterdag ga ik fietsen met mijn vrienden."
+          },
+          "distractors": {
+            "en": [
+              "On Sundays, I go for a bike ride with my friends.",
+              "On Saturdays, I go for a walk with my friends."
+            ],
+            "it": [
+              "La domenica esco in bicicletta con i miei amici.",
+              "Il sabato esco in bicicletta con mio fratello."
+            ],
+            "nl": [
+              "Op zondag ga ik fietsen met mijn vrienden.",
+              "Op zaterdag ga ik wandelen met mijn vrienden."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuál es tu deporte favorito?",
+          "translation": {
+            "en": "What's your favorite sport?",
+            "it": "Qual è il tuo sport preferito?",
+            "nl": "Wat is je favoriete sport?"
+          },
+          "distractors": {
+            "en": [
+              "What's your favorite song?",
+              "What's your favorite team?"
+            ],
+            "it": [
+              "Qual è la tua canzone preferita?",
+              "Qual è la tua squadra preferita?"
+            ],
+            "nl": [
+              "Wat is je favoriete liedje?",
+              "Wat is je favoriete team?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-deporte-2",
+      "title": "En el gimnasio",
+      "grammarFocus": {
+        "en": [
+          "estar en forma = be in shape",
+          "estar + gerund: ¡Estoy sudando!",
+          "tener hambre after the gym: be hungry"
+        ],
+        "it": [
+          "estar en forma = essere in forma",
+          "estar + gerundio: ¡Estoy sudando! = sto sudando!",
+          "después del gimnasio = dopo la palestra"
+        ],
+        "nl": [
+          "estar en forma = in vorm zijn, een goede conditie hebben",
+          "estar + gerundio: ¡Estoy sudando! = ik ben aan het zweten!",
+          "tener hambre = honger hebben"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "pesas",
+          "translation": {
+            "en": "weights",
+            "it": "pesi",
+            "nl": "gewichten"
+          },
+          "distractors": {
+            "en": [
+              "rackets",
+              "balls"
+            ],
+            "it": [
+              "racchette",
+              "palloni"
+            ],
+            "nl": [
+              "rackets",
+              "ballen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "levantar pesas",
+          "translation": {
+            "en": "to lift weights",
+            "it": "sollevare pesi",
+            "nl": "gewichtheffen"
+          },
+          "distractors": {
+            "en": [
+              "to carry bags",
+              "to lift boxes"
+            ],
+            "it": [
+              "portare borse",
+              "sollevare scatole"
+            ],
+            "nl": [
+              "tassen dragen",
+              "dozen tillen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Levanto pesas en el gimnasio tres veces a la semana.",
+          "variants": [
+            "Levanto pesas en el gimnasio 3 veces a la semana."
+          ],
+          "translation": {
+            "en": "I lift weights at the gym three times a week.",
+            "it": "Sollevo pesi in palestra tre volte a settimana.",
+            "nl": "Ik train drie keer per week met gewichten in de sportschool."
+          },
+          "distractors": {
+            "en": [
+              "I lift weights at the gym twice a week.",
+              "I swim at the gym three times a week."
+            ],
+            "it": [
+              "Sollevo pesi in palestra due volte a settimana.",
+              "Nuoto in piscina tre volte a settimana."
+            ],
+            "nl": [
+              "Ik train twee keer per week met gewichten in de sportschool.",
+              "Ik zwem drie keer per week in de sportschool."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "músculo",
+          "translation": {
+            "en": "muscle",
+            "it": "muscolo",
+            "nl": "spier"
+          },
+          "distractors": {
+            "en": [
+              "bone",
+              "tooth"
+            ],
+            "it": [
+              "osso",
+              "dente"
+            ],
+            "nl": [
+              "bot",
+              "tand"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "músculos fuertes",
+          "translation": {
+            "en": "strong muscles",
+            "it": "muscoli forti",
+            "nl": "sterke spieren"
+          },
+          "distractors": {
+            "en": [
+              "tired muscles",
+              "strong arms"
+            ],
+            "it": [
+              "muscoli stanchi",
+              "braccia forti"
+            ],
+            "nl": [
+              "moeie spieren",
+              "sterke armen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quiero tener músculos más fuertes.",
+          "translation": {
+            "en": "I want to have stronger muscles.",
+            "it": "Voglio avere muscoli più forti.",
+            "nl": "Ik wil sterkere spieren hebben."
+          },
+          "distractors": {
+            "en": [
+              "I want to have bigger muscles.",
+              "I need to have stronger muscles."
+            ],
+            "it": [
+              "Voglio avere muscoli più grandi.",
+              "Voglio avere gambe più forti."
+            ],
+            "nl": [
+              "Ik wil grotere spieren hebben.",
+              "Ik wil sterkere benen hebben."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "sudar",
+          "translation": {
+            "en": "to sweat",
+            "it": "sudare",
+            "nl": "zweten"
+          },
+          "distractors": {
+            "en": [
+              "to breathe",
+              "to rest"
+            ],
+            "it": [
+              "respirare",
+              "riposare"
+            ],
+            "nl": [
+              "ademen",
+              "rusten"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Estoy sudando mucho!",
+          "translation": {
+            "en": "I'm sweating a lot!",
+            "it": "Sto sudando tantissimo!",
+            "nl": "Ik zweet heel erg!"
+          },
+          "distractors": {
+            "en": [
+              "I'm running a lot!",
+              "I'm sweating a little!"
+            ],
+            "it": [
+              "Sto correndo tantissimo!",
+              "Sto sudando un po'!"
+            ],
+            "nl": [
+              "Ik ren heel hard!",
+              "Ik zweet een beetje!"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "forma",
+          "translation": {
+            "en": "shape, fitness",
+            "it": "forma",
+            "nl": "vorm, conditie"
+          },
+          "distractors": {
+            "en": [
+              "strength",
+              "speed"
+            ],
+            "it": [
+              "forza",
+              "velocità"
+            ],
+            "nl": [
+              "kracht",
+              "snelheid"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "estar en forma",
+          "translation": {
+            "en": "to be in shape",
+            "it": "essere in forma",
+            "nl": "in vorm zijn"
+          },
+          "distractors": {
+            "en": [
+              "to be tired",
+              "to be in a hurry"
+            ],
+            "it": [
+              "essere stanco",
+              "avere fretta"
+            ],
+            "nl": [
+              "moe zijn",
+              "haast hebben"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi abuela tiene setenta años y está en muy buena forma.",
+          "variants": [
+            "Mi abuela tiene 70 años y está en muy buena forma."
+          ],
+          "commas": [
+            4
+          ],
+          "translation": {
+            "en": "My grandmother is seventy and in very good shape.",
+            "it": "Mia nonna ha settant'anni ed è in ottima forma.",
+            "nl": "Mijn oma is zeventig en heeft een heel goede conditie."
+          },
+          "distractors": {
+            "en": [
+              "My grandmother is seventy and very tired.",
+              "My grandmother is eighty and in very good shape."
+            ],
+            "it": [
+              "Mia nonna ha settant'anni ed è molto stanca.",
+              "Mia nonna ha ottant'anni ed è in ottima forma."
+            ],
+            "nl": [
+              "Mijn oma is zeventig en heel moe.",
+              "Mijn oma is tachtig en heeft een heel goede conditie."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Necesito hacer ejercicio para estar en forma.",
+          "translation": {
+            "en": "I need to exercise to stay in shape.",
+            "it": "Devo fare esercizio per restare in forma.",
+            "nl": "Ik moet sporten om in vorm te blijven."
+          },
+          "distractors": {
+            "en": [
+              "I need to rest to stay in shape.",
+              "I need to eat less to stay in shape."
+            ],
+            "it": [
+              "Devo riposare per restare in forma.",
+              "Devo mangiare meno per restare in forma."
+            ],
+            "nl": [
+              "Ik moet rusten om in vorm te blijven.",
+              "Ik moet minder eten om in vorm te blijven."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "después del gimnasio",
+          "translation": {
+            "en": "after the gym",
+            "it": "dopo la palestra",
+            "nl": "na de sportschool"
+          },
+          "distractors": {
+            "en": [
+              "before the gym",
+              "after work"
+            ],
+            "it": [
+              "prima della palestra",
+              "dopo il lavoro"
+            ],
+            "nl": [
+              "voor de sportschool",
+              "na het werk"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después del gimnasio, siempre tengo mucha hambre.",
+          "translation": {
+            "en": "After the gym, I'm always really hungry.",
+            "it": "Dopo la palestra ho sempre tanta fame.",
+            "nl": "Na de sportschool heb ik altijd veel honger."
+          },
+          "distractors": {
+            "en": [
+              "After the gym, I'm always really thirsty.",
+              "Before the gym, I'm always really hungry."
+            ],
+            "it": [
+              "Dopo la palestra ho sempre tanta sete.",
+              "Prima della palestra ho sempre tanta fame."
+            ],
+            "nl": [
+              "Na de sportschool heb ik altijd veel dorst.",
+              "Voor de sportschool heb ik altijd veel honger."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tengo los músculos muy cansados.",
+          "translation": {
+            "en": "My muscles are really tired.",
+            "it": "Ho i muscoli molto stanchi.",
+            "nl": "Mijn spieren zijn heel moe."
+          },
+          "distractors": {
+            "en": [
+              "My legs are really tired.",
+              "My muscles are really strong."
+            ],
+            "it": [
+              "Ho le gambe molto stanche.",
+              "Ho i muscoli molto forti."
+            ],
+            "nl": [
+              "Mijn benen zijn heel moe.",
+              "Mijn spieren zijn heel sterk."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-deporte-3",
+      "title": "El partido",
+      "grammarFocus": {
+        "en": [
+          "ir al estadio: al = a + el",
+          "ser aficionado al + sport = be a fan of",
+          "the present for live commentary: mete un gol = scores a goal"
+        ],
+        "it": [
+          "ir al estadio = andare allo stadio (al = a + el)",
+          "ser aficionado al fútbol = essere tifoso di calcio",
+          "il presente per la cronaca: mete un gol = segna un gol"
+        ],
+        "nl": [
+          "ir al estadio = naar het stadion gaan (al = a + el)",
+          "ser aficionado al fútbol = voetbalfan zijn",
+          "de tegenwoordige tijd voor live verslag: mete un gol = scoort een doelpunt"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "estadio",
+          "translation": {
+            "en": "stadium",
+            "it": "stadio",
+            "nl": "stadion"
+          },
+          "distractors": {
+            "en": [
+              "gym",
+              "court"
+            ],
+            "it": [
+              "palestra",
+              "piscina"
+            ],
+            "nl": [
+              "sportschool",
+              "zwembad"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "al estadio",
+          "translation": {
+            "en": "to the stadium",
+            "it": "allo stadio",
+            "nl": "naar het stadion"
+          },
+          "distractors": {
+            "en": [
+              "to the gym",
+              "to the park"
+            ],
+            "it": [
+              "in palestra",
+              "al parco"
+            ],
+            "nl": [
+              "naar de sportschool",
+              "naar het park"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El sábado vamos al estadio con mis primos.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "On Saturday we're going to the stadium with my cousins.",
+            "it": "Sabato andiamo allo stadio con i miei cugini.",
+            "nl": "Zaterdag gaan we met mijn neven naar het stadion."
+          },
+          "distractors": {
+            "en": [
+              "On Sunday we're going to the stadium with my cousins.",
+              "On Saturday we're going to the stadium with my uncles."
+            ],
+            "it": [
+              "Domenica andiamo allo stadio con i miei cugini.",
+              "Sabato andiamo al cinema con i miei cugini."
+            ],
+            "nl": [
+              "Zondag gaan we met mijn neven naar het stadion.",
+              "Zaterdag gaan we met mijn ooms naar het stadion."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hay mucha gente en el estadio.",
+          "translation": {
+            "en": "There are a lot of people at the stadium.",
+            "it": "C'è tanta gente allo stadio.",
+            "nl": "Er zijn veel mensen in het stadion."
+          },
+          "distractors": {
+            "en": [
+              "There aren't many people at the stadium.",
+              "There are a lot of people at the gym."
+            ],
+            "it": [
+              "C'è poca gente allo stadio.",
+              "C'è tanta gente in palestra."
+            ],
+            "nl": [
+              "Er zijn weinig mensen in het stadion.",
+              "Er zijn veel mensen in de sportschool."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "aficionado",
+          "translation": {
+            "en": "fan",
+            "it": "tifoso, appassionato",
+            "nl": "fan, liefhebber"
+          },
+          "distractors": {
+            "en": [
+              "player",
+              "coach"
+            ],
+            "it": [
+              "giocatore",
+              "allenatore"
+            ],
+            "nl": [
+              "speler",
+              "trainer"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "aficionado al fútbol",
+          "translation": {
+            "en": "soccer fan",
+            "it": "tifoso di calcio",
+            "nl": "voetbalfan"
+          },
+          "distractors": {
+            "en": [
+              "soccer player",
+              "tennis fan"
+            ],
+            "it": [
+              "giocatore di calcio",
+              "tifoso di tennis"
+            ],
+            "nl": [
+              "voetballer",
+              "tennisfan"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi tío es muy aficionado al fútbol.",
+          "translation": {
+            "en": "My uncle is a big soccer fan.",
+            "it": "Mio zio è un grande tifoso di calcio.",
+            "nl": "Mijn oom is een grote voetbalfan."
+          },
+          "distractors": {
+            "en": [
+              "My uncle is a big baseball fan.",
+              "My uncle is a very good soccer player."
+            ],
+            "it": [
+              "Mio zio è un grande tifoso di baseball.",
+              "Mio zio è un bravissimo giocatore di calcio."
+            ],
+            "nl": [
+              "Mijn oom is een grote honkbalfan.",
+              "Mijn oom is een heel goede voetballer."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "jugador",
+          "translation": {
+            "en": "player",
+            "it": "giocatore",
+            "nl": "speler"
+          },
+          "distractors": {
+            "en": [
+              "referee",
+              "fan"
+            ],
+            "it": [
+              "arbitro",
+              "tifoso"
+            ],
+            "nl": [
+              "scheidsrechter",
+              "fan"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cada equipo tiene once jugadores.",
+          "variants": [
+            "Cada equipo tiene 11 jugadores."
+          ],
+          "translation": {
+            "en": "Each team has eleven players.",
+            "it": "Ogni squadra ha undici giocatori.",
+            "nl": "Elk team heeft elf spelers."
+          },
+          "distractors": {
+            "en": [
+              "Each team has twelve players.",
+              "Each team has eleven fans."
+            ],
+            "it": [
+              "Ogni squadra ha dodici giocatori.",
+              "Ogni squadra ha undici allenatori."
+            ],
+            "nl": [
+              "Elk team heeft twaalf spelers.",
+              "Elk team heeft elf trainers."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "árbitro",
+          "translation": {
+            "en": "referee",
+            "it": "arbitro",
+            "nl": "scheidsrechter"
+          },
+          "distractors": {
+            "en": [
+              "coach",
+              "goalkeeper"
+            ],
+            "it": [
+              "allenatore",
+              "portiere"
+            ],
+            "nl": [
+              "trainer",
+              "keeper"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡El árbitro no ve nada!",
+          "translation": {
+            "en": "The referee doesn't see anything!",
+            "it": "L'arbitro non vede niente!",
+            "nl": "De scheidsrechter ziet helemaal niets!"
+          },
+          "distractors": {
+            "en": [
+              "The coach doesn't see anything!",
+              "The referee doesn't say anything!"
+            ],
+            "it": [
+              "L'allenatore non vede niente!",
+              "L'arbitro non dice niente!"
+            ],
+            "nl": [
+              "De trainer ziet helemaal niets!",
+              "De scheidsrechter zegt helemaal niets!"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "gol",
+          "translation": {
+            "en": "goal",
+            "it": "gol",
+            "nl": "doelpunt"
+          },
+          "distractors": {
+            "en": [
+              "point",
+              "match"
+            ],
+            "it": [
+              "punto",
+              "partita"
+            ],
+            "nl": [
+              "punt",
+              "wedstrijd"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "meter un gol",
+          "translation": {
+            "en": "to score a goal",
+            "it": "segnare un gol",
+            "nl": "een doelpunt maken"
+          },
+          "distractors": {
+            "en": [
+              "to miss a goal",
+              "to score two goals"
+            ],
+            "it": [
+              "sbagliare un gol",
+              "segnare due gol"
+            ],
+            "nl": [
+              "een kans missen",
+              "twee doelpunten maken"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el minuto noventa, el número diez mete un gol.",
+          "variants": [
+            "En el minuto 90, el número 10 mete un gol.",
+            "En el minuto 90, el número diez mete un gol.",
+            "En el minuto noventa, el número 10 mete un gol."
+          ],
+          "translation": {
+            "en": "In the ninetieth minute, number ten scores a goal.",
+            "it": "Al novantesimo minuto il numero dieci segna un gol.",
+            "nl": "In de negentigste minuut scoort nummer tien een doelpunt."
+          },
+          "distractors": {
+            "en": [
+              "In the ninetieth minute, number nine scores a goal.",
+              "In the nineteenth minute, number ten scores a goal."
+            ],
+            "it": [
+              "Al novantesimo minuto il numero nove segna un gol.",
+              "Al diciannovesimo minuto il numero dieci segna un gol."
+            ],
+            "nl": [
+              "In de negentigste minuut scoort nummer negen een doelpunt.",
+              "In de negentiende minuut scoort nummer tien een doelpunt."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Gol de México!",
+          "translation": {
+            "en": "Mexico scores!",
+            "it": "Gol del Messico!",
+            "nl": "Doelpunt voor Mexico!"
+          },
+          "distractors": {
+            "en": [
+              "Colombia scores!",
+              "Mexico wins!"
+            ],
+            "it": [
+              "Gol della Colombia!",
+              "Vince il Messico!"
+            ],
+            "nl": [
+              "Doelpunt voor Colombia!",
+              "Mexico wint!"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-deporte-4",
+      "title": "Ganar y perder",
+      "grammarFocus": {
+        "en": [
+          "¿Quién está ganando? = Who's winning?",
+          "scores: dos a uno = two to one; empatados a cero = tied at zero",
+          "perder (e>ie): pierde; jugar contra = play against"
+        ],
+        "it": [
+          "¿Quién está ganando? = chi sta vincendo?",
+          "i risultati: dos a uno = due a uno; empatados a cero = zero a zero",
+          "perder (e>ie): pierde; jugar contra = giocare contro"
+        ],
+        "nl": [
+          "¿Quién está ganando? = wie staat er voor?",
+          "uitslagen: dos a uno = twee-een; empatados a cero = nul-nul",
+          "perder (e>ie): pierde; jugar contra = spelen tegen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ganar",
+          "translation": {
+            "en": "to win",
+            "it": "vincere",
+            "nl": "winnen"
+          },
+          "distractors": {
+            "en": [
+              "to lose",
+              "to play"
+            ],
+            "it": [
+              "perdere",
+              "giocare"
+            ],
+            "nl": [
+              "verliezen",
+              "spelen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quién está ganando?",
+          "translation": {
+            "en": "Who's winning?",
+            "it": "Chi sta vincendo?",
+            "nl": "Wie staat er voor?"
+          },
+          "distractors": {
+            "en": [
+              "Who's playing?",
+              "Who's losing?"
+            ],
+            "it": [
+              "Chi sta giocando?",
+              "Chi sta perdendo?"
+            ],
+            "nl": [
+              "Wie speelt er?",
+              "Wie staat er achter?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dos a uno",
+          "variants": [
+            "2 a 1"
+          ],
+          "translation": {
+            "en": "two to one",
+            "it": "due a uno",
+            "nl": "twee-een"
+          },
+          "distractors": {
+            "en": [
+              "two to two",
+              "three to one"
+            ],
+            "it": [
+              "due a zero",
+              "tre a uno"
+            ],
+            "nl": [
+              "twee-nul",
+              "drie-een"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Colombia está ganando dos a uno.",
+          "variants": [
+            "Colombia está ganando 2 a 1."
+          ],
+          "translation": {
+            "en": "Colombia is winning two to one.",
+            "it": "La Colombia sta vincendo due a uno.",
+            "nl": "Colombia staat met twee-een voor."
+          },
+          "distractors": {
+            "en": [
+              "Colombia is losing two to one.",
+              "Colombia is winning three to one."
+            ],
+            "it": [
+              "La Colombia sta perdendo due a uno.",
+              "La Colombia sta vincendo tre a uno."
+            ],
+            "nl": [
+              "Colombia staat met twee-een achter.",
+              "Colombia staat met drie-een voor."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cómo va el partido",
+          "translation": {
+            "en": "how the game is going",
+            "it": "come va la partita",
+            "nl": "hoe de wedstrijd gaat"
+          },
+          "distractors": {
+            "en": [
+              "when the game starts",
+              "where the game is"
+            ],
+            "it": [
+              "quando comincia la partita",
+              "dov'è la partita"
+            ],
+            "nl": [
+              "wanneer de wedstrijd begint",
+              "waar de wedstrijd is"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, ¿cómo va el partido?",
+          "translation": {
+            "en": "Excuse me, how's the game going?",
+            "it": "Scusi, come va la partita?",
+            "nl": "Sorry, hoe staat de wedstrijd ervoor?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, when does the game start?",
+              "Excuse me, where's the game?"
+            ],
+            "it": [
+              "Scusi, quando comincia la partita?",
+              "Scusi, dov'è la partita?"
+            ],
+            "nl": [
+              "Sorry, hoe laat begint de wedstrijd?",
+              "Sorry, waar is de wedstrijd?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "perder",
+          "translation": {
+            "en": "to lose",
+            "it": "perdere",
+            "nl": "verliezen"
+          },
+          "distractors": {
+            "en": [
+              "to win",
+              "to tie"
+            ],
+            "it": [
+              "vincere",
+              "pareggiare"
+            ],
+            "nl": [
+              "winnen",
+              "gelijkspelen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nuestro equipo nunca pierde en casa.",
+          "translation": {
+            "en": "Our team never loses at home.",
+            "it": "La nostra squadra non perde mai in casa.",
+            "nl": "Ons team verliest nooit thuis."
+          },
+          "distractors": {
+            "en": [
+              "Our team never wins at home.",
+              "Our team always loses at home."
+            ],
+            "it": [
+              "La nostra squadra non vince mai in casa.",
+              "La nostra squadra perde sempre in casa."
+            ],
+            "nl": [
+              "Ons team wint nooit thuis.",
+              "Ons team verliest altijd thuis."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "contra Argentina",
+          "translation": {
+            "en": "against Argentina",
+            "it": "contro l'Argentina",
+            "nl": "tegen Argentinië"
+          },
+          "distractors": {
+            "en": [
+              "with Argentina",
+              "in Argentina"
+            ],
+            "it": [
+              "con l'Argentina",
+              "in Argentina"
+            ],
+            "nl": [
+              "met Argentinië",
+              "in Argentinië"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Siempre perdemos contra Argentina.",
+          "translation": {
+            "en": "We always lose against Argentina.",
+            "it": "Perdiamo sempre contro l'Argentina.",
+            "nl": "We verliezen altijd van Argentinië."
+          },
+          "distractors": {
+            "en": [
+              "We always win against Argentina.",
+              "We never lose against Argentina."
+            ],
+            "it": [
+              "Vinciamo sempre contro l'Argentina.",
+              "Non perdiamo mai contro l'Argentina."
+            ],
+            "nl": [
+              "We winnen altijd van Argentinië.",
+              "We verliezen nooit van Argentinië."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "empatar",
+          "translation": {
+            "en": "to tie, to draw",
+            "it": "pareggiare",
+            "nl": "gelijkspelen"
+          },
+          "distractors": {
+            "en": [
+              "to win",
+              "to score"
+            ],
+            "it": [
+              "vincere",
+              "segnare"
+            ],
+            "nl": [
+              "winnen",
+              "scoren"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "están empatados",
+          "translation": {
+            "en": "they're tied",
+            "it": "sono in parità",
+            "nl": "ze staan gelijk"
+          },
+          "distractors": {
+            "en": [
+              "they're winning",
+              "they're losing"
+            ],
+            "it": [
+              "stanno vincendo",
+              "stanno perdendo"
+            ],
+            "nl": [
+              "ze staan voor",
+              "ze staan achter"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Los dos equipos están empatados a cero.",
+          "variants": [
+            "Los dos equipos están empatados a 0.",
+            "Los 2 equipos están empatados a cero.",
+            "Los 2 equipos están empatados a 0."
+          ],
+          "translation": {
+            "en": "The two teams are tied zero to zero.",
+            "it": "Le due squadre sono ferme sullo zero a zero.",
+            "nl": "De twee teams staan nul-nul gelijk."
+          },
+          "distractors": {
+            "en": [
+              "The two teams are tied one to one.",
+              "The two teams are tied two to two."
+            ],
+            "it": [
+              "Le due squadre sono ferme sull'uno a uno.",
+              "Le due squadre sono ferme sul due a due."
+            ],
+            "nl": [
+              "De twee teams staan een-een gelijk.",
+              "De twee teams staan twee-twee gelijk."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bueno, es solo un juego.",
+          "translation": {
+            "en": "Oh well, it's only a game.",
+            "it": "Beh, è solo un gioco.",
+            "nl": "Ach, het is maar een spelletje."
+          },
+          "distractors": {
+            "en": [
+              "Oh well, it's only a song.",
+              "Oh well, it's only one point."
+            ],
+            "it": [
+              "Beh, è solo una canzone.",
+              "Beh, è solo un punto."
+            ],
+            "nl": [
+              "Ach, het is maar één punt.",
+              "Ach, het is maar een liedje."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-deporte-5",
+      "title": "El equipo",
+      "grammarFocus": {
+        "en": [
+          "jugar en un equipo = play on a team",
+          "feminine nouns for people: la entrenadora, las jugadoras",
+          "necesitar + noun: necesitamos un jugador más = one more player"
+        ],
+        "it": [
+          "jugar en un equipo = giocare in una squadra",
+          "il femminile: la entrenadora, las jugadoras",
+          "un jugador más = un giocatore in più"
+        ],
+        "nl": [
+          "jugar en un equipo = in een team spelen",
+          "vrouwelijke vormen: la entrenadora, las jugadoras",
+          "un jugador más = nog een speler"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "equipo",
+          "translation": {
+            "en": "team",
+            "it": "squadra",
+            "nl": "team, ploeg"
+          },
+          "distractors": {
+            "en": [
+              "match",
+              "fan"
+            ],
+            "it": [
+              "partita",
+              "tifoso"
+            ],
+            "nl": [
+              "wedstrijd",
+              "fan"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el equipo de voleibol",
+          "translation": {
+            "en": "the volleyball team",
+            "it": "la squadra di pallavolo",
+            "nl": "het volleybalteam"
+          },
+          "distractors": {
+            "en": [
+              "the volleyball court",
+              "the basketball team"
+            ],
+            "it": [
+              "il campo da pallavolo",
+              "la squadra di basket"
+            ],
+            "nl": [
+              "het volleybalveld",
+              "het basketbalteam"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi hija juega en el equipo de voleibol de la escuela.",
+          "translation": {
+            "en": "My daughter plays on the school volleyball team.",
+            "it": "Mia figlia gioca nella squadra di pallavolo della scuola.",
+            "nl": "Mijn dochter speelt in het volleybalteam van school."
+          },
+          "distractors": {
+            "en": [
+              "My daughter plays on the school basketball team.",
+              "My son plays on the school volleyball team."
+            ],
+            "it": [
+              "Mia figlia gioca nella squadra di basket della scuola.",
+              "Mia figlia gioca nella squadra di pallavolo dell'università."
+            ],
+            "nl": [
+              "Mijn dochter speelt in het basketbalteam van school.",
+              "Mijn zoon speelt in het volleybalteam van school."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "entrenador",
+          "translation": {
+            "en": "coach",
+            "it": "allenatore",
+            "nl": "trainer, coach"
+          },
+          "distractors": {
+            "en": [
+              "referee",
+              "player"
+            ],
+            "it": [
+              "arbitro",
+              "giocatore"
+            ],
+            "nl": [
+              "scheidsrechter",
+              "speler"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la entrenadora",
+          "translation": {
+            "en": "the coach (a woman)",
+            "it": "l'allenatrice",
+            "nl": "de trainster"
+          },
+          "distractors": {
+            "en": [
+              "the player (a woman)",
+              "the referee (a woman)"
+            ],
+            "it": [
+              "la giocatrice",
+              "la tifosa"
+            ],
+            "nl": [
+              "de speelster",
+              "de scheidsrechter"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La entrenadora habla con las jugadoras antes del partido.",
+          "translation": {
+            "en": "The coach talks to the players before the game.",
+            "it": "L'allenatrice parla con le giocatrici prima della partita.",
+            "nl": "De trainster praat met de speelsters voor de wedstrijd."
+          },
+          "distractors": {
+            "en": [
+              "The coach talks to the players after the game.",
+              "The coach talks to the referee before the game."
+            ],
+            "it": [
+              "L'allenatrice parla con le giocatrici dopo la partita.",
+              "L'allenatrice parla con l'arbitro prima della partita."
+            ],
+            "nl": [
+              "De trainster praat met de speelsters na de wedstrijd.",
+              "De trainster praat met de scheidsrechter voor de wedstrijd."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "campeonato",
+          "translation": {
+            "en": "championship",
+            "it": "campionato",
+            "nl": "kampioenschap"
+          },
+          "distractors": {
+            "en": [
+              "stadium",
+              "team"
+            ],
+            "it": [
+              "stadio",
+              "squadra"
+            ],
+            "nl": [
+              "stadion",
+              "team"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El campeonato empieza el sábado.",
+          "translation": {
+            "en": "The championship starts on Saturday.",
+            "it": "Il campionato comincia sabato.",
+            "nl": "Het kampioenschap begint zaterdag."
+          },
+          "distractors": {
+            "en": [
+              "The championship ends on Saturday.",
+              "The championship starts on Sunday."
+            ],
+            "it": [
+              "Il campionato finisce sabato.",
+              "Il campionato comincia domenica."
+            ],
+            "nl": [
+              "Het kampioenschap eindigt zaterdag.",
+              "Het kampioenschap begint zondag."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "todo el partido",
+          "translation": {
+            "en": "the whole game",
+            "it": "tutta la partita",
+            "nl": "de hele wedstrijd"
+          },
+          "distractors": {
+            "en": [
+              "the whole week",
+              "half the game"
+            ],
+            "it": [
+              "tutta la settimana",
+              "metà partita"
+            ],
+            "nl": [
+              "de hele week",
+              "de halve wedstrijd"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nuestros aficionados cantan todo el partido.",
+          "translation": {
+            "en": "Our fans sing the whole game.",
+            "it": "I nostri tifosi cantano per tutta la partita.",
+            "nl": "Onze fans zingen de hele wedstrijd lang."
+          },
+          "distractors": {
+            "en": [
+              "Our fans sing the whole week.",
+              "Our players sing the whole game."
+            ],
+            "it": [
+              "I nostri tifosi cantano per tutta la settimana.",
+              "I nostri giocatori cantano per tutta la partita."
+            ],
+            "nl": [
+              "Onze fans zingen de hele week lang.",
+              "Onze spelers zingen de hele wedstrijd lang."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "somos un gran equipo",
+          "translation": {
+            "en": "we're a great team",
+            "it": "siamo una grande squadra",
+            "nl": "we zijn een geweldig team"
+          },
+          "distractors": {
+            "en": [
+              "we're a small team",
+              "we're a great family"
+            ],
+            "it": [
+              "siamo una piccola squadra",
+              "siamo una grande famiglia"
+            ],
+            "nl": [
+              "we zijn een klein team",
+              "we zijn een geweldige familie"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "un jugador más",
+          "translation": {
+            "en": "one more player",
+            "it": "un giocatore in più",
+            "nl": "nog een speler"
+          },
+          "distractors": {
+            "en": [
+              "one player less",
+              "one more coach"
+            ],
+            "it": [
+              "un giocatore in meno",
+              "un allenatore in più"
+            ],
+            "nl": [
+              "een speler minder",
+              "nog een trainer"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Para el partido del domingo, necesitamos un jugador más.",
+          "translation": {
+            "en": "For Sunday's game, we need one more player.",
+            "it": "Per la partita di domenica ci serve un giocatore in più.",
+            "nl": "Voor de wedstrijd van zondag hebben we nog een speler nodig."
+          },
+          "distractors": {
+            "en": [
+              "For Saturday's game, we need one more player.",
+              "For Sunday's game, we need two more players."
+            ],
+            "it": [
+              "Per la partita di sabato ci serve un giocatore in più.",
+              "Per la partita di domenica ci servono due giocatori in più."
+            ],
+            "nl": [
+              "Voor de wedstrijd van zaterdag hebben we nog een speler nodig.",
+              "Voor de wedstrijd van zondag hebben we nog twee spelers nodig."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quieres jugar en nuestro equipo?",
+          "translation": {
+            "en": "Do you want to play on our team?",
+            "it": "Vuoi giocare nella nostra squadra?",
+            "nl": "Wil je in ons team spelen?"
+          },
+          "distractors": {
+            "en": [
+              "Do you want to watch our game?",
+              "Do you want to coach our team?"
+            ],
+            "it": [
+              "Vuoi vedere la nostra partita?",
+              "Vuoi allenare la nostra squadra?"
+            ],
+            "nl": [
+              "Wil je naar onze wedstrijd kijken?",
+              "Wil je ons team trainen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Claro! ¿Cuándo juegan?",
+          "translation": {
+            "en": "Sure! When do you play?",
+            "it": "Certo! Quando giocate?",
+            "nl": "Tuurlijk! Wanneer spelen jullie?"
+          },
+          "distractors": {
+            "en": [
+              "Sure! Where do you play?",
+              "Sorry! When do you play?"
+            ],
+            "it": [
+              "Certo! Dove giocate?",
+              "Peccato! Quando giocate?"
+            ],
+            "nl": [
+              "Tuurlijk! Waar spelen jullie?",
+              "Jammer! Wanneer spelen jullie?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-deporte-6",
+      "title": "Entrenar",
+      "grammarFocus": {
+        "en": [
+          "estar + gerund: Estoy entrenando para una carrera",
+          "todos los días = every day",
+          "antes de + infinitive: antes de correr = before running"
+        ],
+        "it": [
+          "estar + gerundio: Estoy entrenando = mi sto allenando",
+          "todos los días = tutti i giorni",
+          "antes de + infinito: antes de correr = prima di correre"
+        ],
+        "nl": [
+          "estar + gerundio: Estoy entrenando = ik ben aan het trainen",
+          "todos los días = elke dag",
+          "antes de + infinitief: antes de correr = voor het hardlopen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-deporte-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "carrera",
+          "translation": {
+            "en": "race",
+            "it": "gara, corsa",
+            "nl": "wedstrijd, loop"
+          },
+          "distractors": {
+            "en": [
+              "game",
+              "training"
+            ],
+            "it": [
+              "partita",
+              "allenamento"
+            ],
+            "nl": [
+              "training",
+              "spel"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una carrera de diez kilómetros",
+          "variants": [
+            "una carrera de 10 kilómetros"
+          ],
+          "translation": {
+            "en": "a ten-kilometer race",
+            "it": "una gara di dieci chilometri",
+            "nl": "een loop van tien kilometer"
+          },
+          "distractors": {
+            "en": [
+              "a two-kilometer race",
+              "a ten-minute race"
+            ],
+            "it": [
+              "una gara di due chilometri",
+              "una gara di dieci minuti"
+            ],
+            "nl": [
+              "een loop van twee kilometer",
+              "een loop van tien minuten"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "entrenar",
+          "translation": {
+            "en": "to train",
+            "it": "allenarsi",
+            "nl": "trainen"
+          },
+          "distractors": {
+            "en": [
+              "to rest",
+              "to win"
+            ],
+            "it": [
+              "riposarsi",
+              "vincere"
+            ],
+            "nl": [
+              "rusten",
+              "winnen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estoy entrenando para una carrera de diez kilómetros.",
+          "variants": [
+            "Estoy entrenando para una carrera de 10 kilómetros."
+          ],
+          "translation": {
+            "en": "I'm training for a ten-kilometer race.",
+            "it": "Mi sto allenando per una gara di dieci chilometri.",
+            "nl": "Ik ben aan het trainen voor een loop van tien kilometer."
+          },
+          "distractors": {
+            "en": [
+              "I'm training for a two-kilometer race.",
+              "I'm resting after a ten-kilometer race."
+            ],
+            "it": [
+              "Mi sto allenando per una gara di due chilometri.",
+              "Mi sto riposando dopo una gara di dieci chilometri."
+            ],
+            "nl": [
+              "Ik ben aan het trainen voor een loop van twee kilometer.",
+              "Ik ben aan het uitrusten na een loop van tien kilometer."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "entrenamiento",
+          "translation": {
+            "en": "training, practice",
+            "it": "allenamento",
+            "nl": "training"
+          },
+          "distractors": {
+            "en": [
+              "race",
+              "game"
+            ],
+            "it": [
+              "gara",
+              "partita"
+            ],
+            "nl": [
+              "wedstrijd",
+              "spel"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El entrenamiento empieza a las seis de la mañana.",
+          "variants": [
+            "El entrenamiento empieza a las 6 de la mañana."
+          ],
+          "senses": {
+            "8": "noun"
+          },
+          "translation": {
+            "en": "Practice starts at six in the morning.",
+            "it": "L'allenamento comincia alle sei di mattina.",
+            "nl": "De training begint om zes uur 's ochtends."
+          },
+          "distractors": {
+            "en": [
+              "Practice ends at six in the morning.",
+              "Practice starts at six in the evening."
+            ],
+            "it": [
+              "L'allenamento finisce alle sei di mattina.",
+              "L'allenamento comincia alle sette di mattina."
+            ],
+            "nl": [
+              "De training eindigt om zes uur 's ochtends.",
+              "De training begint om zes uur 's avonds."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "todos los días",
+          "translation": {
+            "en": "every day",
+            "it": "tutti i giorni",
+            "nl": "elke dag"
+          },
+          "distractors": {
+            "en": [
+              "every week",
+              "on weekends"
+            ],
+            "it": [
+              "ogni settimana",
+              "nel fine settimana"
+            ],
+            "nl": [
+              "elke week",
+              "in het weekend"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Corro cinco kilómetros todos los días.",
+          "variants": [
+            "Corro 5 kilómetros todos los días."
+          ],
+          "translation": {
+            "en": "I run five kilometers every day.",
+            "it": "Corro cinque chilometri tutti i giorni.",
+            "nl": "Ik loop elke dag vijf kilometer."
+          },
+          "distractors": {
+            "en": [
+              "I run fifteen kilometers every day.",
+              "I walk five kilometers every day."
+            ],
+            "it": [
+              "Corro quindici chilometri tutti i giorni.",
+              "Cammino cinque chilometri tutti i giorni."
+            ],
+            "nl": [
+              "Ik loop elke dag vijftien kilometer.",
+              "Ik wandel elke dag vijf kilometer."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "estirar",
+          "translation": {
+            "en": "to stretch",
+            "it": "fare stretching, allungare",
+            "nl": "rekken, stretchen"
+          },
+          "distractors": {
+            "en": [
+              "to rest",
+              "to sweat"
+            ],
+            "it": [
+              "riposare",
+              "sudare"
+            ],
+            "nl": [
+              "rusten",
+              "zweten"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "antes de correr",
+          "translation": {
+            "en": "before running",
+            "it": "prima di correre",
+            "nl": "voor het hardlopen"
+          },
+          "distractors": {
+            "en": [
+              "after running",
+              "before swimming"
+            ],
+            "it": [
+              "dopo la corsa",
+              "prima di nuotare"
+            ],
+            "nl": [
+              "na het hardlopen",
+              "voor het zwemmen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes de correr, siempre estiro los músculos.",
+          "translation": {
+            "en": "Before I run, I always stretch my muscles.",
+            "it": "Prima di correre faccio sempre stretching.",
+            "nl": "Voor het hardlopen rek ik altijd mijn spieren."
+          },
+          "distractors": {
+            "en": [
+              "After I run, I always stretch my muscles.",
+              "Before I run, I always drink water."
+            ],
+            "it": [
+              "Dopo la corsa faccio sempre stretching.",
+              "Prima di correre cammino sempre un po'."
+            ],
+            "nl": [
+              "Na het hardlopen rek ik altijd mijn spieren.",
+              "Voor het hardlopen drink ik altijd water."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Después del entrenamiento, estoy muy cansada.",
+          "speaker": "F",
+          "translation": {
+            "en": "After practice, I'm really tired.",
+            "it": "Dopo l'allenamento sono stanchissima.",
+            "nl": "Na de training ben ik heel moe."
+          },
+          "distractors": {
+            "en": [
+              "After practice, I'm really hungry.",
+              "Before practice, I'm really tired."
+            ],
+            "it": [
+              "Dopo l'allenamento ho tantissima fame.",
+              "Prima dell'allenamento sono stanchissima."
+            ],
+            "nl": [
+              "Na de training heb ik veel honger.",
+              "Voor de training ben ik heel moe."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Vamos, un kilómetro más!",
+          "translation": {
+            "en": "Come on, one more kilometer!",
+            "it": "Dai, ancora un chilometro!",
+            "nl": "Kom op, nog één kilometer!"
+          },
+          "distractors": {
+            "en": [
+              "Come on, one more minute!",
+              "Come on, two more kilometers!"
+            ],
+            "it": [
+              "Dai, ancora un minuto!",
+              "Dai, ancora due chilometri!"
+            ],
+            "nl": [
+              "Kom op, nog één minuut!",
+              "Kom op, nog twee kilometer!"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-deporte-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quieres entrenar conmigo el sábado?",
+          "translation": {
+            "en": "Do you want to train with me on Saturday?",
+            "it": "Vuoi allenarti con me sabato?",
+            "nl": "Wil je zaterdag met mij trainen?"
+          },
+          "distractors": {
+            "en": [
+              "Do you want to train with me on Sunday?",
+              "Do you want to run with me on Saturday?"
+            ],
+            "it": [
+              "Vuoi allenarti con me domenica?",
+              "Vuoi correre con me sabato?"
+            ],
+            "nl": [
+              "Wil je zondag met mij trainen?",
+              "Wil je zaterdag met mij hardlopen?"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

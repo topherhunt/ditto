@@ -13,7 +13,7 @@ Unlike the games, Ditto keeps state and secrets, and needs Node 24:
 | `/etc/ditto.env` | Secrets from `devops/production.env`, mode 640 root:ditto | Only by `push-env.sh` |
 | `/opt/node24` | Ditto's own Node 24. The host's `/usr/bin/node` (22) serves the other tenants and is left alone. | Only by `provision.sh` |
 | `/srv/ditto/speech` | The speech worker's Python `venv/` (conversation and quiz voices, rendered on OpenAI). | Only by `provision.sh` |
-| `/srv/ditto/data/speak-audio` | Conversation recordings and partner audio | Never |
+| `/srv/ditto/data/speak-audio` | Conversation partner audio | Never |
 
 ## First time
 

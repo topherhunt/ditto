@@ -5,8 +5,6 @@ import { usd } from "../spend.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
-const player = new Audio();
-
 function SpeakReport(props: { report: AdminSpeakReport }) {
   const r = () => props.report;
   return (
@@ -16,9 +14,6 @@ function SpeakReport(props: { report: AdminSpeakReport }) {
         <span class="fw-semibold">{r().reporter.username ?? r().reporter.email}</span>
         <span class="small text-body-secondary me-auto">{new Date(r().reportedAt).toLocaleString()}</span>
         <span class={`badge ${r().passed ? "text-bg-success" : "text-bg-danger"}`}>{r().passed ? "passed" : "failed"}</span>
-        <Show when={r().audioUrl}>
-          {(u) => <button type="button" class="btn btn-sm btn-outline-primary" onClick={() => { player.src = u(); void player.play(); }}>▶ Recording</button>}
-        </Show>
       </div>
       <Show when={r().note}><div class="qa-admin-speak-note">"{r().note}"</div></Show>
       <div class="small"><span class="text-body-secondary">Partner:</span> {r().partnerLine}</div>

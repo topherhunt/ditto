@@ -25,7 +25,7 @@ The attempts route streams NDJSON progress (listening, judging, answering) so th
 The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that fetches gpt-4o-mini-tts lines (the partner and quiz mode) from OpenAI (`OPENAI_API_KEY`, inherited from the server) and writes them as WAV. It starts on first use (about 1 s), and the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `numpy`; production installs that with `devops/provision.sh`.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
-- A learner's recording is sent to transcription as bytes and never written to the server (`audio_file` is null); the page keeps it in IndexedDB for 30 days so the learner can replay it, and sign-out clears it (`web/src/recordings.ts`). Only admins' own replies are saved on the server, to diagnose the coach.
+- A recording is sent to transcription as bytes and never written to the server, for anyone, admins included. The page keeps it in IndexedDB for 30 days so the learner can replay it, and sign-out clears it (`web/src/recordings.ts`).
 - "Say something else" rolls back to choosing a reply; the new reply goes through the coach again.
 - After 5 failed tries at one sentence the coach offers to move on and records the phrase as a weak one.
 - A report button on the retry screen stores the note on the attempt (`conversation_attempts.report_note`; the `reports` table needs a unit). Admins review them with spend on `/admin/speaking`.
@@ -44,7 +44,7 @@ The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is o
 
 ## Running it
 
-Conversation mode is on when `OPENAI_API_KEY` is set and `SPEECH_PYTHON` (default `.venv/bin/python`) exists; the server logs why when it is off. Partner audio and admins' recordings go to `SPEAK_AUDIO_DIR` (default `data/speak-audio`). `FAKE_CONVERSATION=1` swaps in scripted fakes (`server/conversation-fake.ts`) for E2E; it is refused in production.
+Conversation mode is on when `OPENAI_API_KEY` is set and `SPEECH_PYTHON` (default `.venv/bin/python`) exists; the server logs why when it is off. Partner audio goes to `SPEAK_AUDIO_DIR` (default `data/speak-audio`). `FAKE_CONVERSATION=1` swaps in scripted fakes (`server/conversation-fake.ts`) for E2E; it is refused in production.
 
 ## Not built
 

@@ -1,0 +1,4492 @@
+{
+  "id": "es-b1-dinero",
+  "language": "es",
+  "level": "B1",
+  "order": 109,
+  "title": "Dinero",
+  "description": {
+    "en": "Money: your bank account, saving, taxes, mortgages, rising prices and investing",
+    "it": "Soldi: il conto in banca, il risparmio, le tasse, il mutuo, i prezzi che salgono e gli investimenti",
+    "nl": "Geld: je bankrekening, sparen, belasting, de hypotheek, stijgende prijzen en beleggen"
+  },
+  "track": "optional",
+  "requires": [
+    "es-b1-empleo"
+  ],
+  "introduces": [
+    "hipoteca",
+    "impuesto",
+    "invertir",
+    "inversión",
+    "interés",
+    "préstamo",
+    "deuda",
+    "crédito",
+    "ingreso",
+    "aumento",
+    "inflación",
+    "crisis",
+    "economía",
+    "presupuesto",
+    "automático",
+    "pensión",
+    "ahorro",
+    "bancario",
+    "gasto",
+    "cobrar",
+    "saldo",
+    "contador",
+    "declaración",
+    "tasa",
+    "fijo",
+    "acción",
+    "ganancia"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as object it isn't translated: despedir a veinte empleados",
+        "it": "a; davanti a una persona come oggetto non si traduce: despedir a veinte empleados",
+        "nl": "naar, om; vóór een persoon als lijdend voorwerp wordt het niet vertaald: despedir a veinte empleados"
+      }
+    },
+    "abrir": {
+      "lemma": "abrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to open",
+        "it": "aprire",
+        "nl": "openen"
+      }
+    },
+    "acabamos": {
+      "lemma": "acabar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we finish (acabar); acabamos de + infinitive = we have just ...",
+        "it": "finiamo (acabar); acabamos de + infinito = abbiamo appena ...",
+        "nl": "we maken af (acabar); acabamos de + infinitief = we hebben net ..."
+      }
+    },
+    "acciones": {
+      "lemma": "acción",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shares, stocks (acción, f); also actions",
+        "it": "azioni (acción, f)",
+        "nl": "aandelen (acción, f); ook daden"
+      }
+    },
+    "afuera": {
+      "lemma": "afuera",
+      "pos": "ADV",
+      "gloss": {
+        "en": "outside, out; comer afuera = eat out",
+        "it": "fuori; comer afuera = mangiare fuori",
+        "nl": "buiten; comer afuera = uit eten gaan"
+      }
+    },
+    "ahora": {
+      "lemma": "ahora",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "it": "adesso, ora",
+        "nl": "nu"
+      }
+    },
+    "ahorrando": {
+      "lemma": "ahorrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "saving (gerund of ahorrar); ahorrando un poco = by saving a little",
+        "it": "risparmiando (gerundio di ahorrar)",
+        "nl": "sparend (gerundio van ahorrar); ahorrando un poco = door een beetje te sparen"
+      }
+    },
+    "ahorro": {
+      "lemma": "ahorro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "saving (m); mis ahorros = my savings",
+        "it": "risparmio (m); mis ahorros = i miei risparmi",
+        "nl": "besparing (m); mis ahorros = mijn spaargeld"
+      }
+    },
+    "ahorro#ahorrar": {
+      "lemma": "ahorrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I save (ahorrar)",
+        "it": "risparmio (ahorrar)",
+        "nl": "ik spaar, ik bespaar (ahorrar)"
+      }
+    },
+    "ahorros": {
+      "lemma": "ahorro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "savings (ahorro, m pl)",
+        "it": "risparmi (ahorro, m pl)",
+        "nl": "spaargeld (ahorro, m mv)"
+      }
+    },
+    "al": {
+      "lemma": "al",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the, at the (a + el); al día = a day, per day",
+        "it": "al (a + el); al día = al giorno",
+        "nl": "naar de (a + el); al día = per dag"
+      }
+    },
+    "alquilarlo": {
+      "lemma": "alquilar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "alquilarlo = alquilar + lo: to rent it",
+        "it": "alquilarlo = alquilar + lo: affittarlo",
+        "nl": "alquilarlo = alquilar + lo: het huren"
+      }
+    },
+    "alquiler": {
+      "lemma": "alquiler",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rent (m)",
+        "it": "affitto (m)",
+        "nl": "huur (m)"
+      }
+    },
+    "altos": {
+      "lemma": "alto",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "high, tall (m pl of alto)",
+        "it": "alti (alto, m pl)",
+        "nl": "hoog, lang (alto, m mv)"
+      }
+    },
+    "anoche": {
+      "lemma": "anoche",
+      "pos": "ADV",
+      "gloss": {
+        "en": "last night",
+        "it": "ieri sera, stanotte",
+        "nl": "gisteravond, vannacht"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before; antes de dormir = before going to sleep",
+        "it": "prima; antes de dormir = prima di dormire",
+        "nl": "eerder, vooraf; antes de dormir = voor het slapengaan"
+      }
+    },
+    "así": {
+      "lemma": "así",
+      "pos": "ADV",
+      "gloss": {
+        "en": "like this, so; así que = so",
+        "it": "così; así que = quindi",
+        "nl": "zo; así que = dus"
+      }
+    },
+    "aumento": {
+      "lemma": "aumento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "increase, rise (m); aumento de sueldo = raise",
+        "it": "aumento (m); aumento de sueldo = aumento di stipendio",
+        "nl": "verhoging, stijging (m); aumento de sueldo = loonsverhoging"
+      }
+    },
+    "automático": {
+      "lemma": "automático",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "automatic; cajero automático = ATM",
+        "it": "automatico; cajero automático = bancomat",
+        "nl": "automatisch; cajero automático = geldautomaat"
+      }
+    },
+    "año": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (m)",
+        "it": "anno (m)",
+        "nl": "jaar (m)"
+      }
+    },
+    "años": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (m, plural of año); tener ... años = be ... years old",
+        "it": "anni (m, plurale di año)",
+        "nl": "jaren (m, meervoud van año); tener ... años = ... jaar oud zijn"
+      }
+    },
+    "baja": {
+      "lemma": "bajo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "low; short (feminine of bajo)",
+        "it": "bassa (femminile di bajo)",
+        "nl": "laag; klein (vrouwelijk van bajo)"
+      }
+    },
+    "bancaria": {
+      "lemma": "bancario",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bank (feminine of bancario); cuenta bancaria = bank account",
+        "it": "bancaria (femminile di bancario); cuenta bancaria = conto in banca",
+        "nl": "bank- (vrouwelijk van bancario); cuenta bancaria = bankrekening"
+      }
+    },
+    "banco": {
+      "lemma": "banco",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bank (m)",
+        "it": "banca (m)",
+        "nl": "bank (geldbank) (m)"
+      }
+    },
+    "buena": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (feminine)",
+        "it": "buona (femminile)",
+        "nl": "goed (vrouwelijk)"
+      }
+    },
+    "cada": {
+      "lemma": "cada",
+      "pos": "DET",
+      "gloss": {
+        "en": "every, each",
+        "it": "ogni",
+        "nl": "elke, ieder"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coffee (m)",
+        "it": "caffè (m)",
+        "nl": "koffie (m)"
+      }
+    },
+    "cajero": {
+      "lemma": "cajero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cashier (m; cajera for a woman); cajero automático = ATM",
+        "it": "cassiere (m; cajera per una donna); cajero automático = bancomat",
+        "nl": "kassier (m; cajera voor een vrouw); cajero automático = geldautomaat"
+      }
+    },
+    "calle": {
+      "lemma": "calle",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "street (f)",
+        "it": "strada, via (f)",
+        "nl": "straat (f)"
+      }
+    },
+    "caro": {
+      "lemma": "caro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "expensive",
+        "it": "caro",
+        "nl": "duur"
+      }
+    },
+    "carro": {
+      "lemma": "carro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "car (m)",
+        "it": "macchina, auto (m)",
+        "nl": "auto (m)"
+      }
+    },
+    "casa": {
+      "lemma": "casa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f); casa de la playa = beach house",
+        "it": "casa (f); casa de la playa = casa al mare",
+        "nl": "huis (f); casa de la playa = strandhuis"
+      }
+    },
+    "casi": {
+      "lemma": "casi",
+      "pos": "ADV",
+      "gloss": {
+        "en": "almost, nearly",
+        "it": "quasi",
+        "nl": "bijna"
+      }
+    },
+    "cobra": {
+      "lemma": "cobrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "charges (cobrar)",
+        "it": "fa pagare (cobrar)",
+        "nl": "rekent (cobrar)"
+      }
+    },
+    "cobran": {
+      "lemma": "cobrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they charge; you charge (ustedes) (cobrar)",
+        "it": "fanno pagare; fate pagare (ustedes) (cobrar)",
+        "nl": "ze rekenen; u rekent (ustedes) (cobrar)"
+      }
+    },
+    "cobrar": {
+      "lemma": "cobrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to charge; to get paid",
+        "it": "far pagare; incassare, riscuotere",
+        "nl": "in rekening brengen; uitbetaald krijgen"
+      }
+    },
+    "cocinando": {
+      "lemma": "cocinar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cooking (cocinar, gerundio); estaba cocinando = I was cooking",
+        "it": "cucinando (cocinar, gerundio); estaba cocinando = stavo cucinando",
+        "nl": "aan het koken (cocinar, gerundio); estaba cocinando = ik was aan het koken"
+      }
+    },
+    "comer": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to eat",
+        "it": "mangiare",
+        "nl": "eten"
+      }
+    },
+    "como": {
+      "lemma": "como",
+      "pos": "ADP",
+      "gloss": {
+        "en": "as, like; como mesera = as a waitress; como los idiomas = like languages, such as languages",
+        "it": "come; como mesera = come cameriera",
+        "nl": "als, zoals; como mesera = als serveerster; como los idiomas = zoals talen"
+      }
+    },
+    "comprar": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to buy",
+        "it": "comprare",
+        "nl": "kopen"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with; cumplir con = meet (requirements)",
+        "it": "con; cumplir con = soddisfare",
+        "nl": "met; cumplir con = voldoen aan"
+      }
+    },
+    "contador": {
+      "lemma": "contador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "accountant (m; contadora for a woman)",
+        "it": "commercialista, contabile (m; contadora per una donna)",
+        "nl": "boekhouder, accountant (m; contadora voor een vrouw)"
+      }
+    },
+    "contratar": {
+      "lemma": "contratar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hire, take on",
+        "it": "assumere; attenzione: non contrattare (= regatear)",
+        "nl": "aannemen, in dienst nemen"
+      }
+    },
+    "costaba": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cost, used to cost (costar, imperfecto)",
+        "it": "costava (costar)",
+        "nl": "kostte (costar, imperfecto)"
+      }
+    },
+    "costar": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to cost (o>ue: cuesta)",
+        "it": "costare (o>ue: cuesta)",
+        "nl": "kosten (o>ue: cuesta)"
+      }
+    },
+    "crece": {
+      "lemma": "crecer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "grows (crecer)",
+        "it": "cresce (crecer)",
+        "nl": "groeit (crecer)"
+      }
+    },
+    "crisis": {
+      "lemma": "crisis",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "crisis (f); same in the plural",
+        "it": "crisi (f); uguale al plurale",
+        "nl": "crisis (f); hetzelfde in het meervoud"
+      }
+    },
+    "crédito": {
+      "lemma": "crédito",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "credit (m); tarjeta de crédito = credit card",
+        "it": "credito (m); tarjeta de crédito = carta di credito",
+        "nl": "krediet (m); tarjeta de crédito = creditcard"
+      }
+    },
+    "cuando": {
+      "lemma": "cuando",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "when (no accent outside questions)",
+        "it": "quando (senza accento fuori dalle domande)",
+        "nl": "als, wanneer (zonder accent buiten vragen)"
+      }
+    },
+    "cuanto": {
+      "lemma": "cuanto",
+      "pos": "ADV",
+      "gloss": {
+        "en": "cuanto más ..., más ... = the more ..., the more ...; no accent here",
+        "it": "cuanto más ..., más ... = più ..., più ...; qui senza accento",
+        "nl": "cuanto más ..., más ... = hoe meer ..., hoe meer ...; hier zonder accent"
+      }
+    },
+    "cuenta": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "account; bill, check (f); cuenta bancaria = bank account",
+        "it": "conto (f); cuenta bancaria = conto in banca",
+        "nl": "rekening (f); cuenta bancaria = bankrekening"
+      }
+    },
+    "cuesta": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "costs (costar)",
+        "it": "costa (costar)",
+        "nl": "kost (costar)"
+      }
+    },
+    "cuzco": {
+      "lemma": "Cuzco",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cuzco, a city in Peru",
+        "it": "Cuzco, città del Perù",
+        "nl": "Cuzco, een stad in Peru"
+      }
+    },
+    "cuánto": {
+      "lemma": "cuánto",
+      "pos": "PRON",
+      "gloss": {
+        "en": "how much; ¿cuánto tiempo? = how long?",
+        "it": "quanto; ¿cuánto tiempo? = quanto tempo?",
+        "nl": "hoeveel; ¿cuánto tiempo? = hoe lang?"
+      }
+    },
+    "dame": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "give me (dar, tú imperative + me)",
+        "it": "dammi (dar, imperativo tú + me)",
+        "nl": "geef me (dar, gebiedende wijs tú + me)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; acabar de, dejar de + infinitive; a punto de = about to",
+        "it": "di, da; acabar de, dejar de + infinito; a punto de = sul punto di",
+        "nl": "van, uit; acabar de, dejar de + infinitief; a punto de = op het punt om"
+      }
+    },
+    "deberías": {
+      "lemma": "deber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you should (deber, conditional)",
+        "it": "dovresti (deber, condicional)",
+        "nl": "je zou moeten (deber, voorwaardelijke wijs)"
+      }
+    },
+    "debo": {
+      "lemma": "deber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I owe; I must (deber); te debo = I owe you",
+        "it": "devo (deber); te debo = ti devo",
+        "nl": "ik ben schuldig; ik moet (deber); te debo = ik ben je schuldig"
+      }
+    },
+    "declaración": {
+      "lemma": "declaración",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "statement (f); declaración de impuestos = tax return",
+        "it": "dichiarazione (f); declaración de impuestos = dichiarazione dei redditi",
+        "nl": "verklaring (f); declaración de impuestos = belastingaangifte"
+      }
+    },
+    "dejan": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they leave, they let (dejar); dejan de + infinitive = they stop ...ing",
+        "it": "lasciano (dejar); dejan de + infinito = smettono di",
+        "nl": "ze laten (dejar); dejan de + infinitief = ze stoppen met"
+      }
+    },
+    "dejar": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave (something); dejar un recado = leave a message",
+        "it": "lasciare; dejar un recado = lasciare un messaggio",
+        "nl": "laten, achterlaten; dejar un recado = een bericht achterlaten"
+      }
+    },
+    "dejé": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I left, I let (dejar); dejé de + infinitive = I stopped ...ing",
+        "it": "ho lasciato (dejar); dejé de + infinito = ho smesso di",
+        "nl": "ik liet (dejar); dejé de + infinitief = ik ben gestopt met"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el)",
+        "it": "del, dello (de + el)",
+        "nl": "van de, van het (de + el)"
+      }
+    },
+    "dentro": {
+      "lemma": "dentro",
+      "pos": "ADV",
+      "gloss": {
+        "en": "inside; dentro de + time = in (two weeks)",
+        "it": "dentro; dentro de + tempo = tra, fra",
+        "nl": "binnen; dentro de + tijd = over (twee weken)"
+      }
+    },
+    "departamento": {
+      "lemma": "departamento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "apartment (m)",
+        "it": "appartamento (m)",
+        "nl": "appartement (m)"
+      }
+    },
+    "deuda": {
+      "lemma": "deuda",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "debt (f)",
+        "it": "debito (f)",
+        "nl": "schuld (f)"
+      }
+    },
+    "deudas": {
+      "lemma": "deuda",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "debts (deuda, f); tener deudas = be in debt",
+        "it": "debiti (deuda, f)",
+        "nl": "schulden (deuda, f)"
+      }
+    },
+    "dinero": {
+      "lemma": "dinero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "money (m)",
+        "it": "soldi, denaro (m)",
+        "nl": "geld (m)"
+      }
+    },
+    "dio": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gave (dar, he, she); no accent",
+        "it": "ha dato (dar, lui, lei); senza accento",
+        "nl": "gaf (dar, hij, zij); zonder accent"
+      }
+    },
+    "doble": {
+      "lemma": "doble",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "double; el doble = twice as much",
+        "it": "doppio; el doble = il doppio",
+        "nl": "dubbel; el doble = het dubbele"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "doscientos": {
+      "lemma": "doscientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two hundred; feminine doscientas",
+        "it": "duecento; femminile doscientas",
+        "nl": "tweehonderd; vrouwelijk doscientas"
+      }
+    },
+    "economía": {
+      "lemma": "economía",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "economy; economics (f)",
+        "it": "economia (f)",
+        "nl": "economie (f)"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine singular)",
+        "it": "il, lo (maschile singolare)",
+        "nl": "de, het (mannelijk enkelvoud)"
+      }
+    },
+    "empresas": {
+      "lemma": "empresa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "companies (empresa, f)",
+        "it": "aziende (empresa, f)",
+        "nl": "bedrijven (empresa, f)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, on",
+        "it": "in, a, su",
+        "nl": "in, op, bij"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (f)",
+        "it": "questa",
+        "nl": "deze, dit (vrouwelijk)"
+      }
+    },
+    "estamos": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we are (estar); estamos subiendo = we're carrying up (right now)",
+        "it": "siamo, stiamo (estar); estamos subiendo = stiamo portando su",
+        "nl": "we zijn (estar); estamos subiendo = we zijn aan het naar boven dragen"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (m); este fin de semana = this weekend",
+        "it": "questo (m); este fin de semana = questo fine settimana",
+        "nl": "deze, dit (m); este fin de semana = dit weekend"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar); está a punto de = is about to",
+        "it": "è, sta (estar); está a punto de = sta per",
+        "nl": "is (estar); está a punto de = staat op het punt om"
+      }
+    },
+    "europa": {
+      "lemma": "Europa",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Europe",
+        "it": "Europa",
+        "nl": "Europa"
+      }
+    },
+    "fija": {
+      "lemma": "fijo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fixed (feminine of fijo); a tasa fija = at a fixed rate",
+        "it": "fissa (femminile di fijo); a tasa fija = a tasso fisso",
+        "nl": "vast (vrouwelijk van fijo); a tasa fija = met een vaste rente"
+      }
+    },
+    "fueron": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they were (ser, indefinido); todos fueron muy amables = everyone was very nice",
+        "it": "furono, sono stati (ser); todos fueron muy amables = sono stati tutti molto gentili",
+        "nl": "ze waren (ser, indefinido); todos fueron muy amables = iedereen was heel aardig"
+      }
+    },
+    "ganancia": {
+      "lemma": "ganancia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "profit, gain (f)",
+        "it": "guadagno, profitto (f)",
+        "nl": "winst (f)"
+      }
+    },
+    "ganancias": {
+      "lemma": "ganancia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "profits, earnings (ganancia, f)",
+        "it": "guadagni, profitti (ganancia, f)",
+        "nl": "winst, opbrengst (ganancia, f)"
+      }
+    },
+    "ganar": {
+      "lemma": "ganar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to earn; also to win; ganar experiencia = gain experience",
+        "it": "guadagnare; anche vincere; ganar experiencia = fare esperienza",
+        "nl": "verdienen; ook winnen; ganar experiencia = ervaring opdoen"
+      }
+    },
+    "ganas#ganar": {
+      "lemma": "ganar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you earn; you win (ganar, tú)",
+        "it": "guadagni; vinci (ganar, tú)",
+        "nl": "je verdient; je wint (ganar, tú)"
+      }
+    },
+    "gasto": {
+      "lemma": "gasto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "expense (m); watch out: also I spend (gastar)",
+        "it": "spesa (m); attenzione: anche spendo (gastar)",
+        "nl": "uitgave (m); let op: ook ik geef uit (gastar)"
+      }
+    },
+    "gastos": {
+      "lemma": "gasto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "expenses, costs (gasto, m pl)",
+        "it": "spese (gasto, m pl)",
+        "nl": "uitgaven, kosten (gasto, m mv)"
+      }
+    },
+    "gasté": {
+      "lemma": "gastar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I spent (gastar)",
+        "it": "ho speso (gastar)",
+        "nl": "ik gaf uit (gastar)"
+      }
+    },
+    "había": {
+      "lemma": "haber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (haber, imperfecto); había + participle = had done: había olvidado = I had forgotten; also there was",
+        "it": "avevo, aveva (haber, imperfecto); había + participio = trapassato: había olvidado = avevo dimenticato; anche c'era",
+        "nl": "had (haber, imperfecto); había + voltooid deelwoord: había olvidado = ik was vergeten; ook er was"
+      }
+    },
+    "hacemos": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we do, we make (hacer)",
+        "it": "facciamo (hacer)",
+        "nl": "we doen, we maken (hacer)"
+      }
+    },
+    "hacer": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do, to make; hacer un curso = take a course",
+        "it": "fare; hacer un curso = fare un corso",
+        "nl": "doen, maken; hacer un curso = een cursus volgen"
+      }
+    },
+    "haciendo": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "doing, making (gerund of hacer); haciendo una pasantía = by doing an internship",
+        "it": "facendo (gerundio di hacer)",
+        "nl": "doend (gerundio van hacer); haciendo una pasantía = door stage te lopen"
+      }
+    },
+    "hecho#hacer": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "done, made (participle of hacer, irregular)",
+        "it": "fatto (participio di hacer, irregolare)",
+        "nl": "gedaan, gemaakt (voltooid deelwoord van hacer, onregelmatig)"
+      }
+    },
+    "hermano": {
+      "lemma": "hermano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "hipoteca": {
+      "lemma": "hipoteca",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mortgage (f)",
+        "it": "mutuo (f); attenzione: il prestito per la casa è il mutuo, non l'ipoteca",
+        "nl": "hypotheek (f)"
+      }
+    },
+    "horas": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours (f)",
+        "it": "ore (f)",
+        "nl": "uren (f)"
+      }
+    },
+    "impuesto": {
+      "lemma": "impuesto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tax (m)",
+        "it": "tassa, imposta (m)",
+        "nl": "belasting (m)"
+      }
+    },
+    "impuestos": {
+      "lemma": "impuesto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "taxes (impuesto, m); pagar impuestos = pay taxes",
+        "it": "tasse (impuesto, m); pagar impuestos = pagare le tasse",
+        "nl": "belastingen (impuesto, m); pagar impuestos = belasting betalen"
+      }
+    },
+    "inflación": {
+      "lemma": "inflación",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "inflation (f)",
+        "it": "inflazione (f)",
+        "nl": "inflatie (f)"
+      }
+    },
+    "ingreso": {
+      "lemma": "ingreso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "income (m); usually plural: mis ingresos",
+        "it": "reddito, entrata (m); di solito al plurale: mis ingresos",
+        "nl": "inkomen (m); meestal meervoud: mis ingresos"
+      }
+    },
+    "ingresos": {
+      "lemma": "ingreso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "income, earnings (ingreso, m pl)",
+        "it": "reddito, entrate (ingreso, m pl)",
+        "nl": "inkomen, inkomsten (ingreso, m mv)"
+      }
+    },
+    "interés": {
+      "lemma": "interés",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "interest (m); tasa de interés = interest rate",
+        "it": "interesse (m); tasa de interés = tasso di interesse",
+        "nl": "rente; ook interesse (m); tasa de interés = rentevoet"
+      }
+    },
+    "inversiones": {
+      "lemma": "inversión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "investments (inversión, f); no accent in the plural",
+        "it": "investimenti (inversión, f); al plurale niente accento",
+        "nl": "investeringen, beleggingen (inversión, f); zonder accent in het meervoud"
+      }
+    },
+    "inversión": {
+      "lemma": "inversión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "investment (f)",
+        "it": "investimento (f)",
+        "nl": "investering, belegging (f)"
+      }
+    },
+    "invertir": {
+      "lemma": "invertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to invest (e>ie: invierto)",
+        "it": "investire (e>ie: invierto)",
+        "nl": "beleggen, investeren (e>ie: invierto)"
+      }
+    },
+    "invertirlo": {
+      "lemma": "invertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "invertirlo = invertir + lo: to invest it",
+        "it": "invertirlo = invertir + lo: investirlo",
+        "nl": "invertirlo = invertir + lo: het beleggen"
+      }
+    },
+    "invierto": {
+      "lemma": "invertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I invest (invertir)",
+        "it": "investo (invertir)",
+        "nl": "ik beleg (invertir)"
+      }
+    },
+    "invirtiendo": {
+      "lemma": "invertir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "investing (gerund of invertir, e>i); invirtiendo en acciones = by investing in stocks",
+        "it": "investendo (gerundio di invertir, e>i)",
+        "nl": "beleggend (gerundio van invertir, e>i); invirtiendo en acciones = door in aandelen te beleggen"
+      }
+    },
+    "jefe": {
+      "lemma": "jefe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boss (m; jefa for a woman)",
+        "it": "capo (m; jefa per una donna)",
+        "nl": "baas (m; jefa voor een vrouw)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine singular)",
+        "it": "la (femminile singolare)",
+        "nl": "de, het (vrouwelijk enkelvoud)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "her, it, you (formal, a woman); direct object for a feminine noun or person, before the verb",
+        "it": "la (oggetto diretto femminile, prima del verbo); anche La di cortesia",
+        "nl": "haar, het, hem, u (lijdend voorwerp, vrouwelijk, vóór het werkwoord)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f pl); a las siete = at seven",
+        "it": "le (f pl); a las siete = alle sette",
+        "nl": "de (f mv); a las siete = om zeven uur"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "to him, to her, to you (usted); indirect object, often doubled: le presté mi bicicleta a Marta",
+        "it": "gli, le, Le (complemento indiretto), spesso raddoppiato: le presté mi bicicleta a Marta = ho prestato la bici a Marta",
+        "nl": "(aan) hem, haar, u (meewerkend voorwerp), vaak dubbel: le presté mi bicicleta a Marta = ik heb Marta mijn fiets geleend"
+      }
+    },
+    "lima": {
+      "lemma": "Lima",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lima, the capital of Peru",
+        "it": "Lima, la capitale del Perù",
+        "nl": "Lima, de hoofdstad van Peru"
+      }
+    },
+    "llamó": {
+      "lemma": "llamar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "called (llamar); me llamó por mi nombre = he called me by my name",
+        "it": "ha chiamato (llamar); me llamó por mi nombre = mi ha chiamato per nome",
+        "nl": "riep, belde (llamar); me llamó por mi nombre = hij riep me bij mijn naam"
+      }
+    },
+    "llevo": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I carry, take (llevar); llevo + time + gerund = I've been ...ing for: llevo un año buscando = I've been looking for a year",
+        "it": "porto (llevar); llevo + tempo + gerundio = da + tempo: llevo un año buscando = cerco da un anno",
+        "nl": "ik draag, neem mee (llevar); llevo + tijd + gerundio = al + tijd: llevo un año buscando = ik zoek al een jaar"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (direct object); before the verb, or attached to an infinitive or imperative",
+        "it": "lo (oggetto diretto); prima del verbo, o attaccato a infinito e imperativo",
+        "nl": "het, hem (lijdend voorwerp); vóór het werkwoord, of vast aan infinitief of gebiedende wijs"
+      }
+    },
+    "lo#art": {
+      "lemma": "lo",
+      "pos": "DET",
+      "gloss": {
+        "en": "lo que = what, the thing that: lo que hago = what I do; lo mismo = the same (thing)",
+        "it": "lo que = quello che: lo que hago = quello che faccio; lo mismo = lo stesso",
+        "nl": "lo que = wat, datgene wat: lo que hago = wat ik doe; lo mismo = hetzelfde"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural); los sábados = on Saturdays",
+        "it": "i, gli; los sábados = il sabato",
+        "nl": "de (mannelijk meervoud); los sábados = op zaterdag"
+      }
+    },
+    "los#pron": {
+      "lemma": "los",
+      "pos": "PRON",
+      "gloss": {
+        "en": "them (direct object, masculine or mixed): te los recojo = I'll pick them up for you",
+        "it": "li (oggetto diretto maschile): te los recojo = te li vado a prendere",
+        "nl": "ze, hen (lijdend voorwerp, mannelijk of gemengd): te los recojo = ik haal ze voor je op"
+      }
+    },
+    "lugar": {
+      "lemma": "lugar",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "place (m)",
+        "it": "posto, luogo (m)",
+        "nl": "plek, plaats (m)"
+      }
+    },
+    "mando": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I send (mandar)",
+        "it": "mando (mandar)",
+        "nl": "ik stuur (mandar)"
+      }
+    },
+    "mañana": {
+      "lemma": "mañana",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow; hasta mañana = see you tomorrow",
+        "it": "domani; hasta mañana = a domani",
+        "nl": "morgen; hasta mañana = tot morgen"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me, for me; ¿me da...? = can I have...?; me llevo = I'll take",
+        "it": "mi; ¿me da...? = mi dà...?; me llevo = prendo",
+        "nl": "me, mij; ¿me da...? = mag ik...?; me llevo = ik neem"
+      }
+    },
+    "menos": {
+      "lemma": "menos",
+      "pos": "ADV",
+      "gloss": {
+        "en": "less; menos ... que = less ... than: menos pesada = lighter",
+        "it": "meno; menos ... que = meno ... di",
+        "nl": "minder; menos ... que = minder ... dan: menos pesada = lichter"
+      }
+    },
+    "mes": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "month (m)",
+        "it": "mese (m)",
+        "nl": "maand (m); let op: niet mes (= cuchillo)"
+      }
+    },
+    "meses": {
+      "lemma": "mes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "months (plural of mes)",
+        "it": "mesi (plurale di mes)",
+        "nl": "maanden (meervoud van mes)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "il mio, la mia",
+        "nl": "mijn"
+      }
+    },
+    "mil": {
+      "lemma": "mil",
+      "pos": "NUM",
+      "gloss": {
+        "en": "a thousand, one thousand (no un before it)",
+        "it": "mille",
+        "nl": "duizend"
+      }
+    },
+    "miré": {
+      "lemma": "mirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I looked at, I checked (mirar)",
+        "it": "ho guardato (mirar)",
+        "nl": "ik keek naar, ik bekeek (mirar)"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (before a plural noun)",
+        "it": "miei, mie (davanti a un nome plurale; senza articolo)",
+        "nl": "mijn (vóór een meervoud)"
+      }
+    },
+    "mismo": {
+      "lemma": "mismo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "same; lo mismo = the same (thing)",
+        "it": "stesso; lo mismo = lo stesso",
+        "nl": "zelfde; lo mismo = hetzelfde"
+      }
+    },
+    "muchas": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "many (feminine plural); muchas gracias = thank you very much",
+        "it": "molte; muchas gracias = grazie mille",
+        "nl": "veel (vrouwelijk meervoud); muchas gracias = hartelijk dank"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "mudar": {
+      "lemma": "mudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "mudarse = to move (house); nos vamos a mudar = we're going to move",
+        "it": "mudarse = traslocare; nos vamos a mudar = traslochiamo",
+        "nl": "mudarse = verhuizen; nos vamos a mudar = we gaan verhuizen"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; más fácil = easier",
+        "it": "più; más fácil = più facile",
+        "nl": "meer; más fácil = makkelijker"
+      }
+    },
+    "nada": {
+      "lemma": "nada",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nothing; no encuentro nada = I can't find anything",
+        "it": "niente; no encuentro nada = non trovo niente",
+        "nl": "niets; no encuentro nada = ik vind niets"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "no; before a verb: not",
+        "it": "no; davanti al verbo: non",
+        "nl": "nee; vóór het werkwoord: niet"
+      }
+    },
+    "noche": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night, evening (f); esta noche = tonight; de noche = at night",
+        "it": "notte, sera (f); esta noche = stasera; de noche = di notte",
+        "nl": "nacht, avond (f); esta noche = vanavond; de noche = 's nachts"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us, for us; ourselves, each other: nos ayudamos = we help each other",
+        "it": "ci; nos ayudamos = ci aiutiamo",
+        "nl": "ons, aan ons; elkaar: nos ayudamos = we helpen elkaar"
+      }
+    },
+    "nuestros": {
+      "lemma": "nuestro",
+      "pos": "DET",
+      "gloss": {
+        "en": "our (masculine plural)",
+        "it": "nostri",
+        "nl": "onze (mannelijk meervoud)"
+      }
+    },
+    "número": {
+      "lemma": "número",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m)",
+        "it": "numero (m)",
+        "nl": "nummer (m)"
+      }
+    },
+    "ofreció": {
+      "lemma": "ofrecer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "offered (ofrecer, he, she, it)",
+        "it": "ha offerto (ofrecer, lui, lei)",
+        "nl": "bood aan (ofrecer, hij, zij)"
+      }
+    },
+    "olvidado": {
+      "lemma": "olvidar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "forgotten (participle of olvidar)",
+        "it": "dimenticato (participio di olvidar)",
+        "nl": "vergeten (voltooid deelwoord van olvidar)"
+      }
+    },
+    "pagamos": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we paid; we pay (pagar)",
+        "it": "abbiamo pagato; paghiamo (pagar)",
+        "nl": "we betaalden; we betalen (pagar)"
+      }
+    },
+    "pagando": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "paying (gerund of pagar); lo está pagando = he's paying it off",
+        "it": "pagando (gerundio di pagar)",
+        "nl": "betalend (gerundio van pagar); lo está pagando = hij is het aan het afbetalen"
+      }
+    },
+    "pagar": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pay",
+        "it": "pagare",
+        "nl": "betalen"
+      }
+    },
+    "pagas": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you pay (pagar, tú)",
+        "it": "paghi (pagar, tú)",
+        "nl": "je betaalt (pagar, tú)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; para mí = for me, in my opinion",
+        "it": "per; para mí = per me",
+        "nl": "voor; para mí = voor mij"
+      }
+    },
+    "parte": {
+      "lemma": "parte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "part (f)",
+        "it": "parte (f)",
+        "nl": "deel (f)"
+      }
+    },
+    "pedir": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask for; pedir prestado = to borrow",
+        "it": "chiedere; pedir prestado = farsi prestare",
+        "nl": "vragen om; pedir prestado = lenen van iemand"
+      }
+    },
+    "pedí": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I asked for (pedir); le pedí prestado = I borrowed from him or her",
+        "it": "ho chiesto (pedir)",
+        "nl": "ik vroeg om (pedir)"
+      }
+    },
+    "pensión": {
+      "lemma": "pensión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pension (f); watch out: also a guesthouse",
+        "it": "pensione (di vecchiaia) (f)",
+        "nl": "pensioen (f); let op: ook een pension"
+      }
+    },
+    "perderlo": {
+      "lemma": "perder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "perderlo = perder + lo: to lose it; perderlo todo = lose everything",
+        "it": "perderlo = perder + lo: perderlo; perderlo todo = perdere tutto",
+        "nl": "perderlo = perder + lo: het verliezen; perderlo todo = alles verliezen"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "pesos": {
+      "lemma": "peso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pesos (plural of peso, m)",
+        "it": "pesos (plurale di peso, m)",
+        "nl": "peso's (meervoud van peso, m)"
+      }
+    },
+    "pidió": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "asked for (pedir, he, she, e>i)",
+        "it": "ha chiesto (pedir, lui, lei, e>i)",
+        "nl": "vroeg (pedir, hij, zij, e>i)"
+      }
+    },
+    "poco": {
+      "lemma": "poco",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a little; un poco = a bit",
+        "it": "poco; un poco = un po'",
+        "nl": "weinig; un poco = een beetje"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; por fin = finally",
+        "it": "per; por fin = finalmente",
+        "nl": "voor, door; por fin = eindelijk"
+      }
+    },
+    "precios": {
+      "lemma": "precio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prices (m)",
+        "it": "prezzi (m)",
+        "nl": "prijzen (m)"
+      }
+    },
+    "presupuesto": {
+      "lemma": "presupuesto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "budget; also an estimate, quote (m)",
+        "it": "bilancio, budget; anche preventivo (m)",
+        "nl": "budget, begroting; ook offerte (m)"
+      }
+    },
+    "préstamo": {
+      "lemma": "préstamo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "loan (m); pedir un préstamo = take out a loan",
+        "it": "prestito (m); pedir un préstamo = chiedere un prestito",
+        "nl": "lening (m); pedir un préstamo = een lening aanvragen"
+      }
+    },
+    "puede": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can, may (poder, he, she, it, usted); puede ser = can be, may be",
+        "it": "può (poder, lui, lei, usted); puede ser = può essere",
+        "nl": "kan (poder, hij, zij, het, usted); puede ser = kan zijn"
+      }
+    },
+    "puedes": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (tú) (poder)",
+        "it": "puoi (poder)",
+        "nl": "je kunt (tú) (poder)"
+      }
+    },
+    "punto": {
+      "lemma": "punto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "point (m); a punto de = about to; punto débil = weak point",
+        "it": "punto (m); a punto de = sul punto di; punto débil = punto debole",
+        "nl": "punt (m); a punto de = op het punt om; punto débil = zwak punt"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, which, who; los idiomas que hablas = the languages (that) you speak",
+        "it": "che; los idiomas que hablas = le lingue che parli",
+        "nl": "dat, die; los idiomas que hablas = de talen die je spreekt"
+      }
+    },
+    "queda": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is left (quedar); no me queda nada = I have nothing left; also fits",
+        "it": "resta (quedar); no me queda nada = non mi resta niente; anche sta (bene)",
+        "nl": "blijft over (quedar); no me queda nada = ik heb niets meer over; ook past"
+      }
+    },
+    "queremos": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we want (querer)",
+        "it": "vogliamo (querer)",
+        "nl": "we willen (querer)"
+      }
+    },
+    "quiero": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want, I'd like (querer)",
+        "it": "voglio (querer)",
+        "nl": "ik wil (querer)"
+      }
+    },
+    "quinientos": {
+      "lemma": "quinientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five hundred; watch out: not cincocientos",
+        "it": "cinquecento; attenzione: non cincocientos",
+        "nl": "vijfhonderd; let op: niet cincocientos"
+      }
+    },
+    "restaurante": {
+      "lemma": "restaurante",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "restaurant (m)",
+        "it": "ristorante (m)",
+        "nl": "restaurant (m)"
+      }
+    },
+    "rápido": {
+      "lemma": "rápido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fast, quick",
+        "it": "veloce, rapido",
+        "nl": "snel"
+      }
+    },
+    "saldo": {
+      "lemma": "saldo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "balance (of an account) (m); watch out: not a sale",
+        "it": "saldo (del conto) (m); attenzione: non i saldi (= rebajas)",
+        "nl": "saldo (m)"
+      }
+    },
+    "saqué": {
+      "lemma": "sacar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I took, I took out (sacar; c > qu before e)",
+        "it": "ho fatto, ho tirato fuori (sacar; c > qu davanti a e)",
+        "nl": "ik maakte, ik haalde eruit (sacar; c > qu vóór e)"
+      }
+    },
+    "semana": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); fin de semana = weekend",
+        "it": "settimana (f); fin de semana = fine settimana",
+        "nl": "week (f); fin de semana = weekend"
+      }
+    },
+    "ser": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to be; soñar con ser = dream of being",
+        "it": "essere; soñar con ser = sognare di essere",
+        "nl": "zijn; soñar con ser = ervan dromen om ... te zijn"
+      }
+    },
+    "sesenta": {
+      "lemma": "sesenta",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixty (sesenta 60, setenta 70)",
+        "it": "sessanta (sesenta 60, setenta 70)",
+        "nl": "zestig (sesenta 60, setenta 70)"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if; no accent, unlike sí = yes",
+        "it": "se; senza accento, diverso da sí = sì",
+        "nl": "als, indien; zonder accent, anders dan sí = ja"
+      }
+    },
+    "sigo": {
+      "lemma": "seguir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I follow, I continue (seguir, e>i); sigo + gerund = I'm still ...ing, I keep ...ing",
+        "it": "seguo, continuo (seguir, e>i); sigo + gerundio = continuo a, sto ancora",
+        "nl": "ik volg, ik ga door (seguir, e>i); sigo + gerundio = ik ben nog steeds aan het, ik blijf"
+      }
+    },
+    "siguen": {
+      "lemma": "seguir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they continue (seguir, e>i); siguen subiendo = they keep going up",
+        "it": "continuano (seguir, e>i); siguen subiendo = continuano a salire",
+        "nl": "ze gaan door (seguir, e>i); siguen subiendo = ze blijven stijgen"
+      }
+    },
+    "solicitamos": {
+      "lemma": "solicitar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we applied for; we apply for (solicitar)",
+        "it": "abbiamo chiesto; chiediamo (solicitar)",
+        "nl": "we vroegen aan; we vragen aan (solicitar)"
+      }
+    },
+    "suben": {
+      "lemma": "subir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they go up, they rise (subir)",
+        "it": "salgono (subir)",
+        "nl": "ze stijgen (subir)"
+      }
+    },
+    "subiendo": {
+      "lemma": "subir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "going up, rising (gerund of subir)",
+        "it": "salendo (gerundio di subir)",
+        "nl": "stijgend (gerundio van subir)"
+      }
+    },
+    "subir": {
+      "lemma": "subir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go up; subirse = to get on (a bus or a train)",
+        "it": "salire; subirse = salire (su un mezzo); attenzione: non è subire",
+        "nl": "naar boven gaan; subirse = instappen"
+      }
+    },
+    "sueldo": {
+      "lemma": "sueldo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salary, pay (m)",
+        "it": "stipendio (m)",
+        "nl": "salaris, loon (m)"
+      }
+    },
+    "sueldos": {
+      "lemma": "sueldo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salaries, wages (sueldo, m)",
+        "it": "stipendi (sueldo, m)",
+        "nl": "salarissen, lonen (sueldo, m)"
+      }
+    },
+    "suficiente": {
+      "lemma": "suficiente",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "enough (same for m and f); no hay suficiente espacio = there isn't enough space",
+        "it": "sufficiente, abbastanza; no hay suficiente espacio = non c'è abbastanza spazio",
+        "nl": "genoeg, voldoende (m en f); no hay suficiente espacio = er is niet genoeg ruimte"
+      }
+    },
+    "supermercado": {
+      "lemma": "supermercado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "supermarket (m)",
+        "it": "supermercato (m)",
+        "nl": "supermarkt (m)"
+      }
+    },
+    "también": {
+      "lemma": "también",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, too",
+        "it": "anche",
+        "nl": "ook"
+      }
+    },
+    "tan": {
+      "lemma": "tan",
+      "pos": "ADV",
+      "gloss": {
+        "en": "so, as; tan ... como = as ... as: tan alto como yo",
+        "it": "così, tanto; tan ... como = ... come, ... quanto: tan alto como yo = alto come me",
+        "nl": "zo; tan ... como = even ... als: tan alto como yo = even lang als ik"
+      }
+    },
+    "tarjeta": {
+      "lemma": "tarjeta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "card (f); con tarjeta = by card",
+        "it": "carta, tessera (f); con tarjeta = con la carta",
+        "nl": "kaart, pinpas (f); con tarjeta = met de kaart"
+      }
+    },
+    "tasa": {
+      "lemma": "tasa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rate (f); tasa de interés = interest rate",
+        "it": "tasso (f); attenzione: non tassa (= impuesto)",
+        "nl": "tarief, voet (f); tasa de interés = rentevoet"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you, to you, for you (tú); before lo, la, los, las: te lo devuelvo = I'll give it back to you",
+        "it": "ti, te; davanti a lo, la, los, las: te lo devuelvo = te lo restituisco",
+        "nl": "je, jou, aan jou (tú); vóór lo, la, los, las: te lo devuelvo = ik geef het je terug"
+      }
+    },
+    "tendré": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'll have (tener, futuro: tendré)",
+        "it": "avrò (tener, futuro irregolare: tendré)",
+        "nl": "ik zal hebben (tener, futuro: tendré)"
+      }
+    },
+    "tener": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have; tener miedo = be scared",
+        "it": "avere; tener miedo = avere paura",
+        "nl": "hebben; tener miedo = bang zijn"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener)",
+        "it": "ho (tener)",
+        "nl": "ik heb (tener)"
+      }
+    },
+    "termino": {
+      "lemma": "terminar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I finish (terminar)",
+        "it": "finisco (terminar)",
+        "nl": "ik maak af, ik ben klaar (terminar)"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet; todavía no = not yet",
+        "it": "ancora; todavía no = non ancora",
+        "nl": "nog; todavía no = nog niet"
+      }
+    },
+    "todo": {
+      "lemma": "todo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "all, everything; es todo = that's all",
+        "it": "tutto; es todo = è tutto",
+        "nl": "alles; es todo = dat is alles"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all (plural of todo); todos mis amigos = all my friends",
+        "it": "tutti (plurale di todo); todos mis amigos = tutti i miei amici",
+        "nl": "alle (meervoud van todo); todos mis amigos = al mijn vrienden"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (tú); no accent, unlike tú = you",
+        "it": "tuo, tua; attenzione: tu senza accento = tuo, tú = tu",
+        "nl": "jouw, je (tú); zonder accent, anders dan tú = jij"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a masculine noun); also one",
+        "it": "un, uno (davanti a un nome maschile); anche il numero uno",
+        "nl": "een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a feminine noun); also one",
+        "it": "una (davanti a un nome femminile); anche il numero una",
+        "nl": "een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "usar": {
+      "lemma": "usar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to use",
+        "it": "usare",
+        "nl": "gebruiken"
+      }
+    },
+    "va": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "goes (ir); va a + verb = is going to",
+        "it": "va (ir); va a + infinito = sta per, farà",
+        "nl": "gaat (ir); va a + infinitief = gaat ..."
+      }
+    },
+    "vamos": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go; irse = leave: nos vamos de vacaciones = we go (away) on vacation (ir)",
+        "it": "andiamo; irse = andarsene: nos vamos de vacaciones = andiamo in vacanza (ir)",
+        "nl": "we gaan; irse = weggaan: nos vamos de vacaciones = we gaan op vakantie (ir)"
+      }
+    },
+    "van": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they go; you go (ustedes)",
+        "it": "vanno; andate (ustedes)",
+        "nl": "zij gaan; jullie gaan (ustedes)"
+      }
+    },
+    "veinte": {
+      "lemma": "veinte",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty",
+        "it": "venti",
+        "nl": "twintig"
+      }
+    },
+    "vez": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); otra vez = again",
+        "it": "volta (f); otra vez = un'altra volta, di nuovo",
+        "nl": "keer (f); otra vez = nog een keer"
+      }
+    },
+    "viajar": {
+      "lemma": "viajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to travel",
+        "it": "viaggiare",
+        "nl": "reizen"
+      }
+    },
+    "viaje": {
+      "lemma": "viaje",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip (m); irse de viaje = go away on a trip",
+        "it": "viaggio (m); irse de viaje = partire (per un viaggio)",
+        "nl": "reis (m); irse de viaje = op reis gaan"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (ir); voy a + infinitive = I'm going to",
+        "it": "vado (ir); voy a + infinito = sto per, farò",
+        "nl": "ik ga (ir); voy a + infinitief = ik ga (iets doen)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; cincuenta y cinco = fifty-five",
+        "it": "e; cincuenta y cinco = cinquantacinque",
+        "nl": "en; cincuenta y cinco = vijfenvijftig"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already",
+        "it": "già",
+        "nl": "al"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I; after the verb for emphasis: lo hice yo = I did it",
+        "it": "io; dopo il verbo per enfasi: lo hice yo = l'ho fatto io",
+        "nl": "ik; na het werkwoord voor nadruk: lo hice yo = ik heb het gedaan"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-b1-dinero-1",
+      "title": "Mi cuenta bancaria",
+      "grammarFocus": {
+        "en": [
+          "acabar de + infinitive: Nos acabamos de mudar = we just moved",
+          "combined pronouns: te los mando = I'll send them to you; dame = give me"
+        ],
+        "it": [
+          "acabar de + infinito: Nos acabamos de mudar = ci siamo appena trasferiti",
+          "pronomi combinati: te los mando = te li mando; dame = dammi"
+        ],
+        "nl": [
+          "acabar de + infinitief: Nos acabamos de mudar = we zijn net verhuisd",
+          "gecombineerde voornaamwoorden: te los mando = ik stuur ze je; dame = geef me"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-1-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una cuenta bancaria",
+          "translation": {
+            "en": "a bank account",
+            "it": "un conto bancario",
+            "nl": "een bankrekening"
+          },
+          "distractors": {
+            "en": [
+              "a credit card",
+              "a bank loan"
+            ],
+            "it": [
+              "una carta di credito",
+              "un prestito bancario"
+            ],
+            "nl": [
+              "een creditcard",
+              "een banklening"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nos acabamos de mudar",
+          "translation": {
+            "en": "we just moved",
+            "it": "ci siamo appena trasferiti",
+            "nl": "we zijn net verhuisd"
+          },
+          "distractors": {
+            "en": [
+              "we're about to move",
+              "we just got married"
+            ],
+            "it": [
+              "stiamo per trasferirci",
+              "ci siamo appena sposati"
+            ],
+            "nl": [
+              "we gaan binnenkort verhuizen",
+              "we zijn net getrouwd"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nos acabamos de mudar a Lima y queremos abrir una cuenta bancaria.",
+          "translation": {
+            "en": "We just moved to Lima and we want to open a bank account.",
+            "it": "Ci siamo appena trasferiti a Lima e vogliamo aprire un conto in banca.",
+            "nl": "We zijn net naar Lima verhuisd en we willen een bankrekening openen."
+          },
+          "distractors": {
+            "en": [
+              "We're about to move to Lima and we want to open a bank account.",
+              "We just moved to Lima and we want to close our bank account."
+            ],
+            "it": [
+              "Stiamo per trasferirci a Lima e vogliamo aprire un conto in banca.",
+              "Ci siamo appena trasferiti a Lima e vogliamo chiudere il conto in banca."
+            ],
+            "nl": [
+              "We gaan binnenkort naar Lima verhuizen en we willen een bankrekening openen.",
+              "We zijn net naar Lima verhuisd en we willen onze bankrekening opheffen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "automático",
+          "translation": {
+            "en": "automatic",
+            "it": "automatico",
+            "nl": "automatisch"
+          },
+          "distractors": {
+            "en": [
+              "electric",
+              "monthly"
+            ],
+            "it": [
+              "elettrico",
+              "mensile"
+            ],
+            "nl": [
+              "elektrisch",
+              "maandelijks"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el cajero automático",
+          "translation": {
+            "en": "the ATM",
+            "it": "il bancomat",
+            "nl": "de geldautomaat"
+          },
+          "distractors": {
+            "en": [
+              "the bank teller",
+              "the ticket machine"
+            ],
+            "it": [
+              "il cassiere",
+              "la biglietteria automatica"
+            ],
+            "nl": [
+              "de kassier",
+              "de kaartjesautomaat"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Anoche saqué dos mil pesos del cajero automático.",
+          "variants": [
+            "Anoche saqué 2000 pesos del cajero automático.",
+            "Anoche saqué 2.000 pesos del cajero automático.",
+            "Anoche saqué 2,000 pesos del cajero automático."
+          ],
+          "translation": {
+            "en": "Last night I took out two thousand pesos from the ATM.",
+            "it": "Ieri sera ho prelevato duemila pesos al bancomat.",
+            "nl": "Gisteravond heb ik tweeduizend pesos uit de geldautomaat gehaald."
+          },
+          "distractors": {
+            "en": [
+              "Last night I took out two hundred pesos from the ATM.",
+              "Last night I deposited two thousand pesos at the ATM."
+            ],
+            "it": [
+              "Ieri sera ho prelevato duecento pesos al bancomat.",
+              "Ieri sera ho versato duemila pesos al bancomat."
+            ],
+            "nl": [
+              "Gisteravond heb ik tweehonderd pesos uit de geldautomaat gehaald.",
+              "Gisteravond heb ik tweeduizend pesos bij de geldautomaat gestort."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "saldo",
+          "translation": {
+            "en": "balance",
+            "it": "saldo",
+            "nl": "saldo"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "deposit"
+            ],
+            "it": [
+              "scontrino",
+              "deposito"
+            ],
+            "nl": [
+              "bonnetje",
+              "borg"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Miré el saldo de mi cuenta y casi no me queda nada.",
+          "translation": {
+            "en": "I checked my account balance and I have almost nothing left.",
+            "it": "Ho guardato il saldo del conto e non mi resta quasi niente.",
+            "nl": "Ik heb het saldo van mijn rekening bekeken en ik heb bijna niets meer over."
+          },
+          "distractors": {
+            "en": [
+              "I checked my account balance and I still have a lot left.",
+              "I checked my credit card bill and I owe almost nothing."
+            ],
+            "it": [
+              "Ho guardato il saldo del conto e mi resta ancora molto.",
+              "Ho guardato l'estratto della carta e non devo quasi niente."
+            ],
+            "nl": [
+              "Ik heb het saldo van mijn rekening bekeken en ik heb nog veel over.",
+              "Ik heb mijn creditcardafschrift bekeken en ik ben bijna niets schuldig."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "crédito",
+          "translation": {
+            "en": "credit",
+            "it": "credito",
+            "nl": "krediet"
+          },
+          "distractors": {
+            "en": [
+              "debt",
+              "loan"
+            ],
+            "it": [
+              "debito",
+              "prestito"
+            ],
+            "nl": [
+              "schuld",
+              "lening"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la tarjeta de crédito",
+          "translation": {
+            "en": "the credit card",
+            "it": "la carta di credito",
+            "nl": "de creditcard"
+          },
+          "distractors": {
+            "en": [
+              "the debit card",
+              "the ID card"
+            ],
+            "it": [
+              "la carta di debito",
+              "la carta d'identità"
+            ],
+            "nl": [
+              "de pinpas",
+              "de identiteitskaart"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "cobrar",
+          "translation": {
+            "en": "to charge; to get paid",
+            "it": "far pagare; incassare",
+            "nl": "in rekening brengen; uitbetaald krijgen"
+          },
+          "distractors": {
+            "en": [
+              "to borrow",
+              "to spend"
+            ],
+            "it": [
+              "prendere in prestito",
+              "spendere"
+            ],
+            "nl": [
+              "lenen",
+              "uitgeven"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuánto cobran al mes por la tarjeta de crédito?",
+          "translation": {
+            "en": "How much do you charge a month for the credit card?",
+            "it": "Quanto fate pagare al mese per la carta di credito?",
+            "nl": "Hoeveel rekent u per maand voor de creditcard?"
+          },
+          "distractors": {
+            "en": [
+              "How much do you charge a year for the credit card?",
+              "How much do you charge a month for the bank account?"
+            ],
+            "it": [
+              "Quanto fate pagare all'anno per la carta di credito?",
+              "Quanto fate pagare al mese per il conto in banca?"
+            ],
+            "nl": [
+              "Hoeveel rekent u per jaar voor de creditcard?",
+              "Hoeveel rekent u per maand voor de bankrekening?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dame tu número de cuenta",
+          "translation": {
+            "en": "give me your account number",
+            "it": "dammi il tuo numero di conto",
+            "nl": "geef me je rekeningnummer"
+          },
+          "distractors": {
+            "en": [
+              "give me your phone number",
+              "give me your card number"
+            ],
+            "it": [
+              "dammi il tuo numero di telefono",
+              "dammi il numero della tua carta"
+            ],
+            "nl": [
+              "geef me je telefoonnummer",
+              "geef me je kaartnummer"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dame tu número de cuenta y te mando el dinero esta noche.",
+          "translation": {
+            "en": "Give me your account number and I'll send you the money tonight.",
+            "it": "Dammi il tuo numero di conto e ti mando i soldi stasera.",
+            "nl": "Geef me je rekeningnummer, dan stuur ik je vanavond het geld."
+          },
+          "distractors": {
+            "en": [
+              "Give me your account number and I'll send you the money tomorrow.",
+              "Give me your phone number and I'll send you the money tonight."
+            ],
+            "it": [
+              "Dammi il tuo numero di conto e ti mando i soldi domani.",
+              "Dammi il tuo numero di telefono e ti mando i soldi stasera."
+            ],
+            "nl": [
+              "Geef me je rekeningnummer, dan stuur ik je morgen het geld.",
+              "Geef me je telefoonnummer, dan stuur ik je vanavond het geld."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "te los mando",
+          "translation": {
+            "en": "I'll send them to you",
+            "it": "te li mando",
+            "nl": "ik stuur ze je"
+          },
+          "distractors": {
+            "en": [
+              "I'll give them to you",
+              "I'll send them to her"
+            ],
+            "it": [
+              "te li do",
+              "glieli mando"
+            ],
+            "nl": [
+              "ik geef ze je",
+              "ik stuur ze naar haar"
+            ]
+          },
+          "senses": {
+            "1": "pron"
+          }
+        },
+        {
+          "id": "es-b1-dinero-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Todavía te debo quinientos pesos, pero te los mando mañana.",
+          "variants": [
+            "Todavía te debo 500 pesos, pero te los mando mañana."
+          ],
+          "translation": {
+            "en": "I still owe you five hundred pesos, but I'll send it to you tomorrow.",
+            "it": "Ti devo ancora cinquecento pesos, ma te li mando domani.",
+            "nl": "Ik ben je nog vijfhonderd pesos schuldig, maar ik stuur ze je morgen."
+          },
+          "distractors": {
+            "en": [
+              "I still owe you fifty pesos, but I'll send it to you tomorrow.",
+              "You still owe me five hundred pesos, but you'll send it to me tomorrow."
+            ],
+            "it": [
+              "Ti devo ancora cinquanta pesos, ma te li mando domani.",
+              "Mi devi ancora cinquecento pesos, ma me li mandi domani."
+            ],
+            "nl": [
+              "Ik ben je nog vijftig pesos schuldig, maar ik stuur ze je morgen.",
+              "Jij bent me nog vijfhonderd pesos schuldig, maar je stuurt ze me morgen."
+            ]
+          },
+          "senses": {
+            "7": "pron"
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-dinero-2",
+      "title": "Ahorrar",
+      "grammarFocus": {
+        "en": [
+          "llevar + time + gerund: Llevo un año ahorrando = I've been saving for a year",
+          "the gerund for manner: Ahorro cocinando en casa = I save by cooking at home"
+        ],
+        "it": [
+          "llevar + tempo + gerundio: Llevo un año ahorrando = risparmio da un anno",
+          "il gerundio di modo: Ahorro cocinando en casa = risparmio cucinando a casa"
+        ],
+        "nl": [
+          "llevar + tijd + gerundio: Llevo un año ahorrando = ik spaar al een jaar",
+          "de gerundio voor de manier: Ahorro cocinando en casa = ik bespaar door thuis te koken"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ahorro",
+          "translation": {
+            "en": "saving, savings",
+            "it": "risparmio",
+            "nl": "besparing, spaargeld"
+          },
+          "distractors": {
+            "en": [
+              "expense",
+              "income"
+            ],
+            "it": [
+              "spesa",
+              "reddito"
+            ],
+            "nl": [
+              "uitgave",
+              "inkomen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mis ahorros",
+          "translation": {
+            "en": "my savings",
+            "it": "i miei risparmi",
+            "nl": "mijn spaargeld"
+          },
+          "distractors": {
+            "en": [
+              "my expenses",
+              "my debts"
+            ],
+            "it": [
+              "le mie spese",
+              "i miei debiti"
+            ],
+            "nl": [
+              "mijn uitgaven",
+              "mijn schulden"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Gasté casi todos mis ahorros en el viaje a Cuzco.",
+          "translation": {
+            "en": "I spent almost all my savings on the trip to Cuzco.",
+            "it": "Ho speso quasi tutti i miei risparmi per il viaggio a Cuzco.",
+            "nl": "Ik heb bijna al mijn spaargeld uitgegeven aan de reis naar Cuzco."
+          },
+          "distractors": {
+            "en": [
+              "I spent almost all my savings on the new car.",
+              "I spent almost half my savings on the trip to Cuzco."
+            ],
+            "it": [
+              "Ho speso quasi tutti i miei risparmi per la macchina nuova.",
+              "Ho speso quasi metà dei miei risparmi per il viaggio a Cuzco."
+            ],
+            "nl": [
+              "Ik heb bijna al mijn spaargeld uitgegeven aan de nieuwe auto.",
+              "Ik heb bijna de helft van mijn spaargeld uitgegeven aan de reis naar Cuzco."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "llevo un año ahorrando",
+          "translation": {
+            "en": "I've been saving for a year",
+            "it": "risparmio da un anno",
+            "nl": "ik spaar al een jaar"
+          },
+          "distractors": {
+            "en": [
+              "I saved for a year",
+              "I've been working for a year"
+            ],
+            "it": [
+              "ho risparmiato per un anno",
+              "lavoro da un anno"
+            ],
+            "nl": [
+              "ik heb een jaar gespaard",
+              "ik werk al een jaar"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Llevo un año ahorrando para comprar un carro.",
+          "translation": {
+            "en": "I've been saving for a year to buy a car.",
+            "it": "Risparmio da un anno per comprare una macchina.",
+            "nl": "Ik spaar al een jaar om een auto te kopen."
+          },
+          "distractors": {
+            "en": [
+              "I've been saving for a year to take a trip.",
+              "I've been saving for a month to buy a car."
+            ],
+            "it": [
+              "Risparmio da un anno per fare un viaggio.",
+              "Risparmio da un mese per comprare una macchina."
+            ],
+            "nl": [
+              "Ik spaar al een jaar om op reis te gaan.",
+              "Ik spaar al een maand om een auto te kopen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "gasto",
+          "translation": {
+            "en": "expense",
+            "it": "spesa",
+            "nl": "uitgave"
+          },
+          "distractors": {
+            "en": [
+              "saving",
+              "profit"
+            ],
+            "it": [
+              "risparmio",
+              "guadagno"
+            ],
+            "nl": [
+              "besparing",
+              "winst"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "los gastos de la casa",
+          "translation": {
+            "en": "the household expenses",
+            "it": "le spese di casa",
+            "nl": "de huishoudelijke uitgaven"
+          },
+          "distractors": {
+            "en": [
+              "the household income",
+              "the car expenses"
+            ],
+            "it": [
+              "le entrate di casa",
+              "le spese della macchina"
+            ],
+            "nl": [
+              "het huishoudinkomen",
+              "de autokosten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "presupuesto",
+          "translation": {
+            "en": "budget",
+            "it": "budget, bilancio",
+            "nl": "budget, begroting"
+          },
+          "distractors": {
+            "en": [
+              "bill",
+              "receipt"
+            ],
+            "it": [
+              "bolletta",
+              "scontrino"
+            ],
+            "nl": [
+              "rekening",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Todos los meses hacemos un presupuesto con los gastos de la casa.",
+          "translation": {
+            "en": "Every month we make a budget for the household expenses.",
+            "it": "Ogni mese facciamo un bilancio delle spese di casa.",
+            "nl": "Elke maand maken we een budget voor de huishoudelijke uitgaven."
+          },
+          "distractors": {
+            "en": [
+              "Every week we make a budget for the household expenses.",
+              "Every month we make a budget for the car expenses."
+            ],
+            "it": [
+              "Ogni settimana facciamo un bilancio delle spese di casa.",
+              "Ogni mese facciamo un bilancio delle spese della macchina."
+            ],
+            "nl": [
+              "Elke week maken we een budget voor de huishoudelijke uitgaven.",
+              "Elke maand maken we een budget voor de autokosten."
+            ]
+          },
+          "commas": [
+            2
+          ]
+        },
+        {
+          "id": "es-b1-dinero-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cocinando en casa",
+          "translation": {
+            "en": "by cooking at home",
+            "it": "cucinando a casa",
+            "nl": "door thuis te koken"
+          },
+          "distractors": {
+            "en": [
+              "by eating out",
+              "by shopping at the market"
+            ],
+            "it": [
+              "mangiando fuori",
+              "facendo la spesa al mercato"
+            ],
+            "nl": [
+              "door buiten de deur te eten",
+              "door op de markt te winkelen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ahorro mucho dinero cocinando en casa en lugar de comer afuera.",
+          "translation": {
+            "en": "I save a lot of money by cooking at home instead of eating out.",
+            "it": "Risparmio molti soldi cucinando a casa invece di mangiare fuori.",
+            "nl": "Ik bespaar veel geld door thuis te koken in plaats van buiten de deur te eten."
+          },
+          "distractors": {
+            "en": [
+              "I spend a lot of money by eating out instead of cooking at home.",
+              "I save a little money by cooking at home instead of eating out."
+            ],
+            "it": [
+              "Spendo molti soldi mangiando fuori invece di cucinare a casa.",
+              "Risparmio pochi soldi cucinando a casa invece di mangiare fuori."
+            ],
+            "nl": [
+              "Ik geef veel geld uit door buiten de deur te eten in plaats van thuis te koken.",
+              "Ik bespaar een beetje geld door thuis te koken in plaats van buiten de deur te eten."
+            ]
+          },
+          "senses": {
+            "0": "ahorrar"
+          },
+          "commas": [
+            5
+          ]
+        },
+        {
+          "id": "es-b1-dinero-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dejé de comprar",
+          "translation": {
+            "en": "I stopped buying",
+            "it": "ho smesso di comprare",
+            "nl": "ik ben gestopt met kopen"
+          },
+          "distractors": {
+            "en": [
+              "I started buying",
+              "I kept buying"
+            ],
+            "it": [
+              "ho cominciato a comprare",
+              "ho continuato a comprare"
+            ],
+            "nl": [
+              "ik ben begonnen met kopen",
+              "ik bleef kopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dejé de comprar café en la calle y ahora ahorro doscientos pesos a la semana.",
+          "variants": [
+            "Dejé de comprar café en la calle y ahora ahorro 200 pesos a la semana."
+          ],
+          "translation": {
+            "en": "I stopped buying coffee on the street and now I save two hundred pesos a week.",
+            "it": "Ho smesso di comprare il caffè per strada e adesso risparmio duecento pesos a settimana.",
+            "nl": "Ik koop geen koffie meer op straat en nu bespaar ik tweehonderd pesos per week."
+          },
+          "distractors": {
+            "en": [
+              "I stopped buying coffee on the street and now I save two hundred pesos a month.",
+              "I started buying coffee on the street and now I spend two hundred pesos a week."
+            ],
+            "it": [
+              "Ho smesso di comprare il caffè per strada e adesso risparmio duecento pesos al mese.",
+              "Ho cominciato a comprare il caffè per strada e adesso spendo duecento pesos a settimana."
+            ],
+            "nl": [
+              "Ik koop geen koffie meer op straat en nu bespaar ik tweehonderd pesos per maand.",
+              "Ik ben koffie op straat gaan kopen en nu geef ik tweehonderd pesos per week uit."
+            ]
+          },
+          "senses": {
+            "9": "ahorrar"
+          },
+          "commas": [
+            6
+          ]
+        },
+        {
+          "id": "es-b1-dinero-2-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si sigo ahorrando así",
+          "translation": {
+            "en": "if I keep saving like this",
+            "it": "se continuo a risparmiare così",
+            "nl": "als ik zo blijf sparen"
+          },
+          "distractors": {
+            "en": [
+              "if I keep spending like this",
+              "if I start saving like this"
+            ],
+            "it": [
+              "se continuo a spendere così",
+              "se comincio a risparmiare così"
+            ],
+            "nl": [
+              "als ik zo blijf uitgeven",
+              "als ik zo begin te sparen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si sigo ahorrando así, dentro de dos años tendré suficiente para viajar a Europa.",
+          "variants": [
+            "Si sigo ahorrando así, dentro de 2 años tendré suficiente para viajar a Europa."
+          ],
+          "translation": {
+            "en": "If I keep saving like this, in two years I'll have enough to travel to Europe.",
+            "it": "Se continuo a risparmiare così, tra due anni avrò abbastanza per viaggiare in Europa.",
+            "nl": "Als ik zo blijf sparen, heb ik over twee jaar genoeg om naar Europa te reizen."
+          },
+          "distractors": {
+            "en": [
+              "If I keep saving like this, in two months I'll have enough to travel to Europe.",
+              "If I keep saving like this, in two years I'll have enough to buy a house."
+            ],
+            "it": [
+              "Se continuo a risparmiare così, tra due mesi avrò abbastanza per viaggiare in Europa.",
+              "Se continuo a risparmiare così, tra due anni avrò abbastanza per comprare una casa."
+            ],
+            "nl": [
+              "Als ik zo blijf sparen, heb ik over twee maanden genoeg om naar Europa te reizen.",
+              "Als ik zo blijf sparen, heb ik over twee jaar genoeg om een huis te kopen."
+            ]
+          },
+          "commas": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-dinero-3",
+      "title": "Los impuestos",
+      "grammarFocus": {
+        "en": [
+          "the pluscuamperfecto: ya había hecho = I had already done",
+          "cuanto más..., más...: Cuanto más ganas, más pagas = the more you earn, the more you pay"
+        ],
+        "it": [
+          "il pluscuamperfecto: ya había hecho = avevo già fatto",
+          "cuanto más..., más...: Cuanto más ganas, más pagas = più guadagni, più paghi"
+        ],
+        "nl": [
+          "het pluscuamperfecto: ya había hecho = ik had al gedaan",
+          "cuanto más..., más...: Cuanto más ganas, más pagas = hoe meer je verdient, hoe meer je betaalt"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "impuesto",
+          "translation": {
+            "en": "tax",
+            "it": "tassa, imposta",
+            "nl": "belasting"
+          },
+          "distractors": {
+            "en": [
+              "fine",
+              "fee"
+            ],
+            "it": [
+              "multa",
+              "commissione"
+            ],
+            "nl": [
+              "boete",
+              "toeslag"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "pagar impuestos",
+          "translation": {
+            "en": "to pay taxes",
+            "it": "pagare le tasse",
+            "nl": "belasting betalen"
+          },
+          "distractors": {
+            "en": [
+              "to pay rent",
+              "to collect taxes"
+            ],
+            "it": [
+              "pagare l'affitto",
+              "riscuotere le tasse"
+            ],
+            "nl": [
+              "huur betalen",
+              "belasting innen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cuanto más ganas",
+          "translation": {
+            "en": "the more you earn",
+            "it": "più guadagni",
+            "nl": "hoe meer je verdient"
+          },
+          "distractors": {
+            "en": [
+              "the less you earn",
+              "the more you spend"
+            ],
+            "it": [
+              "meno guadagni",
+              "più spendi"
+            ],
+            "nl": [
+              "hoe minder je verdient",
+              "hoe meer je uitgeeft"
+            ]
+          },
+          "senses": {
+            "2": "ganar"
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuanto más ganas, más impuestos pagas.",
+          "translation": {
+            "en": "The more you earn, the more taxes you pay.",
+            "it": "Più guadagni, più tasse paghi.",
+            "nl": "Hoe meer je verdient, hoe meer belasting je betaalt."
+          },
+          "distractors": {
+            "en": [
+              "The less you earn, the more taxes you pay.",
+              "The more you spend, the more taxes you pay."
+            ],
+            "it": [
+              "Meno guadagni, più tasse paghi.",
+              "Più spendi, più tasse paghi."
+            ],
+            "nl": [
+              "Hoe minder je verdient, hoe meer belasting je betaalt.",
+              "Hoe meer je uitgeeft, hoe meer belasting je betaalt."
+            ]
+          },
+          "senses": {
+            "2": "ganar"
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "ingreso",
+          "translation": {
+            "en": "income",
+            "it": "reddito, entrata",
+            "nl": "inkomen"
+          },
+          "distractors": {
+            "en": [
+              "expense",
+              "savings"
+            ],
+            "it": [
+              "spesa",
+              "risparmio"
+            ],
+            "nl": [
+              "uitgave",
+              "spaargeld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mis ingresos",
+          "translation": {
+            "en": "my income",
+            "it": "il mio reddito",
+            "nl": "mijn inkomen"
+          },
+          "distractors": {
+            "en": [
+              "my expenses",
+              "my savings"
+            ],
+            "it": [
+              "le mie spese",
+              "i miei risparmi"
+            ],
+            "nl": [
+              "mijn uitgaven",
+              "mijn spaargeld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Este año mis ingresos fueron más altos, así que voy a pagar más impuestos.",
+          "translation": {
+            "en": "This year my income was higher, so I'm going to pay more taxes.",
+            "it": "Quest'anno il mio reddito è stato più alto, quindi pagherò più tasse.",
+            "nl": "Dit jaar was mijn inkomen hoger, dus ik ga meer belasting betalen."
+          },
+          "distractors": {
+            "en": [
+              "This year my income was lower, so I'm going to pay less tax.",
+              "This year my expenses were higher, so I'm going to pay more taxes."
+            ],
+            "it": [
+              "Quest'anno il mio reddito è stato più basso, quindi pagherò meno tasse.",
+              "Quest'anno le mie spese sono state più alte, quindi pagherò più tasse."
+            ],
+            "nl": [
+              "Dit jaar was mijn inkomen lager, dus ik ga minder belasting betalen.",
+              "Dit jaar waren mijn uitgaven hoger, dus ik ga meer belasting betalen."
+            ]
+          },
+          "commas": [
+            1
+          ]
+        },
+        {
+          "id": "es-b1-dinero-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "contador",
+          "translation": {
+            "en": "accountant",
+            "it": "commercialista, contabile",
+            "nl": "boekhouder"
+          },
+          "distractors": {
+            "en": [
+              "lawyer",
+              "banker"
+            ],
+            "it": [
+              "avvocato",
+              "banchiere"
+            ],
+            "nl": [
+              "advocaat",
+              "bankier"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la declaración de impuestos",
+          "translation": {
+            "en": "the tax return",
+            "it": "la dichiarazione dei redditi",
+            "nl": "de belastingaangifte"
+          },
+          "distractors": {
+            "en": [
+              "the tax refund",
+              "the bank statement"
+            ],
+            "it": [
+              "il rimborso delle tasse",
+              "l'estratto conto"
+            ],
+            "nl": [
+              "de belastingteruggave",
+              "het rekeningafschrift"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuánto cobra el contador por hacer la declaración de impuestos?",
+          "translation": {
+            "en": "How much does the accountant charge to do the tax return?",
+            "it": "Quanto si fa pagare il commercialista per fare la dichiarazione dei redditi?",
+            "nl": "Hoeveel rekent de boekhouder voor de belastingaangifte?"
+          },
+          "distractors": {
+            "en": [
+              "How much does the lawyer charge to do the tax return?",
+              "How long does the accountant take to do the tax return?"
+            ],
+            "it": [
+              "Quanto si fa pagare l'avvocato per fare la dichiarazione dei redditi?",
+              "Quanto ci mette il commercialista a fare la dichiarazione dei redditi?"
+            ],
+            "nl": [
+              "Hoeveel rekent de advocaat voor de belastingaangifte?",
+              "Hoe lang doet de boekhouder over de belastingaangifte?"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ya había hecho",
+          "translation": {
+            "en": "I had already done",
+            "it": "avevo già fatto",
+            "nl": "ik had al gedaan"
+          },
+          "distractors": {
+            "en": [
+              "I hadn't done yet",
+              "I had already sent"
+            ],
+            "it": [
+              "non avevo ancora fatto",
+              "avevo già mandato"
+            ],
+            "nl": [
+              "ik had nog niet gedaan",
+              "ik had al opgestuurd"
+            ]
+          },
+          "senses": {
+            "2": "hacer"
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando el contador me llamó, yo ya había hecho la declaración de impuestos.",
+          "translation": {
+            "en": "When the accountant called me, I had already done my tax return.",
+            "it": "Quando il commercialista mi ha chiamato, avevo già fatto la dichiarazione dei redditi.",
+            "nl": "Toen de boekhouder me belde, had ik de belastingaangifte al gedaan."
+          },
+          "distractors": {
+            "en": [
+              "When the accountant called me, I hadn't done my tax return yet.",
+              "When the lawyer called me, I had already done my tax return."
+            ],
+            "it": [
+              "Quando il commercialista mi ha chiamato, non avevo ancora fatto la dichiarazione dei redditi.",
+              "Quando l'avvocato mi ha chiamato, avevo già fatto la dichiarazione dei redditi."
+            ],
+            "nl": [
+              "Toen de boekhouder me belde, had ik de belastingaangifte nog niet gedaan.",
+              "Toen de advocaat me belde, had ik de belastingaangifte al gedaan."
+            ]
+          },
+          "senses": {
+            "8": "hacer"
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "había olvidado pagar",
+          "translation": {
+            "en": "I had forgotten to pay",
+            "it": "avevo dimenticato di pagare",
+            "nl": "ik was vergeten te betalen"
+          },
+          "distractors": {
+            "en": [
+              "I had decided to pay",
+              "I had forgotten to call"
+            ],
+            "it": [
+              "avevo deciso di pagare",
+              "avevo dimenticato di chiamare"
+            ],
+            "nl": [
+              "ik had besloten te betalen",
+              "ik was vergeten te bellen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Había olvidado pagar un impuesto y ahora tengo que pagar el doble.",
+          "translation": {
+            "en": "I had forgotten to pay a tax and now I have to pay double.",
+            "it": "Avevo dimenticato di pagare una tassa e adesso devo pagare il doppio.",
+            "nl": "Ik was vergeten een belasting te betalen en nu moet ik het dubbele betalen."
+          },
+          "distractors": {
+            "en": [
+              "I had forgotten to pay a tax and now I have to pay half.",
+              "I had forgotten to pay the rent and now I have to pay double."
+            ],
+            "it": [
+              "Avevo dimenticato di pagare una tassa e adesso devo pagare la metà.",
+              "Avevo dimenticato di pagare l'affitto e adesso devo pagare il doppio."
+            ],
+            "nl": [
+              "Ik was vergeten een belasting te betalen en nu moet ik de helft betalen.",
+              "Ik was vergeten de huur te betalen en nu moet ik het dubbele betalen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Llevo tres horas haciendo la declaración y todavía no la termino.",
+          "variants": [
+            "Llevo 3 horas haciendo la declaración y todavía no la termino."
+          ],
+          "translation": {
+            "en": "I've been doing my tax return for three hours and I still haven't finished it.",
+            "it": "Sto facendo la dichiarazione da tre ore e non l'ho ancora finita.",
+            "nl": "Ik ben al drie uur met mijn belastingaangifte bezig en ik heb hem nog steeds niet af."
+          },
+          "distractors": {
+            "en": [
+              "I've been doing my tax return for three days and I still haven't finished it.",
+              "I've been doing the budget for three hours and I still haven't finished it."
+            ],
+            "it": [
+              "Sto facendo la dichiarazione da tre giorni e non l'ho ancora finita.",
+              "Sto facendo il bilancio da tre ore e non l'ho ancora finito."
+            ],
+            "nl": [
+              "Ik ben al drie dagen met mijn belastingaangifte bezig en ik heb hem nog steeds niet af.",
+              "Ik ben al drie uur met het budget bezig en ik heb het nog steeds niet af."
+            ]
+          },
+          "senses": {
+            "9": "pron"
+          },
+          "commas": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-dinero-4",
+      "title": "La hipoteca",
+      "grammarFocus": {
+        "en": [
+          "estar a punto de + infinitive: Estamos a punto de comprar = we're about to buy",
+          "ir a + infinitive for what will happen: nos va a costar menos = it's going to cost us less"
+        ],
+        "it": [
+          "estar a punto de + infinito: Estamos a punto de comprar = stiamo per comprare",
+          "ir a + infinito per il futuro: nos va a costar menos = ci costerà meno"
+        ],
+        "nl": [
+          "estar a punto de + infinitief: Estamos a punto de comprar = we staan op het punt te kopen",
+          "ir a + infinitief voor de toekomst: nos va a costar menos = het gaat ons minder kosten"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "hipoteca",
+          "translation": {
+            "en": "mortgage",
+            "it": "mutuo, ipoteca",
+            "nl": "hypotheek"
+          },
+          "distractors": {
+            "en": [
+              "rent",
+              "deposit"
+            ],
+            "it": [
+              "affitto",
+              "caparra"
+            ],
+            "nl": [
+              "huur",
+              "borg"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "estamos a punto de comprar",
+          "translation": {
+            "en": "we're about to buy",
+            "it": "stiamo per comprare",
+            "nl": "we staan op het punt te kopen"
+          },
+          "distractors": {
+            "en": [
+              "we just bought",
+              "we're about to sell"
+            ],
+            "it": [
+              "abbiamo appena comprato",
+              "stiamo per vendere"
+            ],
+            "nl": [
+              "we hebben net gekocht",
+              "we staan op het punt te verkopen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estamos a punto de comprar un departamento, así que solicitamos una hipoteca.",
+          "translation": {
+            "en": "We're about to buy an apartment, so we applied for a mortgage.",
+            "it": "Stiamo per comprare un appartamento, quindi abbiamo chiesto un mutuo.",
+            "nl": "We staan op het punt een appartement te kopen, dus we hebben een hypotheek aangevraagd."
+          },
+          "distractors": {
+            "en": [
+              "We just bought an apartment, so we applied for a mortgage.",
+              "We're about to rent an apartment, so we applied for a mortgage."
+            ],
+            "it": [
+              "Abbiamo appena comprato un appartamento, quindi abbiamo chiesto un mutuo.",
+              "Stiamo per affittare un appartamento, quindi abbiamo chiesto un mutuo."
+            ],
+            "nl": [
+              "We hebben net een appartement gekocht, dus we hebben een hypotheek aangevraagd.",
+              "We staan op het punt een appartement te huren, dus we hebben een hypotheek aangevraagd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "préstamo",
+          "translation": {
+            "en": "loan",
+            "it": "prestito",
+            "nl": "lening"
+          },
+          "distractors": {
+            "en": [
+              "debt",
+              "deposit"
+            ],
+            "it": [
+              "debito",
+              "deposito"
+            ],
+            "nl": [
+              "schuld",
+              "storting"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "pedir un préstamo",
+          "translation": {
+            "en": "to take out a loan",
+            "it": "chiedere un prestito",
+            "nl": "een lening aanvragen"
+          },
+          "distractors": {
+            "en": [
+              "to pay back a loan",
+              "to open an account"
+            ],
+            "it": [
+              "restituire un prestito",
+              "aprire un conto"
+            ],
+            "nl": [
+              "een lening aflossen",
+              "een rekening openen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi hermano pidió un préstamo para abrir un restaurante y todavía lo está pagando.",
+          "translation": {
+            "en": "My brother took out a loan to open a restaurant and he's still paying it off.",
+            "it": "Mio fratello ha chiesto un prestito per aprire un ristorante e lo sta ancora pagando.",
+            "nl": "Mijn broer heeft een lening genomen om een restaurant te openen en hij is die nog steeds aan het afbetalen."
+          },
+          "distractors": {
+            "en": [
+              "My sister took out a loan to open a restaurant and she's still paying it off.",
+              "My brother took out a loan to open a restaurant and he already paid it off."
+            ],
+            "it": [
+              "Mia sorella ha chiesto un prestito per aprire un ristorante e lo sta ancora pagando.",
+              "Mio fratello ha chiesto un prestito per aprire un ristorante e l'ha già restituito."
+            ],
+            "nl": [
+              "Mijn zus heeft een lening genomen om een restaurant te openen en ze is die nog steeds aan het afbetalen.",
+              "Mijn broer heeft een lening genomen om een restaurant te openen en hij heeft die al afbetaald."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "interés",
+          "translation": {
+            "en": "interest (on money)",
+            "it": "interesse (sul denaro)",
+            "nl": "rente"
+          },
+          "distractors": {
+            "en": [
+              "fee",
+              "tax"
+            ],
+            "it": [
+              "commissione",
+              "tassa"
+            ],
+            "nl": [
+              "kosten",
+              "belasting"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la tasa de interés",
+          "translation": {
+            "en": "the interest rate",
+            "it": "il tasso di interesse",
+            "nl": "de rentevoet"
+          },
+          "distractors": {
+            "en": [
+              "the tax rate",
+              "the exchange rate"
+            ],
+            "it": [
+              "l'aliquota fiscale",
+              "il tasso di cambio"
+            ],
+            "nl": [
+              "het belastingtarief",
+              "de wisselkoers"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El banco nos ofreció un préstamo con una tasa de interés más baja.",
+          "translation": {
+            "en": "The bank offered us a loan with a lower interest rate.",
+            "it": "La banca ci ha offerto un prestito con un tasso di interesse più basso.",
+            "nl": "De bank heeft ons een lening met een lagere rente aangeboden."
+          },
+          "distractors": {
+            "en": [
+              "The bank offered us a loan with a higher interest rate.",
+              "The bank refused us a loan with a lower interest rate."
+            ],
+            "it": [
+              "La banca ci ha offerto un prestito con un tasso di interesse più alto.",
+              "La banca ci ha negato un prestito con un tasso di interesse più basso."
+            ],
+            "nl": [
+              "De bank heeft ons een lening met een hogere rente aangeboden.",
+              "De bank heeft ons een lening met een lagere rente geweigerd."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "a tasa fija",
+          "translation": {
+            "en": "at a fixed rate",
+            "it": "a tasso fisso",
+            "nl": "met een vaste rente"
+          },
+          "distractors": {
+            "en": [
+              "at a variable rate",
+              "at a low rate"
+            ],
+            "it": [
+              "a tasso variabile",
+              "a tasso basso"
+            ],
+            "nl": [
+              "met een variabele rente",
+              "met een lage rente"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Con una hipoteca a tasa fija, pagamos lo mismo todos los meses.",
+          "translation": {
+            "en": "With a fixed-rate mortgage, we pay the same amount every month.",
+            "it": "Con un mutuo a tasso fisso, paghiamo la stessa cifra ogni mese.",
+            "nl": "Met een hypotheek met vaste rente betalen we elke maand hetzelfde bedrag."
+          },
+          "distractors": {
+            "en": [
+              "With a fixed-rate mortgage, we pay a different amount every month.",
+              "With a fixed-rate mortgage, we pay the same amount every year."
+            ],
+            "it": [
+              "Con un mutuo a tasso fisso, paghiamo una cifra diversa ogni mese.",
+              "Con un mutuo a tasso fisso, paghiamo la stessa cifra ogni anno."
+            ],
+            "nl": [
+              "Met een hypotheek met vaste rente betalen we elke maand een ander bedrag.",
+              "Met een hypotheek met vaste rente betalen we elk jaar hetzelfde bedrag."
+            ]
+          },
+          "senses": {
+            "7": "art"
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La hipoteca nos va a costar menos al mes que el alquiler.",
+          "translation": {
+            "en": "The mortgage is going to cost us less per month than the rent.",
+            "it": "Il mutuo ci costerà meno al mese dell'affitto.",
+            "nl": "De hypotheek gaat ons per maand minder kosten dan de huur."
+          },
+          "distractors": {
+            "en": [
+              "The mortgage is going to cost us more per month than the rent.",
+              "The mortgage is going to cost us less per year than the rent."
+            ],
+            "it": [
+              "Il mutuo ci costerà di più al mese dell'affitto.",
+              "Il mutuo ci costerà meno all'anno dell'affitto."
+            ],
+            "nl": [
+              "De hypotheek gaat ons per maand meer kosten dan de huur.",
+              "De hypotheek gaat ons per jaar minder kosten dan de huur."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "deuda",
+          "translation": {
+            "en": "debt",
+            "it": "debito",
+            "nl": "schuld"
+          },
+          "distractors": {
+            "en": [
+              "loan",
+              "income"
+            ],
+            "it": [
+              "prestito",
+              "reddito"
+            ],
+            "nl": [
+              "lening",
+              "inkomen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no quiero tener deudas",
+          "translation": {
+            "en": "I don't want to be in debt",
+            "it": "non voglio avere debiti",
+            "nl": "ik wil geen schulden hebben"
+          },
+          "distractors": {
+            "en": [
+              "I don't want to take out a loan",
+              "I don't want to pay interest"
+            ],
+            "it": [
+              "non voglio chiedere un prestito",
+              "non voglio pagare interessi"
+            ],
+            "nl": [
+              "ik wil geen lening aanvragen",
+              "ik wil geen rente betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No quiero tener deudas, así que vamos a usar también nuestros ahorros.",
+          "translation": {
+            "en": "I don't want to be in debt, so we're also going to use our savings.",
+            "it": "Non voglio avere debiti, quindi useremo anche i nostri risparmi.",
+            "nl": "Ik wil geen schulden hebben, dus we gaan ook ons spaargeld gebruiken."
+          },
+          "distractors": {
+            "en": [
+              "I don't want to be in debt, so we're also going to sell the car.",
+              "I don't want to be in debt, so we're not going to buy the apartment."
+            ],
+            "it": [
+              "Non voglio avere debiti, quindi venderemo anche la macchina.",
+              "Non voglio avere debiti, quindi non compreremo l'appartamento."
+            ],
+            "nl": [
+              "Ik wil geen schulden hebben, dus we gaan ook de auto verkopen.",
+              "Ik wil geen schulden hebben, dus we gaan het appartement niet kopen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-dinero-5",
+      "title": "Todo sube",
+      "grammarFocus": {
+        "en": [
+          "seguir + gerund: Los precios siguen subiendo = prices keep going up",
+          "cada vez más: cada vez más caro = more and more expensive"
+        ],
+        "it": [
+          "seguir + gerundio: Los precios siguen subiendo = i prezzi continuano a salire",
+          "cada vez más: cada vez más caro = sempre più caro"
+        ],
+        "nl": [
+          "seguir + gerundio: Los precios siguen subiendo = de prijzen blijven stijgen",
+          "cada vez más: cada vez más caro = steeds duurder"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "aumento",
+          "translation": {
+            "en": "increase, raise",
+            "it": "aumento",
+            "nl": "verhoging, stijging"
+          },
+          "distractors": {
+            "en": [
+              "discount",
+              "drop"
+            ],
+            "it": [
+              "sconto",
+              "calo"
+            ],
+            "nl": [
+              "korting",
+              "daling"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un aumento de sueldo",
+          "translation": {
+            "en": "a raise",
+            "it": "un aumento di stipendio",
+            "nl": "een loonsverhoging"
+          },
+          "distractors": {
+            "en": [
+              "a pay cut",
+              "a promotion"
+            ],
+            "it": [
+              "un taglio dello stipendio",
+              "una promozione"
+            ],
+            "nl": [
+              "een loonsverlaging",
+              "een promotie"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le pedí un aumento de sueldo a mi jefe y me lo dio.",
+          "translation": {
+            "en": "I asked my boss for a raise and he gave it to me.",
+            "it": "Ho chiesto un aumento di stipendio al mio capo e me l'ha dato.",
+            "nl": "Ik heb mijn baas om een loonsverhoging gevraagd en die heb ik gekregen."
+          },
+          "distractors": {
+            "en": [
+              "I asked my boss for a raise and he didn't give it to me.",
+              "I asked my boss for a promotion and he gave it to me."
+            ],
+            "it": [
+              "Ho chiesto un aumento di stipendio al mio capo e non me l'ha dato.",
+              "Ho chiesto una promozione al mio capo e me l'ha data."
+            ],
+            "nl": [
+              "Ik heb mijn baas om een loonsverhoging gevraagd en die heb ik niet gekregen.",
+              "Ik heb mijn baas om een promotie gevraagd en die heb ik gekregen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "los precios siguen subiendo",
+          "translation": {
+            "en": "prices keep going up",
+            "it": "i prezzi continuano a salire",
+            "nl": "de prijzen blijven stijgen"
+          },
+          "distractors": {
+            "en": [
+              "prices keep going down",
+              "prices stopped going up"
+            ],
+            "it": [
+              "i prezzi continuano a scendere",
+              "i prezzi hanno smesso di salire"
+            ],
+            "nl": [
+              "de prijzen blijven dalen",
+              "de prijzen stijgen niet meer"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "inflación",
+          "translation": {
+            "en": "inflation",
+            "it": "inflazione",
+            "nl": "inflatie"
+          },
+          "distractors": {
+            "en": [
+              "unemployment",
+              "recession"
+            ],
+            "it": [
+              "disoccupazione",
+              "recessione"
+            ],
+            "nl": [
+              "werkloosheid",
+              "recessie"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Por la inflación, los precios siguen subiendo cada mes.",
+          "translation": {
+            "en": "Because of inflation, prices keep going up every month.",
+            "it": "A causa dell'inflazione, i prezzi continuano a salire ogni mese.",
+            "nl": "Door de inflatie blijven de prijzen elke maand stijgen."
+          },
+          "distractors": {
+            "en": [
+              "Because of inflation, prices keep going up every year.",
+              "Because of inflation, wages keep going up every month."
+            ],
+            "it": [
+              "A causa dell'inflazione, i prezzi continuano a salire ogni anno.",
+              "A causa dell'inflazione, gli stipendi continuano a salire ogni mese."
+            ],
+            "nl": [
+              "Door de inflatie blijven de prijzen elk jaar stijgen.",
+              "Door de inflatie blijven de lonen elke maand stijgen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cada vez más caro",
+          "translation": {
+            "en": "more and more expensive",
+            "it": "sempre più caro",
+            "nl": "steeds duurder"
+          },
+          "distractors": {
+            "en": [
+              "cheaper and cheaper",
+              "a bit more expensive"
+            ],
+            "it": [
+              "sempre più economico",
+              "un po' più caro"
+            ],
+            "nl": [
+              "steeds goedkoper",
+              "iets duurder"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el supermercado todo está cada vez más caro.",
+          "translation": {
+            "en": "At the supermarket everything is getting more and more expensive.",
+            "it": "Al supermercato tutto è sempre più caro.",
+            "nl": "In de supermarkt wordt alles steeds duurder."
+          },
+          "distractors": {
+            "en": [
+              "At the supermarket everything is getting cheaper and cheaper.",
+              "At the pharmacy everything is getting more and more expensive."
+            ],
+            "it": [
+              "Al supermercato tutto è sempre più economico.",
+              "In farmacia tutto è sempre più caro."
+            ],
+            "nl": [
+              "In de supermarkt wordt alles steeds goedkoper.",
+              "Bij de apotheek wordt alles steeds duurder."
+            ]
+          },
+          "commas": [
+            2
+          ]
+        },
+        {
+          "id": "es-b1-dinero-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "costaba veinte pesos",
+          "variants": [
+            "costaba 20 pesos"
+          ],
+          "translation": {
+            "en": "it used to cost twenty pesos",
+            "it": "costava venti pesos",
+            "nl": "het kostte vroeger twintig pesos"
+          },
+          "distractors": {
+            "en": [
+              "it costs twenty pesos now",
+              "it used to cost twelve pesos"
+            ],
+            "it": [
+              "adesso costa venti pesos",
+              "costava dodici pesos"
+            ],
+            "nl": [
+              "het kost nu twintig pesos",
+              "het kostte vroeger twaalf pesos"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Antes un café costaba veinte pesos, y ahora cuesta sesenta.",
+          "variants": [
+            "Antes un café costaba 20 pesos, y ahora cuesta 60."
+          ],
+          "translation": {
+            "en": "A coffee used to cost twenty pesos, and now it costs sixty.",
+            "it": "Prima un caffè costava venti pesos, e adesso ne costa sessanta.",
+            "nl": "Vroeger kostte een koffie twintig pesos, en nu kost hij zestig."
+          },
+          "distractors": {
+            "en": [
+              "A coffee used to cost sixty pesos, and now it costs twenty.",
+              "A coffee used to cost twenty pesos, and now it costs seventy."
+            ],
+            "it": [
+              "Prima un caffè costava sessanta pesos, e adesso ne costa venti.",
+              "Prima un caffè costava venti pesos, e adesso ne costa settanta."
+            ],
+            "nl": [
+              "Vroeger kostte een koffie zestig pesos, en nu kost hij twintig.",
+              "Vroeger kostte een koffie twintig pesos, en nu kost hij zeventig."
+            ]
+          },
+          "commas": [
+            0
+          ]
+        },
+        {
+          "id": "es-b1-dinero-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "crisis",
+          "translation": {
+            "en": "crisis",
+            "it": "crisi",
+            "nl": "crisis"
+          },
+          "distractors": {
+            "en": [
+              "strike",
+              "debt"
+            ],
+            "it": [
+              "sciopero",
+              "debito"
+            ],
+            "nl": [
+              "staking",
+              "schuld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "economía",
+          "translation": {
+            "en": "economy",
+            "it": "economia",
+            "nl": "economie"
+          },
+          "distractors": {
+            "en": [
+              "politics",
+              "society"
+            ],
+            "it": [
+              "politica",
+              "società"
+            ],
+            "nl": [
+              "politiek",
+              "samenleving"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "la economía está en crisis",
+          "translation": {
+            "en": "the economy is in crisis",
+            "it": "l'economia è in crisi",
+            "nl": "de economie zit in een crisis"
+          },
+          "distractors": {
+            "en": [
+              "the economy is growing",
+              "the company is in crisis"
+            ],
+            "it": [
+              "l'economia sta crescendo",
+              "l'azienda è in crisi"
+            ],
+            "nl": [
+              "de economie groeit",
+              "het bedrijf zit in een crisis"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cuando la economía está en crisis, muchas empresas dejan de contratar.",
+          "translation": {
+            "en": "When the economy is in crisis, many companies stop hiring.",
+            "it": "Quando l'economia è in crisi, molte aziende smettono di assumere.",
+            "nl": "Als de economie in een crisis zit, nemen veel bedrijven geen mensen meer aan."
+          },
+          "distractors": {
+            "en": [
+              "When the economy is in crisis, many companies start hiring.",
+              "When the economy is growing, many companies stop hiring."
+            ],
+            "it": [
+              "Quando l'economia è in crisi, molte aziende cominciano ad assumere.",
+              "Quando l'economia cresce, molte aziende smettono di assumere."
+            ],
+            "nl": [
+              "Als de economie in een crisis zit, gaan veel bedrijven mensen aannemen.",
+              "Als de economie groeit, nemen veel bedrijven geen mensen meer aan."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Con la crisis, los sueldos no suben tan rápido como los precios.",
+          "translation": {
+            "en": "With the crisis, wages aren't going up as fast as prices.",
+            "it": "Con la crisi, gli stipendi non salgono così in fretta come i prezzi.",
+            "nl": "Door de crisis stijgen de lonen niet zo snel als de prijzen."
+          },
+          "distractors": {
+            "en": [
+              "With the crisis, prices aren't going up as fast as wages.",
+              "With the crisis, wages are going up faster than prices."
+            ],
+            "it": [
+              "Con la crisi, i prezzi non salgono così in fretta come gli stipendi.",
+              "Con la crisi, gli stipendi salgono più in fretta dei prezzi."
+            ],
+            "nl": [
+              "Door de crisis stijgen de prijzen niet zo snel als de lonen.",
+              "Door de crisis stijgen de lonen sneller dan de prijzen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-b1-dinero-6",
+      "title": "Invertir",
+      "grammarFocus": {
+        "en": [
+          "deberías + infinitive for advice: deberías invertirlo = you should invest it",
+          "the gerund for manner: Invirtiendo un poco cada mes = by investing a little every month"
+        ],
+        "it": [
+          "deberías + infinito per un consiglio: deberías invertirlo = dovresti investirlo",
+          "il gerundio di modo: Invirtiendo un poco cada mes = investendo un po' ogni mese"
+        ],
+        "nl": [
+          "deberías + infinitief voor advies: deberías invertirlo = je zou het moeten beleggen",
+          "de gerundio voor de manier: Invirtiendo un poco cada mes = door elke maand een beetje te beleggen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-b1-dinero-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "invertir",
+          "translation": {
+            "en": "to invest",
+            "it": "investire",
+            "nl": "beleggen, investeren"
+          },
+          "distractors": {
+            "en": [
+              "to save",
+              "to lend"
+            ],
+            "it": [
+              "risparmiare",
+              "prestare"
+            ],
+            "nl": [
+              "sparen",
+              "uitlenen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "deberías invertirlo",
+          "translation": {
+            "en": "you should invest it",
+            "it": "dovresti investirlo",
+            "nl": "je zou het moeten beleggen"
+          },
+          "distractors": {
+            "en": [
+              "you should save it",
+              "you shouldn't spend it"
+            ],
+            "it": [
+              "dovresti risparmiarlo",
+              "non dovresti spenderlo"
+            ],
+            "nl": [
+              "je zou het moeten sparen",
+              "je zou het niet moeten uitgeven"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En lugar de dejar el dinero en el banco, deberías invertirlo.",
+          "translation": {
+            "en": "Instead of leaving the money in the bank, you should invest it.",
+            "it": "Invece di lasciare i soldi in banca, dovresti investirli.",
+            "nl": "In plaats van het geld op de bank te laten staan, zou je het moeten beleggen."
+          },
+          "distractors": {
+            "en": [
+              "Instead of leaving the money in the bank, you should spend it.",
+              "Instead of investing the money, you should leave it in the bank."
+            ],
+            "it": [
+              "Invece di lasciare i soldi in banca, dovresti spenderli.",
+              "Invece di investire i soldi, dovresti lasciarli in banca."
+            ],
+            "nl": [
+              "In plaats van het geld op de bank te laten staan, zou je het moeten uitgeven.",
+              "In plaats van het geld te beleggen, zou je het op de bank moeten laten staan."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "inversión",
+          "translation": {
+            "en": "investment",
+            "it": "investimento",
+            "nl": "investering, belegging"
+          },
+          "distractors": {
+            "en": [
+              "savings",
+              "loan"
+            ],
+            "it": [
+              "risparmio",
+              "prestito"
+            ],
+            "nl": [
+              "spaargeld",
+              "lening"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una buena inversión",
+          "translation": {
+            "en": "a good investment",
+            "it": "un buon investimento",
+            "nl": "een goede investering"
+          },
+          "distractors": {
+            "en": [
+              "a bad investment",
+              "a good salary"
+            ],
+            "it": [
+              "un cattivo investimento",
+              "un buono stipendio"
+            ],
+            "nl": [
+              "een slechte investering",
+              "een goed salaris"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comprar un departamento para alquilarlo puede ser una buena inversión.",
+          "translation": {
+            "en": "Buying an apartment to rent out can be a good investment.",
+            "it": "Comprare un appartamento da affittare può essere un buon investimento.",
+            "nl": "Een appartement kopen om te verhuren kan een goede investering zijn."
+          },
+          "distractors": {
+            "en": [
+              "Buying an apartment to live in can be a good investment.",
+              "Buying a car to rent out can be a good investment."
+            ],
+            "it": [
+              "Comprare un appartamento in cui vivere può essere un buon investimento.",
+              "Comprare una macchina da affittare può essere un buon investimento."
+            ],
+            "nl": [
+              "Een appartement kopen om zelf in te wonen kan een goede investering zijn.",
+              "Een auto kopen om te verhuren kan een goede investering zijn."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "las acciones",
+          "translation": {
+            "en": "shares, stocks",
+            "it": "le azioni",
+            "nl": "de aandelen"
+          },
+          "distractors": {
+            "en": [
+              "bonds",
+              "savings"
+            ],
+            "it": [
+              "le obbligazioni",
+              "i risparmi"
+            ],
+            "nl": [
+              "de obligaties",
+              "het spaargeld"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "invirtiendo en acciones",
+          "translation": {
+            "en": "by investing in stocks",
+            "it": "investendo in azioni",
+            "nl": "door in aandelen te beleggen"
+          },
+          "distractors": {
+            "en": [
+              "by selling stocks",
+              "by investing in houses"
+            ],
+            "it": [
+              "vendendo azioni",
+              "investendo in case"
+            ],
+            "nl": [
+              "door aandelen te verkopen",
+              "door in huizen te beleggen"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Invirtiendo en acciones puedes ganar mucho, pero también puedes perderlo todo.",
+          "translation": {
+            "en": "By investing in stocks you can earn a lot, but you can also lose everything.",
+            "it": "Investendo in azioni puoi guadagnare molto, ma puoi anche perdere tutto.",
+            "nl": "Door in aandelen te beleggen kun je veel verdienen, maar je kunt ook alles verliezen."
+          },
+          "distractors": {
+            "en": [
+              "By investing in stocks you can earn a lot, and you can never lose anything.",
+              "By investing in houses you can earn a lot, but you can also lose everything."
+            ],
+            "it": [
+              "Investendo in azioni puoi guadagnare molto, e non puoi mai perdere niente.",
+              "Investendo in case puoi guadagnare molto, ma puoi anche perdere tutto."
+            ],
+            "nl": [
+              "Door in aandelen te beleggen kun je veel verdienen, en je kunt nooit iets verliezen.",
+              "Door in huizen te beleggen kun je veel verdienen, maar je kunt ook alles verliezen."
+            ]
+          },
+          "commas": [
+            2
+          ]
+        },
+        {
+          "id": "es-b1-dinero-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "pensión",
+          "translation": {
+            "en": "pension",
+            "it": "pensione (di vecchiaia)",
+            "nl": "pensioen"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "insurance"
+            ],
+            "it": [
+              "stipendio",
+              "assicurazione"
+            ],
+            "nl": [
+              "salaris",
+              "verzekering"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "no va a ser suficiente",
+          "translation": {
+            "en": "isn't going to be enough",
+            "it": "non basterà",
+            "nl": "gaat niet genoeg zijn"
+          },
+          "distractors": {
+            "en": [
+              "is going to be too much",
+              "wasn't enough"
+            ],
+            "it": [
+              "sarà troppo",
+              "non è bastato"
+            ],
+            "nl": [
+              "gaat te veel zijn",
+              "was niet genoeg"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi pensión no va a ser suficiente, así que invierto una parte de mi sueldo.",
+          "translation": {
+            "en": "My pension isn't going to be enough, so I invest part of my salary.",
+            "it": "La mia pensione non basterà, quindi investo una parte dello stipendio.",
+            "nl": "Mijn pensioen gaat niet genoeg zijn, dus ik beleg een deel van mijn salaris."
+          },
+          "distractors": {
+            "en": [
+              "My pension isn't going to be enough, so I save part of my salary.",
+              "My salary isn't going to be enough, so I invest part of my pension."
+            ],
+            "it": [
+              "La mia pensione non basterà, quindi risparmio una parte dello stipendio.",
+              "Il mio stipendio non basterà, quindi investo una parte della pensione."
+            ],
+            "nl": [
+              "Mijn pensioen gaat niet genoeg zijn, dus ik spaar een deel van mijn salaris.",
+              "Mijn salaris gaat niet genoeg zijn, dus ik beleg een deel van mijn pensioen."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "ganancia",
+          "translation": {
+            "en": "profit, gain",
+            "it": "guadagno, profitto",
+            "nl": "winst"
+          },
+          "distractors": {
+            "en": [
+              "loss",
+              "cost"
+            ],
+            "it": [
+              "perdita",
+              "costo"
+            ],
+            "nl": [
+              "verlies",
+              "kosten"
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si la economía crece, las ganancias de mis inversiones también van a subir.",
+          "translation": {
+            "en": "If the economy grows, the profits from my investments will go up too.",
+            "it": "Se l'economia cresce, anche i guadagni dei miei investimenti saliranno.",
+            "nl": "Als de economie groeit, gaat ook de winst van mijn beleggingen omhoog."
+          },
+          "distractors": {
+            "en": [
+              "If the economy grows, the profits from my investments will go down.",
+              "If the economy grows, the taxes on my investments will go up too."
+            ],
+            "it": [
+              "Se l'economia cresce, i guadagni dei miei investimenti scenderanno.",
+              "Se l'economia cresce, anche le tasse sui miei investimenti saliranno."
+            ],
+            "nl": [
+              "Als de economie groeit, gaat de winst van mijn beleggingen omlaag.",
+              "Als de economie groeit, gaan ook de belastingen op mijn beleggingen omhoog."
+            ]
+          }
+        },
+        {
+          "id": "es-b1-dinero-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Invirtiendo un poco cada mes, dentro de veinte años tendré una buena pensión.",
+          "variants": [
+            "Invirtiendo un poco cada mes, dentro de 20 años tendré una buena pensión."
+          ],
+          "translation": {
+            "en": "By investing a little every month, in twenty years I'll have a good pension.",
+            "it": "Investendo un po' ogni mese, tra vent'anni avrò una buona pensione.",
+            "nl": "Door elke maand een beetje te beleggen, heb ik over twintig jaar een goed pensioen."
+          },
+          "distractors": {
+            "en": [
+              "By saving a little every month, in twenty years I'll have a good pension.",
+              "By investing a little every month, in two years I'll have a good pension."
+            ],
+            "it": [
+              "Risparmiando un po' ogni mese, tra vent'anni avrò una buona pensione.",
+              "Investendo un po' ogni mese, tra due anni avrò una buona pensione."
+            ],
+            "nl": [
+              "Door elke maand een beetje te sparen, heb ik over twintig jaar een goed pensioen.",
+              "Door elke maand een beetje te beleggen, heb ik over twee jaar een goed pensioen."
+            ]
+          },
+          "commas": [
+            8
+          ]
+        }
+      ]
+    }
+  ]
+}

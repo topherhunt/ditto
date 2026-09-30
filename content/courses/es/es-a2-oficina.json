@@ -1,0 +1,4004 @@
+{
+  "id": "es-a2-oficina",
+  "language": "es",
+  "level": "A2",
+  "order": 104,
+  "title": "En la oficina",
+  "description": {
+    "en": "Office life: meetings, emails, the boss, deadlines, job interviews and breaks",
+    "it": "La vita in ufficio: riunioni, email, il capo, scadenze, colloqui di lavoro e pause",
+    "nl": "Het kantoorleven: vergaderingen, mails, de baas, deadlines, sollicitatiegesprekken en pauzes"
+  },
+  "track": "optional",
+  "requires": [
+    "es-a2-historia"
+  ],
+  "introduces": [
+    "reunión",
+    "gerente",
+    "plazo",
+    "límite",
+    "fecha",
+    "proyecto",
+    "cliente",
+    "contrato",
+    "sueldo",
+    "entrevista",
+    "candidato",
+    "currículum",
+    "experiencia",
+    "contratar",
+    "despedir",
+    "firmar",
+    "imprimir",
+    "impresora",
+    "escritorio",
+    "descanso",
+    "extra",
+    "turno",
+    "horario",
+    "correo",
+    "informe",
+    "revisar",
+    "entregar"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; before a person as the object it isn't translated: despidió a dos personas",
+        "it": "a; davanti a una persona complemento oggetto non si traduce: despidió a dos personas",
+        "nl": "naar, om; vóór een persoon als lijdend voorwerp wordt het niet vertaald: despidió a dos personas"
+      }
+    },
+    "ahora": {
+      "lemma": "ahora",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "it": "adesso, ora",
+        "nl": "nu"
+      }
+    },
+    "alguna": {
+      "lemma": "alguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, any (f); alguna vez = ever, in a question",
+        "it": "qualche (f); alguna vez = mai, in una domanda",
+        "nl": "een, enige (f); alguna vez = ooit, in een vraag"
+      }
+    },
+    "almorzar": {
+      "lemma": "almorzar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have lunch",
+        "it": "pranzare",
+        "nl": "lunchen"
+      }
+    },
+    "amable": {
+      "lemma": "amable",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "kind, nice (same form for m and f)",
+        "it": "gentile (uguale per m e f)",
+        "nl": "aardig, vriendelijk (m en f gelijk)"
+      }
+    },
+    "antes": {
+      "lemma": "antes",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before; antes de = before",
+        "it": "prima; antes de = prima di",
+        "nl": "eerder; antes de = voor"
+      }
+    },
+    "ayer": {
+      "lemma": "ayer",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "años": {
+      "lemma": "año",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (plural of año)",
+        "it": "anni (plurale di año)",
+        "nl": "jaren (meervoud van año)"
+      }
+    },
+    "buen": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (bueno before a masculine noun)",
+        "it": "buono (bueno davanti a un nome maschile)",
+        "nl": "goed (bueno vóór een mannelijk woord)"
+      }
+    },
+    "bueno": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good; at the start of a sentence: OK, well",
+        "it": "buono; a inizio frase: va bene, allora",
+        "nl": "goed; aan het begin van een zin: oké, nou"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coffee (m)",
+        "it": "caffè (m)",
+        "nl": "koffie (m)"
+      }
+    },
+    "candidata": {
+      "lemma": "candidato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "candidate, applicant (f; candidato for a man)",
+        "it": "candidata (f; candidato per un uomo)",
+        "nl": "kandidaat, sollicitante (f; candidato voor een man)"
+      }
+    },
+    "candidato": {
+      "lemma": "candidato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "candidate, applicant (m; candidata for a woman)",
+        "it": "candidato (m; candidata per una donna)",
+        "nl": "kandidaat, sollicitant (m; candidata voor een vrouw)"
+      }
+    },
+    "carolina": {
+      "lemma": "Carolina",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Carolina (a first name)",
+        "it": "Carolina (nome)",
+        "nl": "Carolina (voornaam)"
+      }
+    },
+    "cinco": {
+      "lemma": "cinco",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "cincuenta": {
+      "lemma": "cincuenta",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty",
+        "it": "cinquanta",
+        "nl": "vijftig; let op: tientallen eerst, cincuenta y cinco = vijfenvijftig"
+      }
+    },
+    "cliente": {
+      "lemma": "cliente",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "client, customer (m/f: el cliente, la cliente)",
+        "it": "cliente (m/f)",
+        "nl": "klant (m/f: el cliente, la cliente)"
+      }
+    },
+    "como": {
+      "lemma": "como",
+      "pos": "ADP",
+      "gloss": {
+        "en": "as; como + job, no article = as a ...",
+        "it": "come; como + professione, senza articolo",
+        "nl": "als; como + beroep, zonder lidwoord"
+      }
+    },
+    "compañeros": {
+      "lemma": "compañero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coworkers, classmates (compañero, m pl)",
+        "it": "colleghi, compagni (compañero, m pl)",
+        "nl": "collega's, klasgenoten (compañero, m mv)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with; con tarjeta = by card",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "conmigo": {
+      "lemma": "conmigo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "with me (one word, not con mí)",
+        "it": "con me (una parola sola, non con mí)",
+        "nl": "met mij (een woord, niet con mí)"
+      }
+    },
+    "contratamos": {
+      "lemma": "contratar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we hired (contratar; same form in the present: we hire)",
+        "it": "abbiamo assunto (contratar; uguale al presente: assumiamo)",
+        "nl": "we namen aan (contratar; zelfde vorm in de tegenwoordige tijd)"
+      }
+    },
+    "contratar": {
+      "lemma": "contratar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hire",
+        "it": "assumere; attenzione: non contrattare (= regatear)",
+        "nl": "aannemen, in dienst nemen"
+      }
+    },
+    "contrato": {
+      "lemma": "contrato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "contract (m)",
+        "it": "contratto (m)",
+        "nl": "contract (m)"
+      }
+    },
+    "correo": {
+      "lemma": "correo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "email (m); also mail, the post",
+        "it": "email (m); anche posta",
+        "nl": "mail, e-mail (m); ook post"
+      }
+    },
+    "correos": {
+      "lemma": "correo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "emails (correo, m)",
+        "it": "email (plurale di correo, m)",
+        "nl": "mails (correo, m)"
+      }
+    },
+    "currículum": {
+      "lemma": "currículum",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "résumé, CV (m)",
+        "it": "curriculum (m); attenzione: in spagnolo ha l'accento",
+        "nl": "cv (m)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; de nueve a cinco = from nine to five",
+        "it": "di, da; de nueve a cinco = dalle nove alle cinque",
+        "nl": "van, uit; de nueve a cinco = van negen tot vijf"
+      }
+    },
+    "dejé": {
+      "lemma": "dejar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I left (dejar, indefinido): put somewhere and went away",
+        "it": "ho lasciato (dejar, indefinido)",
+        "nl": "ik liet liggen, ik legde neer (dejar, indefinido)"
+      }
+    },
+    "del": {
+      "lemma": "del",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of the, from the (de + el); antes del lunes = before Monday",
+        "it": "del (de + el); antes del lunes = entro lunedì",
+        "nl": "van de (de + el); antes del lunes = voor maandag"
+      }
+    },
+    "descanso": {
+      "lemma": "descanso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "break, rest (m)",
+        "it": "pausa (m)",
+        "nl": "pauze, rust (m)"
+      }
+    },
+    "despedir": {
+      "lemma": "despedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to fire, to lay off (e>i: despido, despidió); despedirse = say goodbye",
+        "it": "licenziare (e>i: despido, despidió); despedirse = salutarsi",
+        "nl": "ontslaan (e>i: despido, despidió); despedirse = afscheid nemen"
+      }
+    },
+    "despidió": {
+      "lemma": "despedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fired, laid off (despedir, indefinido: e>i)",
+        "it": "ha licenziato (despedir, indefinido: e>i)",
+        "nl": "ontsloeg (despedir, indefinido: e>i)"
+      }
+    },
+    "después": {
+      "lemma": "después",
+      "pos": "ADV",
+      "gloss": {
+        "en": "after, later; después de = after",
+        "it": "dopo, poi; después de = dopo",
+        "nl": "daarna, later; después de = na"
+      }
+    },
+    "diez": {
+      "lemma": "diez",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "dio": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gave (dar, indefinido)",
+        "it": "ha dato (dar, indefinido)",
+        "nl": "gaf (dar, indefinido)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (día, m); todos los días = every day",
+        "it": "giorni (día, m); todos los días = ogni giorno",
+        "nl": "dagen (día, m); todos los días = elke dag"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine singular)",
+        "it": "il, lo (maschile singolare)",
+        "nl": "de, het (mannelijk enkelvoud)"
+      }
+    },
+    "empresa": {
+      "lemma": "empresa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "company (f)",
+        "it": "azienda (f)",
+        "nl": "bedrijf (f)"
+      }
+    },
+    "empresas": {
+      "lemma": "empresa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "companies (empresa, f)",
+        "it": "aziende (empresa, f)",
+        "nl": "bedrijven (empresa, f)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, on; en la oficina = at the office",
+        "it": "in, a, su; en la oficina = in ufficio",
+        "nl": "in, op; en la oficina = op kantoor"
+      }
+    },
+    "entregar": {
+      "lemma": "entregar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hand in, to deliver",
+        "it": "consegnare",
+        "nl": "inleveren, afgeven"
+      }
+    },
+    "entrevista": {
+      "lemma": "entrevista",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "interview (f); entrevista de trabajo = job interview",
+        "it": "colloquio, intervista (f); entrevista de trabajo = colloquio di lavoro",
+        "nl": "gesprek, interview (f); entrevista de trabajo = sollicitatiegesprek"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "escritorio": {
+      "lemma": "escritorio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "desk (m)",
+        "it": "scrivania (m)",
+        "nl": "bureau (m)"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (f)",
+        "it": "questa",
+        "nl": "deze, dit (vrouwelijk)"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar: a state)",
+        "it": "è (estar: uno stato)",
+        "nl": "is (estar: een toestand)"
+      }
+    },
+    "experiencia": {
+      "lemma": "experiencia",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "experience (f)",
+        "it": "esperienza (f)",
+        "nl": "ervaring (f)"
+      }
+    },
+    "extra": {
+      "lemma": "extra",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "extra (same form for m, f and plural); horas extra = overtime",
+        "it": "extra (invariabile); horas extra = straordinario",
+        "nl": "extra (onveranderlijk); horas extra = overuren"
+      }
+    },
+    "fecha": {
+      "lemma": "fecha",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "date (f); fecha límite = deadline",
+        "it": "data (f); fecha límite = scadenza",
+        "nl": "datum (f); fecha límite = deadline"
+      }
+    },
+    "fin": {
+      "lemma": "fin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (m); por fin = finally, at last",
+        "it": "fine (m); por fin = finalmente",
+        "nl": "einde (m); por fin = eindelijk"
+      }
+    },
+    "firmar": {
+      "lemma": "firmar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to sign",
+        "it": "firmare",
+        "nl": "tekenen, ondertekenen"
+      }
+    },
+    "firmó": {
+      "lemma": "firmar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "signed (firmar, indefinido)",
+        "it": "ha firmato (firmar, indefinido)",
+        "nl": "tekende (firmar, indefinido)"
+      }
+    },
+    "gerente": {
+      "lemma": "gerente",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "manager (m/f: el gerente, la gerente)",
+        "it": "direttore, direttrice, manager (m/f: el gerente, la gerente)",
+        "nl": "manager, bedrijfsleider (m/f: el gerente, la gerente)"
+      }
+    },
+    "grande": {
+      "lemma": "grande",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large",
+        "it": "grande",
+        "nl": "groot"
+      }
+    },
+    "hablar": {
+      "lemma": "hablar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to talk, to speak; hablar de = talk about",
+        "it": "parlare; hablar de = parlare di",
+        "nl": "praten, spreken; hablar de = praten over"
+      }
+    },
+    "hago": {
+      "lemma": "hacer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I do, I make (hacer)",
+        "it": "faccio (hacer)",
+        "nl": "ik doe, ik maak (hacer)"
+      }
+    },
+    "has": {
+      "lemma": "haber",
+      "pos": "AUX",
+      "gloss": {
+        "en": "you have (haber, tú); ¿alguna vez has...? = have you ever...?",
+        "it": "hai (haber, tú); ¿alguna vez has...? = hai mai...?",
+        "nl": "je hebt (haber, tú); ¿alguna vez has...? = heb je ooit...?"
+      }
+    },
+    "horario": {
+      "lemma": "horario",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "schedule, hours (m); horario de trabajo = working hours",
+        "it": "orario (m); horario de trabajo = orario di lavoro",
+        "nl": "rooster, werktijden (m); horario de trabajo = werktijden"
+      }
+    },
+    "horas": {
+      "lemma": "hora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours (hora, f)",
+        "it": "ore (hora, f)",
+        "nl": "uren (hora, f)"
+      }
+    },
+    "hoy": {
+      "lemma": "hoy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "impresora": {
+      "lemma": "impresora",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "printer (f)",
+        "it": "stampante (f)",
+        "nl": "printer (f)"
+      }
+    },
+    "imprime": {
+      "lemma": "imprimir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prints (imprimir); no imprime = won't print",
+        "it": "stampa (imprimir)",
+        "nl": "print (imprimir); no imprime = print niet"
+      }
+    },
+    "imprimir": {
+      "lemma": "imprimir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to print",
+        "it": "stampare",
+        "nl": "printen, afdrukken"
+      }
+    },
+    "informe": {
+      "lemma": "informe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "report (m)",
+        "it": "rapporto, relazione (m)",
+        "nl": "rapport, verslag (m)"
+      }
+    },
+    "jefa": {
+      "lemma": "jefe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boss (f; jefe for a man)",
+        "it": "capo (f; jefe per un uomo)",
+        "nl": "baas (f; jefe voor een man)"
+      }
+    },
+    "jefe": {
+      "lemma": "jefe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boss (m; jefa for a woman)",
+        "it": "capo (m; jefa per una donna)",
+        "nl": "baas (m; jefa voor een vrouw)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine singular)",
+        "it": "la (femminile singolare)",
+        "nl": "de, het (vrouwelijk enkelvoud)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural; el); son las tres = it's three o'clock",
+        "it": "le (femminile plurale; el); son las tres = sono le tre",
+        "nl": "de (vrouwelijk meervoud; el); son las tres = het is drie uur"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "(to) him, (to) her, (to) you (usted): le mandaste el informe a la gerente = you sent the manager the report",
+        "it": "gli, le, Le (complemento indiretto); si usa anche con a + persona: le mandaste... a la gerente",
+        "nl": "(aan) hem, haar, u (meewerkend voorwerp); ook samen met a + persoon: le mandaste... a la gerente"
+      }
+    },
+    "leí": {
+      "lemma": "leer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I read (leer, indefinido); todavía no leí = I haven't read yet",
+        "it": "ho letto (leer, indefinido); todavía no leí = non ho ancora letto",
+        "nl": "ik las (leer, indefinido); todavía no leí = ik heb nog niet gelezen"
+      }
+    },
+    "lima": {
+      "lemma": "Lima",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lima (capital of Peru)",
+        "it": "Lima (capitale del Perù)",
+        "nl": "Lima (hoofdstad van Peru)"
+      }
+    },
+    "llama": {
+      "lemma": "llamar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "se llama = her/his name is (llamarse)",
+        "it": "se llama = si chiama (llamarse)",
+        "nl": "se llama = heet (llamarse)"
+      }
+    },
+    "llegar": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to arrive; llegar tarde a = to be late for",
+        "it": "arrivare; llegar tarde a = arrivare in ritardo a",
+        "nl": "aankomen; llegar tarde a = te laat komen op"
+      }
+    },
+    "llegué": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I arrived (llegar, indefinido); llegué tarde = I was late",
+        "it": "sono arrivato, sono arrivata (llegar, indefinido); llegué tarde = ho fatto tardi",
+        "nl": "ik kwam (llegar, indefinido); llegué tarde = ik was te laat"
+      }
+    },
+    "llegó": {
+      "lemma": "llegar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrived (llegar, indefinido); llegó tarde = he or she was late",
+        "it": "è arrivato, è arrivata (llegar, indefinido); llegó tarde = è arrivato in ritardo",
+        "nl": "kwam (llegar, indefinido); llegó tarde = kwam te laat"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (object, before the verb); lo voy a mandar = I'm going to send it",
+        "it": "lo (prima del verbo); lo voy a mandar = lo manderò",
+        "nl": "het, hem (lijdend voorwerp, vóór het werkwoord); lo voy a mandar = ik ga het sturen"
+      }
+    },
+    "lo#art": {
+      "lemma": "lo",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter); lo primero que = the first thing that",
+        "it": "lo neutro; lo primero que = la prima cosa che",
+        "nl": "het (onzijdig); lo primero que = het eerste wat"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural; el); los domingos = on Sundays",
+        "it": "i (maschile plurale; el); los domingos = la domenica",
+        "nl": "de (mannelijk meervoud; el); los domingos = op zondag"
+      }
+    },
+    "lunes": {
+      "lemma": "lunes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m); los lunes = on Mondays",
+        "it": "lunedì (m); los lunes = il lunedì",
+        "nl": "maandag (m); los lunes = op maandag"
+      }
+    },
+    "límite": {
+      "lemma": "límite",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "limit (m); fecha límite = deadline",
+        "it": "limite (m); fecha límite = scadenza",
+        "nl": "grens, limiet (m); fecha límite = deadline"
+      }
+    },
+    "mandar": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to send",
+        "it": "mandare",
+        "nl": "sturen"
+      }
+    },
+    "mandaste": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you sent (mandar, tú, indefinido)",
+        "it": "hai mandato (mandar, tú, indefinido)",
+        "nl": "je stuurde (mandar, tú, indefinido)"
+      }
+    },
+    "mandé": {
+      "lemma": "mandar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I sent (mandar, indefinido)",
+        "it": "ho mandato (mandar, indefinido)",
+        "nl": "ik stuurde (mandar, indefinido)"
+      }
+    },
+    "mañana": {
+      "lemma": "mañana",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "mañana#noun": {
+      "lemma": "mañana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (f); esta mañana = this morning",
+        "it": "mattina (f); esta mañana = stamattina",
+        "nl": "ochtend (f); esta mañana = vanochtend"
+      }
+    },
+    "mediodía": {
+      "lemma": "mediodía",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "noon (m); a mediodía = at noon",
+        "it": "mezzogiorno (m); a mediodía = a mezzogiorno",
+        "nl": "twaalf uur 's middags (m); a mediodía = om twaalf uur 's middags"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia (senza articolo: mi nombre = il mio nome)",
+        "nl": "mijn"
+      }
+    },
+    "minutos": {
+      "lemma": "minuto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (minuto, m)",
+        "it": "minuti (minuto, m)",
+        "nl": "minuten (minuto, m)"
+      }
+    },
+    "mis": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (before a plural noun)",
+        "it": "miei, mie (davanti a un nome plurale; senza articolo)",
+        "nl": "mijn (vóór een meervoud)"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "it": "molto (davanti ad aggettivi e avverbi)",
+        "nl": "heel, erg"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; más de + number = more than",
+        "it": "più; más de + numero = più di",
+        "nl": "meer; más de + getal = meer dan"
+      }
+    },
+    "nadie": {
+      "lemma": "nadie",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody, no one",
+        "it": "nessuno",
+        "nl": "niemand"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "no; before a verb: not",
+        "it": "no; davanti al verbo: non",
+        "nl": "nee; vóór het werkwoord: niet"
+      }
+    },
+    "noche": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night, evening (f)",
+        "it": "notte, sera (f)",
+        "nl": "nacht, avond (f)"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us; nos vemos = see you",
+        "it": "ci, a noi; nos vemos = ci vediamo",
+        "nl": "ons; nos vemos = tot ziens, tot straks"
+      }
+    },
+    "nueva": {
+      "lemma": "nuevo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new (f); before the noun: la nueva gerente",
+        "it": "nuova; prima del nome: la nueva gerente",
+        "nl": "nieuw (vrouwelijk); vóór het zelfstandig naamwoord: la nueva gerente"
+      }
+    },
+    "nueve": {
+      "lemma": "nueve",
+      "pos": "NUM",
+      "gloss": {
+        "en": "nine",
+        "it": "nove",
+        "nl": "negen"
+      }
+    },
+    "nuevo": {
+      "lemma": "nuevo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new",
+        "it": "nuovo",
+        "nl": "nieuw"
+      }
+    },
+    "ocupada": {
+      "lemma": "ocupado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "busy (ocupado, f); estar ocupado",
+        "it": "impegnata, occupata (ocupado, f)",
+        "nl": "druk, bezig (ocupado, f); estar ocupado = het druk hebben"
+      }
+    },
+    "oficina": {
+      "lemma": "oficina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office (f)",
+        "it": "ufficio (f); attenzione: oficina = ufficio, non officina (= taller)",
+        "nl": "kantoor (f)"
+      }
+    },
+    "once": {
+      "lemma": "once",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eleven; watch out: not English 'once'",
+        "it": "undici",
+        "nl": "elf; let op: niet 'ooit'"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; para llevar = to go; para tomar aquí = for here",
+        "it": "per; para llevar = da portare via",
+        "nl": "voor; para llevar = om mee te nemen"
+      }
+    },
+    "perdón": {
+      "lemma": "perdón",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "excuse me, sorry",
+        "it": "scusi, scusa",
+        "nl": "pardon, sorry"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "personas": {
+      "lemma": "persona",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (persona, f)",
+        "it": "persone (persona, f)",
+        "nl": "mensen, personen (persona, f)"
+      }
+    },
+    "plazo": {
+      "lemma": "plazo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time allowed, deadline (m); un plazo de dos semanas = two weeks to do it",
+        "it": "termine, tempo a disposizione (m)",
+        "nl": "termijn, tijd die je krijgt (m)"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; por qué = why; por fin = finally",
+        "it": "per; por qué = perché; por fin = finalmente",
+        "nl": "voor, door; por qué = waarom; por fin = eindelijk"
+      }
+    },
+    "primero": {
+      "lemma": "primero",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first; lo primero = the first thing",
+        "it": "primo; lo primero = la prima cosa; attenzione: primero = primo, primo = cugino",
+        "nl": "eerste; lo primero = het eerste"
+      }
+    },
+    "programadora": {
+      "lemma": "programador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "programmer (f; programador for a man)",
+        "it": "programmatrice (f; programador per un uomo)",
+        "nl": "programmeur (f; programador voor een man)"
+      }
+    },
+    "proyecto": {
+      "lemma": "proyecto",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "project (m)",
+        "it": "progetto (m)",
+        "nl": "project (m)"
+      }
+    },
+    "puedo": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I can (poder)",
+        "it": "posso (poder)",
+        "nl": "ik kan (poder)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that, which; tener que = have to; lo primero que = the first thing that",
+        "it": "che; tener que = dovere; lo primero que = la prima cosa che",
+        "nl": "dat, wat; tener que = moeten; lo primero que = het eerste wat"
+      }
+    },
+    "quieres": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you want (querer); ¿quieres + infinitive? = do you want to...?",
+        "it": "vuoi (querer)",
+        "nl": "je wilt (querer); ¿quieres + infinitief? = wil je...?"
+      }
+    },
+    "quince": {
+      "lemma": "quince",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifteen",
+        "it": "quindici",
+        "nl": "vijftien"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what; por qué = why (in a question)",
+        "it": "che cosa; por qué = perché (nelle domande)",
+        "nl": "wat; por qué = waarom (in een vraag)"
+      }
+    },
+    "recibí": {
+      "lemma": "recibir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I got, I received (recibir, indefinido)",
+        "it": "ho ricevuto (recibir, indefinido)",
+        "nl": "ik kreeg, ik ontving (recibir, indefinido)"
+      }
+    },
+    "responder": {
+      "lemma": "responder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to answer, to reply; responder un correo = answer an email",
+        "it": "rispondere; responder un correo = rispondere a un'email",
+        "nl": "antwoorden, beantwoorden; responder un correo = een mail beantwoorden"
+      }
+    },
+    "respondo": {
+      "lemma": "responder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I answer, I reply (responder)",
+        "it": "rispondo (responder); responder un correo = rispondere a un'email",
+        "nl": "ik antwoord, ik beantwoord (responder)"
+      }
+    },
+    "reunión": {
+      "lemma": "reunión",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meeting (f)",
+        "it": "riunione (f)",
+        "nl": "vergadering (f)"
+      }
+    },
+    "revisar": {
+      "lemma": "revisar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to check, to go over; revisar el correo = check your email",
+        "it": "controllare; revisar el correo = controllare la posta",
+        "nl": "nakijken, checken; revisar el correo = je mail checken"
+      }
+    },
+    "ruiz": {
+      "lemma": "Ruiz",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Ruiz (a surname)",
+        "it": "Ruiz (cognome)",
+        "nl": "Ruiz (achternaam)"
+      }
+    },
+    "sabe": {
+      "lemma": "saber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "knows (saber)",
+        "it": "sa (saber)",
+        "nl": "weet (saber)"
+      }
+    },
+    "salir": {
+      "lemma": "salir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go out, to leave; salir a almorzar = go out for lunch",
+        "it": "uscire; attenzione: salir non è salire (= subir)",
+        "nl": "uitgaan, weggaan; salir a almorzar = buiten de deur lunchen"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "oneself; llamarse = be called",
+        "it": "si; llamarse = chiamarsi",
+        "nl": "zich; llamarse = heten"
+      }
+    },
+    "segunda": {
+      "lemma": "segundo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "second (f)",
+        "it": "seconda",
+        "nl": "tweede (vrouwelijk)"
+      }
+    },
+    "semana": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); fin de semana = weekend",
+        "it": "settimana (f); fin de semana = fine settimana",
+        "nl": "week (f); fin de semana = weekend"
+      }
+    },
+    "semanas": {
+      "lemma": "semana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weeks (semana, f)",
+        "it": "settimane (semana, f)",
+        "nl": "weken (semana, f)"
+      }
+    },
+    "siempre": {
+      "lemma": "siempre",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always",
+        "it": "sempre",
+        "nl": "altijd"
+      }
+    },
+    "sueldo": {
+      "lemma": "sueldo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salary, pay (m)",
+        "it": "stipendio (m)",
+        "nl": "salaris, loon (m)"
+      }
+    },
+    "tarde": {
+      "lemma": "tarde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "afternoon (f); esta tarde = this afternoon",
+        "it": "pomeriggio (f); esta tarde = oggi pomeriggio",
+        "nl": "middag (f); esta tarde = vanmiddag"
+      }
+    },
+    "tarde#adv": {
+      "lemma": "tarde",
+      "pos": "ADV",
+      "gloss": {
+        "en": "late; llegar tarde = be late",
+        "it": "tardi; llegar tarde = arrivare in ritardo",
+        "nl": "laat; llegar tarde = te laat komen"
+      }
+    },
+    "tenemos": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we have (tener); tenemos que = we have to",
+        "it": "abbiamo (tener); tenemos que = dobbiamo",
+        "nl": "we hebben (tener); tenemos que = we moeten"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener)",
+        "it": "ho (tener)",
+        "nl": "ik heb (tener)"
+      }
+    },
+    "terminamos": {
+      "lemma": "terminar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we finished (terminar; same form in the present: we finish)",
+        "it": "abbiamo finito (terminar; uguale al presente: finiamo)",
+        "nl": "we maakten af (terminar; zelfde vorm in de tegenwoordige tijd)"
+      }
+    },
+    "terminó": {
+      "lemma": "terminar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ended, finished (terminar)",
+        "it": "è finito, è finita (terminar)",
+        "nl": "eindigde, was afgelopen (terminar)"
+      }
+    },
+    "todavía": {
+      "lemma": "todavía",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet; todavía no = not yet",
+        "it": "ancora; todavía no = non ancora",
+        "nl": "nog; todavía no = nog niet"
+      }
+    },
+    "todos": {
+      "lemma": "todo",
+      "pos": "DET",
+      "gloss": {
+        "en": "all (plural of todo); todos los días = every day",
+        "it": "tutti (plurale di todo); todos los días = ogni giorno",
+        "nl": "alle (meervoud van todo); todos los días = elke dag"
+      }
+    },
+    "tomar": {
+      "lemma": "tomar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to drink, to have; tomar un café = have a coffee",
+        "it": "bere, prendere; tomar un café = prendere un caffè",
+        "nl": "drinken, nemen; tomar un café = koffie drinken"
+      }
+    },
+    "tomo": {
+      "lemma": "tomar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I drink, I have (tomar)",
+        "it": "prendo, bevo (tomar)",
+        "nl": "ik drink, ik neem (tomar)"
+      }
+    },
+    "trabajado": {
+      "lemma": "trabajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "worked (trabajar, participle)",
+        "it": "lavorato (trabajar, participio)",
+        "nl": "gewerkt (trabajar, voltooid deelwoord)"
+      }
+    },
+    "trabajo": {
+      "lemma": "trabajo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (m)",
+        "it": "lavoro (m)",
+        "nl": "werk, baan (m)"
+      }
+    },
+    "trabajé": {
+      "lemma": "trabajar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I worked (trabajar, indefinido)",
+        "it": "ho lavorato (trabajar, indefinido)",
+        "nl": "ik werkte (trabajar, indefinido)"
+      }
+    },
+    "tres": {
+      "lemma": "tres",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (no accent)",
+        "it": "tuo, tua (senza accento)",
+        "nl": "jouw, je (zonder accent)"
+      }
+    },
+    "turno": {
+      "lemma": "turno",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shift (m); turno de noche = night shift",
+        "it": "turno (m); turno de noche = turno di notte",
+        "nl": "dienst (m); turno de noche = nachtdienst"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a masculine noun); also one",
+        "it": "un, uno (davanti a un nome maschile); anche il numero uno",
+        "nl": "een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (before a feminine noun); also one",
+        "it": "una (davanti a un nome femminile); anche il numero una",
+        "nl": "een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "vamos": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go (ir); vamos a + infinitive = we're going to",
+        "it": "andiamo (ir); vamos a + infinito = faremo",
+        "nl": "we gaan (ir); vamos a + infinitief = we gaan (iets doen)"
+      }
+    },
+    "vemos": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we see (ver); nos vemos = see you",
+        "it": "vediamo (ver); nos vemos = ci vediamo",
+        "nl": "we zien (ver); nos vemos = tot ziens, tot straks"
+      }
+    },
+    "vez": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); alguna vez = ever",
+        "it": "volta (f); alguna vez = mai",
+        "nl": "keer (f); alguna vez = ooit"
+      }
+    },
+    "viernes": {
+      "lemma": "viernes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Friday (m); los viernes = on Fridays",
+        "it": "venerdì (m); los viernes = il venerdì",
+        "nl": "vrijdag (m); los viernes = op vrijdag"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (ir); voy a + infinitive = I'm going to",
+        "it": "vado (ir); voy a + infinito = sto per, farò",
+        "nl": "ik ga (ir); voy a + infinitief = ik ga (iets doen)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; cincuenta y cinco = fifty-five",
+        "it": "e; cincuenta y cinco = cinquantacinque",
+        "nl": "en; cincuenta y cinco = vijfenvijftig"
+      }
+    },
+    "ya": {
+      "lemma": "ya",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; ¿ya...? = ... yet?",
+        "it": "già; ¿ya...? = ... già?; attenzione: già = ya, ancora = todavía",
+        "nl": "al; ¿ya...? = al...?"
+      }
+    },
+    "último": {
+      "lemma": "último",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last, latest",
+        "it": "ultimo",
+        "nl": "laatst(e)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a2-oficina-1",
+      "title": "La reunión",
+      "grammarFocus": {
+        "en": [
+          "hoy / ayer + the indefinido: Hoy tenemos... / Ayer llegué...",
+          "ir a + infinitive: vamos a hablar",
+          "llegar tarde a = be late for"
+        ],
+        "it": [
+          "indefinido per il passato concluso: llegué = sono arrivato",
+          "ir a + infinito: vamos a hablar = parleremo",
+          "llegar tarde a = arrivare in ritardo a"
+        ],
+        "nl": [
+          "indefinido voor een afgesloten verleden: llegué = ik kwam",
+          "ir a + infinitief: vamos a hablar = we gaan praten",
+          "llegar tarde a = te laat komen op"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "reunión",
+          "translation": {
+            "en": "meeting",
+            "it": "riunione",
+            "nl": "vergadering"
+          },
+          "distractors": {
+            "en": [
+              "interview",
+              "break"
+            ],
+            "it": [
+              "colloquio",
+              "pausa"
+            ],
+            "nl": [
+              "sollicitatiegesprek",
+              "pauze"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una reunión a las diez",
+          "variants": [
+            "una reunión a las 10"
+          ],
+          "translation": {
+            "en": "a meeting at ten",
+            "it": "una riunione alle dieci",
+            "nl": "een vergadering om tien uur"
+          },
+          "distractors": {
+            "en": [
+              "a meeting at two",
+              "a break at ten"
+            ],
+            "it": [
+              "una riunione alle due",
+              "una pausa alle dieci"
+            ],
+            "nl": [
+              "een vergadering om twee uur",
+              "een pauze om tien uur"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hoy tenemos una reunión a las diez.",
+          "variants": [
+            "Hoy tenemos una reunión a las 10."
+          ],
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Today we have a meeting at ten.",
+            "it": "Oggi abbiamo una riunione alle dieci.",
+            "nl": "Vandaag hebben we om tien uur een vergadering."
+          },
+          "distractors": {
+            "en": [
+              "Today we have a meeting at two.",
+              "Tomorrow we have a meeting at ten."
+            ],
+            "it": [
+              "Oggi abbiamo una riunione alle due.",
+              "Domani abbiamo una riunione alle dieci."
+            ],
+            "nl": [
+              "Vandaag hebben we om twee uur een vergadering.",
+              "Morgen hebben we om tien uur een vergadering."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "gerente",
+          "translation": {
+            "en": "manager",
+            "it": "direttore, manager",
+            "nl": "manager"
+          },
+          "distractors": {
+            "en": [
+              "client",
+              "coworker"
+            ],
+            "it": [
+              "cliente",
+              "collega"
+            ],
+            "nl": [
+              "klant",
+              "collega"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la nueva gerente",
+          "translation": {
+            "en": "the new manager",
+            "it": "la nuova direttrice",
+            "nl": "de nieuwe manager"
+          },
+          "distractors": {
+            "en": [
+              "the new client",
+              "the old manager"
+            ],
+            "it": [
+              "la nuova cliente",
+              "la vecchia direttrice"
+            ],
+            "nl": [
+              "de nieuwe klant",
+              "de oude manager"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La nueva gerente se llama Carolina Ruiz.",
+          "translation": {
+            "en": "The new manager's name is Carolina Ruiz.",
+            "it": "La nuova direttrice si chiama Carolina Ruiz.",
+            "nl": "De nieuwe manager heet Carolina Ruiz."
+          },
+          "distractors": {
+            "en": [
+              "The new client's name is Carolina Ruiz.",
+              "The old manager's name is Carolina Ruiz."
+            ],
+            "it": [
+              "La nuova cliente si chiama Carolina Ruiz.",
+              "La vecchia direttrice si chiamava Carolina Ruiz."
+            ],
+            "nl": [
+              "De nieuwe klant heet Carolina Ruiz.",
+              "De oude manager heette Carolina Ruiz."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "proyecto",
+          "translation": {
+            "en": "project",
+            "it": "progetto",
+            "nl": "project"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "report"
+            ],
+            "it": [
+              "contratto",
+              "rapporto"
+            ],
+            "nl": [
+              "contract",
+              "rapport"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "hablar del proyecto",
+          "translation": {
+            "en": "to talk about the project",
+            "it": "parlare del progetto",
+            "nl": "over het project praten"
+          },
+          "distractors": {
+            "en": [
+              "to write about the project",
+              "to talk about the client"
+            ],
+            "it": [
+              "scrivere del progetto",
+              "parlare del cliente"
+            ],
+            "nl": [
+              "over het project schrijven",
+              "over de klant praten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En la reunión vamos a hablar del proyecto nuevo.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "At the meeting we're going to talk about the new project.",
+            "it": "Alla riunione parleremo del nuovo progetto.",
+            "nl": "Op de vergadering gaan we over het nieuwe project praten."
+          },
+          "distractors": {
+            "en": [
+              "At the meeting we talked about the new project.",
+              "At the meeting we're going to talk about the new client."
+            ],
+            "it": [
+              "Alla riunione abbiamo parlato del nuovo progetto.",
+              "Alla riunione parleremo del nuovo cliente."
+            ],
+            "nl": [
+              "Op de vergadering hebben we over het nieuwe project gepraat.",
+              "Op de vergadering gaan we over de nieuwe klant praten."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "cliente",
+          "translation": {
+            "en": "client, customer",
+            "it": "cliente",
+            "nl": "klant"
+          },
+          "distractors": {
+            "en": [
+              "boss",
+              "coworker"
+            ],
+            "it": [
+              "capo",
+              "collega"
+            ],
+            "nl": [
+              "baas",
+              "collega"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un cliente de Lima",
+          "translation": {
+            "en": "a client from Lima",
+            "it": "un cliente di Lima",
+            "nl": "een klant uit Lima"
+          },
+          "distractors": {
+            "en": [
+              "a coworker from Lima",
+              "a client from Quito"
+            ],
+            "it": [
+              "un collega di Lima",
+              "un cliente di Quito"
+            ],
+            "nl": [
+              "een collega uit Lima",
+              "een klant uit Quito"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El proyecto es para un cliente de Lima.",
+          "translation": {
+            "en": "The project is for a client in Lima.",
+            "it": "Il progetto è per un cliente di Lima.",
+            "nl": "Het project is voor een klant uit Lima."
+          },
+          "distractors": {
+            "en": [
+              "The project is for a company in Lima.",
+              "The contract is for a client in Lima."
+            ],
+            "it": [
+              "Il progetto è per un'azienda di Lima.",
+              "Il contratto è per un cliente di Lima."
+            ],
+            "nl": [
+              "Het project is voor een bedrijf uit Lima.",
+              "Het contract is voor een klant uit Lima."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "llegar tarde a la reunión",
+          "translation": {
+            "en": "to be late for the meeting",
+            "it": "arrivare in ritardo alla riunione",
+            "nl": "te laat komen op de vergadering"
+          },
+          "distractors": {
+            "en": [
+              "to leave the meeting early",
+              "to be late for work"
+            ],
+            "it": [
+              "uscire presto dalla riunione",
+              "arrivare in ritardo al lavoro"
+            ],
+            "nl": [
+              "vroeg weggaan van de vergadering",
+              "te laat komen op je werk"
+            ]
+          },
+          "senses": {
+            "1": "adv"
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, llegué tarde a la reunión.",
+          "translation": {
+            "en": "Sorry, I was late for the meeting.",
+            "it": "Scusate, ho fatto tardi alla riunione.",
+            "nl": "Sorry, ik was te laat op de vergadering."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, I was late for work.",
+              "Sorry, I left the meeting early."
+            ],
+            "it": [
+              "Scusate, ho fatto tardi al lavoro.",
+              "Scusate, ho lasciato presto la riunione."
+            ],
+            "nl": [
+              "Sorry, ik was te laat op mijn werk.",
+              "Sorry, ik ben vroeg weggegaan van de vergadering."
+            ]
+          },
+          "senses": {
+            "2": "adv"
+          }
+        },
+        {
+          "id": "es-a2-oficina-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La reunión terminó a mediodía.",
+          "translation": {
+            "en": "The meeting ended at noon.",
+            "it": "La riunione è finita a mezzogiorno.",
+            "nl": "De vergadering was om twaalf uur 's middags afgelopen."
+          },
+          "distractors": {
+            "en": [
+              "The meeting started at noon.",
+              "The meeting ended at midnight."
+            ],
+            "it": [
+              "La riunione è cominciata a mezzogiorno.",
+              "La riunione è finita a mezzanotte."
+            ],
+            "nl": [
+              "De vergadering begon om twaalf uur 's middags.",
+              "De vergadering was om middernacht afgelopen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-oficina-2",
+      "title": "Los correos",
+      "grammarFocus": {
+        "en": [
+          "ya / todavía no with the indefinido: ¿Ya mandaste...? / Todavía no",
+          "le + a + person: ¿Ya le mandaste el informe a la gerente?",
+          "lo + ir a: lo voy a mandar"
+        ],
+        "it": [
+          "ya / todavía no con l'indefinido: ¿Ya mandaste...? = Hai già mandato...?",
+          "le + a + persona: ¿Ya le mandaste el informe a la gerente?",
+          "lo + ir a: lo voy a mandar = lo manderò"
+        ],
+        "nl": [
+          "ya / todavía no met de indefinido: ¿Ya mandaste...? = Heb je al... gestuurd?",
+          "le + a + persoon: ¿Ya le mandaste el informe a la gerente?",
+          "lo + ir a: lo voy a mandar = ik ga het sturen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "correo",
+          "translation": {
+            "en": "email",
+            "it": "email",
+            "nl": "mail, e-mail"
+          },
+          "distractors": {
+            "en": [
+              "phone call",
+              "meeting"
+            ],
+            "it": [
+              "telefonata",
+              "riunione"
+            ],
+            "nl": [
+              "telefoontje",
+              "vergadering"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un correo del cliente",
+          "translation": {
+            "en": "an email from the client",
+            "it": "un'email del cliente",
+            "nl": "een mail van de klant"
+          },
+          "distractors": {
+            "en": [
+              "an email from the boss",
+              "a call from the client"
+            ],
+            "it": [
+              "un'email del capo",
+              "una telefonata del cliente"
+            ],
+            "nl": [
+              "een mail van de baas",
+              "een telefoontje van de klant"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esta mañana recibí un correo del cliente.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "This morning I got an email from the client.",
+            "it": "Stamattina ho ricevuto un'email dal cliente.",
+            "nl": "Vanochtend kreeg ik een mail van de klant."
+          },
+          "distractors": {
+            "en": [
+              "This morning I sent an email to the client.",
+              "This afternoon I got an email from the client."
+            ],
+            "it": [
+              "Stamattina ho mandato un'email al cliente.",
+              "Oggi pomeriggio ho ricevuto un'email dal cliente."
+            ],
+            "nl": [
+              "Vanochtend stuurde ik een mail naar de klant.",
+              "Vanmiddag kreeg ik een mail van de klant."
+            ]
+          },
+          "senses": {
+            "1": "noun"
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "informe",
+          "translation": {
+            "en": "report",
+            "it": "rapporto, relazione",
+            "nl": "rapport, verslag"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "résumé"
+            ],
+            "it": [
+              "contratto",
+              "curriculum"
+            ],
+            "nl": [
+              "contract",
+              "cv"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "mandar el informe",
+          "translation": {
+            "en": "to send the report",
+            "it": "mandare il rapporto",
+            "nl": "het rapport sturen"
+          },
+          "distractors": {
+            "en": [
+              "to print the report",
+              "to send the contract"
+            ],
+            "it": [
+              "stampare il rapporto",
+              "mandare il contratto"
+            ],
+            "nl": [
+              "het rapport printen",
+              "het contract sturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Ya le mandaste el informe a la gerente?",
+          "translation": {
+            "en": "Have you sent the report to the manager yet?",
+            "it": "Hai già mandato il rapporto alla direttrice?",
+            "nl": "Heb je het rapport al naar de manager gestuurd?"
+          },
+          "distractors": {
+            "en": [
+              "Have you printed the report for the manager yet?",
+              "Have you sent the contract to the manager yet?"
+            ],
+            "it": [
+              "Hai già stampato il rapporto per la direttrice?",
+              "Hai già mandato il contratto alla direttrice?"
+            ],
+            "nl": [
+              "Heb je het rapport al voor de manager geprint?",
+              "Heb je het contract al naar de manager gestuurd?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Todavía no, lo voy a mandar esta tarde.",
+          "translation": {
+            "en": "Not yet, I'm going to send it this afternoon.",
+            "it": "Non ancora, lo mando oggi pomeriggio.",
+            "nl": "Nog niet, ik ga het vanmiddag sturen."
+          },
+          "distractors": {
+            "en": [
+              "Not yet, I'm going to send it tomorrow morning.",
+              "Yes, I sent it this afternoon."
+            ],
+            "it": [
+              "Non ancora, lo mando domani mattina.",
+              "Sì, l'ho mandato oggi pomeriggio."
+            ],
+            "nl": [
+              "Nog niet, ik ga het morgenochtend sturen.",
+              "Ja, ik heb het vanmiddag gestuurd."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "responder",
+          "translation": {
+            "en": "to answer, to reply",
+            "it": "rispondere",
+            "nl": "antwoorden, beantwoorden"
+          },
+          "distractors": {
+            "en": [
+              "to read",
+              "to send"
+            ],
+            "it": [
+              "leggere",
+              "mandare"
+            ],
+            "nl": [
+              "lezen",
+              "sturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "responder los correos",
+          "translation": {
+            "en": "to answer the emails",
+            "it": "rispondere alle email",
+            "nl": "de mails beantwoorden"
+          },
+          "distractors": {
+            "en": [
+              "to read the emails",
+              "to answer the phone calls"
+            ],
+            "it": [
+              "leggere le email",
+              "rispondere alle telefonate"
+            ],
+            "nl": [
+              "de mails lezen",
+              "de telefoontjes beantwoorden"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Todos los días respondo más de cincuenta correos.",
+          "variants": [
+            "Todos los días respondo más de 50 correos."
+          ],
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "Every day I answer more than fifty emails.",
+            "it": "Ogni giorno rispondo a più di cinquanta email.",
+            "nl": "Elke dag beantwoord ik meer dan vijftig mails."
+          },
+          "distractors": {
+            "en": [
+              "Every day I answer fewer than fifty emails.",
+              "Every day I read more than fifty emails."
+            ],
+            "it": [
+              "Ogni giorno rispondo a meno di cinquanta email.",
+              "Ogni giorno leggo più di cinquanta email."
+            ],
+            "nl": [
+              "Elke dag beantwoord ik minder dan vijftig mails.",
+              "Elke dag lees ik meer dan vijftig mails."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "revisar",
+          "translation": {
+            "en": "to check, to go over",
+            "it": "controllare",
+            "nl": "nakijken, checken"
+          },
+          "distractors": {
+            "en": [
+              "to delete",
+              "to print"
+            ],
+            "it": [
+              "cancellare",
+              "stampare"
+            ],
+            "nl": [
+              "wissen",
+              "printen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "revisar el correo",
+          "translation": {
+            "en": "to check your email",
+            "it": "controllare la posta",
+            "nl": "je mail checken"
+          },
+          "distractors": {
+            "en": [
+              "to delete your email",
+              "to check the report"
+            ],
+            "it": [
+              "cancellare la posta",
+              "controllare il rapporto"
+            ],
+            "nl": [
+              "je mail wissen",
+              "het rapport nakijken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lo primero que hago en la oficina es revisar el correo.",
+          "translation": {
+            "en": "The first thing I do at the office is check my email.",
+            "it": "La prima cosa che faccio in ufficio è controllare la posta.",
+            "nl": "Het eerste wat ik op kantoor doe, is mijn mail checken."
+          },
+          "distractors": {
+            "en": [
+              "The last thing I do at the office is check my email.",
+              "The first thing I do at home is check my email."
+            ],
+            "it": [
+              "L'ultima cosa che faccio in ufficio è controllare la posta.",
+              "La prima cosa che faccio a casa è controllare la posta."
+            ],
+            "nl": [
+              "Het laatste wat ik op kantoor doe, is mijn mail checken.",
+              "Het eerste wat ik thuis doe, is mijn mail checken."
+            ]
+          },
+          "senses": {
+            "0": "art"
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "tu correo de ayer",
+          "translation": {
+            "en": "your email from yesterday",
+            "it": "la tua email di ieri",
+            "nl": "je mail van gisteren"
+          },
+          "distractors": {
+            "en": [
+              "your email from this morning",
+              "your report from yesterday"
+            ],
+            "it": [
+              "la tua email di stamattina",
+              "il tuo rapporto di ieri"
+            ],
+            "nl": [
+              "je mail van vanochtend",
+              "je rapport van gisteren"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, todavía no leí tu correo de ayer.",
+          "translation": {
+            "en": "Sorry, I still haven't read your email from yesterday.",
+            "it": "Scusa, non ho ancora letto la tua email di ieri.",
+            "nl": "Sorry, ik heb je mail van gisteren nog niet gelezen."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, I still haven't answered your email from yesterday.",
+              "Sorry, I already read your email from yesterday."
+            ],
+            "it": [
+              "Scusa, non ho ancora risposto alla tua email di ieri.",
+              "Scusa, ho già letto la tua email di ieri."
+            ],
+            "nl": [
+              "Sorry, ik heb je mail van gisteren nog niet beantwoord.",
+              "Sorry, ik heb je mail van gisteren al gelezen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-oficina-3",
+      "title": "El jefe",
+      "grammarFocus": {
+        "en": [
+          "jefe / jefa: the feminine in -a",
+          "personal a with people: despidió a dos personas",
+          "ser vs. estar: es amable / está ocupada"
+        ],
+        "it": [
+          "jefe / jefa: il femminile in -a",
+          "a personale con le persone: despidió a dos personas",
+          "ser o estar: es amable / está ocupada"
+        ],
+        "nl": [
+          "jefe / jefa: het vrouwelijke woord op -a",
+          "persoonlijke a bij mensen: despidió a dos personas",
+          "ser of estar: es amable / está ocupada"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-3-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mi jefa",
+          "translation": {
+            "en": "my boss",
+            "it": "la mia responsabile",
+            "nl": "mijn baas"
+          },
+          "distractors": {
+            "en": [
+              "my coworker",
+              "my client"
+            ],
+            "it": [
+              "la mia collega",
+              "la mia cliente"
+            ],
+            "nl": [
+              "mijn collega",
+              "mijn klant"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi jefa es muy amable, pero siempre está ocupada.",
+          "translation": {
+            "en": "My boss is very nice, but she's always busy.",
+            "it": "La mia responsabile è molto gentile, ma è sempre impegnata.",
+            "nl": "Mijn baas is heel aardig, maar ze heeft het altijd druk."
+          },
+          "distractors": {
+            "en": [
+              "My boss is very nice, but she's always tired.",
+              "My boss is very strict, but she's always nice."
+            ],
+            "it": [
+              "La mia responsabile è molto gentile, ma è sempre stanca.",
+              "La mia responsabile è molto severa, ma è sempre gentile."
+            ],
+            "nl": [
+              "Mijn baas is heel aardig, maar ze is altijd moe.",
+              "Mijn baas is heel streng, maar ze is altijd aardig."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "contrato",
+          "translation": {
+            "en": "contract",
+            "it": "contratto",
+            "nl": "contract"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "report"
+            ],
+            "it": [
+              "stipendio",
+              "rapporto"
+            ],
+            "nl": [
+              "salaris",
+              "rapport"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "firmar el contrato",
+          "translation": {
+            "en": "to sign the contract",
+            "it": "firmare il contratto",
+            "nl": "het contract tekenen"
+          },
+          "distractors": {
+            "en": [
+              "to print the contract",
+              "to sign the report"
+            ],
+            "it": [
+              "stampare il contratto",
+              "firmare il rapporto"
+            ],
+            "nl": [
+              "het contract printen",
+              "het rapport tekenen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El cliente ya firmó el contrato.",
+          "translation": {
+            "en": "The client already signed the contract.",
+            "it": "Il cliente ha già firmato il contratto.",
+            "nl": "De klant heeft het contract al getekend."
+          },
+          "distractors": {
+            "en": [
+              "The client hasn't signed the contract yet.",
+              "The manager already signed the contract."
+            ],
+            "it": [
+              "Il cliente non ha ancora firmato il contratto.",
+              "La direttrice ha già firmato il contratto."
+            ],
+            "nl": [
+              "De klant heeft het contract nog niet getekend.",
+              "De manager heeft het contract al getekend."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "escritorio",
+          "translation": {
+            "en": "desk",
+            "it": "scrivania",
+            "nl": "bureau"
+          },
+          "distractors": {
+            "en": [
+              "chair",
+              "office"
+            ],
+            "it": [
+              "sedia",
+              "ufficio"
+            ],
+            "nl": [
+              "stoel",
+              "kantoor"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en tu escritorio",
+          "translation": {
+            "en": "on your desk",
+            "it": "sulla tua scrivania",
+            "nl": "op je bureau"
+          },
+          "distractors": {
+            "en": [
+              "in your office",
+              "on my desk"
+            ],
+            "it": [
+              "nel tuo ufficio",
+              "sulla mia scrivania"
+            ],
+            "nl": [
+              "in je kantoor",
+              "op mijn bureau"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dejé el contrato en tu escritorio.",
+          "translation": {
+            "en": "I left the contract on your desk.",
+            "it": "Ho lasciato il contratto sulla tua scrivania.",
+            "nl": "Ik heb het contract op je bureau gelegd."
+          },
+          "distractors": {
+            "en": [
+              "I left the report on your desk.",
+              "I found the contract on your desk."
+            ],
+            "it": [
+              "Ho lasciato il rapporto sulla tua scrivania.",
+              "Ho trovato il contratto sulla tua scrivania."
+            ],
+            "nl": [
+              "Ik heb het rapport op je bureau gelegd.",
+              "Ik heb het contract op je bureau gevonden."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "sueldo",
+          "translation": {
+            "en": "salary, pay",
+            "it": "stipendio",
+            "nl": "salaris, loon"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "job"
+            ],
+            "it": [
+              "contratto",
+              "lavoro"
+            ],
+            "nl": [
+              "contract",
+              "baan"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un buen sueldo",
+          "translation": {
+            "en": "a good salary",
+            "it": "un buono stipendio",
+            "nl": "een goed salaris"
+          },
+          "distractors": {
+            "en": [
+              "a low salary",
+              "a good contract"
+            ],
+            "it": [
+              "uno stipendio basso",
+              "un buon contratto"
+            ],
+            "nl": [
+              "een laag salaris",
+              "een goed contract"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En mi trabajo nuevo tengo un buen sueldo.",
+          "commas": [
+            3
+          ],
+          "translation": {
+            "en": "In my new job I have a good salary.",
+            "it": "Nel mio nuovo lavoro ho un buono stipendio.",
+            "nl": "In mijn nieuwe baan heb ik een goed salaris."
+          },
+          "distractors": {
+            "en": [
+              "In my old job I had a good salary.",
+              "In my new job I have a good boss."
+            ],
+            "it": [
+              "Nel mio vecchio lavoro avevo un buono stipendio.",
+              "Nel mio nuovo lavoro ho un buon capo."
+            ],
+            "nl": [
+              "In mijn oude baan had ik een goed salaris.",
+              "In mijn nieuwe baan heb ik een goede baas."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "despedir",
+          "translation": {
+            "en": "to fire, to dismiss",
+            "it": "licenziare",
+            "nl": "ontslaan"
+          },
+          "distractors": {
+            "en": [
+              "to hire",
+              "to pay"
+            ],
+            "it": [
+              "assumere",
+              "pagare"
+            ],
+            "nl": [
+              "aannemen",
+              "betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "despidió a dos personas",
+          "variants": [
+            "despidió a 2 personas"
+          ],
+          "translation": {
+            "en": "fired two people",
+            "it": "ha licenziato due persone",
+            "nl": "heeft twee mensen ontslagen"
+          },
+          "distractors": {
+            "en": [
+              "hired two people",
+              "fired ten people"
+            ],
+            "it": [
+              "ha assunto due persone",
+              "ha licenziato dieci persone"
+            ],
+            "nl": [
+              "heeft twee mensen aangenomen",
+              "heeft tien mensen ontslagen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ayer el jefe despidió a dos personas.",
+          "variants": [
+            "Ayer el jefe despidió a 2 personas."
+          ],
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Yesterday the boss fired two people.",
+            "it": "Ieri il capo ha licenziato due persone.",
+            "nl": "Gisteren heeft de baas twee mensen ontslagen."
+          },
+          "distractors": {
+            "en": [
+              "Yesterday the boss hired two people.",
+              "Yesterday the boss fired ten people."
+            ],
+            "it": [
+              "Ieri il capo ha assunto due persone.",
+              "Ieri il capo ha licenziato dieci persone."
+            ],
+            "nl": [
+              "Gisteren heeft de baas twee mensen aangenomen.",
+              "Gisteren heeft de baas tien mensen ontslagen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nadie sabe por qué.",
+          "translation": {
+            "en": "Nobody knows why.",
+            "it": "Nessuno sa perché.",
+            "nl": "Niemand weet waarom."
+          },
+          "distractors": {
+            "en": [
+              "Everybody knows why.",
+              "Nobody knows when."
+            ],
+            "it": [
+              "Tutti sanno perché.",
+              "Nessuno sa quando."
+            ],
+            "nl": [
+              "Iedereen weet waarom.",
+              "Niemand weet wanneer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-oficina-4",
+      "title": "Una fecha límite",
+      "grammarFocus": {
+        "en": [
+          "tener que + infinitive: Tenemos que entregar...",
+          "antes de + day: antes del lunes",
+          "por fin = finally"
+        ],
+        "it": [
+          "tener que + infinito: Tenemos que entregar... = Dobbiamo consegnare...",
+          "antes de + giorno: antes del lunes = entro lunedì",
+          "por fin = finalmente"
+        ],
+        "nl": [
+          "tener que + infinitief: Tenemos que entregar... = We moeten ... inleveren",
+          "antes de + dag: antes del lunes = voor maandag",
+          "por fin = eindelijk"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "fecha",
+          "translation": {
+            "en": "date",
+            "it": "data",
+            "nl": "datum"
+          },
+          "distractors": {
+            "en": [
+              "time",
+              "week"
+            ],
+            "it": [
+              "ora",
+              "settimana"
+            ],
+            "nl": [
+              "tijd",
+              "week"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la fecha límite",
+          "translation": {
+            "en": "the deadline",
+            "it": "la scadenza",
+            "nl": "de deadline"
+          },
+          "distractors": {
+            "en": [
+              "the start date",
+              "the meeting date"
+            ],
+            "it": [
+              "la data d'inizio",
+              "la data della riunione"
+            ],
+            "nl": [
+              "de begindatum",
+              "de vergaderdatum"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La fecha límite es el viernes.",
+          "translation": {
+            "en": "The deadline is Friday.",
+            "it": "La scadenza è venerdì.",
+            "nl": "De deadline is vrijdag."
+          },
+          "distractors": {
+            "en": [
+              "The deadline is Thursday.",
+              "The meeting is Friday."
+            ],
+            "it": [
+              "La scadenza è giovedì.",
+              "La riunione è venerdì."
+            ],
+            "nl": [
+              "De deadline is donderdag.",
+              "De vergadering is vrijdag."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "plazo",
+          "translation": {
+            "en": "time allowed, deadline",
+            "it": "termine, tempo a disposizione",
+            "nl": "termijn"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "shift"
+            ],
+            "it": [
+              "stipendio",
+              "turno"
+            ],
+            "nl": [
+              "salaris",
+              "dienst"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un plazo de dos semanas",
+          "variants": [
+            "un plazo de 2 semanas"
+          ],
+          "translation": {
+            "en": "a two-week deadline",
+            "it": "un termine di due settimane",
+            "nl": "een termijn van twee weken"
+          },
+          "distractors": {
+            "en": [
+              "a two-day deadline",
+              "a two-week break"
+            ],
+            "it": [
+              "un termine di due giorni",
+              "una pausa di due settimane"
+            ],
+            "nl": [
+              "een termijn van twee dagen",
+              "een pauze van twee weken"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El cliente nos dio un plazo de dos semanas.",
+          "variants": [
+            "El cliente nos dio un plazo de 2 semanas."
+          ],
+          "translation": {
+            "en": "The client gave us two weeks.",
+            "it": "Il cliente ci ha dato due settimane di tempo.",
+            "nl": "De klant heeft ons twee weken de tijd gegeven."
+          },
+          "distractors": {
+            "en": [
+              "The client gave us two days.",
+              "The manager gave us two weeks."
+            ],
+            "it": [
+              "Il cliente ci ha dato due giorni di tempo.",
+              "La direttrice ci ha dato due settimane di tempo."
+            ],
+            "nl": [
+              "De klant heeft ons twee dagen de tijd gegeven.",
+              "De manager heeft ons twee weken de tijd gegeven."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "entregar",
+          "translation": {
+            "en": "to hand in, to deliver",
+            "it": "consegnare",
+            "nl": "inleveren, afgeven"
+          },
+          "distractors": {
+            "en": [
+              "to sign",
+              "to print"
+            ],
+            "it": [
+              "firmare",
+              "stampare"
+            ],
+            "nl": [
+              "tekenen",
+              "printen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "entregar el informe",
+          "translation": {
+            "en": "to hand in the report",
+            "it": "consegnare il rapporto",
+            "nl": "het rapport inleveren"
+          },
+          "distractors": {
+            "en": [
+              "to print the report",
+              "to hand in the contract"
+            ],
+            "it": [
+              "stampare il rapporto",
+              "consegnare il contratto"
+            ],
+            "nl": [
+              "het rapport printen",
+              "het contract inleveren"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "antes del lunes",
+          "translation": {
+            "en": "before Monday",
+            "it": "entro lunedì",
+            "nl": "voor maandag"
+          },
+          "distractors": {
+            "en": [
+              "after Monday",
+              "before Sunday"
+            ],
+            "it": [
+              "dopo lunedì",
+              "entro domenica"
+            ],
+            "nl": [
+              "na maandag",
+              "voor zondag"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tenemos que entregar el informe antes del lunes.",
+          "translation": {
+            "en": "We have to hand in the report before Monday.",
+            "it": "Dobbiamo consegnare il rapporto entro lunedì.",
+            "nl": "We moeten het rapport voor maandag inleveren."
+          },
+          "distractors": {
+            "en": [
+              "We have to hand in the report after Monday.",
+              "We have to sign the contract before Monday."
+            ],
+            "it": [
+              "Dobbiamo consegnare il rapporto dopo lunedì.",
+              "Dobbiamo firmare il contratto entro lunedì."
+            ],
+            "nl": [
+              "We moeten het rapport na maandag inleveren.",
+              "We moeten het contract voor maandag tekenen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "impresora",
+          "translation": {
+            "en": "printer",
+            "it": "stampante",
+            "nl": "printer"
+          },
+          "distractors": {
+            "en": [
+              "computer",
+              "phone"
+            ],
+            "it": [
+              "computer",
+              "telefono"
+            ],
+            "nl": [
+              "computer",
+              "telefoon"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "imprimir",
+          "translation": {
+            "en": "to print",
+            "it": "stampare",
+            "nl": "printen, afdrukken"
+          },
+          "distractors": {
+            "en": [
+              "to sign",
+              "to send"
+            ],
+            "it": [
+              "firmare",
+              "mandare"
+            ],
+            "nl": [
+              "tekenen",
+              "sturen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Y ahora la impresora no imprime!",
+          "translation": {
+            "en": "And now the printer won't print!",
+            "it": "E adesso la stampante non stampa!",
+            "nl": "En nu print de printer niet!"
+          },
+          "distractors": {
+            "en": [
+              "And now the computer won't start!",
+              "And now the printer won't stop!"
+            ],
+            "it": [
+              "E adesso il computer non parte!",
+              "E adesso la stampante non si ferma!"
+            ],
+            "nl": [
+              "En nu start de computer niet!",
+              "En nu stopt de printer niet!"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "horas extra",
+          "translation": {
+            "en": "overtime",
+            "it": "ore di straordinario",
+            "nl": "overuren"
+          },
+          "distractors": {
+            "en": [
+              "days off",
+              "lunch hours"
+            ],
+            "it": [
+              "giorni liberi",
+              "pause pranzo"
+            ],
+            "nl": [
+              "vrije dagen",
+              "lunchpauzes"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ayer trabajé tres horas extra.",
+          "variants": [
+            "Ayer trabajé 3 horas extra."
+          ],
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Yesterday I worked three hours of overtime.",
+            "it": "Ieri ho fatto tre ore di straordinario.",
+            "nl": "Gisteren heb ik drie uur overgewerkt."
+          },
+          "distractors": {
+            "en": [
+              "Yesterday I worked two hours of overtime.",
+              "Yesterday I took three hours off."
+            ],
+            "it": [
+              "Ieri ho fatto due ore di straordinario.",
+              "Ieri ho preso tre ore di permesso."
+            ],
+            "nl": [
+              "Gisteren heb ik twee uur overgewerkt.",
+              "Gisteren had ik drie uur vrij."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Por fin terminamos el proyecto!",
+          "translation": {
+            "en": "We finally finished the project!",
+            "it": "Finalmente abbiamo finito il progetto!",
+            "nl": "Eindelijk hebben we het project af!"
+          },
+          "distractors": {
+            "en": [
+              "We finally started the project!",
+              "We still haven't finished the project!"
+            ],
+            "it": [
+              "Finalmente abbiamo cominciato il progetto!",
+              "Non abbiamo ancora finito il progetto!"
+            ],
+            "nl": [
+              "Eindelijk zijn we met het project begonnen!",
+              "We hebben het project nog steeds niet af!"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-oficina-5",
+      "title": "La entrevista",
+      "grammarFocus": {
+        "en": [
+          "como + profession, no article: como programadora",
+          "the perfecto for life experience: ¿Alguna vez has trabajado...?",
+          "personal a: contratamos a la segunda candidata"
+        ],
+        "it": [
+          "como + professione senza articolo: como programadora",
+          "il perfecto per le esperienze di vita: ¿Alguna vez has trabajado...? = Hai mai lavorato...?",
+          "a personale: contratamos a la segunda candidata"
+        ],
+        "nl": [
+          "como + beroep zonder lidwoord: como programadora",
+          "de perfecto voor levenservaring: ¿Alguna vez has trabajado...? = Heb je ooit ... gewerkt?",
+          "persoonlijke a: contratamos a la segunda candidata"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "entrevista",
+          "translation": {
+            "en": "interview",
+            "it": "colloquio, intervista",
+            "nl": "gesprek, interview"
+          },
+          "distractors": {
+            "en": [
+              "meeting",
+              "exam"
+            ],
+            "it": [
+              "riunione",
+              "esame"
+            ],
+            "nl": [
+              "vergadering",
+              "examen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una entrevista de trabajo",
+          "translation": {
+            "en": "a job interview",
+            "it": "un colloquio di lavoro",
+            "nl": "een sollicitatiegesprek"
+          },
+          "distractors": {
+            "en": [
+              "a work meeting",
+              "a job offer"
+            ],
+            "it": [
+              "una riunione di lavoro",
+              "un'offerta di lavoro"
+            ],
+            "nl": [
+              "een werkoverleg",
+              "een vacature"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mañana tengo una entrevista de trabajo.",
+          "commas": [
+            0
+          ],
+          "translation": {
+            "en": "Tomorrow I have a job interview.",
+            "it": "Domani ho un colloquio di lavoro.",
+            "nl": "Morgen heb ik een sollicitatiegesprek."
+          },
+          "distractors": {
+            "en": [
+              "Today I have a job interview.",
+              "Tomorrow I have a work meeting."
+            ],
+            "it": [
+              "Oggi ho un colloquio di lavoro.",
+              "Domani ho una riunione di lavoro."
+            ],
+            "nl": [
+              "Vandaag heb ik een sollicitatiegesprek.",
+              "Morgen heb ik een werkoverleg."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "currículum",
+          "translation": {
+            "en": "résumé, CV",
+            "it": "curriculum",
+            "nl": "cv"
+          },
+          "distractors": {
+            "en": [
+              "cover letter",
+              "passport"
+            ],
+            "it": [
+              "lettera di presentazione",
+              "passaporto"
+            ],
+            "nl": [
+              "sollicitatiebrief",
+              "paspoort"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mandé mi currículum a cinco empresas.",
+          "variants": [
+            "Mandé mi currículum a 5 empresas."
+          ],
+          "translation": {
+            "en": "I sent my résumé to five companies.",
+            "it": "Ho mandato il curriculum a cinque aziende.",
+            "nl": "Ik heb mijn cv naar vijf bedrijven gestuurd."
+          },
+          "distractors": {
+            "en": [
+              "I sent my résumé to three companies.",
+              "I got résumés from five companies."
+            ],
+            "it": [
+              "Ho mandato il curriculum a tre aziende.",
+              "Ho ricevuto curriculum da cinque aziende."
+            ],
+            "nl": [
+              "Ik heb mijn cv naar drie bedrijven gestuurd.",
+              "Ik heb cv's van vijf bedrijven gekregen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "experiencia",
+          "translation": {
+            "en": "experience",
+            "it": "esperienza",
+            "nl": "ervaring"
+          },
+          "distractors": {
+            "en": [
+              "degree",
+              "salary"
+            ],
+            "it": [
+              "laurea",
+              "stipendio"
+            ],
+            "nl": [
+              "diploma",
+              "salaris"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "tres años de experiencia",
+          "variants": [
+            "3 años de experiencia"
+          ],
+          "translation": {
+            "en": "three years of experience",
+            "it": "tre anni di esperienza",
+            "nl": "drie jaar ervaring"
+          },
+          "distractors": {
+            "en": [
+              "three months of experience",
+              "ten years of experience"
+            ],
+            "it": [
+              "tre mesi di esperienza",
+              "dieci anni di esperienza"
+            ],
+            "nl": [
+              "drie maanden ervaring",
+              "tien jaar ervaring"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tengo tres años de experiencia como programadora.",
+          "speaker": "F",
+          "variants": [
+            "Tengo 3 años de experiencia como programadora."
+          ],
+          "translation": {
+            "en": "I have three years of experience as a programmer.",
+            "it": "Ho tre anni di esperienza come programmatrice.",
+            "nl": "Ik heb drie jaar ervaring als programmeur."
+          },
+          "distractors": {
+            "en": [
+              "I have three years of experience as a teacher.",
+              "I have three months of experience as a programmer."
+            ],
+            "it": [
+              "Ho tre anni di esperienza come insegnante.",
+              "Ho tre mesi di esperienza come programmatrice."
+            ],
+            "nl": [
+              "Ik heb drie jaar ervaring als docent.",
+              "Ik heb drie maanden ervaring als programmeur."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "alguna vez has trabajado",
+          "translation": {
+            "en": "have you ever worked",
+            "it": "hai mai lavorato",
+            "nl": "heb je ooit gewerkt"
+          },
+          "distractors": {
+            "en": [
+              "have you ever studied",
+              "have you always worked"
+            ],
+            "it": [
+              "hai mai studiato",
+              "hai sempre lavorato"
+            ],
+            "nl": [
+              "heb je ooit gestudeerd",
+              "heb je altijd gewerkt"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Alguna vez has trabajado en una empresa grande?",
+          "translation": {
+            "en": "Have you ever worked at a big company?",
+            "it": "Hai mai lavorato in una grande azienda?",
+            "nl": "Heb je ooit bij een groot bedrijf gewerkt?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever worked at a small company?",
+              "Have you ever worked at a hospital?"
+            ],
+            "it": [
+              "Hai mai lavorato in una piccola azienda?",
+              "Hai mai lavorato in un ospedale?"
+            ],
+            "nl": [
+              "Heb je ooit bij een klein bedrijf gewerkt?",
+              "Heb je ooit in een ziekenhuis gewerkt?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "candidato",
+          "translation": {
+            "en": "candidate, applicant",
+            "it": "candidato",
+            "nl": "kandidaat"
+          },
+          "distractors": {
+            "en": [
+              "client",
+              "manager"
+            ],
+            "it": [
+              "cliente",
+              "direttore"
+            ],
+            "nl": [
+              "klant",
+              "manager"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el último candidato",
+          "translation": {
+            "en": "the last candidate",
+            "it": "l'ultimo candidato",
+            "nl": "de laatste kandidaat"
+          },
+          "distractors": {
+            "en": [
+              "the first candidate",
+              "the last client"
+            ],
+            "it": [
+              "il primo candidato",
+              "l'ultimo cliente"
+            ],
+            "nl": [
+              "de eerste kandidaat",
+              "de laatste klant"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "El último candidato llegó tarde a la entrevista.",
+          "translation": {
+            "en": "The last candidate was late for the interview.",
+            "it": "L'ultimo candidato è arrivato in ritardo al colloquio.",
+            "nl": "De laatste kandidaat kwam te laat op het gesprek."
+          },
+          "distractors": {
+            "en": [
+              "The first candidate was late for the interview.",
+              "The last candidate was early for the interview."
+            ],
+            "it": [
+              "Il primo candidato è arrivato in ritardo al colloquio.",
+              "L'ultimo candidato è arrivato in anticipo al colloquio."
+            ],
+            "nl": [
+              "De eerste kandidaat kwam te laat op het gesprek.",
+              "De laatste kandidaat kwam te vroeg op het gesprek."
+            ]
+          },
+          "senses": {
+            "4": "adv"
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "contratar",
+          "translation": {
+            "en": "to hire",
+            "it": "assumere",
+            "nl": "aannemen"
+          },
+          "distractors": {
+            "en": [
+              "to fire",
+              "to pay"
+            ],
+            "it": [
+              "licenziare",
+              "pagare"
+            ],
+            "nl": [
+              "ontslaan",
+              "betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la segunda candidata",
+          "translation": {
+            "en": "the second candidate (a woman)",
+            "it": "la seconda candidata",
+            "nl": "de tweede kandidaat (een vrouw)"
+          },
+          "distractors": {
+            "en": [
+              "the third candidate (a woman)",
+              "the second client (a woman)"
+            ],
+            "it": [
+              "la terza candidata",
+              "la seconda cliente"
+            ],
+            "nl": [
+              "de derde kandidaat (een vrouw)",
+              "de tweede klant (een vrouw)"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Contratamos a la segunda candidata.",
+          "translation": {
+            "en": "We hired the second candidate.",
+            "it": "Abbiamo assunto la seconda candidata.",
+            "nl": "We hebben de tweede kandidaat aangenomen."
+          },
+          "distractors": {
+            "en": [
+              "We hired the third candidate.",
+              "We didn't hire the second candidate."
+            ],
+            "it": [
+              "Abbiamo assunto la terza candidata.",
+              "Non abbiamo assunto la seconda candidata."
+            ],
+            "nl": [
+              "We hebben de derde kandidaat aangenomen.",
+              "We hebben de tweede kandidaat niet aangenomen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a2-oficina-6",
+      "title": "En el descanso",
+      "grammarFocus": {
+        "en": [
+          "de ... a ... for hours: de nueve a cinco",
+          "en el turno de noche = on the night shift",
+          "¿Quieres + infinitive? for invitations; nos vemos = see you"
+        ],
+        "it": [
+          "de ... a ... per gli orari: de nueve a cinco = dalle nove alle cinque",
+          "en el turno de noche = nel turno di notte",
+          "¿Quieres + infinito? per invitare; nos vemos = ci vediamo"
+        ],
+        "nl": [
+          "de ... a ... voor tijden: de nueve a cinco = van negen tot vijf",
+          "en el turno de noche = in de nachtdienst",
+          "¿Quieres + infinitief? om uit te nodigen; nos vemos = tot straks"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a2-oficina-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "descanso",
+          "translation": {
+            "en": "break, rest",
+            "it": "pausa",
+            "nl": "pauze"
+          },
+          "distractors": {
+            "en": [
+              "meeting",
+              "shift"
+            ],
+            "it": [
+              "riunione",
+              "turno"
+            ],
+            "nl": [
+              "vergadering",
+              "dienst"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un descanso de quince minutos",
+          "variants": [
+            "un descanso de 15 minutos"
+          ],
+          "translation": {
+            "en": "a fifteen-minute break",
+            "it": "una pausa di quindici minuti",
+            "nl": "een pauze van vijftien minuten"
+          },
+          "distractors": {
+            "en": [
+              "a fifty-minute break",
+              "a fifteen-minute meeting"
+            ],
+            "it": [
+              "una pausa di cinquanta minuti",
+              "una riunione di quindici minuti"
+            ],
+            "nl": [
+              "een pauze van vijftig minuten",
+              "een vergadering van vijftien minuten"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A las once tenemos un descanso de quince minutos.",
+          "variants": [
+            "A las 11 tenemos un descanso de 15 minutos.",
+            "A las once tenemos un descanso de 15 minutos.",
+            "A las 11 tenemos un descanso de quince minutos."
+          ],
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "At eleven we have a fifteen-minute break.",
+            "it": "Alle undici abbiamo una pausa di quindici minuti.",
+            "nl": "Om elf uur hebben we een pauze van vijftien minuten."
+          },
+          "distractors": {
+            "en": [
+              "At twelve we have a fifteen-minute break.",
+              "At eleven we have a fifteen-minute meeting."
+            ],
+            "it": [
+              "A mezzogiorno abbiamo una pausa di quindici minuti.",
+              "Alle undici abbiamo una riunione di quindici minuti."
+            ],
+            "nl": [
+              "Om twaalf uur hebben we een pauze van vijftien minuten.",
+              "Om elf uur hebben we een vergadering van vijftien minuten."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tomar un café",
+          "translation": {
+            "en": "to have a coffee",
+            "it": "prendere un caffè",
+            "nl": "een koffie drinken"
+          },
+          "distractors": {
+            "en": [
+              "to have a tea",
+              "to buy a coffee"
+            ],
+            "it": [
+              "prendere un tè",
+              "comprare un caffè"
+            ],
+            "nl": [
+              "een thee drinken",
+              "een koffie kopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En el descanso tomo un café con mis compañeros.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "On my break I have a coffee with my coworkers.",
+            "it": "Durante la pausa prendo un caffè con i miei colleghi.",
+            "nl": "In de pauze drink ik koffie met mijn collega's."
+          },
+          "distractors": {
+            "en": [
+              "On my break I have a coffee with my boss.",
+              "On my break I have a tea with my coworkers."
+            ],
+            "it": [
+              "Durante la pausa prendo un caffè con il mio capo.",
+              "Durante la pausa prendo un tè con i miei colleghi."
+            ],
+            "nl": [
+              "In de pauze drink ik koffie met mijn baas.",
+              "In de pauze drink ik thee met mijn collega's."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "horario",
+          "translation": {
+            "en": "schedule, hours",
+            "it": "orario",
+            "nl": "rooster, werktijden"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "shift"
+            ],
+            "it": [
+              "stipendio",
+              "turno"
+            ],
+            "nl": [
+              "salaris",
+              "dienst"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mi horario de trabajo",
+          "translation": {
+            "en": "my work hours",
+            "it": "il mio orario di lavoro",
+            "nl": "mijn werktijden"
+          },
+          "distractors": {
+            "en": [
+              "my work contract",
+              "my study schedule"
+            ],
+            "it": [
+              "il mio contratto di lavoro",
+              "il mio orario di studio"
+            ],
+            "nl": [
+              "mijn arbeidscontract",
+              "mijn studierooster"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi horario de trabajo es de nueve a cinco.",
+          "variants": [
+            "Mi horario de trabajo es de 9 a 5.",
+            "Mi horario de trabajo es de nueve a 5.",
+            "Mi horario de trabajo es de 9 a cinco."
+          ],
+          "translation": {
+            "en": "My work hours are nine to five.",
+            "it": "Il mio orario di lavoro è dalle nove alle cinque.",
+            "nl": "Mijn werktijden zijn van negen tot vijf."
+          },
+          "distractors": {
+            "en": [
+              "My work hours are nine to six.",
+              "My work hours are eight to five."
+            ],
+            "it": [
+              "Il mio orario di lavoro è dalle nove alle sei.",
+              "Il mio orario di lavoro è dalle otto alle cinque."
+            ],
+            "nl": [
+              "Mijn werktijden zijn van negen tot zes.",
+              "Mijn werktijden zijn van acht tot vijf."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "turno",
+          "translation": {
+            "en": "shift",
+            "it": "turno",
+            "nl": "dienst"
+          },
+          "distractors": {
+            "en": [
+              "break",
+              "schedule"
+            ],
+            "it": [
+              "pausa",
+              "orario"
+            ],
+            "nl": [
+              "pauze",
+              "rooster"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "el turno de noche",
+          "translation": {
+            "en": "the night shift",
+            "it": "il turno di notte",
+            "nl": "de nachtdienst"
+          },
+          "distractors": {
+            "en": [
+              "the morning shift",
+              "the night bus"
+            ],
+            "it": [
+              "il turno di mattina",
+              "l'autobus di notte"
+            ],
+            "nl": [
+              "de ochtenddienst",
+              "de nachtbus"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esta semana trabajo en el turno de noche.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "This week I'm working the night shift.",
+            "it": "Questa settimana faccio il turno di notte.",
+            "nl": "Deze week werk ik in de nachtdienst."
+          },
+          "distractors": {
+            "en": [
+              "Next week I'm working the night shift.",
+              "This week I'm working the morning shift."
+            ],
+            "it": [
+              "La settimana prossima faccio il turno di notte.",
+              "Questa settimana faccio il turno di mattina."
+            ],
+            "nl": [
+              "Volgende week werk ik in de nachtdienst.",
+              "Deze week werk ik in de ochtenddienst."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "salir a almorzar",
+          "translation": {
+            "en": "to go out for lunch",
+            "it": "uscire a pranzo",
+            "nl": "buiten de deur lunchen"
+          },
+          "distractors": {
+            "en": [
+              "to go out for dinner",
+              "to go home for lunch"
+            ],
+            "it": [
+              "uscire a cena",
+              "tornare a casa a pranzo"
+            ],
+            "nl": [
+              "uit eten gaan",
+              "thuis gaan lunchen"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Quieres salir a almorzar conmigo?",
+          "translation": {
+            "en": "Do you want to go out for lunch with me?",
+            "it": "Vuoi uscire a pranzo con me?",
+            "nl": "Wil je met me buiten de deur lunchen?"
+          },
+          "distractors": {
+            "en": [
+              "Do you want to go out for dinner with me?",
+              "Do you want to have lunch at the office with me?"
+            ],
+            "it": [
+              "Vuoi uscire a cena con me?",
+              "Vuoi pranzare in ufficio con me?"
+            ],
+            "nl": [
+              "Wil je met me uit eten gaan?",
+              "Wil je met me op kantoor lunchen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hoy no puedo, tengo mucho trabajo.",
+          "translation": {
+            "en": "I can't today, I have a lot of work.",
+            "it": "Oggi non posso, ho molto lavoro.",
+            "nl": "Vandaag kan ik niet, ik heb veel werk."
+          },
+          "distractors": {
+            "en": [
+              "I can today, I don't have much work.",
+              "I can't today, I have a lot of meetings."
+            ],
+            "it": [
+              "Oggi posso, non ho molto lavoro.",
+              "Oggi non posso, ho molte riunioni."
+            ],
+            "nl": [
+              "Vandaag kan ik wel, ik heb niet veel werk.",
+              "Vandaag kan ik niet, ik heb veel vergaderingen."
+            ]
+          }
+        },
+        {
+          "id": "es-a2-oficina-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bueno, nos vemos después del descanso.",
+          "translation": {
+            "en": "OK, see you after the break.",
+            "it": "Va bene, ci vediamo dopo la pausa.",
+            "nl": "Oké, tot na de pauze."
+          },
+          "distractors": {
+            "en": [
+              "OK, see you before the break.",
+              "OK, see you after the meeting."
+            ],
+            "it": [
+              "Va bene, ci vediamo prima della pausa.",
+              "Va bene, ci vediamo dopo la riunione."
+            ],
+            "nl": [
+              "Oké, tot voor de pauze.",
+              "Oké, tot na de vergadering."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

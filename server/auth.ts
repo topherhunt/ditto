@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import { OAuth2Client } from "google-auth-library";
-import { DEFAULT_PREFS, immersible, PrefsSchema, type Prefs } from "../shared/api.ts";
-import { LANGUAGES, supportLocale, type Language, type Locale } from "../shared/content.ts";
+import { DEFAULT_PREFS, PrefsSchema, type Prefs } from "../shared/api.ts";
+import { LANGUAGES, languageLocale, supportLocale, type Language, type Locale } from "../shared/content.ts";
 import type { DB } from "./db.ts";
 
 export type GoogleProfile = { sub: string; email: string };
@@ -17,12 +17,13 @@ export const prefsOf = (user: User): Record<Language, Prefs> => {
 
 /** The language AI writes glosses in for `language`: the learner's own, or the course's support language if that is the one practiced. */
 export const ownLocale = (user: User, language: Language): Locale =>
-  (user.locale as string) === language ? supportLocale(language, user.locale) : user.locale;
+  user.locale === languageLocale(language) ? supportLocale(language, user.locale) : user.locale;
 
 function immersedLocale(user: User, language: Language, pref: "immerseUi" | "immerseHelp"): Locale {
   if (!prefsOf(user)[language][pref]) return ownLocale(user, language);
-  if (!immersible(language)) throw new Error(`${pref} is on for ${language}, which has no locale`);
-  return language;
+  const locale = languageLocale(language);
+  if (!locale) throw new Error(`${pref} is on for ${language}, which has no locale`);
+  return locale;
 }
 /** The language of explanations and coaching: the course's own with help immersion on, else as `ownLocale`. */
 export const helpLocale = (user: User, language: Language) => immersedLocale(user, language, "immerseHelp");

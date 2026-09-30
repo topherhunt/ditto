@@ -10,6 +10,10 @@ export type Locale = (typeof LOCALES)[number];
 /** In English, for LLM prompts. */
 export const LOCALE_NAMES: Record<Locale, string> = { en: "English", "es-419": "Latin American Spanish", nl: "Dutch", it: "Italian" };
 
+/** The locale each target language is written in, where the UI has one (Irish has none). */
+const LANGUAGE_LOCALES: Partial<Record<Language, Locale>> = { en: "en", es: "es-419", it: "it", nl: "nl" };
+export const languageLocale = (language: Language): Locale | null => LANGUAGE_LOCALES[language] ?? null;
+
 /** Support languages each target language's content carries, in fallback order: every localized field has exactly these. */
 export const SUPPORT_LOCALES: Record<Language, readonly Locale[]> = { en: ["es-419", "it", "nl"], es: ["en", "it", "nl"], it: ["en", "es-419", "nl"], nl: ["en", "es-419"], ga: ["en", "es-419", "nl", "it"] };
 

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LANGUAGES, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedLesson, type ServedUnit, type Stage } from "./content.ts";
+import { LANGUAGES, languageLocale, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedLesson, type ServedUnit, type Stage } from "./content.ts";
 
 export const HINT_LEVELS = ["letters", "initial", "none"] as const;
 export type HintLevel = (typeof HINT_LEVELS)[number];
@@ -23,7 +23,7 @@ export type Prefs = z.infer<typeof PrefsSchema>;
 export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, level: null, immerseUi: false, immerseHelp: false };
 
 /** Whether a course can be immersed in: the app and the AI write only in a locale. */
-export const immersible = (l: Language): l is Language & Locale => (LOCALES as readonly string[]).includes(l);
+export const immersible = (l: Language) => languageLocale(l) !== null;
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema })
   .refine((p) => immersible(p.language) || !(p.prefs.immerseUi || p.prefs.immerseHelp), "This course has no immersion");
@@ -203,12 +203,9 @@ export type CoachVerdict = {
   fixes: { wrong: string; right: string; why: string }[];
   feedback: string;
 };
-/**
- * `failures`: failed tries at this target so far, this one included. `audioUrl`: the recording, kept only for admins (a learner's
- * replays from the browser). `targetAudioUrl`: the partner voice saying the target, on a failed attempt.
- */
+/** `failures`: failed tries at this target so far, this one included. `targetAudioUrl`: the partner voice saying the target, on a failed attempt. */
 export type SpeakAttemptOut = {
-  id: number; passed: boolean; target: string; transcript: string; verdict: CoachVerdict; failures: number; audioUrl: string | null;
+  id: number; passed: boolean; target: string; transcript: string; verdict: CoachVerdict; failures: number;
   targetAudioUrl: string | null;
 };
 /** The attempts route streams these as NDJSON: each step as it starts, then the result or an error. */

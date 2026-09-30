@@ -37,6 +37,7 @@ const SAMPLES: Record<Language, Samples> = {
   es: {
     type: { typed: "quisera un cafe por favorr", answer: "Quisiera un café, por favor." },
     talk: { partner: "¡Hola! ¿Qué vas a tomar?", learner: "Yo quiero tomo un capuchino.", fix: "Quiero tomar un capuchino." },
+    quiz: { prompt: "Ayer ___ al cine con Lucas.", right: "fui", wrong: ["he ido", "fue"] },
   },
   nl: {
     type: { typed: "ik wil grag een kofie alstublieftt", answer: "Ik wil graag een koffie, alstublieft." },
