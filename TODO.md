@@ -1,12 +1,13 @@
 ### Now
 
 - [ ] Test and confirm with Luis and others that people can access the app fine.
+- [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - [ ] Improving the UI
   - [x] Fix the Internal Error
-  - [ ] Sfx when you start & stop recording
+  - [x] Sfx when you start & stop recording
+  - [x] Revise & polish the Greek typing course content
+  - [x] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there. 
   - [ ] Revise & polish the French typing course content
-  - [ ] Revise & polish the Greek typing course content
-  - [ ] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there. 
   - [ ] The name should be "Ditto", not translated. Confirm that this is the case in all languages. 
   - [ ] Add a favicon.
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
@@ -18,6 +19,7 @@
 
 ### Wishlist
 
+- Review various list UIs for, how painful are they to scroll down and up on a phone? Think: Talk conversation UI (scrolling back up), Type review & notebook, etc. What can be done to surface the content you need to pay attention to near the top and tuck away lower content in expandable accordions in different categories so you don't have to do so much endless scrolling. 
 - [ ]  In the talk activity for the suggested replies, there should be a little play icon to the right of each one so that you can listen to it and then repeat after it if you want.
 - [ ] Stars: Expand this system from just "indicating how much you've mastered each Type lesson" to "a unified progress metric, and a currency you can spend down".
   - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that. 

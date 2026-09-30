@@ -23,7 +23,7 @@ async function setPrefs(page: Page, patch: Partial<Prefs>) {
 test("a beginner starts with study first on, and a new item shows its sound and meaning before the input", async ({ page }) => {
   await signIn(page, "study1@example.com", "study1", "A1");
   expect((await (await page.request.get("/api/me")).json()).prefs.it.studyFirst).toBe(true);
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-study-translation")).toHaveText("coffee");
   await expect(page.locator(".qa-slot")).toHaveCount(0);
   // A single word isn't broken into tappable words.
@@ -35,7 +35,7 @@ test("a beginner starts with study first on, and a new item shows its sound and 
 
 test("a wrong answer after the study screen still counts as wrong", async ({ page }) => {
   await signIn(page, "study2@example.com", "study2", "A1");
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await page.locator(".qa-study-done").click();
   await page.locator(".qa-slot").first().fill("xyzzy");
   await page.locator(".qa-slot").first().press("Enter");
@@ -45,7 +45,7 @@ test("a wrong answer after the study screen still counts as wrong", async ({ pag
 test("a phrase of three or more words has tappable words on its study screen", async ({ page }) => {
   await signIn(page, "study3@example.com", "study3", "A1");
   await setPrefs(page, { path: "sentences" });
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-study-word").first()).toBeVisible();
   await page.locator(".qa-study-word").first().click();
   await expect(page.locator(".qa-word-info")).toBeVisible();
@@ -54,7 +54,7 @@ test("a phrase of three or more words has tappable words on its study screen", a
 test("a learner with study first off goes straight to the input", async ({ page }) => {
   await signIn(page, "study4@example.com", "study4", "A2");
   expect((await (await page.request.get("/api/me")).json()).prefs.it.studyFirst).toBe(false);
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-slot").first()).toBeVisible();
   await expect(page.locator(".qa-study-done")).toHaveCount(0);
 });
@@ -105,7 +105,7 @@ test("a three-star lesson has no Master button and a quieter Practice button", a
 test("finishing a run shows the stars it earned", async ({ page }) => {
   await signIn(page, "stars3@example.com", "stars3", "A2");
   await setPrefs(page, { path: "sentences", hints: "none" });
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   const lesson = (await (await page.request.get("/api/lessons/it-a1-bar-1?lang=it")).json()) as LessonOut;
   const sentences = lesson.units.filter((u) => u.stage === "sentence");
   for (const [i, u] of sentences.entries()) {

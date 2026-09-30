@@ -23,7 +23,7 @@ test("next lesson button, then a level test: fail on the first miss, retry, pass
   await expect(page.locator(".qa-course-locked")).toHaveCount(1);
 
   let units = await startTest(page, () => page.locator(".qa-level-test").click());
-  await expect(page).toHaveURL(/\/it\/test\/A1$/);
+  await expect(page).toHaveURL(/\/it\/type\/test\/A1$/);
   await expect(page.locator(".qa-hint")).toHaveCount(0);
   // One wrong check ends the item, and the test with it.
   await page.locator(".qa-free-input").fill("sbagliato");
@@ -57,5 +57,5 @@ test("next lesson button, then a level test: fail on the first miss, retry, pass
   await expect(page.locator(".qa-lesson-progress").filter({ hasText: "✓" })).toHaveCount(0);
 
   await page.locator(".qa-next-lesson").click();
-  await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-1$/);
+  await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
 });

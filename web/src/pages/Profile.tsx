@@ -183,7 +183,7 @@ export function Profile() {
                                     <div class="fw-semibold">{r.lessonTitle}{r.completed ? " ✓" : ""}</div>
                                     <div class="small text-body-secondary">{r.courseTitle} · {shortDate(r.lastAt)}</div>
                                   </div>
-                                  <A href={`/${l.language}/lesson/${r.lessonId}`} class="qa-play btn btn-sm btn-success">{t("profile.play")}</A>
+                                  <A href={`/${l.language}/type/lesson/${r.lessonId}`} class="qa-play btn btn-sm btn-success">{t("profile.play")}</A>
                                 </li>
                               )}
                             </For>

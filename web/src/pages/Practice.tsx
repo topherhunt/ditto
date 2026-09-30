@@ -148,7 +148,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
 
   return (
     <div class="d-flex flex-column gap-3">
-      <Show when={props.mode === "review"}><TypeCrumb lang={props.lang} /></Show>
+      <Show when={props.mode === "review" || props.mode === "mistakes"}><TypeCrumb lang={props.lang} /></Show>
       <div class="d-flex align-items-baseline gap-2">
         <h1 class="h4 mb-0 me-auto">{props.deck.title}</h1>
         <span class="qa-position text-body-secondary small">{Math.min(index() + 1, props.deck.units.length)} / {props.deck.units.length}</span>

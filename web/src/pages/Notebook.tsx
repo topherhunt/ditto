@@ -80,7 +80,7 @@ export function Notebook() {
       <div class="d-flex align-items-center gap-2">
         <h1 class="h4 mb-0 me-auto">{t("notebook.title")}</h1>
         <Show when={entries()?.length}>
-          <A href={`/${lang()}/mistakes/practice`} class="qa-mistakes-practice btn btn-primary">{t("notebook.practice")}</A>
+          <A href={`/${lang()}/type/notebook/practice`} class="qa-mistakes-practice btn btn-primary">{t("notebook.practice")}</A>
         </Show>
       </div>
       <p class="small text-body-secondary mb-0">{t("notebook.rule")}</p>

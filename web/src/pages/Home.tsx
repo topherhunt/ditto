@@ -28,7 +28,7 @@ export function Home() {
           <div class="d-flex flex-wrap justify-content-center gap-2">
             <Show when={nextLesson(cat())}>
               {(lesson) => (
-                <A href={`/${lang()}/lesson/${lesson().id}`} class="qa-next-lesson btn btn-success">
+                <A href={`/${lang()}/type/lesson/${lesson().id}`} class="qa-next-lesson btn btn-success">
                   <span aria-hidden="true">▶</span> {t("home.next", { title: lesson().title })}
                 </A>
               )}
@@ -58,7 +58,7 @@ export function Home() {
                     </h2>
                     <Show when={passed()}><span class="qa-level-passed badge text-bg-success">{t("home.testedOut")}</span></Show>
                     <Show when={!passed() && !levelDone(cat(), courses)}>
-                      <A href={`/${lang()}/test/${level}`} class="qa-level-test btn btn-sm btn-outline-primary ms-auto" title={t("home.testOutTitle", { level })}>
+                      <A href={`/${lang()}/type/test/${level}`} class="qa-level-test btn btn-sm btn-outline-primary ms-auto" title={t("home.testOutTitle", { level })}>
                         {t("home.testOut", { level })}
                       </A>
                     </Show>
@@ -121,7 +121,7 @@ export function Home() {
                                           <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                             <Match when={cat().unlocked.includes(lesson.id)}>
                                               <div class="btn-group">
-                                                <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
                                                   classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
                                                 <Show when={stars()?.stars !== undefined && stars().stars < 3}>
                                                   <Show when={masterWait() === 0} fallback={
@@ -129,7 +129,7 @@ export function Home() {
                                                       <button type="button" class="btn btn-sm btn-gold rounded-start-0" disabled>{t("home.master")}</button>
                                                     </span>
                                                   }>
-                                                    <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-gold" title={t("home.masterTitle")}>{t("home.master")}</A>
+                                                    <A href={`/${lang()}/type/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-gold" title={t("home.masterTitle")}>{t("home.master")}</A>
                                                   </Show>
                                                 </Show>
                                               </div>
@@ -138,7 +138,7 @@ export function Home() {
                                               {(friends) => {
                                                 const names = () => friends().map(displayName);
                                                 return (
-                                                <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap"
+                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap"
                                                   title={t("home.unlockedBy", { names: names().join(", ") })}>
                                                   {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
                                                 </A>

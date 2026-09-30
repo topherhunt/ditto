@@ -23,10 +23,12 @@ export function pageOf(pathname: string): Page | null {
   const [section, sub, third] = rest;
   const activity: Activity =
     section === undefined ? "home"
-    : section === "type" ? (sub === "review" ? "review" : sub === "notebook" ? "notebook" : "home")
-    : section === "lesson" ? "lesson"
-    : section === "mistakes" ? "mistakes"
-    : section === "test" ? "level-test"
+    : section === "type" ? (
+      sub === "review" ? "review"
+      : sub === "notebook" ? (third === "practice" ? "mistakes" : "notebook")
+      : sub === "lesson" ? "lesson"
+      : sub === "test" ? "level-test"
+      : "home")
     : section === "talk" ? "talk"
     : section === "settings" ? "settings"
     : section === "quiz" ? (sub === "test" ? "quiz-test" : third === "study" ? "quiz-study" : "quiz-decks")

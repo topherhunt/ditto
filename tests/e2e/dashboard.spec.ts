@@ -13,14 +13,14 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
   await expect(page.locator(".qa-dash-way")).toHaveCount(3);
   // Each card invites to its own next step.
   await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
-  await expect(page.locator(".qa-dash-start-type")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1");
+  await expect(page.locator(".qa-dash-start-type")).toHaveAttribute("href", "/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-dash-start-talk")).toHaveText("Start your first conversation");
   await expect(page.locator(".qa-dash-start-talk")).toHaveAttribute("href", "/it/talk");
   await expect(page.locator(".qa-dash-start-quiz")).toHaveText(/^Study A1 /);
   await expect(page.locator(".qa-dash-start-quiz")).toHaveAttribute("href", /^\/it\/quiz\/it-a1-/);
 
   await page.locator(".qa-dash-coach-go").click();
-  await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-1$/);
+  await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
   await page.locator(".qa-reveal").click();
   await page.locator(".qa-meaning-option").first().click();
   await expect(page.locator(".qa-next")).toBeVisible();
@@ -39,7 +39,7 @@ test("a B1 answer on the setup screen picks the chunks path and suggests testing
   const me = await (await page.request.get("/api/me")).json();
   expect(me.prefs.it).toMatchObject({ level: "B1", path: "chunks" });
   await expect(page.locator(".qa-dash-testout")).toContainText("A1");
-  await expect(page.locator(".qa-dash-testout-go")).toHaveAttribute("href", "/it/test/A1");
+  await expect(page.locator(".qa-dash-testout-go")).toHaveAttribute("href", "/it/type/test/A1");
 
   await page.locator(".qa-dash-level-change").click();
   await expect(page.locator(".qa-dash-level-question")).toBeVisible();

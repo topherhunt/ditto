@@ -16,7 +16,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
   await page.locator(".qa-dash-start-type").click();
-  await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-1$/);
+  await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
 
   // caffè typed without its accent: accepted, and the fixed letter stays orange.
   await slot(page, 0).fill("caffe");
@@ -85,7 +85,7 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await page.locator(".qa-settings-hints").selectOption("none");
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
 
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-position")).toHaveText("1 / 3");
   // "Vorrei un caffè, per favore.": a semicolon for the comma and ! for the period are fine.
   await page.locator(".qa-free-input").fill("vorrei un caffè; per favore!");
@@ -166,7 +166,7 @@ test("later lessons and modules stay locked until the ones before are done", asy
   await expect(page.locator(".qa-lesson-locked")).toHaveCount(1);
   await expect(page.locator(".qa-course-locked")).toContainText("after Al bar");
   await expect(page.locator(".qa-course-locked .qa-course-optional")).toBeVisible();
-  await page.goto("/it/lesson/it-a1-bar-2");
+  await page.goto("/it/type/lesson/it-a1-bar-2");
   await expect(page.locator(".alert-danger")).toContainText("locked");
 });
 
@@ -327,4 +327,19 @@ test("account settings hold immersion but none of the typing settings", async ({
   await expect(page.locator(".qa-settings-locale")).toBeVisible();
   await expect(page.locator(".qa-settings-immerseUi-it")).toBeVisible();
   await expect(page.locator(".qa-settings-path")).toHaveCount(0);
+});
+
+test("legacy unscoped typing links redirect to their place under /type", async ({ page }) => {
+  await signIn(page, "legacy1@example.com");
+  for (const [old, scoped] of [
+    ["/it/lesson/it-a1-bar-1", "/it/type/lesson/it-a1-bar-1"],
+    ["/it/lesson/it-a1-bar-1/master", "/it/type/lesson/it-a1-bar-1/master"],
+    ["/it/test/A1", "/it/type/test/A1"],
+    ["/it/review", "/it/type/review"],
+    ["/it/notebook", "/it/type/notebook"],
+    ["/it/mistakes/practice", "/it/type/notebook/practice"],
+  ]) {
+    await page.goto(old);
+    await expect(page).toHaveURL(new RegExp(`${scoped}$`));
+  }
 });

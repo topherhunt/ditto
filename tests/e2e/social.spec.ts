@@ -25,9 +25,9 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
 
   // Ana finishes the first lesson and starts the second, which stays locked for Bo.
   await signIn(page, ana);
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await finishLesson(page);
-  await page.goto("/it/lesson/it-a1-bar-2");
+  await page.goto("/it/type/lesson/it-a1-bar-2");
   await page.locator(".qa-reveal").click();
   await page.locator(".qa-meaning-option").first().click();
   await expect(page.locator(".qa-next")).toBeVisible();
@@ -73,7 +73,7 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await page.goto("/it/type");
   await expect(page.locator(".qa-lesson-friend")).toHaveCount(1);
   await page.locator(".qa-lesson-friend").click();
-  await expect(page).toHaveURL(/\/it\/lesson\/it-a1-bar-2$/);
+  await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-2$/);
   await finishLesson(page);
   await expect(page.locator(".qa-compare-row")).toHaveCount(2);
 });
@@ -121,7 +121,7 @@ test("a race invite shows in the bell and starts once accepted", async ({ page }
 test("a new account picks a username, finds a stranger by username, sees only their counts, asks to be friends, and renames itself", async ({ page }) => {
   const stranger = "learner13@example.com";
   await signIn(page, stranger);
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await finishLesson(page);
   await signOut(page);
 
@@ -239,7 +239,7 @@ test("a profile's menu blocks and unblocks, reporting blocks too, and the operat
 
 test("your own profile says who sees what, never shows your email, and going private hides it from strangers", async ({ page }) => {
   await signIn(page, "hider@example.com");
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await finishLesson(page);
   await page.goto("/people/me");
   await expect(page.locator(".qa-profile-self-note")).toContainText("Everyone else sees only your username, the language");

@@ -54,7 +54,7 @@ export function Dashboard() {
     const cat = catalog()!;
     const next = nextLesson(cat);
     const today = byDay().get(dayKey(new Date()));
-    const lesson = next && { href: `/${lang()}/lesson/${next.id}`, label: t("home.start") };
+    const lesson = next && { href: `/${lang()}/type/lesson/${next.id}`, label: t("home.start") };
     if (next && Object.keys(cat.progress).length === 0) return { qa: "first", text: t("dash.coach.first", { title: next.title }), go: lesson! };
     if (cat.dueCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.dueCount }), go: { href: `/${lang()}/type/review`, label: t("home.review") } };
     if (next && !today?.type) return { qa: "lesson", text: t("dash.coach.lesson", { title: next.title }), go: { ...lesson!, label: t("home.continue") } };
@@ -88,7 +88,7 @@ export function Dashboard() {
     const next = nextLesson(catalog()!);
     if (!next) return { href: `/${lang()}/type`, label: t("dash.go.lessonsDone"), icon: "bi-list-ul" };
     const started = next.id in catalog()!.progress;
-    return { href: `/${lang()}/lesson/${next.id}`, label: t(started ? "dash.go.lessonContinue" : "dash.go.lessonStart", { title: next.title }) };
+    return { href: `/${lang()}/type/lesson/${next.id}`, label: t(started ? "dash.go.lessonContinue" : "dash.go.lessonStart", { title: next.title }) };
   };
   /** A new topic, not the last conversation: the talk page picks topics and lists past conversations. */
   const talkGo = (): Go => ({ href: `/${lang()}/talk`, label: t(talk()!.conversations.length ? "dash.go.talkNew" : "dash.go.talkFirst") });
@@ -136,7 +136,7 @@ export function Dashboard() {
                 {(r) => (
                   <div class="qa-dash-testout border-top pt-3 d-flex flex-wrap align-items-center gap-2">
                     <span class="small me-auto">{t("dash.testOut", { self: level()!, level: r().level })}</span>
-                    <A href={`/${lang()}/test/${r().level}`} class="qa-dash-testout-go btn btn-sm btn-outline-primary">{t("home.testOut", { level: r().level })}</A>
+                    <A href={`/${lang()}/type/test/${r().level}`} class="qa-dash-testout-go btn btn-sm btn-outline-primary">{t("home.testOut", { level: r().level })}</A>
                   </div>
                 )}
               </Show>

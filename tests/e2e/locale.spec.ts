@@ -19,7 +19,7 @@ test("switching your language localizes the UI and the meaning check, and surviv
   await page.locator(".qa-settings-hints").selectOption("none");
   await expect(page.locator(".qa-settings-status")).toHaveText("Guardado");
 
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await page.locator(".qa-free-input").fill("Vorrei un caffè, per favore.");
   await page.locator(".qa-free-input").press("Enter");
   await expect(page.locator(".qa-meaning-option")).toHaveCount(3);
@@ -48,7 +48,7 @@ test("interface immersion shows every page in the course's language, signed out 
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
   await expect(page.locator(".qa-settings-immerseUi-it")).toHaveAttribute("aria-label", "Mostra l'app in italiano");
 
-  await page.goto("/it/lesson/it-a1-bar-1");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
   await expect(page.locator(".qa-nav-type")).toHaveText("Digita");
   await page.locator(".qa-free-input").fill("Vorrei un caffè, per favore.");
