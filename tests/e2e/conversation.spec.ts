@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import type { ConversationOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
 import { signIn, signOut } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
@@ -126,6 +127,40 @@ test("a playing line's play button turns into a stop button that stops it", asyn
   await expect(button).toHaveClass(/btn-outline-primary/);
   await button.click();
   await expect(button).toHaveText("■");
+});
+
+test("retrying a partner that didn't answer shows a loading spinner until the answer arrives", async ({ page }) => {
+  await signIn(page, "retrier@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter-cafe").click();
+  await record(page);
+  await expect(page.locator(".qa-retry-target")).toBeVisible();
+  await record(page);
+  await expect(page.locator(".qa-turn-partner")).toHaveCount(2);
+
+  // Reload with the partner's answer stripped, as if it had failed.
+  let answer!: TurnOut, spend!: ConversationOut["spend"];
+  await page.route(/\/api\/conversations\/\d+$/, async (route) => {
+    const conv = await (await route.fetch()).json() as ConversationOut;
+    answer = conv.turns.pop()!;
+    spend = conv.spend;
+    await route.fulfill({ json: conv });
+  });
+  await page.reload();
+  await expect(page.locator(".qa-partner-retry")).toBeVisible();
+
+  let release!: () => void;
+  const held = new Promise<void>((r) => (release = r));
+  await page.route("**/partner", async (route) => {
+    await held;
+    await route.fulfill({ json: { turns: [answer], spend } satisfies PartnerRetryResult });
+  });
+  await page.locator(".qa-partner-retry").click();
+  await expect(page.locator(".qa-partner-loading")).toBeVisible();
+  await expect(page.locator(".qa-partner-retry")).toHaveCount(0);
+  release();
+  await expect(page.locator(".qa-turn-partner")).toHaveCount(2);
+  await expect(page.locator(".qa-partner-loading")).toHaveCount(0);
 });
 
 test("an admin sees reported judgments and spend", async ({ page }) => {

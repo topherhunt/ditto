@@ -27,11 +27,19 @@ def openai(text, voice, pace, language):
             "instructions": f"Read this {name} text aloud in {name} with a native {name} accent, {speed}."}
     req = urllib.request.Request("https://api.openai.com/v1/audio/speech", data=json.dumps(body).encode(),
                                  headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as res:
-            pcm = res.read()
-    except urllib.error.HTTPError as e:
-        raise RuntimeError(f"OpenAI {e.code}: {e.read().decode()}") from None
+    # A healthy render takes ~2 s, so 20 s means OpenAI stalled; one retry covers a stuck request, and a second stall fails.
+    for attempt in (1, 2):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as res:
+                pcm = res.read()
+            break
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f"OpenAI {e.code}: {e.read().decode()}") from None
+        except (TimeoutError, urllib.error.URLError) as e:
+            # A connect timeout arrives as URLError(reason=TimeoutError); other URLErrors are not retried.
+            if attempt == 2 or not isinstance(getattr(e, "reason", e), TimeoutError):
+                raise
+            print(f"speech-worker: OpenAI TTS timed out after 20 s, retrying ({len(text)} chars)", file=sys.stderr, flush=True)
     return np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768, 24000  # pcm is 24 kHz 16-bit mono
 
 

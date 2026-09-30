@@ -2,7 +2,8 @@
 
 - [ ] Test and confirm with Luis and others that people can access the app fine.
 - [ ] Improving the UI
-  - [ ] Fix the Internal Error
+  - [x] Fix the Internal Error
+  - [ ] Sfx when you start & stop recording
   - [ ] Revise & polish the French typing course content
   - [ ] Revise & polish the Greek typing course content
   - [ ] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there. 

@@ -234,7 +234,14 @@ export function Conversation() {
         </div>
 
         <Show when={last().role === "learner"}>
-          <button type="button" class="qa-partner-retry btn btn-outline-primary align-self-start" disabled={busy()} onClick={partnerRetry}>{t("speak.partnerRetry")}</button>
+          <Show when={busy()} fallback={
+            <button type="button" class="qa-partner-retry btn btn-outline-primary align-self-start" onClick={partnerRetry}>{t("speak.partnerRetry")}</button>
+          }>
+            <div class="qa-partner-loading d-flex align-items-center gap-2 text-body-secondary" role="status">
+              <span class="spinner-border spinner-border-sm" aria-hidden="true" />
+              <span>{t("app.loading")}</span>
+            </div>
+          </Show>
         </Show>
 
         <Show when={last().role === "partner"}>

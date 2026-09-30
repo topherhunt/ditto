@@ -22,7 +22,7 @@ The conversation trains fluency and vocabulary, not pronunciation (a separate pr
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that fetches gpt-4o-mini-tts lines (the partner and quiz mode) from OpenAI (`OPENAI_API_KEY`, inherited from the server) and writes them as WAV. It starts on first use (about 1 s), and the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `numpy`; production installs that with `devops/provision.sh`.
+The speech worker (`server/speech-worker.py`, driven by `server/speech.ts`) is one long-lived Python process that fetches gpt-4o-mini-tts lines (the partner and quiz mode) from OpenAI (`OPENAI_API_KEY`, inherited from the server) and writes them as WAV. A render that stalls for 20 s is retried once, so a line fails after 40 s at most. It starts on first use (about 1 s), and the server stops it after `SPEECH_IDLE_MINUTES` (default 60) without calls. It needs `.venv` with `numpy`; production installs that with `devops/provision.sh`.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - A recording is sent to transcription as bytes and never written to the server, for anyone, admins included. The page keeps it in IndexedDB for 30 days so the learner can replay it, and sign-out clears it (`web/src/recordings.ts`).
