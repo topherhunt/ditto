@@ -149,13 +149,11 @@ export const nl: Dictionary = {
   "report.sent": "Bedankt, gemeld.",
 
   "settings.title": "Instellingen",
-  "settings.account": "Accountinstellingen",
   "settings.yourLanguage": "Jouw taal",
   "settings.yourLanguageHint": "Vertalingen, uitleg en feedback krijg je in deze taal.",
   "settings.theme": "Thema",
   "settings.themeLight": "Licht",
   "settings.themeDark": "Donker",
-  "settings.course": "Instellingen voor {language} oefenen",
   "settings.path": "Oefenroute",
   "settings.pathFull": "Volledig: woorden, woordgroepen, zinsdelen, zinnen",
   "settings.pathChunks": "Zinsdelen en zinnen",

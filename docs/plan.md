@@ -146,7 +146,7 @@ Voices, one per gender in each language:
 - **Hints:** `letters` (first letter + a dot per letter) / `initial` (first letter only) / `none` (a single free-text box, so the word count isn't revealed either).
 - **Study first:** the first time a learner meets a unit (no earlier attempt at it), a study screen plays it and shows its text and translation before the input appears; "Got it, test me!" replays it and shows the input, and a wrong answer then counts as wrong. Words are tappable only for units of 3 or more words. On by default when onboarding (or the dashboard re-rating) picks the beginner level A1. A study screen costs a star (see Stars).
 - Also: playback rate. Audio always plays once when an item appears.
-- Edited only on `/:lang/settings`. The catalog summarizes them in one line that links there; account Settings doesn't show them.
+- Edited only in the collapsible panel at the top of the typing catalog (`/:lang/type`), which recaps them on one line while collapsed. The two immersion switches (app in the course's language, AI help in it) are also stored per course but edited in account Settings, since they affect the whole app.
 
 ## Grader (`shared/grader.ts`, pure and exhaustively unit-tested)
 

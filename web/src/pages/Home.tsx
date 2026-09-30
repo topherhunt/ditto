@@ -3,7 +3,7 @@ import { createResource, createSignal, For, Match, Show, Switch } from "solid-js
 import { MASTER_WAIT_MS, type Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
-import { LanguagePrefsSummary } from "../components/LanguagePrefs.tsx";
+import { PracticeSettingsPanel } from "../components/LanguagePrefs.tsx";
 import { Stars } from "../components/Stars.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { t } from "../i18n/index.ts";
@@ -24,7 +24,7 @@ export function Home() {
       {(cat) => (
         <div class="d-flex flex-column gap-4">
           <ActivityHeader activity="type" lang={lang()} fresh={fresh()} />
-          <div class="qa-home-prefs"><LanguagePrefsSummary lang={lang()} /></div>
+          <div class="qa-home-prefs"><PracticeSettingsPanel lang={lang()} /></div>
           <div class="d-flex flex-wrap justify-content-center gap-2">
             <Show when={nextLesson(cat())}>
               {(lesson) => (

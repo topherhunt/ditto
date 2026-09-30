@@ -14,9 +14,14 @@
   - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz? 
     - [ ] How many peolpe were ACTIVELY ENGAGED today?
     - [ ] What were they working on? Time spent total per activity, drill dow n
+- [ ] 
 
 ### Wishlist
 
+- [ ]  In the talk activity for the suggested replies, there should be a little play icon to the right of each one so that you can listen to it and then repeat after it if you want.
+- [ ] Stars: Expand this system from just "indicating how much you've mastered each Type lesson" to "a unified progress metric, and a currency you can spend down".
+  - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that. 
+  - To make gaming the system less tempting, the coach should also have some feedback if it appears that you are working on things that are too easy for you. Like if you're not struggling, then the coach should be like, Hey, you are not living up to your potential. Work on the harder stuff, bro, or something like that. If you're never getting anything wrong, then or if that you're going through the stars too quickly per item, then that should be feedback from your coach. What do you think? 
 - [ ] Set up PWA phone notifications
   - TIme to study today
   - Make up for lost time! Challenge: Earn 9 stars today

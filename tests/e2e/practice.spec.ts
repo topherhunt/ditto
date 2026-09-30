@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
-import { setLearning, signIn } from "./helpers.ts";
+import { openPracticeSettings, setLearning, signIn } from "./helpers.ts";
 
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
@@ -79,7 +79,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {
   await signIn(page, "learner2@example.com");
-  await page.goto("/it/settings");
+  await openPracticeSettings(page, "it");
   await page.locator(".qa-settings-path").selectOption("sentences");
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
   await page.locator(".qa-settings-hints").selectOption("none");
@@ -292,7 +292,7 @@ test("the dashboard's language menu switches course, and the navbar follows it f
   await expect(page).toHaveURL(/\/nl$/);
 });
 
-test("the catalog's prefs line describes the course's settings and links to the page that changes them", async ({ page }) => {
+test("the catalog's settings panel is collapsed to a one-line summary and expands to change them", async ({ page }) => {
   await signIn(page, "prefsrow1@example.com");
   await page.goto("/it/type");
   const row = page.locator(".qa-home-prefs");
@@ -303,23 +303,28 @@ test("the catalog's prefs line describes the course's settings and links to the 
   const progress = page.locator(".qa-lesson-progress").first();
   const fullTotal = (await progress.innerText()).split("/")[1].trim();
 
-  await row.locator(".qa-home-settings").click();
-  await expect(page).toHaveURL(/\/it\/settings$/);
-  await expect(page.locator(".qa-course-settings-title")).toHaveText("Italian practice settings");
-  await expect(page.locator(".qa-settings-path")).toHaveValue("full");
-  await page.locator(".qa-settings-path").selectOption("sentences");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await expect(row.locator(".qa-prefs-form")).toHaveCount(0);
+  const summary = row.locator(".qa-prefs-summary");
+  expect(await summary.evaluate((el) => getComputedStyle(el).whiteSpace)).toBe("nowrap");
 
-  await page.locator(".qa-course-settings-back").click();
-  await expect(page).toHaveURL(/\/it\/type$/);
+  // The whole header is the click target, including its summary text.
+  await summary.click();
+  await expect(row.locator(".qa-prefs-summary")).toHaveCount(0);
+  await expect(row.locator(".qa-settings-path")).toHaveValue("full");
+  await row.locator(".qa-settings-path").selectOption("sentences");
+  await expect(row.locator(".qa-settings-status")).toHaveText("Saved");
+
+  await row.locator(".qa-prefs-toggle").click();
+  await expect(row.locator(".qa-prefs-form")).toHaveCount(0);
   await expect(row.locator(".qa-prefs-summary-path")).toContainText("Sentences only");
   await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));
 });
 
-test("account settings no longer hold any course's practice settings", async ({ page }) => {
+test("account settings hold immersion but none of the typing settings", async ({ page }) => {
   await signIn(page, "prefsrow2@example.com");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
   await expect(page.locator(".qa-settings-locale")).toBeVisible();
+  await expect(page.locator(".qa-settings-immerseUi-it")).toBeVisible();
   await expect(page.locator(".qa-settings-path")).toHaveCount(0);
 });

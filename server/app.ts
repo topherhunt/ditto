@@ -21,6 +21,7 @@ import { VOICES, voiceId, type Content } from "./content.ts";
 import { registerConversation, type ConversationDeps } from "./conversation.ts";
 import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
+import { reportError } from "./healthcheck.ts";
 import { levelTestUnits } from "./level-test.ts";
 import { registerMetrics, trafficCounter } from "./metrics.ts";
 import { registerPoc } from "./poc.ts";
@@ -80,7 +81,8 @@ export function createApp(deps: AppDeps) {
   app.onError((err, c) => {
     if (err instanceof HTTPException) return c.json({ error: err.message }, err.status);
     if (err instanceof z.ZodError) return c.json({ error: "Invalid request", issues: err.issues }, 400);
-    console.error(err);
+    console.error(`${c.req.method} ${c.req.path}`, err);
+    void reportError(err);
     return c.json({ error: "Internal error" }, 500);
   });
 
@@ -126,7 +128,7 @@ export function createApp(deps: AppDeps) {
 
   app.get("/health", (c) => {
     db.prepare("SELECT 1").get();
-    return c.json({ ok: true });
+    return c.json({ ok: true, time: deps.now().toISOString() });
   });
 
   const quizLanguages = LANGUAGES.filter((l) => content.quizzes.some((d) => d.language === l));

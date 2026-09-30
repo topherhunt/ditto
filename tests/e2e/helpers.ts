@@ -18,6 +18,13 @@ export async function signIn(page: Page, email: string, username = email.split("
   await expect(page.locator(".qa-user")).toHaveText(username);
 }
 
+/** Opens a course's typing catalog and expands its collapsed practice settings panel. */
+export async function openPracticeSettings(page: Page, lang: string) {
+  await page.goto(`/${lang}/type`);
+  await page.locator(".qa-prefs-toggle").click();
+  await expect(page.locator(".qa-prefs-form")).toBeVisible();
+}
+
 /** Sets the signed-in learner's courses, as the Settings switches do, and reloads so the nav picks them up. */
 export async function setLearning(page: Page, languages: string[]) {
   expect((await page.request.put("/api/learning", { data: { languages } })).ok()).toBe(true);

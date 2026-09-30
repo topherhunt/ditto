@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router";
 import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
 import { immersible, type Prefs } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
@@ -52,11 +51,13 @@ const FIELDS: { field: Field; label: () => string; parse: (v: string) => Prefs[F
   ] },
 ];
 
-/** One language's practice prefs as a form, saved on change. */
-export function LanguagePrefs(props: { lang: Language }) {
+const putPrefs = (lang: Language, patch: Partial<Prefs>) => api.put("/api/prefs", { language: lang, prefs: { ...me()!.prefs[lang], ...patch } });
+
+/** One language's typing prefs as a form, saved on change. */
+function PracticePrefs(props: { lang: Language }) {
   const { save, Status } = createSaver();
   const prefs = () => me()!.prefs[props.lang];
-  const savePrefs = (patch: Partial<Prefs>) => save(() => api.put("/api/prefs", { language: props.lang, prefs: { ...prefs(), ...patch } }));
+  const savePrefs = (patch: Partial<Prefs>) => save(() => putPrefs(props.lang, patch));
   return (
     <div class="d-flex flex-column gap-3">
       <For each={FIELDS}>
@@ -78,25 +79,27 @@ export function LanguagePrefs(props: { lang: Language }) {
         </div>
         <div class="form-text">{t("settings.studyFirstHint")}</div>
       </div>
-      <Show when={immersible(props.lang)}>
-        <fieldset class="qa-settings-immersion">
-          <legend class="form-label fs-6 mb-2">{t("settings.immersion")}</legend>
-          <For each={IMMERSION}>
-            {(f) => (
-              <div class="mb-2">
-                <div class="form-check form-switch">
-                  <input class={`qa-settings-${f.field} form-check-input`} type="checkbox" role="switch" id={f.field} checked={prefs()[f.field]}
-                    onChange={(e) => savePrefs({ [f.field]: e.currentTarget.checked })} />
-                  <label class="form-check-label" for={f.field}>{t(f.label, { language: languageInSentence(props.lang) })}</label>
-                </div>
-                <div class="form-text">{t(f.hint, { language: languageInSentence(props.lang) })}</div>
-              </div>
-            )}
-          </For>
-        </fieldset>
-      </Show>
       <Status />
     </div>
+  );
+}
+
+/** A course's two immersion switches. They change the language of the whole app and of the AI's help, so they live in account settings. */
+export function ImmersionPrefs(props: { lang: Language; save: (request: () => Promise<unknown>) => Promise<void> }) {
+  const prefs = () => me()!.prefs[props.lang];
+  return (
+    <For each={IMMERSION}>
+      {(f) => (
+        <div class="mb-2">
+          <div class="form-check form-switch">
+            <input class={`qa-settings-${f.field} qa-settings-${f.field}-${props.lang} form-check-input`} type="checkbox" role="switch" id={`${f.field}-${props.lang}`} checked={prefs()[f.field]}
+              onChange={(e) => void props.save(() => putPrefs(props.lang, { [f.field]: e.currentTarget.checked }))} />
+            <label class="form-check-label" for={`${f.field}-${props.lang}`}>{t(f.label, { language: languageInSentence(props.lang) })}</label>
+          </div>
+          <div class="form-text">{t(f.hint, { language: languageInSentence(props.lang) })}</div>
+        </div>
+      )}
+    </For>
   );
 }
 
@@ -105,8 +108,9 @@ const IMMERSION = [
   { field: "immerseHelp", label: "settings.immerseHelp", hint: "settings.immerseHelpHint" },
 ] as const;
 
-/** A link to change the language's practice prefs, followed by a one-line recap of the ones that matter at a glance. */
-export function LanguagePrefsSummary(props: { lang: Language }) {
+/** The typing prefs behind a collapsed header that recaps them on one line; click the header to edit them. */
+export function PracticeSettingsPanel(props: { lang: Language }) {
+  const [open, setOpen] = createSignal(false);
   const prefs = () => me()!.prefs[props.lang];
   const shortLabel = (field: Field) => {
     const f = FIELDS.find((f) => f.field === field)!;
@@ -121,20 +125,27 @@ export function LanguagePrefsSummary(props: { lang: Language }) {
     { qa: "rate", text: shortLabel("rate") },
   ];
   return (
-    <div class="d-flex align-items-center gap-2">
-      <A href={`/${props.lang}/settings`} class="qa-home-settings btn btn-sm btn-outline-secondary flex-shrink-0">
-        <i class="bi bi-sliders me-1" aria-hidden="true" />{t("home.practiceSettings")}
-      </A>
-      <div class="small">
-        <For each={parts()}>
-          {(p, i) => (
-            <>
-              <Show when={i() > 0}><span class="text-body-secondary" aria-hidden="true"> · </span></Show>
-              <span class={`qa-prefs-summary-${p.qa}`}>{p.text}</span>
-            </>
-          )}
-        </For>
-      </div>
+    <div class="d-flex flex-column gap-3">
+      <button type="button" class="qa-prefs-toggle btn btn-outline-secondary d-flex align-items-center gap-2 w-100 text-start" aria-expanded={open()}
+        onClick={() => setOpen(!open())}>
+        <i class={`bi ${open() ? "bi-chevron-down" : "bi-chevron-right"} flex-shrink-0`} aria-hidden="true" />
+        <span class="flex-shrink-0">{t("home.practiceSettings")}</span>
+        <Show when={!open()}>
+          <span class="qa-prefs-summary small text-body-secondary text-truncate">
+            <For each={parts()}>
+              {(p, i) => (
+                <>
+                  <Show when={i() > 0}><span aria-hidden="true"> · </span></Show>
+                  <span class={`qa-prefs-summary-${p.qa}`}>{p.text}</span>
+                </>
+              )}
+            </For>
+          </span>
+        </Show>
+      </button>
+      <Show when={open()}>
+        <div class="qa-prefs-form" style={{ "max-width": "28rem" }}><PracticePrefs lang={props.lang} /></div>
+      </Show>
     </div>
   );
 }

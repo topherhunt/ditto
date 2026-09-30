@@ -18,6 +18,7 @@ import { VOICES, voiceId } from "./content.ts";
 import { helpLocale, ownLocale, uiLocale, type User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
+import { reportError } from "./healthcheck.ts";
 import type { Speech } from "./speech.ts";
 import { recordUsage, spentToday, type Usage } from "./usage.ts";
 
@@ -272,7 +273,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       try {
         await send({ result: await check((step) => send({ step })) });
       } catch (e) {
-        if (!(e instanceof HTTPException)) console.error(e);
+        if (!(e instanceof HTTPException)) {
+          console.error(e);
+          void reportError(e);
+        }
         await send(e instanceof HTTPException ? { error: e.message, status: e.status } : { error: "Internal error", status: 500 });
       }
     });

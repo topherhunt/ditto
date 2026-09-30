@@ -149,13 +149,11 @@ export const it: Dictionary = {
   "report.sent": "Grazie per la segnalazione.",
 
   "settings.title": "Impostazioni",
-  "settings.account": "Impostazioni dell'account",
   "settings.yourLanguage": "La tua lingua",
   "settings.yourLanguageHint": "Traduzioni, spiegazioni e correzioni arrivano in questa lingua.",
   "settings.theme": "Tema",
   "settings.themeLight": "Chiaro",
   "settings.themeDark": "Scuro",
-  "settings.course": "Impostazioni di pratica: {language}",
   "settings.path": "Percorso di pratica",
   "settings.pathFull": "Completo: parole, sintagmi, blocchi, frasi",
   "settings.pathChunks": "Blocchi e frasi",

@@ -1,8 +1,8 @@
-import { A } from "@solidjs/router";
 import { createSignal, For, onCleanup, Show } from "solid-js";
+import { immersible } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { createSaver } from "../components/LanguagePrefs.tsx";
+import { createSaver, ImmersionPrefs } from "../components/LanguagePrefs.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
@@ -24,6 +24,7 @@ export function Settings() {
           <div class="form-text">{t("settings.yourLanguageHint")}</div>
         </label>
         <LearningPicker save={save} />
+        <ImmersionPicker save={save} />
         <ThemePicker />
         <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={markSaved} />
         <div>
@@ -66,11 +67,6 @@ function LearningPicker(props: { save: (request: () => Promise<unknown>) => Prom
                   </div>
                 </td>
                 <td class="py-1 pe-4"><label for={`learn-${l}`}>{LANGUAGE_FLAGS[l]} {languageName(l)}</label></td>
-                <td class="py-1">
-                  <Show when={learning().includes(l)}>
-                    <A class={`qa-settings-course-${l}`} href={`/${l}/settings`}><i class="bi bi-gear me-1" aria-hidden="true" />{t("nav.settings")}</A>
-                  </Show>
-                </td>
               </tr>
             )}
           </For>
@@ -78,6 +74,26 @@ function LearningPicker(props: { save: (request: () => Promise<unknown>) => Prom
       </table>
       <div class="form-text">{t("settings.learningHint")}</div>
     </fieldset>
+  );
+}
+
+/** Immersion is stored per course, so each studied course that has it gets its own pair of switches. */
+function ImmersionPicker(props: { save: (request: () => Promise<unknown>) => Promise<void> }) {
+  const courses = () => me()!.learning.filter(immersible);
+  return (
+    <Show when={courses().length > 0}>
+      <fieldset class="qa-settings-immersion">
+        <legend class="fs-6 mb-1">{t("settings.immersion")}</legend>
+        <For each={courses()}>
+          {(l) => (
+            <div class="mb-2">
+              <div class="fw-medium mb-1">{LANGUAGE_FLAGS[l]} {languageName(l)}</div>
+              <ImmersionPrefs lang={l} save={props.save} />
+            </div>
+          )}
+        </For>
+      </fieldset>
+    </Show>
   );
 }
 

@@ -20,6 +20,8 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 
 ## Ongoing
 
+- **Healthchecks.io gets no personal data** (`server/healthcheck.ts` sends fixed text plus an error class name), so it needs no DPA. Keep it that way: never put an error message, path, id or request data in a ping body.
+
 - **When data handling changes, update the policy in the same change**: a new table or column holding personal data, a new third party, a new retention period, or anything shown to other learners. Bump its "Last updated" date. A new third party also needs its DPA signed before it receives data.
 - **Answer data requests within 30 days.** Log them outside this repo (they contain personal data).
 - **Breach:** if learner data is exposed, tell affected learners promptly, and if EU learners are at real risk, notify a supervisory authority within 72 hours.

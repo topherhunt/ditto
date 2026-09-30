@@ -7,7 +7,6 @@ import { Layout } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
 import { About } from "./pages/About.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
-import { CourseSettings } from "./pages/CourseSettings.tsx";
 import { Dashboard } from "./pages/Dashboard.tsx";
 import { FriendBoard } from "./pages/FriendBoard.tsx";
 import { Privacy } from "./pages/Privacy.tsx";
@@ -58,7 +57,6 @@ render(
       <Route path="/admin/users/:id" component={UserAdmin} />
       <Route path="/:lang" component={Dashboard} />
       <Route path="/:lang/type" component={Home} />
-      <Route path="/:lang/settings" component={CourseSettings} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />
       <Route path="/:lang/lesson/:lessonId/master" component={() => <Practice mode="master" />} />
       <Route path="/:lang/test/:level" component={() => <Practice mode="test" />} />

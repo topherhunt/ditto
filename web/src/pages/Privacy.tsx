@@ -47,6 +47,7 @@ export function Privacy() {
       <ul class="d-flex flex-column gap-2">
         <li><strong>RackNerd</strong> (United States) hosts the server, which stores the database and nightly backups.</li>
         <li><strong>OpenAI</strong> (United States) powers the AI features. For a "Why?" explanation we send the exercise and the answer you typed. In conversation mode we send each voice recording for transcription, the conversation's text for replies and feedback, and text to be spoken. We never send your name, email, username or account ID. Under OpenAI's API terms, this data isn't used to train their models and is kept for up to 30 days, for abuse monitoring.</li>
+        <li><strong>Healthchecks.io</strong> alerts the operator when the server fails or goes silent. The server sends it a fixed status message and, after an error, the error's type (such as "TypeError"), never anything about a learner.</li>
         <li><strong>Google</strong> (United States) signs you in, under <a href="https://policies.google.com/privacy">Google's own privacy policy</a>. The <a href={FEEDBACK_URL}>feedback form</a> is also a Google Form, so anything you write in it is stored by Google.</li>
       </ul>
       <p>If you're in the European Economic Area, the UK or Switzerland, this means your data goes to the United States. OpenAI processes it under a data processing agreement and is certified under the EU-U.S. Data Privacy Framework.</p>

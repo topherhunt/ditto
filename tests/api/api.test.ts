@@ -3,9 +3,9 @@ import { LANGUAGES } from "../../shared/content.ts";
 import { setup } from "./helpers.ts";
 
 describe("health", () => {
-  it("answers ok without a session once the database responds", async () => {
+  it("answers ok with the current time, without a session, once the database responds", async () => {
     const t = setup();
-    expect(await t.req("GET", "/health")).toMatchObject({ status: 200, json: { ok: true } });
+    expect(await t.req("GET", "/health")).toMatchObject({ status: 200, json: { ok: true, time: "2026-09-01T10:00:00.000Z" } });
   });
 });
 

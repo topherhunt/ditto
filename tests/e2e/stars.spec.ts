@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import type { AttemptBody, LessonOut, Prefs } from "../../shared/api.ts";
-import { signIn } from "./helpers.ts";
+import { openPracticeSettings, signIn } from "./helpers.ts";
 
 /** Answers every item of the lesson on `path` through the API. Full-path answers with hints off earn three stars. */
 async function completeLesson(page: Page, lessonId: string, path: "full" | "sentences", hintsLevel: AttemptBody["hintsLevel"], outcome: AttemptBody["outcome"] = "clean") {
@@ -61,12 +61,12 @@ test("a learner with study first off goes straight to the input", async ({ page 
 
 test("the practice settings switch study first on, and the catalog's summary follows", async ({ page }) => {
   await signIn(page, "study5@example.com", "study5", "A2");
-  await page.goto("/it/settings");
+  await openPracticeSettings(page, "it");
   await expect(page.locator(".qa-settings-studyFirst")).not.toBeChecked();
   await page.locator(".qa-settings-studyFirst").check();
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
   expect((await (await page.request.get("/api/me")).json()).prefs.it.studyFirst).toBe(true);
-  await page.goto("/it/type");
+  await page.locator(".qa-prefs-toggle").click();
   await expect(page.locator(".qa-prefs-summary-studyFirst")).toContainText("Study first");
 });
 

@@ -10,6 +10,7 @@ import { openDb } from "./db.ts";
 import { openAIConversation } from "./conversation-ai.ts";
 import { fakeAI, fakeSpeech } from "./conversation-fake.ts";
 import { openAIExplainer } from "./explain.ts";
+import { reportError, startHealthcheck } from "./healthcheck.ts";
 import { rollUpMetrics } from "./metrics.ts";
 import { openAISpeech } from "./speech.ts";
 
@@ -45,6 +46,17 @@ const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
 // Per-learner engaged time past METRICS_KEEP_DAYS becomes anonymous totals (docs/metrics.md).
 rollUpMetrics(db, new Date());
 setInterval(() => rollUpMetrics(db, new Date()), 3_600_000);
+
+const healthcheckUrl = production ? required("HEALTHCHECK_URL") : env.HEALTHCHECK_URL;
+if (healthcheckUrl) startHealthcheck(healthcheckUrl, db);
+// Node's default is to print and exit; a handler replaces that, so it must exit too. The report is awaited so it leaves before the process does.
+for (const event of ["uncaughtException", "unhandledRejection"] as const) {
+  process.on(event, async (err) => {
+    console.error(event, err);
+    await reportError(err);
+    process.exit(1);
+  });
+}
 
 const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn", holdBack: HELD_BACK_COURSES });
 const app = createApp({

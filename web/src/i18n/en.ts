@@ -149,13 +149,11 @@ export const en = {
   "report.sent": "Thanks, reported.",
 
   "settings.title": "Settings",
-  "settings.account": "Account settings",
   "settings.yourLanguage": "Your language",
   "settings.yourLanguageHint": "Translations, explanations and coaching come in this language.",
   "settings.theme": "Theme",
   "settings.themeLight": "Light",
   "settings.themeDark": "Dark",
-  "settings.course": "{language} practice settings",
   "settings.path": "Practice path",
   "settings.pathFull": "Full: words, phrases, chunks, sentences",
   "settings.pathChunks": "Chunks and sentences",
