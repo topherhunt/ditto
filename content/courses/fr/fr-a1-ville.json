@@ -1,0 +1,4686 @@
+{
+  "id": "fr-a1-ville",
+  "language": "fr",
+  "level": "A1",
+  "order": 7,
+  "title": "En ville",
+  "description": {
+    "en": "Asking for and understanding directions, finding places and getting around town by bus, metro and on foot",
+    "es-419": "Pedir y entender indicaciones, encontrar lugares y moverse por la ciudad en autobús, metro y a pie",
+    "it": "Chiedere e capire indicazioni, trovare luoghi e muoversi in città in autobus, in metropolitana e a piedi",
+    "nl": "De weg vragen en begrijpen, plekken vinden en je door de stad verplaatsen met bus, metro en te voet"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a1-journee"
+  ],
+  "introduces": [
+    "y",
+    "venir",
+    "savoir",
+    "chercher",
+    "trouver",
+    "arriver",
+    "entrer",
+    "passer",
+    "suivre",
+    "tourner",
+    "continuer",
+    "traverser",
+    "descendre",
+    "monter",
+    "attendre",
+    "conduire",
+    "garer",
+    "devoir",
+    "falloir",
+    "droit",
+    "gauche",
+    "droite",
+    "près",
+    "loin",
+    "côté",
+    "face",
+    "entre",
+    "sous",
+    "derrière",
+    "devant",
+    "vers",
+    "là",
+    "là-bas",
+    "coin",
+    "feu",
+    "carrefour",
+    "rue",
+    "avenue",
+    "route",
+    "centre",
+    "gare",
+    "arrêt",
+    "bus",
+    "métro",
+    "train",
+    "taxi",
+    "pied",
+    "voiture",
+    "chemin",
+    "pharmacie",
+    "supermarché",
+    "boulangerie",
+    "poste",
+    "musée",
+    "église",
+    "parc",
+    "bibliothèque",
+    "toilettes",
+    "endroit",
+    "deuxième",
+    "troisième",
+    "mille",
+    "kilomètre",
+    "mètre",
+    "perdu",
+    "plan",
+    "ligne",
+    "adresse"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "a = has (avoir); il y a = there is, there are",
+        "es-419": "a = tiene (avoir); il y a = hay",
+        "it": "a = ha (avoir); il y a = c'è, ci sono",
+        "nl": "a = heeft (avoir); il y a = er is, er zijn"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to, in",
+        "es-419": "à = a, en",
+        "it": "à = a, in",
+        "nl": "à = naar, te, om"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: at the, to the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + le: al, allo",
+        "nl": "au = à + le: naar het, bij het"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = de + le: of the, from the",
+        "es-419": "du = de + le: del",
+        "it": "du = de + le: del, dello",
+        "nl": "du = de + le: van het, van de"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; near, far from (près de, loin de)",
+        "es-419": "de = de; près de = cerca de, loin de = lejos de",
+        "it": "de = di, da; près de = vicino a, loin de = lontano da",
+        "nl": "de = van; près de = dicht bij, loin de = ver van"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "dans = in, inside; dans cinq minutes = in five minutes",
+        "es-419": "dans = en, dentro; dans cinq minutes = en cinco minutos",
+        "it": "dans = in, dentro; dans cinq minutes = tra cinque minuti",
+        "nl": "dans = in, binnen; dans cinq minutes = over vijf minuten"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "en = by (en bus, en voiture), in",
+        "es-419": "en = en (en bus, en voiture)",
+        "it": "en = in (en bus, en voiture)",
+        "nl": "en = met (en bus, en voiture), in"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "pour = for; pour aller = to go, in order to go",
+        "es-419": "pour = para; pour aller = para ir",
+        "it": "pour = per; pour aller = per andare",
+        "nl": "pour = voor; pour aller = om te gaan"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "et = and",
+        "es-419": "et = y",
+        "it": "et = e",
+        "nl": "et = en"
+      }
+    },
+    "ou": {
+      "lemma": "ou",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "ou = or (without an accent)",
+        "es-419": "ou = o",
+        "it": "ou = o",
+        "nl": "ou = of"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "mais = but",
+        "es-419": "mais = pero",
+        "it": "mais = ma, però",
+        "nl": "mais = maar"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "il = he, it",
+        "es-419": "il = él, ello",
+        "it": "il = lui, esso",
+        "nl": "il = hij, het"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "vous": {
+      "lemma": "vous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "vous = you (formal, or several people)",
+        "es-419": "vous = usted, ustedes",
+        "it": "vous = Lei, voi",
+        "nl": "vous = u, jullie"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nous = we, us",
+        "es-419": "nous = nosotros",
+        "it": "nous = noi",
+        "nl": "nous = wij, we"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "on = we (everyday); on y va = let's go",
+        "es-419": "on = nosotros (uso cotidiano); on y va = vamos",
+        "it": "on = noi (uso quotidiano); on y va = andiamo",
+        "nl": "on = we (dagelijks); on y va = we gaan"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "y = there; il y a = there is, there are; on y va = let's go",
+        "es-419": "y = allí; il y a = hay; on y va = vamos",
+        "it": "y = ci, lì; il y a = c'è, ci sono; on y va = andiamo",
+        "nl": "y = daar; il y a = er is, er zijn; on y va = we gaan"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "que = that, what; est-ce que marks a question",
+        "es-419": "que = que; est-ce que marca una pregunta",
+        "it": "que = che; est-ce que segna una domanda",
+        "nl": "que = dat; est-ce que markeert een vraag"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne = not (ne ... pas: the two parts surround the verb)",
+        "es-419": "ne = no (ne ... pas: las dos partes rodean el verbo)",
+        "it": "ne = non (ne ... pas: le due parti circondano il verbo)",
+        "nl": "ne = niet (ne ... pas: de twee delen staan om het werkwoord heen)"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas = not (ne ... pas); pas derrière = not behind",
+        "es-419": "pas = no (ne ... pas); pas derrière = no detrás",
+        "it": "pas = non (ne ... pas); pas derrière = non dietro",
+        "nl": "pas = niet (ne ... pas); pas derrière = niet erachter"
+      }
+    },
+    "non": {
+      "lemma": "non",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "non = no",
+        "es-419": "non = no",
+        "it": "non = no",
+        "nl": "non = nee"
+      }
+    },
+    "oui": {
+      "lemma": "oui",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "oui = yes",
+        "es-419": "oui = sí",
+        "it": "oui = sì",
+        "nl": "oui = ja"
+      }
+    },
+    "merci": {
+      "lemma": "merci",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "merci = thank you, thanks",
+        "es-419": "merci = gracias",
+        "it": "merci = grazie",
+        "nl": "merci = dank je, dank u"
+      }
+    },
+    "pardon": {
+      "lemma": "pardon",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "pardon = excuse me, sorry",
+        "es-419": "pardon = perdón, disculpe",
+        "it": "pardon = scusi, scusa",
+        "nl": "pardon = pardon, sorry"
+      }
+    },
+    "excusez-moi": {
+      "lemma": "excuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excusez-moi = excusez + moi: excuse me",
+        "es-419": "excusez-moi = excusez + moi: disculpe",
+        "it": "excusez-moi = excusez + moi: mi scusi",
+        "nl": "excusez-moi = excusez + moi: pardon, neemt u me niet kwalijk"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "bien = well, very well",
+        "es-419": "bien = bien",
+        "it": "bien = bene",
+        "nl": "bien = goed"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "tout = all; tout droit = straight ahead",
+        "es-419": "tout = todo; tout droit = derecho",
+        "it": "tout = tutto; tout droit = dritto",
+        "nl": "tout = alles; tout droit = rechtdoor"
+      }
+    },
+    "puis": {
+      "lemma": "puis",
+      "pos": "ADV",
+      "gloss": {
+        "en": "puis = then, next",
+        "es-419": "puis = luego, después",
+        "it": "puis = poi, poi",
+        "nl": "puis = dan, daarna"
+      }
+    },
+    "où": {
+      "lemma": "où",
+      "pos": "ADV",
+      "gloss": {
+        "en": "où = where (with an accent; ou = or)",
+        "es-419": "où = dónde (con acento; ou = o)",
+        "it": "où = dove (con accento; ou = o)",
+        "nl": "où = waar (met accent; ou = of)"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "les = the (plural, masculine and feminine)",
+        "es-419": "les = los, las (plural)",
+        "it": "les = i, gli, le (plurale)",
+        "nl": "les = de (meervoud)"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "mon = my (masculine; also before a vowel: mon amie)",
+        "es-419": "mon = mi (masculino; también ante vocal: mon amie)",
+        "it": "mon = mio (maschile; anche davanti a vocale: mon amie)",
+        "nl": "mon = mijn (mannelijk; ook voor een klinker: mon amie)"
+      }
+    },
+    "mes": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "mes = my (plural of mon, ma)",
+        "es-419": "mes = mis (plural de mon, ma)",
+        "it": "mes = miei, mie (plurale di mon, ma)",
+        "nl": "mes = mijn (meervoud van mon, ma)"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont)"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "suis = am (être); je suis perdu = I am lost",
+        "es-419": "suis = soy, estoy (être); je suis perdu = estoy perdido",
+        "it": "suis = sono (être); je suis perdu = mi sono perso",
+        "nl": "suis = ben (être); je suis perdu = ik ben verdwaald"
+      }
+    },
+    "sont": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "sont = are (être, they)",
+        "es-419": "sont = son, están (être, ellos)",
+        "it": "sont = sono (être, loro)",
+        "nl": "sont = zijn (être, zij)"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, that is",
+        "es-419": "c'est = ce + est: es, eso es",
+        "it": "c'est = ce + est: è, quello è",
+        "nl": "c'est = ce + est: het is, dat is"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce = est + ce: is it; est-ce que = a marker that turns a statement into a question",
+        "es-419": "est-ce = est + ce: es esto; est-ce que = marca que convierte una afirmación en pregunta",
+        "it": "est-ce = est + ce: è questo; est-ce que = formula che trasforma una frase in domanda",
+        "nl": "est-ce = est + ce: is het; est-ce que = woordje dat van een zin een vraag maakt"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'ai = je + ai: I have",
+        "es-419": "j'ai = je + ai: tengo",
+        "it": "j'ai = je + ai: ho",
+        "nl": "j'ai = je + ai: ik heb"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ai = ne + ai: (I) have; je n'ai pas = I don't have",
+        "es-419": "n'ai = ne + ai: (yo) tengo; je n'ai pas = no tengo",
+        "it": "n'ai = ne + ai: (io) ho; je n'ai pas = non ho",
+        "nl": "n'ai = ne + ai: (ik) heb; je n'ai pas = ik heb geen"
+      }
+    },
+    "avez": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avez = have (avoir, vous); vous avez...? = do you have...?",
+        "es-419": "avez = tiene, tienen (avoir, vous); vous avez...? = ¿tiene...?",
+        "it": "avez = ha, avete (avoir, vous); vous avez...? = ha...?",
+        "nl": "avez = hebt, heeft (avoir, vous); vous avez...? = hebt u...?"
+      }
+    },
+    "peux": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "peux = can (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = can I...?",
+        "es-419": "peux = puedo (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = ¿puedo...?",
+        "it": "peux = posso (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = posso...?",
+        "nl": "peux = kan (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = kan ik...?"
+      }
+    },
+    "va": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "va = goes (aller: vais, vas, va, allons, allez, vont); on y va = let's go",
+        "es-419": "va = va (aller: vais, vas, va, allons, allez, vont); on y va = vamos",
+        "it": "va = va (aller: vais, vas, va, allons, allez, vont); on y va = andiamo",
+        "nl": "va = gaat (aller: vais, vas, va, allons, allez, vont); on y va = we gaan"
+      }
+    },
+    "aller": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "aller = to go (vais, vas, va, allons, allez, vont); pour aller à = to get to",
+        "es-419": "aller = ir (vais, vas, va, allons, allez, vont); pour aller à = para ir a",
+        "it": "aller = andare (vais, vas, va, allons, allez, vont); pour aller à = per andare a",
+        "nl": "aller = gaan (vais, vas, va, allons, allez, vont); pour aller à = om naar ... te gaan"
+      }
+    },
+    "prendre": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prendre = to take (prends, prend, prenons, prenez, prennent)",
+        "es-419": "prendre = tomar (prends, prend, prenons, prenez, prennent)",
+        "it": "prendre = prendere (prends, prend, prenons, prenez, prennent)",
+        "nl": "prendre = nemen (prends, prend, prenons, prenez, prennent)"
+      }
+    },
+    "prends": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prends = take (prendre: I take, you take); je prends le train = I take the train",
+        "es-419": "prends = tomo (prendre); je prends le train = tomo el tren",
+        "it": "prends = prendo (prendre); je prends le train = prendo il treno",
+        "nl": "prends = neem (prendre); je prends le train = ik neem de trein"
+      }
+    },
+    "prenez": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prenez = take (prendre, vous); prenez la rue = take the street",
+        "es-419": "prenez = tome, tomen (prendre, vous); prenez la rue = tome la calle",
+        "it": "prenez = prenda, prendete (prendre, vous); prenez la rue = prenda la strada",
+        "nl": "prenez = neemt, neem (prendre, vous); prenez la rue = neem de straat"
+      }
+    },
+    "ami": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ami (m): friend (amie for a woman)",
+        "es-419": "ami (m): amigo (amie para una mujer)",
+        "it": "ami (m): amico (amie per una donna)",
+        "nl": "ami (m): vriend (amie voor een vrouw)"
+      }
+    },
+    "parents": {
+      "lemma": "parent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parents (m pl): parents",
+        "es-419": "parents (m pl): padres",
+        "it": "parents (m pl): genitori",
+        "nl": "parents (m pl): ouders"
+      }
+    },
+    "maison": {
+      "lemma": "maison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "maison (f): house, home",
+        "es-419": "maison (f): casa",
+        "it": "maison (f): casa",
+        "nl": "maison (f): huis, thuis"
+      }
+    },
+    "midi": {
+      "lemma": "midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "midi (m): noon, midday; à midi = at noon",
+        "es-419": "midi (m): mediodía; à midi = a mediodía",
+        "it": "midi (m): mezzogiorno; à midi = a mezzogiorno",
+        "nl": "midi (m): twaalf uur 's middags; à midi = om twaalf uur"
+      }
+    },
+    "minutes": {
+      "lemma": "minute",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (f pl): minutes",
+        "es-419": "minutes (f pl): minutos",
+        "it": "minutes (f pl): minuti",
+        "nl": "minutes (f pl): minuten"
+      }
+    },
+    "numéro": {
+      "lemma": "numéro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "numéro (m): number (of a bus, a house)",
+        "es-419": "numéro (m): número (de un autobús, una casa)",
+        "it": "numéro (m): numero (di un autobus, di una casa)",
+        "nl": "numéro (m): nummer (van een bus, een huis)"
+      }
+    },
+    "cinq": {
+      "lemma": "cinq",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cinq = five",
+        "es-419": "cinq = cinco",
+        "it": "cinq = cinque",
+        "nl": "cinq = vijf"
+      }
+    },
+    "dix": {
+      "lemma": "dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "dix = ten",
+        "es-419": "dix = diez",
+        "it": "dix = dieci",
+        "nl": "dix = tien"
+      }
+    },
+    "douze": {
+      "lemma": "douze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "douze = twelve",
+        "es-419": "douze = doce",
+        "it": "douze = dodici",
+        "nl": "douze = twaalf"
+      }
+    },
+    "cent": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cent = a hundred; sounds like sans (without)",
+        "es-419": "cent = cien; suena igual que sans (sin)",
+        "it": "cent = cento; suona come sans (senza)",
+        "nl": "cent = honderd; klinkt als sans (zonder)"
+      }
+    },
+    "cents": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cents = hundreds (cinq cents = 500)",
+        "es-419": "cents = cientos (cinq cents = 500)",
+        "it": "cents = centinaia (cinq cents = 500)",
+        "nl": "cents = honderden (cinq cents = 500)"
+      }
+    },
+    "viens": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "viens = come, coming (venir: viens, viens, vient, venons, venez, viennent)",
+        "es-419": "viens = vengo (venir: viens, viens, vient, venons, venez, viennent)",
+        "it": "viens = vengo (venir: viens, viens, vient, venons, venez, viennent)",
+        "nl": "viens = kom (venir: viens, viens, vient, venons, venez, viennent)"
+      }
+    },
+    "vient": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "vient = comes (venir); mon ami vient = my friend is coming",
+        "es-419": "vient = viene (venir); mon ami vient = mi amigo viene",
+        "it": "vient = viene (venir); mon ami vient = il mio amico viene",
+        "nl": "vient = komt (venir); mon ami vient = mijn vriend komt"
+      }
+    },
+    "venez": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "venez = come (venir, vous); vous venez en bus? = are you coming by bus?",
+        "es-419": "venez = viene (venir, vous); vous venez en bus? = ¿viene en autobús?",
+        "it": "venez = viene (venir, vous); vous venez en bus? = viene in autobus?",
+        "nl": "venez = komt (venir, vous); vous venez en bus? = komt u met de bus?"
+      }
+    },
+    "savoir": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "savoir = to know a fact (sais, sais, sait, savons, savez, savent); connaître is for people and places",
+        "es-419": "savoir = saber (sais, sais, sait, savons, savez, savent); connaître es para personas y lugares",
+        "it": "savoir = sapere (sais, sais, sait, savons, savez, savent); connaître è per persone e luoghi",
+        "nl": "savoir = weten (sais, sais, sait, savons, savez, savent); connaître is voor mensen en plaatsen"
+      }
+    },
+    "sais": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sais = know (savoir); je ne sais pas = I don't know",
+        "es-419": "sais = sé (savoir); je ne sais pas = no sé",
+        "it": "sais = so (savoir); je ne sais pas = non so",
+        "nl": "sais = weet (savoir); je ne sais pas = ik weet het niet"
+      }
+    },
+    "savez": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "savez = know (savoir, vous); vous savez où...? = do you know where...?",
+        "es-419": "savez = sabe (savoir, vous); vous savez où...? = ¿sabe dónde...?",
+        "it": "savez = sa (savoir, vous); vous savez où...? = sa dove...?",
+        "nl": "savez = weet (savoir, vous); vous savez où...? = weet u waar...?"
+      }
+    },
+    "connais": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "connais = know (connaître: a person or a place); je ne connais pas = I don't know (it)",
+        "es-419": "connais = conozco (connaître: una persona o un lugar)",
+        "it": "connais = conosco (connaître: una persona o un luogo)",
+        "nl": "connais = ken (connaître: een persoon of een plek)"
+      }
+    },
+    "connaissez": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "connaissez = know (connaître, vous); vous connaissez le chemin? = do you know the way?",
+        "es-419": "connaissez = conoce (connaître, vous); vous connaissez le chemin? = ¿conoce el camino?",
+        "it": "connaissez = conosce (connaître, vous); vous connaissez le chemin? = conosce la strada?",
+        "nl": "connaissez = kent (connaître, vous); vous connaissez le chemin? = kent u de weg?"
+      }
+    },
+    "cherche": {
+      "lemma": "chercher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cherche = look for (chercher); je cherche le musée = I'm looking for the museum",
+        "es-419": "cherche = busco (chercher); je cherche le musée = busco el museo",
+        "it": "cherche = cerco (chercher); je cherche le musée = cerco il museo",
+        "nl": "cherche = zoek (chercher); je cherche le musée = ik zoek het museum"
+      }
+    },
+    "trouve": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "trouve = find (trouver); je ne trouve pas = I can't find",
+        "es-419": "trouve = encuentro (trouver); je ne trouve pas = no encuentro",
+        "it": "trouve = trovo (trouver); je ne trouve pas = non trovo",
+        "nl": "trouve = vind (trouver); je ne trouve pas = ik kan niet vinden"
+      }
+    },
+    "arrive": {
+      "lemma": "arriver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrive = arrives, is arriving (arriver); le bus arrive = the bus is coming",
+        "es-419": "arrive = llega (arriver); le bus arrive = llega el autobús",
+        "it": "arrive = arriva (arriver); le bus arrive = arriva l'autobus",
+        "nl": "arrive = komt aan (arriver); le bus arrive = de bus komt eraan"
+      }
+    },
+    "arrivons": {
+      "lemma": "arriver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrivons = arrive (arriver, nous)",
+        "es-419": "arrivons = llegamos (arriver, nous)",
+        "it": "arrivons = arriviamo (arriver, nous)",
+        "nl": "arrivons = komen aan (arriver, nous)"
+      }
+    },
+    "entrez": {
+      "lemma": "entrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "entrez = enter, go in (entrer, vous)",
+        "es-419": "entrez = entra (entrer, vous)",
+        "it": "entrez = entra (entrer, vous)",
+        "nl": "entrez = gaat binnen (entrer, vous)"
+      }
+    },
+    "passe": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "passe = passes, goes (passer); le métro passe = the subway runs",
+        "es-419": "passe = pasa (passer); le métro passe = el metro pasa",
+        "it": "passe = passa (passer); le métro passe = la metropolitana passa",
+        "nl": "passe = rijdt, gaat (passer); le métro passe = de metro rijdt"
+      }
+    },
+    "passez": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "passez = go past, pass (passer, vous)",
+        "es-419": "passez = pase (passer, vous)",
+        "it": "passez = superi, passi (passer, vous)",
+        "nl": "passez = ga voorbij (passer, vous)"
+      }
+    },
+    "suivez": {
+      "lemma": "suivre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "suivez = follow (suivre, vous)",
+        "es-419": "suivez = siga (suivre, vous)",
+        "it": "suivez = segua (suivre, vous)",
+        "nl": "suivez = volg (suivre, vous)"
+      }
+    },
+    "tournez": {
+      "lemma": "tourner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tournez = turn (tourner, vous)",
+        "es-419": "tournez = doble (tourner, vous)",
+        "it": "tournez = giri (tourner, vous)",
+        "nl": "tournez = sla af (tourner, vous)"
+      }
+    },
+    "continuez": {
+      "lemma": "continuer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "continuez = go on, keep going (continuer, vous)",
+        "es-419": "continuez = siga (continuer, vous)",
+        "it": "continuez = continui, vada avanti (continuer, vous)",
+        "nl": "continuez = ga verder (continuer, vous)"
+      }
+    },
+    "traversez": {
+      "lemma": "traverser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "traversez = cross (traverser, vous)",
+        "es-419": "traversez = cruce (traverser, vous)",
+        "it": "traversez = attraversi (traverser, vous)",
+        "nl": "traversez = steek over (traverser, vous)"
+      }
+    },
+    "descendre": {
+      "lemma": "descendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "descendre = to go down, to get off (descends, descend, descendons, descendez, descendent)",
+        "es-419": "descendre = bajar, bajarse (descends, descend, descendons, descendez, descendent)",
+        "it": "descendre = scendere (descends, descend, descendons, descendez, descendent)",
+        "nl": "descendre = naar beneden gaan, uitstappen (descends, descend, descendons, descendez, descendent)"
+      }
+    },
+    "descends": {
+      "lemma": "descendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "descends = get off, go down (descendre); je descends ici = I'm getting off here",
+        "es-419": "descends = me bajo (descendre); je descends ici = me bajo aquí",
+        "it": "descends = scendo (descendre); je descends ici = scendo qui",
+        "nl": "descends = stap uit, ga naar beneden (descendre); je descends ici = ik stap hier uit"
+      }
+    },
+    "descendez": {
+      "lemma": "descendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "descendez = get off, go down (descendre, vous)",
+        "es-419": "descendez = se baja, baja (descendre, vous)",
+        "it": "descendez = scende (descendre, vous)",
+        "nl": "descendez = stapt uit, gaat naar beneden (descendre, vous)"
+      }
+    },
+    "monter": {
+      "lemma": "monter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "monter = to go up, to get on (monte, montes, monte, montons, montez, montent)",
+        "es-419": "monter = subir, subirse (monte, montes, monte, montons, montez, montent)",
+        "it": "monter = salire (monte, montes, monte, montons, montez, montent)",
+        "nl": "monter = naar boven gaan, instappen (monte, montes, monte, montons, montez, montent)"
+      }
+    },
+    "montez": {
+      "lemma": "monter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "montez = get on, go up (monter, vous)",
+        "es-419": "montez = se sube, sube (monter, vous)",
+        "it": "montez = sale (monter, vous)",
+        "nl": "montez = stapt in, gaat naar boven (monter, vous)"
+      }
+    },
+    "attendre": {
+      "lemma": "attendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "attendre = to wait (for) (attends, attend, attendons, attendez, attendent); watch out: not to attend",
+        "es-419": "attendre = esperar (attends, attend, attendons, attendez, attendent)",
+        "it": "attendre = aspettare (attends, attend, attendons, attendez, attendent)",
+        "nl": "attendre = wachten (op) (attends, attend, attendons, attendez, attendent)"
+      }
+    },
+    "conduire": {
+      "lemma": "conduire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "conduire = to drive (conduis, conduit, conduisons, conduisez, conduisent)",
+        "es-419": "conduire = manejar (conduis, conduit, conduisons, conduisez, conduisent)",
+        "it": "conduire = guidare (conduis, conduit, conduisons, conduisez, conduisent)",
+        "nl": "conduire = rijden (conduis, conduit, conduisons, conduisez, conduisent)"
+      }
+    },
+    "conduisez": {
+      "lemma": "conduire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "conduisez = drive (conduire, vous); vous conduisez? = do you drive?",
+        "es-419": "conduisez = maneja (conduire, vous); vous conduisez? = ¿usted maneja?",
+        "it": "conduisez = guida (conduire, vous); vous conduisez? = guida?",
+        "nl": "conduisez = rijdt (conduire, vous); vous conduisez? = rijdt u auto?"
+      }
+    },
+    "garer": {
+      "lemma": "garer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "garer = to park (a vehicle)",
+        "es-419": "garer = estacionar",
+        "it": "garer = parcheggiare",
+        "nl": "garer = parkeren"
+      }
+    },
+    "dois": {
+      "lemma": "devoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dois = must, have to (devoir: dois, dois, doit, devons, devez, doivent); je dois attendre = I have to wait",
+        "es-419": "dois = debo, tengo que (devoir: dois, dois, doit, devons, devez, doivent); je dois attendre = tengo que esperar",
+        "it": "dois = devo (devoir: dois, dois, doit, devons, devez, doivent); je dois attendre = devo aspettare",
+        "nl": "dois = moet (devoir: dois, dois, doit, devons, devez, doivent); je dois attendre = ik moet wachten"
+      }
+    },
+    "devez": {
+      "lemma": "devoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "devez = must, have to (devoir, vous); vous devez descendre = you have to get off",
+        "es-419": "devez = debe, tiene que (devoir, vous); vous devez descendre = tiene que bajarse",
+        "it": "devez = deve (devoir, vous); vous devez descendre = deve scendere",
+        "nl": "devez = moet (devoir, vous); vous devez descendre = u moet uitstappen"
+      }
+    },
+    "faut": {
+      "lemma": "falloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "faut = is necessary (falloir, only il faut); il faut prendre = you have to take",
+        "es-419": "faut = hace falta (falloir, solo il faut); il faut prendre = hay que tomar",
+        "it": "faut = bisogna (falloir, solo il faut); il faut prendre = bisogna prendere",
+        "nl": "faut = het is nodig (falloir, alleen il faut); il faut prendre = je moet nemen"
+      }
+    },
+    "droit": {
+      "lemma": "droit",
+      "pos": "ADV",
+      "gloss": {
+        "en": "droit = straight; tout droit = straight ahead",
+        "es-419": "droit = derecho; tout droit = todo derecho",
+        "it": "droit = dritto; tout droit = sempre dritto",
+        "nl": "droit = recht; tout droit = rechtdoor"
+      }
+    },
+    "gauche": {
+      "lemma": "gauche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gauche (f): left (side); à gauche = on the left, to the left",
+        "es-419": "gauche (f): izquierda (lado); à gauche = a la izquierda",
+        "it": "gauche (f): sinistra (lato); à gauche = a sinistra",
+        "nl": "gauche (f): links (kant); à gauche = links, naar links"
+      }
+    },
+    "droite": {
+      "lemma": "droite",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "droite (f): right (side); à droite = on the right, to the right",
+        "es-419": "droite (f): derecha (lado); à droite = a la derecha",
+        "it": "droite (f): destra (lato); à droite = a destra",
+        "nl": "droite (f): rechts (kant); à droite = rechts, naar rechts"
+      }
+    },
+    "près": {
+      "lemma": "près",
+      "pos": "ADV",
+      "gloss": {
+        "en": "près = near, close (près de = near; sounds like prêt); près d'ici = near here",
+        "es-419": "près = cerca (près de = cerca de); près d'ici = cerca de aquí",
+        "it": "près = vicino (près de = vicino a); près d'ici = vicino a qui",
+        "nl": "près = dichtbij (près de = dicht bij); près d'ici = hier dichtbij"
+      }
+    },
+    "loin": {
+      "lemma": "loin",
+      "pos": "ADV",
+      "gloss": {
+        "en": "loin = far (loin de = far from)",
+        "es-419": "loin = lejos (loin de = lejos de)",
+        "it": "loin = lontano (loin de = lontano da)",
+        "nl": "loin = ver (loin de = ver van)"
+      }
+    },
+    "côté": {
+      "lemma": "côté",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "côté (m): side; à côté de = next to",
+        "es-419": "côté (m): lado; à côté de = al lado de",
+        "it": "côté (m): lato; à côté de = accanto a",
+        "nl": "côté (m): kant; à côté de = naast"
+      }
+    },
+    "face": {
+      "lemma": "face",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "face (f): face, front; en face de = across from, opposite",
+        "es-419": "face (f): cara, frente; en face de = enfrente de",
+        "it": "face (f): faccia, fronte; en face de = di fronte a",
+        "nl": "face (f): gezicht, voorkant; en face de = tegenover"
+      }
+    },
+    "entre": {
+      "lemma": "entre",
+      "pos": "ADP",
+      "gloss": {
+        "en": "entre = between",
+        "es-419": "entre = entre",
+        "it": "entre = tra, fra",
+        "nl": "entre = tussen"
+      }
+    },
+    "sous": {
+      "lemma": "sous",
+      "pos": "ADP",
+      "gloss": {
+        "en": "sous = under, below",
+        "es-419": "sous = debajo de",
+        "it": "sous = sotto",
+        "nl": "sous = onder"
+      }
+    },
+    "derrière": {
+      "lemma": "derrière",
+      "pos": "ADP",
+      "gloss": {
+        "en": "derrière = behind",
+        "es-419": "derrière = detrás de",
+        "it": "derrière = dietro",
+        "nl": "derrière = achter"
+      }
+    },
+    "devant": {
+      "lemma": "devant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "devant = in front of",
+        "es-419": "devant = delante de",
+        "it": "devant = davanti a",
+        "nl": "devant = voor"
+      }
+    },
+    "vers": {
+      "lemma": "vers",
+      "pos": "ADP",
+      "gloss": {
+        "en": "vers = toward; sounds like verre (glass)",
+        "es-419": "vers = hacia; suena igual que verre (vaso)",
+        "it": "vers = verso; suona come verre (bicchiere)",
+        "nl": "vers = richting; klinkt als verre (glas)"
+      }
+    },
+    "là": {
+      "lemma": "là",
+      "pos": "ADV",
+      "gloss": {
+        "en": "là = there (with an accent; la = the)",
+        "es-419": "là = ahí, allí (con acento; la = la)",
+        "it": "là = lì, là (con accento; la = la)",
+        "nl": "là = daar (met accent; la = de)"
+      }
+    },
+    "là-bas": {
+      "lemma": "là-bas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "là-bas = là + bas: over there",
+        "es-419": "là-bas = là + bas: allá",
+        "it": "là-bas = là + bas: laggiù",
+        "nl": "là-bas = là + bas: daarginds"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ici = here",
+        "es-419": "ici = aquí",
+        "it": "ici = qui, qua",
+        "nl": "ici = hier"
+      }
+    },
+    "d'ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "d'ici = de + ici: from here",
+        "es-419": "d'ici = de + ici: de aquí",
+        "it": "d'ici = de + ici: di qui",
+        "nl": "d'ici = de + ici: van hier, hiervandaan"
+      }
+    },
+    "jusqu'à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "jusqu'à = jusque + à: until, as far as",
+        "es-419": "jusqu'à = jusque + à: hasta",
+        "it": "jusqu'à = jusque + à: fino a",
+        "nl": "jusqu'à = jusque + à: tot, tot aan"
+      }
+    },
+    "coin": {
+      "lemma": "coin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coin (m): corner; au coin de = on the corner of",
+        "es-419": "coin (m): esquina, rincón; au coin de = en la esquina de",
+        "it": "coin (m): angolo; au coin de = all'angolo di",
+        "nl": "coin (m): hoek; au coin de = op de hoek van"
+      }
+    },
+    "feu": {
+      "lemma": "feu",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "feu (m): fire; traffic light (le feu)",
+        "es-419": "feu (m): fuego; semáforo (le feu)",
+        "it": "feu (m): fuoco; semaforo (le feu)",
+        "nl": "feu (m): vuur; stoplicht (le feu)"
+      }
+    },
+    "carrefour": {
+      "lemma": "carrefour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "carrefour (m): intersection, crossroads",
+        "es-419": "carrefour (m): cruce",
+        "it": "carrefour (m): incrocio",
+        "nl": "carrefour (m): kruispunt"
+      }
+    },
+    "rue": {
+      "lemma": "rue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rue (f): street",
+        "es-419": "rue (f): calle",
+        "it": "rue (f): strada",
+        "nl": "rue (f): straat"
+      }
+    },
+    "avenue": {
+      "lemma": "avenue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "avenue (f): avenue",
+        "es-419": "avenue (f): avenida",
+        "it": "avenue (f): viale",
+        "nl": "avenue (f): laan"
+      }
+    },
+    "l'avenue": {
+      "lemma": "avenue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'avenue = le + avenue: the avenue (f)",
+        "es-419": "l'avenue = le + avenue: la avenida (f)",
+        "it": "l'avenue = le + avenue: il viale (f)",
+        "nl": "l'avenue = le + avenue: de laan (f)"
+      }
+    },
+    "route": {
+      "lemma": "route",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "route (f): road, route",
+        "es-419": "route (f): carretera, ruta",
+        "it": "route (f): strada, percorso",
+        "nl": "route (f): weg, route"
+      }
+    },
+    "centre": {
+      "lemma": "centre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "centre (m): center; dans le centre = downtown, in the center",
+        "es-419": "centre (m): centro; dans le centre = en el centro",
+        "it": "centre (m): centro; dans le centre = in centro",
+        "nl": "centre (m): centrum; dans le centre = in het centrum"
+      }
+    },
+    "gare": {
+      "lemma": "gare",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gare (f): train station",
+        "es-419": "gare (f): estación de tren",
+        "it": "gare (f): stazione ferroviaria",
+        "nl": "gare (f): treinstation"
+      }
+    },
+    "arrêt": {
+      "lemma": "arrêt",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "arrêt (m): stop (a bus stop)",
+        "es-419": "arrêt (m): parada (de autobús)",
+        "it": "arrêt (m): fermata (dell'autobus)",
+        "nl": "arrêt (m): halte (bushalte)"
+      }
+    },
+    "l'arrêt": {
+      "lemma": "arrêt",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'arrêt = le + arrêt: the stop (m)",
+        "es-419": "l'arrêt = le + arrêt: la parada (m)",
+        "it": "l'arrêt = le + arrêt: la fermata (m)",
+        "nl": "l'arrêt = le + arrêt: de halte (m)"
+      }
+    },
+    "bus": {
+      "lemma": "bus",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bus (m): bus",
+        "es-419": "bus (m): autobús",
+        "it": "bus (m): autobus",
+        "nl": "bus (m): bus"
+      }
+    },
+    "métro": {
+      "lemma": "métro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "métro (m): subway, metro",
+        "es-419": "métro (m): metro",
+        "it": "métro (m): metropolitana",
+        "nl": "métro (m): metro"
+      }
+    },
+    "train": {
+      "lemma": "train",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "train (m): train",
+        "es-419": "train (m): tren",
+        "it": "train (m): treno",
+        "nl": "train (m): trein"
+      }
+    },
+    "taxi": {
+      "lemma": "taxi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "taxi (m): taxi",
+        "es-419": "taxi (m): taxi",
+        "it": "taxi (m): taxi",
+        "nl": "taxi (m): taxi"
+      }
+    },
+    "pied": {
+      "lemma": "pied",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pied (m): foot; à pied = on foot",
+        "es-419": "pied (m): pie; à pied = a pie",
+        "it": "pied (m): piede; à pied = a piedi",
+        "nl": "pied (m): voet; à pied = te voet"
+      }
+    },
+    "voiture": {
+      "lemma": "voiture",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "voiture (f): car",
+        "es-419": "voiture (f): carro, coche",
+        "it": "voiture (f): macchina, auto",
+        "nl": "voiture (f): auto"
+      }
+    },
+    "chemin": {
+      "lemma": "chemin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chemin (m): path, way",
+        "es-419": "chemin (m): camino",
+        "it": "chemin (m): cammino, percorso",
+        "nl": "chemin (m): pad, weg"
+      }
+    },
+    "pharmacie": {
+      "lemma": "pharmacie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pharmacie (f): pharmacy, drugstore",
+        "es-419": "pharmacie (f): farmacia",
+        "it": "pharmacie (f): farmacia",
+        "nl": "pharmacie (f): apotheek"
+      }
+    },
+    "supermarché": {
+      "lemma": "supermarché",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "supermarché (m): supermarket",
+        "es-419": "supermarché (m): supermercado",
+        "it": "supermarché (m): supermercato",
+        "nl": "supermarché (m): supermarkt"
+      }
+    },
+    "boulangerie": {
+      "lemma": "boulangerie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boulangerie (f): bakery (bread and pastries)",
+        "es-419": "boulangerie (f): panadería",
+        "it": "boulangerie (f): panetteria",
+        "nl": "boulangerie (f): bakkerij"
+      }
+    },
+    "poste": {
+      "lemma": "poste",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "poste (f): post office (la poste)",
+        "es-419": "poste (f): oficina de correos (la poste)",
+        "it": "poste (f): posta, ufficio postale (la poste)",
+        "nl": "poste (f): postkantoor (la poste)"
+      }
+    },
+    "musée": {
+      "lemma": "musée",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "musée (m): museum",
+        "es-419": "musée (m): museo",
+        "it": "musée (m): museo",
+        "nl": "musée (m): museum"
+      }
+    },
+    "église": {
+      "lemma": "église",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "église (f): church",
+        "es-419": "église (f): iglesia",
+        "it": "église (f): chiesa",
+        "nl": "église (f): kerk"
+      }
+    },
+    "l'église": {
+      "lemma": "église",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'église = le + église: the church (f)",
+        "es-419": "l'église = le + église: la iglesia (f)",
+        "it": "l'église = le + église: la chiesa (f)",
+        "nl": "l'église = le + église: de kerk (f)"
+      }
+    },
+    "parc": {
+      "lemma": "parc",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parc (m): park",
+        "es-419": "parc (m): parque",
+        "it": "parc (m): parco",
+        "nl": "parc (m): park"
+      }
+    },
+    "bibliothèque": {
+      "lemma": "bibliothèque",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bibliothèque (f): library; watch out: bibliothèque = library, librairie = bookstore",
+        "es-419": "bibliothèque (f): biblioteca",
+        "it": "bibliothèque (f): biblioteca; attenzione: bibliothèque = biblioteca, librairie = libreria",
+        "nl": "bibliothèque (f): bibliotheek; let op: bibliothèque = bibliotheek, librairie = boekhandel"
+      }
+    },
+    "toilettes": {
+      "lemma": "toilettes",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "toilettes (f pl): restroom, toilets (always plural in French)",
+        "es-419": "toilettes (f pl): baño, servicios (siempre en plural en francés)",
+        "it": "toilettes (f pl): bagno, servizi (sempre al plurale in francese)",
+        "nl": "toilettes (f pl): toilet (altijd meervoud in het Frans)"
+      }
+    },
+    "l'endroit": {
+      "lemma": "endroit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'endroit = le + endroit: the place, the area (m)",
+        "es-419": "l'endroit = le + endroit: el lugar (m)",
+        "it": "l'endroit = le + endroit: il posto (m)",
+        "nl": "l'endroit = le + endroit: de plek, de omgeving (m)"
+      }
+    },
+    "deuxième": {
+      "lemma": "deuxième",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "deuxième = second (ordinal)",
+        "es-419": "deuxième = segundo (ordinal)",
+        "it": "deuxième = secondo (ordinale)",
+        "nl": "deuxième = tweede (rangtelwoord)"
+      }
+    },
+    "troisième": {
+      "lemma": "troisième",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "troisième = third (ordinal)",
+        "es-419": "troisième = tercero (ordinal)",
+        "it": "troisième = terzo (ordinale)",
+        "nl": "troisième = derde (rangtelwoord)"
+      }
+    },
+    "mille": {
+      "lemma": "mille",
+      "pos": "NUM",
+      "gloss": {
+        "en": "mille = a thousand (never takes an s)",
+        "es-419": "mille = mil (nunca lleva s)",
+        "it": "mille = mille (mai con la s)",
+        "nl": "mille = duizend (nooit met s)"
+      }
+    },
+    "kilomètre": {
+      "lemma": "kilomètre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilomètre (m): kilometer",
+        "es-419": "kilomètre (m): kilómetro",
+        "it": "kilomètre (m): chilometro",
+        "nl": "kilomètre (m): kilometer"
+      }
+    },
+    "kilomètres": {
+      "lemma": "kilomètre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilomètres (m pl): kilometers",
+        "es-419": "kilomètres (m pl): kilómetros",
+        "it": "kilomètres (m pl): chilometri",
+        "nl": "kilomètres (m pl): kilometer"
+      }
+    },
+    "mètre": {
+      "lemma": "mètre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mètre (m): meter",
+        "es-419": "mètre (m): metro",
+        "it": "mètre (m): metro",
+        "nl": "mètre (m): meter"
+      }
+    },
+    "mètres": {
+      "lemma": "mètre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mètres (m pl): meters",
+        "es-419": "mètres (m pl): metros",
+        "it": "mètres (m pl): metri",
+        "nl": "mètres (m pl): meter"
+      }
+    },
+    "perdu": {
+      "lemma": "perdu",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "perdu = lost (perdue for a woman)",
+        "es-419": "perdu = perdido (perdue para una mujer)",
+        "it": "perdu = perso (perdue per una donna)",
+        "nl": "perdu = verdwaald (perdue voor een vrouw)"
+      }
+    },
+    "plan": {
+      "lemma": "plan",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plan (m): map (of a town or subway), plan",
+        "es-419": "plan (m): plano (de una ciudad o del metro), plan",
+        "it": "plan (m): pianta (di una città o della metropolitana), piano",
+        "nl": "plan (m): plattegrond (van een stad of metro), plan"
+      }
+    },
+    "ligne": {
+      "lemma": "ligne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ligne (f): line (a bus or subway line)",
+        "es-419": "ligne (f): línea (de autobús o de metro)",
+        "it": "ligne (f): linea (di autobus o metropolitana)",
+        "nl": "ligne (f): lijn (bus- of metrolijn)"
+      }
+    },
+    "adresse": {
+      "lemma": "adresse",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "adresse (f): address",
+        "es-419": "adresse (f): dirección (postal)",
+        "it": "adresse (f): indirizzo",
+        "nl": "adresse (f): adres"
+      }
+    },
+    "l'adresse": {
+      "lemma": "adresse",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'adresse = le + adresse: the address (f)",
+        "es-419": "l'adresse = le + adresse: la dirección (f)",
+        "it": "l'adresse = le + adresse: l'indirizzo (f)",
+        "nl": "l'adresse = le + adresse: het adres (f)"
+      }
+    },
+    "place#square": {
+      "lemma": "place",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "place (f): square (a town square); place also means seat or room",
+        "es-419": "place (f): plaza (de una ciudad); place también es asiento o lugar",
+        "it": "place (f): piazza (di una città); place è anche posto",
+        "nl": "place (f): plein (in een stad); place is ook zitplaats of plek"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-ville-1",
+      "title": "Où est la gare?",
+      "grammarFocus": {
+        "en": [
+          "Où est...? asks where a known place is",
+          "savoir: je sais, vous savez",
+          "près d'ici, loin d'ici, là-bas"
+        ],
+        "es-419": [
+          "Où est...? = ¿dónde está...? para un lugar conocido",
+          "savoir: je sais, vous savez",
+          "près d'ici = cerca de aquí, loin d'ici = lejos de aquí, là-bas = allá"
+        ],
+        "it": [
+          "Où est...? = dov'è...? per un luogo noto",
+          "savoir: je sais, vous savez",
+          "près d'ici = vicino a qui, loin d'ici = lontano da qui, là-bas = laggiù"
+        ],
+        "nl": [
+          "Où est...? = waar is...? voor een bekende plek",
+          "savoir: je sais, vous savez",
+          "près d'ici = hier dichtbij, loin d'ici = ver hiervandaan, là-bas = daarginds"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "plan",
+          "translation": {
+            "en": "map",
+            "es-419": "plano",
+            "it": "pianta",
+            "nl": "plattegrond"
+          },
+          "distractors": {
+            "en": [
+              "street",
+              "address"
+            ],
+            "es-419": [
+              "calle",
+              "dirección"
+            ],
+            "it": [
+              "strada",
+              "indirizzo"
+            ],
+            "nl": [
+              "straat",
+              "adres"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "perdu",
+          "speaker": "M",
+          "translation": {
+            "en": "lost",
+            "es-419": "perdido",
+            "it": "perso",
+            "nl": "verdwaald"
+          },
+          "distractors": {
+            "en": [
+              "tired",
+              "busy"
+            ],
+            "es-419": [
+              "cansado",
+              "ocupado"
+            ],
+            "it": [
+              "stanco",
+              "occupato"
+            ],
+            "nl": [
+              "moe",
+              "druk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis perdu, je n'ai pas de plan.",
+          "speaker": "M",
+          "translation": {
+            "en": "I'm lost, I don't have a map.",
+            "es-419": "Estoy perdido, no tengo plano.",
+            "it": "Mi sono perso e non ho la pianta.",
+            "nl": "Ik ben verdwaald, ik heb geen plattegrond."
+          },
+          "distractors": {
+            "en": [
+              "I'm tired, I don't have a map.",
+              "I'm lost, I don't have a phone."
+            ],
+            "es-419": [
+              "Estoy cansado, no tengo plano.",
+              "Estoy perdido, no tengo teléfono."
+            ],
+            "it": [
+              "Sono stanco e non ho la pianta.",
+              "Mi sono perso e non ho il telefono."
+            ],
+            "nl": [
+              "Ik ben moe, ik heb geen plattegrond.",
+              "Ik ben verdwaald, ik heb geen telefoon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "gare",
+          "translation": {
+            "en": "station",
+            "es-419": "estación",
+            "it": "stazione",
+            "nl": "station"
+          },
+          "distractors": {
+            "en": [
+              "bus stop",
+              "square"
+            ],
+            "es-419": [
+              "parada",
+              "plaza"
+            ],
+            "it": [
+              "fermata",
+              "piazza"
+            ],
+            "nl": [
+              "bushalte",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "où est la gare",
+          "translation": {
+            "en": "where's the station",
+            "es-419": "dónde está la estación",
+            "it": "dov'è la stazione",
+            "nl": "waar is het station"
+          },
+          "distractors": {
+            "en": [
+              "where's the museum",
+              "how far is the station"
+            ],
+            "es-419": [
+              "dónde está el museo",
+              "qué tan lejos está la estación"
+            ],
+            "it": [
+              "dov'è il museo",
+              "quanto è lontana la stazione"
+            ],
+            "nl": [
+              "waar is het museum",
+              "hoe ver is het station"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pardon, où est la gare?",
+          "translation": {
+            "en": "Excuse me, where's the station?",
+            "es-419": "Disculpe, ¿dónde está la estación?",
+            "it": "Scusi, dov'è la stazione?",
+            "nl": "Pardon, waar is het station?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, where's the museum?",
+              "Excuse me, is the station far?"
+            ],
+            "es-419": [
+              "Disculpe, ¿dónde está el museo?",
+              "Disculpe, ¿la estación está lejos?"
+            ],
+            "it": [
+              "Scusi, dov'è il museo?",
+              "Scusi, la stazione è lontana?"
+            ],
+            "nl": [
+              "Pardon, waar is het museum?",
+              "Pardon, is het station ver?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "musée",
+          "translation": {
+            "en": "museum",
+            "es-419": "museo",
+            "it": "museo",
+            "nl": "museum"
+          },
+          "distractors": {
+            "en": [
+              "church",
+              "library"
+            ],
+            "es-419": [
+              "iglesia",
+              "biblioteca"
+            ],
+            "it": [
+              "chiesa",
+              "biblioteca"
+            ],
+            "nl": [
+              "kerk",
+              "bibliotheek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je cherche le musée",
+          "translation": {
+            "en": "I'm looking for the museum",
+            "es-419": "busco el museo",
+            "it": "cerco il museo",
+            "nl": "ik zoek het museum"
+          },
+          "distractors": {
+            "en": [
+              "I'm looking for the station",
+              "I'm going to the museum"
+            ],
+            "es-419": [
+              "busco la estación",
+              "voy al museo"
+            ],
+            "it": [
+              "cerco la stazione",
+              "vado al museo"
+            ],
+            "nl": [
+              "ik zoek het station",
+              "ik ga naar het museum"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, vous savez où est le musée?",
+          "translation": {
+            "en": "Excuse me, do you know where the museum is?",
+            "es-419": "Disculpe, ¿sabe dónde está el museo?",
+            "it": "Mi scusi, sa dov'è il museo?",
+            "nl": "Pardon, weet u waar het museum is?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, do you know where the station is?",
+              "Excuse me, do you know when the museum opens?"
+            ],
+            "es-419": [
+              "Disculpe, ¿sabe dónde está la estación?",
+              "Disculpe, ¿sabe cuándo abre el museo?"
+            ],
+            "it": [
+              "Mi scusi, sa dov'è la stazione?",
+              "Mi scusi, sa quando apre il museo?"
+            ],
+            "nl": [
+              "Pardon, weet u waar het station is?",
+              "Pardon, weet u wanneer het museum opengaat?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "savoir",
+          "translation": {
+            "en": "to know",
+            "es-419": "saber",
+            "it": "sapere",
+            "nl": "weten"
+          },
+          "distractors": {
+            "en": [
+              "to see",
+              "to want"
+            ],
+            "es-419": [
+              "ver",
+              "querer"
+            ],
+            "it": [
+              "vedere",
+              "volere"
+            ],
+            "nl": [
+              "zien",
+              "willen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne sais pas, je ne suis pas d'ici.",
+          "translation": {
+            "en": "I don't know, I'm not from here.",
+            "es-419": "No sé, no soy de aquí.",
+            "it": "Non lo so, non sono di qui.",
+            "nl": "Ik weet het niet, ik ben niet van hier."
+          },
+          "distractors": {
+            "en": [
+              "I don't understand, I'm not from here.",
+              "Yes, I know, I'm from here."
+            ],
+            "es-419": [
+              "No entiendo, no soy de aquí.",
+              "Sí, sé, soy de aquí."
+            ],
+            "it": [
+              "Non capisco, non sono di qui.",
+              "Sì, lo so, sono di qui."
+            ],
+            "nl": [
+              "Ik begrijp het niet, ik ben niet van hier.",
+              "Ja, dat weet ik, ik ben van hier."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "loin",
+          "translation": {
+            "en": "far",
+            "es-419": "lejos",
+            "it": "lontano",
+            "nl": "ver"
+          },
+          "distractors": {
+            "en": [
+              "near",
+              "here"
+            ],
+            "es-419": [
+              "cerca",
+              "aquí"
+            ],
+            "it": [
+              "vicino",
+              "qui"
+            ],
+            "nl": [
+              "dichtbij",
+              "hier"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne trouve pas le musée, il est loin d'ici?",
+          "translation": {
+            "en": "I can't find the museum. Is it far from here?",
+            "es-419": "No encuentro el museo, ¿está lejos de aquí?",
+            "it": "Non trovo il museo, è lontano da qui?",
+            "nl": "Ik kan het museum niet vinden, is het ver hiervandaan?"
+          },
+          "distractors": {
+            "en": [
+              "I can't find the station. Is it far from here?",
+              "I can't find the museum. Is it near here?"
+            ],
+            "es-419": [
+              "No encuentro la estación, ¿está lejos de aquí?",
+              "No encuentro el museo, ¿está cerca de aquí?"
+            ],
+            "it": [
+              "Non trovo la stazione, è lontana da qui?",
+              "Non trovo il museo, è vicino a qui?"
+            ],
+            "nl": [
+              "Ik kan het station niet vinden, is het ver hiervandaan?",
+              "Ik kan het museum niet vinden, is het hier dichtbij?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "près d'ici",
+          "translation": {
+            "en": "near here",
+            "es-419": "cerca de aquí",
+            "it": "vicino a qui",
+            "nl": "hier dichtbij"
+          },
+          "distractors": {
+            "en": [
+              "far from here",
+              "right here"
+            ],
+            "es-419": [
+              "lejos de aquí",
+              "justo aquí"
+            ],
+            "it": [
+              "lontano da qui",
+              "proprio qui"
+            ],
+            "nl": [
+              "ver hiervandaan",
+              "precies hier"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "là-bas",
+          "translation": {
+            "en": "over there",
+            "es-419": "allá",
+            "it": "laggiù",
+            "nl": "daarginds"
+          },
+          "distractors": {
+            "en": [
+              "right here",
+              "nearby"
+            ],
+            "es-419": [
+              "aquí",
+              "cerca"
+            ],
+            "it": [
+              "qui",
+              "vicino"
+            ],
+            "nl": [
+              "hier",
+              "dichtbij"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le musée? Il est là-bas, près de la gare.",
+          "translation": {
+            "en": "The museum? It's over there, near the station.",
+            "es-419": "¿El museo? Está allá, cerca de la estación.",
+            "it": "Il museo? È laggiù, vicino alla stazione.",
+            "nl": "Het museum? Dat is daarginds, bij het station."
+          },
+          "distractors": {
+            "en": [
+              "The museum? It's over there, far from the station.",
+              "The church? It's over there, near the station."
+            ],
+            "es-419": [
+              "¿El museo? Está allá, lejos de la estación.",
+              "¿La iglesia? Está allá, cerca de la estación."
+            ],
+            "it": [
+              "Il museo? È laggiù, lontano dalla stazione.",
+              "La chiesa? È laggiù, vicino alla stazione."
+            ],
+            "nl": [
+              "Het museum? Dat is daarginds, ver van het station.",
+              "De kerk? Die is daarginds, bij het station."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-ville-2",
+      "title": "Il y a une pharmacie près d'ici?",
+      "grammarFocus": {
+        "en": [
+          "il y a = there is, there are",
+          "il y a for what exists, est for where a known thing is",
+          "à côté de, en face de, derrière, devant, entre (de + le = du)"
+        ],
+        "es-419": [
+          "il y a = hay",
+          "il y a para lo que existe, est para dónde está algo conocido",
+          "à côté de, en face de, derrière, devant, entre (de + le = du)"
+        ],
+        "it": [
+          "il y a = c'è, ci sono",
+          "il y a per ciò che esiste, est per dove si trova una cosa nota",
+          "à côté de, en face de, derrière, devant, entre (de + le = du)"
+        ],
+        "nl": [
+          "il y a = er is, er zijn",
+          "il y a voor wat er is, est voor waar iets bekends is",
+          "à côté de, en face de, derrière, devant, entre (de + le = du)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "pharmacie",
+          "translation": {
+            "en": "pharmacy",
+            "es-419": "farmacia",
+            "it": "farmacia",
+            "nl": "apotheek"
+          },
+          "distractors": {
+            "en": [
+              "bakery",
+              "post office"
+            ],
+            "es-419": [
+              "panadería",
+              "oficina de correos"
+            ],
+            "it": [
+              "panetteria",
+              "posta"
+            ],
+            "nl": [
+              "bakkerij",
+              "postkantoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il y a une pharmacie",
+          "translation": {
+            "en": "there's a pharmacy",
+            "es-419": "hay una farmacia",
+            "it": "c'è una farmacia",
+            "nl": "er is een apotheek"
+          },
+          "distractors": {
+            "en": [
+              "there's a bakery",
+              "there are two pharmacies"
+            ],
+            "es-419": [
+              "hay una panadería",
+              "hay dos farmacias"
+            ],
+            "it": [
+              "c'è una panetteria",
+              "ci sono due farmacie"
+            ],
+            "nl": [
+              "er is een bakkerij",
+              "er zijn twee apotheken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a une pharmacie près d'ici?",
+          "translation": {
+            "en": "Is there a pharmacy near here?",
+            "es-419": "¿Hay una farmacia por aquí?",
+            "it": "C'è una farmacia qui vicino?",
+            "nl": "Is er een apotheek in de buurt?"
+          },
+          "distractors": {
+            "en": [
+              "Is there a bakery near here?",
+              "Is there a pharmacy far from here?"
+            ],
+            "es-419": [
+              "¿Hay una panadería por aquí?",
+              "¿Hay una farmacia lejos de aquí?"
+            ],
+            "it": [
+              "C'è una panetteria qui vicino?",
+              "C'è una farmacia lontano da qui?"
+            ],
+            "nl": [
+              "Is er een bakkerij in de buurt?",
+              "Is er een apotheek ver hiervandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "boulangerie",
+          "translation": {
+            "en": "bakery",
+            "es-419": "panadería",
+            "it": "panetteria",
+            "nl": "bakkerij"
+          },
+          "distractors": {
+            "en": [
+              "pharmacy",
+              "supermarket"
+            ],
+            "es-419": [
+              "farmacia",
+              "supermercado"
+            ],
+            "it": [
+              "farmacia",
+              "supermercato"
+            ],
+            "nl": [
+              "apotheek",
+              "supermarkt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "à côté de la pharmacie",
+          "translation": {
+            "en": "next to the pharmacy",
+            "es-419": "al lado de la farmacia",
+            "it": "accanto alla farmacia",
+            "nl": "naast de apotheek"
+          },
+          "distractors": {
+            "en": [
+              "across from the pharmacy",
+              "behind the pharmacy"
+            ],
+            "es-419": [
+              "enfrente de la farmacia",
+              "detrás de la farmacia"
+            ],
+            "it": [
+              "di fronte alla farmacia",
+              "dietro la farmacia"
+            ],
+            "nl": [
+              "tegenover de apotheek",
+              "achter de apotheek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Oui, il y a une boulangerie à côté de la pharmacie.",
+          "translation": {
+            "en": "Yes, there's a bakery next to the pharmacy.",
+            "es-419": "Sí, hay una panadería al lado de la farmacia.",
+            "it": "Sì, c'è una panetteria accanto alla farmacia.",
+            "nl": "Ja, er is een bakkerij naast de apotheek."
+          },
+          "distractors": {
+            "en": [
+              "Yes, there's a bakery across from the pharmacy.",
+              "No, there's no bakery next to the pharmacy."
+            ],
+            "es-419": [
+              "Sí, hay una panadería enfrente de la farmacia.",
+              "No, no hay ninguna panadería al lado de la farmacia."
+            ],
+            "it": [
+              "Sì, c'è una panetteria di fronte alla farmacia.",
+              "No, non c'è nessuna panetteria accanto alla farmacia."
+            ],
+            "nl": [
+              "Ja, er is een bakkerij tegenover de apotheek.",
+              "Nee, er is geen bakkerij naast de apotheek."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "poste",
+          "translation": {
+            "en": "post office",
+            "es-419": "oficina de correos",
+            "it": "posta",
+            "nl": "postkantoor"
+          },
+          "distractors": {
+            "en": [
+              "bank",
+              "pharmacy"
+            ],
+            "es-419": [
+              "banco",
+              "farmacia"
+            ],
+            "it": [
+              "banca",
+              "farmacia"
+            ],
+            "nl": [
+              "bank",
+              "apotheek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en face de la poste",
+          "translation": {
+            "en": "across from the post office",
+            "es-419": "enfrente de la oficina de correos",
+            "it": "di fronte alla posta",
+            "nl": "tegenover het postkantoor"
+          },
+          "distractors": {
+            "en": [
+              "next to the post office",
+              "behind the post office"
+            ],
+            "es-419": [
+              "al lado de la oficina de correos",
+              "detrás de la oficina de correos"
+            ],
+            "it": [
+              "accanto alla posta",
+              "dietro la posta"
+            ],
+            "nl": [
+              "naast het postkantoor",
+              "achter het postkantoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a un supermarché en face de la poste.",
+          "translation": {
+            "en": "There's a supermarket across from the post office.",
+            "es-419": "Hay un supermercado enfrente de la oficina de correos.",
+            "it": "C'è un supermercato di fronte alla posta.",
+            "nl": "Er is een supermarkt tegenover het postkantoor."
+          },
+          "distractors": {
+            "en": [
+              "There's a supermarket next to the post office.",
+              "There's a pharmacy across from the post office."
+            ],
+            "es-419": [
+              "Hay un supermercado al lado de la oficina de correos.",
+              "Hay una farmacia enfrente de la oficina de correos."
+            ],
+            "it": [
+              "C'è un supermercato accanto alla posta.",
+              "C'è una farmacia di fronte alla posta."
+            ],
+            "nl": [
+              "Er is een supermarkt naast het postkantoor.",
+              "Er is een apotheek tegenover het postkantoor."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "église",
+          "translation": {
+            "en": "church",
+            "es-419": "iglesia",
+            "it": "chiesa",
+            "nl": "kerk"
+          },
+          "distractors": {
+            "en": [
+              "museum",
+              "library"
+            ],
+            "es-419": [
+              "museo",
+              "biblioteca"
+            ],
+            "it": [
+              "museo",
+              "biblioteca"
+            ],
+            "nl": [
+              "museum",
+              "bibliotheek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "derrière l'église",
+          "translation": {
+            "en": "behind the church",
+            "es-419": "detrás de la iglesia",
+            "it": "dietro la chiesa",
+            "nl": "achter de kerk"
+          },
+          "distractors": {
+            "en": [
+              "in front of the church",
+              "next to the church"
+            ],
+            "es-419": [
+              "delante de la iglesia",
+              "al lado de la iglesia"
+            ],
+            "it": [
+              "davanti alla chiesa",
+              "accanto alla chiesa"
+            ],
+            "nl": [
+              "voor de kerk",
+              "naast de kerk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "parc",
+          "translation": {
+            "en": "park",
+            "es-419": "parque",
+            "it": "parco",
+            "nl": "park"
+          },
+          "distractors": {
+            "en": [
+              "square",
+              "garden"
+            ],
+            "es-419": [
+              "plaza",
+              "jardín"
+            ],
+            "it": [
+              "piazza",
+              "giardino"
+            ],
+            "nl": [
+              "plein",
+              "tuin"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le parc est devant l'église, pas derrière.",
+          "translation": {
+            "en": "The park is in front of the church, not behind it.",
+            "es-419": "El parque está delante de la iglesia, no detrás.",
+            "it": "Il parco è davanti alla chiesa, non dietro.",
+            "nl": "Het park ligt voor de kerk, niet erachter."
+          },
+          "distractors": {
+            "en": [
+              "The park is behind the church, not in front of it.",
+              "The park is next to the church, not in front of it."
+            ],
+            "es-419": [
+              "El parque está detrás de la iglesia, no delante.",
+              "El parque está al lado de la iglesia, no delante."
+            ],
+            "it": [
+              "Il parco è dietro la chiesa, non davanti.",
+              "Il parco è accanto alla chiesa, non davanti."
+            ],
+            "nl": [
+              "Het park ligt achter de kerk, niet ervoor.",
+              "Het park ligt naast de kerk, niet ervoor."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "bibliothèque",
+          "translation": {
+            "en": "library",
+            "es-419": "biblioteca",
+            "it": "biblioteca",
+            "nl": "bibliotheek"
+          },
+          "distractors": {
+            "en": [
+              "bookstore",
+              "school"
+            ],
+            "es-419": [
+              "librería",
+              "escuela"
+            ],
+            "it": [
+              "libreria",
+              "scuola"
+            ],
+            "nl": [
+              "boekhandel",
+              "school"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "les toilettes",
+          "translation": {
+            "en": "the restroom",
+            "es-419": "el baño",
+            "it": "il bagno",
+            "nl": "het toilet"
+          },
+          "distractors": {
+            "en": [
+              "the kitchen",
+              "the exit"
+            ],
+            "es-419": [
+              "la cocina",
+              "la salida"
+            ],
+            "it": [
+              "la cucina",
+              "l'uscita"
+            ],
+            "nl": [
+              "de keuken",
+              "de uitgang"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Les toilettes sont entre la bibliothèque et le parc.",
+          "translation": {
+            "en": "The restrooms are between the library and the park.",
+            "es-419": "Los baños están entre la biblioteca y el parque.",
+            "it": "I bagni sono tra la biblioteca e il parco.",
+            "nl": "De toiletten zijn tussen de bibliotheek en het park."
+          },
+          "distractors": {
+            "en": [
+              "The restrooms are next to the library and the park.",
+              "The restrooms are between the museum and the park."
+            ],
+            "es-419": [
+              "Los baños están junto a la biblioteca y el parque.",
+              "Los baños están entre el museo y el parque."
+            ],
+            "it": [
+              "I bagni sono accanto alla biblioteca e al parco.",
+              "I bagni sono tra il museo e il parco."
+            ],
+            "nl": [
+              "De toiletten zijn naast de bibliotheek en het park.",
+              "De toiletten zijn tussen het museum en het park."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-ville-3",
+      "title": "À gauche et à droite",
+      "grammarFocus": {
+        "en": [
+          "vous commands as chunks: Tournez, Continuez, Prenez, Traversez, Suivez",
+          "à gauche, à droite, tout droit",
+          "ordinals: la deuxième rue"
+        ],
+        "es-419": [
+          "mandatos con vous como bloques: Tournez, Continuez, Prenez, Traversez, Suivez",
+          "à gauche = a la izquierda, à droite = a la derecha, tout droit = derecho",
+          "ordinales: la deuxième rue = la segunda calle"
+        ],
+        "it": [
+          "imperativo con vous come blocchi: Tournez, Continuez, Prenez, Traversez, Suivez",
+          "à gauche = a sinistra, à droite = a destra, tout droit = dritto",
+          "ordinali: la deuxième rue = la seconda strada"
+        ],
+        "nl": [
+          "gebiedende wijs met vous als vaste zinnen: Tournez, Continuez, Prenez, Traversez, Suivez",
+          "à gauche = links, à droite = rechts, tout droit = rechtdoor",
+          "rangtelwoorden: la deuxième rue = de tweede straat"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "gauche",
+          "translation": {
+            "en": "left",
+            "es-419": "izquierda",
+            "it": "sinistra",
+            "nl": "links"
+          },
+          "distractors": {
+            "en": [
+              "right",
+              "straight ahead"
+            ],
+            "es-419": [
+              "derecha",
+              "adelante"
+            ],
+            "it": [
+              "destra",
+              "dritto"
+            ],
+            "nl": [
+              "rechts",
+              "rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "droite",
+          "translation": {
+            "en": "right",
+            "es-419": "derecha",
+            "it": "destra",
+            "nl": "rechts"
+          },
+          "distractors": {
+            "en": [
+              "left",
+              "straight ahead"
+            ],
+            "es-419": [
+              "izquierda",
+              "adelante"
+            ],
+            "it": [
+              "sinistra",
+              "dritto"
+            ],
+            "nl": [
+              "links",
+              "rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tournez à gauche",
+          "translation": {
+            "en": "turn left",
+            "es-419": "doble a la izquierda",
+            "it": "giri a sinistra",
+            "nl": "sla linksaf"
+          },
+          "distractors": {
+            "en": [
+              "turn right",
+              "go straight"
+            ],
+            "es-419": [
+              "doble a la derecha",
+              "siga derecho"
+            ],
+            "it": [
+              "giri a destra",
+              "vada dritto"
+            ],
+            "nl": [
+              "sla rechtsaf",
+              "ga rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "carrefour",
+          "translation": {
+            "en": "intersection",
+            "es-419": "cruce",
+            "it": "incrocio",
+            "nl": "kruispunt"
+          },
+          "distractors": {
+            "en": [
+              "traffic light",
+              "roundabout"
+            ],
+            "es-419": [
+              "semáforo",
+              "glorieta"
+            ],
+            "it": [
+              "semaforo",
+              "rotonda"
+            ],
+            "nl": [
+              "stoplicht",
+              "rotonde"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Au carrefour, tournez à droite.",
+          "translation": {
+            "en": "At the intersection, turn right.",
+            "es-419": "En el cruce, doble a la derecha.",
+            "it": "All'incrocio, giri a destra.",
+            "nl": "Sla bij het kruispunt rechtsaf."
+          },
+          "distractors": {
+            "en": [
+              "At the intersection, turn left.",
+              "At the traffic light, turn right."
+            ],
+            "es-419": [
+              "En el cruce, doble a la izquierda.",
+              "En el semáforo, doble a la derecha."
+            ],
+            "it": [
+              "All'incrocio, giri a sinistra.",
+              "Al semaforo, giri a destra."
+            ],
+            "nl": [
+              "Sla bij het kruispunt linksaf.",
+              "Sla bij het stoplicht rechtsaf."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "rue",
+          "translation": {
+            "en": "street",
+            "es-419": "calle",
+            "it": "strada",
+            "nl": "straat"
+          },
+          "distractors": {
+            "en": [
+              "square",
+              "corner"
+            ],
+            "es-419": [
+              "plaza",
+              "esquina"
+            ],
+            "it": [
+              "piazza",
+              "angolo"
+            ],
+            "nl": [
+              "plein",
+              "hoek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la deuxième rue",
+          "translation": {
+            "en": "the second street",
+            "es-419": "la segunda calle",
+            "it": "la seconda strada",
+            "nl": "de tweede straat"
+          },
+          "distractors": {
+            "en": [
+              "the third street",
+              "the first street"
+            ],
+            "es-419": [
+              "la tercera calle",
+              "la primera calle"
+            ],
+            "it": [
+              "la terza strada",
+              "la prima strada"
+            ],
+            "nl": [
+              "de derde straat",
+              "de eerste straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Prenez la deuxième rue à gauche.",
+          "translation": {
+            "en": "Take the second street on the left.",
+            "es-419": "Tome la segunda calle a la izquierda.",
+            "it": "Prenda la seconda strada a sinistra.",
+            "nl": "Neem de tweede straat links."
+          },
+          "distractors": {
+            "en": [
+              "Take the third street on the left.",
+              "Take the second street on the right."
+            ],
+            "es-419": [
+              "Tome la tercera calle a la izquierda.",
+              "Tome la segunda calle a la derecha."
+            ],
+            "it": [
+              "Prenda la terza strada a sinistra.",
+              "Prenda la seconda strada a destra."
+            ],
+            "nl": [
+              "Neem de derde straat links.",
+              "Neem de tweede straat rechts."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "continuez tout droit",
+          "translation": {
+            "en": "go straight ahead",
+            "es-419": "siga derecho",
+            "it": "vada dritto",
+            "nl": "ga rechtdoor"
+          },
+          "distractors": {
+            "en": [
+              "turn left",
+              "go back"
+            ],
+            "es-419": [
+              "doble a la izquierda",
+              "regrese"
+            ],
+            "it": [
+              "giri a sinistra",
+              "torni indietro"
+            ],
+            "nl": [
+              "sla linksaf",
+              "ga terug"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "avenue",
+          "translation": {
+            "en": "avenue",
+            "es-419": "avenida",
+            "it": "viale",
+            "nl": "laan"
+          },
+          "distractors": {
+            "en": [
+              "highway",
+              "square"
+            ],
+            "es-419": [
+              "autopista",
+              "plaza"
+            ],
+            "it": [
+              "autostrada",
+              "piazza"
+            ],
+            "nl": [
+              "snelweg",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Continuez tout droit jusqu'à l'avenue.",
+          "translation": {
+            "en": "Go straight ahead until you get to the avenue.",
+            "es-419": "Siga derecho hasta la avenida.",
+            "it": "Vada dritto fino al viale.",
+            "nl": "Ga rechtdoor tot aan de laan."
+          },
+          "distractors": {
+            "en": [
+              "Go straight ahead until you get to the square.",
+              "Turn left until you get to the avenue."
+            ],
+            "es-419": [
+              "Siga derecho hasta la plaza.",
+              "Doble a la izquierda hasta la avenida."
+            ],
+            "it": [
+              "Vada dritto fino alla piazza.",
+              "Giri a sinistra fino al viale."
+            ],
+            "nl": [
+              "Ga rechtdoor tot aan het plein.",
+              "Sla linksaf tot aan de laan."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "feu",
+          "translation": {
+            "en": "traffic light",
+            "es-419": "semáforo",
+            "it": "semaforo",
+            "nl": "stoplicht"
+          },
+          "distractors": {
+            "en": [
+              "crosswalk",
+              "stop sign"
+            ],
+            "es-419": [
+              "cruce peatonal",
+              "señal de alto"
+            ],
+            "it": [
+              "passaggio pedonale",
+              "segnale di stop"
+            ],
+            "nl": [
+              "zebrapad",
+              "stopbord"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Passez le feu, puis tournez à gauche.",
+          "translation": {
+            "en": "Go past the light, then turn left.",
+            "es-419": "Pase el semáforo y luego doble a la izquierda.",
+            "it": "Superi il semaforo, poi giri a sinistra.",
+            "nl": "Ga voorbij het stoplicht en sla dan linksaf."
+          },
+          "distractors": {
+            "en": [
+              "Go past the light, then turn right.",
+              "Stop at the light, then turn left."
+            ],
+            "es-419": [
+              "Pase el semáforo y luego doble a la derecha.",
+              "Deténgase en el semáforo y luego doble a la izquierda."
+            ],
+            "it": [
+              "Superi il semaforo, poi giri a destra.",
+              "Si fermi al semaforo, poi giri a sinistra."
+            ],
+            "nl": [
+              "Ga voorbij het stoplicht en sla dan rechtsaf.",
+              "Stop bij het stoplicht en sla dan linksaf."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "traversez la place",
+          "senses": {
+            "2": "square"
+          },
+          "translation": {
+            "en": "cross the square",
+            "es-419": "cruce la plaza",
+            "it": "attraversi la piazza",
+            "nl": "steek het plein over"
+          },
+          "distractors": {
+            "en": [
+              "cross the street",
+              "leave the square"
+            ],
+            "es-419": [
+              "cruce la calle",
+              "salga de la plaza"
+            ],
+            "it": [
+              "attraversi la strada",
+              "esca dalla piazza"
+            ],
+            "nl": [
+              "steek de straat over",
+              "verlaat het plein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Traversez la place, puis suivez la rue vers la gare.",
+          "senses": {
+            "2": "square"
+          },
+          "translation": {
+            "en": "Cross the square, then follow the street toward the station.",
+            "es-419": "Cruce la plaza y luego siga la calle hacia la estación.",
+            "it": "Attraversi la piazza, poi segua la strada verso la stazione.",
+            "nl": "Steek het plein over en volg dan de straat richting het station."
+          },
+          "distractors": {
+            "en": [
+              "Cross the square, then follow the street toward the museum.",
+              "Cross the street, then follow the avenue toward the station."
+            ],
+            "es-419": [
+              "Cruce la plaza y luego siga la calle hacia el museo.",
+              "Cruce la calle y luego siga la avenida hacia la estación."
+            ],
+            "it": [
+              "Attraversi la piazza, poi segua la strada verso il museo.",
+              "Attraversi la strada, poi segua il viale verso la stazione."
+            ],
+            "nl": [
+              "Steek het plein over en volg dan de straat richting het museum.",
+              "Steek de straat over en volg dan de laan richting het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La gare? C'est là, au coin de la rue.",
+          "translation": {
+            "en": "The station? It's right there, on the corner of the street.",
+            "es-419": "¿La estación? Está ahí, en la esquina de la calle.",
+            "it": "La stazione? È lì, all'angolo della strada.",
+            "nl": "Het station? Dat is daar, op de hoek van de straat."
+          },
+          "distractors": {
+            "en": [
+              "The station? It's over there, far from the street.",
+              "The museum? It's right there, on the corner of the street."
+            ],
+            "es-419": [
+              "¿La estación? Está allá, lejos de la calle.",
+              "¿El museo? Está ahí, en la esquina de la calle."
+            ],
+            "it": [
+              "La stazione? È laggiù, lontano dalla strada.",
+              "Il museo? È lì, all'angolo della strada."
+            ],
+            "nl": [
+              "Het station? Dat is daarginds, ver van de straat.",
+              "Het museum? Dat is daar, op de hoek van de straat."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-ville-4",
+      "title": "En bus ou à pied?",
+      "grammarFocus": {
+        "en": [
+          "venir: viens, vient, venez, viennent",
+          "en bus, en voiture, en taxi, à pied",
+          "devoir + infinitive = must, have to; il faut + infinitive"
+        ],
+        "es-419": [
+          "venir: viens, vient, venez, viennent",
+          "en bus, en voiture, en taxi = en autobús, en carro, en taxi; à pied = a pie",
+          "devoir + infinitivo = deber, tener que; il faut + infinitivo = hay que"
+        ],
+        "it": [
+          "venir: viens, vient, venez, viennent",
+          "en bus = in autobus, en voiture = in macchina, à pied = a piedi",
+          "devoir + infinito = dovere; il faut + infinito = bisogna"
+        ],
+        "nl": [
+          "venir: viens, vient, venez, viennent",
+          "en bus = met de bus, en voiture = met de auto, à pied = te voet",
+          "devoir + infinitief = moeten; il faut + infinitief = je moet, men moet"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "bus",
+          "translation": {
+            "en": "bus",
+            "es-419": "autobús",
+            "it": "autobus",
+            "nl": "bus"
+          },
+          "distractors": {
+            "en": [
+              "train",
+              "taxi"
+            ],
+            "es-419": [
+              "tren",
+              "taxi"
+            ],
+            "it": [
+              "treno",
+              "taxi"
+            ],
+            "nl": [
+              "trein",
+              "taxi"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "métro",
+          "translation": {
+            "en": "subway",
+            "es-419": "metro",
+            "it": "metropolitana",
+            "nl": "metro"
+          },
+          "distractors": {
+            "en": [
+              "bus",
+              "train"
+            ],
+            "es-419": [
+              "autobús",
+              "tren"
+            ],
+            "it": [
+              "autobus",
+              "treno"
+            ],
+            "nl": [
+              "bus",
+              "trein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous venez en bus ou en métro?",
+          "translation": {
+            "en": "Are you coming by bus or by subway?",
+            "es-419": "¿Viene en autobús o en metro?",
+            "it": "Viene in autobus o in metropolitana?",
+            "nl": "Komt u met de bus of met de metro?"
+          },
+          "distractors": {
+            "en": [
+              "Are you coming by bus or by train?",
+              "Are you going by bus or by subway?"
+            ],
+            "es-419": [
+              "¿Viene en autobús o en tren?",
+              "¿Va en autobús o en metro?"
+            ],
+            "it": [
+              "Viene in autobus o in treno?",
+              "Va in autobus o in metropolitana?"
+            ],
+            "nl": [
+              "Komt u met de bus of met de trein?",
+              "Gaat u met de bus of met de metro?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "train",
+          "translation": {
+            "en": "train",
+            "es-419": "tren",
+            "it": "treno",
+            "nl": "trein"
+          },
+          "distractors": {
+            "en": [
+              "bus",
+              "taxi"
+            ],
+            "es-419": [
+              "autobús",
+              "taxi"
+            ],
+            "it": [
+              "autobus",
+              "taxi"
+            ],
+            "nl": [
+              "bus",
+              "taxi"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en taxi",
+          "translation": {
+            "en": "by taxi",
+            "es-419": "en taxi",
+            "it": "in taxi",
+            "nl": "met de taxi"
+          },
+          "distractors": {
+            "en": [
+              "by bus",
+              "by car"
+            ],
+            "es-419": [
+              "en autobús",
+              "en carro"
+            ],
+            "it": [
+              "in autobus",
+              "in macchina"
+            ],
+            "nl": [
+              "met de bus",
+              "met de auto"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "voiture",
+          "translation": {
+            "en": "car",
+            "es-419": "carro",
+            "it": "macchina",
+            "nl": "auto"
+          },
+          "distractors": {
+            "en": [
+              "bus",
+              "bike"
+            ],
+            "es-419": [
+              "autobús",
+              "bicicleta"
+            ],
+            "it": [
+              "autobus",
+              "bicicletta"
+            ],
+            "nl": [
+              "bus",
+              "fiets"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je viens en voiture, mais mon ami vient en train.",
+          "translation": {
+            "en": "I'm coming by car, but my friend is coming by train.",
+            "es-419": "Yo vengo en carro, pero mi amigo viene en tren.",
+            "it": "Io vengo in macchina, ma il mio amico viene in treno.",
+            "nl": "Ik kom met de auto, maar mijn vriend komt met de trein."
+          },
+          "distractors": {
+            "en": [
+              "I'm coming by car, but my friend is coming by bus.",
+              "I'm coming by train, but my friend is coming by car."
+            ],
+            "es-419": [
+              "Yo vengo en carro, pero mi amigo viene en autobús.",
+              "Yo vengo en tren, pero mi amigo viene en carro."
+            ],
+            "it": [
+              "Io vengo in macchina, ma il mio amico viene in autobus.",
+              "Io vengo in treno, ma il mio amico viene in macchina."
+            ],
+            "nl": [
+              "Ik kom met de auto, maar mijn vriend komt met de bus.",
+              "Ik kom met de trein, maar mijn vriend komt met de auto."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "pied",
+          "translation": {
+            "en": "foot",
+            "es-419": "pie",
+            "it": "piede",
+            "nl": "voet"
+          },
+          "distractors": {
+            "en": [
+              "hand",
+              "leg"
+            ],
+            "es-419": [
+              "mano",
+              "pierna"
+            ],
+            "it": [
+              "mano",
+              "gamba"
+            ],
+            "nl": [
+              "hand",
+              "been"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "on y va à pied",
+          "translation": {
+            "en": "let's go on foot",
+            "es-419": "vamos a pie",
+            "it": "andiamo a piedi",
+            "nl": "we gaan te voet"
+          },
+          "distractors": {
+            "en": [
+              "let's go by bus",
+              "let's go by car"
+            ],
+            "es-419": [
+              "vamos en autobús",
+              "vamos en carro"
+            ],
+            "it": [
+              "andiamo in autobus",
+              "andiamo in macchina"
+            ],
+            "nl": [
+              "we gaan met de bus",
+              "we gaan met de auto"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Non, c'est loin, il faut prendre le bus.",
+          "translation": {
+            "en": "No, it's far, you have to take the bus.",
+            "es-419": "No, está lejos, hay que tomar el autobús.",
+            "it": "No, è lontano, bisogna prendere l'autobus.",
+            "nl": "Nee, het is ver, je moet de bus nemen."
+          },
+          "distractors": {
+            "en": [
+              "No, it's far, you have to walk.",
+              "No, it's close, you have to take the bus."
+            ],
+            "es-419": [
+              "No, está lejos, hay que ir a pie.",
+              "No, está cerca, hay que tomar el autobús."
+            ],
+            "it": [
+              "No, è lontano, bisogna andare a piedi.",
+              "No, è vicino, bisogna prendere l'autobus."
+            ],
+            "nl": [
+              "Nee, het is ver, je moet lopen.",
+              "Nee, het is dichtbij, je moet de bus nemen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "arrêt",
+          "translation": {
+            "en": "stop",
+            "es-419": "parada",
+            "it": "fermata",
+            "nl": "halte"
+          },
+          "distractors": {
+            "en": [
+              "line",
+              "station"
+            ],
+            "es-419": [
+              "línea",
+              "estación"
+            ],
+            "it": [
+              "linea",
+              "stazione"
+            ],
+            "nl": [
+              "lijn",
+              "station"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je dois attendre le bus à l'arrêt.",
+          "translation": {
+            "en": "I have to wait for the bus at the stop.",
+            "es-419": "Tengo que esperar el autobús en la parada.",
+            "it": "Devo aspettare l'autobus alla fermata.",
+            "nl": "Ik moet bij de halte op de bus wachten."
+          },
+          "distractors": {
+            "en": [
+              "I have to wait for the taxi at the stop.",
+              "I don't have to wait for the bus at the stop."
+            ],
+            "es-419": [
+              "Tengo que esperar el taxi en la parada.",
+              "No tengo que esperar el autobús en la parada."
+            ],
+            "it": [
+              "Devo aspettare il taxi alla fermata.",
+              "Non devo aspettare l'autobus alla fermata."
+            ],
+            "nl": [
+              "Ik moet bij de halte op de taxi wachten.",
+              "Ik hoef bij de halte niet op de bus te wachten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "conduire",
+          "translation": {
+            "en": "to drive",
+            "es-419": "manejar",
+            "it": "guidare",
+            "nl": "rijden"
+          },
+          "distractors": {
+            "en": [
+              "to walk",
+              "to park"
+            ],
+            "es-419": [
+              "caminar",
+              "estacionar"
+            ],
+            "it": [
+              "camminare",
+              "parcheggiare"
+            ],
+            "nl": [
+              "lopen",
+              "parkeren"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous conduisez? Non, je prends le train.",
+          "translation": {
+            "en": "Do you drive? No, I take the train.",
+            "es-419": "¿Usted maneja? No, yo tomo el tren.",
+            "it": "Guida? No, io prendo il treno.",
+            "nl": "Rijdt u auto? Nee, ik neem de trein."
+          },
+          "distractors": {
+            "en": [
+              "Do you drive? No, I take the bus.",
+              "Do you take the train? No, I drive."
+            ],
+            "es-419": [
+              "¿Usted maneja? No, yo tomo el autobús.",
+              "¿Usted toma el tren? No, yo manejo."
+            ],
+            "it": [
+              "Guida? No, io prendo l'autobus.",
+              "Prende il treno? No, io guido."
+            ],
+            "nl": [
+              "Rijdt u auto? Nee, ik neem de bus.",
+              "Neemt u de trein? Nee, ik rijd."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Où est-ce que je peux garer la voiture?",
+          "translation": {
+            "en": "Where can I park the car?",
+            "es-419": "¿Dónde puedo estacionar el carro?",
+            "it": "Dove posso parcheggiare la macchina?",
+            "nl": "Waar kan ik de auto parkeren?"
+          },
+          "distractors": {
+            "en": [
+              "Where can I park the bike?",
+              "Can I park the car here?"
+            ],
+            "es-419": [
+              "¿Dónde puedo estacionar la bicicleta?",
+              "¿Puedo estacionar el carro aquí?"
+            ],
+            "it": [
+              "Dove posso parcheggiare la bicicletta?",
+              "Posso parcheggiare la macchina qui?"
+            ],
+            "nl": [
+              "Waar kan ik de fiets stallen?",
+              "Kan ik de auto hier parkeren?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour aller à la gare, prenez la ligne dix du métro.",
+          "variants": [
+            "Pour aller à la gare, prenez la ligne 10 du métro."
+          ],
+          "translation": {
+            "en": "To get to the station, take subway line ten.",
+            "es-419": "Para ir a la estación, tome la línea diez del metro.",
+            "it": "Per andare alla stazione, prenda la linea dieci della metropolitana.",
+            "nl": "Om naar het station te gaan, neemt u metrolijn tien."
+          },
+          "distractors": {
+            "en": [
+              "To get to the station, take bus line ten.",
+              "To get to the museum, take subway line ten."
+            ],
+            "es-419": [
+              "Para ir a la estación, tome la línea diez del autobús.",
+              "Para ir al museo, tome la línea diez del metro."
+            ],
+            "it": [
+              "Per andare alla stazione, prenda la linea dieci dell'autobus.",
+              "Per andare al museo, prenda la linea dieci della metropolitana."
+            ],
+            "nl": [
+              "Om naar het station te gaan, neemt u buslijn tien.",
+              "Om naar het museum te gaan, neemt u metrolijn tien."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-ville-5",
+      "title": "Où est-ce que je descends?",
+      "grammarFocus": {
+        "en": [
+          "descendre / monter: je descends, vous montez",
+          "Où est-ce que je descends? / Vous savez où je dois descendre?",
+          "troisième: le troisième arrêt (ordinals)"
+        ],
+        "es-419": [
+          "descendre / monter: je descends, vous montez = me bajo, se sube",
+          "Où est-ce que je descends? = ¿dónde me bajo?",
+          "troisième: le troisième arrêt = la tercera parada"
+        ],
+        "it": [
+          "descendre / monter: je descends, vous montez = scendo, sale",
+          "Où est-ce que je descends? = dove scendo?",
+          "troisième: le troisième arrêt = la terza fermata"
+        ],
+        "nl": [
+          "descendre / monter: je descends, vous montez = ik stap uit, u stapt in",
+          "Où est-ce que je descends? = waar stap ik uit?",
+          "troisième: le troisième arrêt = de derde halte"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "descendre",
+          "translation": {
+            "en": "to get off, to go down",
+            "es-419": "bajar, bajarse",
+            "it": "scendere",
+            "nl": "uitstappen, naar beneden gaan"
+          },
+          "distractors": {
+            "en": [
+              "to get on",
+              "to arrive"
+            ],
+            "es-419": [
+              "subir",
+              "llegar"
+            ],
+            "it": [
+              "salire",
+              "arrivare"
+            ],
+            "nl": [
+              "instappen",
+              "aankomen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je descends ici",
+          "translation": {
+            "en": "I'm getting off here",
+            "es-419": "me bajo aquí",
+            "it": "scendo qui",
+            "nl": "ik stap hier uit"
+          },
+          "distractors": {
+            "en": [
+              "I'm getting on here",
+              "I'm arriving here"
+            ],
+            "es-419": [
+              "me subo aquí",
+              "llego aquí"
+            ],
+            "it": [
+              "salgo qui",
+              "arrivo qui"
+            ],
+            "nl": [
+              "ik stap hier in",
+              "ik kom hier aan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous montez dans le bus",
+          "translation": {
+            "en": "you get on the bus",
+            "es-419": "se sube al autobús",
+            "it": "sale sull'autobus",
+            "nl": "u stapt in de bus"
+          },
+          "distractors": {
+            "en": [
+              "you get off the bus",
+              "you wait for the bus"
+            ],
+            "es-419": [
+              "se baja del autobús",
+              "espera el autobús"
+            ],
+            "it": [
+              "scende dall'autobus",
+              "aspetta l'autobus"
+            ],
+            "nl": [
+              "u stapt uit de bus",
+              "u wacht op de bus"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Où est-ce que je descends pour aller au musée?",
+          "translation": {
+            "en": "Where do I get off to go to the museum?",
+            "es-419": "¿Dónde me bajo para ir al museo?",
+            "it": "Dove scendo per andare al museo?",
+            "nl": "Waar stap ik uit om naar het museum te gaan?"
+          },
+          "distractors": {
+            "en": [
+              "Where do I get on to go to the museum?",
+              "Where do I get off to go to the station?"
+            ],
+            "es-419": [
+              "¿Dónde me subo para ir al museo?",
+              "¿Dónde me bajo para ir a la estación?"
+            ],
+            "it": [
+              "Dove salgo per andare al museo?",
+              "Dove scendo per andare alla stazione?"
+            ],
+            "nl": [
+              "Waar stap ik in om naar het museum te gaan?",
+              "Waar stap ik uit om naar het station te gaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "troisième",
+          "translation": {
+            "en": "third",
+            "es-419": "tercero",
+            "it": "terzo",
+            "nl": "derde"
+          },
+          "distractors": {
+            "en": [
+              "second",
+              "fourth"
+            ],
+            "es-419": [
+              "segundo",
+              "cuarto"
+            ],
+            "it": [
+              "secondo",
+              "quarto"
+            ],
+            "nl": [
+              "tweede",
+              "vierde"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le troisième arrêt",
+          "translation": {
+            "en": "the third stop",
+            "es-419": "la tercera parada",
+            "it": "la terza fermata",
+            "nl": "de derde halte"
+          },
+          "distractors": {
+            "en": [
+              "the second stop",
+              "the last stop"
+            ],
+            "es-419": [
+              "la segunda parada",
+              "la última parada"
+            ],
+            "it": [
+              "la seconda fermata",
+              "l'ultima fermata"
+            ],
+            "nl": [
+              "de tweede halte",
+              "de laatste halte"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous descendez au troisième arrêt.",
+          "translation": {
+            "en": "You get off at the third stop.",
+            "es-419": "Usted se baja en la tercera parada.",
+            "it": "Scende alla terza fermata.",
+            "nl": "U stapt uit bij de derde halte."
+          },
+          "distractors": {
+            "en": [
+              "You get off at the second stop.",
+              "You get on at the third stop."
+            ],
+            "es-419": [
+              "Usted se baja en la segunda parada.",
+              "Usted se sube en la tercera parada."
+            ],
+            "it": [
+              "Scende alla seconda fermata.",
+              "Sale alla terza fermata."
+            ],
+            "nl": [
+              "U stapt uit bij de tweede halte.",
+              "U stapt in bij de derde halte."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le bus arrive",
+          "translation": {
+            "en": "the bus is arriving",
+            "es-419": "llega el autobús",
+            "it": "arriva l'autobus",
+            "nl": "de bus komt eraan"
+          },
+          "distractors": {
+            "en": [
+              "the bus is leaving",
+              "the train is arriving"
+            ],
+            "es-419": [
+              "sale el autobús",
+              "llega el tren"
+            ],
+            "it": [
+              "parte l'autobus",
+              "arriva il treno"
+            ],
+            "nl": [
+              "de bus vertrekt",
+              "de trein komt eraan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le bus arrive dans cinq minutes.",
+          "variants": [
+            "Le bus arrive dans 5 minutes."
+          ],
+          "translation": {
+            "en": "The bus is coming in five minutes.",
+            "es-419": "El autobús llega en cinco minutos.",
+            "it": "L'autobus arriva tra cinque minuti.",
+            "nl": "De bus komt over vijf minuten."
+          },
+          "distractors": {
+            "en": [
+              "The bus is coming in fifteen minutes.",
+              "The train is coming in five minutes."
+            ],
+            "es-419": [
+              "El autobús llega en quince minutos.",
+              "El tren llega en cinco minutos."
+            ],
+            "it": [
+              "L'autobus arriva tra quindici minuti.",
+              "Il treno arriva tra cinque minuti."
+            ],
+            "nl": [
+              "De bus komt over vijftien minuten.",
+              "De trein komt over vijf minuten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous entrez dans la gare, puis vous descendez dans le métro.",
+          "translation": {
+            "en": "You go into the station, then you go down to the subway.",
+            "es-419": "Usted entra a la estación y luego baja al metro.",
+            "it": "Entra nella stazione, poi scende nella metropolitana.",
+            "nl": "U gaat het station in en daarna naar beneden naar de metro."
+          },
+          "distractors": {
+            "en": [
+              "You go into the station, then you wait for the subway.",
+              "You leave the station, then you go down to the subway."
+            ],
+            "es-419": [
+              "Usted entra a la estación y luego espera el metro.",
+              "Usted sale de la estación y luego baja al metro."
+            ],
+            "it": [
+              "Entra nella stazione, poi aspetta la metropolitana.",
+              "Esce dalla stazione, poi scende nella metropolitana."
+            ],
+            "nl": [
+              "U gaat het station in en wacht daarna op de metro.",
+              "U verlaat het station en gaat daarna naar beneden naar de metro."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous devez descendre",
+          "translation": {
+            "en": "you have to get off",
+            "es-419": "tiene que bajarse",
+            "it": "deve scendere",
+            "nl": "u moet uitstappen"
+          },
+          "distractors": {
+            "en": [
+              "you have to get on",
+              "you have to wait"
+            ],
+            "es-419": [
+              "tiene que subirse",
+              "tiene que esperar"
+            ],
+            "it": [
+              "deve salire",
+              "deve aspettare"
+            ],
+            "nl": [
+              "u moet instappen",
+              "u moet wachten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour aller au parc, vous devez descendre à l'arrêt de la poste.",
+          "translation": {
+            "en": "To get to the park, you have to get off at the post office stop.",
+            "es-419": "Para ir al parque, tiene que bajarse en la parada de correos.",
+            "it": "Per andare al parco, deve scendere alla fermata della posta.",
+            "nl": "Om naar het park te gaan, moet u uitstappen bij de halte bij het postkantoor."
+          },
+          "distractors": {
+            "en": [
+              "To get to the park, you have to get on at the post office stop.",
+              "To get to the museum, you have to get off at the post office stop."
+            ],
+            "es-419": [
+              "Para ir al parque, tiene que subirse en la parada de correos.",
+              "Para ir al museo, tiene que bajarse en la parada de correos."
+            ],
+            "it": [
+              "Per andare al parco, deve salire alla fermata della posta.",
+              "Per andare al museo, deve scendere alla fermata della posta."
+            ],
+            "nl": [
+              "Om naar het park te gaan, moet u instappen bij de halte bij het postkantoor.",
+              "Om naar het museum te gaan, moet u uitstappen bij de halte bij het postkantoor."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il faut monter dans le bus numéro douze.",
+          "variants": [
+            "Il faut monter dans le bus numéro 12."
+          ],
+          "translation": {
+            "en": "You have to get on bus number twelve.",
+            "es-419": "Hay que subirse al autobús número doce.",
+            "it": "Bisogna salire sull'autobus numero dodici.",
+            "nl": "Je moet in bus nummer twaalf stappen."
+          },
+          "distractors": {
+            "en": [
+              "You have to get on bus number two.",
+              "You have to get off bus number twelve."
+            ],
+            "es-419": [
+              "Hay que subirse al autobús número dos.",
+              "Hay que bajarse del autobús número doce."
+            ],
+            "it": [
+              "Bisogna salire sull'autobus numero due.",
+              "Bisogna scendere dall'autobus numero dodici."
+            ],
+            "nl": [
+              "Je moet in bus nummer twee stappen.",
+              "Je moet uit bus nummer twaalf stappen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous savez où je dois descendre?",
+          "translation": {
+            "en": "Do you know where I have to get off?",
+            "es-419": "¿Sabe dónde tengo que bajarme?",
+            "it": "Sa dove devo scendere?",
+            "nl": "Weet u waar ik moet uitstappen?"
+          },
+          "distractors": {
+            "en": [
+              "Do you know where I have to get on?",
+              "Do you know when I have to get off?"
+            ],
+            "es-419": [
+              "¿Sabe dónde tengo que subirme?",
+              "¿Sabe cuándo tengo que bajarme?"
+            ],
+            "it": [
+              "Sa dove devo salire?",
+              "Sa quando devo scendere?"
+            ],
+            "nl": [
+              "Weet u waar ik moet instappen?",
+              "Weet u wanneer ik moet uitstappen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous arrivons à la gare à midi.",
+          "translation": {
+            "en": "We arrive at the station at noon.",
+            "es-419": "Llegamos a la estación a mediodía.",
+            "it": "Arriviamo alla stazione a mezzogiorno.",
+            "nl": "We komen om twaalf uur aan op het station."
+          },
+          "distractors": {
+            "en": [
+              "We arrive at the station at midnight.",
+              "We leave the station at noon."
+            ],
+            "es-419": [
+              "Llegamos a la estación a medianoche.",
+              "Salimos de la estación a mediodía."
+            ],
+            "it": [
+              "Arriviamo alla stazione a mezzanotte.",
+              "Partiamo dalla stazione a mezzogiorno."
+            ],
+            "nl": [
+              "We komen om middernacht aan op het station.",
+              "We vertrekken om twaalf uur van het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci, je descends au troisième arrêt, près du musée.",
+          "translation": {
+            "en": "Thanks, I'm getting off at the third stop, near the museum.",
+            "es-419": "Gracias, me bajo en la tercera parada, cerca del museo.",
+            "it": "Grazie, scendo alla terza fermata, vicino al museo.",
+            "nl": "Bedankt, ik stap uit bij de derde halte, bij het museum."
+          },
+          "distractors": {
+            "en": [
+              "Thanks, I'm getting off at the second stop, near the museum.",
+              "Thanks, I'm getting off at the third stop, near the station."
+            ],
+            "es-419": [
+              "Gracias, me bajo en la segunda parada, cerca del museo.",
+              "Gracias, me bajo en la tercera parada, cerca de la estación."
+            ],
+            "it": [
+              "Grazie, scendo alla seconda fermata, vicino al museo.",
+              "Grazie, scendo alla terza fermata, vicino alla stazione."
+            ],
+            "nl": [
+              "Bedankt, ik stap uit bij de tweede halte, bij het museum.",
+              "Bedankt, ik stap uit bij de derde halte, bij het station."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-ville-6",
+      "title": "Le centre",
+      "grammarFocus": {
+        "en": [
+          "à + distance: à cent mètres, à cinq cents mètres, à mille kilomètres",
+          "mille (never an s) and cent (cinq cents mètres)",
+          "savoir vs. connaître: Vous connaissez le chemin?"
+        ],
+        "es-419": [
+          "à + distancia: à cent mètres = a cien metros, à mille kilomètres = a mil kilómetros",
+          "mille (nunca lleva s) y cent (cinq cents mètres = quinientos metros)",
+          "savoir y connaître: Vous connaissez le chemin? = ¿conoce el camino?"
+        ],
+        "it": [
+          "à + distanza: à cent mètres = a cento metri, à mille kilomètres = a mille chilometri",
+          "mille (mai con la s) e cent (cinq cents mètres = cinquecento metri)",
+          "savoir e connaître: Vous connaissez le chemin? = conosce la strada?"
+        ],
+        "nl": [
+          "à + afstand: à cent mètres = op honderd meter, à mille kilomètres = op duizend kilometer",
+          "mille (nooit met s) en cent (cinq cents mètres = vijfhonderd meter)",
+          "savoir en connaître: Vous connaissez le chemin? = kent u de weg?"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-ville-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "centre",
+          "translation": {
+            "en": "center",
+            "es-419": "centro",
+            "it": "centro",
+            "nl": "centrum"
+          },
+          "distractors": {
+            "en": [
+              "edge",
+              "square"
+            ],
+            "es-419": [
+              "borde",
+              "plaza"
+            ],
+            "it": [
+              "periferia",
+              "piazza"
+            ],
+            "nl": [
+              "rand",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dans le centre",
+          "translation": {
+            "en": "downtown, in the center",
+            "es-419": "en el centro",
+            "it": "in centro",
+            "nl": "in het centrum"
+          },
+          "distractors": {
+            "en": [
+              "outside the center",
+              "near the center"
+            ],
+            "es-419": [
+              "fuera del centro",
+              "cerca del centro"
+            ],
+            "it": [
+              "fuori dal centro",
+              "vicino al centro"
+            ],
+            "nl": [
+              "buiten het centrum",
+              "bij het centrum"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le musée est dans le centre, près de la place.",
+          "senses": {
+            "9": "square"
+          },
+          "translation": {
+            "en": "The museum is downtown, near the square.",
+            "es-419": "El museo está en el centro, cerca de la plaza.",
+            "it": "Il museo è in centro, vicino alla piazza.",
+            "nl": "Het museum ligt in het centrum, bij het plein."
+          },
+          "distractors": {
+            "en": [
+              "The museum is downtown, far from the square.",
+              "The church is downtown, near the square."
+            ],
+            "es-419": [
+              "El museo está en el centro, lejos de la plaza.",
+              "La iglesia está en el centro, cerca de la plaza."
+            ],
+            "it": [
+              "Il museo è in centro, lontano dalla piazza.",
+              "La chiesa è in centro, vicino alla piazza."
+            ],
+            "nl": [
+              "Het museum ligt in het centrum, ver van het plein.",
+              "De kerk ligt in het centrum, bij het plein."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "mètre",
+          "translation": {
+            "en": "meter",
+            "es-419": "metro",
+            "it": "metro",
+            "nl": "meter"
+          },
+          "distractors": {
+            "en": [
+              "kilometer",
+              "minute"
+            ],
+            "es-419": [
+              "kilómetro",
+              "minuto"
+            ],
+            "it": [
+              "chilometro",
+              "minuto"
+            ],
+            "nl": [
+              "kilometer",
+              "minuut"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "cent mètres",
+          "variants": [
+            "100 mètres"
+          ],
+          "translation": {
+            "en": "a hundred meters",
+            "es-419": "cien metros",
+            "it": "cento metri",
+            "nl": "honderd meter"
+          },
+          "distractors": {
+            "en": [
+              "a thousand meters",
+              "ten meters"
+            ],
+            "es-419": [
+              "mil metros",
+              "diez metros"
+            ],
+            "it": [
+              "mille metri",
+              "dieci metri"
+            ],
+            "nl": [
+              "duizend meter",
+              "tien meter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La gare est à cinq cents mètres.",
+          "variants": [
+            "La gare est à 500 mètres."
+          ],
+          "translation": {
+            "en": "The station is five hundred meters away.",
+            "es-419": "La estación está a quinientos metros.",
+            "it": "La stazione è a cinquecento metri.",
+            "nl": "Het station is op vijfhonderd meter."
+          },
+          "distractors": {
+            "en": [
+              "The station is fifty meters away.",
+              "The station is five hundred kilometers away."
+            ],
+            "es-419": [
+              "La estación está a cincuenta metros.",
+              "La estación está a quinientos kilómetros."
+            ],
+            "it": [
+              "La stazione è a cinquanta metri.",
+              "La stazione è a cinquecento chilometri."
+            ],
+            "nl": [
+              "Het station is op vijftig meter.",
+              "Het station is op vijfhonderd kilometer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "kilomètre",
+          "translation": {
+            "en": "kilometer",
+            "es-419": "kilómetro",
+            "it": "chilometro",
+            "nl": "kilometer"
+          },
+          "distractors": {
+            "en": [
+              "meter",
+              "minute"
+            ],
+            "es-419": [
+              "metro",
+              "minuto"
+            ],
+            "it": [
+              "metro",
+              "minuto"
+            ],
+            "nl": [
+              "meter",
+              "minuut"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "mille",
+          "variants": [
+            "1000",
+            "1.000"
+          ],
+          "translation": {
+            "en": "a thousand",
+            "es-419": "mil",
+            "it": "mille",
+            "nl": "duizend"
+          },
+          "distractors": {
+            "en": [
+              "a hundred",
+              "a million"
+            ],
+            "es-419": [
+              "cien",
+              "un millón"
+            ],
+            "it": [
+              "cento",
+              "un milione"
+            ],
+            "nl": [
+              "honderd",
+              "een miljoen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La maison de mes parents est à mille kilomètres d'ici.",
+          "variants": [
+            "La maison de mes parents est à 1000 kilomètres d'ici.",
+            "La maison de mes parents est à 1.000 kilomètres d'ici."
+          ],
+          "translation": {
+            "en": "My parents' house is a thousand kilometers from here.",
+            "es-419": "La casa de mis padres está a mil kilómetros de aquí.",
+            "it": "La casa dei miei genitori è a mille chilometri da qui.",
+            "nl": "Het huis van mijn ouders is duizend kilometer hiervandaan."
+          },
+          "distractors": {
+            "en": [
+              "My parents' house is a hundred kilometers from here.",
+              "My parents' house is a thousand meters from here."
+            ],
+            "es-419": [
+              "La casa de mis padres está a cien kilómetros de aquí.",
+              "La casa de mis padres está a mil metros de aquí."
+            ],
+            "it": [
+              "La casa dei miei genitori è a cento chilometri da qui.",
+              "La casa dei miei genitori è a mille metri da qui."
+            ],
+            "nl": [
+              "Het huis van mijn ouders is honderd kilometer hiervandaan.",
+              "Het huis van mijn ouders is duizend meter hiervandaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "route",
+          "translation": {
+            "en": "road",
+            "es-419": "carretera",
+            "it": "strada",
+            "nl": "weg"
+          },
+          "distractors": {
+            "en": [
+              "path",
+              "square"
+            ],
+            "es-419": [
+              "sendero",
+              "plaza"
+            ],
+            "it": [
+              "sentiero",
+              "piazza"
+            ],
+            "nl": [
+              "pad",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Suivez la route vers le centre.",
+          "translation": {
+            "en": "Follow the road toward the center.",
+            "es-419": "Siga la carretera hacia el centro.",
+            "it": "Segua la strada verso il centro.",
+            "nl": "Volg de weg richting het centrum."
+          },
+          "distractors": {
+            "en": [
+              "Follow the road away from the center.",
+              "Follow the street toward the station."
+            ],
+            "es-419": [
+              "Siga la carretera alejándose del centro.",
+              "Siga la calle hacia la estación."
+            ],
+            "it": [
+              "Segua la strada allontanandosi dal centro.",
+              "Segua la via verso la stazione."
+            ],
+            "nl": [
+              "Volg de weg weg van het centrum.",
+              "Volg de straat richting het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "chemin",
+          "translation": {
+            "en": "path, way",
+            "es-419": "camino",
+            "it": "cammino, percorso",
+            "nl": "pad, weg"
+          },
+          "distractors": {
+            "en": [
+              "bridge",
+              "corner"
+            ],
+            "es-419": [
+              "puente",
+              "esquina"
+            ],
+            "it": [
+              "ponte",
+              "angolo"
+            ],
+            "nl": [
+              "brug",
+              "hoek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous connaissez le chemin? Non, je ne connais pas bien l'endroit.",
+          "translation": {
+            "en": "Do you know the way? No, I don't know the area very well.",
+            "es-419": "¿Conoce el camino? No, no conozco bien el lugar.",
+            "it": "Conosce la strada? No, non conosco bene il posto.",
+            "nl": "Kent u de weg? Nee, ik ken de omgeving niet goed."
+          },
+          "distractors": {
+            "en": [
+              "Do you know the way? Yes, I know the area very well.",
+              "Do you have a map? No, I don't know the area very well."
+            ],
+            "es-419": [
+              "¿Conoce el camino? Sí, conozco muy bien el lugar.",
+              "¿Tiene un plano? No, no conozco bien el lugar."
+            ],
+            "it": [
+              "Conosce la strada? Sì, conosco molto bene il posto.",
+              "Ha una pianta? No, non conosco bene il posto."
+            ],
+            "nl": [
+              "Kent u de weg? Ja, ik ken de omgeving heel goed.",
+              "Hebt u een plattegrond? Nee, ik ken de omgeving niet goed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "adresse",
+          "translation": {
+            "en": "address",
+            "es-419": "dirección",
+            "it": "indirizzo",
+            "nl": "adres"
+          },
+          "distractors": {
+            "en": [
+              "number",
+              "street"
+            ],
+            "es-419": [
+              "número",
+              "calle"
+            ],
+            "it": [
+              "numero",
+              "strada"
+            ],
+            "nl": [
+              "nummer",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous avez l'adresse? Non, mais j'ai un plan.",
+          "translation": {
+            "en": "Do you have the address? No, but I have a map.",
+            "es-419": "¿Tiene la dirección? No, pero tengo un plano.",
+            "it": "Ha l'indirizzo? No, ma ho una pianta.",
+            "nl": "Hebt u het adres? Nee, maar ik heb een plattegrond."
+          },
+          "distractors": {
+            "en": [
+              "Do you have the address? No, but I have a phone.",
+              "Do you have the map? No, but I have the address."
+            ],
+            "es-419": [
+              "¿Tiene la dirección? No, pero tengo un teléfono.",
+              "¿Tiene el plano? No, pero tengo la dirección."
+            ],
+            "it": [
+              "Ha l'indirizzo? No, ma ho un telefono.",
+              "Ha la pianta? No, ma ho l'indirizzo."
+            ],
+            "nl": [
+              "Hebt u het adres? Nee, maar ik heb een telefoon.",
+              "Hebt u de plattegrond? Nee, maar ik heb het adres."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-ville-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le métro passe sous le centre, l'arrêt est près de la place.",
+          "senses": {
+            "11": "square"
+          },
+          "translation": {
+            "en": "The subway goes under downtown, and the stop is near the square.",
+            "es-419": "El metro pasa por debajo del centro y la parada está cerca de la plaza.",
+            "it": "La metropolitana passa sotto il centro e la fermata è vicino alla piazza.",
+            "nl": "De metro rijdt onder het centrum door en de halte is bij het plein."
+          },
+          "distractors": {
+            "en": [
+              "The subway goes under downtown, and the stop is far from the square.",
+              "The subway goes under the square, and the stop is near the church."
+            ],
+            "es-419": [
+              "El metro pasa por debajo del centro y la parada está lejos de la plaza.",
+              "El metro pasa por debajo de la plaza y la parada está cerca de la iglesia."
+            ],
+            "it": [
+              "La metropolitana passa sotto il centro e la fermata è lontana dalla piazza.",
+              "La metropolitana passa sotto la piazza e la fermata è vicino alla chiesa."
+            ],
+            "nl": [
+              "De metro rijdt onder het centrum door en de halte is ver van het plein.",
+              "De metro rijdt onder het plein door en de halte is bij de kerk."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

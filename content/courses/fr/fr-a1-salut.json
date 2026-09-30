@@ -1,0 +1,4590 @@
+{
+  "id": "fr-a1-salut",
+  "language": "fr",
+  "level": "A1",
+  "order": 2,
+  "title": "Salut!",
+  "description": {
+    "en": "Greet people, say goodbye, introduce yourself and a friend, say where you are from and ask for help when you do not understand.",
+    "es-419": "Saluda, despídete, preséntate y presenta a un amigo, di de dónde eres y pide ayuda cuando no entiendas.",
+    "it": "Saluta, congedati, presenta te stesso e un amico, di' di dove sei e chiedi aiuto quando non capisci.",
+    "nl": "Begroet mensen, neem afscheid, stel jezelf en een vriend voor, zeg waar je vandaan komt en vraag om hulp als je iets niet begrijpt."
+  },
+  "track": "main",
+  "requires": [
+    "fr-a1-cafe"
+  ],
+  "introduces": [
+    "salut",
+    "au",
+    "revoir",
+    "bientôt",
+    "demain",
+    "bonsoir",
+    "matin",
+    "soir",
+    "jour",
+    "nuit",
+    "journée",
+    "soirée",
+    "enchanté",
+    "bienvenue",
+    "appeler",
+    "nom",
+    "prénom",
+    "tu",
+    "toi",
+    "elle",
+    "mon",
+    "ton",
+    "son",
+    "votre",
+    "voici",
+    "qui",
+    "où",
+    "comment",
+    "quel",
+    "aller",
+    "bien",
+    "mal",
+    "très",
+    "peu",
+    "ne",
+    "pas",
+    "mais",
+    "sûr",
+    "accord",
+    "désolé",
+    "ami",
+    "monsieur",
+    "madame",
+    "pays",
+    "ville",
+    "habiter",
+    "parler",
+    "comprendre",
+    "répéter",
+    "écrire",
+    "dire",
+    "lentement",
+    "mot",
+    "fois",
+    "me",
+    "te",
+    "se",
+    "présenter",
+    "en",
+    "français",
+    "anglais",
+    "espagnol",
+    "italien",
+    "allemand",
+    "néerlandais",
+    "belge",
+    "suisse",
+    "canadien",
+    "américain",
+    "britannique"
+  ],
+  "lexicon": {
+    "marie": {
+      "lemma": "marie",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "léa": {
+      "lemma": "léa",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "marc": {
+      "lemma": "marc",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "thomas": {
+      "lemma": "thomas",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "bernard": {
+      "lemma": "bernard",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "sophie": {
+      "lemma": "sophie",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "martin": {
+      "lemma": "martin",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "paul": {
+      "lemma": "paul",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "name",
+        "es-419": "nombre propio",
+        "it": "nome proprio",
+        "nl": "eigennaam"
+      }
+    },
+    "lyon": {
+      "lemma": "lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon (city in France)",
+        "es-419": "Lyon (ciudad de Francia)",
+        "it": "Lione (città in Francia)",
+        "nl": "Lyon (stad in Frankrijk)"
+      }
+    },
+    "paris": {
+      "lemma": "paris",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Paris",
+        "es-419": "París",
+        "it": "Parigi",
+        "nl": "Parijs"
+      }
+    },
+    "toulouse": {
+      "lemma": "toulouse",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Toulouse (city in France)",
+        "es-419": "Toulouse (ciudad de Francia)",
+        "it": "Tolosa (città in Francia)",
+        "nl": "Toulouse (stad in Frankrijk)"
+      }
+    },
+    "montréal": {
+      "lemma": "montréal",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Montreal (city in Canada)",
+        "es-419": "Montreal (ciudad de Canadá)",
+        "it": "Montréal (città in Canada)",
+        "nl": "Montréal (stad in Canada)"
+      }
+    },
+    "genève": {
+      "lemma": "genève",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Geneva (city in Switzerland)",
+        "es-419": "Ginebra (ciudad de Suiza)",
+        "it": "Ginevra (città in Svizzera)",
+        "nl": "Genève (stad in Zwitserland)"
+      }
+    },
+    "france": {
+      "lemma": "france",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "France",
+        "es-419": "Francia",
+        "it": "Francia",
+        "nl": "Frankrijk"
+      }
+    },
+    "canada": {
+      "lemma": "canada",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Canada",
+        "es-419": "Canadá",
+        "it": "Canada",
+        "nl": "Canada"
+      }
+    },
+    "états-unis": {
+      "lemma": "états-unis",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "États-Unis = the United States; aux États-Unis = in the United States",
+        "es-419": "États-Unis = Estados Unidos; aux États-Unis = en Estados Unidos",
+        "it": "États-Unis = Stati Uniti; aux États-Unis = negli Stati Uniti",
+        "nl": "États-Unis = Verenigde Staten; aux États-Unis = in de Verenigde Staten"
+      }
+    },
+    "salut": {
+      "lemma": "salut",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hi, bye (informal, with friends)",
+        "es-419": "hola, chao (informal, con amigos)",
+        "it": "ciao (informale, tra amici)",
+        "nl": "hoi, doei (informeel, onder vrienden)"
+      }
+    },
+    "bonjour": {
+      "lemma": "bonjour",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hello, good morning, good afternoon",
+        "es-419": "hola, buenos días, buenas tardes",
+        "it": "buongiorno, salve",
+        "nl": "goedendag, goedemorgen, goedemiddag"
+      }
+    },
+    "bonsoir": {
+      "lemma": "bonsoir",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "good evening (also said when you arrive at night)",
+        "es-419": "buenas noches (al llegar, de noche)",
+        "it": "buonasera (anche quando si arriva di sera)",
+        "nl": "goedenavond (bij aankomst 's avonds)"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the, in the (masculine); au revoir = goodbye; au Canada = in Canada",
+        "es-419": "au = à + le: al, en el (masculino); au revoir = adiós; au Canada = en Canadá",
+        "it": "au = à + le: al, nel (maschile); au revoir = arrivederci; au Canada = in Canada",
+        "nl": "au = à + le: naar de, in de (mannelijk); au revoir = tot ziens; au Canada = in Canada"
+      }
+    },
+    "aux": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "aux = à + les: to the, in the (plural); aux États-Unis = in the United States",
+        "es-419": "aux = à + les: a los, en los (plural); aux États-Unis = en Estados Unidos",
+        "it": "aux = à + les: ai, negli (plurale); aux États-Unis = negli Stati Uniti",
+        "nl": "aux = à + les: naar de, in de (meervoud); aux États-Unis = in de Verenigde Staten"
+      }
+    },
+    "revoir": {
+      "lemma": "revoir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "au revoir = goodbye (literally: until seeing again) (m)",
+        "es-419": "au revoir = adiós (literalmente: hasta volver a vernos) (m)",
+        "it": "au revoir = arrivederci (letteralmente: fino a rivederci) (m)",
+        "nl": "au revoir = tot ziens (letterlijk: tot weerzien) (m)"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à: to, at, in (before a city: à Lyon = in Lyon); à demain = see you tomorrow",
+        "es-419": "à: a, en (antes de una ciudad: à Lyon = en Lyon); à demain = hasta mañana",
+        "it": "à: a, in (davanti a una città: à Lyon = a Lione); à demain = a domani",
+        "nl": "à: naar, in (voor een stad: à Lyon = in Lyon); à demain = tot morgen"
+      }
+    },
+    "bientôt": {
+      "lemma": "bientôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "soon; à bientôt = see you soon",
+        "es-419": "pronto; à bientôt = hasta pronto",
+        "it": "presto; à bientôt = a presto",
+        "nl": "binnenkort, gauw; à bientôt = tot snel"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow; à demain = see you tomorrow",
+        "es-419": "mañana (el día siguiente); à demain = hasta mañana",
+        "it": "domani; à demain = a domani",
+        "nl": "morgen; à demain = tot morgen"
+      }
+    },
+    "bonne": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bonne = good (feminine); bonne journée = have a good day",
+        "es-419": "bonne = buena (femenino); bonne journée = que tengas un buen día",
+        "it": "bonne = buona (femminile); bonne journée = buona giornata",
+        "nl": "bonne = goed (vrouwelijk); bonne journée = een fijne dag"
+      }
+    },
+    "journée": {
+      "lemma": "journée",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day, the whole day from morning to evening (f); watch out: jour = a day as a unit of time, journée = the day as it unfolds",
+        "es-419": "día, el día entero (f); ojo: jour = un día como unidad, journée = el día entero de principio a fin",
+        "it": "giornata (f); attenzione: jour = giorno come unità, journée = la giornata intera",
+        "nl": "dag, de hele dag (f); jour = een dag als tijdseenheid, journée = de dag zoals hij verloopt"
+      }
+    },
+    "soirée": {
+      "lemma": "soirée",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening, the whole evening (f)",
+        "es-419": "la tarde-noche, la velada (f)",
+        "it": "serata (f)",
+        "nl": "avond, de hele avond (f)"
+      }
+    },
+    "merci": {
+      "lemma": "merci",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thank you, thanks",
+        "es-419": "gracias",
+        "it": "grazie",
+        "nl": "bedankt, dank u"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "well, good, fine",
+        "es-419": "bien",
+        "it": "bene",
+        "nl": "goed"
+      }
+    },
+    "mal": {
+      "lemma": "mal",
+      "pos": "ADV",
+      "gloss": {
+        "en": "badly, poorly; ça va mal = things are going badly",
+        "es-419": "mal; ça va mal = va mal",
+        "it": "male; ça va mal = va male",
+        "nl": "slecht; let op: Frans mal is niet Nederlands mal (gek); ça va mal = het gaat slecht"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, it; ça va? = how are you?",
+        "es-419": "eso, ello; ça va? = ¿cómo estás?",
+        "it": "ciò, questo; ça va? = come stai?",
+        "nl": "dat, het; ça va? = hoe gaat het?"
+      }
+    },
+    "va": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "va = goes (aller: vais, vas, va, allons, allez, vont); ça va = it's going, I'm fine",
+        "es-419": "va = va (aller: vais, vas, va, allons, allez, vont); ça va = va bien, estoy bien",
+        "it": "va = va (aller: vais, vas, va, allons, allez, vont); ça va = va bene, sto bene",
+        "nl": "va = gaat (aller: vais, vas, va, allons, allez, vont); ça va = het gaat goed"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "es-419": "muy",
+        "it": "molto (davanti ad aggettivi e avverbi)",
+        "nl": "heel, erg"
+      }
+    },
+    "comment": {
+      "lemma": "comment",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how; comment ça va? = how are you?",
+        "es-419": "cómo",
+        "it": "come",
+        "nl": "hoe"
+      }
+    },
+    "vas-tu": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "vas-tu = vas + tu: are you (going); comment vas-tu? = how are you? (informal)",
+        "es-419": "vas-tu = vas + tu: ¿cómo estás? (informal; comment vas-tu?)",
+        "it": "vas-tu = vas + tu: come stai? (comment vas-tu?)",
+        "nl": "vas-tu = vas + tu: hoe gaat het met je? (comment vas-tu?)"
+      }
+    },
+    "allez-vous": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "allez-vous = allez + vous: are you (going); comment allez-vous? = how are you? (formal)",
+        "es-419": "allez-vous = allez + vous: ¿cómo está usted? (comment allez-vous?)",
+        "it": "allez-vous = allez + vous: come sta? (comment allez-vous?)",
+        "nl": "allez-vous = allez + vous: hoe gaat het met u? (comment allez-vous?)"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "es-419": "yo",
+        "it": "io",
+        "nl": "ik"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "he, it",
+        "es-419": "él, ello",
+        "it": "lui, esso",
+        "nl": "hij, het"
+      }
+    },
+    "elle": {
+      "lemma": "elle",
+      "pos": "PRON",
+      "gloss": {
+        "en": "she, it (feminine)",
+        "es-419": "ella",
+        "it": "lei (= she)",
+        "nl": "zij, ze"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal, one person you know well); vous is the formal you",
+        "es-419": "tú (informal, una persona conocida); vous es el usted",
+        "it": "tu (informale, una persona che conosci); vous è il Lei",
+        "nl": "jij, je (informeel, één persoon die je kent); vous is u"
+      }
+    },
+    "toi": {
+      "lemma": "toi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal), after et or a preposition: et toi? = and you?",
+        "es-419": "tú, después de et o de una preposición: et toi? = ¿y tú?",
+        "it": "tu, dopo et o una preposizione: et toi? = e tu?",
+        "nl": "jij, na et of een voorzetsel: et toi? = en jij?"
+      }
+    },
+    "vous": {
+      "lemma": "vous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (formal singular, or plural)",
+        "es-419": "usted, ustedes (formal o plural)",
+        "it": "Lei (formale) o voi (plurale)",
+        "nl": "u (formeel) of jullie (meervoud)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (masculine; ma = feminine, mes = plural)",
+        "es-419": "mi (masculino; ma = femenino, mes = plural)",
+        "it": "mio (maschile; ma = femminile, mes = plurale)",
+        "nl": "mijn (mannelijk; ma = vrouwelijk, mes = meervoud)"
+      }
+    },
+    "ton": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (informal, masculine; ta = feminine, tes = plural)",
+        "es-419": "tu (informal, masculino; ta = femenino, tes = plural)",
+        "it": "tuo (informale, maschile; ta = femminile, tes = plurale)",
+        "nl": "jouw (informeel, mannelijk; ta = vrouwelijk, tes = meervoud)"
+      }
+    },
+    "son": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its (masculine; sa = feminine, ses = plural)",
+        "es-419": "su (de él o de ella; masculino; sa = femenino, ses = plural)",
+        "it": "suo (di lui o di lei; maschile; sa = femminile, ses = plurale)",
+        "nl": "zijn of haar (mannelijk; sa = vrouwelijk, ses = meervoud)"
+      }
+    },
+    "votre": {
+      "lemma": "votre",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (formal or plural; vos = plural)",
+        "es-419": "su (de usted o ustedes; vos = plural)",
+        "it": "il suo, il vostro (formale o plurale; vos = plurale)",
+        "nl": "uw of jullie (formeel of meervoud; vos = meervoud)"
+      }
+    },
+    "prénom": {
+      "lemma": "prénom",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "first name, given name (m)",
+        "es-419": "nombre de pila (m)",
+        "it": "nome di battesimo (m)",
+        "nl": "voornaam (m)"
+      }
+    },
+    "nom": {
+      "lemma": "nom",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "last name, surname (m); also just 'name'",
+        "es-419": "apellido (m); también 'nombre' en general",
+        "it": "cognome (m); anche 'nome' in generale",
+        "nl": "achternaam (m); ook 'naam' in het algemeen"
+      }
+    },
+    "quel": {
+      "lemma": "quel",
+      "pos": "DET",
+      "gloss": {
+        "en": "which, what (quel est...? = what is...?)",
+        "es-419": "cuál, qué (quel est...? = ¿cuál es...?)",
+        "it": "quale, che (quel est...? = qual è...?)",
+        "nl": "welk, wat (quel est...? = wat is...?)"
+      }
+    },
+    "qui": {
+      "lemma": "qui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "who; qui est-ce? = who is that?",
+        "es-419": "quién; qui est-ce? = ¿quién es?",
+        "it": "chi; qui est-ce? = chi è?",
+        "nl": "wie; qui est-ce? = wie is dat?"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce = est + ce: is it; qui est-ce? = who is that?",
+        "es-419": "est-ce = est + ce: ¿es?; qui est-ce? = ¿quién es?",
+        "it": "est-ce = est + ce: è?; qui est-ce? = chi è?",
+        "nl": "est-ce = est + ce: is het; qui est-ce? = wie is dat?"
+      }
+    },
+    "qu'est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "qu'est-ce = que + est-ce: what (qu'est-ce que = what is it that)",
+        "es-419": "qu'est-ce = que + est-ce: qué (qu'est-ce que = qué es lo que)",
+        "it": "qu'est-ce = que + est-ce: che cosa (qu'est-ce que = che cos'è che)",
+        "nl": "qu'est-ce = que + est-ce: wat (qu'est-ce que = wat is het dat)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that, what (qu'est-ce que = what)",
+        "es-419": "que, qué (qu'est-ce que = qué)",
+        "it": "che, cosa (qu'est-ce que = che cosa)",
+        "nl": "dat, wat (qu'est-ce que = wat)"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, he is, that is",
+        "es-419": "c'est = ce + est: es, esto es",
+        "it": "c'est = ce + est: è, questo è",
+        "nl": "c'est = ce + est: het is, dit is"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être: suis, es, est, sommes, êtes, sont)",
+        "es-419": "es, está (être: suis, es, est, sommes, êtes, sont)",
+        "it": "è (être: suis, es, est, sommes, êtes, sont)",
+        "nl": "is (être: suis, es, est, sommes, êtes, sont)"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (je suis)",
+        "es-419": "soy, estoy (je suis)",
+        "it": "sono (je suis)",
+        "nl": "ben (je suis)"
+      }
+    },
+    "es": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are (tu es, one person)",
+        "es-419": "eres, estás (tu es)",
+        "it": "sei (tu es)",
+        "nl": "bent (tu es)"
+      }
+    },
+    "êtes": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are (vous êtes)",
+        "es-419": "es, está, son, están (vous êtes)",
+        "it": "è, sono (vous êtes)",
+        "nl": "bent, zijn (vous êtes)"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: is not (il n'est pas)",
+        "es-419": "n'est = ne + est: no es (il n'est pas)",
+        "it": "n'est = ne + est: non è (il n'est pas)",
+        "nl": "n'est = ne + est: is niet (il n'est pas)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: the first half of the negation ne ... pas; it goes before the verb",
+        "es-419": "ne: la primera parte de la negación ne ... pas; va antes del verbo",
+        "it": "ne: la prima metà della negazione ne ... pas; va prima del verbo",
+        "nl": "ne: eerste deel van de ontkenning ne ... pas; staat voor het werkwoord"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas: the second half of the negation ne ... pas, after the verb",
+        "es-419": "pas: la segunda parte de la negación ne ... pas, después del verbo",
+        "it": "pas: la seconda metà della negazione ne ... pas, dopo il verbo",
+        "nl": "pas: tweede deel van de ontkenning ne ... pas, na het werkwoord; let op: pas betekent hier niet, geen stap"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma; attenzione: mais = ma, non mai (mai = jamais)",
+        "nl": "maar"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; je suis de Lyon = I'm from Lyon",
+        "es-419": "de, desde; je suis de Lyon = soy de Lyon",
+        "it": "di, da; je suis de Lyon = sono di Lione",
+        "nl": "van, uit; je suis de Lyon = ik kom uit Lyon; let op: NL de = le, la, les"
+      }
+    },
+    "d'où": {
+      "lemma": "où",
+      "pos": "ADV",
+      "gloss": {
+        "en": "d'où = de + où: from where; tu es d'où? = where are you from?",
+        "es-419": "d'où = de + où: de dónde; tu es d'où? = ¿de dónde eres?",
+        "it": "d'où = de + où: da dove; tu es d'où? = di dove sei?",
+        "nl": "d'où = de + où: waar vandaan; tu es d'où? = waar kom je vandaan?"
+      }
+    },
+    "d'accord": {
+      "lemma": "accord",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'accord = de + accord: okay, agreed (accord (m) = agreement)",
+        "es-419": "d'accord = de + accord: de acuerdo (accord (m) = acuerdo)",
+        "it": "d'accord = de + accord: d'accordo (accord (m) = accordo)",
+        "nl": "d'accord = de + accord: akkoord (accord (m) = akkoord)"
+      }
+    },
+    "sûr": {
+      "lemma": "sûr",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sure; bien sûr = of course (the accent separates sûr from sur = on)",
+        "es-419": "seguro; bien sûr = claro (el acento separa sûr de sur = sobre)",
+        "it": "sicuro; bien sûr = certo (l'accento separa sûr da sur = su)",
+        "nl": "zeker; bien sûr = natuurlijk (het accent onderscheidt sûr van sur = op)"
+      }
+    },
+    "désolé": {
+      "lemma": "désolé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sorry (désolé = a man speaking, désolée = a woman)",
+        "es-419": "lo siento (désolé = habla un hombre, désolée = habla una mujer)",
+        "it": "mi dispiace (désolé = parla un uomo, désolée = parla una donna)",
+        "nl": "sorry (désolé = een man spreekt, désolée = een vrouw spreekt)"
+      }
+    },
+    "enchanté": {
+      "lemma": "enchanté",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "delighted; enchanté = nice to meet you (enchanté = a man speaking)",
+        "es-419": "encantado; enchanté = mucho gusto (enchanté = habla un hombre)",
+        "it": "lieto; enchanté = piacere (enchanté = parla un uomo)",
+        "nl": "aangenaam; enchanté = aangenaam (enchanté = een man spreekt)"
+      }
+    },
+    "enchantée": {
+      "lemma": "enchanté",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "enchantée = delighted, nice to meet you (a woman speaking)",
+        "es-419": "enchantée = encantada, mucho gusto (habla una mujer)",
+        "it": "enchantée = lieta, piacere (parla una donna)",
+        "nl": "enchantée = aangenaam (een vrouw spreekt)"
+      }
+    },
+    "bienvenue": {
+      "lemma": "bienvenue",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "welcome; watch out: only 'welcome', never 'you're welcome' (that is de rien)",
+        "es-419": "bienvenido, bienvenidos; bienvenue no cambia con el género",
+        "it": "benvenuto, benvenuti; bienvenue non cambia col genere",
+        "nl": "welkom"
+      }
+    },
+    "matin": {
+      "lemma": "matin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (m); le matin = in the morning",
+        "es-419": "mañana, la parte del día (m); le matin = por la mañana",
+        "it": "mattina (m); le matin = di mattina",
+        "nl": "ochtend (m); le matin = 's ochtends"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); le soir = in the evening",
+        "es-419": "noche, atardecer (m); le soir = por la noche",
+        "it": "sera (m); le soir = di sera",
+        "nl": "avond (m); le soir = 's avonds"
+      }
+    },
+    "jour": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day, as a unit of time (m)",
+        "es-419": "día, como unidad de tiempo (m)",
+        "it": "giorno, come unità di tempo (m)",
+        "nl": "dag, als tijdseenheid (m)"
+      }
+    },
+    "nuit": {
+      "lemma": "nuit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night (f); bonne nuit = good night",
+        "es-419": "noche (f); bonne nuit = buenas noches (al despedirse)",
+        "it": "notte (f); bonne nuit = buonanotte",
+        "nl": "nacht (f); bonne nuit = welterusten"
+      }
+    },
+    "dites": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dites = say (vous dites; dire: dis, dit, disons, dites, disent)",
+        "es-419": "dites = dicen, dice (vous dites; dire: dis, dit, disons, dites, disent)",
+        "it": "dites = dite, dice (vous dites; dire: dis, dit, disons, dites, disent)",
+        "nl": "dites = zegt, zeggen (vous dites; dire: dis, dit, disons, dites, disent)"
+      }
+    },
+    "dire": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dire = to say, to tell; veut dire = means",
+        "es-419": "dire = decir; veut dire = significa",
+        "it": "dire = dire; veut dire = significa",
+        "nl": "dire = zeggen; veut dire = betekent"
+      }
+    },
+    "dit": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dit = is said (ça se dit = one says it)",
+        "es-419": "dit = se dice (ça se dit)",
+        "it": "dit = si dice (ça se dit)",
+        "nl": "dit = wordt gezegd (ça se dit = zegt men)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine; la = feminine, l' before a vowel, les = plural)",
+        "es-419": "el (masculino; la = femenino, l' ante vocal, les = plural)",
+        "it": "il, lo (maschile; la = femminile, l' davanti a vocale, les = plurale)",
+        "nl": "de, het (mannelijk; la = vrouwelijk, l' voor een klinker, les = meervoud)"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine); one",
+        "es-419": "un (masculino); uno",
+        "it": "un (maschile); uno",
+        "nl": "een (mannelijk); één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine); one",
+        "es-419": "una (femenino)",
+        "it": "una (femminile)",
+        "nl": "een (vrouwelijk); één"
+      }
+    },
+    "grande": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large (feminine of grand); tall for people",
+        "es-419": "grande (femenino de grand)",
+        "it": "grande (femminile di grand)",
+        "nl": "groot (vrouwelijk van grand)"
+      }
+    },
+    "ville": {
+      "lemma": "ville",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city, town (f)",
+        "es-419": "ciudad (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "pays": {
+      "lemma": "pays",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "country (m)",
+        "es-419": "país (m)",
+        "it": "paese (m)",
+        "nl": "land (m)"
+      }
+    },
+    "habite": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "habite = live (il/elle habite); habiter = to live in a place",
+        "es-419": "habite = vive (il/elle habite); habiter = vivir en un lugar",
+        "it": "habite = abita (il/elle habite); habiter = abitare",
+        "nl": "habite = woont (il/elle habite); habiter = wonen"
+      }
+    },
+    "j'habite": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'habite = je + habite: I live",
+        "es-419": "j'habite = je + habite: vivo",
+        "it": "j'habite = je + habite: abito",
+        "nl": "j'habite = je + habite: ik woon"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, to (before feminine countries: en France); also with languages: en français = in French",
+        "es-419": "en (antes de países femeninos: en France; con idiomas: en français = en francés)",
+        "it": "in (davanti a paesi femminili: en France; con le lingue: en français = in francese)",
+        "nl": "in (voor vrouwelijke landen: en France; bij talen: en français = in het Frans); let op: Frans en is niet Nederlands en (dat is et)"
+      }
+    },
+    "canadien": {
+      "lemma": "canadien",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Canadian (canadienne = feminine); nationalities are lowercase in French",
+        "es-419": "canadiense (canadienne = femenino); las nacionalidades van en minúscula",
+        "it": "canadese (canadienne = femminile); le nazionalità sono minuscole",
+        "nl": "Canadees (canadienne = vrouwelijk); nationaliteiten met kleine letter"
+      }
+    },
+    "américaine": {
+      "lemma": "américain",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "American (feminine; masculine: américain)",
+        "es-419": "estadounidense (femenino; masculino: américain)",
+        "it": "americana (femminile; maschile: américain)",
+        "nl": "Amerikaans (vrouwelijk; mannelijk: américain)"
+      }
+    },
+    "suisse": {
+      "lemma": "suisse",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Swiss (same for men and women)",
+        "es-419": "suizo, suiza (igual para hombre y mujer)",
+        "it": "svizzero, svizzera (uguale per uomo e donna)",
+        "nl": "Zwitsers (hetzelfde voor man en vrouw)"
+      }
+    },
+    "belge": {
+      "lemma": "belge",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Belgian (same for men and women)",
+        "es-419": "belga (igual para hombre y mujer)",
+        "it": "belga (uguale per uomo e donna)",
+        "nl": "Belgisch (hetzelfde voor man en vrouw)"
+      }
+    },
+    "britannique": {
+      "lemma": "britannique",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "British (same for men and women)",
+        "es-419": "británico, británica (igual para hombre y mujer)",
+        "it": "britannico, britannica (uguale per uomo e donna)",
+        "nl": "Brits (hetzelfde voor man en vrouw)"
+      }
+    },
+    "allemand": {
+      "lemma": "allemand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "German (allemande = feminine); also the language",
+        "es-419": "alemán (allemande = femenino); también el idioma",
+        "it": "tedesco (allemande = femminile); anche la lingua",
+        "nl": "Duits (allemande = vrouwelijk); ook de taal"
+      }
+    },
+    "italien": {
+      "lemma": "italien",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Italian (italienne = feminine); also the language",
+        "es-419": "italiano (italienne = femenino); también el idioma",
+        "it": "italiano (italienne = femminile); anche la lingua",
+        "nl": "Italiaans (italienne = vrouwelijk); ook de taal"
+      }
+    },
+    "italienne": {
+      "lemma": "italien",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Italian (feminine; masculine: italien)",
+        "es-419": "italiana (femenino; masculino: italien)",
+        "it": "italiana (femminile; maschile: italien)",
+        "nl": "Italiaans (vrouwelijk; mannelijk: italien)"
+      }
+    },
+    "espagnol": {
+      "lemma": "espagnol",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Spanish (espagnole = feminine, said the same way); also the language",
+        "es-419": "español (espagnole = femenino, se pronuncia igual); también el idioma",
+        "it": "spagnolo (espagnole = femminile, si pronuncia uguale); anche la lingua",
+        "nl": "Spaans (espagnole = vrouwelijk, klinkt hetzelfde); ook de taal"
+      }
+    },
+    "néerlandaise": {
+      "lemma": "néerlandais",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Dutch (feminine; masculine: néerlandais); also the language: néerlandais",
+        "es-419": "holandesa (femenino; masculino: néerlandais); el idioma: néerlandais",
+        "it": "olandese (femminile; maschile: néerlandais); la lingua: néerlandais",
+        "nl": "Nederlands (vrouwelijk; mannelijk: néerlandais); de taal: néerlandais"
+      }
+    },
+    "français": {
+      "lemma": "français",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "French (nationality and language; française = feminine)",
+        "es-419": "francés (nacionalidad e idioma; française = femenino)",
+        "it": "francese (nazionalità e lingua; française = femminile)",
+        "nl": "Frans (nationaliteit en taal; française = vrouwelijk)"
+      }
+    },
+    "française": {
+      "lemma": "français",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "French (feminine; masculine: français)",
+        "es-419": "francesa (femenino; masculino: français)",
+        "it": "francese (femminile; maschile: français)",
+        "nl": "Frans (vrouwelijk; mannelijk: français)"
+      }
+    },
+    "anglais": {
+      "lemma": "anglais",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "English (nationality and language; anglaise = feminine)",
+        "es-419": "inglés (nacionalidad e idioma; anglaise = femenino)",
+        "it": "inglese (nazionalità e lingua; anglaise = femminile)",
+        "nl": "Engels (nationaliteit en taal; anglaise = vrouwelijk)"
+      }
+    },
+    "anglaise": {
+      "lemma": "anglais",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "English (feminine; masculine: anglais)",
+        "es-419": "inglesa (femenino; masculino: anglais)",
+        "it": "inglese (femminile; maschile: anglais)",
+        "nl": "Engels (vrouwelijk; mannelijk: anglais)"
+      }
+    },
+    "ami": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friend (m); amie = female friend (f)",
+        "es-419": "amigo (m); amie = amiga (f)",
+        "it": "amico (m); amie = amica (f)",
+        "nl": "vriend (m); amie = vriendin (f)"
+      }
+    },
+    "amie": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "female friend (f)",
+        "es-419": "amiga (f)",
+        "it": "amica (f)",
+        "nl": "vriendin (f)"
+      }
+    },
+    "monsieur": {
+      "lemma": "monsieur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sir, Mr. (m)",
+        "es-419": "señor (m)",
+        "it": "signore (m)",
+        "nl": "meneer (m)"
+      }
+    },
+    "madame": {
+      "lemma": "madame",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "madam, Mrs. (f)",
+        "es-419": "señora (f)",
+        "it": "signora (f)",
+        "nl": "mevrouw (f)"
+      }
+    },
+    "voici": {
+      "lemma": "voici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here is, here are; this is (introducing someone)",
+        "es-419": "aquí está, este es (al presentar a alguien)",
+        "it": "ecco, questo è (per presentare qualcuno)",
+        "nl": "hier is, dit is (bij het voorstellen)"
+      }
+    },
+    "présente": {
+      "lemma": "présenter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "présente = introduce (je te présente Marc = let me introduce Marc / this is Marc)",
+        "es-419": "présente = presento (je te présente Marc = te presento a Marc)",
+        "it": "présente = presento (je te présente Marc = ti presento Marc)",
+        "nl": "présente = stel voor (je te présente Marc = dit is Marc)"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal), to you; je te présente = I introduce you to",
+        "es-419": "te; je te présente = te presento a",
+        "it": "ti; je te présente = ti presento",
+        "nl": "je, aan je; je te présente = ik stel je voor aan"
+      }
+    },
+    "lentement": {
+      "lemma": "lentement",
+      "pos": "ADV",
+      "gloss": {
+        "en": "slowly",
+        "es-419": "despacio, lentamente",
+        "it": "lentamente, piano",
+        "nl": "langzaam"
+      }
+    },
+    "parlez": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "parlez = speak (vous parlez, or the command 'speak!')",
+        "es-419": "parlez = hablan, hable (vous parlez, o la orden 'hable')",
+        "it": "parlez = parlate, parli (vous parlez, o l'ordine 'parli')",
+        "nl": "parlez = spreekt, spreek (vous parlez, of het bevel 'spreek')"
+      }
+    },
+    "parle": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "parle = speak (je parle, il/elle parle)",
+        "es-419": "parle = hablo, habla (je parle, il/elle parle)",
+        "it": "parle = parlo, parla (je parle, il/elle parle)",
+        "nl": "parle = spreek, spreekt (je parle, il/elle parle)"
+      }
+    },
+    "comprends": {
+      "lemma": "comprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "comprends = understand (je comprends, tu comprends; comprendre: comprends, comprend, comprenons, comprenez, comprennent)",
+        "es-419": "comprends = entiendo, entiendes (je comprends, tu comprends)",
+        "it": "comprends = capisco, capisci (je comprends, tu comprends)",
+        "nl": "comprends = begrijp, begrijpt (je comprends, tu comprends)"
+      }
+    },
+    "répéter": {
+      "lemma": "répéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "répéter = to repeat",
+        "es-419": "répéter = repetir",
+        "it": "répéter = ripetere",
+        "nl": "répéter = herhalen"
+      }
+    },
+    "pouvez": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pouvez = can (vous pouvez; pouvoir: peux, peux, peut, pouvons, pouvez, peuvent)",
+        "es-419": "pouvez = pueden, puede (vous pouvez; pouvoir: peux, peux, peut, pouvons, pouvez, peuvent)",
+        "it": "pouvez = potete, può (vous pouvez; pouvoir: peux, peux, peut, pouvons, pouvez, peuvent)",
+        "nl": "pouvez = kunt, kunnen (vous pouvez; pouvoir: peux, peux, peut, pouvons, pouvez, peuvent)"
+      }
+    },
+    "veut": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "veut = wants (vouloir: veux, veux, veut, voulons, voulez, veulent); ça veut dire = that means",
+        "es-419": "veut = quiere (vouloir: veux, veux, veut, voulons, voulez, veulent); ça veut dire = eso significa",
+        "it": "veut = vuole (vouloir: veux, veux, veut, voulons, voulez, veulent); ça veut dire = significa",
+        "nl": "veut = wil (vouloir: veux, veux, veut, voulons, voulez, veulent); ça veut dire = dat betekent"
+      }
+    },
+    "s'écrit": {
+      "lemma": "écrire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "s'écrit = se + écrit: is written; comment ça s'écrit? = how do you spell that?",
+        "es-419": "s'écrit = se + écrit: se escribe; comment ça s'écrit? = ¿cómo se escribe?",
+        "it": "s'écrit = se + écrit: si scrive; comment ça s'écrit? = come si scrive?",
+        "nl": "s'écrit = se + écrit: wordt geschreven; comment ça s'écrit? = hoe schrijf je dat?"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "se: himself, herself, itself; ça se dit = it is said",
+        "es-419": "se: se; ça se dit = se dice",
+        "it": "se: si; ça se dit = si dice",
+        "nl": "se: zich; ça se dit = het wordt gezegd"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me; vous pouvez me répéter = can you repeat for me",
+        "es-419": "me; vous pouvez me répéter = puede repetirme",
+        "it": "mi; vous pouvez me répéter = può ripetermi",
+        "nl": "me, mij; vous pouvez me répéter = kunt u het voor mij herhalen"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if it; s'il vous plaît = please (literally: if it pleases you)",
+        "es-419": "s'il = si + il: si él; s'il vous plaît = por favor (literalmente: si le place)",
+        "it": "s'il = si + il: se; s'il vous plaît = per favore (letteralmente: se vi piace)",
+        "nl": "s'il = si + il: als het; s'il vous plaît = alstublieft (letterlijk: als het u bevalt)"
+      }
+    },
+    "plaît": {
+      "lemma": "plaire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "plaît = pleases (s'il vous plaît = please); the circumflex is part of the spelling",
+        "es-419": "plaît = place (s'il vous plaît = por favor); el acento circunflejo es parte de la ortografía",
+        "it": "plaît = piace (s'il vous plaît = per favore); l'accento circonflesso fa parte dell'ortografia",
+        "nl": "plaît = bevalt (s'il vous plaît = alstublieft); het accent circonflexe hoort bij de spelling"
+      }
+    },
+    "mot": {
+      "lemma": "mot",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "word (m)",
+        "es-419": "palabra (m)",
+        "it": "parola (m)",
+        "nl": "woord (m)"
+      }
+    },
+    "fois": {
+      "lemma": "fois",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); une fois = once; encore une fois = one more time",
+        "es-419": "vez (f); encore une fois = otra vez",
+        "it": "volta (f); encore une fois = ancora una volta",
+        "nl": "keer (f); encore une fois = nog een keer"
+      }
+    },
+    "encore": {
+      "lemma": "encore",
+      "pos": "ADV",
+      "gloss": {
+        "en": "again, still, more; encore une fois = one more time",
+        "es-419": "otra vez, todavía; encore une fois = otra vez",
+        "it": "ancora; encore une fois = ancora una volta",
+        "nl": "nog, opnieuw; encore une fois = nog een keer"
+      }
+    },
+    "peu": {
+      "lemma": "peu",
+      "pos": "ADV",
+      "gloss": {
+        "en": "little; un peu = a little",
+        "es-419": "poco; un peu = un poco",
+        "it": "poco; un peu = un po'",
+        "nl": "weinig; un peu = een beetje"
+      }
+    },
+    "m'appelle": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'appelle = me + appelle: my name is (je m'appelle = I am called)",
+        "es-419": "m'appelle = me + appelle: me llamo (je m'appelle)",
+        "it": "m'appelle = mi + appelle: mi chiamo (je m'appelle)",
+        "nl": "m'appelle = me + appelle: ik heet (je m'appelle)"
+      }
+    },
+    "t'appelles": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'appelles = te + appelles: your name is (tu t'appelles = you are called)",
+        "es-419": "t'appelles = te + appelles: te llamas (tu t'appelles)",
+        "it": "t'appelles = ti + appelles: ti chiami (tu t'appelles)",
+        "nl": "t'appelles = te + appelles: je heet (tu t'appelles)"
+      }
+    },
+    "s'appelle": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "s'appelle = se + appelle: is called (il s'appelle = his name is)",
+        "es-419": "s'appelle = se + appelle: se llama (il s'appelle)",
+        "it": "s'appelle = si + appelle: si chiama (il s'appelle)",
+        "nl": "s'appelle = se + appelle: heet (il s'appelle)"
+      }
+    },
+    "appelez-vous": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "appelez-vous = appelez + vous: are you called; comment vous appelez-vous? = what is your name? (formal)",
+        "es-419": "appelez-vous = appelez + vous: se llama usted; comment vous appelez-vous? = ¿cómo se llama usted?",
+        "it": "appelez-vous = appelez + vous: si chiama; comment vous appelez-vous? = come si chiama?",
+        "nl": "appelez-vous = appelez + vous: heet u; comment vous appelez-vous? = hoe heet u?"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-salut-1",
+      "title": "Salut!",
+      "grammarFocus": {
+        "en": [
+          "greetings and goodbyes: salut, bonsoir, au revoir, à bientôt",
+          "aller for how you are: Ça va? / Comment vas-tu? (tu) / Comment allez-vous? (vous)"
+        ],
+        "es-419": [
+          "saludos y despedidas: salut, bonsoir, au revoir, à bientôt",
+          "aller para preguntar cómo estás: Ça va? / Comment vas-tu? (tú) / Comment allez-vous? (usted)"
+        ],
+        "it": [
+          "saluti e congedi: salut, bonsoir, au revoir, à bientôt",
+          "aller per chiedere come si sta: Ça va? / Comment vas-tu? (tu) / Comment allez-vous? (Lei)"
+        ],
+        "nl": [
+          "begroeten en afscheid nemen: salut, bonsoir, au revoir, à bientôt",
+          "aller voor hoe het gaat: Ça va? / Comment vas-tu? (jij) / Comment allez-vous? (u)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "salut",
+          "translation": {
+            "en": "hi",
+            "es-419": "hola",
+            "it": "ciao",
+            "nl": "hoi"
+          },
+          "distractors": {
+            "en": [
+              "thanks",
+              "sorry"
+            ],
+            "es-419": [
+              "gracias",
+              "perdón"
+            ],
+            "it": [
+              "grazie",
+              "scusa"
+            ],
+            "nl": [
+              "bedankt",
+              "sorry"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Salut, Marie!",
+          "translation": {
+            "en": "Hi, Marie!",
+            "es-419": "¡Hola, Marie!",
+            "it": "Ciao, Marie!",
+            "nl": "Hoi, Marie!"
+          },
+          "distractors": {
+            "en": [
+              "Thanks, Marie!",
+              "Sorry, Marie!"
+            ],
+            "es-419": [
+              "¡Gracias, Marie!",
+              "¡Perdón, Marie!"
+            ],
+            "it": [
+              "Grazie, Marie!",
+              "Scusa, Marie!"
+            ],
+            "nl": [
+              "Bedankt, Marie!",
+              "Sorry, Marie!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "au revoir",
+          "translation": {
+            "en": "goodbye",
+            "es-419": "adiós",
+            "it": "arrivederci",
+            "nl": "tot ziens"
+          },
+          "distractors": {
+            "en": [
+              "good evening",
+              "thank you"
+            ],
+            "es-419": [
+              "buenas noches",
+              "gracias"
+            ],
+            "it": [
+              "buonasera",
+              "grazie"
+            ],
+            "nl": [
+              "goedenavond",
+              "bedankt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "à bientôt",
+          "translation": {
+            "en": "see you soon",
+            "es-419": "hasta pronto",
+            "it": "a presto",
+            "nl": "tot snel"
+          },
+          "distractors": {
+            "en": [
+              "see you tomorrow",
+              "good evening"
+            ],
+            "es-419": [
+              "hasta mañana",
+              "buenas noches"
+            ],
+            "it": [
+              "a domani",
+              "buonasera"
+            ],
+            "nl": [
+              "tot morgen",
+              "goedenavond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "à demain",
+          "translation": {
+            "en": "see you tomorrow",
+            "es-419": "hasta mañana",
+            "it": "a domani",
+            "nl": "tot morgen"
+          },
+          "distractors": {
+            "en": [
+              "see you soon",
+              "good evening"
+            ],
+            "es-419": [
+              "hasta pronto",
+              "buenas noches"
+            ],
+            "it": [
+              "a presto",
+              "buonasera"
+            ],
+            "nl": [
+              "tot snel",
+              "goedenavond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Au revoir, à demain!",
+          "translation": {
+            "en": "Goodbye, see you tomorrow!",
+            "es-419": "¡Adiós, hasta mañana!",
+            "it": "Arrivederci, a domani!",
+            "nl": "Tot ziens, tot morgen!"
+          },
+          "distractors": {
+            "en": [
+              "Goodbye, see you soon!",
+              "Hello, see you tomorrow!"
+            ],
+            "es-419": [
+              "¡Adiós, hasta pronto!",
+              "¡Hola, hasta mañana!"
+            ],
+            "it": [
+              "Arrivederci, a presto!",
+              "Buongiorno, a domani!"
+            ],
+            "nl": [
+              "Tot ziens, tot snel!",
+              "Goedemorgen, tot morgen!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "bonsoir",
+          "translation": {
+            "en": "good evening",
+            "es-419": "buenas noches",
+            "it": "buonasera",
+            "nl": "goedenavond"
+          },
+          "distractors": {
+            "en": [
+              "good morning",
+              "goodbye"
+            ],
+            "es-419": [
+              "buenos días",
+              "adiós"
+            ],
+            "it": [
+              "buongiorno",
+              "arrivederci"
+            ],
+            "nl": [
+              "goedemorgen",
+              "tot ziens"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "bonne journée",
+          "translation": {
+            "en": "have a good day",
+            "es-419": "que tengas un buen día",
+            "it": "buona giornata",
+            "nl": "een fijne dag"
+          },
+          "distractors": {
+            "en": [
+              "have a good evening",
+              "have a good trip"
+            ],
+            "es-419": [
+              "que tengas una buena noche",
+              "que tengas un buen viaje"
+            ],
+            "it": [
+              "buona serata",
+              "buon viaggio"
+            ],
+            "nl": [
+              "een fijne avond",
+              "een goede reis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "bonne soirée",
+          "translation": {
+            "en": "have a good evening",
+            "es-419": "que tengas una buena noche",
+            "it": "buona serata",
+            "nl": "een fijne avond"
+          },
+          "distractors": {
+            "en": [
+              "have a good day",
+              "have a good trip"
+            ],
+            "es-419": [
+              "que tengas un buen día",
+              "que tengas un buen viaje"
+            ],
+            "it": [
+              "buona giornata",
+              "buon viaggio"
+            ],
+            "nl": [
+              "een fijne dag",
+              "een goede reis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci, bonne journée!",
+          "translation": {
+            "en": "Thanks, have a good day!",
+            "es-419": "¡Gracias, que tengas un buen día!",
+            "it": "Grazie, buona giornata!",
+            "nl": "Bedankt, een fijne dag!"
+          },
+          "distractors": {
+            "en": [
+              "Thanks, have a good evening!",
+              "Sorry, have a good day!"
+            ],
+            "es-419": [
+              "¡Gracias, que tengas una buena noche!",
+              "¡Perdón, que tengas un buen día!"
+            ],
+            "it": [
+              "Grazie, buona serata!",
+              "Scusa, buona giornata!"
+            ],
+            "nl": [
+              "Bedankt, een fijne avond!",
+              "Sorry, een fijne dag!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "bien",
+          "translation": {
+            "en": "well",
+            "es-419": "bien",
+            "it": "bene",
+            "nl": "goed"
+          },
+          "distractors": {
+            "en": [
+              "badly",
+              "very"
+            ],
+            "es-419": [
+              "mal",
+              "muy"
+            ],
+            "it": [
+              "male",
+              "molto"
+            ],
+            "nl": [
+              "slecht",
+              "heel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "mal",
+          "translation": {
+            "en": "badly",
+            "es-419": "mal",
+            "it": "male",
+            "nl": "slecht"
+          },
+          "distractors": {
+            "en": [
+              "well",
+              "a little"
+            ],
+            "es-419": [
+              "bien",
+              "poco"
+            ],
+            "it": [
+              "bene",
+              "poco"
+            ],
+            "nl": [
+              "goed",
+              "een beetje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça va?",
+          "translation": {
+            "en": "How are you?",
+            "es-419": "¿Cómo estás?",
+            "it": "Come stai?",
+            "nl": "Hoe gaat het?"
+          },
+          "distractors": {
+            "en": [
+              "What's your name?",
+              "Where are you from?"
+            ],
+            "es-419": [
+              "¿Cómo te llamas?",
+              "¿De dónde eres?"
+            ],
+            "it": [
+              "Come ti chiami?",
+              "Di dove sei?"
+            ],
+            "nl": [
+              "Hoe heet je?",
+              "Waar kom je vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça va très bien, merci.",
+          "translation": {
+            "en": "I'm doing very well, thanks.",
+            "es-419": "Estoy muy bien, gracias.",
+            "it": "Sto molto bene, grazie.",
+            "nl": "Het gaat heel goed, bedankt."
+          },
+          "distractors": {
+            "en": [
+              "I'm doing very badly, thanks.",
+              "I'm doing very well, sorry."
+            ],
+            "es-419": [
+              "Estoy muy mal, gracias.",
+              "Estoy muy bien, perdón."
+            ],
+            "it": [
+              "Sto molto male, grazie.",
+              "Sto molto bene, scusa."
+            ],
+            "nl": [
+              "Het gaat heel slecht, bedankt.",
+              "Het gaat heel goed, sorry."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comment vas-tu?",
+          "translation": {
+            "en": "How are you?",
+            "es-419": "¿Cómo estás?",
+            "it": "Come stai?",
+            "nl": "Hoe gaat het met je?"
+          },
+          "distractors": {
+            "en": [
+              "What's your name?",
+              "Who is it?"
+            ],
+            "es-419": [
+              "¿Cómo te llamas?",
+              "¿Quién es?"
+            ],
+            "it": [
+              "Come ti chiami?",
+              "Chi è?"
+            ],
+            "nl": [
+              "Hoe heet je?",
+              "Wie is het?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comment allez-vous?",
+          "translation": {
+            "en": "How are you?",
+            "es-419": "¿Cómo está usted?",
+            "it": "Come sta?",
+            "nl": "Hoe gaat het met u?"
+          },
+          "distractors": {
+            "en": [
+              "What's your name?",
+              "Where are you from?"
+            ],
+            "es-419": [
+              "¿Cómo se llama usted?",
+              "¿De dónde es usted?"
+            ],
+            "it": [
+              "Come si chiama?",
+              "Di dov'è?"
+            ],
+            "nl": [
+              "Hoe heet u?",
+              "Waar komt u vandaan?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-salut-2",
+      "title": "Comment tu t'appelles?",
+      "grammarFocus": {
+        "en": [
+          "s'appeler: je m'appelle, tu t'appelles, il/elle s'appelle",
+          "prénom = first name, nom = last name; mon / ton / son / votre"
+        ],
+        "es-419": [
+          "s'appeler: je m'appelle, tu t'appelles, il/elle s'appelle",
+          "prénom = nombre de pila, nom = apellido; mon / ton / son / votre"
+        ],
+        "it": [
+          "s'appeler: je m'appelle, tu t'appelles, il/elle s'appelle",
+          "prénom = nome, nom = cognome; mon / ton / son / votre"
+        ],
+        "nl": [
+          "s'appeler = heten: je m'appelle, tu t'appelles, il/elle s'appelle",
+          "prénom = voornaam, nom = achternaam; mon / ton / son / votre"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "prénom",
+          "translation": {
+            "en": "first name",
+            "es-419": "nombre de pila",
+            "it": "nome",
+            "nl": "voornaam"
+          },
+          "distractors": {
+            "en": [
+              "last name",
+              "nickname"
+            ],
+            "es-419": [
+              "apellido",
+              "apodo"
+            ],
+            "it": [
+              "cognome",
+              "soprannome"
+            ],
+            "nl": [
+              "achternaam",
+              "bijnaam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je m'appelle",
+          "translation": {
+            "en": "my name is",
+            "es-419": "me llamo",
+            "it": "mi chiamo",
+            "nl": "ik heet"
+          },
+          "distractors": {
+            "en": [
+              "her name is",
+              "I speak"
+            ],
+            "es-419": [
+              "se llama",
+              "hablo"
+            ],
+            "it": [
+              "si chiama",
+              "parlo"
+            ],
+            "nl": [
+              "zij heet",
+              "ik spreek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je m'appelle Léa.",
+          "translation": {
+            "en": "My name is Léa.",
+            "es-419": "Me llamo Léa.",
+            "it": "Mi chiamo Léa.",
+            "nl": "Ik heet Léa."
+          },
+          "distractors": {
+            "en": [
+              "Her name is Léa.",
+              "I'm Léa's friend."
+            ],
+            "es-419": [
+              "Ella se llama Léa.",
+              "Soy amigo de Léa."
+            ],
+            "it": [
+              "Lei si chiama Léa.",
+              "Sono amico di Léa."
+            ],
+            "nl": [
+              "Zij heet Léa.",
+              "Ik ben een vriend van Léa."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "comment tu t'appelles",
+          "translation": {
+            "en": "what's your name",
+            "es-419": "cómo te llamas",
+            "it": "come ti chiami",
+            "nl": "hoe heet je"
+          },
+          "distractors": {
+            "en": [
+              "how are you",
+              "where are you from"
+            ],
+            "es-419": [
+              "cómo estás",
+              "de dónde eres"
+            ],
+            "it": [
+              "come stai",
+              "di dove sei"
+            ],
+            "nl": [
+              "hoe gaat het",
+              "waar kom je vandaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "et toi",
+          "translation": {
+            "en": "and you",
+            "es-419": "y tú",
+            "it": "e tu",
+            "nl": "en jij"
+          },
+          "distractors": {
+            "en": [
+              "and me",
+              "and then"
+            ],
+            "es-419": [
+              "y yo",
+              "y luego"
+            ],
+            "it": [
+              "e io",
+              "e poi"
+            ],
+            "nl": [
+              "en ik",
+              "en dan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Et toi, comment tu t'appelles?",
+          "translation": {
+            "en": "And you, what's your name?",
+            "es-419": "Y tú, ¿cómo te llamas?",
+            "it": "E tu, come ti chiami?",
+            "nl": "En jij, hoe heet je?"
+          },
+          "distractors": {
+            "en": [
+              "And you, how are you?",
+              "And you, where are you from?"
+            ],
+            "es-419": [
+              "Y tú, ¿cómo estás?",
+              "Y tú, ¿de dónde eres?"
+            ],
+            "it": [
+              "E tu, come stai?",
+              "E tu, di dove sei?"
+            ],
+            "nl": [
+              "En jij, hoe gaat het?",
+              "En jij, waar kom je vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "comment vous appelez-vous",
+          "translation": {
+            "en": "what's your name",
+            "es-419": "cómo se llama usted",
+            "it": "come si chiama",
+            "nl": "hoe heet u"
+          },
+          "distractors": {
+            "en": [
+              "how are you",
+              "where are you from"
+            ],
+            "es-419": [
+              "cómo está usted",
+              "de dónde es usted"
+            ],
+            "it": [
+              "come sta",
+              "di dov'è"
+            ],
+            "nl": [
+              "hoe gaat het met u",
+              "waar komt u vandaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "votre nom",
+          "translation": {
+            "en": "your last name",
+            "es-419": "su apellido",
+            "it": "il suo cognome",
+            "nl": "uw achternaam"
+          },
+          "distractors": {
+            "en": [
+              "your first name",
+              "your friend"
+            ],
+            "es-419": [
+              "su nombre de pila",
+              "su amigo"
+            ],
+            "it": [
+              "il suo nome",
+              "il suo amico"
+            ],
+            "nl": [
+              "uw voornaam",
+              "uw vriend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel est votre nom?",
+          "translation": {
+            "en": "What's your last name?",
+            "es-419": "¿Cuál es su apellido?",
+            "it": "Qual è il suo cognome?",
+            "nl": "Wat is uw achternaam?"
+          },
+          "distractors": {
+            "en": [
+              "What's your first name?",
+              "Where are you from?"
+            ],
+            "es-419": [
+              "¿Cuál es su nombre de pila?",
+              "¿De dónde es usted?"
+            ],
+            "it": [
+              "Qual è il suo nome?",
+              "Di dov'è?"
+            ],
+            "nl": [
+              "Wat is uw voornaam?",
+              "Waar komt u vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ton prénom",
+          "translation": {
+            "en": "your first name",
+            "es-419": "tu nombre",
+            "it": "il tuo nome",
+            "nl": "jouw voornaam"
+          },
+          "distractors": {
+            "en": [
+              "your last name",
+              "your friend"
+            ],
+            "es-419": [
+              "tu apellido",
+              "tu amigo"
+            ],
+            "it": [
+              "il tuo cognome",
+              "il tuo amico"
+            ],
+            "nl": [
+              "jouw achternaam",
+              "jouw vriend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel est ton prénom?",
+          "translation": {
+            "en": "What's your first name?",
+            "es-419": "¿Cuál es tu nombre?",
+            "it": "Qual è il tuo nome?",
+            "nl": "Wat is je voornaam?"
+          },
+          "distractors": {
+            "en": [
+              "What's your last name?",
+              "What's your friend's name?"
+            ],
+            "es-419": [
+              "¿Cuál es tu apellido?",
+              "¿Cómo se llama tu amigo?"
+            ],
+            "it": [
+              "Qual è il tuo cognome?",
+              "Come si chiama il tuo amico?"
+            ],
+            "nl": [
+              "Wat is je achternaam?",
+              "Hoe heet je vriend?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon prénom est Thomas, mon nom est Bernard.",
+          "translation": {
+            "en": "My first name is Thomas, my last name is Bernard.",
+            "es-419": "Mi nombre es Thomas, mi apellido es Bernard.",
+            "it": "Il mio nome è Thomas, il mio cognome è Bernard.",
+            "nl": "Mijn voornaam is Thomas, mijn achternaam is Bernard."
+          },
+          "distractors": {
+            "en": [
+              "My first name is Bernard, my last name is Thomas.",
+              "My first name is Thomas, my friend is Bernard."
+            ],
+            "es-419": [
+              "Mi nombre es Bernard, mi apellido es Thomas.",
+              "Mi nombre es Thomas, mi amigo es Bernard."
+            ],
+            "it": [
+              "Il mio nome è Bernard, il mio cognome è Thomas.",
+              "Il mio nome è Thomas, il mio amico è Bernard."
+            ],
+            "nl": [
+              "Mijn voornaam is Bernard, mijn achternaam is Thomas.",
+              "Mijn voornaam is Thomas, mijn vriend is Bernard."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "enchanté",
+          "translation": {
+            "en": "delighted",
+            "es-419": "encantado",
+            "it": "molto lieto",
+            "nl": "aangenaam"
+          },
+          "distractors": {
+            "en": [
+              "welcome",
+              "tired"
+            ],
+            "es-419": [
+              "bienvenido",
+              "cansado"
+            ],
+            "it": [
+              "benvenuto",
+              "stanco"
+            ],
+            "nl": [
+              "welkom",
+              "moe"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Enchanté, Thomas.",
+          "speaker": "M",
+          "translation": {
+            "en": "Nice to meet you, Thomas.",
+            "es-419": "Encantado, Thomas.",
+            "it": "Piacere, Thomas.",
+            "nl": "Aangenaam, Thomas."
+          },
+          "distractors": {
+            "en": [
+              "Welcome, Thomas.",
+              "Goodbye, Thomas."
+            ],
+            "es-419": [
+              "Bienvenido, Thomas.",
+              "Adiós, Thomas."
+            ],
+            "it": [
+              "Benvenuto, Thomas.",
+              "Arrivederci, Thomas."
+            ],
+            "nl": [
+              "Welkom, Thomas.",
+              "Tot ziens, Thomas."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle s'appelle Sophie Martin.",
+          "translation": {
+            "en": "Her name is Sophie Martin.",
+            "es-419": "Ella se llama Sophie Martin.",
+            "it": "Si chiama Sophie Martin.",
+            "nl": "Zij heet Sophie Martin."
+          },
+          "distractors": {
+            "en": [
+              "She lives with Sophie Martin.",
+              "She's Sophie Martin's friend."
+            ],
+            "es-419": [
+              "Ella vive con Sophie Martin.",
+              "Ella es amiga de Sophie Martin."
+            ],
+            "it": [
+              "Abita con Sophie Martin.",
+              "È l'amica di Sophie Martin."
+            ],
+            "nl": [
+              "Zij woont bij Sophie Martin.",
+              "Zij is een vriendin van Sophie Martin."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u16",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "son nom",
+          "translation": {
+            "en": "his or her last name",
+            "es-419": "su apellido",
+            "it": "il suo cognome",
+            "nl": "zijn of haar achternaam"
+          },
+          "distractors": {
+            "en": [
+              "my last name",
+              "your last name"
+            ],
+            "es-419": [
+              "mi apellido",
+              "tu apellido"
+            ],
+            "it": [
+              "il mio cognome",
+              "il tuo cognome"
+            ],
+            "nl": [
+              "mijn achternaam",
+              "jouw achternaam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Son nom est Martin et son prénom est Sophie.",
+          "translation": {
+            "en": "Her last name is Martin and her first name is Sophie.",
+            "es-419": "Su apellido es Martin y su nombre es Sophie.",
+            "it": "Il suo cognome è Martin e il suo nome è Sophie.",
+            "nl": "Haar achternaam is Martin en haar voornaam is Sophie."
+          },
+          "distractors": {
+            "en": [
+              "Her last name is Sophie and her first name is Martin.",
+              "Her last name is Martin and her friend is Sophie."
+            ],
+            "es-419": [
+              "Su apellido es Sophie y su nombre es Martin.",
+              "Su apellido es Martin y su amiga es Sophie."
+            ],
+            "it": [
+              "Il suo cognome è Sophie e il suo nome è Martin.",
+              "Il suo cognome è Martin e la sua amica è Sophie."
+            ],
+            "nl": [
+              "Haar achternaam is Sophie en haar voornaam is Martin.",
+              "Haar achternaam is Martin en haar vriendin is Sophie."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-salut-3",
+      "title": "Tu es d'où?",
+      "grammarFocus": {
+        "en": [
+          "être de + place: Je suis de Lyon / Tu es d'où?",
+          "en France, au Canada, à Lyon; nationalities are lowercase and agree: canadien / canadienne"
+        ],
+        "es-419": [
+          "ser de + lugar: Je suis de Lyon / Tu es d'où?",
+          "en France, au Canada, à Lyon; las nacionalidades van en minúscula y concuerdan: canadien / canadienne"
+        ],
+        "it": [
+          "essere di + luogo: Je suis de Lyon / Tu es d'où?",
+          "en France, au Canada, à Lyon; le nazionalità sono minuscole e concordano: canadien / canadienne"
+        ],
+        "nl": [
+          "zijn uit + plaats: Je suis de Lyon / Tu es d'où?",
+          "en France, au Canada, à Lyon; nationaliteiten met kleine letter en m/v-vorm: canadien / canadienne"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ville",
+          "translation": {
+            "en": "city",
+            "es-419": "ciudad",
+            "it": "città",
+            "nl": "stad"
+          },
+          "distractors": {
+            "en": [
+              "country",
+              "street"
+            ],
+            "es-419": [
+              "país",
+              "calle"
+            ],
+            "it": [
+              "paese",
+              "strada"
+            ],
+            "nl": [
+              "land",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lyon est une grande ville.",
+          "translation": {
+            "en": "Lyon is a big city.",
+            "es-419": "Lyon es una ciudad grande.",
+            "it": "Lione è una grande città.",
+            "nl": "Lyon is een grote stad."
+          },
+          "distractors": {
+            "en": [
+              "Lyon is a small city.",
+              "Lyon is a big country."
+            ],
+            "es-419": [
+              "Lyon es una ciudad pequeña.",
+              "Lyon es un país grande."
+            ],
+            "it": [
+              "Lione è una piccola città.",
+              "Lione è un grande paese."
+            ],
+            "nl": [
+              "Lyon is een kleine stad.",
+              "Lyon is een groot land."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "pays",
+          "translation": {
+            "en": "country",
+            "es-419": "país",
+            "it": "paese",
+            "nl": "land"
+          },
+          "distractors": {
+            "en": [
+              "city",
+              "street"
+            ],
+            "es-419": [
+              "ciudad",
+              "calle"
+            ],
+            "it": [
+              "città",
+              "strada"
+            ],
+            "nl": [
+              "stad",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tu es d'où",
+          "translation": {
+            "en": "where are you from",
+            "es-419": "de dónde eres",
+            "it": "di dove sei",
+            "nl": "waar kom je vandaan"
+          },
+          "distractors": {
+            "en": [
+              "what's your name",
+              "how are you"
+            ],
+            "es-419": [
+              "cómo te llamas",
+              "cómo estás"
+            ],
+            "it": [
+              "come ti chiami",
+              "come stai"
+            ],
+            "nl": [
+              "hoe heet je",
+              "hoe gaat het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu es d'où?",
+          "translation": {
+            "en": "Where are you from?",
+            "es-419": "¿De dónde eres?",
+            "it": "Di dove sei?",
+            "nl": "Waar kom je vandaan?"
+          },
+          "distractors": {
+            "en": [
+              "Where do you live?",
+              "How are you?"
+            ],
+            "es-419": [
+              "¿Dónde vives?",
+              "¿Cómo estás?"
+            ],
+            "it": [
+              "Dove abiti?",
+              "Come stai?"
+            ],
+            "nl": [
+              "Waar woon je?",
+              "Hoe gaat het?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis de",
+          "translation": {
+            "en": "I'm from",
+            "es-419": "soy de",
+            "it": "sono di",
+            "nl": "ik kom uit"
+          },
+          "distractors": {
+            "en": [
+              "I live in",
+              "my name is"
+            ],
+            "es-419": [
+              "vivo en",
+              "me llamo"
+            ],
+            "it": [
+              "abito a",
+              "mi chiamo"
+            ],
+            "nl": [
+              "ik woon in",
+              "ik heet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis de Lyon.",
+          "translation": {
+            "en": "I'm from Lyon.",
+            "es-419": "Soy de Lyon.",
+            "it": "Sono di Lione.",
+            "nl": "Ik kom uit Lyon."
+          },
+          "distractors": {
+            "en": [
+              "I live in Lyon.",
+              "I'm not from Lyon."
+            ],
+            "es-419": [
+              "Vivo en Lyon.",
+              "No soy de Lyon."
+            ],
+            "it": [
+              "Abito a Lione.",
+              "Non sono di Lione."
+            ],
+            "nl": [
+              "Ik woon in Lyon.",
+              "Ik kom niet uit Lyon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous êtes de Paris?",
+          "translation": {
+            "en": "Are you from Paris?",
+            "es-419": "¿Usted es de París?",
+            "it": "Lei è di Parigi?",
+            "nl": "Komt u uit Parijs?"
+          },
+          "distractors": {
+            "en": [
+              "Do you live in Paris?",
+              "Are you from Rome?"
+            ],
+            "es-419": [
+              "¿Usted vive en París?",
+              "¿Usted es de Roma?"
+            ],
+            "it": [
+              "Lei abita a Parigi?",
+              "Lei è di Roma?"
+            ],
+            "nl": [
+              "Woont u in Parijs?",
+              "Komt u uit Rome?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'habite à",
+          "translation": {
+            "en": "I live in",
+            "es-419": "vivo en",
+            "it": "abito a",
+            "nl": "ik woon in"
+          },
+          "distractors": {
+            "en": [
+              "I'm from",
+              "I speak"
+            ],
+            "es-419": [
+              "soy de",
+              "hablo"
+            ],
+            "it": [
+              "sono di",
+              "parlo"
+            ],
+            "nl": [
+              "ik kom uit",
+              "ik spreek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'habite à Toulouse.",
+          "translation": {
+            "en": "I live in Toulouse.",
+            "es-419": "Vivo en Toulouse.",
+            "it": "Abito a Tolosa.",
+            "nl": "Ik woon in Toulouse."
+          },
+          "distractors": {
+            "en": [
+              "I'm from Toulouse.",
+              "I live in Lille."
+            ],
+            "es-419": [
+              "Soy de Toulouse.",
+              "Vivo en Lille."
+            ],
+            "it": [
+              "Sono di Tolosa.",
+              "Abito a Lille."
+            ],
+            "nl": [
+              "Ik kom uit Toulouse.",
+              "Ik woon in Lille."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en France",
+          "translation": {
+            "en": "in France",
+            "es-419": "en Francia",
+            "it": "in Francia",
+            "nl": "in Frankrijk"
+          },
+          "distractors": {
+            "en": [
+              "in Canada",
+              "in Belgium"
+            ],
+            "es-419": [
+              "en Canadá",
+              "en Bélgica"
+            ],
+            "it": [
+              "in Canada",
+              "in Belgio"
+            ],
+            "nl": [
+              "in Canada",
+              "in België"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "au Canada",
+          "translation": {
+            "en": "in Canada",
+            "es-419": "en Canadá",
+            "it": "in Canada",
+            "nl": "in Canada"
+          },
+          "distractors": {
+            "en": [
+              "in France",
+              "in Switzerland"
+            ],
+            "es-419": [
+              "en Francia",
+              "en Suiza"
+            ],
+            "it": [
+              "in Francia",
+              "in Svizzera"
+            ],
+            "nl": [
+              "in Frankrijk",
+              "in Zwitserland"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle habite au Canada, à Montréal.",
+          "translation": {
+            "en": "She lives in Canada, in Montreal.",
+            "es-419": "Ella vive en Canadá, en Montreal.",
+            "it": "Abita in Canada, a Montréal.",
+            "nl": "Zij woont in Canada, in Montréal."
+          },
+          "distractors": {
+            "en": [
+              "She's from Canada, from Montreal.",
+              "She lives in Canada, in Lille."
+            ],
+            "es-419": [
+              "Ella es de Canadá, de Montreal.",
+              "Ella vive en Canadá, en Lille."
+            ],
+            "it": [
+              "È del Canada, di Montréal.",
+              "Abita in Canada, a Lille."
+            ],
+            "nl": [
+              "Zij komt uit Canada, uit Montréal.",
+              "Zij woont in Canada, in Lille."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bienvenue en France!",
+          "translation": {
+            "en": "Welcome to France!",
+            "es-419": "¡Bienvenidos a Francia!",
+            "it": "Benvenuti in Francia!",
+            "nl": "Welkom in Frankrijk!"
+          },
+          "distractors": {
+            "en": [
+              "Welcome to Canada!",
+              "See you soon in France!"
+            ],
+            "es-419": [
+              "¡Bienvenidos a Canadá!",
+              "¡Hasta pronto en Francia!"
+            ],
+            "it": [
+              "Benvenuti in Canada!",
+              "A presto in Francia!"
+            ],
+            "nl": [
+              "Welkom in Canada!",
+              "Tot snel in Frankrijk!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "canadien",
+          "translation": {
+            "en": "Canadian",
+            "es-419": "canadiense",
+            "it": "canadese",
+            "nl": "Canadees"
+          },
+          "distractors": {
+            "en": [
+              "American",
+              "Belgian"
+            ],
+            "es-419": [
+              "estadounidense",
+              "belga"
+            ],
+            "it": [
+              "americano",
+              "belga"
+            ],
+            "nl": [
+              "Amerikaans",
+              "Belgisch"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est canadien et il habite à Montréal.",
+          "translation": {
+            "en": "He's Canadian and he lives in Montreal.",
+            "es-419": "Es canadiense y vive en Montreal.",
+            "it": "È canadese e abita a Montréal.",
+            "nl": "Hij is Canadees en woont in Montréal."
+          },
+          "distractors": {
+            "en": [
+              "He's American and he lives in Montreal.",
+              "He's Canadian and he lives in Quebec City."
+            ],
+            "es-419": [
+              "Es estadounidense y vive en Montreal.",
+              "Es canadiense y vive en Quebec."
+            ],
+            "it": [
+              "È americano e abita a Montréal.",
+              "È canadese e abita a Québec."
+            ],
+            "nl": [
+              "Hij is Amerikaans en woont in Montréal.",
+              "Hij is Canadees en woont in Québec."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle est américaine, elle habite aux États-Unis.",
+          "translation": {
+            "en": "She's American, she lives in the United States.",
+            "es-419": "Es estadounidense, vive en Estados Unidos.",
+            "it": "È americana, abita negli Stati Uniti.",
+            "nl": "Zij is Amerikaanse, ze woont in de Verenigde Staten."
+          },
+          "distractors": {
+            "en": [
+              "She's Canadian, she lives in the United States.",
+              "She's American, she lives in Canada."
+            ],
+            "es-419": [
+              "Es canadiense, vive en Estados Unidos.",
+              "Es estadounidense, vive en Canadá."
+            ],
+            "it": [
+              "È canadese, abita negli Stati Uniti.",
+              "È americana, abita in Canada."
+            ],
+            "nl": [
+              "Zij is Canadese, ze woont in de Verenigde Staten.",
+              "Zij is Amerikaanse, ze woont in Canada."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-3-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis suisse, je suis de Genève.",
+          "translation": {
+            "en": "I'm Swiss, I'm from Geneva.",
+            "es-419": "Soy suizo, soy de Ginebra.",
+            "it": "Sono svizzero, sono di Ginevra.",
+            "nl": "Ik ben Zwitser, ik kom uit Genève."
+          },
+          "distractors": {
+            "en": [
+              "I'm Belgian, I'm from Geneva.",
+              "I'm Swiss, I live in Geneva."
+            ],
+            "es-419": [
+              "Soy belga, soy de Ginebra.",
+              "Soy suizo, vivo en Ginebra."
+            ],
+            "it": [
+              "Sono belga, sono di Ginevra.",
+              "Sono svizzero, abito a Ginevra."
+            ],
+            "nl": [
+              "Ik ben Belg, ik kom uit Genève.",
+              "Ik ben Zwitser, ik woon in Genève."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-salut-4",
+      "title": "Bonjour, madame Martin",
+      "grammarFocus": {
+        "en": [
+          "tu vs. vous: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
+          "monsieur / madame + last name; bonjour in the morning, bonsoir in the evening"
+        ],
+        "es-419": [
+          "tú y usted: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
+          "monsieur / madame + apellido; bonjour por la mañana, bonsoir por la noche"
+        ],
+        "it": [
+          "tu e Lei: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
+          "monsieur / madame + cognome; bonjour di mattina, bonsoir di sera"
+        ],
+        "nl": [
+          "jij en u: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
+          "monsieur / madame + achternaam; bonjour 's ochtends, bonsoir 's avonds"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "monsieur",
+          "translation": {
+            "en": "sir, Mr.",
+            "es-419": "señor",
+            "it": "signore",
+            "nl": "meneer"
+          },
+          "distractors": {
+            "en": [
+              "madam",
+              "friend"
+            ],
+            "es-419": [
+              "señora",
+              "amigo"
+            ],
+            "it": [
+              "signora",
+              "amico"
+            ],
+            "nl": [
+              "mevrouw",
+              "vriend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "madame",
+          "translation": {
+            "en": "madam, Mrs.",
+            "es-419": "señora",
+            "it": "signora",
+            "nl": "mevrouw"
+          },
+          "distractors": {
+            "en": [
+              "sir",
+              "friend"
+            ],
+            "es-419": [
+              "señor",
+              "amigo"
+            ],
+            "it": [
+              "signore",
+              "amico"
+            ],
+            "nl": [
+              "meneer",
+              "vriend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, monsieur.",
+          "translation": {
+            "en": "Hello, sir.",
+            "es-419": "Buenos días, señor.",
+            "it": "Buongiorno, signore.",
+            "nl": "Goedendag, meneer."
+          },
+          "distractors": {
+            "en": [
+              "Goodbye, sir.",
+              "Good evening, sir."
+            ],
+            "es-419": [
+              "Adiós, señor.",
+              "Buenas noches, señor."
+            ],
+            "it": [
+              "Arrivederci, signore.",
+              "Buonasera, signore."
+            ],
+            "nl": [
+              "Tot ziens, meneer.",
+              "Goedenavond, meneer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "matin",
+          "translation": {
+            "en": "morning",
+            "es-419": "mañana (la mañana)",
+            "it": "mattina",
+            "nl": "ochtend"
+          },
+          "distractors": {
+            "en": [
+              "evening",
+              "night"
+            ],
+            "es-419": [
+              "tarde",
+              "noche"
+            ],
+            "it": [
+              "sera",
+              "notte"
+            ],
+            "nl": [
+              "avond",
+              "nacht"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "soir",
+          "translation": {
+            "en": "evening",
+            "es-419": "noche (la noche, al atardecer)",
+            "it": "sera",
+            "nl": "avond"
+          },
+          "distractors": {
+            "en": [
+              "morning",
+              "night"
+            ],
+            "es-419": [
+              "mañana",
+              "madrugada"
+            ],
+            "it": [
+              "mattina",
+              "notte"
+            ],
+            "nl": [
+              "ochtend",
+              "nacht"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "jour",
+          "translation": {
+            "en": "day",
+            "es-419": "día",
+            "it": "giorno",
+            "nl": "dag"
+          },
+          "distractors": {
+            "en": [
+              "night",
+              "evening"
+            ],
+            "es-419": [
+              "noche",
+              "tarde"
+            ],
+            "it": [
+              "notte",
+              "sera"
+            ],
+            "nl": [
+              "nacht",
+              "avond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous dites bonjour le matin et bonsoir le soir.",
+          "translation": {
+            "en": "You say bonjour in the morning and bonsoir in the evening.",
+            "es-419": "Se dice bonjour por la mañana y bonsoir por la noche.",
+            "it": "Si dice bonjour la mattina e bonsoir la sera.",
+            "nl": "Je zegt bonjour 's ochtends en bonsoir 's avonds."
+          },
+          "distractors": {
+            "en": [
+              "You say bonsoir in the morning and bonjour in the evening.",
+              "You say bonjour in the morning and au revoir in the evening."
+            ],
+            "es-419": [
+              "Se dice bonsoir por la mañana y bonjour por la noche.",
+              "Se dice bonjour por la mañana y au revoir por la noche."
+            ],
+            "it": [
+              "Si dice bonsoir la mattina e bonjour la sera.",
+              "Si dice bonjour la mattina e au revoir la sera."
+            ],
+            "nl": [
+              "Je zegt bonsoir 's ochtends en bonjour 's avonds.",
+              "Je zegt bonjour 's ochtends en au revoir 's avonds."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "madame Martin",
+          "translation": {
+            "en": "Mrs. Martin",
+            "es-419": "la señora Martin",
+            "it": "la signora Martin",
+            "nl": "mevrouw Martin"
+          },
+          "distractors": {
+            "en": [
+              "Mr. Martin",
+              "Mrs. Bernard"
+            ],
+            "es-419": [
+              "el señor Martin",
+              "la señora Bernard"
+            ],
+            "it": [
+              "il signor Martin",
+              "la signora Bernard"
+            ],
+            "nl": [
+              "meneer Martin",
+              "mevrouw Bernard"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonsoir, madame Martin.",
+          "translation": {
+            "en": "Good evening, Mrs. Martin.",
+            "es-419": "Buenas noches, señora Martin.",
+            "it": "Buonasera, signora Martin.",
+            "nl": "Goedenavond, mevrouw Martin."
+          },
+          "distractors": {
+            "en": [
+              "Goodbye, Mrs. Martin.",
+              "Good evening, Mr. Martin."
+            ],
+            "es-419": [
+              "Adiós, señora Martin.",
+              "Buenas noches, señor Martin."
+            ],
+            "it": [
+              "Arrivederci, signora Martin.",
+              "Buonasera, signor Martin."
+            ],
+            "nl": [
+              "Tot ziens, mevrouw Martin.",
+              "Goedenavond, meneer Martin."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "nuit",
+          "translation": {
+            "en": "night",
+            "es-419": "noche",
+            "it": "notte",
+            "nl": "nacht"
+          },
+          "distractors": {
+            "en": [
+              "day",
+              "evening"
+            ],
+            "es-419": [
+              "día",
+              "tarde"
+            ],
+            "it": [
+              "giorno",
+              "sera"
+            ],
+            "nl": [
+              "dag",
+              "avond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "bonne nuit",
+          "translation": {
+            "en": "good night",
+            "es-419": "buenas noches",
+            "it": "buonanotte",
+            "nl": "welterusten"
+          },
+          "distractors": {
+            "en": [
+              "good evening",
+              "good morning"
+            ],
+            "es-419": [
+              "buenas tardes",
+              "buenos días"
+            ],
+            "it": [
+              "buonasera",
+              "buongiorno"
+            ],
+            "nl": [
+              "goedenavond",
+              "goedemorgen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonne nuit, madame.",
+          "translation": {
+            "en": "Good night, ma'am.",
+            "es-419": "Buenas noches, señora.",
+            "it": "Buonanotte, signora.",
+            "nl": "Welterusten, mevrouw."
+          },
+          "distractors": {
+            "en": [
+              "Good evening, ma'am.",
+              "Goodbye, ma'am."
+            ],
+            "es-419": [
+              "Buenos días, señora.",
+              "Adiós, señora."
+            ],
+            "it": [
+              "Buonasera, signora.",
+              "Arrivederci, signora."
+            ],
+            "nl": [
+              "Goedenavond, mevrouw.",
+              "Tot ziens, mevrouw."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, madame Martin, comment allez-vous?",
+          "translation": {
+            "en": "Hello, Mrs. Martin, how are you?",
+            "es-419": "Buenos días, señora Martin, ¿cómo está usted?",
+            "it": "Buongiorno, signora Martin, come sta?",
+            "nl": "Goedendag, mevrouw Martin, hoe gaat het met u?"
+          },
+          "distractors": {
+            "en": [
+              "Hello, Mrs. Martin, what's your name?",
+              "Hello, Mr. Martin, how are you?"
+            ],
+            "es-419": [
+              "Buenos días, señora Martin, ¿cómo se llama usted?",
+              "Buenos días, señor Martin, ¿cómo está usted?"
+            ],
+            "it": [
+              "Buongiorno, signora Martin, come si chiama?",
+              "Buongiorno, signor Martin, come sta?"
+            ],
+            "nl": [
+              "Goedendag, mevrouw Martin, hoe heet u?",
+              "Goedendag, meneer Martin, hoe gaat het met u?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "très bien, merci",
+          "translation": {
+            "en": "very well, thanks",
+            "es-419": "muy bien, gracias",
+            "it": "molto bene, grazie",
+            "nl": "heel goed, bedankt"
+          },
+          "distractors": {
+            "en": [
+              "very badly, thanks",
+              "very well, sorry"
+            ],
+            "es-419": [
+              "muy mal, gracias",
+              "muy bien, perdón"
+            ],
+            "it": [
+              "molto male, grazie",
+              "molto bene, scusa"
+            ],
+            "nl": [
+              "heel slecht, bedankt",
+              "heel goed, sorry"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Très bien, merci, et vous?",
+          "translation": {
+            "en": "Very well, thanks, and you?",
+            "es-419": "Muy bien, gracias, ¿y usted?",
+            "it": "Molto bene, grazie, e Lei?",
+            "nl": "Heel goed, dank u, en u?"
+          },
+          "distractors": {
+            "en": [
+              "Very badly, thanks, and you?",
+              "Very well, thanks, and me?"
+            ],
+            "es-419": [
+              "Muy mal, gracias, ¿y usted?",
+              "Muy bien, gracias, ¿y yo?"
+            ],
+            "it": [
+              "Molto male, grazie, e Lei?",
+              "Molto bene, grazie, e io?"
+            ],
+            "nl": [
+              "Heel slecht, dank u, en u?",
+              "Heel goed, dank u, en ik?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Salut, Léa, comment vas-tu?",
+          "translation": {
+            "en": "Hi, Léa, how are you?",
+            "es-419": "Hola, Léa, ¿cómo estás?",
+            "it": "Ciao, Léa, come stai?",
+            "nl": "Hoi, Léa, hoe gaat het met je?"
+          },
+          "distractors": {
+            "en": [
+              "Thanks, Léa, how are you?",
+              "Hi, Léa, where are you from?"
+            ],
+            "es-419": [
+              "Gracias, Léa, ¿cómo estás?",
+              "Hola, Léa, ¿de dónde eres?"
+            ],
+            "it": [
+              "Grazie, Léa, come stai?",
+              "Ciao, Léa, di dove sei?"
+            ],
+            "nl": [
+              "Bedankt, Léa, hoe gaat het met je?",
+              "Hoi, Léa, waar kom je vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-4-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Enchantée, monsieur.",
+          "speaker": "F",
+          "translation": {
+            "en": "Nice to meet you, sir.",
+            "es-419": "Encantada, señor.",
+            "it": "Piacere, signore.",
+            "nl": "Aangenaam, meneer."
+          },
+          "distractors": {
+            "en": [
+              "Welcome, sir.",
+              "Goodbye, sir."
+            ],
+            "es-419": [
+              "Bienvenido, señor.",
+              "Adiós, señor."
+            ],
+            "it": [
+              "Benvenuto, signore.",
+              "Arrivederci, signore."
+            ],
+            "nl": [
+              "Welkom, meneer.",
+              "Tot ziens, meneer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-salut-5",
+      "title": "Je ne comprends pas",
+      "grammarFocus": {
+        "en": [
+          "ne ... pas around the verb: Je ne comprends pas",
+          "classroom phrases: Vous pouvez répéter? / Comment ça s'écrit? / Comment ça se dit...? / Qu'est-ce que ça veut dire?"
+        ],
+        "es-419": [
+          "ne ... pas rodea el verbo: Je ne comprends pas",
+          "frases para la clase: Vous pouvez répéter? / Comment ça s'écrit? / Comment ça se dit...? / Qu'est-ce que ça veut dire?"
+        ],
+        "it": [
+          "ne ... pas attorno al verbo: Je ne comprends pas",
+          "frasi per la classe: Vous pouvez répéter? / Comment ça s'écrit? / Comment ça se dit...? / Qu'est-ce que ça veut dire?"
+        ],
+        "nl": [
+          "ne ... pas om het werkwoord: Je ne comprends pas",
+          "zinnen voor in de les: Vous pouvez répéter? / Comment ça s'écrit? / Comment ça se dit...? / Qu'est-ce que ça veut dire?"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "lentement",
+          "translation": {
+            "en": "slowly",
+            "es-419": "despacio",
+            "it": "lentamente",
+            "nl": "langzaam"
+          },
+          "distractors": {
+            "en": [
+              "quickly",
+              "well"
+            ],
+            "es-419": [
+              "rápido",
+              "bien"
+            ],
+            "it": [
+              "velocemente",
+              "bene"
+            ],
+            "nl": [
+              "snel",
+              "goed"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Parlez lentement, s'il vous plaît.",
+          "translation": {
+            "en": "Please speak slowly.",
+            "es-419": "Hable despacio, por favor.",
+            "it": "Parli lentamente, per favore.",
+            "nl": "Spreek alstublieft langzaam."
+          },
+          "distractors": {
+            "en": [
+              "Please write slowly.",
+              "Please repeat slowly."
+            ],
+            "es-419": [
+              "Escriba despacio, por favor.",
+              "Repita despacio, por favor."
+            ],
+            "it": [
+              "Scriva lentamente, per favore.",
+              "Ripeta lentamente, per favore."
+            ],
+            "nl": [
+              "Schrijf alstublieft langzaam.",
+              "Herhaal alstublieft langzaam."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je ne comprends pas",
+          "translation": {
+            "en": "I don't understand",
+            "es-419": "no entiendo",
+            "it": "non capisco",
+            "nl": "ik begrijp het niet"
+          },
+          "distractors": {
+            "en": [
+              "I don't speak",
+              "I don't write"
+            ],
+            "es-419": [
+              "no hablo",
+              "no escribo"
+            ],
+            "it": [
+              "non parlo",
+              "non scrivo"
+            ],
+            "nl": [
+              "ik spreek niet",
+              "ik schrijf niet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Désolé, je ne comprends pas.",
+          "speaker": "M",
+          "translation": {
+            "en": "Sorry, I don't understand.",
+            "es-419": "Lo siento, no entiendo.",
+            "it": "Mi dispiace, non capisco.",
+            "nl": "Sorry, ik begrijp het niet."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, I understand.",
+              "Thanks, I don't understand."
+            ],
+            "es-419": [
+              "Lo siento, entiendo.",
+              "Gracias, no entiendo."
+            ],
+            "it": [
+              "Mi dispiace, capisco.",
+              "Grazie, non capisco."
+            ],
+            "nl": [
+              "Sorry, ik begrijp het.",
+              "Bedankt, ik begrijp het niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un mot",
+          "translation": {
+            "en": "a word",
+            "es-419": "una palabra",
+            "it": "una parola",
+            "nl": "een woord"
+          },
+          "distractors": {
+            "en": [
+              "a name",
+              "a city"
+            ],
+            "es-419": [
+              "un nombre",
+              "una ciudad"
+            ],
+            "it": [
+              "un nome",
+              "una città"
+            ],
+            "nl": [
+              "een naam",
+              "een stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne comprends pas le mot.",
+          "translation": {
+            "en": "I don't understand the word.",
+            "es-419": "No entiendo la palabra.",
+            "it": "Non capisco la parola.",
+            "nl": "Ik begrijp het woord niet."
+          },
+          "distractors": {
+            "en": [
+              "I don't understand the name.",
+              "I don't say the word."
+            ],
+            "es-419": [
+              "No entiendo el nombre.",
+              "No digo la palabra."
+            ],
+            "it": [
+              "Non capisco il nome.",
+              "Non dico la parola."
+            ],
+            "nl": [
+              "Ik begrijp de naam niet.",
+              "Ik zeg het woord niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous pouvez répéter",
+          "translation": {
+            "en": "can you repeat",
+            "es-419": "puede repetir",
+            "it": "può ripetere",
+            "nl": "kunt u herhalen"
+          },
+          "distractors": {
+            "en": [
+              "can you write",
+              "can you speak"
+            ],
+            "es-419": [
+              "puede escribir",
+              "puede hablar"
+            ],
+            "it": [
+              "può scrivere",
+              "può parlare"
+            ],
+            "nl": [
+              "kunt u schrijven",
+              "kunt u praten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez répéter, s'il vous plaît?",
+          "translation": {
+            "en": "Can you repeat that, please?",
+            "es-419": "¿Puede repetir, por favor?",
+            "it": "Può ripetere, per favore?",
+            "nl": "Kunt u het herhalen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Can you write that, please?",
+              "Can you speak slowly, please?"
+            ],
+            "es-419": [
+              "¿Puede escribirlo, por favor?",
+              "¿Puede hablar despacio, por favor?"
+            ],
+            "it": [
+              "Può scriverlo, per favore?",
+              "Può parlare lentamente, per favore?"
+            ],
+            "nl": [
+              "Kunt u het opschrijven, alstublieft?",
+              "Kunt u langzaam praten, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Encore une fois, s'il vous plaît.",
+          "translation": {
+            "en": "One more time, please.",
+            "es-419": "Otra vez, por favor.",
+            "it": "Ancora una volta, per favore.",
+            "nl": "Nog een keer, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Slowly, please.",
+              "A word, please."
+            ],
+            "es-419": [
+              "Despacio, por favor.",
+              "Una palabra, por favor."
+            ],
+            "it": [
+              "Lentamente, per favore.",
+              "Una parola, per favore."
+            ],
+            "nl": [
+              "Langzaam, alstublieft.",
+              "Een woord, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comment ça s'écrit?",
+          "translation": {
+            "en": "How do you spell that?",
+            "es-419": "¿Cómo se escribe?",
+            "it": "Come si scrive?",
+            "nl": "Hoe schrijf je dat?"
+          },
+          "distractors": {
+            "en": [
+              "How do you say that?",
+              "What does that mean?"
+            ],
+            "es-419": [
+              "¿Cómo se dice?",
+              "¿Qué significa?"
+            ],
+            "it": [
+              "Come si dice?",
+              "Che cosa significa?"
+            ],
+            "nl": [
+              "Hoe zeg je dat?",
+              "Wat betekent dat?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comment ça se dit en français?",
+          "translation": {
+            "en": "How do you say that in French?",
+            "es-419": "¿Cómo se dice en francés?",
+            "it": "Come si dice in francese?",
+            "nl": "Hoe zeg je dat in het Frans?"
+          },
+          "distractors": {
+            "en": [
+              "How do you spell that in French?",
+              "How do you say that in English?"
+            ],
+            "es-419": [
+              "¿Cómo se escribe en francés?",
+              "¿Cómo se dice en inglés?"
+            ],
+            "it": [
+              "Come si scrive in francese?",
+              "Come si dice in inglese?"
+            ],
+            "nl": [
+              "Hoe schrijf je dat in het Frans?",
+              "Hoe zeg je dat in het Engels?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Qu'est-ce que ça veut dire?",
+          "translation": {
+            "en": "What does that mean?",
+            "es-419": "¿Qué significa?",
+            "it": "Che cosa significa?",
+            "nl": "Wat betekent dat?"
+          },
+          "distractors": {
+            "en": [
+              "How do you spell that?",
+              "Where is that from?"
+            ],
+            "es-419": [
+              "¿Cómo se escribe?",
+              "¿De dónde es?"
+            ],
+            "it": [
+              "Come si scrive?",
+              "Di dov'è?"
+            ],
+            "nl": [
+              "Hoe schrijf je dat?",
+              "Waar komt dat vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je parle un peu français, mais je ne parle pas anglais.",
+          "translation": {
+            "en": "I speak a little French, but I don't speak English.",
+            "es-419": "Hablo un poco de francés, pero no hablo inglés.",
+            "it": "Parlo un po' di francese, ma non parlo inglese.",
+            "nl": "Ik spreek een beetje Frans, maar ik spreek geen Engels."
+          },
+          "distractors": {
+            "en": [
+              "I speak a lot of French, but I don't speak English.",
+              "I speak a little English, but I don't speak French."
+            ],
+            "es-419": [
+              "Hablo mucho francés, pero no hablo inglés.",
+              "Hablo un poco de inglés, pero no hablo francés."
+            ],
+            "it": [
+              "Parlo molto francese, ma non parlo inglese.",
+              "Parlo un po' di inglese, ma non parlo francese."
+            ],
+            "nl": [
+              "Ik spreek veel Frans, maar ik spreek geen Engels.",
+              "Ik spreek een beetje Engels, maar ik spreek geen Frans."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "bien sûr",
+          "translation": {
+            "en": "of course",
+            "es-419": "claro",
+            "it": "certo",
+            "nl": "natuurlijk"
+          },
+          "distractors": {
+            "en": [
+              "excuse me",
+              "welcome"
+            ],
+            "es-419": [
+              "perdón",
+              "bienvenido"
+            ],
+            "it": [
+              "scusi",
+              "benvenuto"
+            ],
+            "nl": [
+              "pardon",
+              "welkom"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "d'accord",
+          "translation": {
+            "en": "okay, agreed",
+            "es-419": "de acuerdo",
+            "it": "d'accordo",
+            "nl": "akkoord"
+          },
+          "distractors": {
+            "en": [
+              "welcome",
+              "sorry"
+            ],
+            "es-419": [
+              "bienvenido",
+              "perdón"
+            ],
+            "it": [
+              "benvenuto",
+              "scusa"
+            ],
+            "nl": [
+              "welkom",
+              "sorry"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "D'accord, je parle lentement.",
+          "translation": {
+            "en": "Okay, I'm speaking slowly.",
+            "es-419": "De acuerdo, hablo despacio.",
+            "it": "D'accordo, parlo lentamente.",
+            "nl": "Akkoord, ik spreek langzaam."
+          },
+          "distractors": {
+            "en": [
+              "Okay, I'm writing slowly.",
+              "Okay, I don't speak slowly."
+            ],
+            "es-419": [
+              "De acuerdo, escribo despacio.",
+              "De acuerdo, no hablo despacio."
+            ],
+            "it": [
+              "D'accordo, scrivo lentamente.",
+              "D'accordo, non parlo lentamente."
+            ],
+            "nl": [
+              "Akkoord, ik schrijf langzaam.",
+              "Akkoord, ik spreek niet langzaam."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez me répéter votre nom, s'il vous plaît?",
+          "translation": {
+            "en": "Can you repeat your last name for me, please?",
+            "es-419": "¿Puede repetirme su apellido, por favor?",
+            "it": "Può ripetermi il suo cognome, per favore?",
+            "nl": "Kunt u uw achternaam voor mij herhalen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Can you spell your last name for me, please?",
+              "Can you tell me your first name, please?"
+            ],
+            "es-419": [
+              "¿Puede deletrearme su apellido, por favor?",
+              "¿Puede decirme su nombre, por favor?"
+            ],
+            "it": [
+              "Può sillabarmi il suo cognome, per favore?",
+              "Può dirmi il suo nome, per favore?"
+            ],
+            "nl": [
+              "Kunt u uw achternaam voor mij spellen, alstublieft?",
+              "Kunt u mij uw voornaam zeggen, alstublieft?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-salut-6",
+      "title": "Voici mon ami",
+      "grammarFocus": {
+        "en": [
+          "introducing people: Voici... / Je te présente... (tu) / Je vous présente... (vous)",
+          "il est / elle est + nationality; ne ... pas: Il n'est pas belge"
+        ],
+        "es-419": [
+          "presentar a alguien: Voici... / Je te présente... (tú) / Je vous présente... (usted)",
+          "il est / elle est + nacionalidad; ne ... pas: Il n'est pas belge"
+        ],
+        "it": [
+          "presentare qualcuno: Voici... / Je te présente... (tu) / Je vous présente... (Lei)",
+          "il est / elle est + nazionalità; ne ... pas: Il n'est pas belge"
+        ],
+        "nl": [
+          "iemand voorstellen: Voici... / Je te présente... (jij) / Je vous présente... (u)",
+          "il est / elle est + nationaliteit; ne ... pas: Il n'est pas belge"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-salut-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "voici",
+          "translation": {
+            "en": "here is",
+            "es-419": "aquí está",
+            "it": "ecco",
+            "nl": "hier is"
+          },
+          "distractors": {
+            "en": [
+              "thanks",
+              "who"
+            ],
+            "es-419": [
+              "gracias",
+              "quién"
+            ],
+            "it": [
+              "grazie",
+              "chi"
+            ],
+            "nl": [
+              "bedankt",
+              "wie"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Qui est-ce?",
+          "translation": {
+            "en": "Who is that?",
+            "es-419": "¿Quién es?",
+            "it": "Chi è?",
+            "nl": "Wie is dat?"
+          },
+          "distractors": {
+            "en": [
+              "What's that?",
+              "Where is he?"
+            ],
+            "es-419": [
+              "¿Qué es?",
+              "¿Dónde está?"
+            ],
+            "it": [
+              "Che cos'è?",
+              "Dov'è?"
+            ],
+            "nl": [
+              "Wat is dat?",
+              "Waar is hij?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un ami",
+          "translation": {
+            "en": "a male friend",
+            "es-419": "un amigo",
+            "it": "un amico",
+            "nl": "een vriend"
+          },
+          "distractors": {
+            "en": [
+              "a city",
+              "a name"
+            ],
+            "es-419": [
+              "una ciudad",
+              "un nombre"
+            ],
+            "it": [
+              "una città",
+              "un nome"
+            ],
+            "nl": [
+              "een stad",
+              "een naam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une amie",
+          "translation": {
+            "en": "a female friend",
+            "es-419": "una amiga",
+            "it": "un'amica",
+            "nl": "een vriendin"
+          },
+          "distractors": {
+            "en": [
+              "a city",
+              "a name"
+            ],
+            "es-419": [
+              "una ciudad",
+              "un nombre"
+            ],
+            "it": [
+              "una città",
+              "un nome"
+            ],
+            "nl": [
+              "een stad",
+              "een naam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est un ami.",
+          "translation": {
+            "en": "He's a friend.",
+            "es-419": "Es un amigo.",
+            "it": "È un amico.",
+            "nl": "Het is een vriend."
+          },
+          "distractors": {
+            "en": [
+              "He's a brother.",
+              "He's a teacher."
+            ],
+            "es-419": [
+              "Es un hermano.",
+              "Es un profesor."
+            ],
+            "it": [
+              "È un fratello.",
+              "È un insegnante."
+            ],
+            "nl": [
+              "Het is een broer.",
+              "Het is een leraar."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je te présente",
+          "translation": {
+            "en": "I'd like you to meet",
+            "es-419": "te presento a",
+            "it": "ti presento",
+            "nl": "mag ik je voorstellen aan"
+          },
+          "distractors": {
+            "en": [
+              "I'd like to thank you",
+              "I'd like to ask you"
+            ],
+            "es-419": [
+              "te agradezco",
+              "te pregunto"
+            ],
+            "it": [
+              "ti ringrazio",
+              "ti chiedo"
+            ],
+            "nl": [
+              "ik bedank je",
+              "ik vraag je"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Léa, je te présente Marc.",
+          "translation": {
+            "en": "Léa, this is Marc.",
+            "es-419": "Léa, te presento a Marc.",
+            "it": "Léa, ti presento Marc.",
+            "nl": "Léa, dit is Marc."
+          },
+          "distractors": {
+            "en": [
+              "Léa, I'm Marc.",
+              "Léa, Marc is my brother."
+            ],
+            "es-419": [
+              "Léa, soy Marc.",
+              "Léa, Marc es mi hermano."
+            ],
+            "it": [
+              "Léa, sono Marc.",
+              "Léa, Marc è mio fratello."
+            ],
+            "nl": [
+              "Léa, ik ben Marc.",
+              "Léa, Marc is mijn broer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vous présente",
+          "translation": {
+            "en": "I'd like you to meet",
+            "es-419": "le presento a",
+            "it": "le presento",
+            "nl": "mag ik u voorstellen aan"
+          },
+          "distractors": {
+            "en": [
+              "I'd like to thank you",
+              "I'd like to ask you"
+            ],
+            "es-419": [
+              "le agradezco",
+              "le pregunto"
+            ],
+            "it": [
+              "la ringrazio",
+              "le chiedo"
+            ],
+            "nl": [
+              "ik bedank u",
+              "ik vraag u"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Madame Martin, je vous présente Paul.",
+          "translation": {
+            "en": "Mrs. Martin, this is Paul.",
+            "es-419": "Señora Martin, le presento a Paul.",
+            "it": "Signora Martin, le presento Paul.",
+            "nl": "Mevrouw Martin, dit is Paul."
+          },
+          "distractors": {
+            "en": [
+              "Mrs. Martin, I'm Paul.",
+              "Mrs. Martin, Paul is my brother."
+            ],
+            "es-419": [
+              "Señora Martin, soy Paul.",
+              "Señora Martin, Paul es mi hermano."
+            ],
+            "it": [
+              "Signora Martin, sono Paul.",
+              "Signora Martin, Paul è mio fratello."
+            ],
+            "nl": [
+              "Mevrouw Martin, ik ben Paul.",
+              "Mevrouw Martin, Paul is mijn broer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voici mon ami. Il s'appelle Paul.",
+          "translation": {
+            "en": "This is my friend. His name is Paul.",
+            "es-419": "Este es mi amigo. Se llama Paul.",
+            "it": "Questo è il mio amico. Si chiama Paul.",
+            "nl": "Dit is mijn vriend. Hij heet Paul."
+          },
+          "distractors": {
+            "en": [
+              "This is my friend. His name is Marc.",
+              "This is my brother. His name is Paul."
+            ],
+            "es-419": [
+              "Este es mi amigo. Se llama Marc.",
+              "Este es mi hermano. Se llama Paul."
+            ],
+            "it": [
+              "Questo è il mio amico. Si chiama Marc.",
+              "Questo è mio fratello. Si chiama Paul."
+            ],
+            "nl": [
+              "Dit is mijn vriend. Hij heet Marc.",
+              "Dit is mijn broer. Hij heet Paul."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "allemand",
+          "translation": {
+            "en": "German",
+            "es-419": "alemán",
+            "it": "tedesco",
+            "nl": "Duits"
+          },
+          "distractors": {
+            "en": [
+              "Dutch",
+              "Italian"
+            ],
+            "es-419": [
+              "holandés",
+              "italiano"
+            ],
+            "it": [
+              "olandese",
+              "italiano"
+            ],
+            "nl": [
+              "Nederlands",
+              "Italiaans"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "italien",
+          "translation": {
+            "en": "Italian",
+            "es-419": "italiano",
+            "it": "italiano",
+            "nl": "Italiaans"
+          },
+          "distractors": {
+            "en": [
+              "Spanish",
+              "German"
+            ],
+            "es-419": [
+              "español",
+              "alemán"
+            ],
+            "it": [
+              "spagnolo",
+              "tedesco"
+            ],
+            "nl": [
+              "Spaans",
+              "Duits"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "espagnol",
+          "translation": {
+            "en": "Spanish",
+            "es-419": "español",
+            "it": "spagnolo",
+            "nl": "Spaans"
+          },
+          "distractors": {
+            "en": [
+              "Italian",
+              "French"
+            ],
+            "es-419": [
+              "italiano",
+              "francés"
+            ],
+            "it": [
+              "italiano",
+              "francese"
+            ],
+            "nl": [
+              "Italiaans",
+              "Frans"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est allemand et elle est néerlandaise.",
+          "translation": {
+            "en": "He's German and she's Dutch.",
+            "es-419": "Él es alemán y ella es holandesa.",
+            "it": "Lui è tedesco e lei è olandese.",
+            "nl": "Hij is Duits en zij is Nederlandse."
+          },
+          "distractors": {
+            "en": [
+              "He's Dutch and she's German.",
+              "He's Italian and she's Dutch."
+            ],
+            "es-419": [
+              "Él es holandés y ella es alemana.",
+              "Él es italiano y ella es holandesa."
+            ],
+            "it": [
+              "Lui è olandese e lei è tedesca.",
+              "Lui è italiano e lei è olandese."
+            ],
+            "nl": [
+              "Hij is Nederlands en zij is Duitse.",
+              "Hij is Italiaans en zij is Nederlandse."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle est italienne, il est espagnol.",
+          "translation": {
+            "en": "She's Italian, he's Spanish.",
+            "es-419": "Ella es italiana, él es español.",
+            "it": "Lei è italiana, lui è spagnolo.",
+            "nl": "Zij is Italiaanse, hij is Spanjaard."
+          },
+          "distractors": {
+            "en": [
+              "She's Spanish, he's Italian.",
+              "She's Italian, he's German."
+            ],
+            "es-419": [
+              "Ella es española, él es italiano.",
+              "Ella es italiana, él es alemán."
+            ],
+            "it": [
+              "Lei è spagnola, lui è italiano.",
+              "Lei è italiana, lui è tedesco."
+            ],
+            "nl": [
+              "Zij is Spaanse, hij is Italiaan.",
+              "Zij is Italiaanse, hij is Duitser."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il n'est pas belge, il est britannique.",
+          "translation": {
+            "en": "He isn't Belgian, he's British.",
+            "es-419": "No es belga, es británico.",
+            "it": "Non è belga, è britannico.",
+            "nl": "Hij is geen Belg, hij is Brit."
+          },
+          "distractors": {
+            "en": [
+              "He isn't British, he's Belgian.",
+              "He isn't Belgian, he's American."
+            ],
+            "es-419": [
+              "No es británico, es belga.",
+              "No es belga, es estadounidense."
+            ],
+            "it": [
+              "Non è britannico, è belga.",
+              "Non è belga, è americano."
+            ],
+            "nl": [
+              "Hij is geen Brit, hij is Belg.",
+              "Hij is geen Belg, hij is Amerikaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-salut-6-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle n'est pas française, elle est anglaise.",
+          "translation": {
+            "en": "She isn't French, she's English.",
+            "es-419": "No es francesa, es inglesa.",
+            "it": "Non è francese, è inglese.",
+            "nl": "Zij is geen Française, ze is Engelse."
+          },
+          "distractors": {
+            "en": [
+              "She isn't English, she's French.",
+              "She isn't French, she's Spanish."
+            ],
+            "es-419": [
+              "No es inglesa, es francesa.",
+              "No es francesa, es española."
+            ],
+            "it": [
+              "Non è inglese, è francese.",
+              "Non è francese, è spagnola."
+            ],
+            "nl": [
+              "Zij is geen Engelse, ze is Française.",
+              "Zij is geen Française, ze is Spaanse."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

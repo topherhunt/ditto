@@ -1,0 +1,4914 @@
+{
+  "id": "fr-a1-voyage",
+  "language": "fr",
+  "level": "A1",
+  "order": 11,
+  "title": "En voyage",
+  "description": {
+    "en": "Buying train and plane tickets, checking into a hotel, talking about the weather and the seasons, and planning a vacation",
+    "es-419": "Comprar boletos de tren y de avión, registrarse en un hotel, hablar del clima y de las estaciones y planear unas vacaciones",
+    "it": "Comprare biglietti del treno e dell'aereo, fare il check-in in albergo, parlare del tempo e delle stagioni e organizzare le vacanze",
+    "nl": "Trein- en vliegtickets kopen, inchecken in een hotel, over het weer en de seizoenen praten en een vakantie plannen"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a1-courses"
+  ],
+  "introduces": [
+    "voyage",
+    "vacances",
+    "touriste",
+    "visiter",
+    "durer",
+    "billet",
+    "aller-retour",
+    "simple",
+    "double",
+    "avion",
+    "aéroport",
+    "vol",
+    "quai",
+    "valise",
+    "passeport",
+    "hôtel",
+    "chambre",
+    "clé",
+    "ascenseur",
+    "étage",
+    "complet",
+    "plage",
+    "mer",
+    "montagne",
+    "lac",
+    "soleil",
+    "pluie",
+    "pleuvoir",
+    "neige",
+    "neiger",
+    "vent",
+    "nuageux",
+    "degré",
+    "météo",
+    "retard",
+    "réservation",
+    "date",
+    "saison",
+    "printemps",
+    "été",
+    "automne",
+    "hiver",
+    "mois",
+    "janvier",
+    "février",
+    "mars",
+    "avril",
+    "mai",
+    "juin",
+    "juillet",
+    "août",
+    "septembre",
+    "octobre",
+    "novembre",
+    "décembre",
+    "prochain",
+    "dernier",
+    "suivant",
+    "pendant"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "has, have (il/elle a)",
+        "es-419": "tiene (il/elle a)",
+        "it": "ha (il/elle a)",
+        "nl": "heeft (il/elle a)"
+      }
+    },
+    "aller#noun": {
+      "lemma": "aller",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "aller (m): outward trip; un aller simple = one-way ticket",
+        "es-419": "aller (m): ida; un aller simple = boleto sencillo",
+        "it": "aller (m): andata; un aller simple = biglietto di sola andata",
+        "nl": "aller (m): heenreis; un aller simple = enkele reis"
+      }
+    },
+    "aller-retour": {
+      "lemma": "aller-retour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "aller-retour = aller + retour: round trip, round-trip ticket (m)",
+        "es-419": "aller-retour = aller + retour: ida y vuelta, boleto de ida y vuelta (m)",
+        "it": "aller-retour = aller + retour: andata e ritorno, biglietto di andata e ritorno (m)",
+        "nl": "aller-retour = aller + retour: heen en terug, retourtje (m)"
+      }
+    },
+    "allers-retours": {
+      "lemma": "aller-retour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "allers-retours: round-trip tickets (plural of aller-retour)",
+        "es-419": "allers-retours: boletos de ida y vuelta (plural de aller-retour)",
+        "it": "allers-retours: biglietti di andata e ritorno (plurale di aller-retour)",
+        "nl": "allers-retours: retourtjes (meervoud van aller-retour)"
+      }
+    },
+    "allons": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "allons: we go (aller: vais, vas, va, allons, allez, vont)",
+        "es-419": "allons: vamos (aller: vais, vas, va, allons, allez, vont)",
+        "it": "allons: andiamo (aller: vais, vas, va, allons, allez, vont)",
+        "nl": "allons: we gaan (aller: vais, vas, va, allons, allez, vont)"
+      }
+    },
+    "alors": {
+      "lemma": "alors",
+      "pos": "ADV",
+      "gloss": {
+        "en": "so, then",
+        "es-419": "entonces, así que",
+        "it": "quindi, allora",
+        "nl": "dus, dan"
+      }
+    },
+    "août": {
+      "lemma": "août",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "August (m, lowercase in French)",
+        "es-419": "agosto (m, con minúscula en francés)",
+        "it": "agosto (m, minuscolo in francese)",
+        "nl": "augustus (m, met kleine letter)"
+      }
+    },
+    "ascenseur": {
+      "lemma": "ascenseur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "elevator (m)",
+        "es-419": "elevador, ascensor (m)",
+        "it": "ascensore (m)",
+        "nl": "lift (m)"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the, in the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + il: al, a",
+        "nl": "au = à + le: naar de, in de"
+      }
+    },
+    "aujourd'hui": {
+      "lemma": "aujourd'hui",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "automne": {
+      "lemma": "automne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fall, autumn (m)",
+        "es-419": "otoño (m)",
+        "it": "autunno (m)",
+        "nl": "herfst (m)"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "avez": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "avez: you have (avoir: ai, as, a, avons, avez, ont)",
+        "es-419": "avez: tiene, tienen (avoir: ai, as, a, avons, avez, ont)",
+        "it": "avez: ha, avete (avoir: ai, as, a, avons, avez, ont)",
+        "nl": "avez: heeft, hebben (avoir: ai, as, a, avons, avez, ont)"
+      }
+    },
+    "avion": {
+      "lemma": "avion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plane, airplane (m)",
+        "es-419": "avión (m)",
+        "it": "aereo, aeroplano (m)",
+        "nl": "vliegtuig (m)"
+      }
+    },
+    "avril": {
+      "lemma": "avril",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "April (m, lowercase in French)",
+        "es-419": "abril (m, con minúscula en francés)",
+        "it": "aprile (m, minuscolo in francese)",
+        "nl": "april (m, met kleine letter)"
+      }
+    },
+    "aéroport": {
+      "lemma": "aéroport",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "airport (m)",
+        "es-419": "aeropuerto (m)",
+        "it": "aeroporto (m)",
+        "nl": "luchthaven (m)"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, many (beaucoup de + noun)",
+        "es-419": "mucho, muchos (beaucoup de + nombre)",
+        "it": "molto, molti (beaucoup de + nome)",
+        "nl": "veel (beaucoup de + zelfstandig naamwoord)"
+      }
+    },
+    "billet": {
+      "lemma": "billet",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ticket (m); also a banknote",
+        "es-419": "boleto, billete (m); también un billete de banco",
+        "it": "biglietto (m); anche una banconota",
+        "nl": "kaartje, ticket (m); ook een bankbiljet"
+      }
+    },
+    "bon": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good; bon voyage = have a good trip",
+        "es-419": "bueno; bon voyage = buen viaje",
+        "it": "buono; bon voyage = buon viaggio",
+        "nl": "goed; bon voyage = goede reis"
+      }
+    },
+    "bonjour": {
+      "lemma": "bonjour",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hello, good morning, good afternoon",
+        "es-419": "hola, buenos días, buenas tardes",
+        "it": "buongiorno, salve",
+        "nl": "hallo, goedendag"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, that is",
+        "es-419": "c'est = ce + est: es, esto es",
+        "it": "c'est = ce + est: è, questo è",
+        "nl": "c'est = ce + est: het is, dit is"
+      }
+    },
+    "canada": {
+      "lemma": "Canada",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Canada (au Canada = in Canada)",
+        "es-419": "Canadá (au Canada = en Canadá)",
+        "it": "Canada (au Canada = in Canada)",
+        "nl": "Canada (au Canada = in Canada)"
+      }
+    },
+    "ce": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "this, that (ce soir = tonight); ce, cet, cette, ces",
+        "es-419": "este, ese (ce soir = esta noche); ce, cet, cette, ces",
+        "it": "questo, quello (ce soir = stasera); ce, cet, cette, ces",
+        "nl": "deze, die (ce soir = vanavond); ce, cet, cette, ces"
+      }
+    },
+    "chambre": {
+      "lemma": "chambre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "room, bedroom (f)",
+        "es-419": "habitación, dormitorio (f); ojo: chambre no es cámara",
+        "it": "camera, camera da letto (f)",
+        "nl": "kamer, slaapkamer (f)"
+      }
+    },
+    "chaud": {
+      "lemma": "chaud",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "hot, warm (il fait chaud = it's hot)",
+        "es-419": "caliente, cálido (il fait chaud = hace calor)",
+        "it": "caldo (il fait chaud = fa caldo)",
+        "nl": "warm, heet (il fait chaud = het is warm)"
+      }
+    },
+    "clé": {
+      "lemma": "clé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "key (f)",
+        "es-419": "llave (f)",
+        "it": "chiave (f)",
+        "nl": "sleutel (f)"
+      }
+    },
+    "combien": {
+      "lemma": "combien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how much, how many",
+        "es-419": "cuánto, cuántos",
+        "it": "quanto, quanti",
+        "nl": "hoeveel"
+      }
+    },
+    "complet": {
+      "lemma": "complet",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "full (hotel, train); watch out: complet means full here, not only complete",
+        "es-419": "lleno, completo (hotel, tren)",
+        "it": "al completo, pieno (albergo, treno)",
+        "nl": "vol, volgeboekt (hotel, trein)"
+      }
+    },
+    "coûte": {
+      "lemma": "coûter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "coûte: costs (coûter)",
+        "es-419": "coûte: cuesta (coûter)",
+        "it": "coûte: costa (coûter)",
+        "nl": "coûte: kost (coûter)"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in; dans deux heures = in two hours",
+        "es-419": "en, dentro de; dans deux heures = en dos horas",
+        "it": "in, tra; dans deux heures = tra due ore",
+        "nl": "in, over; dans deux heures = over twee uur"
+      }
+    },
+    "date": {
+      "lemma": "date",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "date (f)",
+        "es-419": "fecha (f)",
+        "it": "data (f)",
+        "nl": "datum (f)"
+      }
+    },
+    "degrés": {
+      "lemma": "degré",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "degrees (plural of degré, m)",
+        "es-419": "grados (plural de degré, m)",
+        "it": "gradi (plurale di degré, m)",
+        "nl": "graden (meervoud van degré, m)"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "dernier": {
+      "lemma": "dernier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last (the final one)",
+        "es-419": "último (el final)",
+        "it": "ultimo (l'ultimo)",
+        "nl": "laatste (de allerlaatste)"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "deuxième": {
+      "lemma": "deuxième",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "second (deuxième étage)",
+        "es-419": "segundo (deuxième étage)",
+        "it": "secondo (deuxième étage)",
+        "nl": "tweede (deuxième étage)"
+      }
+    },
+    "dit": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dit: says (dire: dis, dit, disons, dites, disent)",
+        "es-419": "dit: dice (dire: dis, dit, disons, dites, disent)",
+        "it": "dit: dice (dire: dis, dit, disons, dites, disent)",
+        "nl": "dit: zegt (dire: dis, dit, disons, dites, disent)"
+      }
+    },
+    "dix": {
+      "lemma": "dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "double": {
+      "lemma": "double",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "double (chambre double = room for two)",
+        "es-419": "doble (chambre double = habitación doble)",
+        "it": "doppio (chambre double = camera doppia)",
+        "nl": "dubbel (chambre double = tweepersoonskamer)"
+      }
+    },
+    "douze": {
+      "lemma": "douze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twelve",
+        "es-419": "doce",
+        "it": "dodici",
+        "nl": "twaalf"
+      }
+    },
+    "droite": {
+      "lemma": "droite",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "right (f); à droite = on the right",
+        "es-419": "derecha (f); à droite = a la derecha",
+        "it": "destra (f); à droite = a destra",
+        "nl": "rechts (f); à droite = aan de rechterkant"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = de + le: some, of the (du soleil = sunshine, du vent = wind)",
+        "es-419": "du = de + le: algo de, del (du soleil = sol, du vent = viento)",
+        "it": "du = di + il: del, un po' di (du soleil = sole, du vent = vento)",
+        "nl": "du = de + le: wat, van de (du soleil = zon, du vent = wind)"
+      }
+    },
+    "dure": {
+      "lemma": "durer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dure: lasts, takes (durer, of time)",
+        "es-419": "dure: dura (durer, de tiempo)",
+        "it": "dure: dura (durer, di tempo)",
+        "nl": "dure: duurt (durer, van tijd)"
+      }
+    },
+    "décembre": {
+      "lemma": "décembre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "December (m, lowercase in French)",
+        "es-419": "diciembre (m, con minúscula en francés)",
+        "it": "dicembre (m, minuscolo in francese)",
+        "nl": "december (m, met kleine letter)"
+      }
+    },
+    "désolé": {
+      "lemma": "désolé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sorry (désolé, a man speaking; désolée, a woman)",
+        "es-419": "lo siento (désolé, habla un hombre; désolée, una mujer)",
+        "it": "mi dispiace (désolé, parla un uomo; désolée, una donna)",
+        "nl": "sorry, het spijt me (désolé, een man; désolée, een vrouw)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in (en été, en mai, en France)",
+        "es-419": "en (en été, en mai, en France)",
+        "it": "in (en été, en mai, en France)",
+        "nl": "in (en été, en mai, en France)"
+      }
+    },
+    "espagne": {
+      "lemma": "Espagne",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Spain (en Espagne = to/in Spain)",
+        "es-419": "España (en Espagne = a/en España)",
+        "it": "Spagna (en Espagne = in Spagna)",
+        "nl": "Spanje (en Espagne = naar/in Spanje)"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être: suis, es, est, sommes, êtes, sont)",
+        "es-419": "es, está (être: suis, es, est, sommes, êtes, sont)",
+        "it": "è (être: suis, es, est, sommes, êtes, sont)",
+        "nl": "is (être: suis, es, est, sommes, êtes, sont)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e, ed",
+        "nl": "en"
+      }
+    },
+    "euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euros (plural of euro, m)",
+        "es-419": "euros (plural de euro, m)",
+        "it": "euro (plurale di euro, m)",
+        "nl": "euro (meervoud van euro, m)"
+      }
+    },
+    "excusez-moi": {
+      "lemma": "excuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excusez-moi = excusez + moi: excuse me",
+        "es-419": "excusez-moi = excusez + moi: disculpe, perdón",
+        "it": "excusez-moi = excusez + moi: mi scusi, scusi",
+        "nl": "excusez-moi = excusez + moi: pardon, neem me niet kwalijk"
+      }
+    },
+    "fais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fais: I do, I make (faire: fais, fait, faisons, faites, font); je fais ma valise = I pack my suitcase",
+        "es-419": "fais: hago (faire: fais, fait, faisons, faites, font); je fais ma valise = hago mi maleta",
+        "it": "fais: faccio (faire: fais, fait, faisons, faites, font); je fais ma valise = faccio la valigia",
+        "nl": "fais: ik doe, ik maak (faire: fais, fait, faisons, faites, font); je fais ma valise = ik pak mijn koffer in"
+      }
+    },
+    "fait": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fait: does, makes; il fait chaud = it's hot (weather)",
+        "es-419": "fait: hace; il fait chaud = hace calor (clima)",
+        "it": "fait: fa; il fait chaud = fa caldo (tempo)",
+        "nl": "fait: doet, maakt; il fait chaud = het is warm (weer)"
+      }
+    },
+    "fait-il": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fait-il = fait + il: does it (quel temps fait-il? = what's the weather like?)",
+        "es-419": "fait-il = fait + il: hace (¿quel temps fait-il? = ¿qué tiempo hace?)",
+        "it": "fait-il = fait + il: fa (quel temps fait-il? = che tempo fa?)",
+        "nl": "fait-il = fait + il: doet het (quel temps fait-il? = wat voor weer is het?)"
+      }
+    },
+    "famille": {
+      "lemma": "famille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "es-419": "familia (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "froid": {
+      "lemma": "froid",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cold (il fait froid = it's cold)",
+        "es-419": "frío (il fait froid = hace frío)",
+        "it": "freddo (il fait froid = fa freddo)",
+        "nl": "koud (il fait froid = het is koud)"
+      }
+    },
+    "février": {
+      "lemma": "février",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "February (m, lowercase in French)",
+        "es-419": "febrero (m, con minúscula en francés)",
+        "it": "febbraio (m, minuscolo in francese)",
+        "nl": "februari (m, met kleine letter)"
+      }
+    },
+    "heure": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hour, o'clock (f); une heure = an hour, one o'clock",
+        "es-419": "hora (f); une heure = una hora, la una",
+        "it": "ora (f); une heure = un'ora, l'una",
+        "nl": "uur (f); une heure = een uur, één uur"
+      }
+    },
+    "heures": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours, o'clock (plural of heure, f); quinze heures = 3 p.m.",
+        "es-419": "horas (plural de heure, f); quinze heures = las 15 h",
+        "it": "ore (plurale di heure, f); quinze heures = le 15",
+        "nl": "uur (meervoud van heure, f); quinze heures = 15 uur"
+      }
+    },
+    "hiver": {
+      "lemma": "hiver",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "winter (m)",
+        "es-419": "invierno (m)",
+        "it": "inverno (m)",
+        "nl": "winter (m)"
+      }
+    },
+    "hôtel": {
+      "lemma": "hôtel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hotel (m)",
+        "es-419": "hotel (m)",
+        "it": "albergo, hotel (m)",
+        "nl": "hotel (m)"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "he, it (il pleut = it's raining)",
+        "es-419": "él, ello (il pleut = llueve)",
+        "it": "lui, esso (il pleut = piove)",
+        "nl": "hij, het (il pleut = het regent)"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'ai = je + ai: I have",
+        "es-419": "j'ai = je + ai: tengo",
+        "it": "j'ai = je + ai: ho",
+        "nl": "j'ai = je + ai: ik heb"
+      }
+    },
+    "janvier": {
+      "lemma": "janvier",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "January (m, lowercase in French)",
+        "es-419": "enero (m, con minúscula en francés)",
+        "it": "gennaio (m, minuscolo in francese)",
+        "nl": "januari (m, met kleine letter)"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "es-419": "yo",
+        "it": "io",
+        "nl": "ik"
+      }
+    },
+    "jours": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (plural of jour, m)",
+        "es-419": "días (plural de jour, m)",
+        "it": "giorni (plurale di jour, m)",
+        "nl": "dagen (meervoud van jour, m)"
+      }
+    },
+    "juillet": {
+      "lemma": "juillet",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "July (m, lowercase in French)",
+        "es-419": "julio (m, con minúscula en francés)",
+        "it": "luglio (m, minuscolo in francese)",
+        "nl": "juli (m, met kleine letter)"
+      }
+    },
+    "juin": {
+      "lemma": "juin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "June (m, lowercase in French)",
+        "es-419": "junio (m, con minúscula en francés)",
+        "it": "giugno (m, minuscolo in francese)",
+        "nl": "juni (m, met kleine letter)"
+      }
+    },
+    "l'année": {
+      "lemma": "année",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'année = la + année: the year (f, as a period of time)",
+        "es-419": "l'année = la + année: el año (f, como período)",
+        "it": "l'année = la + année: l'anno (f, come periodo)",
+        "nl": "l'année = la + année: het jaar (f, als periode)"
+      }
+    },
+    "l'ascenseur": {
+      "lemma": "ascenseur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'ascenseur = le + ascenseur: the elevator (m)",
+        "es-419": "l'ascenseur = le + ascenseur: el elevador (m)",
+        "it": "l'ascenseur = le + ascenseur: l'ascensore (m)",
+        "nl": "l'ascenseur = le + ascenseur: de lift (m)"
+      }
+    },
+    "l'avion": {
+      "lemma": "avion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'avion = le + avion: the plane (m)",
+        "es-419": "l'avion = le + avion: el avión (m)",
+        "it": "l'avion = le + avion: l'aereo (m)",
+        "nl": "l'avion = le + avion: het vliegtuig (m)"
+      }
+    },
+    "l'aéroport": {
+      "lemma": "aéroport",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'aéroport = le + aéroport: the airport (m)",
+        "es-419": "l'aéroport = le + aéroport: el aeropuerto (m)",
+        "it": "l'aéroport = le + aéroport: l'aeroporto (m)",
+        "nl": "l'aéroport = le + aéroport: de luchthaven (m)"
+      }
+    },
+    "l'hôtel": {
+      "lemma": "hôtel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'hôtel = le + hôtel: the hotel (m)",
+        "es-419": "l'hôtel = le + hôtel: el hotel (m)",
+        "it": "l'hôtel = le + hôtel: l'albergo (m)",
+        "nl": "l'hôtel = le + hôtel: het hotel (m)"
+      }
+    },
+    "l'été": {
+      "lemma": "été",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'été = le + été: the summer (m)",
+        "es-419": "l'été = le + été: el verano (m)",
+        "it": "l'été = le + été: l'estate (m)",
+        "nl": "l'été = le + été: de zomer (m)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "es-419": "la (femenino)",
+        "it": "la (femminile)",
+        "nl": "de (vrouwelijk)"
+      }
+    },
+    "lac": {
+      "lemma": "lac",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lake (m)",
+        "es-419": "lago (m)",
+        "it": "lago (m)",
+        "nl": "meer (m)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine)",
+        "es-419": "el (masculino)",
+        "it": "il, lo (maschile)",
+        "nl": "de, het (mannelijk)"
+      }
+    },
+    "lyon": {
+      "lemma": "Lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon, a city in France",
+        "es-419": "Lyon, ciudad de Francia",
+        "it": "Lione, città della Francia",
+        "nl": "Lyon, stad in Frankrijk"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (feminine: ma famille, ma valise)",
+        "es-419": "mi (femenino: ma famille, ma valise)",
+        "it": "mia (femminile: ma famille, ma valise)",
+        "nl": "mijn (vrouwelijk: ma famille, ma valise)"
+      }
+    },
+    "madame": {
+      "lemma": "madame",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ma'am, Mrs., madam (f)",
+        "es-419": "señora (f)",
+        "it": "signora (f)",
+        "nl": "mevrouw (f)"
+      }
+    },
+    "mai": {
+      "lemma": "mai",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "May (m, lowercase in French)",
+        "es-419": "mayo (m, con minúscula en francés)",
+        "it": "maggio (m, minuscolo in francese)",
+        "nl": "mei (m, met kleine letter)"
+      }
+    },
+    "mars": {
+      "lemma": "mars",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "March (m, lowercase in French)",
+        "es-419": "marzo (m, con minúscula en francés)",
+        "it": "marzo (m, minuscolo in francese)",
+        "nl": "maart (m, met kleine letter)"
+      }
+    },
+    "marseille": {
+      "lemma": "Marseille",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Marseille, a city in France",
+        "es-419": "Marsella, ciudad de Francia",
+        "it": "Marsiglia, città della Francia",
+        "nl": "Marseille, stad in Frankrijk"
+      }
+    },
+    "martin": {
+      "lemma": "Martin",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Martin, a common French surname",
+        "es-419": "Martin, un apellido francés común",
+        "it": "Martin, un cognome francese comune",
+        "nl": "Martin, een veelvoorkomende Franse achternaam"
+      }
+    },
+    "mer": {
+      "lemma": "mer",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sea (f)",
+        "es-419": "mar (f); ojo: mer es femenino, el mar es masculino",
+        "it": "mare (f); attenzione: mer è femminile, il mare è maschile",
+        "nl": "zee (f)"
+      }
+    },
+    "midi": {
+      "lemma": "midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "noon, midday (m)",
+        "es-419": "mediodía (m)",
+        "it": "mezzogiorno (m)",
+        "nl": "twaalf uur 's middags (m)"
+      }
+    },
+    "minutes": {
+      "lemma": "minute",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (plural of minute, f)",
+        "es-419": "minutos (plural de minute, f)",
+        "it": "minuti (plurale di minute, f)",
+        "nl": "minuten (meervoud van minute, f)"
+      }
+    },
+    "mois": {
+      "lemma": "mois",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "month (m)",
+        "es-419": "mes (m)",
+        "it": "mese (m)",
+        "nl": "maand (m)"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (masculine: mon passeport)",
+        "es-419": "mi (masculino: mon passeport)",
+        "it": "mio (maschile: mon passeport)",
+        "nl": "mijn (mannelijk: mon passeport)"
+      }
+    },
+    "monsieur": {
+      "lemma": "monsieur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sir, Mr. (m)",
+        "es-419": "señor (m)",
+        "it": "signore (m)",
+        "nl": "meneer (m)"
+      }
+    },
+    "montagne": {
+      "lemma": "montagne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mountain (f); en montagne = in the mountains",
+        "es-419": "montaña (f); en montagne = en la montaña",
+        "it": "montagna (f); en montagne = in montagna",
+        "nl": "berg (f); en montagne = in de bergen"
+      }
+    },
+    "montréal": {
+      "lemma": "Montréal",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Montreal, a city in Canada",
+        "es-419": "Montreal, ciudad de Canadá",
+        "it": "Montréal, città del Canada",
+        "nl": "Montreal, stad in Canada"
+      }
+    },
+    "météo": {
+      "lemma": "météo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weather forecast (f)",
+        "es-419": "pronóstico del tiempo (f)",
+        "it": "meteo, previsioni del tempo (f)",
+        "nl": "weerbericht (f)"
+      }
+    },
+    "nantes": {
+      "lemma": "Nantes",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Nantes, a city in France",
+        "es-419": "Nantes, ciudad de Francia",
+        "it": "Nantes, città della Francia",
+        "nl": "Nantes, stad in Frankrijk"
+      }
+    },
+    "neige": {
+      "lemma": "neige",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "snow (f)",
+        "es-419": "nieve (f)",
+        "it": "neve (f)",
+        "nl": "sneeuw (f)"
+      }
+    },
+    "neige#neiger": {
+      "lemma": "neiger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "neige: snows (neiger; il neige = it's snowing)",
+        "es-419": "neige: nieva (neiger; il neige = nieva)",
+        "it": "neige: nevica (neiger; il neige = nevica)",
+        "nl": "neige: sneeuwt (neiger; il neige = het sneeuwt)"
+      }
+    },
+    "nice": {
+      "lemma": "Nice",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Nice, a city in France",
+        "es-419": "Niza, ciudad de Francia",
+        "it": "Nizza, città della Francia",
+        "nl": "Nice, stad in Frankrijk"
+      }
+    },
+    "nom": {
+      "lemma": "nom",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "name, last name (m); au nom de = under the name of",
+        "es-419": "nombre, apellido (m); au nom de = a nombre de",
+        "it": "nome, cognome (m); au nom de = a nome di",
+        "nl": "naam, achternaam (m); au nom de = op naam van"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we, us",
+        "es-419": "nosotros, nos",
+        "it": "noi, ci",
+        "nl": "wij, we, ons"
+      }
+    },
+    "novembre": {
+      "lemma": "novembre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "November (m, lowercase in French)",
+        "es-419": "noviembre (m, con minúscula en francés)",
+        "it": "novembre (m, minuscolo in francese)",
+        "nl": "november (m, met kleine letter)"
+      }
+    },
+    "nuageux": {
+      "lemma": "nuageux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cloudy",
+        "es-419": "nublado",
+        "it": "nuvoloso",
+        "nl": "bewolkt"
+      }
+    },
+    "numéro": {
+      "lemma": "numéro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m)",
+        "es-419": "número (m)",
+        "it": "numero (m)",
+        "nl": "nummer (m)"
+      }
+    },
+    "octobre": {
+      "lemma": "octobre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "October (m, lowercase in French)",
+        "es-419": "octubre (m, con minúscula en francés)",
+        "it": "ottobre (m, minuscolo in francese)",
+        "nl": "oktober (m, met kleine letter)"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we (everyday French)",
+        "es-419": "nosotros (francés cotidiano)",
+        "it": "noi (francese quotidiano)",
+        "nl": "we (alledaags Frans)"
+      }
+    },
+    "ou": {
+      "lemma": "ou",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "es-419": "o",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "paris": {
+      "lemma": "Paris",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Paris, the capital of France",
+        "es-419": "París, capital de Francia",
+        "it": "Parigi, capitale della Francia",
+        "nl": "Parijs, hoofdstad van Frankrijk"
+      }
+    },
+    "part": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "part: leaves, departs (partir: pars, part, partons, partez, partent)",
+        "es-419": "part: sale, se va (partir: pars, part, partons, partez, partent)",
+        "it": "part: parte (partir: pars, part, partons, partez, partent)",
+        "nl": "part: vertrekt (partir: pars, part, partons, partez, partent)"
+      }
+    },
+    "partir": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave, to depart",
+        "es-419": "salir, irse",
+        "it": "partire",
+        "nl": "vertrekken"
+      }
+    },
+    "passeport": {
+      "lemma": "passeport",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "passport (m)",
+        "es-419": "pasaporte (m)",
+        "it": "passaporto (m)",
+        "nl": "paspoort (m)"
+      }
+    },
+    "pendant": {
+      "lemma": "pendant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, during (pendant trois jours = for three days)",
+        "es-419": "durante (pendant trois jours = durante tres días)",
+        "it": "per, durante (pendant trois jours = per tre giorni)",
+        "nl": "gedurende, lang (pendant trois jours = drie dagen lang)"
+      }
+    },
+    "personnes": {
+      "lemma": "personne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people, persons (plural of personne, f)",
+        "es-419": "personas (plural de personne, f)",
+        "it": "persone (plurale di personne, f)",
+        "nl": "personen (meervoud van personne, f)"
+      }
+    },
+    "plage": {
+      "lemma": "plage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beach (f)",
+        "es-419": "playa (f)",
+        "it": "spiaggia (f)",
+        "nl": "strand (f)"
+      }
+    },
+    "plaît": {
+      "lemma": "plaire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "plaît: pleases; s'il vous plaît = please",
+        "es-419": "plaît: gusta; s'il vous plaît = por favor",
+        "it": "plaît: piace; s'il vous plaît = per favore",
+        "nl": "plaît: bevalt; s'il vous plaît = alstublieft"
+      }
+    },
+    "pleut": {
+      "lemma": "pleuvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pleut: rains (il pleut = it's raining)",
+        "es-419": "pleut: llueve (il pleut = llueve)",
+        "it": "pleut: piove (il pleut = piove)",
+        "nl": "pleut: regent (il pleut = het regent)"
+      }
+    },
+    "pleuvoir": {
+      "lemma": "pleuvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to rain (il va pleuvoir = it's going to rain)",
+        "es-419": "llover (il va pleuvoir = va a llover)",
+        "it": "piovere (il va pleuvoir = pioverà)",
+        "nl": "regenen (il va pleuvoir = het gaat regenen)"
+      }
+    },
+    "pluie": {
+      "lemma": "pluie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rain (f)",
+        "es-419": "lluvia (f)",
+        "it": "pioggia (f)",
+        "nl": "regen (f)"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, to (un billet pour Lyon = a ticket to Lyon)",
+        "es-419": "para, a (un billet pour Lyon = un boleto a Lyon)",
+        "it": "per (un billet pour Lyon = un biglietto per Lione)",
+        "nl": "voor, naar (un billet pour Lyon = een kaartje naar Lyon)"
+      }
+    },
+    "premier": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (le premier juin = June first)",
+        "es-419": "primero (le premier juin = el primero de junio)",
+        "it": "primo (le premier juin = il primo giugno)",
+        "nl": "eerste (le premier juin = één juni)"
+      }
+    },
+    "printemps": {
+      "lemma": "printemps",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "spring (m)",
+        "es-419": "primavera (m)",
+        "it": "primavera (m)",
+        "nl": "lente (m)"
+      }
+    },
+    "prochain": {
+      "lemma": "prochain",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "next (le mois prochain = next month)",
+        "es-419": "próximo (le mois prochain = el mes próximo)",
+        "it": "prossimo (le mois prochain = il mese prossimo)",
+        "nl": "volgende (le mois prochain = volgende maand)"
+      }
+    },
+    "qu'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qu'il = que + il: that he, that it",
+        "es-419": "qu'il = que + il: que él, que",
+        "it": "qu'il = che + il: che lui, che",
+        "nl": "qu'il = que + il: dat hij, dat het"
+      }
+    },
+    "quai": {
+      "lemma": "quai",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "platform (m)",
+        "es-419": "andén (m)",
+        "it": "binario (m)",
+        "nl": "perron (m)"
+      }
+    },
+    "quatre-vingts": {
+      "lemma": "quatre-vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eighty (4 x 20)",
+        "es-419": "ochenta (4 x 20)",
+        "it": "ottanta (4 x 20)",
+        "nl": "tachtig (4 x 20)"
+      }
+    },
+    "quel": {
+      "lemma": "quel",
+      "pos": "DET",
+      "gloss": {
+        "en": "which, what (sur quel quai = on which platform)",
+        "es-419": "qué, cuál (sur quel quai = en qué andén)",
+        "it": "quale, che (sur quel quai = su quale binario)",
+        "nl": "welk (sur quel quai = op welk perron)"
+      }
+    },
+    "quelle": {
+      "lemma": "quel",
+      "pos": "DET",
+      "gloss": {
+        "en": "which, what (feminine of quel)",
+        "es-419": "qué, cuál (femenino de quel)",
+        "it": "quale, che (femminile di quel)",
+        "nl": "welke (vrouwelijk van quel)"
+      }
+    },
+    "quinze": {
+      "lemma": "quinze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifteen",
+        "es-419": "quince",
+        "it": "quindici",
+        "nl": "vijftien"
+      }
+    },
+    "québec": {
+      "lemma": "Québec",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Quebec, a city and a province in Canada",
+        "es-419": "Quebec, ciudad y provincia de Canadá",
+        "it": "Québec, città e provincia del Canada",
+        "nl": "Québec, stad en provincie in Canada"
+      }
+    },
+    "retard": {
+      "lemma": "retard",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "delay (m); avoir du retard = be late",
+        "es-419": "retraso (m); avoir du retard = tener retraso",
+        "it": "ritardo (m); avoir du retard = essere in ritardo",
+        "nl": "vertraging (m); avoir du retard = vertraging hebben"
+      }
+    },
+    "rome": {
+      "lemma": "Rome",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Rome, the capital of Italy",
+        "es-419": "Roma, capital de Italia",
+        "it": "Roma, capitale d'Italia",
+        "nl": "Rome, hoofdstad van Italië"
+      }
+    },
+    "réservation": {
+      "lemma": "réservation",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reservation, booking (f)",
+        "es-419": "reserva (f)",
+        "it": "prenotazione (f)",
+        "nl": "reservering, boeking (f)"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if he, if it; s'il vous plaît = please",
+        "es-419": "s'il = si + il: si él, si; s'il vous plaît = por favor",
+        "it": "s'il = se + il: se lui, se; s'il vous plaît = per favore",
+        "nl": "s'il = si + il: als hij, als het; s'il vous plaît = alstublieft"
+      }
+    },
+    "saison": {
+      "lemma": "saison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "season of the year (f)",
+        "es-419": "estación del año (f)",
+        "it": "stagione (f)",
+        "nl": "seizoen (f)"
+      }
+    },
+    "septembre": {
+      "lemma": "septembre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "September (m, lowercase in French)",
+        "es-419": "septiembre (m, con minúscula en francés)",
+        "it": "settembre (m, minuscolo in francese)",
+        "nl": "september (m, met kleine letter)"
+      }
+    },
+    "simple": {
+      "lemma": "simple",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "single (chambre simple); one-way (aller simple)",
+        "es-419": "sencillo (chambre simple, aller simple)",
+        "it": "singolo, semplice (chambre simple); di sola andata (aller simple)",
+        "nl": "eenpersoons (chambre simple); enkel (aller simple)"
+      }
+    },
+    "six": {
+      "lemma": "six",
+      "pos": "NUM",
+      "gloss": {
+        "en": "six",
+        "es-419": "seis",
+        "it": "sei",
+        "nl": "zes"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); ce soir = tonight",
+        "es-419": "tarde, noche (m); ce soir = esta noche",
+        "it": "sera (m); ce soir = stasera",
+        "nl": "avond (m); ce soir = vanavond"
+      }
+    },
+    "soleil": {
+      "lemma": "soleil",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sun, sunshine (m)",
+        "es-419": "sol (m)",
+        "it": "sole (m)",
+        "nl": "zon (m)"
+      }
+    },
+    "souvent": {
+      "lemma": "souvent",
+      "pos": "ADV",
+      "gloss": {
+        "en": "often",
+        "es-419": "a menudo, seguido",
+        "it": "spesso",
+        "nl": "vaak, dikwijls"
+      }
+    },
+    "suivant": {
+      "lemma": "suivant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "next, following",
+        "es-419": "siguiente",
+        "it": "successivo, seguente",
+        "nl": "volgende"
+      }
+    },
+    "sur": {
+      "lemma": "sur",
+      "pos": "ADP",
+      "gloss": {
+        "en": "on",
+        "es-419": "sobre, en",
+        "it": "su",
+        "nl": "op"
+      }
+    },
+    "temps": {
+      "lemma": "temps",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time (m); combien de temps = how long",
+        "es-419": "tiempo (m); combien de temps = cuánto tiempo",
+        "it": "tempo (m); combien de temps = quanto tempo",
+        "nl": "tijd (m); combien de temps = hoe lang"
+      }
+    },
+    "temps#weather": {
+      "lemma": "temps",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weather (m); quel temps fait-il? = what's the weather like?",
+        "es-419": "clima, tiempo atmosférico (m); quel temps fait-il? = ¿qué tiempo hace?",
+        "it": "tempo atmosferico (m); quel temps fait-il? = che tempo fa?",
+        "nl": "weer (m); quel temps fait-il? = wat voor weer is het?"
+      }
+    },
+    "toulouse": {
+      "lemma": "Toulouse",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Toulouse, a city in France",
+        "es-419": "Toulouse, ciudad de Francia",
+        "it": "Tolosa, città della Francia",
+        "nl": "Toulouse, stad in Frankrijk"
+      }
+    },
+    "touristes": {
+      "lemma": "touriste",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tourists (plural of touriste, m or f)",
+        "es-419": "turistas (plural de touriste, m o f)",
+        "it": "turisti (plurale di touriste, m o f)",
+        "nl": "toeristen (meervoud van touriste, m of f)"
+      }
+    },
+    "train": {
+      "lemma": "train",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "train (m)",
+        "es-419": "tren (m)",
+        "it": "treno (m)",
+        "nl": "trein (m)"
+      }
+    },
+    "trente": {
+      "lemma": "trente",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirty",
+        "es-419": "treinta",
+        "it": "trenta",
+        "nl": "dertig"
+      }
+    },
+    "trois": {
+      "lemma": "trois",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "es-419": "tres",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "es-419": "muy",
+        "it": "molto",
+        "nl": "erg, heel"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (masculine)",
+        "es-419": "un, uno (masculino)",
+        "it": "un, uno (maschile)",
+        "nl": "een; één (mannelijk)"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (feminine)",
+        "es-419": "una, uno (femenino)",
+        "it": "una, un (femminile)",
+        "nl": "een; één (vrouwelijk)"
+      }
+    },
+    "va": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "va: goes (aller: vais, vas, va, allons, allez, vont); il va pleuvoir = it's going to rain",
+        "es-419": "va: va (aller: vais, vas, va, allons, allez, vont); il va pleuvoir = va a llover",
+        "it": "va: va (aller: vais, vas, va, allons, allez, vont); il va pleuvoir = pioverà",
+        "nl": "va: gaat (aller: vais, vas, va, allons, allez, vont); il va pleuvoir = het gaat regenen"
+      }
+    },
+    "vacances": {
+      "lemma": "vacances",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vacation (f, always plural in French)",
+        "es-419": "vacaciones (f, siempre en plural en francés)",
+        "it": "vacanze (f, sempre al plurale in francese)",
+        "nl": "vakantie (f, altijd meervoud in het Frans)"
+      }
+    },
+    "vais": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "vais: I go, I'm going (aller: vais, vas, va, allons, allez, vont); je vais voyager = I'm going to travel",
+        "es-419": "vais: voy (aller: vais, vas, va, allons, allez, vont); je vais voyager = voy a viajar",
+        "it": "vais: vado (aller: vais, vas, va, allons, allez, vont); je vais voyager = viaggerò",
+        "nl": "vais: ik ga (aller: vais, vas, va, allons, allez, vont); je vais voyager = ik ga reizen"
+      }
+    },
+    "valise": {
+      "lemma": "valise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "suitcase (f)",
+        "es-419": "maleta (f)",
+        "it": "valigia (f)",
+        "nl": "koffer (f)"
+      }
+    },
+    "vent": {
+      "lemma": "vent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wind (m)",
+        "es-419": "viento (m)",
+        "it": "vento (m)",
+        "nl": "wind (m)"
+      }
+    },
+    "vingt": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty",
+        "es-419": "veinte",
+        "it": "venti",
+        "nl": "twintig"
+      }
+    },
+    "vingt-deux": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty-two (vingt + deux)",
+        "es-419": "veintidós (vingt + deux)",
+        "it": "ventidue (vingt + deux)",
+        "nl": "tweeëntwintig (vingt + deux)"
+      }
+    },
+    "visitent": {
+      "lemma": "visiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "visitent: visit (visiter); the ending -ent is silent",
+        "es-419": "visitent: visitan (visiter)",
+        "it": "visitent: visitano (visiter)",
+        "nl": "visitent: bezoeken (visiter)"
+      }
+    },
+    "visiter": {
+      "lemma": "visiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to visit (a place)",
+        "es-419": "visitar (un lugar)",
+        "it": "visitare (un luogo)",
+        "nl": "bezoeken (een plaats)"
+      }
+    },
+    "voici": {
+      "lemma": "voici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here is, here are",
+        "es-419": "aquí está, aquí tiene",
+        "it": "ecco",
+        "nl": "hier is, hier zijn"
+      }
+    },
+    "vol": {
+      "lemma": "vol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "flight (m)",
+        "es-419": "vuelo (m)",
+        "it": "volo (m)",
+        "nl": "vlucht (m)"
+      }
+    },
+    "votre": {
+      "lemma": "votre",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (vous form: votre clé)",
+        "es-419": "su (forma vous: votre clé)",
+        "it": "Suo, vostro (forma vous: votre clé)",
+        "nl": "uw, jullie (vous-vorm: votre clé)"
+      }
+    },
+    "voudrais": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voudrais: would like (je voudrais = I'd like)",
+        "es-419": "voudrais: quisiera (je voudrais = quisiera)",
+        "it": "voudrais: vorrei (je voudrais = vorrei)",
+        "nl": "voudrais: wil graag (je voudrais = ik wil graag)"
+      }
+    },
+    "voulez": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voulez: you want (vouloir: veux, veut, voulons, voulez, veulent)",
+        "es-419": "voulez: quiere, quieren (vouloir: veux, veut, voulons, voulez, veulent)",
+        "it": "voulez: vuole, volete (vouloir: veux, veut, voulons, voulez, veulent)",
+        "nl": "voulez: wilt, willen (vouloir: veux, veut, voulons, voulez, veulent)"
+      }
+    },
+    "vous": {
+      "lemma": "vous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (polite singular, or plural)",
+        "es-419": "usted, ustedes",
+        "it": "Lei, voi",
+        "nl": "u, jullie"
+      }
+    },
+    "voyage": {
+      "lemma": "voyage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip, journey (m); watch out: voyage is any trip, not just a sea voyage",
+        "es-419": "viaje (m)",
+        "it": "viaggio (m)",
+        "nl": "reis (m)"
+      }
+    },
+    "voyager": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to travel",
+        "es-419": "viajar",
+        "it": "viaggiare",
+        "nl": "reizen"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "there; il y a = there is, there are",
+        "es-419": "allí; il y a = hay",
+        "it": "ci; il y a = c'è, ci sono",
+        "nl": "er; il y a = er is, er zijn"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at, in",
+        "es-419": "a, en",
+        "it": "a, in",
+        "nl": "naar, in, om"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, it (ça dure = it lasts)",
+        "es-419": "eso, esto (ça dure = dura)",
+        "it": "questo, ciò (ça dure = dura)",
+        "nl": "dat, het (ça dure = het duurt)"
+      }
+    },
+    "étage": {
+      "lemma": "étage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "floor, story (m); watch out: étage counts above the ground floor, so au deuxième étage = the third floor in the US",
+        "es-419": "piso (m); ojo: étage cuenta desde la planta baja, así que au deuxième étage = el segundo piso",
+        "it": "piano (m)",
+        "nl": "verdieping (m)"
+      }
+    },
+    "été": {
+      "lemma": "été",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "summer (m); also the past participle of être",
+        "es-419": "verano (m); también el participio de être",
+        "it": "estate (m); anche il participio di être",
+        "nl": "zomer (m); ook het voltooid deelwoord van être"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-voyage-1",
+      "title": "Un billet pour Lyon",
+      "grammarFocus": {
+        "en": [
+          "un billet pour + city; un aller simple, un aller-retour",
+          "dates: le trois mai, le premier juin (months in lowercase)",
+          "durer: Ça dure combien de temps?"
+        ],
+        "es-419": [
+          "un billet pour + ciudad; un aller simple, un aller-retour",
+          "fechas: le trois mai, le premier juin (meses en minúscula)",
+          "durer: Ça dure combien de temps? = ¿Cuánto tiempo dura?"
+        ],
+        "it": [
+          "un billet pour + città; un aller simple, un aller-retour",
+          "le date: le trois mai, le premier juin (mesi in minuscolo)",
+          "durer: Ça dure combien de temps? = quanto dura?"
+        ],
+        "nl": [
+          "un billet pour + stad; un aller simple, un aller-retour",
+          "datums: le trois mai, le premier juin (maanden met kleine letter)",
+          "durer: Ça dure combien de temps? = hoe lang duurt het?"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "billet",
+          "translation": {
+            "en": "ticket",
+            "es-419": "boleto",
+            "it": "biglietto",
+            "nl": "kaartje"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "suitcase"
+            ],
+            "es-419": [
+              "recibo",
+              "maleta"
+            ],
+            "it": [
+              "scontrino",
+              "valigia"
+            ],
+            "nl": [
+              "bonnetje",
+              "koffer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un billet pour Lyon",
+          "translation": {
+            "en": "a ticket to Lyon",
+            "es-419": "un boleto a Lyon",
+            "it": "un biglietto per Lione",
+            "nl": "een kaartje naar Lyon"
+          },
+          "distractors": {
+            "en": [
+              "two tickets to Lyon",
+              "a ticket from Lyon"
+            ],
+            "es-419": [
+              "dos boletos a Lyon",
+              "un boleto desde Lyon"
+            ],
+            "it": [
+              "due biglietti per Lione",
+              "un biglietto da Lione"
+            ],
+            "nl": [
+              "twee kaartjes naar Lyon",
+              "een kaartje vanuit Lyon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un aller simple",
+          "senses": {
+            "1": "noun"
+          },
+          "translation": {
+            "en": "a one-way ticket",
+            "es-419": "un boleto sencillo",
+            "it": "un biglietto di sola andata",
+            "nl": "een enkele reis"
+          },
+          "distractors": {
+            "en": [
+              "a round-trip ticket",
+              "two one-way tickets"
+            ],
+            "es-419": [
+              "un boleto de ida y vuelta",
+              "dos boletos sencillos"
+            ],
+            "it": [
+              "un biglietto di andata e ritorno",
+              "due biglietti di sola andata"
+            ],
+            "nl": [
+              "een retourtje",
+              "twee enkele reizen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un aller-retour",
+          "translation": {
+            "en": "a round-trip ticket",
+            "es-419": "un boleto de ida y vuelta",
+            "it": "un biglietto di andata e ritorno",
+            "nl": "een retourtje"
+          },
+          "distractors": {
+            "en": [
+              "a one-way ticket",
+              "two round-trip tickets"
+            ],
+            "es-419": [
+              "un boleto sencillo",
+              "dos boletos de ida y vuelta"
+            ],
+            "it": [
+              "un biglietto di sola andata",
+              "due biglietti di andata e ritorno"
+            ],
+            "nl": [
+              "een enkele reis",
+              "twee retourtjes"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, je voudrais un aller simple pour Lyon, s'il vous plaît.",
+          "senses": {
+            "4": "noun"
+          },
+          "translation": {
+            "en": "Hello, I'd like a one-way ticket to Lyon, please.",
+            "es-419": "Buenos días, quisiera un boleto sencillo a Lyon, por favor.",
+            "it": "Buongiorno, vorrei un biglietto di sola andata per Lione, per favore.",
+            "nl": "Goedendag, ik wil graag een enkele reis naar Lyon, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Hello, I'd like a round-trip ticket to Lyon, please.",
+              "Hello, I'd like a one-way ticket to Paris, please."
+            ],
+            "es-419": [
+              "Buenos días, quisiera un boleto de ida y vuelta a Lyon, por favor.",
+              "Buenos días, quisiera un boleto sencillo a París, por favor."
+            ],
+            "it": [
+              "Buongiorno, vorrei un biglietto di andata e ritorno per Lione, per favore.",
+              "Buongiorno, vorrei un biglietto di sola andata per Parigi, per favore."
+            ],
+            "nl": [
+              "Goedendag, ik wil graag een retourtje naar Lyon, alstublieft.",
+              "Goedendag, ik wil graag een enkele reis naar Parijs, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le trois mai",
+          "variants": [
+            "le 3 mai"
+          ],
+          "translation": {
+            "en": "on May third",
+            "es-419": "el tres de mayo",
+            "it": "il tre maggio",
+            "nl": "op drie mei"
+          },
+          "distractors": {
+            "en": [
+              "on March third",
+              "on May thirteenth"
+            ],
+            "es-419": [
+              "el tres de marzo",
+              "el trece de mayo"
+            ],
+            "it": [
+              "il tre marzo",
+              "il tredici maggio"
+            ],
+            "nl": [
+              "op drie maart",
+              "op dertien mei"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le premier juin",
+          "variants": [
+            "le 1er juin"
+          ],
+          "translation": {
+            "en": "on June first",
+            "es-419": "el primero de junio",
+            "it": "il primo giugno",
+            "nl": "op één juni"
+          },
+          "distractors": {
+            "en": [
+              "on May first",
+              "on June eleventh"
+            ],
+            "es-419": [
+              "el primero de mayo",
+              "el once de junio"
+            ],
+            "it": [
+              "il primo maggio",
+              "l'undici giugno"
+            ],
+            "nl": [
+              "op één mei",
+              "op elf juni"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quelle est la date",
+          "translation": {
+            "en": "what is the date",
+            "es-419": "cuál es la fecha",
+            "it": "qual è la data",
+            "nl": "welke datum is het"
+          },
+          "distractors": {
+            "en": [
+              "what is the time",
+              "what is the price"
+            ],
+            "es-419": [
+              "qué hora es",
+              "cuál es el precio"
+            ],
+            "it": [
+              "che ore sono",
+              "qual è il prezzo"
+            ],
+            "nl": [
+              "hoe laat is het",
+              "wat is de prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quelle est la date de votre voyage?",
+          "translation": {
+            "en": "What is the date of your trip?",
+            "es-419": "¿Cuál es la fecha de su viaje?",
+            "it": "Qual è la data del Suo viaggio?",
+            "nl": "Wat is de datum van uw reis?"
+          },
+          "distractors": {
+            "en": [
+              "What is the price of your trip?",
+              "What is the date of your flight?"
+            ],
+            "es-419": [
+              "¿Cuál es el precio de su viaje?",
+              "¿Cuál es la fecha de su vuelo?"
+            ],
+            "it": [
+              "Qual è il prezzo del Suo viaggio?",
+              "Qual è la data del Suo volo?"
+            ],
+            "nl": [
+              "Wat is de prijs van uw reis?",
+              "Wat is de datum van uw vlucht?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais partir le trois mai.",
+          "variants": [
+            "Je voudrais partir le 3 mai."
+          ],
+          "translation": {
+            "en": "I'd like to leave on May third.",
+            "es-419": "Quisiera salir el tres de mayo.",
+            "it": "Vorrei partire il tre maggio.",
+            "nl": "Ik wil graag op drie mei vertrekken."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to leave on May thirteenth.",
+              "I'd like to leave on June third."
+            ],
+            "es-419": [
+              "Quisiera salir el trece de mayo.",
+              "Quisiera salir el tres de junio."
+            ],
+            "it": [
+              "Vorrei partire il tredici maggio.",
+              "Vorrei partire il tre giugno."
+            ],
+            "nl": [
+              "Ik wil graag op dertien mei vertrekken.",
+              "Ik wil graag op drie juni vertrekken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça dure combien de temps",
+          "translation": {
+            "en": "how long does it take",
+            "es-419": "cuánto tiempo dura",
+            "it": "quanto dura",
+            "nl": "hoe lang duurt het"
+          },
+          "distractors": {
+            "en": [
+              "how much does it cost",
+              "what time does it leave"
+            ],
+            "es-419": [
+              "cuánto cuesta",
+              "a qué hora sale"
+            ],
+            "it": [
+              "quanto costa",
+              "a che ora parte"
+            ],
+            "nl": [
+              "hoeveel kost het",
+              "hoe laat vertrekt het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le voyage dure trois heures.",
+          "variants": [
+            "Le voyage dure 3 heures."
+          ],
+          "translation": {
+            "en": "The trip takes three hours.",
+            "es-419": "El viaje dura tres horas.",
+            "it": "Il viaggio dura tre ore.",
+            "nl": "De reis duurt drie uur."
+          },
+          "distractors": {
+            "en": [
+              "The trip takes three days.",
+              "The trip takes four hours."
+            ],
+            "es-419": [
+              "El viaje dura tres días.",
+              "El viaje dura cuatro horas."
+            ],
+            "it": [
+              "Il viaggio dura tre giorni.",
+              "Il viaggio dura quattro ore."
+            ],
+            "nl": [
+              "De reis duurt drie dagen.",
+              "De reis duurt vier uur."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le billet coûte trente euros.",
+          "variants": [
+            "Le billet coûte 30 euros."
+          ],
+          "translation": {
+            "en": "The ticket costs thirty euros.",
+            "es-419": "El boleto cuesta treinta euros.",
+            "it": "Il biglietto costa trenta euro.",
+            "nl": "Het kaartje kost dertig euro."
+          },
+          "distractors": {
+            "en": [
+              "The ticket costs forty euros.",
+              "The ticket costs fifty euros."
+            ],
+            "es-419": [
+              "El boleto cuesta cuarenta euros.",
+              "El boleto cuesta cincuenta euros."
+            ],
+            "it": [
+              "Il biglietto costa quaranta euro.",
+              "Il biglietto costa cinquanta euro."
+            ],
+            "nl": [
+              "Het kaartje kost veertig euro.",
+              "Het kaartje kost vijftig euro."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous voulez un aller simple ou un aller-retour?",
+          "senses": {
+            "3": "noun"
+          },
+          "translation": {
+            "en": "Would you like a one-way or a round-trip ticket?",
+            "es-419": "¿Quiere un boleto sencillo o de ida y vuelta?",
+            "it": "Vuole un biglietto di sola andata o di andata e ritorno?",
+            "nl": "Wilt u een enkele reis of een retour?"
+          },
+          "distractors": {
+            "en": [
+              "Would you like a one-way ticket for today?",
+              "Would you like a ticket or a room?"
+            ],
+            "es-419": [
+              "¿Quiere un boleto sencillo para hoy?",
+              "¿Quiere un boleto o una habitación?"
+            ],
+            "it": [
+              "Vuole un biglietto di sola andata per oggi?",
+              "Vuole un biglietto o una camera?"
+            ],
+            "nl": [
+              "Wilt u een enkele reis voor vandaag?",
+              "Wilt u een kaartje of een kamer?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un aller-retour pour Nantes coûte quatre-vingts euros.",
+          "variants": [
+            "Un aller-retour pour Nantes coûte 80 euros."
+          ],
+          "translation": {
+            "en": "A round-trip ticket to Nantes costs eighty euros.",
+            "es-419": "Un boleto de ida y vuelta a Nantes cuesta ochenta euros.",
+            "it": "Un biglietto di andata e ritorno per Nantes costa ottanta euro.",
+            "nl": "Een retour naar Nantes kost tachtig euro."
+          },
+          "distractors": {
+            "en": [
+              "A one-way ticket to Nantes costs eighty euros.",
+              "A round-trip ticket to Nantes costs ninety euros."
+            ],
+            "es-419": [
+              "Un boleto sencillo a Nantes cuesta ochenta euros.",
+              "Un boleto de ida y vuelta a Nantes cuesta noventa euros."
+            ],
+            "it": [
+              "Un biglietto di sola andata per Nantes costa ottanta euro.",
+              "Un biglietto di andata e ritorno per Nantes costa novanta euro."
+            ],
+            "nl": [
+              "Een enkele reis naar Nantes kost tachtig euro.",
+              "Een retour naar Nantes kost negentig euro."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais deux allers-retours pour Toulouse le vingt-deux août.",
+          "variants": [
+            "Je voudrais 2 allers-retours pour Toulouse le 22 août."
+          ],
+          "translation": {
+            "en": "I'd like two round-trip tickets to Toulouse on August twenty-second.",
+            "es-419": "Quisiera dos boletos de ida y vuelta a Toulouse el veintidós de agosto.",
+            "it": "Vorrei due biglietti di andata e ritorno per Tolosa il ventidue agosto.",
+            "nl": "Ik wil graag twee retourtjes naar Toulouse op tweeëntwintig augustus."
+          },
+          "distractors": {
+            "en": [
+              "I'd like three round-trip tickets to Toulouse on August twenty-second.",
+              "I'd like two round-trip tickets to Toulouse on August twelfth."
+            ],
+            "es-419": [
+              "Quisiera tres boletos de ida y vuelta a Toulouse el veintidós de agosto.",
+              "Quisiera dos boletos de ida y vuelta a Toulouse el doce de agosto."
+            ],
+            "it": [
+              "Vorrei tre biglietti di andata e ritorno per Tolosa il ventidue agosto.",
+              "Vorrei due biglietti di andata e ritorno per Tolosa il dodici agosto."
+            ],
+            "nl": [
+              "Ik wil graag drie retourtjes naar Toulouse op tweeëntwintig augustus.",
+              "Ik wil graag twee retourtjes naar Toulouse op twaalf augustus."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-voyage-2",
+      "title": "Le train a du retard",
+      "grammarFocus": {
+        "en": [
+          "avoir du retard: Le train a du retard",
+          "the 24-hour clock: quinze heures trente = 3:30 p.m.",
+          "le train suivant, le dernier train"
+        ],
+        "es-419": [
+          "avoir du retard: Le train a du retard = El tren va con retraso",
+          "el reloj de 24 horas: quinze heures trente = 15:30",
+          "le train suivant, le dernier train"
+        ],
+        "it": [
+          "avoir du retard: Le train a du retard = il treno è in ritardo",
+          "l'orologio di 24 ore: quinze heures trente = le 15:30",
+          "le train suivant, le dernier train"
+        ],
+        "nl": [
+          "avoir du retard: Le train a du retard = de trein heeft vertraging",
+          "de 24-uursklok: quinze heures trente = half vier",
+          "le train suivant, le dernier train"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "quai",
+          "translation": {
+            "en": "platform",
+            "es-419": "andén",
+            "it": "binario",
+            "nl": "perron"
+          },
+          "distractors": {
+            "en": [
+              "exit",
+              "ticket"
+            ],
+            "es-419": [
+              "salida",
+              "boleto"
+            ],
+            "it": [
+              "uscita",
+              "biglietto"
+            ],
+            "nl": [
+              "uitgang",
+              "kaartje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le quai numéro six",
+          "variants": [
+            "le quai numéro 6"
+          ],
+          "translation": {
+            "en": "platform number six",
+            "es-419": "el andén número seis",
+            "it": "il binario numero sei",
+            "nl": "perron nummer zes"
+          },
+          "distractors": {
+            "en": [
+              "platform number sixteen",
+              "bus stop number six"
+            ],
+            "es-419": [
+              "el andén número dieciséis",
+              "la parada número seis"
+            ],
+            "it": [
+              "il binario numero sedici",
+              "la fermata numero sei"
+            ],
+            "nl": [
+              "perron nummer zestien",
+              "halte nummer zes"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "retard",
+          "translation": {
+            "en": "delay",
+            "es-419": "retraso",
+            "it": "ritardo",
+            "nl": "vertraging"
+          },
+          "distractors": {
+            "en": [
+              "departure",
+              "arrival"
+            ],
+            "es-419": [
+              "salida",
+              "llegada"
+            ],
+            "it": [
+              "partenza",
+              "arrivo"
+            ],
+            "nl": [
+              "vertrek",
+              "aankomst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le train a du retard",
+          "translation": {
+            "en": "the train is late",
+            "es-419": "el tren va con retraso",
+            "it": "il treno è in ritardo",
+            "nl": "de trein heeft vertraging"
+          },
+          "distractors": {
+            "en": [
+              "the train is on time",
+              "the plane is late"
+            ],
+            "es-419": [
+              "el tren llega a tiempo",
+              "el avión va con retraso"
+            ],
+            "it": [
+              "il treno è in orario",
+              "l'aereo è in ritardo"
+            ],
+            "nl": [
+              "de trein is op tijd",
+              "het vliegtuig heeft vertraging"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le train a vingt minutes de retard.",
+          "variants": [
+            "Le train a 20 minutes de retard."
+          ],
+          "translation": {
+            "en": "The train is twenty minutes late.",
+            "es-419": "El tren tiene veinte minutos de retraso.",
+            "it": "Il treno ha venti minuti di ritardo.",
+            "nl": "De trein heeft twintig minuten vertraging."
+          },
+          "distractors": {
+            "en": [
+              "The train is thirty minutes late.",
+              "The bus is twenty minutes late."
+            ],
+            "es-419": [
+              "El tren tiene treinta minutos de retraso.",
+              "El autobús tiene veinte minutos de retraso."
+            ],
+            "it": [
+              "Il treno ha trenta minuti di ritardo.",
+              "L'autobus ha venti minuti di ritardo."
+            ],
+            "nl": [
+              "De trein heeft dertig minuten vertraging.",
+              "De bus heeft twintig minuten vertraging."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "avion",
+          "translation": {
+            "en": "plane",
+            "es-419": "avión",
+            "it": "aereo",
+            "nl": "vliegtuig"
+          },
+          "distractors": {
+            "en": [
+              "train",
+              "boat"
+            ],
+            "es-419": [
+              "tren",
+              "barco"
+            ],
+            "it": [
+              "treno",
+              "barca"
+            ],
+            "nl": [
+              "trein",
+              "boot"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "aéroport",
+          "translation": {
+            "en": "airport",
+            "es-419": "aeropuerto",
+            "it": "aeroporto",
+            "nl": "luchthaven"
+          },
+          "distractors": {
+            "en": [
+              "train station",
+              "harbor"
+            ],
+            "es-419": [
+              "estación de tren",
+              "puerto"
+            ],
+            "it": [
+              "stazione ferroviaria",
+              "porto"
+            ],
+            "nl": [
+              "treinstation",
+              "haven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "l'avion de midi",
+          "translation": {
+            "en": "the noon plane",
+            "es-419": "el avión del mediodía",
+            "it": "l'aereo di mezzogiorno",
+            "nl": "het vliegtuig van twaalf uur"
+          },
+          "distractors": {
+            "en": [
+              "the midnight plane",
+              "the noon train"
+            ],
+            "es-419": [
+              "el avión de medianoche",
+              "el tren del mediodía"
+            ],
+            "it": [
+              "l'aereo di mezzanotte",
+              "il treno di mezzogiorno"
+            ],
+            "nl": [
+              "het vliegtuig van middernacht",
+              "de trein van twaalf uur"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'avion part de l'aéroport à midi.",
+          "translation": {
+            "en": "The plane leaves from the airport at noon.",
+            "es-419": "El avión sale del aeropuerto a mediodía.",
+            "it": "L'aereo parte dall'aeroporto a mezzogiorno.",
+            "nl": "Het vliegtuig vertrekt om twaalf uur van de luchthaven."
+          },
+          "distractors": {
+            "en": [
+              "The plane leaves from the airport at midnight.",
+              "The train leaves from the station at noon."
+            ],
+            "es-419": [
+              "El avión sale del aeropuerto a medianoche.",
+              "El tren sale de la estación a mediodía."
+            ],
+            "it": [
+              "L'aereo parte dall'aeroporto a mezzanotte.",
+              "Il treno parte dalla stazione a mezzogiorno."
+            ],
+            "nl": [
+              "Het vliegtuig vertrekt om middernacht van de luchthaven.",
+              "De trein vertrekt om twaalf uur van het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "vol",
+          "translation": {
+            "en": "flight",
+            "es-419": "vuelo",
+            "it": "volo",
+            "nl": "vlucht"
+          },
+          "distractors": {
+            "en": [
+              "seat",
+              "luggage"
+            ],
+            "es-419": [
+              "asiento",
+              "equipaje"
+            ],
+            "it": [
+              "posto",
+              "bagaglio"
+            ],
+            "nl": [
+              "stoel",
+              "bagage"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le vol pour Montréal",
+          "translation": {
+            "en": "the flight to Montreal",
+            "es-419": "el vuelo a Montreal",
+            "it": "il volo per Montréal",
+            "nl": "de vlucht naar Montreal"
+          },
+          "distractors": {
+            "en": [
+              "the flight from Montreal",
+              "the train to Montreal"
+            ],
+            "es-419": [
+              "el vuelo desde Montreal",
+              "el tren a Montreal"
+            ],
+            "it": [
+              "il volo da Montréal",
+              "il treno per Montréal"
+            ],
+            "nl": [
+              "de vlucht vanuit Montreal",
+              "de trein naar Montreal"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le vol pour Montréal a une heure de retard.",
+          "translation": {
+            "en": "The flight to Montreal is an hour late.",
+            "es-419": "El vuelo a Montreal tiene una hora de retraso.",
+            "it": "Il volo per Montréal ha un'ora di ritardo.",
+            "nl": "De vlucht naar Montreal heeft een uur vertraging."
+          },
+          "distractors": {
+            "en": [
+              "The flight to Montreal is two hours late.",
+              "The flight from Montreal is an hour late."
+            ],
+            "es-419": [
+              "El vuelo a Montreal tiene dos horas de retraso.",
+              "El vuelo desde Montreal tiene una hora de retraso."
+            ],
+            "it": [
+              "Il volo per Montréal ha due ore di ritardo.",
+              "Il volo da Montréal ha un'ora di ritardo."
+            ],
+            "nl": [
+              "De vlucht naar Montreal heeft twee uur vertraging.",
+              "De vlucht vanuit Montreal heeft een uur vertraging."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le train suivant",
+          "translation": {
+            "en": "the next train",
+            "es-419": "el tren siguiente",
+            "it": "il treno successivo",
+            "nl": "de volgende trein"
+          },
+          "distractors": {
+            "en": [
+              "the last train",
+              "the next bus"
+            ],
+            "es-419": [
+              "el último tren",
+              "el autobús siguiente"
+            ],
+            "it": [
+              "l'ultimo treno",
+              "l'autobus successivo"
+            ],
+            "nl": [
+              "de laatste trein",
+              "de volgende bus"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le train suivant part à quinze heures trente.",
+          "variants": [
+            "Le train suivant part à 15 h 30."
+          ],
+          "translation": {
+            "en": "The next train leaves at 3:30 p.m.",
+            "es-419": "El tren siguiente sale a las tres y media de la tarde.",
+            "it": "Il treno successivo parte alle quindici e trenta.",
+            "nl": "De volgende trein vertrekt om half vier."
+          },
+          "distractors": {
+            "en": [
+              "The next train leaves at 5:30 p.m.",
+              "The next train leaves at 3:15 p.m."
+            ],
+            "es-419": [
+              "El tren siguiente sale a las cinco y media de la tarde.",
+              "El tren siguiente sale a las tres y cuarto de la tarde."
+            ],
+            "it": [
+              "Il treno successivo parte alle diciassette e trenta.",
+              "Il treno successivo parte alle quindici e quindici."
+            ],
+            "nl": [
+              "De volgende trein vertrekt om half zes.",
+              "De volgende trein vertrekt om kwart over drie."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le dernier train pour Nice part à vingt-deux heures dix.",
+          "variants": [
+            "Le dernier train pour Nice part à 22 h 10."
+          ],
+          "translation": {
+            "en": "The last train to Nice leaves at 10:10 p.m.",
+            "es-419": "El último tren a Niza sale a las diez y diez de la noche.",
+            "it": "L'ultimo treno per Nizza parte alle ventidue e dieci.",
+            "nl": "De laatste trein naar Nice vertrekt om tien over tien 's avonds."
+          },
+          "distractors": {
+            "en": [
+              "The last train to Nice leaves at 9:10 p.m.",
+              "The last train to Lyon leaves at 10:10 p.m."
+            ],
+            "es-419": [
+              "El último tren a Niza sale a las nueve y diez de la noche.",
+              "El último tren a Lyon sale a las diez y diez de la noche."
+            ],
+            "it": [
+              "L'ultimo treno per Nizza parte alle ventuno e dieci.",
+              "L'ultimo treno per Lione parte alle ventidue e dieci."
+            ],
+            "nl": [
+              "De laatste trein naar Nice vertrekt om tien over negen 's avonds.",
+              "De laatste trein naar Lyon vertrekt om tien over tien 's avonds."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, le train pour Paris est sur quel quai?",
+          "translation": {
+            "en": "Excuse me, which platform is the train to Paris on?",
+            "es-419": "Disculpe, ¿en qué andén está el tren a París?",
+            "it": "Scusi, su quale binario è il treno per Parigi?",
+            "nl": "Pardon, op welk perron staat de trein naar Parijs?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, which platform is the train from Paris on?",
+              "Excuse me, which platform is the bus to Paris on?"
+            ],
+            "es-419": [
+              "Disculpe, ¿en qué andén está el tren desde París?",
+              "Disculpe, ¿en qué andén está el autobús a París?"
+            ],
+            "it": [
+              "Scusi, su quale binario è il treno da Parigi?",
+              "Scusi, su quale binario è l'autobus per Parigi?"
+            ],
+            "nl": [
+              "Pardon, op welk perron staat de trein vanuit Parijs?",
+              "Pardon, op welk perron staat de bus naar Parijs?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-voyage-3",
+      "title": "À l'hôtel",
+      "grammarFocus": {
+        "en": [
+          "Vous avez une chambre...? J'ai une réservation",
+          "chambre simple, chambre double",
+          "au deuxième étage (floors start above the ground floor)"
+        ],
+        "es-419": [
+          "Vous avez une chambre...? J'ai une réservation = ¿Tiene una habitación...? Tengo una reserva",
+          "chambre simple, chambre double",
+          "au deuxième étage (los pisos se cuentan sobre la planta baja)"
+        ],
+        "it": [
+          "Vous avez une chambre...? J'ai une réservation = Ha una camera...? Ho una prenotazione",
+          "chambre simple, chambre double",
+          "au deuxième étage (i piani si contano sopra il piano terra)"
+        ],
+        "nl": [
+          "Vous avez une chambre...? J'ai une réservation = Heeft u een kamer...? Ik heb een reservering",
+          "chambre simple, chambre double",
+          "au deuxième étage (verdiepingen tellen boven de begane grond)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "hôtel",
+          "translation": {
+            "en": "hotel",
+            "es-419": "hotel",
+            "it": "albergo",
+            "nl": "hotel"
+          },
+          "distractors": {
+            "en": [
+              "restaurant",
+              "hospital"
+            ],
+            "es-419": [
+              "restaurante",
+              "hospital"
+            ],
+            "it": [
+              "ristorante",
+              "ospedale"
+            ],
+            "nl": [
+              "restaurant",
+              "ziekenhuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "chambre",
+          "translation": {
+            "en": "room",
+            "es-419": "habitación",
+            "it": "camera",
+            "nl": "kamer"
+          },
+          "distractors": {
+            "en": [
+              "kitchen",
+              "garden"
+            ],
+            "es-419": [
+              "cocina",
+              "jardín"
+            ],
+            "it": [
+              "cucina",
+              "giardino"
+            ],
+            "nl": [
+              "keuken",
+              "tuin"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une chambre double",
+          "translation": {
+            "en": "a double room",
+            "es-419": "una habitación doble",
+            "it": "una camera doppia",
+            "nl": "een tweepersoonskamer"
+          },
+          "distractors": {
+            "en": [
+              "a single room",
+              "two double rooms"
+            ],
+            "es-419": [
+              "una habitación sencilla",
+              "dos habitaciones dobles"
+            ],
+            "it": [
+              "una camera singola",
+              "due camere doppie"
+            ],
+            "nl": [
+              "een eenpersoonskamer",
+              "twee tweepersoonskamers"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une chambre simple",
+          "translation": {
+            "en": "a single room",
+            "es-419": "una habitación sencilla",
+            "it": "una camera singola",
+            "nl": "een eenpersoonskamer"
+          },
+          "distractors": {
+            "en": [
+              "a double room",
+              "two single rooms"
+            ],
+            "es-419": [
+              "una habitación doble",
+              "dos habitaciones sencillas"
+            ],
+            "it": [
+              "una camera doppia",
+              "due camere singole"
+            ],
+            "nl": [
+              "een tweepersoonskamer",
+              "twee eenpersoonskamers"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, vous avez une chambre pour deux personnes?",
+          "translation": {
+            "en": "Hello, do you have a room for two people?",
+            "es-419": "Buenos días, ¿tiene una habitación para dos personas?",
+            "it": "Buongiorno, ha una camera per due persone?",
+            "nl": "Goedendag, heeft u een kamer voor twee personen?"
+          },
+          "distractors": {
+            "en": [
+              "Hello, do you have a room for three people?",
+              "Hello, do you have a table for two people?"
+            ],
+            "es-419": [
+              "Buenos días, ¿tiene una habitación para tres personas?",
+              "Buenos días, ¿tiene una mesa para dos personas?"
+            ],
+            "it": [
+              "Buongiorno, ha una camera per tre persone?",
+              "Buongiorno, ha un tavolo per due persone?"
+            ],
+            "nl": [
+              "Goedendag, heeft u een kamer voor drie personen?",
+              "Goedendag, heeft u een tafel voor twee personen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai une réservation",
+          "translation": {
+            "en": "I have a reservation",
+            "es-419": "tengo una reserva",
+            "it": "ho una prenotazione",
+            "nl": "ik heb een reservering"
+          },
+          "distractors": {
+            "en": [
+              "I'd like a reservation",
+              "I have a ticket"
+            ],
+            "es-419": [
+              "quisiera una reserva",
+              "tengo un boleto"
+            ],
+            "it": [
+              "vorrei una prenotazione",
+              "ho un biglietto"
+            ],
+            "nl": [
+              "ik wil graag een reservering",
+              "ik heb een kaartje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai une réservation au nom de Martin.",
+          "translation": {
+            "en": "I have a reservation under the name Martin.",
+            "es-419": "Tengo una reserva a nombre de Martin.",
+            "it": "Ho una prenotazione a nome di Martin.",
+            "nl": "Ik heb een reservering op naam van Martin."
+          },
+          "distractors": {
+            "en": [
+              "I have a reservation under the name Dupont.",
+              "I'd like a reservation under the name Martin."
+            ],
+            "es-419": [
+              "Tengo una reserva a nombre de Dupont.",
+              "Quisiera una reserva a nombre de Martin."
+            ],
+            "it": [
+              "Ho una prenotazione a nome di Dupont.",
+              "Vorrei una prenotazione a nome di Martin."
+            ],
+            "nl": [
+              "Ik heb een reservering op naam van Dupont.",
+              "Ik wil graag een reservering op naam van Martin."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Désolé, l'hôtel est complet ce soir.",
+          "speaker": "M",
+          "translation": {
+            "en": "Sorry, the hotel is full tonight.",
+            "es-419": "Lo siento, el hotel está lleno esta noche.",
+            "it": "Mi dispiace, l'albergo è al completo stasera.",
+            "nl": "Sorry, het hotel zit vol vanavond."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, the hotel is closed tonight.",
+              "Sorry, the hotel is full tomorrow."
+            ],
+            "es-419": [
+              "Lo siento, el hotel está cerrado esta noche.",
+              "Lo siento, el hotel está lleno mañana."
+            ],
+            "it": [
+              "Mi dispiace, l'albergo è chiuso stasera.",
+              "Mi dispiace, l'albergo è al completo domani."
+            ],
+            "nl": [
+              "Sorry, het hotel is gesloten vanavond.",
+              "Sorry, het hotel zit vol morgen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "clé",
+          "translation": {
+            "en": "key",
+            "es-419": "llave",
+            "it": "chiave",
+            "nl": "sleutel"
+          },
+          "distractors": {
+            "en": [
+              "lock",
+              "card"
+            ],
+            "es-419": [
+              "cerradura",
+              "tarjeta"
+            ],
+            "it": [
+              "serratura",
+              "tessera"
+            ],
+            "nl": [
+              "slot",
+              "pasje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voici votre clé, madame.",
+          "translation": {
+            "en": "Here is your key, ma'am.",
+            "es-419": "Aquí tiene su llave, señora.",
+            "it": "Ecco la Sua chiave, signora.",
+            "nl": "Hier is uw sleutel, mevrouw."
+          },
+          "distractors": {
+            "en": [
+              "Here is your key, sir.",
+              "Here is your passport, ma'am."
+            ],
+            "es-419": [
+              "Aquí tiene su llave, señor.",
+              "Aquí tiene su pasaporte, señora."
+            ],
+            "it": [
+              "Ecco la Sua chiave, signore.",
+              "Ecco il Suo passaporto, signora."
+            ],
+            "nl": [
+              "Hier is uw sleutel, meneer.",
+              "Hier is uw paspoort, mevrouw."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mon passeport",
+          "translation": {
+            "en": "my passport",
+            "es-419": "mi pasaporte",
+            "it": "il mio passaporto",
+            "nl": "mijn paspoort"
+          },
+          "distractors": {
+            "en": [
+              "my key",
+              "my ticket"
+            ],
+            "es-419": [
+              "mi llave",
+              "mi boleto"
+            ],
+            "it": [
+              "la mia chiave",
+              "il mio biglietto"
+            ],
+            "nl": [
+              "mijn sleutel",
+              "mijn kaartje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voici mon passeport, monsieur.",
+          "translation": {
+            "en": "Here is my passport, sir.",
+            "es-419": "Aquí tiene mi pasaporte, señor.",
+            "it": "Ecco il mio passaporto, signore.",
+            "nl": "Hier is mijn paspoort, meneer."
+          },
+          "distractors": {
+            "en": [
+              "Here is my passport, ma'am.",
+              "Here is my ticket, sir."
+            ],
+            "es-419": [
+              "Aquí tiene mi pasaporte, señora.",
+              "Aquí tiene mi boleto, señor."
+            ],
+            "it": [
+              "Ecco il mio passaporto, signora.",
+              "Ecco il mio biglietto, signore."
+            ],
+            "nl": [
+              "Hier is mijn paspoort, mevrouw.",
+              "Hier is mijn kaartje, meneer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "ascenseur",
+          "translation": {
+            "en": "elevator",
+            "es-419": "elevador",
+            "it": "ascensore",
+            "nl": "lift"
+          },
+          "distractors": {
+            "en": [
+              "stairs",
+              "entrance"
+            ],
+            "es-419": [
+              "escalera",
+              "entrada"
+            ],
+            "it": [
+              "scala",
+              "ingresso"
+            ],
+            "nl": [
+              "trap",
+              "ingang"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'ascenseur est à droite.",
+          "translation": {
+            "en": "The elevator is on the right.",
+            "es-419": "El elevador está a la derecha.",
+            "it": "L'ascensore è a destra.",
+            "nl": "De lift is aan de rechterkant."
+          },
+          "distractors": {
+            "en": [
+              "The elevator is on the left.",
+              "The stairs are on the right."
+            ],
+            "es-419": [
+              "El elevador está a la izquierda.",
+              "La escalera está a la derecha."
+            ],
+            "it": [
+              "L'ascensore è a sinistra.",
+              "La scala è a destra."
+            ],
+            "nl": [
+              "De lift is aan de linkerkant.",
+              "De trap is aan de rechterkant."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "au deuxième étage",
+          "translation": {
+            "en": "on the third floor",
+            "es-419": "en el segundo piso",
+            "it": "al secondo piano",
+            "nl": "op de tweede verdieping"
+          },
+          "distractors": {
+            "en": [
+              "on the fifth floor",
+              "on the ground floor"
+            ],
+            "es-419": [
+              "en el quinto piso",
+              "en la planta baja"
+            ],
+            "it": [
+              "al quinto piano",
+              "al piano terra"
+            ],
+            "nl": [
+              "op de vijfde verdieping",
+              "op de begane grond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Votre chambre est au deuxième étage, madame.",
+          "translation": {
+            "en": "Your room is on the third floor, ma'am.",
+            "es-419": "Su habitación está en el segundo piso, señora.",
+            "it": "La Sua camera è al secondo piano, signora.",
+            "nl": "Uw kamer is op de tweede verdieping, mevrouw."
+          },
+          "distractors": {
+            "en": [
+              "Your room is on the fifth floor, ma'am.",
+              "Your room is on the third floor, sir."
+            ],
+            "es-419": [
+              "Su habitación está en el quinto piso, señora.",
+              "Su habitación está en el segundo piso, señor."
+            ],
+            "it": [
+              "La Sua camera è al quinto piano, signora.",
+              "La Sua camera è al secondo piano, signore."
+            ],
+            "nl": [
+              "Uw kamer is op de vijfde verdieping, mevrouw.",
+              "Uw kamer is op de tweede verdieping, meneer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-voyage-4",
+      "title": "Quel temps fait-il?",
+      "grammarFocus": {
+        "en": [
+          "il fait + weather: Il fait chaud, Il fait froid",
+          "il y a du soleil, du vent, de la neige; il pleut, il neige",
+          "aller + infinitive: Il va pleuvoir"
+        ],
+        "es-419": [
+          "il fait + clima: Il fait chaud = Hace calor",
+          "il y a du soleil, du vent, de la neige; il pleut, il neige",
+          "aller + infinitivo: Il va pleuvoir = Va a llover"
+        ],
+        "it": [
+          "il fait + tempo: Il fait chaud = Fa caldo",
+          "il y a du soleil, du vent, de la neige; il pleut, il neige",
+          "aller + infinito: Il va pleuvoir = Pioverà"
+        ],
+        "nl": [
+          "il fait + weer: Il fait chaud = Het is warm",
+          "il y a du soleil, du vent, de la neige; il pleut, il neige",
+          "aller + infinitief: Il va pleuvoir = Het gaat regenen"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "météo",
+          "translation": {
+            "en": "weather forecast",
+            "es-419": "pronóstico del tiempo",
+            "it": "meteo",
+            "nl": "weerbericht"
+          },
+          "distractors": {
+            "en": [
+              "news",
+              "schedule"
+            ],
+            "es-419": [
+              "noticias",
+              "horario"
+            ],
+            "it": [
+              "notizie",
+              "orario"
+            ],
+            "nl": [
+              "nieuws",
+              "dienstregeling"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quel temps fait-il",
+          "senses": {
+            "1": "weather"
+          },
+          "translation": {
+            "en": "what's the weather like",
+            "es-419": "qué tiempo hace",
+            "it": "che tempo fa",
+            "nl": "wat voor weer is het"
+          },
+          "distractors": {
+            "en": [
+              "what time is it",
+              "what is the date"
+            ],
+            "es-419": [
+              "qué hora es",
+              "cuál es la fecha"
+            ],
+            "it": [
+              "che ore sono",
+              "qual è la data"
+            ],
+            "nl": [
+              "hoe laat is het",
+              "welke datum is het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel temps fait-il aujourd'hui à Lyon?",
+          "senses": {
+            "1": "weather"
+          },
+          "translation": {
+            "en": "What's the weather like in Lyon today?",
+            "es-419": "¿Qué tiempo hace hoy en Lyon?",
+            "it": "Che tempo fa oggi a Lione?",
+            "nl": "Wat voor weer is het vandaag in Lyon?"
+          },
+          "distractors": {
+            "en": [
+              "What's the weather like in Lyon tomorrow?",
+              "What's the weather like in Paris today?"
+            ],
+            "es-419": [
+              "¿Qué tiempo hace mañana en Lyon?",
+              "¿Qué tiempo hace hoy en París?"
+            ],
+            "it": [
+              "Che tempo fa domani a Lione?",
+              "Che tempo fa oggi a Parigi?"
+            ],
+            "nl": [
+              "Wat voor weer is het morgen in Lyon?",
+              "Wat voor weer is het vandaag in Parijs?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "soleil",
+          "translation": {
+            "en": "sun",
+            "es-419": "sol",
+            "it": "sole",
+            "nl": "zon"
+          },
+          "distractors": {
+            "en": [
+              "moon",
+              "rain"
+            ],
+            "es-419": [
+              "luna",
+              "lluvia"
+            ],
+            "it": [
+              "luna",
+              "pioggia"
+            ],
+            "nl": [
+              "maan",
+              "regen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il y a du soleil",
+          "translation": {
+            "en": "it's sunny",
+            "es-419": "hay sol",
+            "it": "c'è il sole",
+            "nl": "de zon schijnt"
+          },
+          "distractors": {
+            "en": [
+              "it's windy",
+              "it's raining"
+            ],
+            "es-419": [
+              "hay viento",
+              "llueve"
+            ],
+            "it": [
+              "c'è vento",
+              "piove"
+            ],
+            "nl": [
+              "het waait",
+              "het regent"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, il y a du soleil et il fait chaud.",
+          "translation": {
+            "en": "It's sunny and hot today.",
+            "es-419": "Hoy hay sol y hace calor.",
+            "it": "Oggi c'è il sole e fa caldo.",
+            "nl": "Vandaag schijnt de zon en het is warm."
+          },
+          "distractors": {
+            "en": [
+              "It's sunny and cold today.",
+              "It's windy and hot today."
+            ],
+            "es-419": [
+              "Hoy hay sol y hace frío.",
+              "Hoy hay viento y hace calor."
+            ],
+            "it": [
+              "Oggi c'è il sole e fa freddo.",
+              "Oggi c'è vento e fa caldo."
+            ],
+            "nl": [
+              "Vandaag schijnt de zon en het is koud.",
+              "Vandaag waait het en het is warm."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "pluie",
+          "translation": {
+            "en": "rain",
+            "es-419": "lluvia",
+            "it": "pioggia",
+            "nl": "regen"
+          },
+          "distractors": {
+            "en": [
+              "snow",
+              "wind"
+            ],
+            "es-419": [
+              "nieve",
+              "viento"
+            ],
+            "it": [
+              "neve",
+              "vento"
+            ],
+            "nl": [
+              "sneeuw",
+              "wind"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il pleut",
+          "translation": {
+            "en": "it's raining",
+            "es-419": "llueve",
+            "it": "piove",
+            "nl": "het regent"
+          },
+          "distractors": {
+            "en": [
+              "it's snowing",
+              "it's sunny"
+            ],
+            "es-419": [
+              "nieva",
+              "hay sol"
+            ],
+            "it": [
+              "nevica",
+              "c'è il sole"
+            ],
+            "nl": [
+              "het sneeuwt",
+              "de zon schijnt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce soir, il pleut à Paris.",
+          "translation": {
+            "en": "It's raining in Paris tonight.",
+            "es-419": "Esta noche llueve en París.",
+            "it": "Stasera piove a Parigi.",
+            "nl": "Vanavond regent het in Parijs."
+          },
+          "distractors": {
+            "en": [
+              "It's snowing in Paris tonight.",
+              "It's raining in Lyon tonight."
+            ],
+            "es-419": [
+              "Esta noche nieva en París.",
+              "Esta noche llueve en Lyon."
+            ],
+            "it": [
+              "Stasera nevica a Parigi.",
+              "Stasera piove a Lione."
+            ],
+            "nl": [
+              "Vanavond sneeuwt het in Parijs.",
+              "Vanavond regent het in Lyon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "neige",
+          "translation": {
+            "en": "snow",
+            "es-419": "nieve",
+            "it": "neve",
+            "nl": "sneeuw"
+          },
+          "distractors": {
+            "en": [
+              "rain",
+              "ice"
+            ],
+            "es-419": [
+              "lluvia",
+              "hielo"
+            ],
+            "it": [
+              "pioggia",
+              "ghiaccio"
+            ],
+            "nl": [
+              "regen",
+              "ijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il neige",
+          "senses": {
+            "1": "neiger"
+          },
+          "translation": {
+            "en": "it's snowing",
+            "es-419": "nieva",
+            "it": "nevica",
+            "nl": "het sneeuwt"
+          },
+          "distractors": {
+            "en": [
+              "it's raining",
+              "it's windy"
+            ],
+            "es-419": [
+              "llueve",
+              "hay viento"
+            ],
+            "it": [
+              "piove",
+              "c'è vento"
+            ],
+            "nl": [
+              "het regent",
+              "het waait"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a de la neige et du vent à Québec.",
+          "translation": {
+            "en": "There's snow and wind in Quebec.",
+            "es-419": "Hay nieve y viento en Quebec.",
+            "it": "C'è neve e vento a Québec.",
+            "nl": "Er is sneeuw en wind in Québec."
+          },
+          "distractors": {
+            "en": [
+              "There's rain and wind in Quebec.",
+              "There's snow and sun in Quebec."
+            ],
+            "es-419": [
+              "Hay lluvia y viento en Quebec.",
+              "Hay nieve y sol en Quebec."
+            ],
+            "it": [
+              "C'è pioggia e vento a Québec.",
+              "C'è neve e sole a Québec."
+            ],
+            "nl": [
+              "Er is regen en wind in Québec.",
+              "Er is sneeuw en zon in Québec."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "vingt degrés",
+          "variants": [
+            "20 degrés"
+          ],
+          "translation": {
+            "en": "twenty degrees",
+            "es-419": "veinte grados",
+            "it": "venti gradi",
+            "nl": "twintig graden"
+          },
+          "distractors": {
+            "en": [
+              "fifteen degrees",
+              "thirty degrees"
+            ],
+            "es-419": [
+              "quince grados",
+              "treinta grados"
+            ],
+            "it": [
+              "quindici gradi",
+              "trenta gradi"
+            ],
+            "nl": [
+              "vijftien graden",
+              "dertig graden"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "c'est nuageux",
+          "translation": {
+            "en": "it's cloudy",
+            "es-419": "está nublado",
+            "it": "è nuvoloso",
+            "nl": "het is bewolkt"
+          },
+          "distractors": {
+            "en": [
+              "it's foggy",
+              "it's sunny"
+            ],
+            "es-419": [
+              "hay niebla",
+              "hay sol"
+            ],
+            "it": [
+              "c'è nebbia",
+              "c'è il sole"
+            ],
+            "nl": [
+              "het is mistig",
+              "de zon schijnt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Demain, c'est nuageux et il fait quinze degrés.",
+          "variants": [
+            "Demain, c'est nuageux et il fait 15 degrés."
+          ],
+          "translation": {
+            "en": "Tomorrow it's cloudy and fifteen degrees.",
+            "es-419": "Mañana está nublado y hace quince grados.",
+            "it": "Domani è nuvoloso e ci sono quindici gradi.",
+            "nl": "Morgen is het bewolkt en vijftien graden."
+          },
+          "distractors": {
+            "en": [
+              "Tomorrow it's sunny and fifteen degrees.",
+              "Tomorrow it's cloudy and thirty degrees."
+            ],
+            "es-419": [
+              "Mañana hay sol y hace quince grados.",
+              "Mañana está nublado y hace treinta grados."
+            ],
+            "it": [
+              "Domani c'è il sole e ci sono quindici gradi.",
+              "Domani è nuvoloso e ci sono trenta gradi."
+            ],
+            "nl": [
+              "Morgen schijnt de zon en het is vijftien graden.",
+              "Morgen is het bewolkt en dertig graden."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La météo dit qu'il va pleuvoir demain.",
+          "translation": {
+            "en": "The forecast says it's going to rain tomorrow.",
+            "es-419": "El pronóstico dice que va a llover mañana.",
+            "it": "Le previsioni dicono che domani pioverà.",
+            "nl": "Volgens het weerbericht gaat het morgen regenen."
+          },
+          "distractors": {
+            "en": [
+              "The forecast says it's going to snow tomorrow.",
+              "The forecast says it's going to rain tonight."
+            ],
+            "es-419": [
+              "El pronóstico dice que va a nevar mañana.",
+              "El pronóstico dice que va a llover esta noche."
+            ],
+            "it": [
+              "Le previsioni dicono che domani nevicherà.",
+              "Le previsioni dicono che stasera pioverà."
+            ],
+            "nl": [
+              "Volgens het weerbericht gaat het morgen sneeuwen.",
+              "Volgens het weerbericht gaat het vanavond regenen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-voyage-5",
+      "title": "Les saisons",
+      "grammarFocus": {
+        "en": [
+          "seasons: au printemps, en été, en automne, en hiver",
+          "months with en: en janvier, en mai (lowercase)",
+          "quel temps fait-il? in every season"
+        ],
+        "es-419": [
+          "estaciones: au printemps, en été, en automne, en hiver",
+          "meses con en: en janvier, en mai (minúscula)",
+          "quel temps fait-il? en cada estación"
+        ],
+        "it": [
+          "stagioni: au printemps, en été, en automne, en hiver",
+          "mesi con en: en janvier, en mai (minuscolo)",
+          "quel temps fait-il? in ogni stagione"
+        ],
+        "nl": [
+          "seizoenen: au printemps, en été, en automne, en hiver",
+          "maanden met en: en janvier, en mai (kleine letter)",
+          "quel temps fait-il? in elk seizoen"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "saison",
+          "translation": {
+            "en": "season",
+            "es-419": "estación",
+            "it": "stagione",
+            "nl": "seizoen"
+          },
+          "distractors": {
+            "en": [
+              "month",
+              "year"
+            ],
+            "es-419": [
+              "mes",
+              "año"
+            ],
+            "it": [
+              "mese",
+              "anno"
+            ],
+            "nl": [
+              "maand",
+              "jaar"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "printemps",
+          "translation": {
+            "en": "spring",
+            "es-419": "primavera",
+            "it": "primavera",
+            "nl": "lente"
+          },
+          "distractors": {
+            "en": [
+              "summer",
+              "fall"
+            ],
+            "es-419": [
+              "verano",
+              "otoño"
+            ],
+            "it": [
+              "estate",
+              "autunno"
+            ],
+            "nl": [
+              "zomer",
+              "herfst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "au printemps",
+          "translation": {
+            "en": "in spring",
+            "es-419": "en primavera",
+            "it": "in primavera",
+            "nl": "in de lente"
+          },
+          "distractors": {
+            "en": [
+              "in summer",
+              "in winter"
+            ],
+            "es-419": [
+              "en verano",
+              "en invierno"
+            ],
+            "it": [
+              "in estate",
+              "in inverno"
+            ],
+            "nl": [
+              "in de zomer",
+              "in de winter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "automne",
+          "translation": {
+            "en": "fall",
+            "es-419": "otoño",
+            "it": "autunno",
+            "nl": "herfst"
+          },
+          "distractors": {
+            "en": [
+              "spring",
+              "winter"
+            ],
+            "es-419": [
+              "primavera",
+              "invierno"
+            ],
+            "it": [
+              "primavera",
+              "inverno"
+            ],
+            "nl": [
+              "lente",
+              "winter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en automne",
+          "translation": {
+            "en": "in the fall",
+            "es-419": "en otoño",
+            "it": "in autunno",
+            "nl": "in de herfst"
+          },
+          "distractors": {
+            "en": [
+              "in the summer",
+              "in the spring"
+            ],
+            "es-419": [
+              "en verano",
+              "en primavera"
+            ],
+            "it": [
+              "in estate",
+              "in primavera"
+            ],
+            "nl": [
+              "in de zomer",
+              "in de lente"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "hiver",
+          "translation": {
+            "en": "winter",
+            "es-419": "invierno",
+            "it": "inverno",
+            "nl": "winter"
+          },
+          "distractors": {
+            "en": [
+              "summer",
+              "fall"
+            ],
+            "es-419": [
+              "verano",
+              "otoño"
+            ],
+            "it": [
+              "estate",
+              "autunno"
+            ],
+            "nl": [
+              "zomer",
+              "herfst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en hiver",
+          "translation": {
+            "en": "in the winter",
+            "es-419": "en invierno",
+            "it": "in inverno",
+            "nl": "in de winter"
+          },
+          "distractors": {
+            "en": [
+              "in the fall",
+              "in the spring"
+            ],
+            "es-419": [
+              "en otoño",
+              "en primavera"
+            ],
+            "it": [
+              "in autunno",
+              "in primavera"
+            ],
+            "nl": [
+              "in de herfst",
+              "in de lente"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en été",
+          "translation": {
+            "en": "in the summer",
+            "es-419": "en verano",
+            "it": "in estate",
+            "nl": "in de zomer"
+          },
+          "distractors": {
+            "en": [
+              "in the winter",
+              "in the spring"
+            ],
+            "es-419": [
+              "en invierno",
+              "en primavera"
+            ],
+            "it": [
+              "in inverno",
+              "in primavera"
+            ],
+            "nl": [
+              "in de winter",
+              "in de lente"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Au printemps, il pleut souvent à Nantes.",
+          "translation": {
+            "en": "In spring, it often rains in Nantes.",
+            "es-419": "En primavera llueve a menudo en Nantes.",
+            "it": "In primavera piove spesso a Nantes.",
+            "nl": "In de lente regent het vaak in Nantes."
+          },
+          "distractors": {
+            "en": [
+              "In summer, it often rains in Nantes.",
+              "In spring, it often rains in Lyon."
+            ],
+            "es-419": [
+              "En verano llueve a menudo en Nantes.",
+              "En primavera llueve a menudo en Lyon."
+            ],
+            "it": [
+              "In estate piove spesso a Nantes.",
+              "In primavera piove spesso a Lione."
+            ],
+            "nl": [
+              "In de zomer regent het vaak in Nantes.",
+              "In de lente regent het vaak in Lyon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En juillet et en août, il fait très chaud à Marseille.",
+          "translation": {
+            "en": "In July and August, it's very hot in Marseille.",
+            "es-419": "En julio y agosto hace mucho calor en Marsella.",
+            "it": "A luglio e ad agosto fa molto caldo a Marsiglia.",
+            "nl": "In juli en augustus is het erg warm in Marseille."
+          },
+          "distractors": {
+            "en": [
+              "In June and July, it's very hot in Marseille.",
+              "In July and August, it's very cold in Marseille."
+            ],
+            "es-419": [
+              "En junio y julio hace mucho calor en Marsella.",
+              "En julio y agosto hace mucho frío en Marsella."
+            ],
+            "it": [
+              "A giugno e a luglio fa molto caldo a Marsiglia.",
+              "A luglio e ad agosto fa molto freddo a Marsiglia."
+            ],
+            "nl": [
+              "In juni en juli is het erg warm in Marseille.",
+              "In juli en augustus is het erg koud in Marseille."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En automne, il y a du vent en septembre et en octobre.",
+          "translation": {
+            "en": "In the fall, it's windy in September and October.",
+            "es-419": "En otoño hay viento en septiembre y en octubre.",
+            "it": "In autunno c'è vento a settembre e a ottobre.",
+            "nl": "In de herfst waait het in september en oktober."
+          },
+          "distractors": {
+            "en": [
+              "In the fall, it rains in September and October.",
+              "In the fall, it's windy in October and November."
+            ],
+            "es-419": [
+              "En otoño llueve en septiembre y en octubre.",
+              "En otoño hay viento en octubre y en noviembre."
+            ],
+            "it": [
+              "In autunno piove a settembre e a ottobre.",
+              "In autunno c'è vento a ottobre e a novembre."
+            ],
+            "nl": [
+              "In de herfst regent het in september en oktober.",
+              "In de herfst waait het in oktober en november."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Au Canada, il neige en novembre et en décembre.",
+          "senses": {
+            "3": "neiger"
+          },
+          "translation": {
+            "en": "In Canada, it snows in November and December.",
+            "es-419": "En Canadá nieva en noviembre y en diciembre.",
+            "it": "In Canada nevica a novembre e a dicembre.",
+            "nl": "In Canada sneeuwt het in november en december."
+          },
+          "distractors": {
+            "en": [
+              "In Canada, it rains in November and December.",
+              "In France, it snows in November and December."
+            ],
+            "es-419": [
+              "En Canadá llueve en noviembre y en diciembre.",
+              "En Francia nieva en noviembre y en diciembre."
+            ],
+            "it": [
+              "In Canada piove a novembre e a dicembre.",
+              "In Francia nevica a novembre e a dicembre."
+            ],
+            "nl": [
+              "In Canada regent het in november en december.",
+              "In Frankrijk sneeuwt het in november en december."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le mois de janvier",
+          "translation": {
+            "en": "the month of January",
+            "es-419": "el mes de enero",
+            "it": "il mese di gennaio",
+            "nl": "de maand januari"
+          },
+          "distractors": {
+            "en": [
+              "the month of July",
+              "the week of January"
+            ],
+            "es-419": [
+              "el mes de julio",
+              "la semana de enero"
+            ],
+            "it": [
+              "il mese di luglio",
+              "la settimana di gennaio"
+            ],
+            "nl": [
+              "de maand juli",
+              "de week van januari"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il fait très froid en janvier et en février.",
+          "translation": {
+            "en": "It's very cold in January and February.",
+            "es-419": "Hace mucho frío en enero y en febrero.",
+            "it": "Fa molto freddo a gennaio e a febbraio.",
+            "nl": "Het is erg koud in januari en februari."
+          },
+          "distractors": {
+            "en": [
+              "It's very hot in January and February.",
+              "It's very cold in February and March."
+            ],
+            "es-419": [
+              "Hace mucho calor en enero y en febrero.",
+              "Hace mucho frío en febrero y en marzo."
+            ],
+            "it": [
+              "Fa molto caldo a gennaio e a febbraio.",
+              "Fa molto freddo a febbraio e a marzo."
+            ],
+            "nl": [
+              "Het is erg warm in januari en februari.",
+              "Het is erg koud in februari en maart."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En mars, il pleut, et en avril, il y a du soleil.",
+          "translation": {
+            "en": "In March it rains, and in April it's sunny.",
+            "es-419": "En marzo llueve, y en abril hay sol.",
+            "it": "A marzo piove, e ad aprile c'è il sole.",
+            "nl": "In maart regent het, en in april schijnt de zon."
+          },
+          "distractors": {
+            "en": [
+              "In March it's sunny, and in April it rains.",
+              "In March it rains, and in May it's sunny."
+            ],
+            "es-419": [
+              "En marzo hay sol, y en abril llueve.",
+              "En marzo llueve, y en mayo hay sol."
+            ],
+            "it": [
+              "A marzo c'è il sole, e ad aprile piove.",
+              "A marzo piove, e a maggio c'è il sole."
+            ],
+            "nl": [
+              "In maart schijnt de zon, en in april regent het.",
+              "In maart regent het, en in mei schijnt de zon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'année a douze mois, de janvier à décembre.",
+          "translation": {
+            "en": "The year has twelve months, from January to December.",
+            "es-419": "El año tiene doce meses, de enero a diciembre.",
+            "it": "L'anno ha dodici mesi, da gennaio a dicembre.",
+            "nl": "Een jaar heeft twaalf maanden, van januari tot december."
+          },
+          "distractors": {
+            "en": [
+              "The year has twelve months, from March to December.",
+              "The year has ten months, from January to December."
+            ],
+            "es-419": [
+              "El año tiene doce meses, de marzo a diciembre.",
+              "El año tiene diez meses, de enero a diciembre."
+            ],
+            "it": [
+              "L'anno ha dodici mesi, da marzo a dicembre.",
+              "L'anno ha dieci mesi, da gennaio a dicembre."
+            ],
+            "nl": [
+              "Een jaar heeft twaalf maanden, van maart tot december.",
+              "Een jaar heeft tien maanden, van januari tot december."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-voyage-6",
+      "title": "En vacances",
+      "grammarFocus": {
+        "en": [
+          "aller + infinitive for plans: Je vais voyager...",
+          "le mois prochain; pendant + duration: pendant trois jours",
+          "dans + duration: dans deux heures"
+        ],
+        "es-419": [
+          "aller + infinitivo para planes: Je vais voyager... = Voy a viajar...",
+          "le mois prochain; pendant + duración: pendant trois jours = durante tres días",
+          "dans + duración: dans deux heures = en dos horas"
+        ],
+        "it": [
+          "aller + infinito per i progetti: Je vais voyager... = Viaggerò...",
+          "le mois prochain; pendant + durata: pendant trois jours = per tre giorni",
+          "dans + durata: dans deux heures = tra due ore"
+        ],
+        "nl": [
+          "aller + infinitief voor plannen: Je vais voyager... = Ik ga reizen...",
+          "le mois prochain; pendant + duur: pendant trois jours = drie dagen lang",
+          "dans + duur: dans deux heures = over twee uur"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-voyage-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "vacances",
+          "translation": {
+            "en": "vacation",
+            "es-419": "vacaciones",
+            "it": "vacanze",
+            "nl": "vakantie"
+          },
+          "distractors": {
+            "en": [
+              "weekend",
+              "school"
+            ],
+            "es-419": [
+              "fin de semana",
+              "escuela"
+            ],
+            "it": [
+              "fine settimana",
+              "scuola"
+            ],
+            "nl": [
+              "weekend",
+              "school"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en vacances",
+          "translation": {
+            "en": "on vacation",
+            "es-419": "de vacaciones",
+            "it": "in vacanza",
+            "nl": "op vakantie"
+          },
+          "distractors": {
+            "en": [
+              "at work",
+              "at home"
+            ],
+            "es-419": [
+              "en el trabajo",
+              "en casa"
+            ],
+            "it": [
+              "al lavoro",
+              "a casa"
+            ],
+            "nl": [
+              "op het werk",
+              "thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'été prochain, je vais partir en vacances.",
+          "translation": {
+            "en": "Next summer I'm going to go on vacation.",
+            "es-419": "El verano próximo voy a salir de vacaciones.",
+            "it": "L'estate prossima andrò in vacanza.",
+            "nl": "Volgende zomer ga ik op vakantie."
+          },
+          "distractors": {
+            "en": [
+              "Next winter I'm going to go on vacation.",
+              "Next summer I'm going to stay home."
+            ],
+            "es-419": [
+              "El invierno próximo voy a salir de vacaciones.",
+              "El verano próximo voy a quedarme en casa."
+            ],
+            "it": [
+              "L'inverno prossimo andrò in vacanza.",
+              "L'estate prossima resterò a casa."
+            ],
+            "nl": [
+              "Volgende winter ga ik op vakantie.",
+              "Volgende zomer blijf ik thuis."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "plage",
+          "translation": {
+            "en": "beach",
+            "es-419": "playa",
+            "it": "spiaggia",
+            "nl": "strand"
+          },
+          "distractors": {
+            "en": [
+              "pool",
+              "park"
+            ],
+            "es-419": [
+              "piscina",
+              "parque"
+            ],
+            "it": [
+              "piscina",
+              "parco"
+            ],
+            "nl": [
+              "zwembad",
+              "park"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la plage et la mer",
+          "translation": {
+            "en": "the beach and the sea",
+            "es-419": "la playa y el mar",
+            "it": "la spiaggia e il mare",
+            "nl": "het strand en de zee"
+          },
+          "distractors": {
+            "en": [
+              "the beach and the lake",
+              "the mountain and the sea"
+            ],
+            "es-419": [
+              "la playa y el lago",
+              "la montaña y el mar"
+            ],
+            "it": [
+              "la spiaggia e il lago",
+              "la montagna e il mare"
+            ],
+            "nl": [
+              "het strand en het meer",
+              "de bergen en de zee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En été, je vais à la plage avec ma famille.",
+          "translation": {
+            "en": "In summer, I go to the beach with my family.",
+            "es-419": "En verano voy a la playa con mi familia.",
+            "it": "In estate vado in spiaggia con la mia famiglia.",
+            "nl": "In de zomer ga ik met mijn familie naar het strand."
+          },
+          "distractors": {
+            "en": [
+              "In winter, I go to the beach with my family.",
+              "In summer, I go to the beach with my friends."
+            ],
+            "es-419": [
+              "En invierno voy a la playa con mi familia.",
+              "En verano voy a la playa con mis amigos."
+            ],
+            "it": [
+              "In inverno vado in spiaggia con la mia famiglia.",
+              "In estate vado in spiaggia con i miei amici."
+            ],
+            "nl": [
+              "In de winter ga ik met mijn familie naar het strand.",
+              "In de zomer ga ik met mijn vrienden naar het strand."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "montagne",
+          "translation": {
+            "en": "mountain",
+            "es-419": "montaña",
+            "it": "montagna",
+            "nl": "berg"
+          },
+          "distractors": {
+            "en": [
+              "forest",
+              "island"
+            ],
+            "es-419": [
+              "bosque",
+              "isla"
+            ],
+            "it": [
+              "bosco",
+              "isola"
+            ],
+            "nl": [
+              "bos",
+              "eiland"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un lac dans la montagne",
+          "translation": {
+            "en": "a lake in the mountains",
+            "es-419": "un lago en la montaña",
+            "it": "un lago in montagna",
+            "nl": "een meer in de bergen"
+          },
+          "distractors": {
+            "en": [
+              "a lake near the sea",
+              "a beach in the mountains"
+            ],
+            "es-419": [
+              "un lago cerca del mar",
+              "una playa en la montaña"
+            ],
+            "it": [
+              "un lago vicino al mare",
+              "una spiaggia in montagna"
+            ],
+            "nl": [
+              "een meer bij de zee",
+              "een strand in de bergen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En hiver, on va à la montagne.",
+          "translation": {
+            "en": "In winter, we go to the mountains.",
+            "es-419": "En invierno vamos a la montaña.",
+            "it": "In inverno andiamo in montagna.",
+            "nl": "In de winter gaan we naar de bergen."
+          },
+          "distractors": {
+            "en": [
+              "In summer, we go to the mountains.",
+              "In winter, we go to the beach."
+            ],
+            "es-419": [
+              "En verano vamos a la montaña.",
+              "En invierno vamos a la playa."
+            ],
+            "it": [
+              "In estate andiamo in montagna.",
+              "In inverno andiamo in spiaggia."
+            ],
+            "nl": [
+              "In de zomer gaan we naar de bergen.",
+              "In de winter gaan we naar het strand."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "bon voyage",
+          "translation": {
+            "en": "have a good trip",
+            "es-419": "buen viaje",
+            "it": "buon viaggio",
+            "nl": "goede reis"
+          },
+          "distractors": {
+            "en": [
+              "have a good day",
+              "see you soon"
+            ],
+            "es-419": [
+              "que tengas un buen día",
+              "hasta pronto"
+            ],
+            "it": [
+              "buona giornata",
+              "a presto"
+            ],
+            "nl": [
+              "fijne dag",
+              "tot snel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Beaucoup de touristes visitent Paris en été.",
+          "translation": {
+            "en": "Many tourists visit Paris in the summer.",
+            "es-419": "Muchos turistas visitan París en verano.",
+            "it": "Molti turisti visitano Parigi in estate.",
+            "nl": "Veel toeristen bezoeken Parijs in de zomer."
+          },
+          "distractors": {
+            "en": [
+              "Many tourists visit Paris in the winter.",
+              "Many tourists visit Rome in the summer."
+            ],
+            "es-419": [
+              "Muchos turistas visitan París en invierno.",
+              "Muchos turistas visitan Roma en verano."
+            ],
+            "it": [
+              "Molti turisti visitano Parigi in inverno.",
+              "Molti turisti visitano Roma in estate."
+            ],
+            "nl": [
+              "Veel toeristen bezoeken Parijs in de winter.",
+              "Veel toeristen bezoeken Rome in de zomer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le mois prochain",
+          "translation": {
+            "en": "next month",
+            "es-419": "el mes próximo",
+            "it": "il mese prossimo",
+            "nl": "volgende maand"
+          },
+          "distractors": {
+            "en": [
+              "last month",
+              "next week"
+            ],
+            "es-419": [
+              "el mes pasado",
+              "la semana próxima"
+            ],
+            "it": [
+              "il mese scorso",
+              "la settimana prossima"
+            ],
+            "nl": [
+              "vorige maand",
+              "volgende week"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le mois prochain, je vais voyager en Espagne.",
+          "translation": {
+            "en": "Next month I'm going to travel to Spain.",
+            "es-419": "El mes próximo voy a viajar a España.",
+            "it": "Il mese prossimo andrò in viaggio in Spagna.",
+            "nl": "Volgende maand ga ik naar Spanje reizen."
+          },
+          "distractors": {
+            "en": [
+              "Next month I'm going to travel to Italy.",
+              "Next week I'm going to travel to Spain."
+            ],
+            "es-419": [
+              "El mes próximo voy a viajar a Italia.",
+              "La semana próxima voy a viajar a España."
+            ],
+            "it": [
+              "Il mese prossimo andrò in viaggio in Italia.",
+              "La settimana prossima andrò in viaggio in Spagna."
+            ],
+            "nl": [
+              "Volgende maand ga ik naar Italië reizen.",
+              "Volgende week ga ik naar Spanje reizen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pendant trois jours",
+          "translation": {
+            "en": "for three days",
+            "es-419": "durante tres días",
+            "it": "per tre giorni",
+            "nl": "drie dagen lang"
+          },
+          "distractors": {
+            "en": [
+              "in three days",
+              "for three weeks"
+            ],
+            "es-419": [
+              "en tres días",
+              "durante tres semanas"
+            ],
+            "it": [
+              "tra tre giorni",
+              "per tre settimane"
+            ],
+            "nl": [
+              "over drie dagen",
+              "drie weken lang"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon train part dans deux heures, alors je fais ma valise.",
+          "translation": {
+            "en": "My train leaves in two hours, so I'm packing my suitcase.",
+            "es-419": "Mi tren sale en dos horas, así que estoy haciendo mi maleta.",
+            "it": "Il mio treno parte tra due ore, quindi faccio la valigia.",
+            "nl": "Mijn trein vertrekt over twee uur, dus ik pak mijn koffer in."
+          },
+          "distractors": {
+            "en": [
+              "My train leaves in five hours, so I'm packing my suitcase.",
+              "My plane leaves in two hours, so I'm packing my suitcase."
+            ],
+            "es-419": [
+              "Mi tren sale en cinco horas, así que estoy haciendo mi maleta.",
+              "Mi avión sale en dos horas, así que estoy haciendo mi maleta."
+            ],
+            "it": [
+              "Il mio treno parte tra cinque ore, quindi faccio la valigia.",
+              "Il mio aereo parte tra due ore, quindi faccio la valigia."
+            ],
+            "nl": [
+              "Mijn trein vertrekt over vijf uur, dus ik pak mijn koffer in.",
+              "Mijn vliegtuig vertrekt over twee uur, dus ik pak mijn koffer in."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-voyage-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous allons visiter Rome pendant trois jours.",
+          "variants": [
+            "Nous allons visiter Rome pendant 3 jours."
+          ],
+          "translation": {
+            "en": "We're going to visit Rome for three days.",
+            "es-419": "Vamos a visitar Roma durante tres días.",
+            "it": "Visiteremo Roma per tre giorni.",
+            "nl": "We gaan drie dagen Rome bezoeken."
+          },
+          "distractors": {
+            "en": [
+              "We're going to visit Rome for three weeks.",
+              "We're going to visit Paris for three days."
+            ],
+            "es-419": [
+              "Vamos a visitar Roma durante tres semanas.",
+              "Vamos a visitar París durante tres días."
+            ],
+            "it": [
+              "Visiteremo Roma per tre settimane.",
+              "Visiteremo Parigi per tre giorni."
+            ],
+            "nl": [
+              "We gaan drie weken Rome bezoeken.",
+              "We gaan drie dagen Parijs bezoeken."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

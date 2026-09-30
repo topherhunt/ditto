@@ -1,0 +1,4634 @@
+{
+  "id": "fr-a1-journee",
+  "language": "fr",
+  "level": "A1",
+  "order": 6,
+  "title": "Ma journée",
+  "description": {
+    "en": "Describe your day: getting up, meals, work and school, and the evening, with reflexive verbs and words like always, often and never.",
+    "es-419": "Describe tu día: levantarte, las comidas, el trabajo y la escuela, y la noche, con verbos reflexivos y palabras como siempre, a menudo y nunca.",
+    "it": "Descrivi la tua giornata: alzarsi, i pasti, il lavoro e la scuola, e la sera, con i verbi riflessivi e parole come sempre, spesso e mai.",
+    "nl": "Beschrijf je dag: opstaan, maaltijden, werk en school, en de avond, met wederkerende werkwoorden en woorden als altijd, vaak en nooit."
+  },
+  "track": "main",
+  "requires": [
+    "fr-a1-travail"
+  ],
+  "introduces": [
+    "lever",
+    "réveiller",
+    "doucher",
+    "laver",
+    "habiller",
+    "brosser",
+    "dent",
+    "douche",
+    "réveil",
+    "lit",
+    "petit-déjeuner",
+    "déjeuner",
+    "dîner",
+    "repas",
+    "manger",
+    "cuisiner",
+    "ménage",
+    "dormir",
+    "coucher",
+    "lire",
+    "voir",
+    "télévision",
+    "livre",
+    "journal",
+    "sortir",
+    "partir",
+    "rentrer",
+    "rester",
+    "commencer",
+    "finir",
+    "prêt",
+    "premier",
+    "ensuite",
+    "puis",
+    "alors",
+    "avant",
+    "après",
+    "toujours",
+    "souvent",
+    "parfois",
+    "jamais",
+    "chaque",
+    "habitude",
+    "normalement",
+    "général",
+    "fatigué",
+    "tranquille",
+    "reposer",
+    "marcher",
+    "vélo",
+    "exercice",
+    "matinée"
+  ],
+  "lexicon": {
+    "alors": {
+      "lemma": "alors",
+      "pos": "ADV",
+      "gloss": {
+        "en": "so, then",
+        "es-419": "así que, entonces",
+        "it": "quindi, allora",
+        "nl": "dus, dan"
+      }
+    },
+    "amis": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (m pl; des amis is pronounced with a z)",
+        "es-419": "amigos (m pl; des amis se pronuncia con z)",
+        "it": "amici (m pl; des amis si pronuncia con la z)",
+        "nl": "vrienden (m pl; des amis wordt met een z uitgesproken)"
+      }
+    },
+    "après": {
+      "lemma": "après",
+      "pos": "ADP",
+      "gloss": {
+        "en": "after; après le repas = after the meal",
+        "es-419": "después de; après le repas = después de la comida",
+        "it": "dopo; après le repas = dopo il pasto",
+        "nl": "na; après le repas = na de maaltijd"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the, in the (masculine); au revoir = goodbye; au Canada = in Canada",
+        "es-419": "au = à + le: al, en el (masculino); au revoir = adiós; au Canada = en Canadá",
+        "it": "au = à + le: al, nel (maschile); au revoir = arrivederci; au Canada = in Canada",
+        "nl": "au = à + le: naar de, in de (mannelijk); au revoir = tot ziens; au Canada = in Canada"
+      }
+    },
+    "avant": {
+      "lemma": "avant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "before; avant le dîner = before dinner",
+        "es-419": "antes de; avant le dîner = antes de la cena",
+        "it": "prima di; avant le dîner = prima di cena",
+        "nl": "voor; avant le dîner = voor het avondeten"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "avons": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we have (avoir)",
+        "es-419": "tenemos (avoir)",
+        "it": "abbiamo (avoir)",
+        "nl": "wij hebben (avoir)"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "well, good, fine",
+        "es-419": "bien",
+        "it": "bene",
+        "nl": "goed"
+      }
+    },
+    "brosse": {
+      "lemma": "brosser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "brushes, brush (brosser); se brosser les dents = brush your teeth",
+        "es-419": "cepilla, cepillo (brosser); se brosser les dents = cepillarse los dientes",
+        "it": "spazzola (brosser); se brosser les dents = lavarsi i denti",
+        "nl": "borstelt, borstel (brosser); se brosser les dents = tanden poetsen"
+      }
+    },
+    "bureau": {
+      "lemma": "bureau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office, desk (m); watch out: bureau is also the desk you sit at, not only the room",
+        "es-419": "oficina, escritorio (m); ojo: bureau es la oficina y también el escritorio",
+        "it": "ufficio, scrivania (m); attenzione: bureau è sia l'ufficio sia la scrivania",
+        "nl": "kantoor, bureau (m); let op: bureau is in het Frans ook het kantoor, niet alleen het meubel"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "café (m): coffee, and also the place",
+        "es-419": "café (m): café, y también el lugar",
+        "it": "caffè (m): caffè, e anche il locale",
+        "nl": "café (m): koffie, en ook het café"
+      }
+    },
+    "chaque": {
+      "lemma": "chaque",
+      "pos": "DET",
+      "gloss": {
+        "en": "each, every (chaque jour = every day)",
+        "es-419": "cada (chaque jour = cada día)",
+        "it": "ogni (chaque jour = ogni giorno)",
+        "nl": "elk, elke (chaque jour = elke dag)"
+      }
+    },
+    "cheveux": {
+      "lemma": "cheveux",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hair (m, always plural: les cheveux); watch out: English hair is singular",
+        "es-419": "pelo, cabello (m, siempre plural: les cheveux)",
+        "it": "capelli (m, sempre plurale: les cheveux)",
+        "nl": "haar (m, altijd meervoud: les cheveux); let op: in het Nederlands is haar enkelvoud"
+      }
+    },
+    "cinq": {
+      "lemma": "cinq",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "es-419": "cinco",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "collègues": {
+      "lemma": "collègue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "colleagues (m or f, plural of collègue)",
+        "es-419": "colegas (m o f, plural de collègue)",
+        "it": "colleghi (m o f, plurale di collègue)",
+        "nl": "collega's (m of v, meervoud van collègue)"
+      }
+    },
+    "commence": {
+      "lemma": "commencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "starts, start (commencer)",
+        "es-419": "empieza, empiezo (commencer)",
+        "it": "comincia, comincio (commencer)",
+        "nl": "begint, begin (commencer)"
+      }
+    },
+    "commencer": {
+      "lemma": "commencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to start, to begin",
+        "es-419": "empezar, comenzar",
+        "it": "cominciare",
+        "nl": "beginnen"
+      }
+    },
+    "contente": {
+      "lemma": "content",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "happy, pleased (feminine; content = masculine, same sound)",
+        "es-419": "contenta, feliz (femenino; content = masculino, suena igual)",
+        "it": "contenta (femminile; content = maschile, suona uguale)",
+        "nl": "blij, tevreden (vrouwelijk; content = mannelijk, klinkt hetzelfde)"
+      }
+    },
+    "couche": {
+      "lemma": "coucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go to bed, put to bed (coucher); je me couche = I go to bed",
+        "es-419": "acuesto, se acuesta (coucher); je me couche = me acuesto",
+        "it": "metto a letto, va a letto (coucher); je me couche = vado a letto",
+        "nl": "ga naar bed, leg naar bed (coucher); je me couche = ik ga naar bed"
+      }
+    },
+    "couchent": {
+      "lemma": "coucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go to bed (they); the -ent is silent, so mes enfants se couchent sounds like se couche",
+        "es-419": "se acuestan (ellos); -ent no se pronuncia",
+        "it": "vanno a letto (loro); -ent non si pronuncia",
+        "nl": "gaan naar bed (zij); -ent wordt niet uitgesproken"
+      }
+    },
+    "coucher": {
+      "lemma": "coucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to put to bed; se coucher = to go to bed",
+        "es-419": "acostar; se coucher = acostarse",
+        "it": "mettere a letto; se coucher = andare a letto",
+        "nl": "naar bed brengen; se coucher = naar bed gaan"
+      }
+    },
+    "cuisine#cuisiner": {
+      "lemma": "cuisiner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cook, cooks (cuisiner); la cuisine (noun) = kitchen, cooking",
+        "es-419": "cocino, cocina (cuisiner); la cuisine (nombre) = cocina",
+        "it": "cucino, cucina (cuisiner); la cuisine (nome) = cucina",
+        "nl": "kook, kookt (cuisiner); la cuisine (zelfstandig naamwoord) = keuken, koken"
+      }
+    },
+    "cuisiner": {
+      "lemma": "cuisiner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to cook",
+        "es-419": "cocinar",
+        "it": "cucinare",
+        "nl": "koken"
+      }
+    },
+    "d'habitude": {
+      "lemma": "habitude",
+      "pos": "ADV",
+      "gloss": {
+        "en": "usually (d'habitude = d' + habitude, literally 'out of habit')",
+        "es-419": "por lo general (d'habitude = d' + habitude)",
+        "it": "di solito (d'habitude = d' + habitude)",
+        "nl": "meestal (d'habitude = d' + habitude)"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, inside; dans un bureau = in an office",
+        "es-419": "en, dentro de; dans un bureau = en una oficina",
+        "it": "in, dentro; dans un bureau = in un ufficio",
+        "nl": "in, binnen; dans un bureau = op een kantoor; let op: NL dans is in het Frans danse"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; after an amount: un verre de vin; de l'eau = some water",
+        "es-419": "de = de; después de una cantidad: un verre de vin; de l'eau = agua, un poco de agua",
+        "it": "de = di, da; dopo una quantità: un verre de vin; de l'eau = dell'acqua",
+        "nl": "de = van; na een hoeveelheid: un verre de vin; de l'eau = water; let op: de is geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "demie": {
+      "lemma": "demi",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "half (feminine, after heure); et demie = half past",
+        "es-419": "media (femenino, tras heure); et demie = y media",
+        "it": "mezza (femminile, dopo heure); et demie = e mezza",
+        "nl": "half (vrouwelijk, na heure); et demie = half; let op: trois heures et demie = half vier, niet half drie"
+      }
+    },
+    "dents": {
+      "lemma": "dent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "teeth (f pl); les dents",
+        "es-419": "dientes (f pl); les dents",
+        "it": "denti (f pl); les dents",
+        "nl": "tanden (f pl); les dents"
+      }
+    },
+    "des": {
+      "lemma": "des",
+      "pos": "DET",
+      "gloss": {
+        "en": "some (plural of un, une; often not translated); also de + les",
+        "es-419": "unos, unas (plural de un, une; a menudo no se traduce); también de + les",
+        "it": "dei, delle (plurale di un, une; spesso non si traduce); anche de + les",
+        "nl": "plural van un, une (vaak niet vertaald); ook de + les"
+      }
+    },
+    "dimanche": {
+      "lemma": "dimanche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m)",
+        "es-419": "domingo (m)",
+        "it": "domenica (f)",
+        "nl": "zondag (m)"
+      }
+    },
+    "dors": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sleep (dormir); je dors = I sleep",
+        "es-419": "duermo (dormir); je dors",
+        "it": "dormo (dormir); je dors",
+        "nl": "slaap (dormir); je dors"
+      }
+    },
+    "dort": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sleeps (dormir); il dort = he sleeps",
+        "es-419": "duerme (dormir); il dort",
+        "it": "dorme (dormir); il dort",
+        "nl": "slaapt (dormir); il dort"
+      }
+    },
+    "douche": {
+      "lemma": "douche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shower (f)",
+        "es-419": "ducha (f)",
+        "it": "doccia (f)",
+        "nl": "douche (f)"
+      }
+    },
+    "douche#doucher": {
+      "lemma": "doucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "showers, shower (doucher); se doucher = take a shower",
+        "es-419": "ducha, ducho (doucher); se doucher = ducharse",
+        "it": "fa la doccia (doucher); se doucher = fare la doccia",
+        "nl": "doucht, douche (doucher); se doucher = douchen"
+      }
+    },
+    "déjeune": {
+      "lemma": "déjeuner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has lunch, have lunch (déjeuner)",
+        "es-419": "almuerza, almuerzo (déjeuner)",
+        "it": "pranza, pranzo (déjeuner)",
+        "nl": "luncht, lunch (déjeuner)"
+      }
+    },
+    "déjeunent": {
+      "lemma": "déjeuner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "have lunch (they); the -ent is silent",
+        "es-419": "almuerzan (ellos); -ent no se pronuncia",
+        "it": "pranzano (loro); -ent non si pronuncia",
+        "nl": "lunchen (zij); -ent wordt niet uitgesproken"
+      }
+    },
+    "déjeuner": {
+      "lemma": "déjeuner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have lunch",
+        "es-419": "almorzar",
+        "it": "pranzare",
+        "nl": "lunchen"
+      }
+    },
+    "déjeuner#noun": {
+      "lemma": "déjeuner",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lunch (m)",
+        "es-419": "almuerzo (m)",
+        "it": "pranzo (m)",
+        "nl": "lunch (m)"
+      }
+    },
+    "dîne": {
+      "lemma": "dîner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has dinner, have dinner (dîner)",
+        "es-419": "cena, ceno (dîner)",
+        "it": "cena, ceno (dîner)",
+        "nl": "eet, dineert (dîner)"
+      }
+    },
+    "dîner": {
+      "lemma": "dîner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have dinner",
+        "es-419": "cenar",
+        "it": "cenare",
+        "nl": "dineren, avondeten"
+      }
+    },
+    "dîner#noun": {
+      "lemma": "dîner",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dinner, evening meal (m)",
+        "es-419": "cena (m)",
+        "it": "cena (m)",
+        "nl": "avondeten (m)"
+      }
+    },
+    "dînons": {
+      "lemma": "dîner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we have dinner (dîner)",
+        "es-419": "cenamos (dîner)",
+        "it": "ceniamo (dîner)",
+        "nl": "we eten, we dineren (dîner)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, to (before feminine countries: en France); also with languages: en français = in French",
+        "es-419": "en (antes de países femeninos: en France; con idiomas: en français = en francés)",
+        "it": "in (davanti a paesi femminili: en France; con le lingue: en français = in francese)",
+        "nl": "in (voor vrouwelijke landen: en France; bij talen: en français = in het Frans); let op: Frans en is niet Nederlands en (dat is et)"
+      }
+    },
+    "enfants": {
+      "lemma": "enfant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "children (m or f, plural of enfant)",
+        "es-419": "niños, hijos (m o f, plural de enfant)",
+        "it": "bambini, figli (m o f, plurale di enfant)",
+        "nl": "kinderen (m of f, meervoud van enfant)"
+      }
+    },
+    "ensuite": {
+      "lemma": "ensuite",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, after that",
+        "es-419": "luego, después",
+        "it": "poi, dopo",
+        "nl": "daarna, vervolgens"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; sounds like est (is)",
+        "es-419": "y; suena igual que est (es)",
+        "it": "e; suona come est (è)",
+        "nl": "en; klinkt als est (is)"
+      }
+    },
+    "faire": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do, to make",
+        "es-419": "hacer",
+        "it": "fare",
+        "nl": "doen, maken"
+      }
+    },
+    "fais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "do, make (faire); je fais = I do",
+        "es-419": "hago (faire); je fais",
+        "it": "faccio (faire); je fais",
+        "nl": "doe, maak (faire); je fais"
+      }
+    },
+    "faisons": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we do, we make (faire)",
+        "es-419": "hacemos (faire)",
+        "it": "facciamo (faire)",
+        "nl": "we doen, we maken (faire)"
+      }
+    },
+    "famille": {
+      "lemma": "famille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "es-419": "familia (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "fatigué": {
+      "lemma": "fatigué",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (m)",
+        "es-419": "cansado (m)",
+        "it": "stanco (m)",
+        "nl": "moe (m)"
+      }
+    },
+    "fatiguée": {
+      "lemma": "fatigué",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (f); sounds the same as fatigué",
+        "es-419": "cansada (f); suena igual que fatigué",
+        "it": "stanca (f); suona come fatigué",
+        "nl": "moe (v); klinkt als fatigué"
+      }
+    },
+    "femme": {
+      "lemma": "femme",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "woman, wife (f)",
+        "es-419": "mujer, esposa (f)",
+        "it": "donna, moglie (f)",
+        "nl": "vrouw (f)"
+      }
+    },
+    "fils": {
+      "lemma": "fils",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "son (m); the s is pronounced",
+        "es-419": "hijo (m); la s se pronuncia",
+        "it": "figlio (m); la s si pronuncia",
+        "nl": "zoon (m); de s wordt uitgesproken"
+      }
+    },
+    "finir": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to finish",
+        "es-419": "terminar",
+        "it": "finire",
+        "nl": "eindigen, afmaken"
+      }
+    },
+    "finis": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finish (finir); je finis = I finish",
+        "es-419": "termino (finir); je finis",
+        "it": "finisco (finir); je finis",
+        "nl": "eindig, maak af (finir); je finis"
+      }
+    },
+    "général": {
+      "lemma": "général",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "general; en général = in general, usually",
+        "es-419": "general; en général = en general",
+        "it": "generale; en général = in generale",
+        "nl": "algemeen; en général = over het algemeen"
+      }
+    },
+    "heures": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours, o'clock (heure, f); trois heures = three o'clock",
+        "es-419": "horas (heure, f); trois heures = las tres",
+        "it": "ore (heure, f); trois heures = le tre",
+        "nl": "uur (heure, f); trois heures = drie uur"
+      }
+    },
+    "huit": {
+      "lemma": "huit",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "es-419": "ocho",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "jamais": {
+      "lemma": "jamais",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never; always with ne: je ne mange jamais",
+        "es-419": "nunca; siempre con ne: je ne mange jamais",
+        "it": "mai; sempre con ne: je ne mange jamais",
+        "nl": "nooit; altijd met ne: je ne mange jamais"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "jour": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day, as a unit of time (m)",
+        "es-419": "día, como unidad de tiempo (m)",
+        "it": "giorno, come unità di tempo (m)",
+        "nl": "dag, als tijdseenheid (m)"
+      }
+    },
+    "journal": {
+      "lemma": "journal",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "newspaper (m)",
+        "es-419": "periódico (m)",
+        "it": "giornale (m)",
+        "nl": "krant (m)"
+      }
+    },
+    "l'exercice": {
+      "lemma": "exercice",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'exercice = l' + exercice: exercise (m); faire de l'exercice = to exercise",
+        "es-419": "l'exercice = l' + exercice: ejercicio (m); faire de l'exercice = hacer ejercicio",
+        "it": "l'exercice = l' + exercice: esercizio (m); faire de l'exercice = fare esercizio",
+        "nl": "l'exercice = l' + exercice: oefening (m); faire de l'exercice = sporten"
+      }
+    },
+    "l'école": {
+      "lemma": "école",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'école = l' + école: the school (f)",
+        "es-419": "l'école = l' + école: la escuela (f)",
+        "it": "l'école = l' + école: la scuola (f)",
+        "nl": "l'école = l' + école: de school (f)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "lave": {
+      "lemma": "laver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wash (laver); je me lave = I wash",
+        "es-419": "lavo (laver); je me lave",
+        "it": "lavo (laver); je me lave",
+        "nl": "was (laver); je me lave"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural of le, la)",
+        "es-419": "los, las (plural de le, la)",
+        "it": "i, gli, le (plurale di le, la)",
+        "nl": "de (meervoud van le, la)"
+      }
+    },
+    "lever": {
+      "lemma": "lever",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to raise; se lever = to get up",
+        "es-419": "levantar; se lever = levantarse",
+        "it": "alzare; se lever = alzarsi",
+        "nl": "optillen; se lever = opstaan"
+      }
+    },
+    "levons": {
+      "lemma": "lever",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we raise (lever); nous nous levons = we get up",
+        "es-419": "levantamos (lever); nous nous levons = nos levantamos",
+        "it": "alziamo (lever); nous nous levons = ci alziamo",
+        "nl": "we tillen op (lever); nous nous levons = we staan op"
+      }
+    },
+    "lis": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (lire); je lis = I read",
+        "es-419": "leo (lire); je lis",
+        "it": "leggo (lire); je lis",
+        "nl": "lees (lire); je lis"
+      }
+    },
+    "lit": {
+      "lemma": "lit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bed (m); au lit = in bed",
+        "es-419": "cama (m); au lit = en la cama",
+        "it": "letto (m); au lit = a letto",
+        "nl": "bed (m); au lit = in bed"
+      }
+    },
+    "lit#lire": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "reads (lire); il lit = he reads; sounds like lit, the bed",
+        "es-419": "lee (lire); il lit; suena igual que lit, la cama",
+        "it": "legge (lire); il lit; suona come lit, il letto",
+        "nl": "leest (lire); il lit; klinkt als lit, het bed"
+      }
+    },
+    "livre": {
+      "lemma": "livre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "book (m)",
+        "es-419": "libro (m)",
+        "it": "libro (m)",
+        "nl": "boek (m)"
+      }
+    },
+    "livres": {
+      "lemma": "livre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "books (m pl)",
+        "es-419": "libros (m pl)",
+        "it": "libri (m pl)",
+        "nl": "boeken (m pl)"
+      }
+    },
+    "lève": {
+      "lemma": "lever",
+      "pos": "VERB",
+      "gloss": {
+        "en": "raise, raises (lever); je me lève = I get up",
+        "es-419": "levanto (lever); je me lève = me levanto",
+        "it": "alzo (lever); je me lève = mi alzo",
+        "nl": "til op (lever); je me lève = ik sta op"
+      }
+    },
+    "m'habille": {
+      "lemma": "habiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'habille = me + habille: I get dressed (s'habiller)",
+        "es-419": "m'habille = me + habille: me visto (s'habiller)",
+        "it": "m'habille = me + habille: mi vesto (s'habiller)",
+        "nl": "m'habille = me + habille: ik kleed me aan (s'habiller)"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (before a feminine noun: ma mère)",
+        "es-419": "mi (delante de un sustantivo femenino: ma mère)",
+        "it": "mia (davanti a un nome femminile: ma mère)",
+        "nl": "mijn (voor een vrouwelijk woord: ma mère)"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma; attenzione: mais = ma, non mai (mai = jamais)",
+        "nl": "maar"
+      }
+    },
+    "maison": {
+      "lemma": "maison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f)",
+        "es-419": "casa (f)",
+        "it": "casa (f)",
+        "nl": "huis, thuis (f)"
+      }
+    },
+    "mange": {
+      "lemma": "manger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "eat, eats (manger); je mange = I eat",
+        "es-419": "como, come (manger); je mange",
+        "it": "mangio, mangia (manger); je mange",
+        "nl": "eet (manger); je mange"
+      }
+    },
+    "mangeons": {
+      "lemma": "manger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we eat (manger)",
+        "es-419": "comemos (manger)",
+        "it": "mangiamo (manger)",
+        "nl": "we eten (manger)"
+      }
+    },
+    "manger": {
+      "lemma": "manger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to eat",
+        "es-419": "comer",
+        "it": "mangiare",
+        "nl": "eten"
+      }
+    },
+    "marche": {
+      "lemma": "marcher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "walk, walks (marcher); also: works, runs",
+        "es-419": "camino, camina (marcher); también: funciona",
+        "it": "cammino, cammina (marcher); anche: funziona",
+        "nl": "wandel, wandelt (marcher); ook: werkt"
+      }
+    },
+    "mari": {
+      "lemma": "mari",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "husband (m)",
+        "es-419": "esposo, marido (m)",
+        "it": "marito (m)",
+        "nl": "echtgenoot, man (m)"
+      }
+    },
+    "matin": {
+      "lemma": "matin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (m); le matin = in the morning",
+        "es-419": "mañana, la parte del día (m); le matin = por la mañana",
+        "it": "mattina (m); le matin = di mattina",
+        "nl": "ochtend (m); le matin = 's ochtends"
+      }
+    },
+    "matinée": {
+      "lemma": "matinée",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning, the whole morning (f)",
+        "es-419": "mañana, toda la mañana (f)",
+        "it": "mattinata (f)",
+        "nl": "ochtend, de hele ochtend (f)"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me; vous pouvez me répéter = can you repeat for me",
+        "es-419": "me; vous pouvez me répéter = puede repetirme",
+        "it": "mi; vous pouvez me répéter = può ripetermi",
+        "nl": "me, mij; vous pouvez me répéter = kunt u het voor mij herhalen"
+      }
+    },
+    "mes": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural: mes parents)",
+        "es-419": "mis (plural: mes parents)",
+        "it": "miei, mie (plurale: mes parents)",
+        "nl": "mijn (meervoud: mes parents)"
+      }
+    },
+    "midi": {
+      "lemma": "midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "noon (m)",
+        "es-419": "mediodía (m)",
+        "it": "mezzogiorno (m)",
+        "nl": "12 uur 's middags (m)"
+      }
+    },
+    "moins": {
+      "lemma": "moins",
+      "pos": "ADV",
+      "gloss": {
+        "en": "minus, less; huit heures moins dix = ten to eight",
+        "es-419": "menos; huit heures moins dix = ocho menos diez",
+        "it": "meno; huit heures moins dix = otto meno dieci",
+        "nl": "min, minder; huit heures moins dix = tien voor acht"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (masculine; ma = feminine, mes = plural)",
+        "es-419": "mi (masculino; ma = femenino, mes = plural)",
+        "it": "mio (maschile; ma = femminile, mes = plurale)",
+        "nl": "mijn (mannelijk; ma = vrouwelijk, mes = meervoud)"
+      }
+    },
+    "ménage": {
+      "lemma": "ménage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "housework, cleaning (m); faire le ménage = to do the housework",
+        "es-419": "tareas del hogar, limpieza (m); faire le ménage = hacer la limpieza",
+        "it": "pulizie di casa (m); faire le ménage = fare le pulizie",
+        "nl": "huishouden, schoonmaak (m); faire le ménage = schoonmaken"
+      }
+    },
+    "n'avons": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'avons = ne + avons: we do not have (avoir)",
+        "es-419": "n'avons = ne + avons: no tenemos (avoir)",
+        "it": "n'avons = ne + avons: non abbiamo (avoir)",
+        "nl": "n'avons = ne + avons: we hebben geen (avoir)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: the first half of the negation ne ... pas; it goes before the verb",
+        "es-419": "ne: la primera parte de la negación ne ... pas; va antes del verbo",
+        "it": "ne: la prima metà della negazione ne ... pas; va prima del verbo",
+        "nl": "ne: eerste deel van de ontkenning ne ... pas; staat voor het werkwoord"
+      }
+    },
+    "normalement": {
+      "lemma": "normalement",
+      "pos": "ADV",
+      "gloss": {
+        "en": "normally, usually",
+        "es-419": "normalmente",
+        "it": "normalmente",
+        "nl": "normaal gesproken, meestal"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we, us (formal or written; everyday speech uses on)",
+        "es-419": "nosotros (formal o escrito; en el habla diaria se usa on)",
+        "it": "noi (formale o scritto; nel parlato si usa on)",
+        "nl": "wij, we (formeel of geschreven; in spreektaal gebruikt men on)"
+      }
+    },
+    "occupée": {
+      "lemma": "occupé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "busy (f); sounds the same as occupé",
+        "es-419": "ocupada (f); suena igual que occupé",
+        "it": "occupata, piena (f); suona come occupé",
+        "nl": "druk (v); klinkt als occupé"
+      }
+    },
+    "onze": {
+      "lemma": "onze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eleven",
+        "es-419": "once",
+        "it": "undici",
+        "nl": "elf"
+      }
+    },
+    "parfois": {
+      "lemma": "parfois",
+      "pos": "ADV",
+      "gloss": {
+        "en": "sometimes",
+        "es-419": "a veces",
+        "it": "a volte",
+        "nl": "soms"
+      }
+    },
+    "part": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leaves (partir); il part = he leaves",
+        "es-419": "se va, sale (partir); il part",
+        "it": "parte, va via (partir); il part",
+        "nl": "vertrekt (partir); il part"
+      }
+    },
+    "partir": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave, to go away",
+        "es-419": "irse, salir",
+        "it": "partire, andare via",
+        "nl": "vertrekken, weggaan"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas: the second half of the negation ne ... pas, after the verb",
+        "es-419": "pas: la segunda parte de la negación ne ... pas, después del verbo",
+        "it": "pas: la seconda metà della negazione ne ... pas, dopo il verbo",
+        "nl": "pas: tweede deel van de ontkenning ne ... pas, na het werkwoord; let op: pas betekent hier niet, geen stap"
+      }
+    },
+    "petit-déjeuner": {
+      "lemma": "petit-déjeuner",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "breakfast (m); prendre le petit-déjeuner = to have breakfast",
+        "es-419": "desayuno (m); prendre le petit-déjeuner = desayunar",
+        "it": "colazione (m); prendre le petit-déjeuner = fare colazione",
+        "nl": "ontbijt (m); prendre le petit-déjeuner = ontbijten"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "pour = for; pour moi = for me",
+        "es-419": "pour = para; pour moi = para mí",
+        "it": "pour = per; pour moi = per me",
+        "nl": "pour = voor; pour moi = voor mij"
+      }
+    },
+    "premier": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (m)",
+        "es-419": "primero (m)",
+        "it": "primo (m)",
+        "nl": "eerste (m)"
+      }
+    },
+    "prends": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prends = take, have (prendre); je prends = I'll have",
+        "es-419": "prends = tomo (prendre); je prends = tomo, voy a tomar",
+        "it": "prends = prendo (prendre); je prends = prendo",
+        "nl": "prends = neem (prendre); je prends = ik neem"
+      }
+    },
+    "prenons": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we take, we have (prendre)",
+        "es-419": "tomamos (prendre)",
+        "it": "prendiamo (prendre)",
+        "nl": "we nemen (prendre)"
+      }
+    },
+    "prêt": {
+      "lemma": "prêt",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ready (m); le repas est prêt = the meal is ready",
+        "es-419": "listo (m); le repas est prêt = la comida está lista",
+        "it": "pronto (m); le repas est prêt = il pasto è pronto",
+        "nl": "klaar (m); le repas est prêt = de maaltijd is klaar"
+      }
+    },
+    "puis": {
+      "lemma": "puis",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, next",
+        "es-419": "luego, después",
+        "it": "poi, dopo",
+        "nl": "dan, daarna"
+      }
+    },
+    "père": {
+      "lemma": "père",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "father (m)",
+        "es-419": "padre (m)",
+        "it": "padre (m)",
+        "nl": "vader (m)"
+      }
+    },
+    "quart": {
+      "lemma": "quart",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "quarter (m); et quart = a quarter past, moins le quart = a quarter to",
+        "es-419": "cuarto (m); et quart = y cuarto, moins le quart = menos cuarto",
+        "it": "quarto (m); et quart = e un quarto, moins le quart = meno un quarto",
+        "nl": "kwart (m); et quart = kwart over, moins le quart = kwart voor"
+      }
+    },
+    "rentre": {
+      "lemma": "rentrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come home, go home (rentrer); je rentre = I get home",
+        "es-419": "vuelvo a casa (rentrer); je rentre",
+        "it": "torno a casa (rentrer); je rentre",
+        "nl": "kom thuis (rentrer); je rentre"
+      }
+    },
+    "rentrer": {
+      "lemma": "rentrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go home, to come back",
+        "es-419": "volver a casa, regresar",
+        "it": "tornare a casa, rientrare",
+        "nl": "naar huis gaan, thuiskomen"
+      }
+    },
+    "repas": {
+      "lemma": "repas",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meal (m); the s is silent, singular and plural sound the same",
+        "es-419": "comida (m); la s no se pronuncia",
+        "it": "pasto (m); la s non si pronuncia",
+        "nl": "maaltijd (m); de s is stom"
+      }
+    },
+    "repose": {
+      "lemma": "reposer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "rest (reposer); je me repose = I rest",
+        "es-419": "descanso (reposer); je me repose",
+        "it": "mi riposo (reposer); je me repose",
+        "nl": "rust (reposer); je me repose"
+      }
+    },
+    "reste": {
+      "lemma": "rester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "stay, stays (rester); je reste = I stay",
+        "es-419": "me quedo, se queda (rester); je reste",
+        "it": "resto, resta (rester); je reste",
+        "nl": "blijf, blijft (rester); je reste"
+      }
+    },
+    "rester": {
+      "lemma": "rester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to stay, to remain",
+        "es-419": "quedarse, quedar",
+        "it": "restare, rimanere",
+        "nl": "blijven"
+      }
+    },
+    "réveil": {
+      "lemma": "réveil",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "alarm clock (m)",
+        "es-419": "despertador (m)",
+        "it": "sveglia (m)",
+        "nl": "wekker (m)"
+      }
+    },
+    "réveiller": {
+      "lemma": "réveiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wake up (someone); se réveiller = to wake up",
+        "es-419": "despertar; se réveiller = despertarse",
+        "it": "svegliare; se réveiller = svegliarsi",
+        "nl": "wakker maken; se réveiller = wakker worden"
+      }
+    },
+    "réveilles": {
+      "lemma": "réveiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wake (réveiller); tu te réveilles = you wake up",
+        "es-419": "despiertas (réveiller); tu te réveilles = te despiertas",
+        "it": "svegli (réveiller); tu te réveilles = ti svegli",
+        "nl": "maak wakker (réveiller); tu te réveilles = jij wordt wakker"
+      }
+    },
+    "s'habille": {
+      "lemma": "habiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "s'habille = se + habille: gets dressed (s'habiller)",
+        "es-419": "s'habille = se + habille: se viste (s'habiller)",
+        "it": "s'habille = se + habille: si veste (s'habiller)",
+        "nl": "s'habille = se + habille: kleedt zich aan (s'habiller)"
+      }
+    },
+    "samedi": {
+      "lemma": "samedi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m)",
+        "es-419": "sábado (m)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m)"
+      }
+    },
+    "sandwich": {
+      "lemma": "sandwich",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sandwich (m)",
+        "es-419": "sandwich (m): sándwich",
+        "it": "sandwich (m): panino",
+        "nl": "sandwich (m): broodje"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "se: himself, herself, itself; ça se dit = it is said",
+        "es-419": "se: se; ça se dit = se dice",
+        "it": "se: si; ça se dit = si dice",
+        "nl": "se: zich; ça se dit = het wordt gezegd"
+      }
+    },
+    "sept": {
+      "lemma": "sept",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seven (the p is silent)",
+        "es-419": "siete (la p no se pronuncia)",
+        "it": "sette (la p non si pronuncia)",
+        "nl": "zeven (de p wordt niet uitgesproken)"
+      }
+    },
+    "six": {
+      "lemma": "six",
+      "pos": "NUM",
+      "gloss": {
+        "en": "six",
+        "es-419": "seis",
+        "it": "sei",
+        "nl": "zes"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); le soir = in the evening",
+        "es-419": "noche, atardecer (m); le soir = por la noche",
+        "it": "sera (m); le soir = di sera",
+        "nl": "avond (m); le soir = 's avonds"
+      }
+    },
+    "son": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its (masculine; sa = feminine, ses = plural)",
+        "es-419": "su (de él o de ella; masculino; sa = femenino, ses = plural)",
+        "it": "suo (di lui o di lei; maschile; sa = femminile, ses = plurale)",
+        "nl": "zijn of haar (mannelijk; sa = vrouwelijk, ses = meervoud)"
+      }
+    },
+    "sors": {
+      "lemma": "sortir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leave, go out (sortir); je sors = I go out",
+        "es-419": "salgo (sortir); je sors",
+        "it": "esco (sortir); je sors",
+        "nl": "ga uit (sortir); je sors"
+      }
+    },
+    "sortir": {
+      "lemma": "sortir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go out, to leave",
+        "es-419": "salir",
+        "it": "uscire",
+        "nl": "uitgaan, naar buiten gaan"
+      }
+    },
+    "souvent": {
+      "lemma": "souvent",
+      "pos": "ADV",
+      "gloss": {
+        "en": "often",
+        "es-419": "a menudo",
+        "it": "spesso",
+        "nl": "vaak"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (je suis)",
+        "es-419": "soy, estoy (je suis)",
+        "it": "sono (je suis)",
+        "nl": "ben (je suis)"
+      }
+    },
+    "tard": {
+      "lemma": "tard",
+      "pos": "ADV",
+      "gloss": {
+        "en": "late",
+        "es-419": "tarde",
+        "it": "tardi",
+        "nl": "laat"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal), to you; je te présente = I introduce you to",
+        "es-419": "te; je te présente = te presento a",
+        "it": "ti; je te présente = ti presento",
+        "nl": "je, aan je; je te présente = ik stel je voor aan"
+      }
+    },
+    "toujours": {
+      "lemma": "toujours",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always; also: still",
+        "es-419": "siempre; también: todavía",
+        "it": "sempre; anche: ancora",
+        "nl": "altijd; ook: nog steeds"
+      }
+    },
+    "tranquille": {
+      "lemma": "tranquille",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "quiet, calm, peaceful",
+        "es-419": "tranquilo, tranquila",
+        "it": "tranquillo, tranquilla",
+        "nl": "rustig, kalm"
+      }
+    },
+    "travail": {
+      "lemma": "travail",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (m); un nouveau travail = a new job",
+        "es-419": "trabajo (m); un nouveau travail = un trabajo nuevo",
+        "it": "lavoro (m); un nouveau travail = un nuovo lavoro",
+        "nl": "werk, baan (m); un nouveau travail = een nieuwe baan"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal, one person you know well); vous is the formal you",
+        "es-419": "tú (informal, una persona conocida); vous es el usted",
+        "it": "tu (informale, una persona che conosci); vous è il Lei",
+        "nl": "jij, je (informeel, één persoon die je kent); vous is u"
+      }
+    },
+    "télévision": {
+      "lemma": "télévision",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "television (f)",
+        "es-419": "televisión (f)",
+        "it": "televisione (f)",
+        "nl": "televisie (f)"
+      }
+    },
+    "tôt": {
+      "lemma": "tôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "early",
+        "es-419": "temprano",
+        "it": "presto",
+        "nl": "vroeg"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "vais": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller); je vais = I go",
+        "es-419": "voy (aller); je vais",
+        "it": "vado (aller); je vais",
+        "nl": "ga (aller); je vais"
+      }
+    },
+    "vois": {
+      "lemma": "voir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "see (voir); je vois = I see",
+        "es-419": "veo (voir); je vois",
+        "it": "vedo (voir); je vois",
+        "nl": "zie (voir); je vois"
+      }
+    },
+    "vont": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller); ils vont = they go",
+        "es-419": "van (aller); ils vont",
+        "it": "vanno (aller); ils vont",
+        "nl": "gaan (aller); ils vont"
+      }
+    },
+    "vélo": {
+      "lemma": "vélo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bike (m); à vélo = by bike",
+        "es-419": "bicicleta (m); à vélo = en bicicleta",
+        "it": "bici (m); à vélo = in bici",
+        "nl": "fiets (m); à vélo = met de fiets"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to; à emporter = to go, take-away",
+        "es-419": "à = a, en; à emporter = para llevar",
+        "it": "à = a, in; à emporter = da portare via",
+        "nl": "à = naar, te, om; à emporter = om mee te nemen"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-journee-1",
+      "title": "Le matin",
+      "grammarFocus": {
+        "en": [
+          "aller: je vais, il va, ils vont, with à + place (au travail, à l'école)",
+          "the -ir verbs partir and sortir, and finir",
+          "le matin, après, avant"
+        ],
+        "es-419": [
+          "aller: je vais, il va, ils vont, con à + lugar (au travail, à l'école)",
+          "los verbos en -ir partir y sortir, y finir",
+          "le matin, après, avant"
+        ],
+        "it": [
+          "aller: je vais, il va, ils vont, con à + luogo (au travail, à l'école)",
+          "i verbi in -ir partir e sortir, e finir",
+          "le matin, après, avant"
+        ],
+        "nl": [
+          "aller: je vais, il va, ils vont, met à + plaats (au travail, à l'école)",
+          "de -ir-werkwoorden partir en sortir, en finir",
+          "le matin, après, avant"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "petit-déjeuner",
+          "translation": {
+            "en": "breakfast",
+            "es-419": "desayuno",
+            "it": "colazione",
+            "nl": "ontbijt"
+          },
+          "distractors": {
+            "en": [
+              "lunch",
+              "dinner"
+            ],
+            "es-419": [
+              "almuerzo",
+              "cena"
+            ],
+            "it": [
+              "pranzo",
+              "cena"
+            ],
+            "nl": [
+              "lunch",
+              "avondeten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le matin",
+          "translation": {
+            "en": "in the morning",
+            "es-419": "por la mañana",
+            "it": "la mattina",
+            "nl": "'s ochtends"
+          },
+          "distractors": {
+            "en": [
+              "in the evening",
+              "at noon"
+            ],
+            "es-419": [
+              "por la noche",
+              "al mediodía"
+            ],
+            "it": [
+              "la sera",
+              "a mezzogiorno"
+            ],
+            "nl": [
+              "'s avonds",
+              "'s middags"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "manger",
+          "translation": {
+            "en": "to eat",
+            "es-419": "comer",
+            "it": "mangiare",
+            "nl": "eten"
+          },
+          "distractors": {
+            "en": [
+              "to drink",
+              "to cook"
+            ],
+            "es-419": [
+              "beber",
+              "cocinar"
+            ],
+            "it": [
+              "bere",
+              "cucinare"
+            ],
+            "nl": [
+              "drinken",
+              "koken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je prends le petit-déjeuner à sept heures.",
+          "translation": {
+            "en": "I have breakfast at seven.",
+            "es-419": "Desayuno a las siete.",
+            "it": "Faccio colazione alle sette.",
+            "nl": "Ik ontbijt om zeven uur."
+          },
+          "distractors": {
+            "en": [
+              "I get up at seven.",
+              "I have breakfast at six."
+            ],
+            "es-419": [
+              "Me levanto a las siete.",
+              "Desayuno a las seis."
+            ],
+            "it": [
+              "Mi alzo alle sette.",
+              "Faccio colazione alle sei."
+            ],
+            "nl": [
+              "Ik sta om zeven uur op.",
+              "Ik ontbijt om zes uur."
+            ]
+          },
+          "variants": [
+            "Je prends le petit-déjeuner à 7 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "journal",
+          "translation": {
+            "en": "newspaper",
+            "es-419": "periódico",
+            "it": "giornale",
+            "nl": "krant"
+          },
+          "distractors": {
+            "en": [
+              "magazine",
+              "book"
+            ],
+            "es-419": [
+              "revista",
+              "libro"
+            ],
+            "it": [
+              "rivista",
+              "libro"
+            ],
+            "nl": [
+              "tijdschrift",
+              "boek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je lis le journal",
+          "translation": {
+            "en": "I read the newspaper",
+            "es-419": "leo el periódico",
+            "it": "leggo il giornale",
+            "nl": "ik lees de krant"
+          },
+          "distractors": {
+            "en": [
+              "I buy the newspaper",
+              "I read a book"
+            ],
+            "es-419": [
+              "compro el periódico",
+              "leo un libro"
+            ],
+            "it": [
+              "compro il giornale",
+              "leggo un libro"
+            ],
+            "nl": [
+              "ik koop de krant",
+              "ik lees een boek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon père lit le journal avec son café.",
+          "translation": {
+            "en": "My father reads the newspaper with his coffee.",
+            "es-419": "Mi padre lee el periódico con su café.",
+            "it": "Mio padre legge il giornale con il suo caffè.",
+            "nl": "Mijn vader leest de krant bij zijn koffie."
+          },
+          "distractors": {
+            "en": [
+              "My father reads the newspaper with his tea.",
+              "My mother reads the newspaper with her coffee."
+            ],
+            "es-419": [
+              "Mi padre lee el periódico con su té.",
+              "Mi madre lee el periódico con su café."
+            ],
+            "it": [
+              "Mio padre legge il giornale con il suo tè.",
+              "Mia madre legge il giornale con il suo caffè."
+            ],
+            "nl": [
+              "Mijn vader leest de krant bij zijn thee.",
+              "Mijn moeder leest de krant bij haar koffie."
+            ]
+          },
+          "senses": {
+            "2": "lire"
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "sortir",
+          "translation": {
+            "en": "to go out",
+            "es-419": "salir",
+            "it": "uscire",
+            "nl": "uitgaan"
+          },
+          "distractors": {
+            "en": [
+              "to stay",
+              "to arrive"
+            ],
+            "es-419": [
+              "quedarse",
+              "llegar"
+            ],
+            "it": [
+              "restare",
+              "arrivare"
+            ],
+            "nl": [
+              "blijven",
+              "aankomen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je sors de la maison",
+          "translation": {
+            "en": "I leave the house",
+            "es-419": "salgo de casa",
+            "it": "esco di casa",
+            "nl": "ik ga de deur uit"
+          },
+          "distractors": {
+            "en": [
+              "I get home",
+              "I stay home"
+            ],
+            "es-419": [
+              "llego a casa",
+              "me quedo en casa"
+            ],
+            "it": [
+              "torno a casa",
+              "resto a casa"
+            ],
+            "nl": [
+              "ik kom thuis",
+              "ik blijf thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je sors de la maison à huit heures moins le quart.",
+          "translation": {
+            "en": "I leave the house at a quarter to eight.",
+            "es-419": "Salgo de casa a un cuarto para las ocho.",
+            "it": "Esco di casa alle otto meno un quarto.",
+            "nl": "Ik ga om kwart voor acht de deur uit."
+          },
+          "distractors": {
+            "en": [
+              "I leave the house at a quarter past eight.",
+              "I get home at a quarter to eight."
+            ],
+            "es-419": [
+              "Salgo de casa a las ocho y cuarto.",
+              "Llego a casa a un cuarto para las ocho."
+            ],
+            "it": [
+              "Esco di casa alle otto e un quarto.",
+              "Torno a casa alle otto meno un quarto."
+            ],
+            "nl": [
+              "Ik ga om kwart over acht de deur uit.",
+              "Ik kom om kwart voor acht thuis."
+            ]
+          },
+          "variants": [
+            "Je sors de la maison à 8 heures moins le quart."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vais au travail",
+          "translation": {
+            "en": "I go to work",
+            "es-419": "voy al trabajo",
+            "it": "vado al lavoro",
+            "nl": "ik ga naar mijn werk"
+          },
+          "distractors": {
+            "en": [
+              "I leave work",
+              "I go to school"
+            ],
+            "es-419": [
+              "salgo del trabajo",
+              "voy a la escuela"
+            ],
+            "it": [
+              "esco dal lavoro",
+              "vado a scuola"
+            ],
+            "nl": [
+              "ik kom van mijn werk",
+              "ik ga naar school"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le matin, je prends un café et je vais au travail.",
+          "translation": {
+            "en": "In the morning I have a coffee and go to work.",
+            "es-419": "Por la mañana tomo un café y voy al trabajo.",
+            "it": "La mattina prendo un caffè e vado al lavoro.",
+            "nl": "'s Ochtends drink ik een koffie en ga ik naar mijn werk."
+          },
+          "distractors": {
+            "en": [
+              "In the evening I have a coffee and go to work.",
+              "In the morning I have a coffee and go home."
+            ],
+            "es-419": [
+              "Por la noche tomo un café y voy al trabajo.",
+              "Por la mañana tomo un café y vuelvo a casa."
+            ],
+            "it": [
+              "La sera prendo un caffè e vado al lavoro.",
+              "La mattina prendo un caffè e torno a casa."
+            ],
+            "nl": [
+              "'s Avonds drink ik een koffie en ga ik naar mijn werk.",
+              "'s Ochtends drink ik een koffie en ga ik naar huis."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "à l'école",
+          "translation": {
+            "en": "at school",
+            "es-419": "en la escuela",
+            "it": "a scuola",
+            "nl": "op school"
+          },
+          "distractors": {
+            "en": [
+              "at work",
+              "at home"
+            ],
+            "es-419": [
+              "en el trabajo",
+              "en casa"
+            ],
+            "it": [
+              "al lavoro",
+              "a casa"
+            ],
+            "nl": [
+              "op het werk",
+              "thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes enfants vont à l'école et je vais au travail.",
+          "translation": {
+            "en": "My kids go to school and I go to work.",
+            "es-419": "Mis hijos van a la escuela y yo voy al trabajo.",
+            "it": "I miei figli vanno a scuola e io vado al lavoro.",
+            "nl": "Mijn kinderen gaan naar school en ik ga naar mijn werk."
+          },
+          "distractors": {
+            "en": [
+              "My kids go to school and I stay home.",
+              "My brothers go to school and I go to work."
+            ],
+            "es-419": [
+              "Mis hijos van a la escuela y yo me quedo en casa.",
+              "Mis hermanos van a la escuela y yo voy al trabajo."
+            ],
+            "it": [
+              "I miei figli vanno a scuola e io resto a casa.",
+              "I miei fratelli vanno a scuola e io vado al lavoro."
+            ],
+            "nl": [
+              "Mijn kinderen gaan naar school en ik blijf thuis.",
+              "Mijn broers gaan naar school en ik ga naar mijn werk."
+            ]
+          },
+          "commas": [
+            4
+          ]
+        },
+        {
+          "id": "fr-a1-journee-1-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "partir",
+          "translation": {
+            "en": "to leave",
+            "es-419": "irse",
+            "it": "partire",
+            "nl": "vertrekken"
+          },
+          "distractors": {
+            "en": [
+              "to arrive",
+              "to stay"
+            ],
+            "es-419": [
+              "llegar",
+              "quedarse"
+            ],
+            "it": [
+              "arrivare",
+              "restare"
+            ],
+            "nl": [
+              "aankomen",
+              "blijven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après le petit-déjeuner, mon mari part au travail.",
+          "translation": {
+            "en": "After breakfast, my husband leaves for work.",
+            "es-419": "Después del desayuno, mi esposo se va al trabajo.",
+            "it": "Dopo colazione, mio marito va al lavoro.",
+            "nl": "Na het ontbijt vertrekt mijn man naar zijn werk."
+          },
+          "distractors": {
+            "en": [
+              "Before breakfast, my husband leaves for work.",
+              "After breakfast, my wife leaves for work."
+            ],
+            "es-419": [
+              "Antes del desayuno, mi esposo se va al trabajo.",
+              "Después del desayuno, mi esposa se va al trabajo."
+            ],
+            "it": [
+              "Prima di colazione, mio marito va al lavoro.",
+              "Dopo colazione, mia moglie va al lavoro."
+            ],
+            "nl": [
+              "Voor het ontbijt vertrekt mijn man naar zijn werk.",
+              "Na het ontbijt vertrekt mijn vrouw naar haar werk."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-journee-2",
+      "title": "Je me lève tôt",
+      "grammarFocus": {
+        "en": [
+          "reflexive verbs: je me lève, tu te réveilles, il s'habille, nous nous levons",
+          "me, te, se, nous go before the verb",
+          "tôt and tard"
+        ],
+        "es-419": [
+          "verbos reflexivos: je me lève, tu te réveilles, il s'habille, nous nous levons",
+          "me, te, se, nous van delante del verbo",
+          "tôt y tard"
+        ],
+        "it": [
+          "verbi riflessivi: je me lève, tu te réveilles, il s'habille, nous nous levons",
+          "me, te, se, nous stanno davanti al verbo",
+          "tôt e tard"
+        ],
+        "nl": [
+          "wederkerende werkwoorden: je me lève, tu te réveilles, il s'habille, nous nous levons",
+          "me, te, se, nous staan voor het werkwoord",
+          "tôt en tard"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "réveil",
+          "translation": {
+            "en": "alarm clock",
+            "es-419": "despertador",
+            "it": "sveglia",
+            "nl": "wekker"
+          },
+          "distractors": {
+            "en": [
+              "watch",
+              "phone"
+            ],
+            "es-419": [
+              "reloj",
+              "teléfono"
+            ],
+            "it": [
+              "orologio",
+              "telefono"
+            ],
+            "nl": [
+              "horloge",
+              "telefoon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "se lever",
+          "translation": {
+            "en": "to get up",
+            "es-419": "levantarse",
+            "it": "alzarsi",
+            "nl": "opstaan"
+          },
+          "distractors": {
+            "en": [
+              "to go to bed",
+              "to get dressed"
+            ],
+            "es-419": [
+              "acostarse",
+              "vestirse"
+            ],
+            "it": [
+              "andare a letto",
+              "vestirsi"
+            ],
+            "nl": [
+              "naar bed gaan",
+              "zich aankleden"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me lève",
+          "translation": {
+            "en": "I get up",
+            "es-419": "me levanto",
+            "it": "mi alzo",
+            "nl": "ik sta op"
+          },
+          "distractors": {
+            "en": [
+              "I wake up",
+              "I get dressed"
+            ],
+            "es-419": [
+              "me despierto",
+              "me visto"
+            ],
+            "it": [
+              "mi sveglio",
+              "mi vesto"
+            ],
+            "nl": [
+              "ik word wakker",
+              "ik kleed me aan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je me lève à six heures et demie.",
+          "translation": {
+            "en": "I get up at six thirty.",
+            "es-419": "Me levanto a las seis y media.",
+            "it": "Mi alzo alle sei e mezza.",
+            "nl": "Ik sta om half zeven op."
+          },
+          "distractors": {
+            "en": [
+              "I get up at six fifteen.",
+              "I have breakfast at six thirty."
+            ],
+            "es-419": [
+              "Me levanto a las seis y cuarto.",
+              "Desayuno a las seis y media."
+            ],
+            "it": [
+              "Mi alzo alle sei e un quarto.",
+              "Faccio colazione alle sei e mezza."
+            ],
+            "nl": [
+              "Ik sta om kwart over zes op.",
+              "Ik ontbijt om half zeven."
+            ]
+          },
+          "variants": [
+            "Je me lève à 6 heures et demie."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "tôt",
+          "translation": {
+            "en": "early",
+            "es-419": "temprano",
+            "it": "presto",
+            "nl": "vroeg"
+          },
+          "distractors": {
+            "en": [
+              "late",
+              "now"
+            ],
+            "es-419": [
+              "tarde",
+              "ahora"
+            ],
+            "it": [
+              "tardi",
+              "adesso"
+            ],
+            "nl": [
+              "laat",
+              "nu"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "tard",
+          "translation": {
+            "en": "late",
+            "es-419": "tarde",
+            "it": "tardi",
+            "nl": "laat"
+          },
+          "distractors": {
+            "en": [
+              "early",
+              "soon"
+            ],
+            "es-419": [
+              "temprano",
+              "pronto"
+            ],
+            "it": [
+              "presto",
+              "subito"
+            ],
+            "nl": [
+              "vroeg",
+              "snel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je me lève tôt, mais mon mari se lève tard.",
+          "translation": {
+            "en": "I get up early, but my husband gets up late.",
+            "es-419": "Me levanto temprano, pero mi esposo se levanta tarde.",
+            "it": "Mi alzo presto, ma mio marito si alza tardi.",
+            "nl": "Ik sta vroeg op, maar mijn man staat laat op."
+          },
+          "distractors": {
+            "en": [
+              "I get up early, but my wife gets up late.",
+              "I get up late, but my husband gets up early."
+            ],
+            "es-419": [
+              "Me levanto temprano, pero mi esposa se levanta tarde.",
+              "Me levanto tarde, pero mi esposo se levanta temprano."
+            ],
+            "it": [
+              "Mi alzo presto, ma mia moglie si alza tardi.",
+              "Mi alzo tardi, ma mio marito si alza presto."
+            ],
+            "nl": [
+              "Ik sta vroeg op, maar mijn vrouw staat laat op.",
+              "Ik sta laat op, maar mijn man staat vroeg op."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "se réveiller",
+          "translation": {
+            "en": "to wake up",
+            "es-419": "despertarse",
+            "it": "svegliarsi",
+            "nl": "wakker worden"
+          },
+          "distractors": {
+            "en": [
+              "to get up",
+              "to go to bed"
+            ],
+            "es-419": [
+              "levantarse",
+              "acostarse"
+            ],
+            "it": [
+              "alzarsi",
+              "andare a letto"
+            ],
+            "nl": [
+              "opstaan",
+              "naar bed gaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu te réveilles tôt le matin?",
+          "translation": {
+            "en": "Do you wake up early in the morning?",
+            "es-419": "¿Te despiertas temprano por la mañana?",
+            "it": "Ti svegli presto la mattina?",
+            "nl": "Word jij 's ochtends vroeg wakker?"
+          },
+          "distractors": {
+            "en": [
+              "Do you wake up late in the morning?",
+              "Do you go to bed early in the evening?"
+            ],
+            "es-419": [
+              "¿Te despiertas tarde por la mañana?",
+              "¿Te acuestas temprano por la noche?"
+            ],
+            "it": [
+              "Ti svegli tardi la mattina?",
+              "Vai a letto presto la sera?"
+            ],
+            "nl": [
+              "Word jij 's ochtends laat wakker?",
+              "Ga jij 's avonds vroeg naar bed?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une douche",
+          "translation": {
+            "en": "a shower",
+            "es-419": "una ducha",
+            "it": "una doccia",
+            "nl": "een douche"
+          },
+          "distractors": {
+            "en": [
+              "a bath",
+              "a towel"
+            ],
+            "es-419": [
+              "un baño",
+              "una toalla"
+            ],
+            "it": [
+              "un bagno",
+              "un asciugamano"
+            ],
+            "nl": [
+              "een bad",
+              "een handdoek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me douche",
+          "translation": {
+            "en": "I take a shower",
+            "es-419": "me ducho",
+            "it": "faccio la doccia",
+            "nl": "ik neem een douche"
+          },
+          "distractors": {
+            "en": [
+              "I take a bath",
+              "I brush my teeth"
+            ],
+            "es-419": [
+              "me baño",
+              "me cepillo los dientes"
+            ],
+            "it": [
+              "faccio il bagno",
+              "mi lavo i denti"
+            ],
+            "nl": [
+              "ik neem een bad",
+              "ik poets mijn tanden"
+            ]
+          },
+          "senses": {
+            "2": "doucher"
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je me lève, je me douche et je m'habille.",
+          "translation": {
+            "en": "I get up, I take a shower and I get dressed.",
+            "es-419": "Me levanto, me ducho y me visto.",
+            "it": "Mi alzo, faccio la doccia e mi vesto.",
+            "nl": "Ik sta op, ik douche en ik kleed me aan."
+          },
+          "distractors": {
+            "en": [
+              "I get up, I take a shower and I have breakfast.",
+              "I get up, I have breakfast and I get dressed."
+            ],
+            "es-419": [
+              "Me levanto, me ducho y desayuno.",
+              "Me levanto, desayuno y me visto."
+            ],
+            "it": [
+              "Mi alzo, faccio la doccia e faccio colazione.",
+              "Mi alzo, faccio colazione e mi vesto."
+            ],
+            "nl": [
+              "Ik sta op, ik douche en ik ontbijt.",
+              "Ik sta op, ik ontbijt en ik kleed me aan."
+            ]
+          },
+          "commas": [
+            5
+          ],
+          "senses": {
+            "5": "doucher"
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me brosse les dents",
+          "translation": {
+            "en": "I brush my teeth",
+            "es-419": "me cepillo los dientes",
+            "it": "mi lavo i denti",
+            "nl": "ik poets mijn tanden"
+          },
+          "distractors": {
+            "en": [
+              "I wash my hair",
+              "I wash my face"
+            ],
+            "es-419": [
+              "me lavo el pelo",
+              "me lavo la cara"
+            ],
+            "it": [
+              "mi lavo i capelli",
+              "mi lavo la faccia"
+            ],
+            "nl": [
+              "ik was mijn haar",
+              "ik was mijn gezicht"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le matin, mon fils se brosse les dents et s'habille.",
+          "translation": {
+            "en": "In the morning my son brushes his teeth and gets dressed.",
+            "es-419": "Por la mañana mi hijo se cepilla los dientes y se viste.",
+            "it": "La mattina mio figlio si lava i denti e si veste.",
+            "nl": "'s Ochtends poetst mijn zoon zijn tanden en kleedt hij zich aan."
+          },
+          "distractors": {
+            "en": [
+              "In the morning my son washes his hair and gets dressed.",
+              "In the evening my son brushes his teeth and goes to bed."
+            ],
+            "es-419": [
+              "Por la mañana mi hijo se lava el pelo y se viste.",
+              "Por la noche mi hijo se cepilla los dientes y se acuesta."
+            ],
+            "it": [
+              "La mattina mio figlio si lava i capelli e si veste.",
+              "La sera mio figlio si lava i denti e va a letto."
+            ],
+            "nl": [
+              "'s Ochtends wast mijn zoon zijn haar en kleedt hij zich aan.",
+              "'s Avonds poetst mijn zoon zijn tanden en gaat hij naar bed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous nous levons à sept heures, puis nous prenons le petit-déjeuner.",
+          "translation": {
+            "en": "We get up at seven, then we have breakfast.",
+            "es-419": "Nos levantamos a las siete y luego desayunamos.",
+            "it": "Ci alziamo alle sette, poi facciamo colazione.",
+            "nl": "We staan om zeven uur op, daarna ontbijten we."
+          },
+          "distractors": {
+            "en": [
+              "We get up at seven, then we go to work.",
+              "We get up at eight, then we have breakfast."
+            ],
+            "es-419": [
+              "Nos levantamos a las siete y luego nos vamos al trabajo.",
+              "Nos levantamos a las ocho y luego desayunamos."
+            ],
+            "it": [
+              "Ci alziamo alle sette, poi andiamo al lavoro.",
+              "Ci alziamo alle otto, poi facciamo colazione."
+            ],
+            "nl": [
+              "We staan om zeven uur op, daarna gaan we naar ons werk.",
+              "We staan om acht uur op, daarna ontbijten we."
+            ]
+          },
+          "variants": [
+            "Nous nous levons à 7 heures, puis nous prenons le petit-déjeuner."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-journee-3",
+      "title": "L'heure du déjeuner",
+      "grammarFocus": {
+        "en": [
+          "manger, déjeuner and dîner as verbs, and le déjeuner, le dîner as nouns",
+          "the present of -er verbs: je mange, nous mangeons",
+          "the silent -ent of ils/elles verbs after mes enfants"
+        ],
+        "es-419": [
+          "manger, déjeuner y dîner como verbos, y le déjeuner, le dîner como sustantivos",
+          "el presente de los verbos en -er: je mange, nous mangeons",
+          "la terminación -ent muda de ils/elles después de mes enfants"
+        ],
+        "it": [
+          "manger, déjeuner e dîner come verbi, e le déjeuner, le dîner come nomi",
+          "il presente dei verbi in -er: je mange, nous mangeons",
+          "la desinenza -ent muta di ils/elles dopo mes enfants"
+        ],
+        "nl": [
+          "manger, déjeuner en dîner als werkwoorden, en le déjeuner, le dîner als zelfstandige naamwoorden",
+          "de tegenwoordige tijd van -er-werkwoorden: je mange, nous mangeons",
+          "de stomme -ent van ils/elles na mes enfants"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "repas",
+          "translation": {
+            "en": "meal",
+            "es-419": "comida",
+            "it": "pasto",
+            "nl": "maaltijd"
+          },
+          "distractors": {
+            "en": [
+              "snack",
+              "drink"
+            ],
+            "es-419": [
+              "bocadillo",
+              "bebida"
+            ],
+            "it": [
+              "spuntino",
+              "bevanda"
+            ],
+            "nl": [
+              "snack",
+              "drankje"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "manger",
+          "translation": {
+            "en": "to eat",
+            "es-419": "comer",
+            "it": "mangiare",
+            "nl": "eten"
+          },
+          "distractors": {
+            "en": [
+              "to drink",
+              "to cook"
+            ],
+            "es-419": [
+              "beber",
+              "cocinar"
+            ],
+            "it": [
+              "bere",
+              "cucinare"
+            ],
+            "nl": [
+              "drinken",
+              "koken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je mange à la maison",
+          "translation": {
+            "en": "I eat at home",
+            "es-419": "como en casa",
+            "it": "mangio a casa",
+            "nl": "ik eet thuis"
+          },
+          "distractors": {
+            "en": [
+              "I eat at work",
+              "I cook at home"
+            ],
+            "es-419": [
+              "como en el trabajo",
+              "cocino en casa"
+            ],
+            "it": [
+              "mangio al lavoro",
+              "cucino a casa"
+            ],
+            "nl": [
+              "ik eet op mijn werk",
+              "ik kook thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "déjeuner",
+          "translation": {
+            "en": "to have lunch",
+            "es-419": "almorzar",
+            "it": "pranzare",
+            "nl": "lunchen"
+          },
+          "distractors": {
+            "en": [
+              "to have dinner",
+              "to have breakfast"
+            ],
+            "es-419": [
+              "cenar",
+              "desayunar"
+            ],
+            "it": [
+              "cenare",
+              "fare colazione"
+            ],
+            "nl": [
+              "dineren",
+              "ontbijten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le déjeuner",
+          "translation": {
+            "en": "lunch",
+            "es-419": "el almuerzo",
+            "it": "il pranzo",
+            "nl": "de lunch"
+          },
+          "distractors": {
+            "en": [
+              "dinner",
+              "breakfast"
+            ],
+            "es-419": [
+              "la cena",
+              "el desayuno"
+            ],
+            "it": [
+              "la cena",
+              "la colazione"
+            ],
+            "nl": [
+              "het avondeten",
+              "het ontbijt"
+            ]
+          },
+          "senses": {
+            "1": "noun"
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je déjeune à midi avec mes collègues.",
+          "translation": {
+            "en": "I have lunch at noon with my colleagues.",
+            "es-419": "Almuerzo a mediodía con mis colegas.",
+            "it": "Pranzo a mezzogiorno con i miei colleghi.",
+            "nl": "Ik lunch om twaalf uur met mijn collega's."
+          },
+          "distractors": {
+            "en": [
+              "I have lunch at noon with my friends.",
+              "I have lunch at one with my colleagues."
+            ],
+            "es-419": [
+              "Almuerzo a mediodía con mis amigos.",
+              "Almuerzo a la una con mis colegas."
+            ],
+            "it": [
+              "Pranzo a mezzogiorno con i miei amici.",
+              "Pranzo all'una con i miei colleghi."
+            ],
+            "nl": [
+              "Ik lunch om twaalf uur met mijn vrienden.",
+              "Ik lunch om één uur met mijn collega's."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "rester",
+          "translation": {
+            "en": "to stay",
+            "es-419": "quedarse",
+            "it": "restare",
+            "nl": "blijven"
+          },
+          "distractors": {
+            "en": [
+              "to leave",
+              "to go out"
+            ],
+            "es-419": [
+              "irse",
+              "salir"
+            ],
+            "it": [
+              "partire",
+              "uscire"
+            ],
+            "nl": [
+              "vertrekken",
+              "uitgaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je reste au bureau",
+          "translation": {
+            "en": "I stay at the office",
+            "es-419": "me quedo en la oficina",
+            "it": "resto in ufficio",
+            "nl": "ik blijf op kantoor"
+          },
+          "distractors": {
+            "en": [
+              "I leave the office",
+              "I stay at home"
+            ],
+            "es-419": [
+              "salgo de la oficina",
+              "me quedo en casa"
+            ],
+            "it": [
+              "esco dall'ufficio",
+              "resto a casa"
+            ],
+            "nl": [
+              "ik verlaat het kantoor",
+              "ik blijf thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "À midi, je reste au bureau et je mange un sandwich.",
+          "translation": {
+            "en": "At noon I stay at the office and eat a sandwich.",
+            "es-419": "A mediodía me quedo en la oficina y como un sándwich.",
+            "it": "A mezzogiorno resto in ufficio e mangio un panino.",
+            "nl": "Om twaalf uur blijf ik op kantoor en eet ik een broodje."
+          },
+          "distractors": {
+            "en": [
+              "At noon I stay at home and eat a sandwich.",
+              "At noon I stay at the office and eat a salad."
+            ],
+            "es-419": [
+              "A mediodía me quedo en casa y como un sándwich.",
+              "A mediodía me quedo en la oficina y como una ensalada."
+            ],
+            "it": [
+              "A mezzogiorno resto a casa e mangio un panino.",
+              "A mezzogiorno resto in ufficio e mangio un'insalata."
+            ],
+            "nl": [
+              "Om twaalf uur blijf ik thuis en eet ik een broodje.",
+              "Om twaalf uur blijf ik op kantoor en eet ik een salade."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuisiner",
+          "translation": {
+            "en": "to cook",
+            "es-419": "cocinar",
+            "it": "cucinare",
+            "nl": "koken"
+          },
+          "distractors": {
+            "en": [
+              "to eat",
+              "to wash"
+            ],
+            "es-419": [
+              "comer",
+              "lavar"
+            ],
+            "it": [
+              "mangiare",
+              "lavare"
+            ],
+            "nl": [
+              "eten",
+              "wassen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je cuisine pour ma famille",
+          "translation": {
+            "en": "I cook for my family",
+            "es-419": "cocino para mi familia",
+            "it": "cucino per la mia famiglia",
+            "nl": "ik kook voor mijn gezin"
+          },
+          "distractors": {
+            "en": [
+              "I cook for my friends",
+              "I eat with my family"
+            ],
+            "es-419": [
+              "cocino para mis amigos",
+              "como con mi familia"
+            ],
+            "it": [
+              "cucino per i miei amici",
+              "mangio con la mia famiglia"
+            ],
+            "nl": [
+              "ik kook voor mijn vrienden",
+              "ik eet met mijn gezin"
+            ]
+          },
+          "senses": {
+            "1": "cuisiner"
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le dimanche, ma femme cuisine et nous mangeons à la maison.",
+          "translation": {
+            "en": "On Sundays my wife cooks and we eat at home.",
+            "es-419": "Los domingos mi esposa cocina y comemos en casa.",
+            "it": "La domenica mia moglie cucina e mangiamo a casa.",
+            "nl": "Op zondag kookt mijn vrouw en eten we thuis."
+          },
+          "distractors": {
+            "en": [
+              "On Saturdays my wife cooks and we eat at home.",
+              "On Sundays my husband cooks and we eat at home."
+            ],
+            "es-419": [
+              "Los sábados mi esposa cocina y comemos en casa.",
+              "Los domingos mi esposo cocina y comemos en casa."
+            ],
+            "it": [
+              "Il sabato mia moglie cucina e mangiamo a casa.",
+              "La domenica mio marito cucina e mangiamo a casa."
+            ],
+            "nl": [
+              "Op zaterdag kookt mijn vrouw en eten we thuis.",
+              "Op zondag kookt mijn man en eten we thuis."
+            ]
+          },
+          "senses": {
+            "4": "cuisiner"
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le repas est prêt",
+          "translation": {
+            "en": "the meal is ready",
+            "es-419": "la comida está lista",
+            "it": "il pasto è pronto",
+            "nl": "de maaltijd is klaar"
+          },
+          "distractors": {
+            "en": [
+              "the meal is hot",
+              "the meal is good"
+            ],
+            "es-419": [
+              "la comida está caliente",
+              "la comida está rica"
+            ],
+            "it": [
+              "il pasto è caldo",
+              "il pasto è buono"
+            ],
+            "nl": [
+              "de maaltijd is warm",
+              "de maaltijd is lekker"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "après le repas",
+          "translation": {
+            "en": "after the meal",
+            "es-419": "después de la comida",
+            "it": "dopo il pasto",
+            "nl": "na de maaltijd"
+          },
+          "distractors": {
+            "en": [
+              "before the meal",
+              "during the meal"
+            ],
+            "es-419": [
+              "antes de la comida",
+              "durante la comida"
+            ],
+            "it": [
+              "prima del pasto",
+              "durante il pasto"
+            ],
+            "nl": [
+              "voor de maaltijd",
+              "tijdens de maaltijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes enfants déjeunent à l'école et mon mari déjeune au bureau.",
+          "translation": {
+            "en": "My kids have lunch at school and my husband has lunch at the office.",
+            "es-419": "Mis hijos almuerzan en la escuela y mi esposo almuerza en la oficina.",
+            "it": "I miei figli pranzano a scuola e mio marito pranza in ufficio.",
+            "nl": "Mijn kinderen lunchen op school en mijn man luncht op kantoor."
+          },
+          "distractors": {
+            "en": [
+              "My kids have lunch at home and my husband has lunch at the office.",
+              "My kids have lunch at school and my husband has lunch at home."
+            ],
+            "es-419": [
+              "Mis hijos almuerzan en casa y mi esposo almuerza en la oficina.",
+              "Mis hijos almuerzan en la escuela y mi esposo almuerza en casa."
+            ],
+            "it": [
+              "I miei figli pranzano a casa e mio marito pranza in ufficio.",
+              "I miei figli pranzano a scuola e mio marito pranza a casa."
+            ],
+            "nl": [
+              "Mijn kinderen lunchen thuis en mijn man luncht op kantoor.",
+              "Mijn kinderen lunchen op school en mijn man luncht thuis."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le repas est prêt, alors nous mangeons à la maison.",
+          "translation": {
+            "en": "The meal is ready, so we eat at home.",
+            "es-419": "La comida está lista, así que comemos en casa.",
+            "it": "Il pasto è pronto, quindi mangiamo a casa.",
+            "nl": "De maaltijd is klaar, dus we eten thuis."
+          },
+          "distractors": {
+            "en": [
+              "The meal is ready, so we eat at the office.",
+              "The meal is not ready, so we eat at home."
+            ],
+            "es-419": [
+              "La comida está lista, así que comemos en la oficina.",
+              "La comida no está lista, así que comemos en casa."
+            ],
+            "it": [
+              "Il pasto è pronto, quindi mangiamo in ufficio.",
+              "Il pasto non è pronto, quindi mangiamo a casa."
+            ],
+            "nl": [
+              "De maaltijd is klaar, dus we eten op kantoor.",
+              "De maaltijd is niet klaar, dus we eten thuis."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-journee-4",
+      "title": "L'après-midi",
+      "grammarFocus": {
+        "en": [
+          "commencer à and finir à with a time",
+          "rentrer à la maison, à vélo",
+          "faire: je fais, nous faisons (faire le ménage)"
+        ],
+        "es-419": [
+          "commencer à y finir à con una hora",
+          "rentrer à la maison, à vélo",
+          "faire: je fais, nous faisons (faire le ménage)"
+        ],
+        "it": [
+          "commencer à e finir à con un'ora",
+          "rentrer à la maison, à vélo",
+          "faire: je fais, nous faisons (faire le ménage)"
+        ],
+        "nl": [
+          "commencer à en finir à met een tijdstip",
+          "rentrer à la maison, à vélo",
+          "faire: je fais, nous faisons (faire le ménage)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "commencer",
+          "translation": {
+            "en": "to start",
+            "es-419": "empezar",
+            "it": "cominciare",
+            "nl": "beginnen"
+          },
+          "distractors": {
+            "en": [
+              "to finish",
+              "to leave"
+            ],
+            "es-419": [
+              "terminar",
+              "irse"
+            ],
+            "it": [
+              "finire",
+              "partire"
+            ],
+            "nl": [
+              "eindigen",
+              "vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je commence à huit heures",
+          "translation": {
+            "en": "I start at eight",
+            "es-419": "empiezo a las ocho",
+            "it": "comincio alle otto",
+            "nl": "ik begin om acht uur"
+          },
+          "distractors": {
+            "en": [
+              "I finish at eight",
+              "I start at nine"
+            ],
+            "es-419": [
+              "termino a las ocho",
+              "empiezo a las nueve"
+            ],
+            "it": [
+              "finisco alle otto",
+              "comincio alle nove"
+            ],
+            "nl": [
+              "ik eindig om acht uur",
+              "ik begin om negen uur"
+            ]
+          },
+          "variants": [
+            "je commence à 8 heures"
+          ]
+        },
+        {
+          "id": "fr-a1-journee-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "finir",
+          "translation": {
+            "en": "to finish",
+            "es-419": "terminar",
+            "it": "finire",
+            "nl": "eindigen"
+          },
+          "distractors": {
+            "en": [
+              "to start",
+              "to stay"
+            ],
+            "es-419": [
+              "empezar",
+              "quedarse"
+            ],
+            "it": [
+              "cominciare",
+              "restare"
+            ],
+            "nl": [
+              "beginnen",
+              "blijven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je finis à cinq heures",
+          "translation": {
+            "en": "I finish at five",
+            "es-419": "termino a las cinco",
+            "it": "finisco alle cinque",
+            "nl": "ik eindig om vijf uur"
+          },
+          "distractors": {
+            "en": [
+              "I finish at six",
+              "I start at five"
+            ],
+            "es-419": [
+              "termino a las seis",
+              "empiezo a las cinco"
+            ],
+            "it": [
+              "finisco alle sei",
+              "comincio alle cinque"
+            ],
+            "nl": [
+              "ik eindig om zes uur",
+              "ik begin om vijf uur"
+            ]
+          },
+          "variants": [
+            "je finis à 5 heures"
+          ]
+        },
+        {
+          "id": "fr-a1-journee-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je commence à huit heures et je finis à cinq heures.",
+          "translation": {
+            "en": "I start at eight and I finish at five.",
+            "es-419": "Empiezo a las ocho y termino a las cinco.",
+            "it": "Comincio alle otto e finisco alle cinque.",
+            "nl": "Ik begin om acht uur en ik eindig om vijf uur."
+          },
+          "distractors": {
+            "en": [
+              "I start at eight and I finish at four.",
+              "I start at nine and I finish at five."
+            ],
+            "es-419": [
+              "Empiezo a las ocho y termino a las cuatro.",
+              "Empiezo a las nueve y termino a las cinco."
+            ],
+            "it": [
+              "Comincio alle otto e finisco alle quattro.",
+              "Comincio alle nove e finisco alle cinque."
+            ],
+            "nl": [
+              "Ik begin om acht uur en ik eindig om vier uur.",
+              "Ik begin om negen uur en ik eindig om vijf uur."
+            ]
+          },
+          "variants": [
+            "Je commence à 8 heures et je finis à 5 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-4-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "chaque jour",
+          "translation": {
+            "en": "every day",
+            "es-419": "cada día",
+            "it": "ogni giorno",
+            "nl": "elke dag"
+          },
+          "distractors": {
+            "en": [
+              "every week",
+              "every night"
+            ],
+            "es-419": [
+              "cada semana",
+              "cada noche"
+            ],
+            "it": [
+              "ogni settimana",
+              "ogni sera"
+            ],
+            "nl": [
+              "elke week",
+              "elke avond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma matinée est occupée, mais je finis tôt.",
+          "translation": {
+            "en": "My morning is busy, but I finish early.",
+            "es-419": "Mi mañana está ocupada, pero termino temprano.",
+            "it": "La mia mattinata è piena, ma finisco presto.",
+            "nl": "Mijn ochtend is druk, maar ik ben vroeg klaar."
+          },
+          "distractors": {
+            "en": [
+              "My morning is busy, but I finish late.",
+              "My morning is quiet, but I finish early."
+            ],
+            "es-419": [
+              "Mi mañana está ocupada, pero termino tarde.",
+              "Mi mañana está tranquila, pero termino temprano."
+            ],
+            "it": [
+              "La mia mattinata è piena, ma finisco tardi.",
+              "La mia mattinata è tranquilla, ma finisco presto."
+            ],
+            "nl": [
+              "Mijn ochtend is druk, maar ik ben laat klaar.",
+              "Mijn ochtend is rustig, maar ik ben vroeg klaar."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "rentrer",
+          "translation": {
+            "en": "to come home",
+            "es-419": "volver a casa",
+            "it": "rientrare",
+            "nl": "thuiskomen"
+          },
+          "distractors": {
+            "en": [
+              "to go out",
+              "to stay"
+            ],
+            "es-419": [
+              "salir",
+              "quedarse"
+            ],
+            "it": [
+              "uscire",
+              "restare"
+            ],
+            "nl": [
+              "uitgaan",
+              "blijven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je rentre à la maison",
+          "translation": {
+            "en": "I get home",
+            "es-419": "vuelvo a casa",
+            "it": "torno a casa",
+            "nl": "ik kom thuis"
+          },
+          "distractors": {
+            "en": [
+              "I leave home",
+              "I stay home"
+            ],
+            "es-419": [
+              "salgo de casa",
+              "me quedo en casa"
+            ],
+            "it": [
+              "esco di casa",
+              "resto a casa"
+            ],
+            "nl": [
+              "ik ga de deur uit",
+              "ik blijf thuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Chaque jour, je rentre à la maison à six heures.",
+          "translation": {
+            "en": "Every day I get home at six.",
+            "es-419": "Todos los días vuelvo a casa a las seis.",
+            "it": "Ogni giorno torno a casa alle sei.",
+            "nl": "Elke dag kom ik om zes uur thuis."
+          },
+          "distractors": {
+            "en": [
+              "Every day I get home at seven.",
+              "Every day I leave home at six."
+            ],
+            "es-419": [
+              "Todos los días vuelvo a casa a las siete.",
+              "Todos los días salgo de casa a las seis."
+            ],
+            "it": [
+              "Ogni giorno torno a casa alle sette.",
+              "Ogni giorno esco di casa alle sei."
+            ],
+            "nl": [
+              "Elke dag kom ik om zeven uur thuis.",
+              "Elke dag ga ik om zes uur de deur uit."
+            ]
+          },
+          "variants": [
+            "Chaque jour, je rentre à la maison à 6 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-4-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le ménage",
+          "translation": {
+            "en": "the housework",
+            "es-419": "las tareas del hogar",
+            "it": "le pulizie di casa",
+            "nl": "het huishouden"
+          },
+          "distractors": {
+            "en": [
+              "the shopping",
+              "the cooking"
+            ],
+            "es-419": [
+              "las compras",
+              "la cocina"
+            ],
+            "it": [
+              "la spesa",
+              "la cucina"
+            ],
+            "nl": [
+              "de boodschappen",
+              "het koken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le samedi matin, nous faisons le ménage.",
+          "translation": {
+            "en": "On Saturday mornings we do the housework.",
+            "es-419": "Los sábados por la mañana hacemos las tareas del hogar.",
+            "it": "Il sabato mattina facciamo le pulizie di casa.",
+            "nl": "Op zaterdagochtend doen we het huishouden."
+          },
+          "distractors": {
+            "en": [
+              "On Sunday mornings we do the housework.",
+              "On Saturday mornings we do the shopping."
+            ],
+            "es-419": [
+              "Los domingos por la mañana hacemos las tareas del hogar.",
+              "Los sábados por la mañana hacemos las compras."
+            ],
+            "it": [
+              "La domenica mattina facciamo le pulizie di casa.",
+              "Il sabato mattina facciamo la spesa."
+            ],
+            "nl": [
+              "Op zondagochtend doen we het huishouden.",
+              "Op zaterdagochtend doen we de boodschappen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "vélo",
+          "translation": {
+            "en": "bike",
+            "es-419": "bicicleta",
+            "it": "bici",
+            "nl": "fiets"
+          },
+          "distractors": {
+            "en": [
+              "car",
+              "bus"
+            ],
+            "es-419": [
+              "coche",
+              "autobús"
+            ],
+            "it": [
+              "macchina",
+              "autobus"
+            ],
+            "nl": [
+              "auto",
+              "bus"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vais au travail à vélo",
+          "translation": {
+            "en": "I go to work by bike",
+            "es-419": "voy al trabajo en bicicleta",
+            "it": "vado al lavoro in bici",
+            "nl": "ik ga met de fiets naar mijn werk"
+          },
+          "distractors": {
+            "en": [
+              "I go to work by car",
+              "I go to school by bike"
+            ],
+            "es-419": [
+              "voy al trabajo en coche",
+              "voy a la escuela en bicicleta"
+            ],
+            "it": [
+              "vado al lavoro in macchina",
+              "vado a scuola in bici"
+            ],
+            "nl": [
+              "ik ga met de auto naar mijn werk",
+              "ik ga met de fiets naar school"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "faire de l'exercice",
+          "translation": {
+            "en": "to exercise",
+            "es-419": "hacer ejercicio",
+            "it": "fare esercizio",
+            "nl": "sporten"
+          },
+          "distractors": {
+            "en": [
+              "to do housework",
+              "to go for a walk"
+            ],
+            "es-419": [
+              "hacer las tareas del hogar",
+              "dar un paseo"
+            ],
+            "it": [
+              "fare le pulizie",
+              "fare una passeggiata"
+            ],
+            "nl": [
+              "het huishouden doen",
+              "gaan wandelen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après le travail, je marche et je fais de l'exercice.",
+          "translation": {
+            "en": "After work I walk and I exercise.",
+            "es-419": "Después del trabajo camino y hago ejercicio.",
+            "it": "Dopo il lavoro cammino e faccio esercizio.",
+            "nl": "Na mijn werk wandel ik en sport ik."
+          },
+          "distractors": {
+            "en": [
+              "Before work I walk and I exercise.",
+              "After work I walk and I cook."
+            ],
+            "es-419": [
+              "Antes del trabajo camino y hago ejercicio.",
+              "Después del trabajo camino y cocino."
+            ],
+            "it": [
+              "Prima del lavoro cammino e faccio esercizio.",
+              "Dopo il lavoro cammino e cucino."
+            ],
+            "nl": [
+              "Voor mijn werk wandel ik en sport ik.",
+              "Na mijn werk wandel ik en kook ik."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-journee-5",
+      "title": "Le soir",
+      "grammarFocus": {
+        "en": [
+          "dormir, lire and voir: je dors, je lis, je vois",
+          "se coucher and se reposer",
+          "tired: fatigué (m) and fatiguée (f) sound the same"
+        ],
+        "es-419": [
+          "dormir, lire y voir: je dors, je lis, je vois",
+          "se coucher y se reposer",
+          "cansado: fatigué (m) y fatiguée (f) suenan igual"
+        ],
+        "it": [
+          "dormir, lire e voir: je dors, je lis, je vois",
+          "se coucher e se reposer",
+          "stanco: fatigué (m) e fatiguée (f) suonano uguale"
+        ],
+        "nl": [
+          "dormir, lire en voir: je dors, je lis, je vois",
+          "se coucher en se reposer",
+          "moe: fatigué (m) en fatiguée (f) klinken hetzelfde"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "dîner",
+          "translation": {
+            "en": "to have dinner",
+            "es-419": "cenar",
+            "it": "cenare",
+            "nl": "dineren"
+          },
+          "distractors": {
+            "en": [
+              "to have lunch",
+              "to have breakfast"
+            ],
+            "es-419": [
+              "almorzar",
+              "desayunar"
+            ],
+            "it": [
+              "pranzare",
+              "fare colazione"
+            ],
+            "nl": [
+              "lunchen",
+              "ontbijten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le dîner",
+          "translation": {
+            "en": "dinner",
+            "es-419": "la cena",
+            "it": "la cena",
+            "nl": "het avondeten"
+          },
+          "distractors": {
+            "en": [
+              "lunch",
+              "breakfast"
+            ],
+            "es-419": [
+              "el almuerzo",
+              "el desayuno"
+            ],
+            "it": [
+              "il pranzo",
+              "la colazione"
+            ],
+            "nl": [
+              "de lunch",
+              "het ontbijt"
+            ]
+          },
+          "senses": {
+            "1": "noun"
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir, nous dînons à huit heures.",
+          "translation": {
+            "en": "In the evening we have dinner at eight.",
+            "es-419": "Por la noche cenamos a las ocho.",
+            "it": "La sera ceniamo alle otto.",
+            "nl": "'s Avonds eten we om acht uur."
+          },
+          "distractors": {
+            "en": [
+              "In the evening we have dinner at seven.",
+              "In the morning we have breakfast at eight."
+            ],
+            "es-419": [
+              "Por la noche cenamos a las siete.",
+              "Por la mañana desayunamos a las ocho."
+            ],
+            "it": [
+              "La sera ceniamo alle sette.",
+              "La mattina facciamo colazione alle otto."
+            ],
+            "nl": [
+              "'s Avonds eten we om zeven uur.",
+              "'s Ochtends ontbijten we om acht uur."
+            ]
+          },
+          "variants": [
+            "Le soir, nous dînons à 8 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-5-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis fatigué",
+          "translation": {
+            "en": "I am tired",
+            "es-419": "estoy cansado",
+            "it": "sono stanco",
+            "nl": "ik ben moe"
+          },
+          "distractors": {
+            "en": [
+              "I am busy",
+              "I am ready"
+            ],
+            "es-419": [
+              "estoy ocupado",
+              "estoy listo"
+            ],
+            "it": [
+              "sono occupato",
+              "sono pronto"
+            ],
+            "nl": [
+              "ik ben druk",
+              "ik ben klaar"
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-a1-journee-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après le travail, je suis fatiguée mais contente.",
+          "translation": {
+            "en": "After work I am tired but happy.",
+            "es-419": "Después del trabajo estoy cansada pero contenta.",
+            "it": "Dopo il lavoro sono stanca ma contenta.",
+            "nl": "Na mijn werk ben ik moe maar blij."
+          },
+          "distractors": {
+            "en": [
+              "After work I am tired and busy.",
+              "Before work I am tired but happy."
+            ],
+            "es-419": [
+              "Después del trabajo estoy cansada y ocupada.",
+              "Antes del trabajo estoy cansada pero contenta."
+            ],
+            "it": [
+              "Dopo il lavoro sono stanca e occupata.",
+              "Prima del lavoro sono stanca ma contenta."
+            ],
+            "nl": [
+              "Na mijn werk ben ik moe en druk.",
+              "Voor mijn werk ben ik moe maar blij."
+            ]
+          },
+          "speaker": "F"
+        },
+        {
+          "id": "fr-a1-journee-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous n'avons pas de télévision, mais nous avons des livres.",
+          "translation": {
+            "en": "We do not have a television, but we have books.",
+            "es-419": "No tenemos televisión, pero tenemos libros.",
+            "it": "Non abbiamo la televisione, ma abbiamo dei libri.",
+            "nl": "We hebben geen televisie, maar we hebben boeken."
+          },
+          "distractors": {
+            "en": [
+              "We do not have a television, but we have newspapers.",
+              "We have a television, but we do not have books."
+            ],
+            "es-419": [
+              "No tenemos televisión, pero tenemos periódicos.",
+              "Tenemos televisión, pero no tenemos libros."
+            ],
+            "it": [
+              "Non abbiamo la televisione, ma abbiamo dei giornali.",
+              "Abbiamo la televisione, ma non abbiamo libri."
+            ],
+            "nl": [
+              "We hebben geen televisie, maar we hebben kranten.",
+              "We hebben een televisie, maar we hebben geen boeken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je lis un livre",
+          "translation": {
+            "en": "I read a book",
+            "es-419": "leo un libro",
+            "it": "leggo un libro",
+            "nl": "ik lees een boek"
+          },
+          "distractors": {
+            "en": [
+              "I read a newspaper",
+              "I buy a book"
+            ],
+            "es-419": [
+              "leo un periódico",
+              "compro un libro"
+            ],
+            "it": [
+              "leggo un giornale",
+              "compro un libro"
+            ],
+            "nl": [
+              "ik lees een krant",
+              "ik koop een boek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir, je lis un livre au lit.",
+          "translation": {
+            "en": "In the evening I read a book in bed.",
+            "es-419": "Por la noche leo un libro en la cama.",
+            "it": "La sera leggo un libro a letto.",
+            "nl": "'s Avonds lees ik een boek in bed."
+          },
+          "distractors": {
+            "en": [
+              "In the morning I read a book in bed.",
+              "In the evening I read a newspaper in bed."
+            ],
+            "es-419": [
+              "Por la mañana leo un libro en la cama.",
+              "Por la noche leo un periódico en la cama."
+            ],
+            "it": [
+              "La mattina leggo un libro a letto.",
+              "La sera leggo un giornale a letto."
+            ],
+            "nl": [
+              "'s Ochtends lees ik een boek in bed.",
+              "'s Avonds lees ik een krant in bed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "se coucher",
+          "translation": {
+            "en": "to go to bed",
+            "es-419": "acostarse",
+            "it": "andare a letto",
+            "nl": "naar bed gaan"
+          },
+          "distractors": {
+            "en": [
+              "to get up",
+              "to get dressed"
+            ],
+            "es-419": [
+              "levantarse",
+              "vestirse"
+            ],
+            "it": [
+              "alzarsi",
+              "vestirsi"
+            ],
+            "nl": [
+              "opstaan",
+              "zich aankleden"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes enfants se couchent à huit heures et demie.",
+          "translation": {
+            "en": "My kids go to bed at eight thirty.",
+            "es-419": "Mis hijos se acuestan a las ocho y media.",
+            "it": "I miei figli vanno a letto alle otto e mezza.",
+            "nl": "Mijn kinderen gaan om half negen naar bed."
+          },
+          "distractors": {
+            "en": [
+              "My kids go to bed at seven thirty.",
+              "My kids get up at eight thirty."
+            ],
+            "es-419": [
+              "Mis hijos se acuestan a las siete y media.",
+              "Mis hijos se levantan a las ocho y media."
+            ],
+            "it": [
+              "I miei figli vanno a letto alle sette e mezza.",
+              "I miei figli si alzano alle otto e mezza."
+            ],
+            "nl": [
+              "Mijn kinderen gaan om half acht naar bed.",
+              "Mijn kinderen staan om half negen op."
+            ]
+          },
+          "variants": [
+            "Mes enfants se couchent à 8 heures et demie."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je dors bien",
+          "translation": {
+            "en": "I sleep well",
+            "es-419": "duermo bien",
+            "it": "dormo bene",
+            "nl": "ik slaap goed"
+          },
+          "distractors": {
+            "en": [
+              "I eat well",
+              "I read well"
+            ],
+            "es-419": [
+              "como bien",
+              "leo bien"
+            ],
+            "it": [
+              "mangio bene",
+              "leggo bene"
+            ],
+            "nl": [
+              "ik eet goed",
+              "ik lees goed"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils dort dans son lit.",
+          "translation": {
+            "en": "My son sleeps in his bed.",
+            "es-419": "Mi hijo duerme en su cama.",
+            "it": "Mio figlio dorme nel suo letto.",
+            "nl": "Mijn zoon slaapt in zijn bed."
+          },
+          "distractors": {
+            "en": [
+              "My son sleeps in my bed.",
+              "My son reads in his bed."
+            ],
+            "es-419": [
+              "Mi hijo duerme en mi cama.",
+              "Mi hijo lee en su cama."
+            ],
+            "it": [
+              "Mio figlio dorme nel mio letto.",
+              "Mio figlio legge nel suo letto."
+            ],
+            "nl": [
+              "Mijn zoon slaapt in mijn bed.",
+              "Mijn zoon leest in zijn bed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir, je me lave les cheveux.",
+          "translation": {
+            "en": "In the evening I wash my hair.",
+            "es-419": "Por la noche me lavo el pelo.",
+            "it": "La sera mi lavo i capelli.",
+            "nl": "'s Avonds was ik mijn haar."
+          },
+          "distractors": {
+            "en": [
+              "In the morning I wash my hair.",
+              "In the evening I brush my hair."
+            ],
+            "es-419": [
+              "Por la mañana me lavo el pelo.",
+              "Por la noche me cepillo el pelo."
+            ],
+            "it": [
+              "La mattina mi lavo i capelli.",
+              "La sera mi spazzolo i capelli."
+            ],
+            "nl": [
+              "'s Ochtends was ik mijn haar.",
+              "'s Avonds borstel ik mijn haar."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me repose",
+          "translation": {
+            "en": "I rest",
+            "es-419": "descanso",
+            "it": "mi riposo",
+            "nl": "ik rust"
+          },
+          "distractors": {
+            "en": [
+              "I get up",
+              "I sleep"
+            ],
+            "es-419": [
+              "me levanto",
+              "duermo"
+            ],
+            "it": [
+              "mi alzo",
+              "dormo"
+            ],
+            "nl": [
+              "ik sta op",
+              "ik slaap"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir est tranquille, alors je me repose.",
+          "translation": {
+            "en": "The evening is quiet, so I rest.",
+            "es-419": "La noche es tranquila, así que descanso.",
+            "it": "La sera è tranquilla, quindi mi riposo.",
+            "nl": "De avond is rustig, dus ik rust."
+          },
+          "distractors": {
+            "en": [
+              "The evening is busy, so I rest.",
+              "The evening is quiet, so I read."
+            ],
+            "es-419": [
+              "La noche es agitada, así que descanso.",
+              "La noche es tranquila, así que leo."
+            ],
+            "it": [
+              "La sera è movimentata, quindi mi riposo.",
+              "La sera è tranquilla, quindi leggo."
+            ],
+            "nl": [
+              "De avond is druk, dus ik rust.",
+              "De avond is rustig, dus ik lees."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-journee-6",
+      "title": "Toujours, parfois, jamais",
+      "grammarFocus": {
+        "en": [
+          "frequency adverbs: toujours, souvent, parfois",
+          "ne ... jamais, with ne before the verb",
+          "d'habitude, normalement, en général, ensuite, puis"
+        ],
+        "es-419": [
+          "adverbios de frecuencia: toujours, souvent, parfois",
+          "ne ... jamais, con ne delante del verbo",
+          "d'habitude, normalement, en général, ensuite, puis"
+        ],
+        "it": [
+          "avverbi di frequenza: toujours, souvent, parfois",
+          "ne ... jamais, con ne davanti al verbo",
+          "d'habitude, normalement, en général, ensuite, puis"
+        ],
+        "nl": [
+          "frequentiebijwoorden: toujours, souvent, parfois",
+          "ne ... jamais, met ne voor het werkwoord",
+          "d'habitude, normalement, en général, ensuite, puis"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-journee-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "toujours",
+          "translation": {
+            "en": "always",
+            "es-419": "siempre",
+            "it": "sempre",
+            "nl": "altijd"
+          },
+          "distractors": {
+            "en": [
+              "never",
+              "often"
+            ],
+            "es-419": [
+              "nunca",
+              "a menudo"
+            ],
+            "it": [
+              "mai",
+              "spesso"
+            ],
+            "nl": [
+              "nooit",
+              "vaak"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me lève toujours tôt",
+          "translation": {
+            "en": "I always get up early",
+            "es-419": "siempre me levanto temprano",
+            "it": "mi alzo sempre presto",
+            "nl": "ik sta altijd vroeg op"
+          },
+          "distractors": {
+            "en": [
+              "I never get up early",
+              "I always get up late"
+            ],
+            "es-419": [
+              "nunca me levanto temprano",
+              "siempre me levanto tarde"
+            ],
+            "it": [
+              "non mi alzo mai presto",
+              "mi alzo sempre tardi"
+            ],
+            "nl": [
+              "ik sta nooit vroeg op",
+              "ik sta altijd laat op"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "souvent",
+          "translation": {
+            "en": "often",
+            "es-419": "a menudo",
+            "it": "spesso",
+            "nl": "vaak"
+          },
+          "distractors": {
+            "en": [
+              "sometimes",
+              "always"
+            ],
+            "es-419": [
+              "a veces",
+              "siempre"
+            ],
+            "it": [
+              "a volte",
+              "sempre"
+            ],
+            "nl": [
+              "soms",
+              "altijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je vois souvent mes amis le samedi.",
+          "translation": {
+            "en": "I often see my friends on Saturdays.",
+            "es-419": "A menudo veo a mis amigos los sábados.",
+            "it": "Vedo spesso i miei amici il sabato.",
+            "nl": "Ik zie mijn vrienden vaak op zaterdag."
+          },
+          "distractors": {
+            "en": [
+              "I often see my friends on Sundays.",
+              "I often see my parents on Saturdays."
+            ],
+            "es-419": [
+              "A menudo veo a mis amigos los domingos.",
+              "A menudo veo a mis padres los sábados."
+            ],
+            "it": [
+              "Vedo spesso i miei amici la domenica.",
+              "Vedo spesso i miei genitori il sabato."
+            ],
+            "nl": [
+              "Ik zie mijn vrienden vaak op zondag.",
+              "Ik zie mijn ouders vaak op zaterdag."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "parfois",
+          "translation": {
+            "en": "sometimes",
+            "es-419": "a veces",
+            "it": "a volte",
+            "nl": "soms"
+          },
+          "distractors": {
+            "en": [
+              "often",
+              "never"
+            ],
+            "es-419": [
+              "a menudo",
+              "nunca"
+            ],
+            "it": [
+              "spesso",
+              "mai"
+            ],
+            "nl": [
+              "vaak",
+              "nooit"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Parfois, je déjeune avec mes collègues.",
+          "translation": {
+            "en": "Sometimes I have lunch with my colleagues.",
+            "es-419": "A veces almuerzo con mis colegas.",
+            "it": "A volte pranzo con i miei colleghi.",
+            "nl": "Soms lunch ik met mijn collega's."
+          },
+          "distractors": {
+            "en": [
+              "Sometimes I have dinner with my colleagues.",
+              "Always I have lunch with my colleagues."
+            ],
+            "es-419": [
+              "A veces ceno con mis colegas.",
+              "Siempre almuerzo con mis colegas."
+            ],
+            "it": [
+              "A volte ceno con i miei colleghi.",
+              "Pranzo sempre con i miei colleghi."
+            ],
+            "nl": [
+              "Soms dineer ik met mijn collega's.",
+              "Ik lunch altijd met mijn collega's."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je ne mange jamais",
+          "translation": {
+            "en": "I never eat",
+            "es-419": "nunca como",
+            "it": "non mangio mai",
+            "nl": "ik eet nooit"
+          },
+          "distractors": {
+            "en": [
+              "I always eat",
+              "I do not cook"
+            ],
+            "es-419": [
+              "siempre como",
+              "no cocino"
+            ],
+            "it": [
+              "mangio sempre",
+              "non cucino"
+            ],
+            "nl": [
+              "ik eet altijd",
+              "ik kook niet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne prends jamais de café le soir.",
+          "translation": {
+            "en": "I never have coffee in the evening.",
+            "es-419": "Nunca tomo café por la noche.",
+            "it": "Non prendo mai caffè la sera.",
+            "nl": "'s Avonds drink ik nooit koffie."
+          },
+          "distractors": {
+            "en": [
+              "I never have coffee in the morning.",
+              "I always have coffee in the evening."
+            ],
+            "es-419": [
+              "Nunca tomo café por la mañana.",
+              "Siempre tomo café por la noche."
+            ],
+            "it": [
+              "Non prendo mai caffè la mattina.",
+              "Prendo sempre caffè la sera."
+            ],
+            "nl": [
+              "'s Ochtends drink ik nooit koffie.",
+              "'s Avonds drink ik altijd koffie."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "d'habitude",
+          "translation": {
+            "en": "usually",
+            "es-419": "por lo general",
+            "it": "di solito",
+            "nl": "meestal"
+          },
+          "distractors": {
+            "en": [
+              "never",
+              "sometimes"
+            ],
+            "es-419": [
+              "nunca",
+              "a veces"
+            ],
+            "it": [
+              "mai",
+              "a volte"
+            ],
+            "nl": [
+              "nooit",
+              "soms"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "D'habitude, je rentre à la maison à six heures.",
+          "translation": {
+            "en": "Usually I get home at six.",
+            "es-419": "Por lo general vuelvo a casa a las seis.",
+            "it": "Di solito torno a casa alle sei.",
+            "nl": "Meestal kom ik om zes uur thuis."
+          },
+          "distractors": {
+            "en": [
+              "Usually I get home at seven.",
+              "Usually I leave home at six."
+            ],
+            "es-419": [
+              "Por lo general vuelvo a casa a las siete.",
+              "Por lo general salgo de casa a las seis."
+            ],
+            "it": [
+              "Di solito torno a casa alle sette.",
+              "Di solito esco di casa alle sei."
+            ],
+            "nl": [
+              "Meestal kom ik om zeven uur thuis.",
+              "Meestal ga ik om zes uur de deur uit."
+            ]
+          },
+          "variants": [
+            "D'habitude, je rentre à la maison à 6 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Normalement, je finis à cinq heures.",
+          "translation": {
+            "en": "Normally I finish at five.",
+            "es-419": "Normalmente termino a las cinco.",
+            "it": "Normalmente finisco alle cinque.",
+            "nl": "Normaal gesproken ben ik om vijf uur klaar."
+          },
+          "distractors": {
+            "en": [
+              "Normally I start at five.",
+              "Normally I finish at six."
+            ],
+            "es-419": [
+              "Normalmente empiezo a las cinco.",
+              "Normalmente termino a las seis."
+            ],
+            "it": [
+              "Normalmente comincio alle cinque.",
+              "Normalmente finisco alle sei."
+            ],
+            "nl": [
+              "Normaal gesproken begin ik om vijf uur.",
+              "Normaal gesproken ben ik om zes uur klaar."
+            ]
+          },
+          "variants": [
+            "Normalement, je finis à 5 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-6-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en général",
+          "translation": {
+            "en": "in general",
+            "es-419": "en general",
+            "it": "in generale",
+            "nl": "in het algemeen"
+          },
+          "distractors": {
+            "en": [
+              "in particular",
+              "at the moment"
+            ],
+            "es-419": [
+              "en particular",
+              "por ahora"
+            ],
+            "it": [
+              "in particolare",
+              "per ora"
+            ],
+            "nl": [
+              "in het bijzonder",
+              "op dit moment"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En général, je me couche avant onze heures.",
+          "translation": {
+            "en": "In general I go to bed before eleven.",
+            "es-419": "En general me acuesto antes de las once.",
+            "it": "In generale vado a letto prima delle undici.",
+            "nl": "Over het algemeen ga ik voor elven naar bed."
+          },
+          "distractors": {
+            "en": [
+              "In general I go to bed after eleven.",
+              "In general I get up before eleven."
+            ],
+            "es-419": [
+              "En general me acuesto después de las once.",
+              "En general me levanto antes de las once."
+            ],
+            "it": [
+              "In generale vado a letto dopo le undici.",
+              "In generale mi alzo prima delle undici."
+            ],
+            "nl": [
+              "Over het algemeen ga ik na elven naar bed.",
+              "Over het algemeen sta ik voor elven op."
+            ]
+          },
+          "variants": [
+            "En général, je me couche avant 11 heures."
+          ]
+        },
+        {
+          "id": "fr-a1-journee-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le petit-déjeuner est le premier repas.",
+          "translation": {
+            "en": "Breakfast is the first meal.",
+            "es-419": "El desayuno es la primera comida.",
+            "it": "La colazione è il primo pasto.",
+            "nl": "Het ontbijt is de eerste maaltijd."
+          },
+          "distractors": {
+            "en": [
+              "Breakfast is the last meal.",
+              "Lunch is the first meal."
+            ],
+            "es-419": [
+              "El desayuno es la última comida.",
+              "El almuerzo es la primera comida."
+            ],
+            "it": [
+              "La colazione è l'ultimo pasto.",
+              "Il pranzo è il primo pasto."
+            ],
+            "nl": [
+              "Het ontbijt is de laatste maaltijd.",
+              "De lunch is de eerste maaltijd."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "avant le dîner",
+          "translation": {
+            "en": "before dinner",
+            "es-419": "antes de la cena",
+            "it": "prima di cena",
+            "nl": "voor het avondeten"
+          },
+          "distractors": {
+            "en": [
+              "after dinner",
+              "before lunch"
+            ],
+            "es-419": [
+              "después de la cena",
+              "antes del almuerzo"
+            ],
+            "it": [
+              "dopo cena",
+              "prima di pranzo"
+            ],
+            "nl": [
+              "na het avondeten",
+              "voor de lunch"
+            ]
+          },
+          "senses": {
+            "2": "noun"
+          }
+        },
+        {
+          "id": "fr-a1-journee-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ensuite, je dîne avec ma famille, puis je lis un livre.",
+          "translation": {
+            "en": "Then I have dinner with my family, then I read a book.",
+            "es-419": "Luego ceno con mi familia y después leo un libro.",
+            "it": "Poi ceno con la mia famiglia e dopo leggo un libro.",
+            "nl": "Daarna eet ik met mijn gezin en dan lees ik een boek."
+          },
+          "distractors": {
+            "en": [
+              "Then I have dinner with my friends, then I read a book.",
+              "Then I have dinner with my family, then I watch a film."
+            ],
+            "es-419": [
+              "Luego ceno con mis amigos y después leo un libro.",
+              "Luego ceno con mi familia y después veo una película."
+            ],
+            "it": [
+              "Poi ceno con i miei amici e dopo leggo un libro.",
+              "Poi ceno con la mia famiglia e dopo guardo un film."
+            ],
+            "nl": [
+              "Daarna eet ik met mijn vrienden en dan lees ik een boek.",
+              "Daarna eet ik met mijn gezin en dan kijk ik een film."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

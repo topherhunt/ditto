@@ -31,10 +31,10 @@ describe("quiz decks", () => {
 
   it("loads app languages only, naming a deck by its file and failing on a badly named one", () => {
     const dir = mkdtempSync(join(tmpdir(), "lp-quiz-"));
-    for (const lang of ["it", "fr"]) mkdirSync(join(dir, "quizzes", lang), { recursive: true });
+    for (const lang of ["it", "de"]) mkdirSync(join(dir, "quizzes", lang), { recursive: true });
     const deck = [HEADER, row("T", "Q")].join("\n");
     writeFileSync(join(dir, "quizzes/it/a1plus-vocab-2.csv"), deck);
-    writeFileSync(join(dir, "quizzes/fr/a1-grammar-1.csv"), deck);
+    writeFileSync(join(dir, "quizzes/de/a1-grammar-1.csv"), deck);
     expect(loadQuizzes(dir).map((d) => [d.id, d.level, d.kind, d.num])).toEqual([["it-a1plus-vocab-2", "A1+", "vocab", 2]]);
     writeFileSync(join(dir, "quizzes/it/Italian A1 Grammar 1.csv"), deck);
     expect(() => loadQuizzes(dir)).toThrow("the name must look like a1plus-grammar-1.csv");

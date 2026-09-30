@@ -1,0 +1,4552 @@
+{
+  "id": "fr-a1-nombres",
+  "language": "fr",
+  "level": "A1",
+  "order": 3,
+  "title": "Nombres et heures",
+  "description": {
+    "en": "Counting to 100, giving your age and phone number, telling the time and naming the days",
+    "es-419": "Contar hasta 100, decir tu edad y tu número de teléfono, decir la hora y nombrar los días",
+    "it": "Contare fino a 100, dire la tua età e il tuo numero di telefono, dire l'ora e i giorni della settimana",
+    "nl": "Tellen tot 100, je leeftijd en telefoonnummer geven, zeggen hoe laat het is en de dagen noemen"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a1-salut"
+  ],
+  "introduces": [
+    "zéro",
+    "six",
+    "sept",
+    "huit",
+    "neuf",
+    "onze",
+    "douze",
+    "treize",
+    "quatorze",
+    "quinze",
+    "seize",
+    "trente",
+    "quarante",
+    "soixante",
+    "soixante-dix",
+    "quatre-vingt",
+    "quatre-vingt-dix",
+    "an",
+    "année",
+    "heure",
+    "demi",
+    "quart",
+    "moins",
+    "minute",
+    "semaine",
+    "aujourd'hui",
+    "midi",
+    "minuit",
+    "après-midi",
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi",
+    "dimanche",
+    "week-end",
+    "numéro",
+    "nombre",
+    "chiffre",
+    "compter",
+    "téléphone",
+    "portable",
+    "ouvrir",
+    "fermer",
+    "ouvert",
+    "fermé",
+    "magasin",
+    "maintenant",
+    "tôt",
+    "tard",
+    "depuis",
+    "âge",
+    "pile",
+    "rendez-vous",
+    "horaire"
+  ],
+  "lexicon": {
+    "zéro": {
+      "lemma": "zéro",
+      "pos": "NUM",
+      "gloss": {
+        "en": "zero",
+        "es-419": "cero",
+        "it": "zero",
+        "nl": "nul"
+      }
+    },
+    "six": {
+      "lemma": "six",
+      "pos": "NUM",
+      "gloss": {
+        "en": "six",
+        "es-419": "seis",
+        "it": "sei",
+        "nl": "zes"
+      }
+    },
+    "sept": {
+      "lemma": "sept",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seven (the p is silent)",
+        "es-419": "siete (la p no se pronuncia)",
+        "it": "sette (la p non si pronuncia)",
+        "nl": "zeven (de p wordt niet uitgesproken)"
+      }
+    },
+    "huit": {
+      "lemma": "huit",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "es-419": "ocho",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "neuf": {
+      "lemma": "neuf",
+      "pos": "NUM",
+      "gloss": {
+        "en": "nine",
+        "es-419": "nueve",
+        "it": "nove",
+        "nl": "negen"
+      }
+    },
+    "euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euros (euro, m)",
+        "es-419": "euros (euro, m)",
+        "it": "euro (euro, m)",
+        "nl": "euro (euro, m)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (le, la, l', les); le lundi = on Mondays",
+        "es-419": "el, la (le, la, l', les); le lundi = los lunes",
+        "it": "il, lo, la (le, la, l', les); le lundi = il lunedì",
+        "nl": "de, het (le, la, l', les); le lundi = op maandag"
+      }
+    },
+    "sandwich": {
+      "lemma": "sandwich",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sandwich (m)",
+        "es-419": "sándwich (m)",
+        "it": "panino (m)",
+        "nl": "broodje (m)"
+      }
+    },
+    "coûte": {
+      "lemma": "coûter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "costs (coûter)",
+        "es-419": "cuesta (coûter)",
+        "it": "costa (coûter)",
+        "nl": "kost (coûter)"
+      }
+    },
+    "onze": {
+      "lemma": "onze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eleven",
+        "es-419": "once",
+        "it": "undici",
+        "nl": "elf"
+      }
+    },
+    "douze": {
+      "lemma": "douze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twelve",
+        "es-419": "doce",
+        "it": "dodici",
+        "nl": "twaalf"
+      }
+    },
+    "treize": {
+      "lemma": "treize",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirteen",
+        "es-419": "trece",
+        "it": "tredici",
+        "nl": "dertien"
+      }
+    },
+    "quatorze": {
+      "lemma": "quatorze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fourteen",
+        "es-419": "catorce",
+        "it": "quattordici",
+        "nl": "veertien"
+      }
+    },
+    "chiffre": {
+      "lemma": "chiffre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "digit, figure (m)",
+        "es-419": "dígito, cifra (m)",
+        "it": "cifra (m)",
+        "nl": "cijfer (m)"
+      }
+    },
+    "nombre": {
+      "lemma": "nombre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number, quantity (m); numéro = for phones and houses",
+        "es-419": "número, cantidad (m); numéro = para teléfonos y casas",
+        "it": "numero, quantità (m); numéro = per telefoni e case",
+        "nl": "getal, aantal (m); numéro = voor telefoons en huizen"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être); il est trois heures = it's three o'clock",
+        "es-419": "es, está (être); il est trois heures = son las tres",
+        "it": "è (être); il est trois heures = sono le tre",
+        "nl": "is (être); il est trois heures = het is drie uur"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (un, une)",
+        "es-419": "un, uno (un, une)",
+        "it": "un, uno; uno (un, une)",
+        "nl": "een; één (un, une)"
+      }
+    },
+    "voilà": {
+      "lemma": "voilà",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "here is, here you are, there it is",
+        "es-419": "aquí tiene, ahí está",
+        "it": "ecco",
+        "nl": "alstublieft, daar is"
+      }
+    },
+    "quinze": {
+      "lemma": "quinze",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifteen",
+        "es-419": "quince",
+        "it": "quindici",
+        "nl": "vijftien"
+      }
+    },
+    "merci": {
+      "lemma": "merci",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thank you, thanks",
+        "es-419": "gracias",
+        "it": "grazie",
+        "nl": "dank u, bedankt"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, that; ça coûte = it costs; ça ferme = it closes",
+        "es-419": "eso, esto; ça coûte = cuesta; ça ferme = cierra",
+        "it": "ciò, questo; ça coûte = costa; ça ferme = chiude",
+        "nl": "dat, het; ça coûte = het kost; ça ferme = het gaat dicht"
+      }
+    },
+    "seize": {
+      "lemma": "seize",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixteen",
+        "es-419": "dieciséis",
+        "it": "sedici",
+        "nl": "zestien"
+      }
+    },
+    "âge": {
+      "lemma": "âge",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "age (m)",
+        "es-419": "edad (m)",
+        "it": "età (m)",
+        "nl": "leeftijd (m)"
+      }
+    },
+    "an": {
+      "lemma": "an",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (m), counting years; watch out: an = a year as a number (un an, deux ans), année = the year as a stretch of time",
+        "es-419": "año (m), para contar años",
+        "it": "anno (m), per contare gli anni",
+        "nl": "jaar (m), om jaren te tellen"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "ans": {
+      "lemma": "an",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (an, m); j'ai trente ans = I'm thirty",
+        "es-419": "años (an, m); j'ai trente ans = tengo treinta años",
+        "it": "anni (an, m); j'ai trente ans = ho trent'anni",
+        "nl": "jaren (an, m); j'ai trente ans = ik ben dertig"
+      }
+    },
+    "trente": {
+      "lemma": "trente",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirty",
+        "es-419": "treinta",
+        "it": "trenta",
+        "nl": "dertig"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'ai = je + ai: I have; watch out: age uses avoir (J'ai vingt ans = I am twenty)",
+        "es-419": "j'ai = je + ai: tengo; j'ai vingt ans = tengo veinte años",
+        "it": "j'ai = je + ai: ho; j'ai vingt ans = ho vent'anni",
+        "nl": "j'ai = je + ai: ik heb; let op: leeftijd met avoir (J'ai vingt ans = ik ben twintig)"
+      }
+    },
+    "quarante": {
+      "lemma": "quarante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "forty",
+        "es-419": "cuarenta",
+        "it": "quaranta",
+        "nl": "veertig"
+      }
+    },
+    "quel": {
+      "lemma": "quel",
+      "pos": "DET",
+      "gloss": {
+        "en": "which, what (quel, quelle); quel âge = how old",
+        "es-419": "qué, cuál (quel, quelle); quel âge = cuántos años",
+        "it": "quale, che (quel, quelle); quel âge = quanti anni",
+        "nl": "welk, wat (quel, quelle); quel âge = hoe oud"
+      }
+    },
+    "as-tu": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "as-tu = as + tu: do you have; quel âge as-tu? = how old are you?",
+        "es-419": "as-tu = as + tu: tienes; quel âge as-tu? = ¿cuántos años tienes?",
+        "it": "as-tu = as + tu: hai; quel âge as-tu? = quanti anni hai?",
+        "nl": "as-tu = as + tu: heb je; quel âge as-tu? = hoe oud ben je?"
+      }
+    },
+    "avez-vous": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avez-vous = avez + vous: do you have (formal); quel âge avez-vous? = how old are you?",
+        "es-419": "avez-vous = avez + vous: tiene usted; quel âge avez-vous? = ¿cuántos años tiene usted?",
+        "it": "avez-vous = avez + vous: ha, avete; quel âge avez-vous? = quanti anni ha?",
+        "nl": "avez-vous = avez + vous: hebt u; quel âge avez-vous? = hoe oud bent u?"
+      }
+    },
+    "soixante": {
+      "lemma": "soixante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixty",
+        "es-419": "sesenta",
+        "it": "sessanta",
+        "nl": "zestig"
+      }
+    },
+    "elle": {
+      "lemma": "elle",
+      "pos": "PRON",
+      "gloss": {
+        "en": "she",
+        "es-419": "ella",
+        "it": "lei",
+        "nl": "zij"
+      }
+    },
+    "a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has (avoir); il a trente ans = he's thirty",
+        "es-419": "tiene (avoir); il a trente ans = tiene treinta años",
+        "it": "ha (avoir); il a trente ans = ha trent'anni",
+        "nl": "heeft (avoir); il a trente ans = hij is dertig"
+      }
+    },
+    "vingt": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty; vingt et un = twenty-one",
+        "es-419": "veinte; vingt et un = veintiuno",
+        "it": "venti; vingt et un = ventuno",
+        "nl": "twintig; vingt et un = eenentwintig"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; vingt et un = twenty-one; trois heures et demie = half past three",
+        "es-419": "y; vingt et un = veintiuno; trois heures et demie = las tres y media",
+        "it": "e; vingt et un = ventuno; trois heures et demie = le tre e mezza",
+        "nl": "en; vingt et un = eenentwintig; trois heures et demie = half vier"
+      }
+    },
+    "vingt-deux": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty-two (vingt + deux)",
+        "es-419": "veintidós (vingt + deux)",
+        "it": "ventidue (vingt + deux)",
+        "nl": "tweeëntwintig (vingt + deux); let op: het Frans zegt de tientallen eerst, zoals vingt-deux, niet twee-en-twintig"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "he, it",
+        "es-419": "él",
+        "it": "lui, egli",
+        "nl": "hij, het"
+      }
+    },
+    "quarante-cinq": {
+      "lemma": "quarante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "forty-five (quarante + cinq)",
+        "es-419": "cuarenta y cinco (quarante + cinq)",
+        "it": "quarantacinque (quarante + cinq)",
+        "nl": "vijfenveertig (quarante + cinq)"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal, one person)",
+        "es-419": "tú",
+        "it": "tu",
+        "nl": "jij, je"
+      }
+    },
+    "as": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (avoir, tu); tu as vingt ans = you're twenty",
+        "es-419": "tienes (avoir, tu); tu as vingt ans = tienes veinte años",
+        "it": "hai (avoir, tu); tu as vingt ans = hai vent'anni",
+        "nl": "je hebt (avoir, tu); tu as vingt ans = je bent twintig"
+      }
+    },
+    "bonne": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (feminine of bon); bonne année = happy New Year",
+        "es-419": "buena (femenino de bon); bonne année = feliz año nuevo",
+        "it": "buona (femminile di bon); bonne année = buon anno",
+        "nl": "goede (vrouwelijk van bon); bonne année = gelukkig nieuwjaar"
+      }
+    },
+    "année": {
+      "lemma": "année",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (f), as a stretch of time; bonne année = happy New Year",
+        "es-419": "año (f), como periodo; bonne année = feliz año nuevo",
+        "it": "anno (f), come periodo; bonne année = buon anno",
+        "nl": "jaar (f), als tijdsduur; bonne année = gelukkig nieuwjaar"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "es-419": "yo",
+        "it": "io",
+        "nl": "ik"
+      }
+    },
+    "peux": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can, I can (pouvoir: peux, peut, pouvez)",
+        "es-419": "puedo (pouvoir: peux, peut, pouvez)",
+        "it": "posso (pouvoir: peux, peut, pouvez)",
+        "nl": "kan, ik kan (pouvoir: peux, peut, pouvez)"
+      }
+    },
+    "compter": {
+      "lemma": "compter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to count",
+        "es-419": "contar",
+        "it": "contare",
+        "nl": "tellen"
+      }
+    },
+    "jusqu'à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "jusqu'à = jusque + à: as far as, up to",
+        "es-419": "jusqu'à = jusque + à: hasta",
+        "it": "jusqu'à = jusque + à: fino a",
+        "nl": "jusqu'à = jusque + à: tot en met"
+      }
+    },
+    "cent": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "a hundred",
+        "es-419": "cien",
+        "it": "cento",
+        "nl": "honderd"
+      }
+    },
+    "numéro": {
+      "lemma": "numéro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m), for phones, houses, rooms; nombre = a quantity",
+        "es-419": "número (m), de teléfono, casa, habitación; nombre = una cantidad",
+        "it": "numero (m), di telefono, casa, camera; nombre = una quantità",
+        "nl": "nummer (m), van telefoon, huis, kamer; nombre = een hoeveelheid"
+      }
+    },
+    "téléphone": {
+      "lemma": "téléphone",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "phone, telephone (m)",
+        "es-419": "teléfono (m)",
+        "it": "telefono (m)",
+        "nl": "telefoon (m)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; numéro de téléphone = phone number; du lundi = from Monday",
+        "es-419": "de; numéro de téléphone = número de teléfono",
+        "it": "di; numéro de téléphone = numero di telefono",
+        "nl": "van; numéro de téléphone = telefoonnummer"
+      }
+    },
+    "ton": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (informal, masculine)",
+        "es-419": "tu (informal, masculino)",
+        "it": "il tuo (informale, maschile)",
+        "nl": "jouw, je (informeel, mannelijk)"
+      }
+    },
+    "portable": {
+      "lemma": "portable",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cell phone (m); short for téléphone portable",
+        "es-419": "celular (m); forma corta de téléphone portable",
+        "it": "cellulare (m); forma breve di téléphone portable",
+        "nl": "mobiele telefoon (m); korte vorm van téléphone portable"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (masculine)",
+        "es-419": "mi (masculino)",
+        "it": "il mio (maschile)",
+        "nl": "mijn (mannelijk)"
+      }
+    },
+    "soixante-dix": {
+      "lemma": "soixante-dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seventy (60 + 10)",
+        "es-419": "setenta (60 + 10)",
+        "it": "settanta (60 + 10)",
+        "nl": "zeventig (60 + 10); let op: niet zestig-tien"
+      }
+    },
+    "quatre-vingts": {
+      "lemma": "quatre-vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eighty (4 x 20; the -s is written when nothing follows or a noun follows)",
+        "es-419": "ochenta (4 x 20; la -s se escribe si no sigue nada o si sigue un sustantivo)",
+        "it": "ottanta (4 x 20; la -s si scrive se non segue nulla o segue un sostantivo)",
+        "nl": "tachtig (4 x 20; de -s wordt geschreven als er niets of een zelfstandig naamwoord volgt)"
+      }
+    },
+    "quatre-vingt-dix": {
+      "lemma": "quatre-vingt-dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ninety (4 x 20 + 10)",
+        "es-419": "noventa (4 x 20 + 10)",
+        "it": "novanta (4 x 20 + 10)",
+        "nl": "negentig (4 x 20 + 10)"
+      }
+    },
+    "quatre-vingt-dix-sept": {
+      "lemma": "quatre-vingt-dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ninety-seven (quatre-vingt-dix + sept)",
+        "es-419": "noventa y siete (quatre-vingt-dix + sept)",
+        "it": "novantasette (quatre-vingt-dix + sept)",
+        "nl": "zevenennegentig (quatre-vingt-dix + sept)"
+      }
+    },
+    "trente-quatre": {
+      "lemma": "trente",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirty-four (trente + quatre)",
+        "es-419": "treinta y cuatro (trente + quatre)",
+        "it": "trentaquattro (trente + quatre)",
+        "nl": "vierendertig (trente + quatre)"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is",
+        "es-419": "c'est = ce + est: es, esto es",
+        "it": "c'est = ce + est: è, questo è",
+        "nl": "c'est = ce + est: het is, dit is"
+      }
+    },
+    "cinquante-six": {
+      "lemma": "cinquante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty-six (cinquante + six)",
+        "es-419": "cincuenta y seis (cinquante + six)",
+        "it": "cinquantasei (cinquante + six)",
+        "nl": "zesenvijftig (cinquante + six)"
+      }
+    },
+    "soixante-dix-huit": {
+      "lemma": "soixante-dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seventy-eight (soixante-dix + huit)",
+        "es-419": "setenta y ocho (soixante-dix + huit)",
+        "it": "settantotto (soixante-dix + huit)",
+        "nl": "achtenzeventig (soixante-dix + huit)"
+      }
+    },
+    "vous": {
+      "lemma": "vous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (formal singular or plural)",
+        "es-419": "usted, ustedes",
+        "it": "Lei, voi",
+        "nl": "u, jullie"
+      }
+    },
+    "pouvez": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (pouvoir; vous)",
+        "es-419": "puede, pueden (pouvoir; vous)",
+        "it": "può, potete (pouvoir; vous)",
+        "nl": "kunt u, kunnen jullie (pouvoir; vous)"
+      }
+    },
+    "répéter": {
+      "lemma": "répéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to repeat",
+        "es-419": "repetir",
+        "it": "ripetere",
+        "nl": "herhalen"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if he, if it; s'il vous plaît = please",
+        "es-419": "s'il = si + il: si él; s'il vous plaît = por favor",
+        "it": "s'il = si + il: se lui; s'il vous plaît = per favore",
+        "nl": "s'il = si + il: als hij; s'il vous plaît = alstublieft"
+      }
+    },
+    "plaît": {
+      "lemma": "plaire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pleases (plaire); s'il vous plaît = please (literally: if it pleases you)",
+        "es-419": "agrada (plaire); s'il vous plaît = por favor",
+        "it": "piace (plaire); s'il vous plaît = per favore",
+        "nl": "bevalt (plaire); s'il vous plaît = alstublieft"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ai = ne + ai: (I) don't have; je n'ai pas = I don't have",
+        "es-419": "n'ai = ne + ai: no tengo; je n'ai pas = no tengo",
+        "it": "n'ai = ne + ai: non ho; je n'ai pas = non ho",
+        "nl": "n'ai = ne + ai: heb geen; je n'ai pas = ik heb geen"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not (ne ... pas); je n'ai pas de = I don't have any",
+        "es-419": "no (ne ... pas); je n'ai pas de = no tengo",
+        "it": "non (ne ... pas); je n'ai pas de = non ho",
+        "nl": "niet, geen (ne ... pas); je n'ai pas de = ik heb geen"
+      }
+    },
+    "paul": {
+      "lemma": "paul",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Paul (a man's name)",
+        "es-419": "Paul (nombre de hombre)",
+        "it": "Paul (nome maschile)",
+        "nl": "Paul (jongensnaam)"
+      }
+    },
+    "heure": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hour, time (f); quelle heure est-il? = what time is it?",
+        "es-419": "hora (f); quelle heure est-il? = ¿qué hora es?",
+        "it": "ora (f); quelle heure est-il? = che ore sono?",
+        "nl": "uur (f); quelle heure est-il? = hoe laat is het?"
+      }
+    },
+    "quelle": {
+      "lemma": "quel",
+      "pos": "DET",
+      "gloss": {
+        "en": "which, what (feminine of quel); quelle heure = what time",
+        "es-419": "qué, cuál (femenino de quel); quelle heure = qué hora",
+        "it": "quale, che (femminile di quel); quelle heure = che ora",
+        "nl": "welke, wat (vrouwelijk van quel); quelle heure = hoe laat"
+      }
+    },
+    "est-il": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-il = est + il: is it; quelle heure est-il? = what time is it?",
+        "es-419": "est-il = est + il: es; quelle heure est-il? = ¿qué hora es?",
+        "it": "est-il = est + il: è; quelle heure est-il? = che ore sono?",
+        "nl": "est-il = est + il: is het; quelle heure est-il? = hoe laat is het?"
+      }
+    },
+    "excusez-moi": {
+      "lemma": "excuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excusez-moi = excusez + moi: excuse me",
+        "es-419": "excusez-moi = excusez + moi: disculpe",
+        "it": "excusez-moi = excusez + moi: mi scusi",
+        "nl": "excusez-moi = excusez + moi: pardon, neem me niet kwalijk"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (feminine of un)",
+        "es-419": "una; uno (femenino de un)",
+        "it": "una; uno (femminile di un)",
+        "nl": "een; één (vrouwelijk van un)"
+      }
+    },
+    "trois": {
+      "lemma": "trois",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "es-419": "tres",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "heures": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours, o'clock (heure, f); trois heures = three o'clock",
+        "es-419": "horas (heure, f); trois heures = las tres",
+        "it": "ore (heure, f); trois heures = le tre",
+        "nl": "uur (heure, f); trois heures = drie uur"
+      }
+    },
+    "pile": {
+      "lemma": "pile",
+      "pos": "ADV",
+      "gloss": {
+        "en": "sharp, on the dot; trois heures pile = three o'clock sharp",
+        "es-419": "en punto; trois heures pile = las tres en punto",
+        "it": "in punto; trois heures pile = le tre in punto",
+        "nl": "precies; trois heures pile = precies drie uur"
+      }
+    },
+    "midi": {
+      "lemma": "midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "noon (m)",
+        "es-419": "mediodía (m)",
+        "it": "mezzogiorno (m)",
+        "nl": "12 uur 's middags (m)"
+      }
+    },
+    "minuit": {
+      "lemma": "minuit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "midnight (m)",
+        "es-419": "medianoche (m)",
+        "it": "mezzanotte (f)",
+        "nl": "middernacht (m)"
+      }
+    },
+    "quart": {
+      "lemma": "quart",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "quarter (m); et quart = a quarter past, moins le quart = a quarter to",
+        "es-419": "cuarto (m); et quart = y cuarto, moins le quart = menos cuarto",
+        "it": "quarto (m); et quart = e un quarto, moins le quart = meno un quarto",
+        "nl": "kwart (m); et quart = kwart over, moins le quart = kwart voor"
+      }
+    },
+    "demie": {
+      "lemma": "demi",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "half (feminine, after heure); et demie = half past",
+        "es-419": "media (femenino, tras heure); et demie = y media",
+        "it": "mezza (femminile, dopo heure); et demie = e mezza",
+        "nl": "half (vrouwelijk, na heure); et demie = half; let op: trois heures et demie = half vier, niet half drie"
+      }
+    },
+    "moins": {
+      "lemma": "moins",
+      "pos": "ADV",
+      "gloss": {
+        "en": "minus, less; huit heures moins dix = ten to eight",
+        "es-419": "menos; huit heures moins dix = ocho menos diez",
+        "it": "meno; huit heures moins dix = otto meno dieci",
+        "nl": "min, minder; huit heures moins dix = tien voor acht"
+      }
+    },
+    "demi": {
+      "lemma": "demi",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "half (masculine, after midi); midi et demi = half past twelve",
+        "es-419": "medio (masculino, tras midi); midi et demi = doce y media",
+        "it": "mezzo (maschile, dopo midi); midi et demi = mezzogiorno e mezza",
+        "nl": "half (mannelijk, na midi); midi et demi = half één"
+      }
+    },
+    "dix": {
+      "lemma": "dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "magasin": {
+      "lemma": "magasin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "store, shop (m)",
+        "es-419": "tienda (m)",
+        "it": "negozio (m); attenzione: magasin = negozio, non magazzino (magazzino = entrepôt)",
+        "nl": "winkel (m); let op: magasin = winkel, niet magazijn (magazijn = entrepôt)"
+      }
+    },
+    "ouvert": {
+      "lemma": "ouvert",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "open (ouvrir); le magasin est ouvert = the store is open",
+        "es-419": "abierto (ouvrir); le magasin est ouvert = la tienda está abierta",
+        "it": "aperto (ouvrir); le magasin est ouvert = il negozio è aperto",
+        "nl": "open (ouvrir); le magasin est ouvert = de winkel is open"
+      }
+    },
+    "maintenant": {
+      "lemma": "maintenant",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "es-419": "ahora",
+        "it": "adesso",
+        "nl": "nu"
+      }
+    },
+    "fermé": {
+      "lemma": "fermé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed (fermer); le magasin est fermé = the store is closed",
+        "es-419": "cerrado (fermer); le magasin est fermé = la tienda está cerrada",
+        "it": "chiuso (fermer); attenzione: fermé = chiuso, non fermo (fermo = arrêté, immobile)",
+        "nl": "gesloten (fermer); le magasin est fermé = de winkel is gesloten"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "at, to; à neuf heures = at nine; du lundi au vendredi = Monday to Friday",
+        "es-419": "a; à neuf heures = a las nueve",
+        "it": "a; à neuf heures = alle nove",
+        "nl": "om, naar; à neuf heures = om negen uur"
+      }
+    },
+    "tôt": {
+      "lemma": "tôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "early",
+        "es-419": "temprano",
+        "it": "presto",
+        "nl": "vroeg"
+      }
+    },
+    "tard": {
+      "lemma": "tard",
+      "pos": "ADV",
+      "gloss": {
+        "en": "late",
+        "es-419": "tarde",
+        "it": "tardi",
+        "nl": "laat"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "of the, from the (de + le); du matin = in the morning; du lundi = from Monday",
+        "es-419": "del (de + le); du matin = de la mañana; du lundi = desde el lunes",
+        "it": "del (de + le); du matin = di mattina; du lundi = dal lunedì",
+        "nl": "van de, van het (de + le); du matin = 's ochtends; du lundi = vanaf maandag"
+      }
+    },
+    "matin": {
+      "lemma": "matin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (m); du matin = in the morning",
+        "es-419": "mañana (m); du matin = de la mañana",
+        "it": "mattina (m); du matin = di mattina",
+        "nl": "ochtend (m); du matin = 's ochtends"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); du soir = in the evening",
+        "es-419": "tarde, noche (m); du soir = de la tarde, de la noche",
+        "it": "sera (m); du soir = di sera",
+        "nl": "avond (m); du soir = 's avonds"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce = est + ce: is it (est-ce que starts a question)",
+        "es-419": "est-ce = est + ce: es (est-ce que abre una pregunta)",
+        "it": "est-ce = est + ce: è (est-ce que apre una domanda)",
+        "nl": "est-ce = est + ce: is het (est-ce que leidt een vraag in)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that, what (est-ce que = question marker)",
+        "es-419": "que, qué (est-ce que = marca de pregunta)",
+        "it": "che (est-ce que = segnale di domanda)",
+        "nl": "dat, wat (est-ce que = vraagmarkering)"
+      }
+    },
+    "ouvre": {
+      "lemma": "ouvrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "opens (ouvrir: ouvre, ouvrez)",
+        "es-419": "abre (ouvrir: ouvre, ouvrez)",
+        "it": "apre (ouvrir: ouvre, ouvrez)",
+        "nl": "gaat open, opent (ouvrir: ouvre, ouvrez)"
+      }
+    },
+    "ferme": {
+      "lemma": "fermer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "closes (fermer: ferme, fermez)",
+        "es-419": "cierra (fermer: ferme, fermez)",
+        "it": "chiude (fermer: ferme, fermez)",
+        "nl": "gaat dicht, sluit (fermer: ferme, fermez)"
+      }
+    },
+    "voici": {
+      "lemma": "voici",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "here is, here are",
+        "es-419": "aquí está, aquí están",
+        "it": "ecco",
+        "nl": "hier is, hier zijn"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural of le, la)",
+        "es-419": "los, las (plural de le, la)",
+        "it": "i, gli, le (plurale di le, la)",
+        "nl": "de (meervoud van le, la)"
+      }
+    },
+    "horaires": {
+      "lemma": "horaire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hours, timetable (horaire, m); usually plural",
+        "es-419": "horarios (horaire, m); casi siempre en plural",
+        "it": "orari (horaire, m); di solito al plurale",
+        "nl": "openingstijden, dienstregeling (horaire, m); meestal meervoud"
+      }
+    },
+    "ouvrez": {
+      "lemma": "ouvrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you open (ouvrir; vous)",
+        "es-419": "ustedes abren, usted abre (ouvrir; vous)",
+        "it": "voi aprite, Lei apre (ouvrir; vous)",
+        "nl": "u opent, jullie openen (ouvrir; vous)"
+      }
+    },
+    "lundi": {
+      "lemma": "lundi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m); no capital letter",
+        "es-419": "lunes (m); sin mayúscula",
+        "it": "lunedì (m); senza maiuscola",
+        "nl": "maandag (m); met een kleine letter"
+      }
+    },
+    "samedi": {
+      "lemma": "samedi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m)",
+        "es-419": "sábado (m)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m)"
+      }
+    },
+    "dimanche": {
+      "lemma": "dimanche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m)",
+        "es-419": "domingo (m)",
+        "it": "domenica (f)",
+        "nl": "zondag (m)"
+      }
+    },
+    "week-end": {
+      "lemma": "week-end",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weekend (m); also written weekend",
+        "es-419": "fin de semana (m); también se escribe weekend",
+        "it": "fine settimana (m); si scrive anche weekend",
+        "nl": "weekend (m); ook geschreven weekend"
+      }
+    },
+    "mardi": {
+      "lemma": "mardi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Tuesday (m)",
+        "es-419": "martes (m)",
+        "it": "martedì (m)",
+        "nl": "dinsdag (m)"
+      }
+    },
+    "jeudi": {
+      "lemma": "jeudi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Thursday (m)",
+        "es-419": "jueves (m)",
+        "it": "giovedì (m)",
+        "nl": "donderdag (m)"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to the (à + le); du lundi au vendredi = from Monday to Friday",
+        "es-419": "al (à + le); du lundi au vendredi = de lunes a viernes",
+        "it": "al (à + le); du lundi au vendredi = dal lunedì al venerdì",
+        "nl": "naar de, tot (à + le); du lundi au vendredi = van maandag tot vrijdag"
+      }
+    },
+    "vendredi": {
+      "lemma": "vendredi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Friday (m)",
+        "es-419": "viernes (m)",
+        "it": "venerdì (m)",
+        "nl": "vrijdag (m)"
+      }
+    },
+    "aujourd'hui": {
+      "lemma": "aujourd'hui",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "mercredi": {
+      "lemma": "mercredi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Wednesday (m)",
+        "es-419": "miércoles (m)",
+        "it": "mercoledì (m)",
+        "nl": "woensdag (m)"
+      }
+    },
+    "semaine": {
+      "lemma": "semaine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f)",
+        "es-419": "semana (f)",
+        "it": "settimana (f)",
+        "nl": "week (f)"
+      }
+    },
+    "jours": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (jour, m)",
+        "es-419": "días (jour, m)",
+        "it": "giorni (jour, m)",
+        "nl": "dagen (jour, m)"
+      }
+    },
+    "minutes": {
+      "lemma": "minute",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (minute, f)",
+        "es-419": "minutos (minute, f)",
+        "it": "minuti (minute, f)",
+        "nl": "minuten (minute, f)"
+      }
+    },
+    "rendez-vous": {
+      "lemma": "rendez-vous",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "appointment, meeting, date (m); rendez-vous = rendez + vous",
+        "es-419": "cita (m); rendez-vous = rendez + vous",
+        "it": "appuntamento (m); rendez-vous = rendez + vous",
+        "nl": "afspraak (m); rendez-vous = rendez + vous"
+      }
+    },
+    "l'après-midi": {
+      "lemma": "après-midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'après-midi = le + après-midi: the afternoon (m or f); de l'après-midi = in the afternoon",
+        "es-419": "l'après-midi = le + après-midi: la tarde (m o f); de l'après-midi = de la tarde",
+        "it": "l'après-midi = le + après-midi: il pomeriggio (m o f); de l'après-midi = del pomeriggio",
+        "nl": "l'après-midi = le + après-midi: de middag (m of f); de l'après-midi = 's middags"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (être: suis, es, est)",
+        "es-419": "soy, estoy (être: suis, es, est)",
+        "it": "sono (être: suis, es, est)",
+        "nl": "ben (être: suis, es, est)"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here",
+        "es-419": "aquí",
+        "it": "qui, qua",
+        "nl": "hier"
+      }
+    },
+    "depuis": {
+      "lemma": "depuis",
+      "pos": "ADP",
+      "gloss": {
+        "en": "since, for; watch out: French uses the present, je suis ici depuis lundi = I've been here since Monday",
+        "es-419": "desde; je suis ici depuis lundi = estoy aquí desde el lunes",
+        "it": "da; je suis ici depuis lundi = sono qui da lunedì",
+        "nl": "sinds, al; je suis ici depuis lundi = ik ben hier sinds maandag"
+      }
+    },
+    "bon": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (masculine); bon week-end = have a good weekend",
+        "es-419": "bueno (masculino); bon week-end = buen fin de semana",
+        "it": "buono (maschile); bon week-end = buon fine settimana",
+        "nl": "goed (mannelijk); bon week-end = fijn weekend"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-nombres-1",
+      "title": "De zéro à vingt",
+      "grammarFocus": {
+        "en": [
+          "numbers 0-16: seize is the last single word; then dix-sept, dix-huit, dix-neuf",
+          "chiffre = digit, nombre = number (quantity)"
+        ],
+        "es-419": [
+          "números 0-16: seize es la última palabra suelta; luego dix-sept, dix-huit, dix-neuf",
+          "chiffre = dígito, nombre = número (cantidad)"
+        ],
+        "it": [
+          "i numeri 0-16: seize è l'ultima parola singola; poi dix-sept, dix-huit, dix-neuf",
+          "chiffre = cifra, nombre = numero (quantità)"
+        ],
+        "nl": [
+          "getallen 0-16: seize is het laatste losse woord; daarna dix-sept, dix-huit, dix-neuf",
+          "chiffre = cijfer, nombre = getal (hoeveelheid)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "zéro",
+          "translation": {
+            "en": "zero",
+            "es-419": "cero",
+            "it": "zero",
+            "nl": "nul"
+          },
+          "distractors": {
+            "en": [
+              "one",
+              "ten"
+            ],
+            "es-419": [
+              "uno",
+              "diez"
+            ],
+            "it": [
+              "uno",
+              "dieci"
+            ],
+            "nl": [
+              "een",
+              "tien"
+            ]
+          },
+          "variants": [
+            "0"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "six",
+          "translation": {
+            "en": "six",
+            "es-419": "seis",
+            "it": "sei",
+            "nl": "zes"
+          },
+          "distractors": {
+            "en": [
+              "five",
+              "sixteen"
+            ],
+            "es-419": [
+              "cinco",
+              "dieciséis"
+            ],
+            "it": [
+              "cinque",
+              "sedici"
+            ],
+            "nl": [
+              "vijf",
+              "zestien"
+            ]
+          },
+          "variants": [
+            "6"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "sept",
+          "translation": {
+            "en": "seven",
+            "es-419": "siete",
+            "it": "sette",
+            "nl": "zeven"
+          },
+          "distractors": {
+            "en": [
+              "eight",
+              "seventeen"
+            ],
+            "es-419": [
+              "ocho",
+              "diecisiete"
+            ],
+            "it": [
+              "otto",
+              "diciassette"
+            ],
+            "nl": [
+              "acht",
+              "zeventien"
+            ]
+          },
+          "variants": [
+            "7"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "huit",
+          "translation": {
+            "en": "eight",
+            "es-419": "ocho",
+            "it": "otto",
+            "nl": "acht"
+          },
+          "distractors": {
+            "en": [
+              "nine",
+              "eighteen"
+            ],
+            "es-419": [
+              "nueve",
+              "dieciocho"
+            ],
+            "it": [
+              "nove",
+              "diciotto"
+            ],
+            "nl": [
+              "negen",
+              "achttien"
+            ]
+          },
+          "variants": [
+            "8"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "neuf",
+          "translation": {
+            "en": "nine",
+            "es-419": "nueve",
+            "it": "nove",
+            "nl": "negen"
+          },
+          "distractors": {
+            "en": [
+              "ten",
+              "nineteen"
+            ],
+            "es-419": [
+              "diez",
+              "diecinueve"
+            ],
+            "it": [
+              "dieci",
+              "diciannove"
+            ],
+            "nl": [
+              "tien",
+              "negentien"
+            ]
+          },
+          "variants": [
+            "9"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "six euros",
+          "translation": {
+            "en": "six euros",
+            "es-419": "seis euros",
+            "it": "sei euro",
+            "nl": "zes euro"
+          },
+          "distractors": {
+            "en": [
+              "seven euros",
+              "sixteen euros"
+            ],
+            "es-419": [
+              "siete euros",
+              "dieciséis euros"
+            ],
+            "it": [
+              "sette euro",
+              "sedici euro"
+            ],
+            "nl": [
+              "zeven euro",
+              "zestien euro"
+            ]
+          },
+          "variants": [
+            "6 euros",
+            "6 euro"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le sandwich coûte sept euros.",
+          "translation": {
+            "en": "The sandwich costs seven euros.",
+            "es-419": "El sándwich cuesta siete euros.",
+            "it": "Il panino costa sette euro.",
+            "nl": "Het broodje kost zeven euro."
+          },
+          "distractors": {
+            "en": [
+              "The sandwich costs six euros.",
+              "The cake costs seven euros."
+            ],
+            "es-419": [
+              "El sándwich cuesta seis euros.",
+              "El pastel cuesta siete euros."
+            ],
+            "it": [
+              "Il panino costa sei euro.",
+              "La torta costa sette euro."
+            ],
+            "nl": [
+              "Het broodje kost zes euro.",
+              "De taart kost zeven euro."
+            ]
+          },
+          "variants": [
+            "Le sandwich coûte 7 euros.",
+            "Le sandwich coûte 7 euro."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "onze",
+          "translation": {
+            "en": "eleven",
+            "es-419": "once",
+            "it": "undici",
+            "nl": "elf"
+          },
+          "distractors": {
+            "en": [
+              "twelve",
+              "one"
+            ],
+            "es-419": [
+              "doce",
+              "uno"
+            ],
+            "it": [
+              "dodici",
+              "uno"
+            ],
+            "nl": [
+              "twaalf",
+              "een"
+            ]
+          },
+          "variants": [
+            "11"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "douze",
+          "translation": {
+            "en": "twelve",
+            "es-419": "doce",
+            "it": "dodici",
+            "nl": "twaalf"
+          },
+          "distractors": {
+            "en": [
+              "eleven",
+              "two"
+            ],
+            "es-419": [
+              "once",
+              "dos"
+            ],
+            "it": [
+              "undici",
+              "due"
+            ],
+            "nl": [
+              "elf",
+              "twee"
+            ]
+          },
+          "variants": [
+            "12"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "treize euros",
+          "translation": {
+            "en": "thirteen euros",
+            "es-419": "trece euros",
+            "it": "tredici euro",
+            "nl": "dertien euro"
+          },
+          "distractors": {
+            "en": [
+              "thirty euros",
+              "twelve euros"
+            ],
+            "es-419": [
+              "treinta euros",
+              "doce euros"
+            ],
+            "it": [
+              "trenta euro",
+              "dodici euro"
+            ],
+            "nl": [
+              "dertig euro",
+              "twaalf euro"
+            ]
+          },
+          "variants": [
+            "13 euros",
+            "13 euro"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "quatorze euros",
+          "translation": {
+            "en": "fourteen euros",
+            "es-419": "catorce euros",
+            "it": "quattordici euro",
+            "nl": "veertien euro"
+          },
+          "distractors": {
+            "en": [
+              "forty euros",
+              "fifteen euros"
+            ],
+            "es-419": [
+              "cuarenta euros",
+              "quince euros"
+            ],
+            "it": [
+              "quaranta euro",
+              "quindici euro"
+            ],
+            "nl": [
+              "veertig euro",
+              "vijftien euro"
+            ]
+          },
+          "variants": [
+            "14 euros",
+            "14 euro"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "chiffre",
+          "translation": {
+            "en": "digit",
+            "es-419": "dígito",
+            "it": "cifra",
+            "nl": "cijfer"
+          },
+          "distractors": {
+            "en": [
+              "letter",
+              "word"
+            ],
+            "es-419": [
+              "letra",
+              "palabra"
+            ],
+            "it": [
+              "lettera",
+              "parola"
+            ],
+            "nl": [
+              "letter",
+              "woord"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "nombre",
+          "translation": {
+            "en": "number",
+            "es-419": "número",
+            "it": "numero",
+            "nl": "getal"
+          },
+          "distractors": {
+            "en": [
+              "name",
+              "word"
+            ],
+            "es-419": [
+              "nombre",
+              "palabra"
+            ],
+            "it": [
+              "nome",
+              "parola"
+            ],
+            "nl": [
+              "naam",
+              "woord"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sept est un chiffre, douze est un nombre.",
+          "translation": {
+            "en": "Seven is a digit, twelve is a number.",
+            "es-419": "Siete es un dígito, doce es un número.",
+            "it": "Sette è una cifra, dodici è un numero.",
+            "nl": "Zeven is een cijfer, twaalf is een getal."
+          },
+          "distractors": {
+            "en": [
+              "Seven is a letter, twelve is a number.",
+              "Seventeen is a digit, twelve is a number."
+            ],
+            "es-419": [
+              "Siete es una letra, doce es un número.",
+              "Diecisiete es un dígito, doce es un número."
+            ],
+            "it": [
+              "Sette è una lettera, dodici è un numero.",
+              "Diciassette è una cifra, dodici è un numero."
+            ],
+            "nl": [
+              "Zeven is een letter, twaalf is een getal.",
+              "Zeventien is een cijfer, twaalf is een getal."
+            ]
+          },
+          "variants": [
+            "7 est un chiffre, 12 est un nombre.",
+            "Sept est un chiffre, 12 est un nombre.",
+            "7 est un chiffre, douze est un nombre."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voilà quinze euros, merci.",
+          "translation": {
+            "en": "Here's fifteen euros, thanks.",
+            "es-419": "Aquí tiene quince euros, gracias.",
+            "it": "Ecco quindici euro, grazie.",
+            "nl": "Alstublieft, vijftien euro, dank u."
+          },
+          "distractors": {
+            "en": [
+              "Here's fifty euros, thanks.",
+              "Here's fourteen euros, thanks."
+            ],
+            "es-419": [
+              "Aquí tiene cincuenta euros, gracias.",
+              "Aquí tiene catorce euros, gracias."
+            ],
+            "it": [
+              "Ecco cinquanta euro, grazie.",
+              "Ecco quattordici euro, grazie."
+            ],
+            "nl": [
+              "Alstublieft, vijftig euro, dank u.",
+              "Alstublieft, veertien euro, dank u."
+            ]
+          },
+          "variants": [
+            "Voilà 15 euros, merci.",
+            "Voilà 15 euro, merci."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça coûte seize euros.",
+          "translation": {
+            "en": "It costs sixteen euros.",
+            "es-419": "Cuesta dieciséis euros.",
+            "it": "Costa sedici euro.",
+            "nl": "Het kost zestien euro."
+          },
+          "distractors": {
+            "en": [
+              "It costs sixty euros.",
+              "It costs six euros."
+            ],
+            "es-419": [
+              "Cuesta sesenta euros.",
+              "Cuesta seis euros."
+            ],
+            "it": [
+              "Costa sessanta euro.",
+              "Costa sei euro."
+            ],
+            "nl": [
+              "Het kost zestig euro.",
+              "Het kost zes euro."
+            ]
+          },
+          "variants": [
+            "Ça coûte 16 euros.",
+            "Ça coûte 16 euro."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-nombres-2",
+      "title": "Tu as quel âge?",
+      "grammarFocus": {
+        "en": [
+          "avoir: j'ai, tu as, il/elle a; age with avoir: J'ai trente ans = I'm thirty",
+          "vingt et un, vingt-deux, quarante-cinq; an = year as a count, année = year as duration"
+        ],
+        "es-419": [
+          "avoir: j'ai, tu as, il/elle a; la edad con avoir: J'ai trente ans = tengo treinta años",
+          "vingt et un, vingt-deux, quarante-cinq; an = año como cuenta, année = año como duración"
+        ],
+        "it": [
+          "avoir: j'ai, tu as, il/elle a; l'età con avoir: J'ai trente ans = ho trent'anni",
+          "vingt et un, vingt-deux, quarante-cinq; an = anno come conteggio, année = anno come durata"
+        ],
+        "nl": [
+          "avoir: j'ai, tu as, il/elle a; leeftijd met avoir: J'ai trente ans = ik ben dertig",
+          "vingt et un, vingt-deux, quarante-cinq; an = jaar als telling, année = jaar als duur"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "âge",
+          "translation": {
+            "en": "age",
+            "es-419": "edad",
+            "it": "età",
+            "nl": "leeftijd"
+          },
+          "distractors": {
+            "en": [
+              "year",
+              "name"
+            ],
+            "es-419": [
+              "año",
+              "nombre"
+            ],
+            "it": [
+              "anno",
+              "nome"
+            ],
+            "nl": [
+              "jaar",
+              "naam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un an",
+          "translation": {
+            "en": "one year",
+            "es-419": "un año",
+            "it": "un anno",
+            "nl": "een jaar"
+          },
+          "distractors": {
+            "en": [
+              "one day",
+              "one week"
+            ],
+            "es-419": [
+              "un día",
+              "una semana"
+            ],
+            "it": [
+              "un giorno",
+              "una settimana"
+            ],
+            "nl": [
+              "een dag",
+              "een week"
+            ]
+          },
+          "variants": [
+            "1 an"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "deux ans",
+          "translation": {
+            "en": "two years",
+            "es-419": "dos años",
+            "it": "due anni",
+            "nl": "twee jaar"
+          },
+          "distractors": {
+            "en": [
+              "two days",
+              "three years"
+            ],
+            "es-419": [
+              "dos días",
+              "tres años"
+            ],
+            "it": [
+              "due giorni",
+              "tre anni"
+            ],
+            "nl": [
+              "twee dagen",
+              "drie jaar"
+            ]
+          },
+          "variants": [
+            "2 ans"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "trente",
+          "translation": {
+            "en": "thirty",
+            "es-419": "treinta",
+            "it": "trenta",
+            "nl": "dertig"
+          },
+          "distractors": {
+            "en": [
+              "thirteen",
+              "forty"
+            ],
+            "es-419": [
+              "trece",
+              "cuarenta"
+            ],
+            "it": [
+              "tredici",
+              "quaranta"
+            ],
+            "nl": [
+              "dertien",
+              "veertig"
+            ]
+          },
+          "variants": [
+            "30"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai trente ans.",
+          "translation": {
+            "en": "I'm thirty.",
+            "es-419": "Tengo treinta años.",
+            "it": "Ho trent'anni.",
+            "nl": "Ik ben dertig."
+          },
+          "distractors": {
+            "en": [
+              "I'm thirteen.",
+              "I'm forty."
+            ],
+            "es-419": [
+              "Tengo trece años.",
+              "Tengo cuarenta años."
+            ],
+            "it": [
+              "Ho tredici anni.",
+              "Ho quarant'anni."
+            ],
+            "nl": [
+              "Ik ben dertien.",
+              "Ik ben veertig."
+            ]
+          },
+          "variants": [
+            "J'ai 30 ans."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "quarante",
+          "translation": {
+            "en": "forty",
+            "es-419": "cuarenta",
+            "it": "quaranta",
+            "nl": "veertig"
+          },
+          "distractors": {
+            "en": [
+              "fourteen",
+              "fifty"
+            ],
+            "es-419": [
+              "catorce",
+              "cincuenta"
+            ],
+            "it": [
+              "quattordici",
+              "cinquanta"
+            ],
+            "nl": [
+              "veertien",
+              "vijftig"
+            ]
+          },
+          "variants": [
+            "40"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quel âge as-tu",
+          "translation": {
+            "en": "how old are you",
+            "es-419": "cuántos años tienes",
+            "it": "quanti anni hai",
+            "nl": "hoe oud ben je"
+          },
+          "distractors": {
+            "en": [
+              "what's your name",
+              "where are you from"
+            ],
+            "es-419": [
+              "cómo te llamas",
+              "de dónde eres"
+            ],
+            "it": [
+              "come ti chiami",
+              "di dove sei"
+            ],
+            "nl": [
+              "hoe heet je",
+              "waar kom je vandaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel âge as-tu?",
+          "translation": {
+            "en": "How old are you?",
+            "es-419": "¿Cuántos años tienes?",
+            "it": "Quanti anni hai?",
+            "nl": "Hoe oud ben je?"
+          },
+          "distractors": {
+            "en": [
+              "How old is she?",
+              "Where are you from?"
+            ],
+            "es-419": [
+              "¿Cuántos años tiene ella?",
+              "¿De dónde eres?"
+            ],
+            "it": [
+              "Quanti anni ha lei?",
+              "Di dove sei?"
+            ],
+            "nl": [
+              "Hoe oud is zij?",
+              "Waar kom je vandaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel âge avez-vous?",
+          "translation": {
+            "en": "How old are you?",
+            "es-419": "¿Cuántos años tiene usted?",
+            "it": "Quanti anni ha?",
+            "nl": "Hoe oud bent u?"
+          },
+          "distractors": {
+            "en": [
+              "Where are you from?",
+              "What's your name?"
+            ],
+            "es-419": [
+              "¿De dónde es usted?",
+              "¿Cómo se llama usted?"
+            ],
+            "it": [
+              "Di dov'è?",
+              "Come si chiama?"
+            ],
+            "nl": [
+              "Waar komt u vandaan?",
+              "Hoe heet u?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "soixante",
+          "translation": {
+            "en": "sixty",
+            "es-419": "sesenta",
+            "it": "sessanta",
+            "nl": "zestig"
+          },
+          "distractors": {
+            "en": [
+              "sixteen",
+              "seventy"
+            ],
+            "es-419": [
+              "dieciséis",
+              "setenta"
+            ],
+            "it": [
+              "sedici",
+              "settanta"
+            ],
+            "nl": [
+              "zestien",
+              "zeventig"
+            ]
+          },
+          "variants": [
+            "60"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle a soixante ans.",
+          "translation": {
+            "en": "She's sixty.",
+            "es-419": "Ella tiene sesenta años.",
+            "it": "Lei ha sessant'anni.",
+            "nl": "Zij is zestig."
+          },
+          "distractors": {
+            "en": [
+              "She's sixteen.",
+              "He's sixty."
+            ],
+            "es-419": [
+              "Ella tiene dieciséis años.",
+              "Él tiene sesenta años."
+            ],
+            "it": [
+              "Lei ha sedici anni.",
+              "Lui ha sessant'anni."
+            ],
+            "nl": [
+              "Zij is zestien.",
+              "Hij is zestig."
+            ]
+          },
+          "variants": [
+            "Elle a 60 ans."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vingt et un",
+          "translation": {
+            "en": "twenty-one",
+            "es-419": "veintiuno",
+            "it": "ventuno",
+            "nl": "eenentwintig"
+          },
+          "distractors": {
+            "en": [
+              "twenty-two",
+              "thirty-one"
+            ],
+            "es-419": [
+              "veintidós",
+              "treinta y uno"
+            ],
+            "it": [
+              "ventidue",
+              "trentuno"
+            ],
+            "nl": [
+              "tweeëntwintig",
+              "eenendertig"
+            ]
+          },
+          "variants": [
+            "21"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "vingt-deux ans",
+          "translation": {
+            "en": "twenty-two years",
+            "es-419": "veintidós años",
+            "it": "ventidue anni",
+            "nl": "tweeëntwintig jaar"
+          },
+          "distractors": {
+            "en": [
+              "twenty-three years",
+              "thirty-two years"
+            ],
+            "es-419": [
+              "veintitrés años",
+              "treinta y dos años"
+            ],
+            "it": [
+              "ventitré anni",
+              "trentadue anni"
+            ],
+            "nl": [
+              "drieëntwintig jaar",
+              "tweeëndertig jaar"
+            ]
+          },
+          "variants": [
+            "22 ans"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a quarante-cinq ans.",
+          "translation": {
+            "en": "He's forty-five.",
+            "es-419": "Él tiene cuarenta y cinco años.",
+            "it": "Lui ha quarantacinque anni.",
+            "nl": "Hij is vijfenveertig."
+          },
+          "distractors": {
+            "en": [
+              "He's fifty-four.",
+              "She's forty-five."
+            ],
+            "es-419": [
+              "Él tiene cincuenta y cuatro años.",
+              "Ella tiene cuarenta y cinco años."
+            ],
+            "it": [
+              "Lui ha cinquantaquattro anni.",
+              "Lei ha quarantacinque anni."
+            ],
+            "nl": [
+              "Hij is vierenvijftig.",
+              "Zij is vijfenveertig."
+            ]
+          },
+          "variants": [
+            "Il a 45 ans."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu as vingt et un ans?",
+          "translation": {
+            "en": "Are you twenty-one?",
+            "es-419": "¿Tienes veintiún años?",
+            "it": "Hai ventun anni?",
+            "nl": "Ben je eenentwintig?"
+          },
+          "distractors": {
+            "en": [
+              "Are you twenty-two?",
+              "Are you twelve?"
+            ],
+            "es-419": [
+              "¿Tienes veintidós años?",
+              "¿Tienes doce años?"
+            ],
+            "it": [
+              "Hai ventidue anni?",
+              "Hai dodici anni?"
+            ],
+            "nl": [
+              "Ben je tweeëntwintig?",
+              "Ben je twaalf?"
+            ]
+          },
+          "variants": [
+            "Tu as 21 ans?"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonne année!",
+          "translation": {
+            "en": "Happy New Year!",
+            "es-419": "¡Feliz año nuevo!",
+            "it": "Buon anno!",
+            "nl": "Gelukkig nieuwjaar!"
+          },
+          "distractors": {
+            "en": [
+              "Happy birthday!",
+              "Happy holidays!"
+            ],
+            "es-419": [
+              "¡Feliz cumpleaños!",
+              "¡Felices fiestas!"
+            ],
+            "it": [
+              "Buon compleanno!",
+              "Buone feste!"
+            ],
+            "nl": [
+              "Gefeliciteerd!",
+              "Fijne feestdagen!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je peux compter jusqu'à cent.",
+          "translation": {
+            "en": "I can count to a hundred.",
+            "es-419": "Puedo contar hasta cien.",
+            "it": "So contare fino a cento.",
+            "nl": "Ik kan tot honderd tellen."
+          },
+          "distractors": {
+            "en": [
+              "I can count to twenty.",
+              "I can count to fifty."
+            ],
+            "es-419": [
+              "Puedo contar hasta veinte.",
+              "Puedo contar hasta cincuenta."
+            ],
+            "it": [
+              "So contare fino a venti.",
+              "So contare fino a cinquanta."
+            ],
+            "nl": [
+              "Ik kan tot twintig tellen.",
+              "Ik kan tot vijftig tellen."
+            ]
+          },
+          "variants": [
+            "Je peux compter jusqu'à 100."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-nombres-3",
+      "title": "Ton numéro de téléphone",
+      "grammarFocus": {
+        "en": [
+          "soixante-dix, quatre-vingts, quatre-vingt-dix: 60 + 10, 4 x 20, 4 x 20 + 10",
+          "phone numbers in pairs: zéro six, douze, trente-quatre"
+        ],
+        "es-419": [
+          "soixante-dix, quatre-vingts, quatre-vingt-dix: 60 + 10, 4 x 20, 4 x 20 + 10",
+          "los números de teléfono en pares: zéro six, douze, trente-quatre"
+        ],
+        "it": [
+          "soixante-dix, quatre-vingts, quatre-vingt-dix: 60 + 10, 4 x 20, 4 x 20 + 10",
+          "i numeri di telefono a coppie: zéro six, douze, trente-quatre"
+        ],
+        "nl": [
+          "soixante-dix, quatre-vingts, quatre-vingt-dix: 60 + 10, 4 x 20, 4 x 20 + 10",
+          "telefoonnummers in paren: zéro six, douze, trente-quatre"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "numéro",
+          "translation": {
+            "en": "number",
+            "es-419": "número",
+            "it": "numero",
+            "nl": "nummer"
+          },
+          "distractors": {
+            "en": [
+              "name",
+              "age"
+            ],
+            "es-419": [
+              "nombre",
+              "edad"
+            ],
+            "it": [
+              "nome",
+              "età"
+            ],
+            "nl": [
+              "naam",
+              "leeftijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "téléphone",
+          "translation": {
+            "en": "phone",
+            "es-419": "teléfono",
+            "it": "telefono",
+            "nl": "telefoon"
+          },
+          "distractors": {
+            "en": [
+              "number",
+              "bottle"
+            ],
+            "es-419": [
+              "número",
+              "botella"
+            ],
+            "it": [
+              "numero",
+              "bottiglia"
+            ],
+            "nl": [
+              "nummer",
+              "fles"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "numéro de téléphone",
+          "translation": {
+            "en": "phone number",
+            "es-419": "número de teléfono",
+            "it": "numero di telefono",
+            "nl": "telefoonnummer"
+          },
+          "distractors": {
+            "en": [
+              "phone bill",
+              "house number"
+            ],
+            "es-419": [
+              "factura de teléfono",
+              "número de casa"
+            ],
+            "it": [
+              "bolletta del telefono",
+              "numero civico"
+            ],
+            "nl": [
+              "telefoonrekening",
+              "huisnummer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quel est ton numéro de téléphone?",
+          "translation": {
+            "en": "What's your phone number?",
+            "es-419": "¿Cuál es tu número de teléfono?",
+            "it": "Qual è il tuo numero di telefono?",
+            "nl": "Wat is je telefoonnummer?"
+          },
+          "distractors": {
+            "en": [
+              "What's your house number?",
+              "What's your last name?"
+            ],
+            "es-419": [
+              "¿Cuál es el número de tu casa?",
+              "¿Cuál es tu apellido?"
+            ],
+            "it": [
+              "Qual è il tuo numero civico?",
+              "Qual è il tuo cognome?"
+            ],
+            "nl": [
+              "Wat is je huisnummer?",
+              "Wat is je achternaam?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un téléphone portable",
+          "translation": {
+            "en": "a cell phone",
+            "es-419": "un teléfono celular",
+            "it": "un telefono cellulare",
+            "nl": "een mobiele telefoon"
+          },
+          "distractors": {
+            "en": [
+              "a landline phone",
+              "a computer"
+            ],
+            "es-419": [
+              "un teléfono fijo",
+              "una computadora"
+            ],
+            "it": [
+              "un telefono fisso",
+              "un computer"
+            ],
+            "nl": [
+              "een vaste telefoon",
+              "een computer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "mon numéro de portable",
+          "translation": {
+            "en": "my cell number",
+            "es-419": "mi número de celular",
+            "it": "il mio numero di cellulare",
+            "nl": "mijn mobiele nummer"
+          },
+          "distractors": {
+            "en": [
+              "your cell number",
+              "my house number"
+            ],
+            "es-419": [
+              "tu número de celular",
+              "el número de mi casa"
+            ],
+            "it": [
+              "il tuo numero di cellulare",
+              "il mio numero civico"
+            ],
+            "nl": [
+              "jouw mobiele nummer",
+              "mijn huisnummer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "soixante-dix",
+          "translation": {
+            "en": "seventy",
+            "es-419": "setenta",
+            "it": "settanta",
+            "nl": "zeventig"
+          },
+          "distractors": {
+            "en": [
+              "sixty",
+              "seventeen"
+            ],
+            "es-419": [
+              "sesenta",
+              "diecisiete"
+            ],
+            "it": [
+              "sessanta",
+              "diciassette"
+            ],
+            "nl": [
+              "zestig",
+              "zeventien"
+            ]
+          },
+          "variants": [
+            "70"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "quatre-vingts",
+          "translation": {
+            "en": "eighty",
+            "es-419": "ochenta",
+            "it": "ottanta",
+            "nl": "tachtig"
+          },
+          "distractors": {
+            "en": [
+              "eighteen",
+              "seventy"
+            ],
+            "es-419": [
+              "dieciocho",
+              "setenta"
+            ],
+            "it": [
+              "diciotto",
+              "settanta"
+            ],
+            "nl": [
+              "achttien",
+              "zeventig"
+            ]
+          },
+          "variants": [
+            "80"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "quatre-vingt-dix",
+          "translation": {
+            "en": "ninety",
+            "es-419": "noventa",
+            "it": "novanta",
+            "nl": "negentig"
+          },
+          "distractors": {
+            "en": [
+              "nineteen",
+              "eighty"
+            ],
+            "es-419": [
+              "diecinueve",
+              "ochenta"
+            ],
+            "it": [
+              "diciannove",
+              "ottanta"
+            ],
+            "nl": [
+              "negentien",
+              "tachtig"
+            ]
+          },
+          "variants": [
+            "90"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "soixante et onze",
+          "translation": {
+            "en": "seventy-one",
+            "es-419": "setenta y uno",
+            "it": "settantuno",
+            "nl": "eenenzeventig"
+          },
+          "distractors": {
+            "en": [
+              "sixty-one",
+              "seventy-two"
+            ],
+            "es-419": [
+              "sesenta y uno",
+              "setenta y dos"
+            ],
+            "it": [
+              "sessantuno",
+              "settantadue"
+            ],
+            "nl": [
+              "eenenzestig",
+              "tweeënzeventig"
+            ]
+          },
+          "variants": [
+            "71"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quatre-vingt-dix-sept",
+          "translation": {
+            "en": "ninety-seven",
+            "es-419": "noventa y siete",
+            "it": "novantasette",
+            "nl": "zevenennegentig"
+          },
+          "distractors": {
+            "en": [
+              "seventy-nine",
+              "ninety-eight"
+            ],
+            "es-419": [
+              "setenta y nueve",
+              "noventa y ocho"
+            ],
+            "it": [
+              "settantanove",
+              "novantotto"
+            ],
+            "nl": [
+              "negenenzeventig",
+              "achtennegentig"
+            ]
+          },
+          "variants": [
+            "97"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "zéro six, douze, trente-quatre",
+          "translation": {
+            "en": "zero six, twelve, thirty-four",
+            "es-419": "cero seis, doce, treinta y cuatro",
+            "it": "zero sei, dodici, trentaquattro",
+            "nl": "nul zes, twaalf, vierendertig"
+          },
+          "distractors": {
+            "en": [
+              "zero five, twelve, thirty-four",
+              "zero six, twenty-one, forty-three"
+            ],
+            "es-419": [
+              "cero cinco, doce, treinta y cuatro",
+              "cero seis, veintiuno, cuarenta y tres"
+            ],
+            "it": [
+              "zero cinque, dodici, trentaquattro",
+              "zero sei, ventuno, quarantatré"
+            ],
+            "nl": [
+              "nul vijf, twaalf, vierendertig",
+              "nul zes, eenentwintig, drieënveertig"
+            ]
+          },
+          "variants": [
+            "06, 12, 34",
+            "06 12 34"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon numéro de portable, c'est le zéro six, douze, trente-quatre, cinquante-six, soixante-dix-huit.",
+          "translation": {
+            "en": "My cell number is 06, 12, 34, 56, 78.",
+            "es-419": "Mi número de celular es el 06, 12, 34, 56, 78.",
+            "it": "Il mio numero di cellulare è 06, 12, 34, 56, 78.",
+            "nl": "Mijn mobiele nummer is 06, 12, 34, 56, 78."
+          },
+          "distractors": {
+            "en": [
+              "My cell number is 06, 12, 43, 56, 78.",
+              "My cell number is 06, 12, 34, 65, 87."
+            ],
+            "es-419": [
+              "Mi número de celular es el 06, 12, 43, 56, 78.",
+              "Mi número de celular es el 06, 12, 34, 65, 87."
+            ],
+            "it": [
+              "Il mio numero di cellulare è 06, 12, 43, 56, 78.",
+              "Il mio numero di cellulare è 06, 12, 34, 65, 87."
+            ],
+            "nl": [
+              "Mijn mobiele nummer is 06, 12, 43, 56, 78.",
+              "Mijn mobiele nummer is 06, 12, 34, 65, 87."
+            ]
+          },
+          "variants": [
+            "Mon numéro de portable, c'est le 06, 12, 34, 56, 78.",
+            "Mon numéro de portable, c'est le 06 12 34 56 78.",
+            "Mon numéro de portable, c'est le 0612345678."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez répéter le numéro, s'il vous plaît?",
+          "translation": {
+            "en": "Could you repeat the number, please?",
+            "es-419": "¿Puede repetir el número, por favor?",
+            "it": "Può ripetere il numero, per favore?",
+            "nl": "Kunt u het nummer herhalen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Could you repeat the name, please?",
+              "Could you write down the number, please?"
+            ],
+            "es-419": [
+              "¿Puede repetir el nombre, por favor?",
+              "¿Puede anotar el número, por favor?"
+            ],
+            "it": [
+              "Può ripetere il nome, per favore?",
+              "Può annotare il numero, per favore?"
+            ],
+            "nl": [
+              "Kunt u de naam herhalen, alstublieft?",
+              "Kunt u het nummer opschrijven, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je n'ai pas de portable.",
+          "translation": {
+            "en": "I don't have a cell phone.",
+            "es-419": "No tengo celular.",
+            "it": "Non ho il cellulare.",
+            "nl": "Ik heb geen mobiele telefoon."
+          },
+          "distractors": {
+            "en": [
+              "I don't have a phone number.",
+              "I have a cell phone."
+            ],
+            "es-419": [
+              "No tengo número de teléfono.",
+              "Tengo celular."
+            ],
+            "it": [
+              "Non ho un numero di telefono.",
+              "Ho il cellulare."
+            ],
+            "nl": [
+              "Ik heb geen telefoonnummer.",
+              "Ik heb een mobiele telefoon."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu as le numéro de Paul?",
+          "translation": {
+            "en": "Do you have Paul's number?",
+            "es-419": "¿Tienes el número de Paul?",
+            "it": "Hai il numero di Paul?",
+            "nl": "Heb je het nummer van Paul?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have Paul's address?",
+              "Does Paul have your number?"
+            ],
+            "es-419": [
+              "¿Tienes la dirección de Paul?",
+              "¿Paul tiene tu número?"
+            ],
+            "it": [
+              "Hai l'indirizzo di Paul?",
+              "Paul ha il tuo numero?"
+            ],
+            "nl": [
+              "Heb je het adres van Paul?",
+              "Heeft Paul jouw nummer?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-nombres-4",
+      "title": "Quelle heure est-il?",
+      "grammarFocus": {
+        "en": [
+          "Quelle heure est-il? Il est trois heures.",
+          "et quart, et demie, moins le quart, moins dix, midi, minuit, pile"
+        ],
+        "es-419": [
+          "Quelle heure est-il? Il est trois heures.",
+          "et quart, et demie, moins le quart, moins dix, midi, minuit, pile"
+        ],
+        "it": [
+          "Quelle heure est-il? Il est trois heures.",
+          "et quart, et demie, moins le quart, moins dix, midi, minuit, pile"
+        ],
+        "nl": [
+          "Quelle heure est-il? Il est trois heures.",
+          "et quart, et demie, moins le quart, moins dix, midi, minuit, pile; trois heures et demie = half vier (niet half drie)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "heure",
+          "translation": {
+            "en": "hour",
+            "es-419": "hora",
+            "it": "ora",
+            "nl": "uur"
+          },
+          "distractors": {
+            "en": [
+              "minute",
+              "day"
+            ],
+            "es-419": [
+              "minuto",
+              "día"
+            ],
+            "it": [
+              "minuto",
+              "giorno"
+            ],
+            "nl": [
+              "minuut",
+              "dag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quelle heure est-il",
+          "translation": {
+            "en": "what time is it",
+            "es-419": "qué hora es",
+            "it": "che ore sono",
+            "nl": "hoe laat is het"
+          },
+          "distractors": {
+            "en": [
+              "what day is it",
+              "how old are you"
+            ],
+            "es-419": [
+              "qué día es",
+              "cuántos años tienes"
+            ],
+            "it": [
+              "che giorno è",
+              "quanti anni hai"
+            ],
+            "nl": [
+              "welke dag is het",
+              "hoe oud ben je"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, quelle heure est-il?",
+          "translation": {
+            "en": "Excuse me, what time is it?",
+            "es-419": "Disculpe, ¿qué hora es?",
+            "it": "Mi scusi, che ore sono?",
+            "nl": "Pardon, hoe laat is het?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, what day is it?",
+              "Excuse me, how old are you?"
+            ],
+            "es-419": [
+              "Disculpe, ¿qué día es?",
+              "Disculpe, ¿cuántos años tiene?"
+            ],
+            "it": [
+              "Mi scusi, che giorno è?",
+              "Mi scusi, quanti anni ha?"
+            ],
+            "nl": [
+              "Pardon, welke dag is het?",
+              "Pardon, hoe oud bent u?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est une heure.",
+          "translation": {
+            "en": "It's one o'clock.",
+            "es-419": "Es la una.",
+            "it": "È l'una.",
+            "nl": "Het is één uur."
+          },
+          "distractors": {
+            "en": [
+              "It's two o'clock.",
+              "It's eleven o'clock."
+            ],
+            "es-419": [
+              "Son las dos.",
+              "Son las once."
+            ],
+            "it": [
+              "Sono le due.",
+              "Sono le undici."
+            ],
+            "nl": [
+              "Het is twee uur.",
+              "Het is elf uur."
+            ]
+          },
+          "variants": [
+            "Il est 1 heure."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est trois heures pile.",
+          "translation": {
+            "en": "It's three o'clock sharp.",
+            "es-419": "Son las tres en punto.",
+            "it": "Sono le tre in punto.",
+            "nl": "Het is precies drie uur."
+          },
+          "distractors": {
+            "en": [
+              "It's half past three.",
+              "It's two o'clock sharp."
+            ],
+            "es-419": [
+              "Son las tres y media.",
+              "Son las dos en punto."
+            ],
+            "it": [
+              "Sono le tre e mezza.",
+              "Sono le due in punto."
+            ],
+            "nl": [
+              "Het is half vier.",
+              "Het is precies twee uur."
+            ]
+          },
+          "variants": [
+            "Il est 3 heures pile."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "midi",
+          "translation": {
+            "en": "noon",
+            "es-419": "mediodía",
+            "it": "mezzogiorno",
+            "nl": "middaguur"
+          },
+          "distractors": {
+            "en": [
+              "midnight",
+              "morning"
+            ],
+            "es-419": [
+              "medianoche",
+              "mañana"
+            ],
+            "it": [
+              "mezzanotte",
+              "mattina"
+            ],
+            "nl": [
+              "middernacht",
+              "ochtend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "minuit",
+          "translation": {
+            "en": "midnight",
+            "es-419": "medianoche",
+            "it": "mezzanotte",
+            "nl": "middernacht"
+          },
+          "distractors": {
+            "en": [
+              "noon",
+              "evening"
+            ],
+            "es-419": [
+              "mediodía",
+              "tarde"
+            ],
+            "it": [
+              "mezzogiorno",
+              "sera"
+            ],
+            "nl": [
+              "middaguur",
+              "avond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est midi.",
+          "translation": {
+            "en": "It's noon.",
+            "es-419": "Es mediodía.",
+            "it": "È mezzogiorno.",
+            "nl": "Het is twaalf uur 's middags."
+          },
+          "distractors": {
+            "en": [
+              "It's midnight.",
+              "It's ten o'clock."
+            ],
+            "es-419": [
+              "Es medianoche.",
+              "Son las diez."
+            ],
+            "it": [
+              "È mezzanotte.",
+              "Sono le dieci."
+            ],
+            "nl": [
+              "Het is middernacht.",
+              "Het is tien uur."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "et quart",
+          "translation": {
+            "en": "a quarter past",
+            "es-419": "y cuarto",
+            "it": "e un quarto",
+            "nl": "kwart over"
+          },
+          "distractors": {
+            "en": [
+              "half past",
+              "a quarter to"
+            ],
+            "es-419": [
+              "y media",
+              "menos cuarto"
+            ],
+            "it": [
+              "e mezza",
+              "meno un quarto"
+            ],
+            "nl": [
+              "half",
+              "kwart voor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est trois heures et quart.",
+          "translation": {
+            "en": "It's a quarter past three.",
+            "es-419": "Son las tres y cuarto.",
+            "it": "Sono le tre e un quarto.",
+            "nl": "Het is kwart over drie."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter to three.",
+              "It's a quarter past four."
+            ],
+            "es-419": [
+              "Son las tres menos cuarto.",
+              "Son las cuatro y cuarto."
+            ],
+            "it": [
+              "Sono le tre meno un quarto.",
+              "Sono le quattro e un quarto."
+            ],
+            "nl": [
+              "Het is kwart voor drie.",
+              "Het is kwart over vier."
+            ]
+          },
+          "variants": [
+            "Il est 3 heures et quart."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-4-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "et demie",
+          "translation": {
+            "en": "half past",
+            "es-419": "y media",
+            "it": "e mezza",
+            "nl": "half (na het uur)"
+          },
+          "distractors": {
+            "en": [
+              "a quarter past",
+              "a quarter to"
+            ],
+            "es-419": [
+              "y cuarto",
+              "menos cuarto"
+            ],
+            "it": [
+              "e un quarto",
+              "meno un quarto"
+            ],
+            "nl": [
+              "kwart over",
+              "kwart voor"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est une heure et demie.",
+          "translation": {
+            "en": "It's half past one.",
+            "es-419": "Es la una y media.",
+            "it": "È l'una e mezza.",
+            "nl": "Het is half twee."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past one.",
+              "It's half past two."
+            ],
+            "es-419": [
+              "Es la una y cuarto.",
+              "Son las dos y media."
+            ],
+            "it": [
+              "È l'una e un quarto.",
+              "Sono le due e mezza."
+            ],
+            "nl": [
+              "Het is kwart over een.",
+              "Het is half drie."
+            ]
+          },
+          "variants": [
+            "Il est 1 heure et demie."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "moins le quart",
+          "translation": {
+            "en": "a quarter to",
+            "es-419": "menos cuarto",
+            "it": "meno un quarto",
+            "nl": "kwart voor"
+          },
+          "distractors": {
+            "en": [
+              "a quarter past",
+              "half past"
+            ],
+            "es-419": [
+              "y cuarto",
+              "y media"
+            ],
+            "it": [
+              "e un quarto",
+              "e mezza"
+            ],
+            "nl": [
+              "kwart over",
+              "half (na het uur)"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est neuf heures moins le quart.",
+          "translation": {
+            "en": "It's a quarter to nine.",
+            "es-419": "Son las nueve menos cuarto.",
+            "it": "Sono le nove meno un quarto.",
+            "nl": "Het is kwart voor negen."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past nine.",
+              "It's a quarter to ten."
+            ],
+            "es-419": [
+              "Son las nueve y cuarto.",
+              "Son las diez menos cuarto."
+            ],
+            "it": [
+              "Sono le nove e un quarto.",
+              "Sono le dieci meno un quarto."
+            ],
+            "nl": [
+              "Het is kwart over negen.",
+              "Het is kwart voor tien."
+            ]
+          },
+          "variants": [
+            "Il est 9 heures moins le quart."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est midi et demi.",
+          "translation": {
+            "en": "It's half past twelve.",
+            "es-419": "Son las doce y media.",
+            "it": "Sono le dodici e mezza.",
+            "nl": "Het is half één."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past twelve.",
+              "It's half past one."
+            ],
+            "es-419": [
+              "Son las doce y cuarto.",
+              "Es la una y media."
+            ],
+            "it": [
+              "Sono le dodici e un quarto.",
+              "È l'una e mezza."
+            ],
+            "nl": [
+              "Het is kwart over twaalf.",
+              "Het is half twee."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est huit heures moins dix.",
+          "translation": {
+            "en": "It's ten to eight.",
+            "es-419": "Son las ocho menos diez.",
+            "it": "Sono le otto meno dieci.",
+            "nl": "Het is tien voor acht."
+          },
+          "distractors": {
+            "en": [
+              "It's ten past eight.",
+              "It's ten to nine."
+            ],
+            "es-419": [
+              "Son las ocho y diez.",
+              "Son las nueve menos diez."
+            ],
+            "it": [
+              "Sono le otto e dieci.",
+              "Sono le nove meno dieci."
+            ],
+            "nl": [
+              "Het is tien over acht.",
+              "Het is tien voor negen."
+            ]
+          },
+          "variants": [
+            "Il est 8 heures moins 10."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-nombres-5",
+      "title": "Le magasin est ouvert",
+      "grammarFocus": {
+        "en": [
+          "à quelle heure ...? / à neuf heures = at nine",
+          "du matin, du soir; ouvert and fermé with être"
+        ],
+        "es-419": [
+          "à quelle heure ...? / à neuf heures = a las nueve",
+          "du matin, du soir; ouvert y fermé con être"
+        ],
+        "it": [
+          "à quelle heure ...? / à neuf heures = alle nove",
+          "du matin, du soir; ouvert e fermé con être"
+        ],
+        "nl": [
+          "à quelle heure ...? / à neuf heures = om negen uur",
+          "du matin, du soir; ouvert en fermé met être"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "magasin",
+          "translation": {
+            "en": "store",
+            "es-419": "tienda",
+            "it": "negozio",
+            "nl": "winkel"
+          },
+          "distractors": {
+            "en": [
+              "bakery",
+              "street"
+            ],
+            "es-419": [
+              "panadería",
+              "calle"
+            ],
+            "it": [
+              "panetteria",
+              "strada"
+            ],
+            "nl": [
+              "bakkerij",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "ouvert",
+          "translation": {
+            "en": "open",
+            "es-419": "abierto",
+            "it": "aperto",
+            "nl": "open"
+          },
+          "distractors": {
+            "en": [
+              "closed",
+              "empty"
+            ],
+            "es-419": [
+              "cerrado",
+              "vacío"
+            ],
+            "it": [
+              "chiuso",
+              "vuoto"
+            ],
+            "nl": [
+              "gesloten",
+              "leeg"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le magasin est ouvert",
+          "translation": {
+            "en": "the store is open",
+            "es-419": "la tienda está abierta",
+            "it": "il negozio è aperto",
+            "nl": "de winkel is open"
+          },
+          "distractors": {
+            "en": [
+              "the store is closed",
+              "the café is open"
+            ],
+            "es-419": [
+              "la tienda está cerrada",
+              "el café está abierto"
+            ],
+            "it": [
+              "il negozio è chiuso",
+              "il caffè è aperto"
+            ],
+            "nl": [
+              "de winkel is gesloten",
+              "het café is open"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le magasin est ouvert maintenant.",
+          "translation": {
+            "en": "The store is open now.",
+            "es-419": "La tienda está abierta ahora.",
+            "it": "Il negozio è aperto adesso.",
+            "nl": "De winkel is nu open."
+          },
+          "distractors": {
+            "en": [
+              "The store is closed now.",
+              "The café is open now."
+            ],
+            "es-419": [
+              "La tienda está cerrada ahora.",
+              "El café está abierto ahora."
+            ],
+            "it": [
+              "Il negozio è chiuso adesso.",
+              "Il caffè è aperto adesso."
+            ],
+            "nl": [
+              "De winkel is nu gesloten.",
+              "Het café is nu open."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le magasin est fermé",
+          "translation": {
+            "en": "the store is closed",
+            "es-419": "la tienda está cerrada",
+            "it": "il negozio è chiuso",
+            "nl": "de winkel is gesloten"
+          },
+          "distractors": {
+            "en": [
+              "the store is open",
+              "the café is closed"
+            ],
+            "es-419": [
+              "la tienda está abierta",
+              "el café está cerrado"
+            ],
+            "it": [
+              "il negozio è aperto",
+              "il caffè è chiuso"
+            ],
+            "nl": [
+              "de winkel is open",
+              "het café is gesloten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le magasin est fermé à midi.",
+          "translation": {
+            "en": "The store is closed at noon.",
+            "es-419": "La tienda está cerrada al mediodía.",
+            "it": "Il negozio è chiuso a mezzogiorno.",
+            "nl": "De winkel is 's middags dicht."
+          },
+          "distractors": {
+            "en": [
+              "The store is open at noon.",
+              "The store is closed at midnight."
+            ],
+            "es-419": [
+              "La tienda está abierta al mediodía.",
+              "La tienda está cerrada a medianoche."
+            ],
+            "it": [
+              "Il negozio è aperto a mezzogiorno.",
+              "Il negozio è chiuso a mezzanotte."
+            ],
+            "nl": [
+              "De winkel is 's middags open.",
+              "De winkel is om middernacht dicht."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "tôt",
+          "translation": {
+            "en": "early",
+            "es-419": "temprano",
+            "it": "presto",
+            "nl": "vroeg"
+          },
+          "distractors": {
+            "en": [
+              "late",
+              "today"
+            ],
+            "es-419": [
+              "tarde",
+              "hoy"
+            ],
+            "it": [
+              "tardi",
+              "oggi"
+            ],
+            "nl": [
+              "laat",
+              "vandaag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "tard",
+          "translation": {
+            "en": "late",
+            "es-419": "tarde",
+            "it": "tardi",
+            "nl": "laat"
+          },
+          "distractors": {
+            "en": [
+              "early",
+              "now"
+            ],
+            "es-419": [
+              "temprano",
+              "ahora"
+            ],
+            "it": [
+              "presto",
+              "adesso"
+            ],
+            "nl": [
+              "vroeg",
+              "nu"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "du matin",
+          "translation": {
+            "en": "in the morning",
+            "es-419": "de la mañana",
+            "it": "di mattina",
+            "nl": "'s ochtends"
+          },
+          "distractors": {
+            "en": [
+              "in the afternoon",
+              "at night"
+            ],
+            "es-419": [
+              "de la tarde",
+              "de la noche"
+            ],
+            "it": [
+              "di pomeriggio",
+              "di notte"
+            ],
+            "nl": [
+              "'s middags",
+              "'s nachts"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "du soir",
+          "translation": {
+            "en": "in the evening",
+            "es-419": "de la noche",
+            "it": "di sera",
+            "nl": "'s avonds"
+          },
+          "distractors": {
+            "en": [
+              "in the morning",
+              "in the afternoon"
+            ],
+            "es-419": [
+              "de la mañana",
+              "de la tarde"
+            ],
+            "it": [
+              "di mattina",
+              "di pomeriggio"
+            ],
+            "nl": [
+              "'s ochtends",
+              "'s middags"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est sept heures du matin, c'est tôt.",
+          "translation": {
+            "en": "It's seven in the morning, that's early.",
+            "es-419": "Son las siete de la mañana, es temprano.",
+            "it": "Sono le sette di mattina, è presto.",
+            "nl": "Het is zeven uur 's ochtends, dat is vroeg."
+          },
+          "distractors": {
+            "en": [
+              "It's seven in the evening, that's early.",
+              "It's eleven in the morning, that's early."
+            ],
+            "es-419": [
+              "Son las siete de la noche, es temprano.",
+              "Son las once de la mañana, es temprano."
+            ],
+            "it": [
+              "Sono le sette di sera, è presto.",
+              "Sono le undici di mattina, è presto."
+            ],
+            "nl": [
+              "Het is zeven uur 's avonds, dat is vroeg.",
+              "Het is elf uur 's ochtends, dat is vroeg."
+            ]
+          },
+          "variants": [
+            "Il est 7 heures du matin, c'est tôt."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est minuit, c'est tard.",
+          "translation": {
+            "en": "It's midnight, that's late.",
+            "es-419": "Es medianoche, es tarde.",
+            "it": "È mezzanotte, è tardi.",
+            "nl": "Het is middernacht, dat is laat."
+          },
+          "distractors": {
+            "en": [
+              "It's noon, that's late.",
+              "It's midnight, that's early."
+            ],
+            "es-419": [
+              "Es mediodía, es tarde.",
+              "Es medianoche, es temprano."
+            ],
+            "it": [
+              "È mezzogiorno, è tardi.",
+              "È mezzanotte, è presto."
+            ],
+            "nl": [
+              "Het is twaalf uur 's middags, dat is laat.",
+              "Het is middernacht, dat is vroeg."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "à quelle heure",
+          "translation": {
+            "en": "at what time",
+            "es-419": "a qué hora",
+            "it": "a che ora",
+            "nl": "hoe laat"
+          },
+          "distractors": {
+            "en": [
+              "what time is it",
+              "at what age"
+            ],
+            "es-419": [
+              "qué hora es",
+              "a qué edad"
+            ],
+            "it": [
+              "che ore sono",
+              "a che età"
+            ],
+            "nl": [
+              "hoe laat is het",
+              "op welke leeftijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "À quelle heure est-ce que le magasin ouvre?",
+          "translation": {
+            "en": "What time does the store open?",
+            "es-419": "¿A qué hora abre la tienda?",
+            "it": "A che ora apre il negozio?",
+            "nl": "Hoe laat gaat de winkel open?"
+          },
+          "distractors": {
+            "en": [
+              "What time does the store close?",
+              "What time does the café open?"
+            ],
+            "es-419": [
+              "¿A qué hora cierra la tienda?",
+              "¿A qué hora abre el café?"
+            ],
+            "it": [
+              "A che ora chiude il negozio?",
+              "A che ora apre il caffè?"
+            ],
+            "nl": [
+              "Hoe laat gaat de winkel dicht?",
+              "Hoe laat gaat het café open?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça ferme à sept heures du soir.",
+          "translation": {
+            "en": "It closes at seven in the evening.",
+            "es-419": "Cierra a las siete de la tarde.",
+            "it": "Chiude alle sette di sera.",
+            "nl": "Het gaat om zeven uur 's avonds dicht."
+          },
+          "distractors": {
+            "en": [
+              "It closes at eight in the evening.",
+              "It opens at seven in the evening."
+            ],
+            "es-419": [
+              "Cierra a las ocho de la tarde.",
+              "Abre a las siete de la tarde."
+            ],
+            "it": [
+              "Chiude alle otto di sera.",
+              "Apre alle sette di sera."
+            ],
+            "nl": [
+              "Het gaat om acht uur 's avonds dicht.",
+              "Het gaat om zeven uur 's avonds open."
+            ]
+          },
+          "variants": [
+            "Ça ferme à 7 heures du soir."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voici les horaires du magasin.",
+          "translation": {
+            "en": "Here are the store's hours.",
+            "es-419": "Aquí están los horarios de la tienda.",
+            "it": "Ecco gli orari del negozio.",
+            "nl": "Hier zijn de openingstijden van de winkel."
+          },
+          "distractors": {
+            "en": [
+              "Here are the café's hours.",
+              "Here is the store's address."
+            ],
+            "es-419": [
+              "Aquí están los horarios del café.",
+              "Aquí está la dirección de la tienda."
+            ],
+            "it": [
+              "Ecco gli orari del caffè.",
+              "Ecco l'indirizzo del negozio."
+            ],
+            "nl": [
+              "Hier zijn de openingstijden van het café.",
+              "Hier is het adres van de winkel."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, vous ouvrez à quelle heure?",
+          "translation": {
+            "en": "Excuse me, what time do you open?",
+            "es-419": "Disculpe, ¿a qué hora abren?",
+            "it": "Mi scusi, a che ora aprite?",
+            "nl": "Pardon, hoe laat gaat u open?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, what time do you close?",
+              "Excuse me, what time is it?"
+            ],
+            "es-419": [
+              "Disculpe, ¿a qué hora cierran?",
+              "Disculpe, ¿qué hora es?"
+            ],
+            "it": [
+              "Mi scusi, a che ora chiudete?",
+              "Mi scusi, che ore sono?"
+            ],
+            "nl": [
+              "Pardon, hoe laat gaat u dicht?",
+              "Pardon, hoe laat is het?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-nombres-6",
+      "title": "Les jours de la semaine",
+      "grammarFocus": {
+        "en": [
+          "days without an article: lundi = on Monday; le lundi = on Mondays",
+          "days are lowercase; du lundi au vendredi"
+        ],
+        "es-419": [
+          "los días sin artículo: lundi = el lunes; le lundi = los lunes",
+          "los días van en minúscula; du lundi au vendredi"
+        ],
+        "it": [
+          "i giorni senza articolo: lundi = lunedì; le lundi = il lunedì (ogni lunedì)",
+          "i giorni si scrivono in minuscolo; du lundi au vendredi"
+        ],
+        "nl": [
+          "dagen zonder lidwoord: lundi = (op) maandag; le lundi = op maandag (elke week)",
+          "dagen met een kleine letter; du lundi au vendredi"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-nombres-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "lundi",
+          "translation": {
+            "en": "Monday",
+            "es-419": "lunes",
+            "it": "lunedì",
+            "nl": "maandag"
+          },
+          "distractors": {
+            "en": [
+              "Tuesday",
+              "Sunday"
+            ],
+            "es-419": [
+              "martes",
+              "domingo"
+            ],
+            "it": [
+              "martedì",
+              "domenica"
+            ],
+            "nl": [
+              "dinsdag",
+              "zondag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "samedi",
+          "translation": {
+            "en": "Saturday",
+            "es-419": "sábado",
+            "it": "sabato",
+            "nl": "zaterdag"
+          },
+          "distractors": {
+            "en": [
+              "Sunday",
+              "Friday"
+            ],
+            "es-419": [
+              "domingo",
+              "viernes"
+            ],
+            "it": [
+              "domenica",
+              "venerdì"
+            ],
+            "nl": [
+              "zondag",
+              "vrijdag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "dimanche",
+          "translation": {
+            "en": "Sunday",
+            "es-419": "domingo",
+            "it": "domenica",
+            "nl": "zondag"
+          },
+          "distractors": {
+            "en": [
+              "Saturday",
+              "Monday"
+            ],
+            "es-419": [
+              "sábado",
+              "lunes"
+            ],
+            "it": [
+              "sabato",
+              "lunedì"
+            ],
+            "nl": [
+              "zaterdag",
+              "maandag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le week-end",
+          "translation": {
+            "en": "the weekend",
+            "es-419": "el fin de semana",
+            "it": "il fine settimana",
+            "nl": "het weekend"
+          },
+          "distractors": {
+            "en": [
+              "the week",
+              "the day"
+            ],
+            "es-419": [
+              "la semana",
+              "el día"
+            ],
+            "it": [
+              "la settimana",
+              "il giorno"
+            ],
+            "nl": [
+              "de week",
+              "de dag"
+            ]
+          },
+          "variants": [
+            "le weekend"
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mardi et jeudi",
+          "translation": {
+            "en": "Tuesday and Thursday",
+            "es-419": "martes y jueves",
+            "it": "martedì e giovedì",
+            "nl": "dinsdag en donderdag"
+          },
+          "distractors": {
+            "en": [
+              "Monday and Wednesday",
+              "Tuesday and Friday"
+            ],
+            "es-419": [
+              "lunes y miércoles",
+              "martes y viernes"
+            ],
+            "it": [
+              "lunedì e mercoledì",
+              "martedì e venerdì"
+            ],
+            "nl": [
+              "maandag en woensdag",
+              "dinsdag en vrijdag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "du lundi au vendredi",
+          "translation": {
+            "en": "from Monday to Friday",
+            "es-419": "de lunes a viernes",
+            "it": "dal lunedì al venerdì",
+            "nl": "van maandag tot vrijdag"
+          },
+          "distractors": {
+            "en": [
+              "from Monday to Sunday",
+              "from Tuesday to Friday"
+            ],
+            "es-419": [
+              "de lunes a domingo",
+              "de martes a viernes"
+            ],
+            "it": [
+              "dal lunedì alla domenica",
+              "dal martedì al venerdì"
+            ],
+            "nl": [
+              "van maandag tot zondag",
+              "van dinsdag tot vrijdag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, c'est lundi.",
+          "translation": {
+            "en": "Today is Monday.",
+            "es-419": "Hoy es lunes.",
+            "it": "Oggi è lunedì.",
+            "nl": "Vandaag is het maandag."
+          },
+          "distractors": {
+            "en": [
+              "Today is Tuesday.",
+              "Tomorrow is Monday."
+            ],
+            "es-419": [
+              "Hoy es martes.",
+              "Mañana es lunes."
+            ],
+            "it": [
+              "Oggi è martedì.",
+              "Domani è lunedì."
+            ],
+            "nl": [
+              "Vandaag is het dinsdag.",
+              "Morgen is het maandag."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Demain, c'est mercredi.",
+          "translation": {
+            "en": "Tomorrow is Wednesday.",
+            "es-419": "Mañana es miércoles.",
+            "it": "Domani è mercoledì.",
+            "nl": "Morgen is het woensdag."
+          },
+          "distractors": {
+            "en": [
+              "Tomorrow is Thursday.",
+              "Today is Wednesday."
+            ],
+            "es-419": [
+              "Mañana es jueves.",
+              "Hoy es miércoles."
+            ],
+            "it": [
+              "Domani è giovedì.",
+              "Oggi è mercoledì."
+            ],
+            "nl": [
+              "Morgen is het donderdag.",
+              "Vandaag is het woensdag."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le samedi",
+          "translation": {
+            "en": "on Saturdays",
+            "es-419": "los sábados",
+            "it": "il sabato",
+            "nl": "op zaterdag"
+          },
+          "distractors": {
+            "en": [
+              "on Sundays",
+              "next Saturday"
+            ],
+            "es-419": [
+              "los domingos",
+              "el próximo sábado"
+            ],
+            "it": [
+              "la domenica",
+              "sabato prossimo"
+            ],
+            "nl": [
+              "op zondag",
+              "volgende zaterdag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le magasin est fermé le dimanche.",
+          "translation": {
+            "en": "The store is closed on Sundays.",
+            "es-419": "La tienda está cerrada los domingos.",
+            "it": "Il negozio è chiuso la domenica.",
+            "nl": "De winkel is op zondag gesloten."
+          },
+          "distractors": {
+            "en": [
+              "The store is open on Sundays.",
+              "The store is closed on Saturdays."
+            ],
+            "es-419": [
+              "La tienda está abierta los domingos.",
+              "La tienda está cerrada los sábados."
+            ],
+            "it": [
+              "Il negozio è aperto la domenica.",
+              "Il negozio è chiuso il sabato."
+            ],
+            "nl": [
+              "De winkel is op zondag open.",
+              "De winkel is op zaterdag gesloten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le magasin est ouvert du lundi au samedi.",
+          "translation": {
+            "en": "The store is open from Monday to Saturday.",
+            "es-419": "La tienda está abierta de lunes a sábado.",
+            "it": "Il negozio è aperto dal lunedì al sabato.",
+            "nl": "De winkel is open van maandag tot zaterdag."
+          },
+          "distractors": {
+            "en": [
+              "The store is open from Monday to Friday.",
+              "The store is closed from Monday to Saturday."
+            ],
+            "es-419": [
+              "La tienda está abierta de lunes a viernes.",
+              "La tienda está cerrada de lunes a sábado."
+            ],
+            "it": [
+              "Il negozio è aperto dal lunedì al venerdì.",
+              "Il negozio è chiuso dal lunedì al sabato."
+            ],
+            "nl": [
+              "De winkel is open van maandag tot vrijdag.",
+              "De winkel is van maandag tot zaterdag gesloten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Une semaine a sept jours.",
+          "translation": {
+            "en": "A week has seven days.",
+            "es-419": "Una semana tiene siete días.",
+            "it": "Una settimana ha sette giorni.",
+            "nl": "Een week heeft zeven dagen."
+          },
+          "distractors": {
+            "en": [
+              "A week has six days.",
+              "A day has seven hours."
+            ],
+            "es-419": [
+              "Una semana tiene seis días.",
+              "Un día tiene siete horas."
+            ],
+            "it": [
+              "Una settimana ha sei giorni.",
+              "Un giorno ha sette ore."
+            ],
+            "nl": [
+              "Een week heeft zes dagen.",
+              "Een dag heeft zeven uur."
+            ]
+          },
+          "variants": [
+            "Une semaine a 7 jours."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Une heure a soixante minutes.",
+          "translation": {
+            "en": "An hour has sixty minutes.",
+            "es-419": "Una hora tiene sesenta minutos.",
+            "it": "Un'ora ha sessanta minuti.",
+            "nl": "Een uur heeft zestig minuten."
+          },
+          "distractors": {
+            "en": [
+              "An hour has fifty minutes.",
+              "A week has sixty minutes."
+            ],
+            "es-419": [
+              "Una hora tiene cincuenta minutos.",
+              "Una semana tiene sesenta minutos."
+            ],
+            "it": [
+              "Un'ora ha cinquanta minuti.",
+              "Una settimana ha sessanta minuti."
+            ],
+            "nl": [
+              "Een uur heeft vijftig minuten.",
+              "Een week heeft zestig minuten."
+            ]
+          },
+          "variants": [
+            "Une heure a 60 minutes."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai un rendez-vous jeudi à trois heures de l'après-midi.",
+          "translation": {
+            "en": "I have an appointment Thursday at three in the afternoon.",
+            "es-419": "Tengo una cita el jueves a las tres de la tarde.",
+            "it": "Ho un appuntamento giovedì alle tre del pomeriggio.",
+            "nl": "Ik heb donderdag om drie uur 's middags een afspraak."
+          },
+          "distractors": {
+            "en": [
+              "I have an appointment Friday at three in the afternoon.",
+              "I have an appointment Thursday at three in the morning."
+            ],
+            "es-419": [
+              "Tengo una cita el viernes a las tres de la tarde.",
+              "Tengo una cita el jueves a las tres de la mañana."
+            ],
+            "it": [
+              "Ho un appuntamento venerdì alle tre del pomeriggio.",
+              "Ho un appuntamento giovedì alle tre di notte."
+            ],
+            "nl": [
+              "Ik heb vrijdag om drie uur 's middags een afspraak.",
+              "Ik heb donderdag om drie uur 's nachts een afspraak."
+            ]
+          },
+          "variants": [
+            "J'ai un rendez-vous jeudi à 3 heures de l'après-midi."
+          ]
+        },
+        {
+          "id": "fr-a1-nombres-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis ici depuis lundi.",
+          "translation": {
+            "en": "I've been here since Monday.",
+            "es-419": "Estoy aquí desde el lunes.",
+            "it": "Sono qui da lunedì.",
+            "nl": "Ik ben hier sinds maandag."
+          },
+          "distractors": {
+            "en": [
+              "I've been here since Friday.",
+              "I'll be here on Monday."
+            ],
+            "es-419": [
+              "Estoy aquí desde el viernes.",
+              "Estaré aquí el lunes."
+            ],
+            "it": [
+              "Sono qui da venerdì.",
+              "Sarò qui lunedì."
+            ],
+            "nl": [
+              "Ik ben hier sinds vrijdag.",
+              "Ik ben hier maandag."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-nombres-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bon week-end, à lundi!",
+          "translation": {
+            "en": "Have a good weekend, see you Monday!",
+            "es-419": "¡Buen fin de semana, hasta el lunes!",
+            "it": "Buon fine settimana, a lunedì!",
+            "nl": "Fijn weekend, tot maandag!"
+          },
+          "distractors": {
+            "en": [
+              "Have a good week, see you Monday!",
+              "Have a good weekend, see you Friday!"
+            ],
+            "es-419": [
+              "¡Buena semana, hasta el lunes!",
+              "¡Buen fin de semana, hasta el viernes!"
+            ],
+            "it": [
+              "Buona settimana, a lunedì!",
+              "Buon fine settimana, a venerdì!"
+            ],
+            "nl": [
+              "Fijne week, tot maandag!",
+              "Fijn weekend, tot vrijdag!"
+            ]
+          },
+          "variants": [
+            "Bon weekend, à lundi!"
+          ]
+        }
+      ]
+    }
+  ]
+}

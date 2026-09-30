@@ -23,12 +23,14 @@ export const en = {
 
   "language.en": "English",
   "language.es": "Spanish",
+  "language.fr": "French",
   "language.ga": "Irish",
   "language.it": "Italian",
   "language.nl": "Dutch",
   // Mid-sentence forms, for languages that lowercase language names there (Italian, Spanish).
   "language.en.inSentence": "English",
   "language.es.inSentence": "Spanish",
+  "language.fr.inSentence": "French",
   "language.ga.inSentence": "Irish",
   "language.it.inSentence": "Italian",
   "language.nl.inSentence": "Dutch",

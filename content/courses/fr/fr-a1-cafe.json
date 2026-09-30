@@ -1,0 +1,4159 @@
+{
+  "id": "fr-a1-cafe",
+  "language": "fr",
+  "level": "A1",
+  "order": 1,
+  "title": "Au café",
+  "description": {
+    "en": "Ordering drinks and snacks at a café, asking the price and paying",
+    "es-419": "Pedir bebidas y algo de comer en un café, preguntar el precio y pagar",
+    "it": "Ordinare bevande e qualcosa da mangiare in un caffè, chiedere il prezzo e pagare",
+    "nl": "Drankjes en een hapje bestellen in een café, naar de prijs vragen en betalen"
+  },
+  "track": "main",
+  "requires": [],
+  "introduces": [
+    "bonjour",
+    "merci",
+    "oui",
+    "non",
+    "pardon",
+    "excuser",
+    "moi",
+    "rien",
+    "il",
+    "vous",
+    "plaire",
+    "je",
+    "vouloir",
+    "avoir",
+    "pouvoir",
+    "prendre",
+    "payer",
+    "donner",
+    "apporter",
+    "emporter",
+    "désirer",
+    "être",
+    "coûter",
+    "ça",
+    "le",
+    "un",
+    "du",
+    "de",
+    "et",
+    "ou",
+    "avec",
+    "sans",
+    "pour",
+    "à",
+    "sur",
+    "par",
+    "ici",
+    "aussi",
+    "encore",
+    "beaucoup",
+    "seulement",
+    "autre",
+    "tout",
+    "quelque",
+    "chose",
+    "combien",
+    "que",
+    "voilà",
+    "bon",
+    "deux",
+    "trois",
+    "quatre",
+    "cinq",
+    "dix",
+    "vingt",
+    "cinquante",
+    "cent",
+    "euro",
+    "addition",
+    "carte",
+    "espèces",
+    "place",
+    "café",
+    "thé",
+    "lait",
+    "sucre",
+    "eau",
+    "jus",
+    "orange",
+    "pain",
+    "croissant",
+    "gâteau",
+    "sandwich",
+    "biscuit",
+    "fromage",
+    "jambon",
+    "boisson",
+    "bière",
+    "vin",
+    "verre",
+    "bouteille",
+    "tasse",
+    "chocolat",
+    "crème",
+    "chaud",
+    "froid",
+    "grand",
+    "petit",
+    "noir",
+    "gazeux",
+    "plat"
+  ],
+  "lexicon": {
+    "bonjour": {
+      "lemma": "bonjour",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hello, good morning",
+        "es-419": "hola, buenos días",
+        "it": "buongiorno, salve",
+        "nl": "goedendag, goedemorgen"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "café (m): coffee, and also the place",
+        "es-419": "café (m): café, y también el lugar",
+        "it": "caffè (m): caffè, e anche il locale",
+        "nl": "café (m): koffie, en ook het café"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if it; s'il vous plaît = please",
+        "es-419": "s'il = si + il: si; s'il vous plaît = por favor",
+        "it": "s'il = si + il: se; s'il vous plaît = per favore",
+        "nl": "s'il = si + il: als; s'il vous plaît = alstublieft"
+      }
+    },
+    "vous": {
+      "lemma": "vous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "vous = you (one person you address politely, or several people)",
+        "es-419": "vous = usted o ustedes; ojo: el verbo va en segunda persona del plural (vous avez), no en tercera como con usted",
+        "it": "vous = Lei o voi (una persona a cui si dà del Lei, oppure più persone)",
+        "nl": "vous = u of jullie (één persoon die je beleefd aanspreekt, of meerdere personen)"
+      }
+    },
+    "plaît": {
+      "lemma": "plaire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "plaît = pleases (plaire); s'il vous plaît = please (literally: if it pleases you)",
+        "es-419": "plaît = agrada (plaire); s'il vous plaît = por favor (literalmente: si le agrada)",
+        "it": "plaît = piace (plaire); s'il vous plaît = per favore (letteralmente: se le piace)",
+        "nl": "plaît = bevalt (plaire); s'il vous plaît = alstublieft (letterlijk: als het u bevalt)"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "voudrais": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voudrais = would like (vouloir); je voudrais = I'd like, a polite way to order",
+        "es-419": "voudrais = quisiera (vouloir); je voudrais = quisiera, la forma cortés para pedir",
+        "it": "voudrais = vorrei (vouloir); je voudrais = vorrei, la forma cortese per ordinare",
+        "nl": "voudrais = zou willen (vouloir); je voudrais = ik wil graag, de beleefde manier om te bestellen"
+      }
+    },
+    "voulez": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voulez = want (vouloir: veux, veut, voulons, voulez, veulent; voudrais = would like)",
+        "es-419": "voulez = quieren, quiere (vouloir: veux, veut, voulons, voulez, veulent; voudrais = quisiera)",
+        "it": "voulez = volete, vuole (vouloir: veux, veut, voulons, voulez, veulent; voudrais = vorrei)",
+        "nl": "voulez = wilt (vouloir: veux, veut, voulons, voulez, veulent; voudrais = zou willen)"
+      }
+    },
+    "thé": {
+      "lemma": "thé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "thé (m): tea",
+        "es-419": "thé (m): té",
+        "it": "thé (m): tè",
+        "nl": "thé (m): thee"
+      }
+    },
+    "merci": {
+      "lemma": "merci",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thanks, thank you",
+        "es-419": "gracias",
+        "it": "grazie",
+        "nl": "bedankt, dank u"
+      }
+    },
+    "lait": {
+      "lemma": "lait",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lait (m): milk",
+        "es-419": "lait (m): leche; ojo: en francés es masculino, en español es femenino",
+        "it": "lait (m): latte",
+        "nl": "lait (m): melk"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = some (before a masculine noun): du lait, du sucre; also de + le",
+        "es-419": "du = algo de, un poco de (delante de un nombre masculino): du lait, du sucre; también de + le",
+        "it": "du = del, un po' di (davanti a un nome maschile): du lait, du sucre; anche de + le",
+        "nl": "du = wat, een beetje (vóór een mannelijk woord): du lait, du sucre; ook de + le; let op: de is hier geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "sans": {
+      "lemma": "sans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "without: sans sucre; sounds like cent (100)",
+        "es-419": "sin: sans sucre; suena igual que cent (100)",
+        "it": "senza: sans sucre; suona come cent (100)",
+        "nl": "zonder: sans sucre; klinkt als cent (100)"
+      }
+    },
+    "sucre": {
+      "lemma": "sucre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sucre (m): sugar",
+        "es-419": "sucre (m): azúcar",
+        "it": "sucre (m): zucchero",
+        "nl": "sucre (m): suiker"
+      }
+    },
+    "combien": {
+      "lemma": "combien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how much, how many",
+        "es-419": "cuánto, cuántos",
+        "it": "quanto, quanti",
+        "nl": "hoeveel"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "cinq": {
+      "lemma": "cinq",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "es-419": "cinco",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euro (m): euros; two euros fifty = deux euros cinquante",
+        "es-419": "euro (m): euros; dos euros cincuenta = deux euros cinquante",
+        "it": "euro (m): euro; due euro e cinquanta = deux euros cinquante",
+        "nl": "euro (m): euro; twee euro vijftig = deux euros cinquante"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, that is",
+        "es-419": "c'est = ce + est: es, esto es, eso es",
+        "it": "c'est = ce + est: è, questo è, quello è",
+        "nl": "c'est = ce + est: het is, dit is, dat is"
+      }
+    },
+    "croissant": {
+      "lemma": "croissant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "croissant (m)",
+        "es-419": "croissant (m): cruasán, medialuna",
+        "it": "croissant (m): cornetto",
+        "nl": "croissant (m)"
+      }
+    },
+    "gâteau": {
+      "lemma": "gâteau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gâteau (m): cake, pastry",
+        "es-419": "gâteau (m): pastel, torta",
+        "it": "gâteau (m): torta, dolce; attenzione: in italiano torta è femminile",
+        "nl": "gâteau (m): taart, gebak"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "trois": {
+      "lemma": "trois",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "es-419": "tres",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "cinquante": {
+      "lemma": "cinquante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty",
+        "es-419": "cincuenta",
+        "it": "cinquanta",
+        "nl": "vijftig"
+      }
+    },
+    "coûte": {
+      "lemma": "coûter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "coûte = costs (coûter); ça coûte = it costs",
+        "es-419": "coûte = cuesta (coûter); ça coûte = cuesta",
+        "it": "coûte = costa (coûter); ça coûte = costa",
+        "nl": "coûte = kost (coûter); ça coûte = het kost"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ça = that, it (informal): combien ça coûte? = how much is it?",
+        "es-419": "ça = eso, esto: combien ça coûte? = ¿cuánto cuesta?",
+        "it": "ça = ciò, questo: combien ça coûte? = quanto costa?",
+        "nl": "ça = dat, het: combien ça coûte? = hoeveel kost het?"
+      }
+    },
+    "pardon": {
+      "lemma": "pardon",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "excuse me, sorry",
+        "es-419": "perdón, disculpe",
+        "it": "scusi, scusa",
+        "nl": "pardon, sorry"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; sounds like est (is)",
+        "es-419": "y; suena igual que est (es)",
+        "it": "e; suona come est (è)",
+        "nl": "en; klinkt als est (is)"
+      }
+    },
+    "biscuit": {
+      "lemma": "biscuit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "biscuit (m): cookie, biscuit",
+        "es-419": "biscuit (m): galleta",
+        "it": "biscuit (m): biscotto",
+        "nl": "biscuit (m): koekje"
+      }
+    },
+    "quatre": {
+      "lemma": "quatre",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four",
+        "es-419": "cuatro",
+        "it": "quattro",
+        "nl": "vier"
+      }
+    },
+    "dix": {
+      "lemma": "dix",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "boisson": {
+      "lemma": "boisson",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boisson (f): drink, beverage",
+        "es-419": "boisson (f): bebida",
+        "it": "boisson (f): bevanda",
+        "nl": "boisson (f): drankje"
+      }
+    },
+    "désirez": {
+      "lemma": "désirer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "désirez = want, wish (désirer); vous désirez? = what would you like? (server)",
+        "es-419": "désirez = desean, desea (désirer); vous désirez? = ¿qué desea? (el mesero)",
+        "it": "désirez = desiderate, desidera (désirer); vous désirez? = cosa desidera? (il cameriere)",
+        "nl": "désirez = wenst (désirer); vous désirez? = wat wilt u? (de ober)"
+      }
+    },
+    "qu'est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "qu'est-ce = que + est-ce: what (qu'est-ce que = what is it that)",
+        "es-419": "qu'est-ce = que + est-ce: qué (qu'est-ce que = qué es lo que)",
+        "it": "qu'est-ce = que + est-ce: che cosa (qu'est-ce que = che cosa è che)",
+        "nl": "qu'est-ce = que + est-ce: wat (qu'est-ce que = wat is het dat)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, what (qu'est-ce que vous désirez? = what would you like?)",
+        "es-419": "que = que, lo que (qu'est-ce que vous désirez? = ¿qué desea?)",
+        "it": "que = che, ciò che (qu'est-ce que vous désirez? = cosa desidera?)",
+        "nl": "que = dat, wat (qu'est-ce que vous désirez? = wat wilt u?)"
+      }
+    },
+    "l'eau": {
+      "lemma": "eau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'eau = le + eau: the water (f)",
+        "es-419": "l'eau = le + eau: el agua (f); ojo: femenino aunque lleve l'",
+        "it": "l'eau = le + eau: l'acqua (f)",
+        "nl": "l'eau = le + eau: het water (f)"
+      }
+    },
+    "bouteille": {
+      "lemma": "bouteille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bouteille (f): bottle",
+        "es-419": "bouteille (f): botella",
+        "it": "bouteille (f): bottiglia",
+        "nl": "bouteille (f): fles"
+      }
+    },
+    "d'eau": {
+      "lemma": "eau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'eau = de + eau (f): of water; une bouteille d'eau = a bottle of water",
+        "es-419": "d'eau = de + eau (f): de agua; une bouteille d'eau = una botella de agua",
+        "it": "d'eau = de + eau (f): d'acqua; une bouteille d'eau = una bottiglia d'acqua",
+        "nl": "d'eau = de + eau (f): van water; une bouteille d'eau = een fles water"
+      }
+    },
+    "verre": {
+      "lemma": "verre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "verre (m): glass (for drinking)",
+        "es-419": "verre (m): vaso, copa",
+        "it": "verre (m): bicchiere",
+        "nl": "verre (m): glas"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; after an amount: un verre de vin; de l'eau = some water",
+        "es-419": "de = de; después de una cantidad: un verre de vin; de l'eau = agua, un poco de agua",
+        "it": "de = di, da; dopo una quantità: un verre de vin; de l'eau = dell'acqua",
+        "nl": "de = van; na een hoeveelheid: un verre de vin; de l'eau = water; let op: de is geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "vin": {
+      "lemma": "vin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vin (m): wine; sounds like vingt (20)",
+        "es-419": "vin (m): vino; suena igual que vingt (20)",
+        "it": "vin (m): vino; suona come vingt (20)",
+        "nl": "vin (m): wijn; klinkt als vingt (20)"
+      }
+    },
+    "jus": {
+      "lemma": "jus",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jus (m): juice",
+        "es-419": "jus (m): jugo",
+        "it": "jus (m): succo",
+        "nl": "jus (m): sap"
+      }
+    },
+    "d'orange": {
+      "lemma": "orange",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'orange = de + orange: of orange; un jus d'orange = an orange juice; orange (f) = the fruit",
+        "es-419": "d'orange = de + orange: de naranja; un jus d'orange = un jugo de naranja; orange (f) = la fruta",
+        "it": "d'orange = de + orange: d'arancia; un jus d'orange = un succo d'arancia; orange (f) = il frutto",
+        "nl": "d'orange = de + orange: van sinaasappel; un jus d'orange = een sinaasappelsap; orange (f) = de vrucht"
+      }
+    },
+    "bière": {
+      "lemma": "bière",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bière (f): beer",
+        "es-419": "bière (f): cerveza",
+        "it": "bière (f): birra",
+        "nl": "bière (f): bier"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "pour = for; pour moi = for me",
+        "es-419": "pour = para; pour moi = para mí",
+        "it": "pour = per; pour moi = per me",
+        "nl": "pour = voor; pour moi = voor mij"
+      }
+    },
+    "moi": {
+      "lemma": "moi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "moi = me (after a preposition or on its own); pour moi, moi aussi",
+        "es-419": "moi = yo, mí (después de preposición o solo); pour moi, moi aussi",
+        "it": "moi = io, me (dopo una preposizione o da solo); pour moi, moi aussi",
+        "nl": "moi = ik, mij (na een voorzetsel of alleen); pour moi, moi aussi"
+      }
+    },
+    "prenez": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prenez = take, have (prendre: prends, prend, prenons, prenez, prennent); vous prenez quelque chose? = would you like something?",
+        "es-419": "prenez = toman, toma (prendre: prends, prend, prenons, prenez, prennent); vous prenez quelque chose? = ¿va a tomar algo?",
+        "it": "prenez = prendete, prende (prendre: prends, prend, prenons, prenez, prennent); vous prenez quelque chose? = prende qualcosa?",
+        "nl": "prenez = neemt (prendre: prends, prend, prenons, prenez, prennent); vous prenez quelque chose? = neemt u iets?"
+      }
+    },
+    "prends": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prends = take, have (prendre); je prends = I'll have",
+        "es-419": "prends = tomo (prendre); je prends = tomo, voy a tomar",
+        "it": "prends = prendo (prendre); je prends = prendo",
+        "nl": "prends = neem (prendre); je prends = ik neem"
+      }
+    },
+    "quelque": {
+      "lemma": "quelque",
+      "pos": "DET",
+      "gloss": {
+        "en": "quelque = some; quelque chose = something",
+        "es-419": "quelque = algún; quelque chose = algo",
+        "it": "quelque = qualche; quelque chose = qualcosa",
+        "nl": "quelque = enkele; quelque chose = iets"
+      }
+    },
+    "chose": {
+      "lemma": "chose",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chose (f): thing; autre chose = something else",
+        "es-419": "chose (f): cosa; autre chose = otra cosa",
+        "it": "chose (f): cosa; autre chose = un'altra cosa",
+        "nl": "chose (f): ding; autre chose = iets anders"
+      }
+    },
+    "autre": {
+      "lemma": "autre",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "autre = other, another; autre chose? = anything else?",
+        "es-419": "autre = otro; autre chose? = ¿algo más?",
+        "it": "autre = altro; autre chose? = altro?",
+        "nl": "autre = ander; autre chose? = nog iets anders?"
+      }
+    },
+    "voilà": {
+      "lemma": "voilà",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "voilà = here is, here you are, there you go",
+        "es-419": "voilà = aquí tiene, aquí está, ahí está",
+        "it": "voilà = ecco",
+        "nl": "voilà = alstublieft, daar is"
+      }
+    },
+    "avez": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avez = have (avoir: ai, as, a, avons, avez, ont); vous avez...? = do you have...?",
+        "es-419": "avez = tienen, tiene (avoir: ai, as, a, avons, avez, ont); vous avez...? = ¿tiene...?",
+        "it": "avez = avete, ha (avoir: ai, as, a, avons, avez, ont); vous avez...? = ha...?",
+        "nl": "avez = hebt (avoir: ai, as, a, avons, avez, ont); vous avez...? = heeft u...?"
+      }
+    },
+    "avoir": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avoir = to have (ai, as, a, avons, avez, ont); je peux avoir...? = can I have...?",
+        "es-419": "avoir = tener (ai, as, a, avons, avez, ont); je peux avoir...? = ¿puedo tomar...?",
+        "it": "avoir = avere (ai, as, a, avons, avez, ont); je peux avoir...? = posso avere...?",
+        "nl": "avoir = hebben (ai, as, a, avons, avez, ont); je peux avoir...? = mag ik...?"
+      }
+    },
+    "ou": {
+      "lemma": "ou",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or; où (with an accent) = where",
+        "es-419": "o; où (con acento) = dónde",
+        "it": "o; où (con accento) = dove",
+        "nl": "of; où (met accent) = waar"
+      }
+    },
+    "chaud": {
+      "lemma": "chaud",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "chaud = hot; chaude (feminine)",
+        "es-419": "chaud = caliente; chaude (femenino)",
+        "it": "chaud = caldo; chaude (femminile)",
+        "nl": "chaud = heet, warm; chaude (vrouwelijk)"
+      }
+    },
+    "chaude": {
+      "lemma": "chaud",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "chaude = hot (feminine): une boisson chaude",
+        "es-419": "chaude = caliente (femenino): une boisson chaude",
+        "it": "chaude = calda (femminile): une boisson chaude",
+        "nl": "chaude = warm (vrouwelijk): une boisson chaude"
+      }
+    },
+    "froid": {
+      "lemma": "froid",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "froid = cold; froide (feminine)",
+        "es-419": "froid = frío; froide (femenino)",
+        "it": "froid = freddo; froide (femminile)",
+        "nl": "froid = koud; froide (vrouwelijk)"
+      }
+    },
+    "froide": {
+      "lemma": "froid",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "froide = cold (feminine): une boisson froide",
+        "es-419": "froide = fría (femenino): une boisson froide",
+        "it": "froide = fredda (femminile): une boisson froide",
+        "nl": "froide = koud (vrouwelijk): une boisson froide"
+      }
+    },
+    "donnez-moi": {
+      "lemma": "donner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "donnez-moi = donnez + moi: give me (a polite command)",
+        "es-419": "donnez-moi = donnez + moi: deme (una orden cortés)",
+        "it": "donnez-moi = donnez + moi: mi dia (un comando cortese)",
+        "nl": "donnez-moi = donnez + moi: geef me (een beleefde opdracht)"
+      }
+    },
+    "tasse": {
+      "lemma": "tasse",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tasse (f): cup",
+        "es-419": "tasse (f): taza",
+        "it": "tasse (f): tazza",
+        "nl": "tasse (f): kopje; let op: tasse is geen tas (tas = sac)"
+      }
+    },
+    "chocolat": {
+      "lemma": "chocolat",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chocolat (m): chocolate; chocolat chaud = hot chocolate",
+        "es-419": "chocolat (m): chocolate; chocolat chaud = chocolate caliente",
+        "it": "chocolat (m): cioccolato; chocolat chaud = cioccolata calda",
+        "nl": "chocolat (m): chocolade; chocolat chaud = warme chocolademelk"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "bon": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bon = good, tasty",
+        "es-419": "bon = bueno, rico",
+        "it": "bon = buono",
+        "nl": "bon = goed, lekker"
+      }
+    },
+    "grand": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "grand = big, large, tall; watch out: grand covers both big and tall",
+        "es-419": "grand = grande, alto",
+        "it": "grand = grande, alto",
+        "nl": "grand = groot, lang"
+      }
+    },
+    "petit": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "petit = small, little",
+        "es-419": "petit = pequeño",
+        "it": "petit = piccolo",
+        "nl": "petit = klein"
+      }
+    },
+    "noir": {
+      "lemma": "noir",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "noir = black: un café noir = black coffee",
+        "es-419": "noir = negro: un café noir = café negro",
+        "it": "noir = nero: un café noir = caffè nero",
+        "nl": "noir = zwart: un café noir = zwarte koffie"
+      }
+    },
+    "gazeuse": {
+      "lemma": "gazeux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "gazeuse = sparkling (feminine of gazeux): de l'eau gazeuse",
+        "es-419": "gazeuse = con gas (femenino de gazeux): de l'eau gazeuse",
+        "it": "gazeuse = gassata (femminile di gazeux): de l'eau gazeuse",
+        "nl": "gazeuse = bruisend (vrouwelijk van gazeux): de l'eau gazeuse"
+      }
+    },
+    "plate": {
+      "lemma": "plat",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "plate = flat, still (feminine of plat): de l'eau plate = still water",
+        "es-419": "plate = plana, sin gas (femenino de plat): de l'eau plate = agua sin gas",
+        "it": "plate = piatta, naturale (femminile di plat): de l'eau plate = acqua naturale",
+        "nl": "plate = plat, zonder prik (vrouwelijk van plat): de l'eau plate = plat water"
+      }
+    },
+    "crème": {
+      "lemma": "crème",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "crème (f): cream",
+        "es-419": "crème (f): crema",
+        "it": "crème (f): panna, crema",
+        "nl": "crème (f): room"
+      }
+    },
+    "sur": {
+      "lemma": "sur",
+      "pos": "ADP",
+      "gloss": {
+        "en": "sur = on; sur place = on the spot, here",
+        "es-419": "sur = sobre; sur place = en el lugar, aquí",
+        "it": "sur = su; sur place = sul posto, qui",
+        "nl": "sur = op; sur place = ter plaatse, hier"
+      }
+    },
+    "place": {
+      "lemma": "place",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "place (f): place, seat, square; sur place = here (to eat in)",
+        "es-419": "place (f): lugar, asiento, plaza; sur place = aquí (para tomar allí)",
+        "it": "place (f): posto, piazza; attenzione: in italiano posto è maschile; sur place = qui (da consumare)",
+        "nl": "place (f): plaats, zitplaats, plein; sur place = hier (opeten)"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to; à emporter = to go, take-away",
+        "es-419": "à = a, en; à emporter = para llevar",
+        "it": "à = a, in; à emporter = da portare via",
+        "nl": "à = naar, te, om; à emporter = om mee te nemen"
+      }
+    },
+    "emporter": {
+      "lemma": "emporter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "emporter = to take away",
+        "es-419": "emporter = llevar (consigo)",
+        "it": "emporter = portare via",
+        "nl": "emporter = meenemen"
+      }
+    },
+    "pain": {
+      "lemma": "pain",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pain (m): bread; watch out: pain = bread, not pain (that is douleur)",
+        "es-419": "pain (m): pan",
+        "it": "pain (m): pane",
+        "nl": "pain (m): brood; let op: pain is brood, geen pijn"
+      }
+    },
+    "fromage": {
+      "lemma": "fromage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fromage (m): cheese",
+        "es-419": "fromage (m): queso",
+        "it": "fromage (m): formaggio",
+        "nl": "fromage (m): kaas"
+      }
+    },
+    "jambon": {
+      "lemma": "jambon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jambon (m): ham",
+        "es-419": "jambon (m): jamón",
+        "it": "jambon (m): prosciutto",
+        "nl": "jambon (m): ham"
+      }
+    },
+    "sandwich": {
+      "lemma": "sandwich",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sandwich (m)",
+        "es-419": "sandwich (m): sándwich",
+        "it": "sandwich (m): panino",
+        "nl": "sandwich (m): broodje"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ici = here",
+        "es-419": "ici = aquí",
+        "it": "ici = qui, qua",
+        "nl": "ici = hier"
+      }
+    },
+    "encore": {
+      "lemma": "encore",
+      "pos": "ADV",
+      "gloss": {
+        "en": "encore = again, still, more; encore un café = another coffee",
+        "es-419": "encore = otra vez, todavía, más; encore un café = otro café",
+        "it": "encore = ancora; encore un café = un altro caffè",
+        "nl": "encore = weer, nog; encore un café = nog een koffie"
+      }
+    },
+    "peux": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "peux = can (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = can I...?",
+        "es-419": "peux = puedo (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = ¿puedo...?",
+        "it": "peux = posso (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = posso...?",
+        "nl": "peux = kan (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = mag ik...? / kan ik...?"
+      }
+    },
+    "pouvez": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pouvez = can (pouvoir); vous pouvez...? = can you...?",
+        "es-419": "pouvez = pueden, puede (pouvoir); vous pouvez...? = ¿puede...?",
+        "it": "pouvez = potete, può (pouvoir); vous pouvez...? = può...?",
+        "nl": "pouvez = kunt (pouvoir); vous pouvez...? = kunt u...?"
+      }
+    },
+    "excusez-moi": {
+      "lemma": "excuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excusez-moi = excusez + moi: excuse me",
+        "es-419": "excusez-moi = excusez + moi: disculpe",
+        "it": "excusez-moi = excusez + moi: mi scusi",
+        "nl": "excusez-moi = excusez + moi: pardon, neemt u me niet kwalijk"
+      }
+    },
+    "apporter": {
+      "lemma": "apporter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "apporter = to bring",
+        "es-419": "apporter = traer",
+        "it": "apporter = portare",
+        "nl": "apporter = brengen"
+      }
+    },
+    "seulement": {
+      "lemma": "seulement",
+      "pos": "ADV",
+      "gloss": {
+        "en": "seulement = only, just",
+        "es-419": "seulement = solo, solamente",
+        "it": "seulement = solo, solamente",
+        "nl": "seulement = alleen, slechts"
+      }
+    },
+    "aussi": {
+      "lemma": "aussi",
+      "pos": "ADV",
+      "gloss": {
+        "en": "aussi = also, too; moi aussi = me too",
+        "es-419": "aussi = también; moi aussi = yo también",
+        "it": "aussi = anche; moi aussi = anch'io",
+        "nl": "aussi = ook; moi aussi = ik ook"
+      }
+    },
+    "espèces": {
+      "lemma": "espèces",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "espèces (f, plural): cash",
+        "es-419": "espèces (f, plural): efectivo",
+        "it": "espèces (f, plural): contanti",
+        "nl": "espèces (f, meervoud): contant geld"
+      }
+    },
+    "par": {
+      "lemma": "par",
+      "pos": "ADP",
+      "gloss": {
+        "en": "par = by, through; par carte = by card",
+        "es-419": "par = por, con; par carte = con tarjeta",
+        "it": "par = per, con; par carte = con la carta",
+        "nl": "par = door, met; par carte = met de kaart"
+      }
+    },
+    "carte": {
+      "lemma": "carte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "carte (f): card, menu, map; par carte = by card, la carte = the menu",
+        "es-419": "carte (f): tarjeta, menú, mapa; ojo: una sola palabra con varios sentidos, según el contexto",
+        "it": "carte (f): carta, tessera, menù, mappa",
+        "nl": "carte (f): kaart, menu; let op: la carte is de menukaart"
+      }
+    },
+    "payer": {
+      "lemma": "payer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "payer = to pay",
+        "es-419": "payer = pagar",
+        "it": "payer = pagare",
+        "nl": "payer = betalen"
+      }
+    },
+    "oui": {
+      "lemma": "oui",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "yes",
+        "es-419": "sí",
+        "it": "sì",
+        "nl": "ja"
+      }
+    },
+    "non": {
+      "lemma": "non",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "no",
+        "es-419": "no",
+        "it": "no",
+        "nl": "nee"
+      }
+    },
+    "l'addition": {
+      "lemma": "addition",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'addition = la + addition (f): the check, the bill; watch out: in a restaurant it is not arithmetic addition",
+        "es-419": "l'addition = la + addition (f): la cuenta",
+        "it": "l'addition = la + addition (f): il conto; attenzione: addition è femminile, conto è maschile",
+        "nl": "l'addition = la + addition (f): de rekening"
+      }
+    },
+    "vingt": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "vingt = twenty; sounds like vin (wine)",
+        "es-419": "vingt = veinte; suena igual que vin (vino)",
+        "it": "vingt = venti; suona come vin (vino)",
+        "nl": "vingt = twintig; klinkt als vin (wijn)"
+      }
+    },
+    "cent": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cent = a hundred; sounds like sans (without); cent euros is said with a liaison",
+        "es-419": "cent = cien; suena igual que sans (sin); cent euros se pronuncia con enlace",
+        "it": "cent = cento; suona come sans (senza); cent euros si pronuncia con legamento",
+        "nl": "cent = honderd; klinkt als sans (zonder); let op: cent is geen munt maar het getal honderd"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "tout = all, everything; c'est tout = that's all",
+        "es-419": "tout = todo; c'est tout = eso es todo",
+        "it": "tout = tutto; c'est tout = è tutto",
+        "nl": "tout = alles; c'est tout = dat is alles"
+      }
+    },
+    "rien": {
+      "lemma": "rien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "rien = nothing; de rien = you're welcome",
+        "es-419": "rien = nada; de rien = de nada",
+        "it": "rien = niente; de rien = prego",
+        "nl": "rien = niets; de rien = graag gedaan"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "beaucoup = a lot, very much; merci beaucoup = thank you very much",
+        "es-419": "beaucoup = mucho; merci beaucoup = muchas gracias",
+        "it": "beaucoup = molto; merci beaucoup = grazie mille",
+        "nl": "beaucoup = veel, heel erg; merci beaucoup = heel erg bedankt"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a1-cafe-1",
+      "title": "Un café, s'il vous plaît",
+      "grammarFocus": {
+        "en": [
+          "je voudrais + noun: I'd like (a polite chunk)",
+          "un + noun: un café, un thé",
+          "avec / sans and du: avec du lait, sans sucre"
+        ],
+        "es-419": [
+          "je voudrais + nombre: quisiera (una forma cortés fija)",
+          "un + nombre: un café, un thé",
+          "avec / sans y du: avec du lait, sans sucre"
+        ],
+        "it": [
+          "je voudrais + nome: vorrei (un blocco fisso e cortese)",
+          "un + nome: un café, un thé",
+          "avec / sans e du: avec du lait, sans sucre"
+        ],
+        "nl": [
+          "je voudrais + zelfstandig naamwoord: ik wil graag (een vaste, beleefde combinatie)",
+          "un + zelfstandig naamwoord: un café, un thé",
+          "avec / sans en du: avec du lait, sans sucre"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "café",
+          "translation": {
+            "en": "coffee",
+            "es-419": "café",
+            "it": "caffè",
+            "nl": "koffie"
+          },
+          "distractors": {
+            "en": [
+              "tea",
+              "milk"
+            ],
+            "es-419": [
+              "té",
+              "leche"
+            ],
+            "it": [
+              "tè",
+              "latte"
+            ],
+            "nl": [
+              "thee",
+              "melk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "bonjour",
+          "translation": {
+            "en": "hello",
+            "es-419": "hola",
+            "it": "buongiorno",
+            "nl": "goedendag"
+          },
+          "distractors": {
+            "en": [
+              "goodbye",
+              "thanks"
+            ],
+            "es-419": [
+              "adiós",
+              "gracias"
+            ],
+            "it": [
+              "arrivederci",
+              "grazie"
+            ],
+            "nl": [
+              "tot ziens",
+              "bedankt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un café",
+          "translation": {
+            "en": "a coffee",
+            "es-419": "un café",
+            "it": "un caffè",
+            "nl": "een koffie"
+          },
+          "distractors": {
+            "en": [
+              "two coffees",
+              "a tea"
+            ],
+            "es-419": [
+              "dos cafés",
+              "un té"
+            ],
+            "it": [
+              "due caffè",
+              "un tè"
+            ],
+            "nl": [
+              "twee koffie",
+              "een thee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "s'il vous plaît",
+          "translation": {
+            "en": "please",
+            "es-419": "por favor",
+            "it": "per favore",
+            "nl": "alstublieft"
+          },
+          "distractors": {
+            "en": [
+              "thank you",
+              "excuse me"
+            ],
+            "es-419": [
+              "gracias",
+              "perdón"
+            ],
+            "it": [
+              "grazie",
+              "mi scusi"
+            ],
+            "nl": [
+              "dank u",
+              "pardon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un café, s'il vous plaît.",
+          "translation": {
+            "en": "A coffee, please.",
+            "es-419": "Un café, por favor.",
+            "it": "Un caffè, per favore.",
+            "nl": "Een koffie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Two coffees, please.",
+              "A tea, please."
+            ],
+            "es-419": [
+              "Dos cafés, por favor.",
+              "Un té, por favor."
+            ],
+            "it": [
+              "Due caffè, per favore.",
+              "Un tè, per favore."
+            ],
+            "nl": [
+              "Twee koffie, alstublieft.",
+              "Een thee, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "thé",
+          "translation": {
+            "en": "tea",
+            "es-419": "té",
+            "it": "tè",
+            "nl": "thee"
+          },
+          "distractors": {
+            "en": [
+              "coffee",
+              "milk"
+            ],
+            "es-419": [
+              "café",
+              "leche"
+            ],
+            "it": [
+              "caffè",
+              "latte"
+            ],
+            "nl": [
+              "koffie",
+              "melk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "merci",
+          "translation": {
+            "en": "thanks",
+            "es-419": "gracias",
+            "it": "grazie",
+            "nl": "bedankt"
+          },
+          "distractors": {
+            "en": [
+              "please",
+              "hello"
+            ],
+            "es-419": [
+              "por favor",
+              "hola"
+            ],
+            "it": [
+              "per favore",
+              "buongiorno"
+            ],
+            "nl": [
+              "alstublieft",
+              "hallo"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un thé",
+          "translation": {
+            "en": "a tea",
+            "es-419": "un té",
+            "it": "un tè",
+            "nl": "een thee"
+          },
+          "distractors": {
+            "en": [
+              "a coffee",
+              "two teas"
+            ],
+            "es-419": [
+              "un café",
+              "dos tés"
+            ],
+            "it": [
+              "un caffè",
+              "due tè"
+            ],
+            "nl": [
+              "een koffie",
+              "twee thee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, un thé, s'il vous plaît.",
+          "translation": {
+            "en": "Hello, a tea, please.",
+            "es-419": "Hola, un té, por favor.",
+            "it": "Buongiorno, un tè, per favore.",
+            "nl": "Goedendag, een thee, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Hello, a coffee, please.",
+              "Thanks, a tea, please."
+            ],
+            "es-419": [
+              "Hola, un café, por favor.",
+              "Gracias, un té, por favor."
+            ],
+            "it": [
+              "Buongiorno, un caffè, per favore.",
+              "Grazie, un tè, per favore."
+            ],
+            "nl": [
+              "Goedendag, een koffie, alstublieft.",
+              "Bedankt, een thee, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je voudrais",
+          "translation": {
+            "en": "I'd like",
+            "es-419": "quisiera",
+            "it": "vorrei",
+            "nl": "ik wil graag"
+          },
+          "distractors": {
+            "en": [
+              "I have",
+              "I'm paying"
+            ],
+            "es-419": [
+              "tengo",
+              "pago"
+            ],
+            "it": [
+              "ho",
+              "pago"
+            ],
+            "nl": [
+              "ik heb",
+              "ik betaal"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais un café, s'il vous plaît.",
+          "translation": {
+            "en": "I'd like a coffee, please.",
+            "es-419": "Quisiera un café, por favor.",
+            "it": "Vorrei un caffè, per favore.",
+            "nl": "Ik wil graag een koffie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a tea, please.",
+              "I'd like two coffees, please."
+            ],
+            "es-419": [
+              "Quisiera un té, por favor.",
+              "Quisiera dos cafés, por favor."
+            ],
+            "it": [
+              "Vorrei un tè, per favore.",
+              "Vorrei due caffè, per favore."
+            ],
+            "nl": [
+              "Ik wil graag een thee, alstublieft.",
+              "Ik wil graag twee koffie, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "du lait",
+          "translation": {
+            "en": "some milk",
+            "es-419": "algo de leche",
+            "it": "del latte",
+            "nl": "melk"
+          },
+          "distractors": {
+            "en": [
+              "some sugar",
+              "some water"
+            ],
+            "es-419": [
+              "algo de azúcar",
+              "algo de agua"
+            ],
+            "it": [
+              "dello zucchero",
+              "dell'acqua"
+            ],
+            "nl": [
+              "suiker",
+              "water"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "avec du lait",
+          "translation": {
+            "en": "with milk",
+            "es-419": "con leche",
+            "it": "con latte",
+            "nl": "met melk"
+          },
+          "distractors": {
+            "en": [
+              "without milk",
+              "with sugar"
+            ],
+            "es-419": [
+              "sin leche",
+              "con azúcar"
+            ],
+            "it": [
+              "senza latte",
+              "con zucchero"
+            ],
+            "nl": [
+              "zonder melk",
+              "met suiker"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "sans sucre",
+          "translation": {
+            "en": "without sugar",
+            "es-419": "sin azúcar",
+            "it": "senza zucchero",
+            "nl": "zonder suiker"
+          },
+          "distractors": {
+            "en": [
+              "with sugar",
+              "without milk"
+            ],
+            "es-419": [
+              "con azúcar",
+              "sin leche"
+            ],
+            "it": [
+              "con zucchero",
+              "senza latte"
+            ],
+            "nl": [
+              "met suiker",
+              "zonder melk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais un café avec du lait, s'il vous plaît.",
+          "translation": {
+            "en": "I'd like a coffee with milk, please.",
+            "es-419": "Quisiera un café con leche, por favor.",
+            "it": "Vorrei un caffellatte, per favore.",
+            "nl": "Ik wil graag een koffie met melk, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a tea with milk, please.",
+              "I'd like a coffee without milk, please."
+            ],
+            "es-419": [
+              "Quisiera un té con leche, por favor.",
+              "Quisiera un café sin leche, por favor."
+            ],
+            "it": [
+              "Vorrei un tè con latte, per favore.",
+              "Vorrei un caffè senza latte, per favore."
+            ],
+            "nl": [
+              "Ik wil graag een thee met melk, alstublieft.",
+              "Ik wil graag een koffie zonder melk, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un thé sans sucre, merci.",
+          "translation": {
+            "en": "A tea with no sugar, thanks.",
+            "es-419": "Un té sin azúcar, gracias.",
+            "it": "Un tè senza zucchero, grazie.",
+            "nl": "Een thee zonder suiker, bedankt."
+          },
+          "distractors": {
+            "en": [
+              "A tea with sugar, thanks.",
+              "A coffee with no sugar, thanks."
+            ],
+            "es-419": [
+              "Un té con azúcar, gracias.",
+              "Un café sin azúcar, gracias."
+            ],
+            "it": [
+              "Un tè con zucchero, grazie.",
+              "Un caffè senza zucchero, grazie."
+            ],
+            "nl": [
+              "Een thee met suiker, bedankt.",
+              "Een koffie zonder suiker, bedankt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-cafe-2",
+      "title": "C'est combien?",
+      "grammarFocus": {
+        "en": [
+          "C'est combien? / Combien ça coûte?: how much is it?",
+          "prices in whole euros: deux euros, trois euros cinquante",
+          "numbers: deux, trois, quatre, cinq, dix, cinquante"
+        ],
+        "es-419": [
+          "C'est combien? / Combien ça coûte?: ¿cuánto es? / ¿cuánto cuesta?",
+          "precios en euros enteros: deux euros, trois euros cinquante",
+          "números: deux, trois, quatre, cinq, dix, cinquante"
+        ],
+        "it": [
+          "C'est combien? / Combien ça coûte?: quanto costa?",
+          "prezzi in euro interi: deux euros, trois euros cinquante",
+          "numeri: deux, trois, quatre, cinq, dix, cinquante"
+        ],
+        "nl": [
+          "C'est combien? / Combien ça coûte?: hoeveel kost het?",
+          "prijzen in hele euro's: deux euros, trois euros cinquante",
+          "getallen: deux, trois, quatre, cinq, dix, cinquante"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "combien",
+          "translation": {
+            "en": "how much",
+            "es-419": "cuánto",
+            "it": "quanto",
+            "nl": "hoeveel"
+          },
+          "distractors": {
+            "en": [
+              "where",
+              "why"
+            ],
+            "es-419": [
+              "dónde",
+              "por qué"
+            ],
+            "it": [
+              "dove",
+              "perché"
+            ],
+            "nl": [
+              "waar",
+              "waarom"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "deux",
+          "translation": {
+            "en": "two",
+            "es-419": "dos",
+            "it": "due",
+            "nl": "twee"
+          },
+          "distractors": {
+            "en": [
+              "three",
+              "five"
+            ],
+            "es-419": [
+              "tres",
+              "cinco"
+            ],
+            "it": [
+              "tre",
+              "cinque"
+            ],
+            "nl": [
+              "drie",
+              "vijf"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "cinq euros",
+          "translation": {
+            "en": "five euros",
+            "es-419": "cinco euros",
+            "it": "cinque euro",
+            "nl": "vijf euro"
+          },
+          "distractors": {
+            "en": [
+              "four euros",
+              "fifty euros"
+            ],
+            "es-419": [
+              "cuatro euros",
+              "cincuenta euros"
+            ],
+            "it": [
+              "quattro euro",
+              "cinquanta euro"
+            ],
+            "nl": [
+              "vier euro",
+              "vijftig euro"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "c'est combien",
+          "translation": {
+            "en": "how much is it",
+            "es-419": "cuánto es",
+            "it": "quanto costa",
+            "nl": "hoeveel is het"
+          },
+          "distractors": {
+            "en": [
+              "what is it",
+              "where is it"
+            ],
+            "es-419": [
+              "qué es",
+              "dónde está"
+            ],
+            "it": [
+              "che cos'è",
+              "dov'è"
+            ],
+            "nl": [
+              "wat is het",
+              "waar is het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est combien?",
+          "translation": {
+            "en": "How much is it?",
+            "es-419": "¿Cuánto es?",
+            "it": "Quanto costa?",
+            "nl": "Hoeveel kost het?"
+          },
+          "distractors": {
+            "en": [
+              "What is this?",
+              "Where is it?"
+            ],
+            "es-419": [
+              "¿Qué es esto?",
+              "¿Dónde está?"
+            ],
+            "it": [
+              "Che cos'è questo?",
+              "Dov'è?"
+            ],
+            "nl": [
+              "Wat is dit?",
+              "Waar is het?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "croissant",
+          "translation": {
+            "en": "croissant",
+            "es-419": "cruasán",
+            "it": "cornetto",
+            "nl": "croissant"
+          },
+          "distractors": {
+            "en": [
+              "cake",
+              "bread"
+            ],
+            "es-419": [
+              "pastel",
+              "pan"
+            ],
+            "it": [
+              "torta",
+              "pane"
+            ],
+            "nl": [
+              "cake",
+              "brood"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un croissant, c'est deux euros.",
+          "translation": {
+            "en": "A croissant is two euros.",
+            "es-419": "Un cruasán cuesta dos euros.",
+            "it": "Un cornetto costa due euro.",
+            "nl": "Een croissant kost twee euro."
+          },
+          "distractors": {
+            "en": [
+              "A croissant is three euros.",
+              "A coffee is two euros."
+            ],
+            "es-419": [
+              "Un cruasán cuesta tres euros.",
+              "Un café cuesta dos euros."
+            ],
+            "it": [
+              "Un cornetto costa tre euro.",
+              "Un caffè costa due euro."
+            ],
+            "nl": [
+              "Een croissant kost drie euro.",
+              "Een koffie kost twee euro."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "gâteau",
+          "translation": {
+            "en": "cake",
+            "es-419": "pastel",
+            "it": "torta",
+            "nl": "taart"
+          },
+          "distractors": {
+            "en": [
+              "cookie",
+              "bread"
+            ],
+            "es-419": [
+              "galleta",
+              "pan"
+            ],
+            "it": [
+              "biscotto",
+              "pane"
+            ],
+            "nl": [
+              "koekje",
+              "brood"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "trois euros cinquante",
+          "translation": {
+            "en": "three euros fifty",
+            "es-419": "tres euros cincuenta",
+            "it": "tre euro e cinquanta",
+            "nl": "drie euro vijftig"
+          },
+          "distractors": {
+            "en": [
+              "two euros fifty",
+              "three euros ten"
+            ],
+            "es-419": [
+              "dos euros cincuenta",
+              "tres euros diez"
+            ],
+            "it": [
+              "due euro e cinquanta",
+              "tre euro e dieci"
+            ],
+            "nl": [
+              "twee euro vijftig",
+              "drie euro tien"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le gâteau coûte trois euros cinquante.",
+          "translation": {
+            "en": "The cake costs three euros fifty.",
+            "es-419": "El pastel cuesta tres euros cincuenta.",
+            "it": "La torta costa tre euro e cinquanta.",
+            "nl": "De taart kost drie euro vijftig."
+          },
+          "distractors": {
+            "en": [
+              "The cake costs two euros fifty.",
+              "The cookie costs three euros fifty."
+            ],
+            "es-419": [
+              "El pastel cuesta dos euros cincuenta.",
+              "La galleta cuesta tres euros cincuenta."
+            ],
+            "it": [
+              "La torta costa due euro e cinquanta.",
+              "Il biscotto costa tre euro e cinquanta."
+            ],
+            "nl": [
+              "De taart kost twee euro vijftig.",
+              "Het koekje kost drie euro vijftig."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "combien ça coûte",
+          "translation": {
+            "en": "how much does it cost",
+            "es-419": "cuánto cuesta",
+            "it": "quanto costa",
+            "nl": "hoeveel kost het"
+          },
+          "distractors": {
+            "en": [
+              "how much do you want",
+              "how many are there"
+            ],
+            "es-419": [
+              "cuánto quiere",
+              "cuántos hay"
+            ],
+            "it": [
+              "quanto vuole",
+              "quanti ce ne sono"
+            ],
+            "nl": [
+              "hoeveel wilt u",
+              "hoeveel zijn er"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pardon, combien ça coûte?",
+          "translation": {
+            "en": "Excuse me, how much is that?",
+            "es-419": "Perdón, ¿cuánto cuesta?",
+            "it": "Scusi, quanto costa?",
+            "nl": "Pardon, hoeveel kost dat?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, how much do you want?",
+              "Excuse me, what is that?"
+            ],
+            "es-419": [
+              "Perdón, ¿cuánto quiere?",
+              "Perdón, ¿qué es eso?"
+            ],
+            "it": [
+              "Scusi, quanto vuole?",
+              "Scusi, che cos'è?"
+            ],
+            "nl": [
+              "Pardon, hoeveel wilt u?",
+              "Pardon, wat is dat?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un croissant et un biscuit, c'est quatre euros.",
+          "translation": {
+            "en": "A croissant and a cookie come to four euros.",
+            "es-419": "Un cruasán y una galleta son cuatro euros.",
+            "it": "Un cornetto e un biscotto fanno quattro euro.",
+            "nl": "Een croissant en een koekje samen is vier euro."
+          },
+          "distractors": {
+            "en": [
+              "A croissant and a cookie come to five euros.",
+              "A croissant and a cake come to four euros."
+            ],
+            "es-419": [
+              "Un cruasán y una galleta son cinco euros.",
+              "Un cruasán y un pastel son cuatro euros."
+            ],
+            "it": [
+              "Un cornetto e un biscotto fanno cinque euro.",
+              "Un cornetto e una torta fanno quattro euro."
+            ],
+            "nl": [
+              "Een croissant en een koekje samen is vijf euro.",
+              "Een croissant en een taart samen is vier euro."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dix euros",
+          "translation": {
+            "en": "ten euros",
+            "es-419": "diez euros",
+            "it": "dieci euro",
+            "nl": "tien euro"
+          },
+          "distractors": {
+            "en": [
+              "two euros",
+              "five euros"
+            ],
+            "es-419": [
+              "dos euros",
+              "cinco euros"
+            ],
+            "it": [
+              "due euro",
+              "cinque euro"
+            ],
+            "nl": [
+              "twee euro",
+              "vijf euro"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le café et le gâteau, c'est dix euros.",
+          "translation": {
+            "en": "The coffee and the cake come to ten euros.",
+            "es-419": "El café y el pastel son diez euros.",
+            "it": "Il caffè e la torta fanno dieci euro.",
+            "nl": "De koffie en de taart samen is tien euro."
+          },
+          "distractors": {
+            "en": [
+              "The coffee and the cake come to five euros.",
+              "The tea and the cake come to ten euros."
+            ],
+            "es-419": [
+              "El café y el pastel son cinco euros.",
+              "El té y el pastel son diez euros."
+            ],
+            "it": [
+              "Il caffè e la torta fanno cinque euro.",
+              "Il tè e la torta fanno dieci euro."
+            ],
+            "nl": [
+              "De koffie en de taart samen is vijf euro.",
+              "De thee en de taart samen is tien euro."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-cafe-3",
+      "title": "Quelque chose à boire",
+      "grammarFocus": {
+        "en": [
+          "du / de la / de l': du vin, de la bière, de l'eau (some)",
+          "de after an amount: un verre de vin, une bouteille d'eau, un jus d'orange",
+          "Vous désirez? / Vous avez...?: what a server says"
+        ],
+        "es-419": [
+          "du / de la / de l': du vin, de la bière, de l'eau (algo de)",
+          "de después de una cantidad: un verre de vin, une bouteille d'eau, un jus d'orange",
+          "Vous désirez? / Vous avez...?: lo que dice el mesero"
+        ],
+        "it": [
+          "du / de la / de l': du vin, de la bière, de l'eau (del, della, dell')",
+          "de dopo una quantità: un verre de vin, une bouteille d'eau, un jus d'orange",
+          "Vous désirez? / Vous avez...?: le frasi del cameriere"
+        ],
+        "nl": [
+          "du / de la / de l': du vin, de la bière, de l'eau (wat)",
+          "de na een hoeveelheid: un verre de vin, une bouteille d'eau, un jus d'orange",
+          "Vous désirez? / Vous avez...?: wat de ober zegt"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "boisson",
+          "translation": {
+            "en": "drink",
+            "es-419": "bebida",
+            "it": "bevanda",
+            "nl": "drankje"
+          },
+          "distractors": {
+            "en": [
+              "food",
+              "check"
+            ],
+            "es-419": [
+              "comida",
+              "cuenta"
+            ],
+            "it": [
+              "cibo",
+              "conto"
+            ],
+            "nl": [
+              "eten",
+              "rekening"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous désirez",
+          "translation": {
+            "en": "what would you like",
+            "es-419": "qué desea",
+            "it": "cosa desidera",
+            "nl": "wat wilt u"
+          },
+          "distractors": {
+            "en": [
+              "are you paying",
+              "are you sitting"
+            ],
+            "es-419": [
+              "va a pagar",
+              "se sienta"
+            ],
+            "it": [
+              "paga",
+              "si siede"
+            ],
+            "nl": [
+              "betaalt u",
+              "zit u"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Qu'est-ce que vous désirez?",
+          "translation": {
+            "en": "What would you like?",
+            "es-419": "¿Qué desea?",
+            "it": "Cosa desidera?",
+            "nl": "Wat wilt u?"
+          },
+          "distractors": {
+            "en": [
+              "Are you paying?",
+              "Where are you sitting?"
+            ],
+            "es-419": [
+              "¿Va a pagar?",
+              "¿Dónde se sienta?"
+            ],
+            "it": [
+              "Paga?",
+              "Dove si siede?"
+            ],
+            "nl": [
+              "Betaalt u?",
+              "Waar gaat u zitten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "l'eau",
+          "translation": {
+            "en": "the water",
+            "es-419": "el agua",
+            "it": "l'acqua",
+            "nl": "het water"
+          },
+          "distractors": {
+            "en": [
+              "the milk",
+              "the wine"
+            ],
+            "es-419": [
+              "la leche",
+              "el vino"
+            ],
+            "it": [
+              "il latte",
+              "il vino"
+            ],
+            "nl": [
+              "de melk",
+              "de wijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une bouteille d'eau",
+          "translation": {
+            "en": "a bottle of water",
+            "es-419": "una botella de agua",
+            "it": "una bottiglia d'acqua",
+            "nl": "een fles water"
+          },
+          "distractors": {
+            "en": [
+              "a glass of water",
+              "a bottle of wine"
+            ],
+            "es-419": [
+              "un vaso de agua",
+              "una botella de vino"
+            ],
+            "it": [
+              "un bicchiere d'acqua",
+              "una bottiglia di vino"
+            ],
+            "nl": [
+              "een glas water",
+              "een fles wijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un verre de vin",
+          "translation": {
+            "en": "a glass of wine",
+            "es-419": "una copa de vino",
+            "it": "un bicchiere di vino",
+            "nl": "een glas wijn"
+          },
+          "distractors": {
+            "en": [
+              "a glass of beer",
+              "a bottle of wine"
+            ],
+            "es-419": [
+              "una copa de cerveza",
+              "una botella de vino"
+            ],
+            "it": [
+              "un bicchiere di birra",
+              "una bottiglia di vino"
+            ],
+            "nl": [
+              "een glas bier",
+              "een fles wijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un jus d'orange",
+          "translation": {
+            "en": "an orange juice",
+            "es-419": "un jugo de naranja",
+            "it": "un succo d'arancia",
+            "nl": "een sinaasappelsap"
+          },
+          "distractors": {
+            "en": [
+              "a lemon juice",
+              "an orange cake"
+            ],
+            "es-419": [
+              "un jugo de limón",
+              "un pastel de naranja"
+            ],
+            "it": [
+              "un succo di limone",
+              "una torta all'arancia"
+            ],
+            "nl": [
+              "een citroensap",
+              "een sinaasappeltaart"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais un jus d'orange et de l'eau.",
+          "translation": {
+            "en": "I'd like an orange juice and some water.",
+            "es-419": "Quisiera un jugo de naranja y agua.",
+            "it": "Vorrei un succo d'arancia e dell'acqua.",
+            "nl": "Ik wil graag een sinaasappelsap en water."
+          },
+          "distractors": {
+            "en": [
+              "I'd like an orange juice and some milk.",
+              "I'd like a lemon juice and some water."
+            ],
+            "es-419": [
+              "Quisiera un jugo de naranja y leche.",
+              "Quisiera un jugo de limón y agua."
+            ],
+            "it": [
+              "Vorrei un succo d'arancia e del latte.",
+              "Vorrei un succo di limone e dell'acqua."
+            ],
+            "nl": [
+              "Ik wil graag een sinaasappelsap en melk.",
+              "Ik wil graag een citroensap en water."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "bière",
+          "translation": {
+            "en": "beer",
+            "es-419": "cerveza",
+            "it": "birra",
+            "nl": "bier"
+          },
+          "distractors": {
+            "en": [
+              "wine",
+              "water"
+            ],
+            "es-419": [
+              "vino",
+              "agua"
+            ],
+            "it": [
+              "vino",
+              "acqua"
+            ],
+            "nl": [
+              "wijn",
+              "water"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour moi, une bière, s'il vous plaît.",
+          "translation": {
+            "en": "For me, a beer, please.",
+            "es-419": "Para mí, una cerveza, por favor.",
+            "it": "Per me, una birra, per favore.",
+            "nl": "Voor mij een biertje, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "For me, a wine, please.",
+              "For you, a beer, please."
+            ],
+            "es-419": [
+              "Para mí, un vino, por favor.",
+              "Para usted, una cerveza, por favor."
+            ],
+            "it": [
+              "Per me, un vino, per favore.",
+              "Per Lei, una birra, per favore."
+            ],
+            "nl": [
+              "Voor mij een wijntje, alstublieft.",
+              "Voor u een biertje, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quelque chose",
+          "translation": {
+            "en": "something",
+            "es-419": "algo",
+            "it": "qualcosa",
+            "nl": "iets"
+          },
+          "distractors": {
+            "en": [
+              "nothing",
+              "everything"
+            ],
+            "es-419": [
+              "nada",
+              "todo"
+            ],
+            "it": [
+              "niente",
+              "tutto"
+            ],
+            "nl": [
+              "niets",
+              "alles"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous prenez quelque chose?",
+          "translation": {
+            "en": "Would you like something?",
+            "es-419": "¿Va a tomar algo?",
+            "it": "Prende qualcosa?",
+            "nl": "Neemt u iets?"
+          },
+          "distractors": {
+            "en": [
+              "Are you paying for something?",
+              "Do you have something?"
+            ],
+            "es-419": [
+              "¿Va a pagar algo?",
+              "¿Tiene algo?"
+            ],
+            "it": [
+              "Paga qualcosa?",
+              "Ha qualcosa?"
+            ],
+            "nl": [
+              "Betaalt u iets?",
+              "Heeft u iets?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Autre chose?",
+          "translation": {
+            "en": "Anything else?",
+            "es-419": "¿Algo más?",
+            "it": "Altro?",
+            "nl": "Nog iets anders?"
+          },
+          "distractors": {
+            "en": [
+              "Anything cold?",
+              "Anything to eat?"
+            ],
+            "es-419": [
+              "¿Algo frío?",
+              "¿Algo de comer?"
+            ],
+            "it": [
+              "Qualcosa di freddo?",
+              "Qualcosa da mangiare?"
+            ],
+            "nl": [
+              "Iets kouds?",
+              "Iets te eten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "voilà",
+          "translation": {
+            "en": "here you are",
+            "es-419": "aquí tiene",
+            "it": "ecco",
+            "nl": "alstublieft"
+          },
+          "distractors": {
+            "en": [
+              "thank you",
+              "excuse me"
+            ],
+            "es-419": [
+              "gracias",
+              "perdón"
+            ],
+            "it": [
+              "grazie",
+              "mi scusi"
+            ],
+            "nl": [
+              "dank u",
+              "pardon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voilà un thé et un jus d'orange.",
+          "translation": {
+            "en": "Here is a tea and an orange juice.",
+            "es-419": "Aquí tiene un té y un jugo de naranja.",
+            "it": "Ecco un tè e un succo d'arancia.",
+            "nl": "Alstublieft, een thee en een sinaasappelsap."
+          },
+          "distractors": {
+            "en": [
+              "Here is a tea and a lemon juice.",
+              "Here is a coffee and an orange juice."
+            ],
+            "es-419": [
+              "Aquí tiene un té y un jugo de limón.",
+              "Aquí tiene un café y un jugo de naranja."
+            ],
+            "it": [
+              "Ecco un tè e un succo di limone.",
+              "Ecco un caffè e un succo d'arancia."
+            ],
+            "nl": [
+              "Alstublieft, een thee en een citroensap.",
+              "Alstublieft, een koffie en een sinaasappelsap."
+            ]
+          },
+          "commas": [
+            0
+          ]
+        },
+        {
+          "id": "fr-a1-cafe-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous avez du vin ou de la bière?",
+          "translation": {
+            "en": "Do you have wine or beer?",
+            "es-419": "¿Tiene vino o cerveza?",
+            "it": "Ha vino o birra?",
+            "nl": "Heeft u wijn of bier?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have wine and beer?",
+              "Do you have wine or water?"
+            ],
+            "es-419": [
+              "¿Tiene vino y cerveza?",
+              "¿Tiene vino o agua?"
+            ],
+            "it": [
+              "Ha vino e birra?",
+              "Ha vino o acqua?"
+            ],
+            "nl": [
+              "Heeft u wijn en bier?",
+              "Heeft u wijn of water?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-cafe-4",
+      "title": "Chaud ou froid?",
+      "grammarFocus": {
+        "en": [
+          "adjectives follow the noun: un café chaud, une boisson chaude (the d is heard in the feminine)",
+          "ou: chaud ou froid, gazeuse ou plate",
+          "Donnez-moi...: a polite chunk"
+        ],
+        "es-419": [
+          "el adjetivo va después del nombre: un café chaud, une boisson chaude (en el femenino se oye la d)",
+          "ou: chaud ou froid, gazeuse ou plate",
+          "Donnez-moi...: una fórmula cortés fija"
+        ],
+        "it": [
+          "l'aggettivo segue il nome: un café chaud, une boisson chaude (al femminile si sente la d)",
+          "ou: chaud ou froid, gazeuse ou plate",
+          "Donnez-moi...: un blocco fisso e cortese"
+        ],
+        "nl": [
+          "het bijvoeglijk naamwoord staat na het zelfstandig naamwoord: un café chaud, une boisson chaude (in het vrouwelijk hoor je de d)",
+          "ou: chaud ou froid, gazeuse ou plate",
+          "Donnez-moi...: een vaste, beleefde combinatie"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "chaud",
+          "translation": {
+            "en": "hot",
+            "es-419": "caliente",
+            "it": "caldo",
+            "nl": "heet"
+          },
+          "distractors": {
+            "en": [
+              "cold",
+              "small"
+            ],
+            "es-419": [
+              "frío",
+              "pequeño"
+            ],
+            "it": [
+              "freddo",
+              "piccolo"
+            ],
+            "nl": [
+              "koud",
+              "klein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "froid",
+          "translation": {
+            "en": "cold",
+            "es-419": "frío",
+            "it": "freddo",
+            "nl": "koud"
+          },
+          "distractors": {
+            "en": [
+              "hot",
+              "big"
+            ],
+            "es-419": [
+              "caliente",
+              "grande"
+            ],
+            "it": [
+              "caldo",
+              "grande"
+            ],
+            "nl": [
+              "heet",
+              "groot"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "donnez-moi",
+          "translation": {
+            "en": "give me",
+            "es-419": "deme",
+            "it": "mi dia",
+            "nl": "geef me"
+          },
+          "distractors": {
+            "en": [
+              "take me",
+              "bring me"
+            ],
+            "es-419": [
+              "lléveme",
+              "tráigame"
+            ],
+            "it": [
+              "mi porti",
+              "mi prenda"
+            ],
+            "nl": [
+              "neem me",
+              "breng me"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Donnez-moi un café chaud, s'il vous plaît.",
+          "translation": {
+            "en": "Give me a hot coffee, please.",
+            "es-419": "Deme un café caliente, por favor.",
+            "it": "Mi dia un caffè caldo, per favore.",
+            "nl": "Geef me een warme koffie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Give me a cold coffee, please.",
+              "Give me a hot tea, please."
+            ],
+            "es-419": [
+              "Deme un café frío, por favor.",
+              "Deme un té caliente, por favor."
+            ],
+            "it": [
+              "Mi dia un caffè freddo, per favore.",
+              "Mi dia un tè caldo, per favore."
+            ],
+            "nl": [
+              "Geef me een koude koffie, alstublieft.",
+              "Geef me een warme thee, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une tasse de chocolat chaud",
+          "translation": {
+            "en": "a cup of hot chocolate",
+            "es-419": "una taza de chocolate caliente",
+            "it": "una tazza di cioccolata calda",
+            "nl": "een kopje warme chocolademelk"
+          },
+          "distractors": {
+            "en": [
+              "a cup of hot tea",
+              "a glass of cold chocolate"
+            ],
+            "es-419": [
+              "una taza de té caliente",
+              "un vaso de chocolate frío"
+            ],
+            "it": [
+              "una tazza di tè caldo",
+              "un bicchiere di cioccolata fredda"
+            ],
+            "nl": [
+              "een kopje warme thee",
+              "een glas koude chocolademelk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le café est chaud et bon.",
+          "translation": {
+            "en": "The coffee is hot and good.",
+            "es-419": "El café está caliente y rico.",
+            "it": "Il caffè è caldo e buono.",
+            "nl": "De koffie is heet en lekker."
+          },
+          "distractors": {
+            "en": [
+              "The coffee is cold and good.",
+              "The tea is hot and good."
+            ],
+            "es-419": [
+              "El café está frío y rico.",
+              "El té está caliente y rico."
+            ],
+            "it": [
+              "Il caffè è freddo e buono.",
+              "Il tè è caldo e buono."
+            ],
+            "nl": [
+              "De koffie is koud en lekker.",
+              "De thee is heet en lekker."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Une boisson chaude ou froide?",
+          "translation": {
+            "en": "A hot or cold drink?",
+            "es-419": "¿Una bebida caliente o fría?",
+            "it": "Una bevanda calda o fredda?",
+            "nl": "Een warm of koud drankje?"
+          },
+          "distractors": {
+            "en": [
+              "A hot or cold coffee?",
+              "A big or small drink?"
+            ],
+            "es-419": [
+              "¿Un café caliente o frío?",
+              "¿Una bebida grande o pequeña?"
+            ],
+            "it": [
+              "Un caffè caldo o freddo?",
+              "Una bevanda grande o piccola?"
+            ],
+            "nl": [
+              "Een warme of koude koffie?",
+              "Een groot of klein drankje?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "grand",
+          "translation": {
+            "en": "big",
+            "es-419": "grande",
+            "it": "grande",
+            "nl": "groot"
+          },
+          "distractors": {
+            "en": [
+              "small",
+              "hot"
+            ],
+            "es-419": [
+              "pequeño",
+              "caliente"
+            ],
+            "it": [
+              "piccolo",
+              "caldo"
+            ],
+            "nl": [
+              "klein",
+              "heet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "petit",
+          "translation": {
+            "en": "small",
+            "es-419": "pequeño",
+            "it": "piccolo",
+            "nl": "klein"
+          },
+          "distractors": {
+            "en": [
+              "big",
+              "cold"
+            ],
+            "es-419": [
+              "grande",
+              "frío"
+            ],
+            "it": [
+              "grande",
+              "freddo"
+            ],
+            "nl": [
+              "groot",
+              "koud"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un grand café",
+          "translation": {
+            "en": "a large coffee",
+            "es-419": "un café grande",
+            "it": "un caffè grande",
+            "nl": "een grote koffie"
+          },
+          "distractors": {
+            "en": [
+              "a small coffee",
+              "a large tea"
+            ],
+            "es-419": [
+              "un café pequeño",
+              "un té grande"
+            ],
+            "it": [
+              "un caffè piccolo",
+              "un tè grande"
+            ],
+            "nl": [
+              "een kleine koffie",
+              "een grote thee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un café noir",
+          "translation": {
+            "en": "a black coffee",
+            "es-419": "un café negro",
+            "it": "un caffè nero",
+            "nl": "een zwarte koffie"
+          },
+          "distractors": {
+            "en": [
+              "a coffee with milk",
+              "a black tea"
+            ],
+            "es-419": [
+              "un café con leche",
+              "un té negro"
+            ],
+            "it": [
+              "un caffè con latte",
+              "un tè nero"
+            ],
+            "nl": [
+              "een koffie met melk",
+              "een zwarte thee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un grand café noir, s'il vous plaît.",
+          "translation": {
+            "en": "A large black coffee, please.",
+            "es-419": "Un café negro grande, por favor.",
+            "it": "Un caffè nero grande, per favore.",
+            "nl": "Een grote zwarte koffie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A small black coffee, please.",
+              "A large coffee with milk, please."
+            ],
+            "es-419": [
+              "Un café negro pequeño, por favor.",
+              "Un café grande con leche, por favor."
+            ],
+            "it": [
+              "Un caffè nero piccolo, per favore.",
+              "Un caffè grande con latte, per favore."
+            ],
+            "nl": [
+              "Een kleine zwarte koffie, alstublieft.",
+              "Een grote koffie met melk, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de l'eau gazeuse",
+          "translation": {
+            "en": "sparkling water",
+            "es-419": "agua con gas",
+            "it": "acqua gassata",
+            "nl": "bruisend water"
+          },
+          "distractors": {
+            "en": [
+              "still water",
+              "cold water"
+            ],
+            "es-419": [
+              "agua sin gas",
+              "agua fría"
+            ],
+            "it": [
+              "acqua naturale",
+              "acqua fredda"
+            ],
+            "nl": [
+              "plat water",
+              "koud water"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous voulez de l'eau gazeuse ou plate?",
+          "translation": {
+            "en": "Would you like sparkling or still water?",
+            "es-419": "¿Quiere agua con gas o sin gas?",
+            "it": "Vuole acqua gassata o naturale?",
+            "nl": "Wilt u bruisend of plat water?"
+          },
+          "distractors": {
+            "en": [
+              "Would you like sparkling or hot water?",
+              "Would you like still or cold water?"
+            ],
+            "es-419": [
+              "¿Quiere agua con gas o caliente?",
+              "¿Quiere agua sin gas o fría?"
+            ],
+            "it": [
+              "Vuole acqua gassata o calda?",
+              "Vuole acqua naturale o fredda?"
+            ],
+            "nl": [
+              "Wilt u bruisend of warm water?",
+              "Wilt u plat of koud water?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de la crème",
+          "translation": {
+            "en": "some cream",
+            "es-419": "algo de crema",
+            "it": "della panna",
+            "nl": "room"
+          },
+          "distractors": {
+            "en": [
+              "some milk",
+              "some sugar"
+            ],
+            "es-419": [
+              "algo de leche",
+              "algo de azúcar"
+            ],
+            "it": [
+              "del latte",
+              "dello zucchero"
+            ],
+            "nl": [
+              "melk",
+              "suiker"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un café avec de la crème, s'il vous plaît.",
+          "translation": {
+            "en": "A coffee with cream, please.",
+            "es-419": "Un café con crema, por favor.",
+            "it": "Un caffè con panna, per favore.",
+            "nl": "Een koffie met room, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A tea with cream, please.",
+              "A coffee with milk, please."
+            ],
+            "es-419": [
+              "Un té con crema, por favor.",
+              "Un café con leche, por favor."
+            ],
+            "it": [
+              "Un tè con panna, per favore.",
+              "Un caffè con latte, per favore."
+            ],
+            "nl": [
+              "Een thee met room, alstublieft.",
+              "Een koffie met melk, alstublieft."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-cafe-5",
+      "title": "Sur place ou à emporter?",
+      "grammarFocus": {
+        "en": [
+          "sur place (here) / à emporter (to go)",
+          "je peux + infinitive: Je peux avoir...? (a polite chunk)",
+          "Excusez-moi, ... / Vous pouvez apporter...?: getting a server's attention"
+        ],
+        "es-419": [
+          "sur place (aquí) / à emporter (para llevar)",
+          "je peux + infinitivo: Je peux avoir...? (una fórmula cortés fija)",
+          "Excusez-moi, ... / Vous pouvez apporter...?: para llamar la atención del mesero"
+        ],
+        "it": [
+          "sur place (qui) / à emporter (da portare via)",
+          "je peux + infinito: Je peux avoir...? (un blocco fisso e cortese)",
+          "Excusez-moi, ... / Vous pouvez apporter...?: per attirare l'attenzione del cameriere"
+        ],
+        "nl": [
+          "sur place (hier opeten) / à emporter (meenemen)",
+          "je peux + infinitief: Je peux avoir...? (een vaste, beleefde combinatie)",
+          "Excusez-moi, ... / Vous pouvez apporter...?: de aandacht van de ober trekken"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "sur place",
+          "translation": {
+            "en": "here, to eat in",
+            "es-419": "para tomar aquí",
+            "it": "qui, da consumare",
+            "nl": "hier opeten"
+          },
+          "distractors": {
+            "en": [
+              "to go",
+              "next door"
+            ],
+            "es-419": [
+              "para llevar",
+              "al lado"
+            ],
+            "it": [
+              "da portare via",
+              "accanto"
+            ],
+            "nl": [
+              "om mee te nemen",
+              "hiernaast"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "à emporter",
+          "translation": {
+            "en": "to go",
+            "es-419": "para llevar",
+            "it": "da portare via",
+            "nl": "om mee te nemen"
+          },
+          "distractors": {
+            "en": [
+              "for here",
+              "for later"
+            ],
+            "es-419": [
+              "para tomar aquí",
+              "para más tarde"
+            ],
+            "it": [
+              "da consumare qui",
+              "per dopo"
+            ],
+            "nl": [
+              "voor hier",
+              "voor later"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sur place ou à emporter?",
+          "translation": {
+            "en": "For here or to go?",
+            "es-419": "¿Para tomar aquí o para llevar?",
+            "it": "Da consumare qui o da portare via?",
+            "nl": "Hier opeten of meenemen?"
+          },
+          "distractors": {
+            "en": [
+              "For here or for later?",
+              "To go or to share?"
+            ],
+            "es-419": [
+              "¿Para tomar aquí o para más tarde?",
+              "¿Para llevar o para compartir?"
+            ],
+            "it": [
+              "Da consumare qui o per dopo?",
+              "Da portare via o da dividere?"
+            ],
+            "nl": [
+              "Hier opeten of voor later?",
+              "Meenemen of delen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "du pain et du fromage",
+          "translation": {
+            "en": "some bread and cheese",
+            "es-419": "pan y queso",
+            "it": "pane e formaggio",
+            "nl": "brood en kaas"
+          },
+          "distractors": {
+            "en": [
+              "some bread and ham",
+              "some cheese and milk"
+            ],
+            "es-419": [
+              "pan y jamón",
+              "queso y leche"
+            ],
+            "it": [
+              "pane e prosciutto",
+              "formaggio e latte"
+            ],
+            "nl": [
+              "brood en ham",
+              "kaas en melk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un sandwich avec du jambon et du fromage, s'il vous plaît.",
+          "translation": {
+            "en": "A sandwich with ham and cheese, please.",
+            "es-419": "Un sándwich con jamón y queso, por favor.",
+            "it": "Un panino con prosciutto e formaggio, per favore.",
+            "nl": "Een broodje met ham en kaas, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A sandwich with ham and butter, please.",
+              "A sandwich with cheese and no ham, please."
+            ],
+            "es-419": [
+              "Un sándwich con jamón y mantequilla, por favor.",
+              "Un sándwich con queso y sin jamón, por favor."
+            ],
+            "it": [
+              "Un panino con prosciutto e burro, per favore.",
+              "Un panino con formaggio e senza prosciutto, per favore."
+            ],
+            "nl": [
+              "Een broodje met ham en boter, alstublieft.",
+              "Een broodje met kaas en zonder ham, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je prends un sandwich ici.",
+          "translation": {
+            "en": "I'll have a sandwich here.",
+            "es-419": "Tomo un sándwich aquí.",
+            "it": "Prendo un panino qui.",
+            "nl": "Ik neem hier een broodje."
+          },
+          "distractors": {
+            "en": [
+              "I'll have a sandwich to go.",
+              "I'll have a cake here."
+            ],
+            "es-419": [
+              "Tomo un sándwich para llevar.",
+              "Tomo un pastel aquí."
+            ],
+            "it": [
+              "Prendo un panino da portare via.",
+              "Prendo una torta qui."
+            ],
+            "nl": [
+              "Ik neem een broodje mee.",
+              "Ik neem hier een taart."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "encore",
+          "translation": {
+            "en": "again, more",
+            "es-419": "otra vez, más",
+            "it": "ancora",
+            "nl": "nog, weer"
+          },
+          "distractors": {
+            "en": [
+              "always",
+              "never"
+            ],
+            "es-419": [
+              "siempre",
+              "nunca"
+            ],
+            "it": [
+              "sempre",
+              "mai"
+            ],
+            "nl": [
+              "altijd",
+              "nooit"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Encore un café, s'il vous plaît.",
+          "translation": {
+            "en": "Another coffee, please.",
+            "es-419": "Otro café, por favor.",
+            "it": "Un altro caffè, per favore.",
+            "nl": "Nog een koffie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Another tea, please.",
+              "Two coffees, please."
+            ],
+            "es-419": [
+              "Otro té, por favor.",
+              "Dos cafés, por favor."
+            ],
+            "it": [
+              "Un altro tè, per favore.",
+              "Due caffè, per favore."
+            ],
+            "nl": [
+              "Nog een thee, alstublieft.",
+              "Twee koffie, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je peux",
+          "translation": {
+            "en": "I can",
+            "es-419": "puedo",
+            "it": "posso",
+            "nl": "ik kan"
+          },
+          "distractors": {
+            "en": [
+              "I want",
+              "I take"
+            ],
+            "es-419": [
+              "quiero",
+              "tomo"
+            ],
+            "it": [
+              "voglio",
+              "prendo"
+            ],
+            "nl": [
+              "ik wil",
+              "ik neem"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "excusez-moi",
+          "translation": {
+            "en": "excuse me",
+            "es-419": "disculpe",
+            "it": "mi scusi",
+            "nl": "pardon"
+          },
+          "distractors": {
+            "en": [
+              "thank you",
+              "you're welcome"
+            ],
+            "es-419": [
+              "gracias",
+              "de nada"
+            ],
+            "it": [
+              "grazie",
+              "prego"
+            ],
+            "nl": [
+              "dank u",
+              "graag gedaan"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, je peux avoir de l'eau?",
+          "translation": {
+            "en": "Excuse me, can I have some water?",
+            "es-419": "Disculpe, ¿puedo tomar un poco de agua?",
+            "it": "Mi scusi, posso avere dell'acqua?",
+            "nl": "Pardon, mag ik wat water?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, can I have some wine?",
+              "Excuse me, can I pay?"
+            ],
+            "es-419": [
+              "Disculpe, ¿puedo tomar un poco de vino?",
+              "Disculpe, ¿puedo pagar?"
+            ],
+            "it": [
+              "Mi scusi, posso avere del vino?",
+              "Mi scusi, posso pagare?"
+            ],
+            "nl": [
+              "Pardon, mag ik wat wijn?",
+              "Pardon, mag ik betalen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez apporter de l'eau, s'il vous plaît?",
+          "translation": {
+            "en": "Could you bring some water, please?",
+            "es-419": "¿Puede traer agua, por favor?",
+            "it": "Può portare dell'acqua, per favore?",
+            "nl": "Kunt u water brengen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Could you bring some wine, please?",
+              "Could you bring the check, please?"
+            ],
+            "es-419": [
+              "¿Puede traer vino, por favor?",
+              "¿Puede traer la cuenta, por favor?"
+            ],
+            "it": [
+              "Può portare del vino, per favore?",
+              "Può portare il conto, per favore?"
+            ],
+            "nl": [
+              "Kunt u wijn brengen, alstublieft?",
+              "Kunt u de rekening brengen, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "seulement",
+          "translation": {
+            "en": "only",
+            "es-419": "solo",
+            "it": "solo",
+            "nl": "alleen"
+          },
+          "distractors": {
+            "en": [
+              "also",
+              "always"
+            ],
+            "es-419": [
+              "también",
+              "siempre"
+            ],
+            "it": [
+              "anche",
+              "sempre"
+            ],
+            "nl": [
+              "ook",
+              "altijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Seulement un thé, merci.",
+          "translation": {
+            "en": "Just a tea, thanks.",
+            "es-419": "Solo un té, gracias.",
+            "it": "Solo un tè, grazie.",
+            "nl": "Alleen een thee, bedankt."
+          },
+          "distractors": {
+            "en": [
+              "Just a coffee, thanks.",
+              "Two teas, thanks."
+            ],
+            "es-419": [
+              "Solo un café, gracias.",
+              "Dos tés, gracias."
+            ],
+            "it": [
+              "Solo un caffè, grazie.",
+              "Due tè, grazie."
+            ],
+            "nl": [
+              "Alleen een koffie, bedankt.",
+              "Twee thee, bedankt."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "moi aussi",
+          "translation": {
+            "en": "me too",
+            "es-419": "yo también",
+            "it": "anch'io",
+            "nl": "ik ook"
+          },
+          "distractors": {
+            "en": [
+              "not me",
+              "only me"
+            ],
+            "es-419": [
+              "yo no",
+              "solo yo"
+            ],
+            "it": [
+              "io no",
+              "solo io"
+            ],
+            "nl": [
+              "ik niet",
+              "alleen ik"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Moi aussi, je voudrais un croissant.",
+          "translation": {
+            "en": "Me too, I'd like a croissant.",
+            "es-419": "Yo también quisiera un cruasán.",
+            "it": "Anch'io vorrei un cornetto.",
+            "nl": "Ik wil ook graag een croissant."
+          },
+          "distractors": {
+            "en": [
+              "Me too, I'd like a cookie.",
+              "Not me, I'd like a croissant."
+            ],
+            "es-419": [
+              "Yo también quisiera una galleta.",
+              "Yo no, quisiera un cruasán."
+            ],
+            "it": [
+              "Anch'io vorrei un biscotto.",
+              "Io no, vorrei un cornetto."
+            ],
+            "nl": [
+              "Ik wil ook graag een koekje.",
+              "Ik niet, ik wil graag een croissant."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a1-cafe-6",
+      "title": "Carte ou espèces?",
+      "grammarFocus": {
+        "en": [
+          "par carte / espèces: how to pay",
+          "Je peux payer par carte?: can I pay by card? (a chunk)",
+          "vingt euros, cent euros: cent is a hundred, sounds like sans"
+        ],
+        "es-419": [
+          "par carte / espèces: cómo pagar",
+          "Je peux payer par carte?: ¿puedo pagar con tarjeta? (una fórmula fija)",
+          "vingt euros, cent euros: cent es cien, suena como sans"
+        ],
+        "it": [
+          "par carte / espèces: come pagare",
+          "Je peux payer par carte?: posso pagare con la carta? (un blocco fisso)",
+          "vingt euros, cent euros: cent è cento, suona come sans"
+        ],
+        "nl": [
+          "par carte / espèces: hoe je betaalt",
+          "Je peux payer par carte?: kan ik met de kaart betalen? (een vaste combinatie)",
+          "vingt euros, cent euros: cent is honderd, klinkt als sans"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a1-cafe-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "espèces",
+          "translation": {
+            "en": "cash",
+            "es-419": "efectivo",
+            "it": "contanti",
+            "nl": "contant geld"
+          },
+          "distractors": {
+            "en": [
+              "card",
+              "coins"
+            ],
+            "es-419": [
+              "tarjeta",
+              "monedas"
+            ],
+            "it": [
+              "carta",
+              "monete"
+            ],
+            "nl": [
+              "pinpas",
+              "munten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "par carte",
+          "translation": {
+            "en": "by card",
+            "es-419": "con tarjeta",
+            "it": "con la carta",
+            "nl": "met de kaart"
+          },
+          "distractors": {
+            "en": [
+              "in cash",
+              "in euros"
+            ],
+            "es-419": [
+              "en efectivo",
+              "en euros"
+            ],
+            "it": [
+              "in contanti",
+              "in euro"
+            ],
+            "nl": [
+              "contant",
+              "in euro"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Carte ou espèces?",
+          "translation": {
+            "en": "Card or cash?",
+            "es-419": "¿Tarjeta o efectivo?",
+            "it": "Carta o contanti?",
+            "nl": "Pinpas of contant?"
+          },
+          "distractors": {
+            "en": [
+              "Cash or coins?",
+              "Card or receipt?"
+            ],
+            "es-419": [
+              "¿Efectivo o monedas?",
+              "¿Tarjeta o recibo?"
+            ],
+            "it": [
+              "Contanti o monete?",
+              "Carta o scontrino?"
+            ],
+            "nl": [
+              "Contant of munten?",
+              "Pinpas of bonnetje?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je peux payer",
+          "translation": {
+            "en": "I can pay",
+            "es-419": "puedo pagar",
+            "it": "posso pagare",
+            "nl": "ik kan betalen"
+          },
+          "distractors": {
+            "en": [
+              "I can order",
+              "I can take"
+            ],
+            "es-419": [
+              "puedo pedir",
+              "puedo tomar"
+            ],
+            "it": [
+              "posso ordinare",
+              "posso prendere"
+            ],
+            "nl": [
+              "ik kan bestellen",
+              "ik kan nemen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je peux payer par carte?",
+          "translation": {
+            "en": "Can I pay by card?",
+            "es-419": "¿Puedo pagar con tarjeta?",
+            "it": "Posso pagare con la carta?",
+            "nl": "Kan ik met de kaart betalen?"
+          },
+          "distractors": {
+            "en": [
+              "Can I pay in cash?",
+              "Can I pay later?"
+            ],
+            "es-419": [
+              "¿Puedo pagar en efectivo?",
+              "¿Puedo pagar después?"
+            ],
+            "it": [
+              "Posso pagare in contanti?",
+              "Posso pagare dopo?"
+            ],
+            "nl": [
+              "Kan ik contant betalen?",
+              "Kan ik later betalen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Oui, vous pouvez payer par carte.",
+          "translation": {
+            "en": "Yes, you can pay by card.",
+            "es-419": "Sí, puede pagar con tarjeta.",
+            "it": "Sì, può pagare con la carta.",
+            "nl": "Ja, u kunt met de kaart betalen."
+          },
+          "distractors": {
+            "en": [
+              "Yes, you can pay in cash.",
+              "No, you can't pay by card."
+            ],
+            "es-419": [
+              "Sí, puede pagar en efectivo.",
+              "No, no puede pagar con tarjeta."
+            ],
+            "it": [
+              "Sì, può pagare in contanti.",
+              "No, non può pagare con la carta."
+            ],
+            "nl": [
+              "Ja, u kunt contant betalen.",
+              "Nee, u kunt niet met de kaart betalen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la carte",
+          "translation": {
+            "en": "the menu",
+            "es-419": "el menú",
+            "it": "il menù",
+            "nl": "de menukaart"
+          },
+          "distractors": {
+            "en": [
+              "the check",
+              "the table"
+            ],
+            "es-419": [
+              "la cuenta",
+              "la mesa"
+            ],
+            "it": [
+              "il conto",
+              "il tavolo"
+            ],
+            "nl": [
+              "de rekening",
+              "de tafel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez apporter la carte, s'il vous plaît?",
+          "translation": {
+            "en": "Could you bring the menu, please?",
+            "es-419": "¿Puede traer el menú, por favor?",
+            "it": "Può portare il menù, per favore?",
+            "nl": "Kunt u de menukaart brengen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Could you bring the check, please?",
+              "Could you bring the water, please?"
+            ],
+            "es-419": [
+              "¿Puede traer la cuenta, por favor?",
+              "¿Puede traer el agua, por favor?"
+            ],
+            "it": [
+              "Può portare il conto, per favore?",
+              "Può portare l'acqua, per favore?"
+            ],
+            "nl": [
+              "Kunt u de rekening brengen, alstublieft?",
+              "Kunt u het water brengen, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "l'addition",
+          "translation": {
+            "en": "the check",
+            "es-419": "la cuenta",
+            "it": "il conto",
+            "nl": "de rekening"
+          },
+          "distractors": {
+            "en": [
+              "the menu",
+              "the table"
+            ],
+            "es-419": [
+              "el menú",
+              "la mesa"
+            ],
+            "it": [
+              "il menù",
+              "il tavolo"
+            ],
+            "nl": [
+              "de menukaart",
+              "de tafel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'addition, s'il vous plaît.",
+          "translation": {
+            "en": "The check, please.",
+            "es-419": "La cuenta, por favor.",
+            "it": "Il conto, per favore.",
+            "nl": "De rekening, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "The menu, please.",
+              "The water, please."
+            ],
+            "es-419": [
+              "El menú, por favor.",
+              "El agua, por favor."
+            ],
+            "it": [
+              "Il menù, per favore.",
+              "L'acqua, per favore."
+            ],
+            "nl": [
+              "De menukaart, alstublieft.",
+              "Het water, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "cent euros",
+          "translation": {
+            "en": "a hundred euros",
+            "es-419": "cien euros",
+            "it": "cento euro",
+            "nl": "honderd euro"
+          },
+          "distractors": {
+            "en": [
+              "fifty euros",
+              "ten euros"
+            ],
+            "es-419": [
+              "cincuenta euros",
+              "diez euros"
+            ],
+            "it": [
+              "cinquanta euro",
+              "dieci euro"
+            ],
+            "nl": [
+              "vijftig euro",
+              "tien euro"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voilà vingt euros, merci.",
+          "translation": {
+            "en": "Here's twenty euros, thanks.",
+            "es-419": "Aquí tiene veinte euros, gracias.",
+            "it": "Ecco venti euro, grazie.",
+            "nl": "Alstublieft, twintig euro, bedankt."
+          },
+          "distractors": {
+            "en": [
+              "Here's fifty euros, thanks.",
+              "Here's two euros, thanks."
+            ],
+            "es-419": [
+              "Aquí tiene cincuenta euros, gracias.",
+              "Aquí tiene dos euros, gracias."
+            ],
+            "it": [
+              "Ecco cinquanta euro, grazie.",
+              "Ecco due euro, grazie."
+            ],
+            "nl": [
+              "Alstublieft, vijftig euro, bedankt.",
+              "Alstublieft, twee euro, bedankt."
+            ]
+          },
+          "commas": [
+            0
+          ]
+        },
+        {
+          "id": "fr-a1-cafe-6-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "c'est tout",
+          "translation": {
+            "en": "that's all",
+            "es-419": "eso es todo",
+            "it": "è tutto",
+            "nl": "dat is alles"
+          },
+          "distractors": {
+            "en": [
+              "that's a lot",
+              "that's too much"
+            ],
+            "es-419": [
+              "es mucho",
+              "es demasiado"
+            ],
+            "it": [
+              "è tanto",
+              "è troppo"
+            ],
+            "nl": [
+              "dat is veel",
+              "dat is te veel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Non, c'est tout, merci beaucoup.",
+          "translation": {
+            "en": "No, that's all, thank you very much.",
+            "es-419": "No, eso es todo, muchas gracias.",
+            "it": "No, è tutto, grazie mille.",
+            "nl": "Nee, dat is alles, heel erg bedankt."
+          },
+          "distractors": {
+            "en": [
+              "No, that's too much, thank you very much.",
+              "Yes, that's too much, thank you very much."
+            ],
+            "es-419": [
+              "No, es demasiado, muchas gracias.",
+              "Sí, es demasiado, muchas gracias."
+            ],
+            "it": [
+              "No, è troppo, grazie mille.",
+              "Sì, è troppo, grazie mille."
+            ],
+            "nl": [
+              "Nee, dat is te veel, heel erg bedankt.",
+              "Ja, dat is te veel, heel erg bedankt."
+            ]
+          },
+          "commas": [
+            3
+          ]
+        },
+        {
+          "id": "fr-a1-cafe-6-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "de rien",
+          "translation": {
+            "en": "you're welcome",
+            "es-419": "de nada",
+            "it": "prego",
+            "nl": "graag gedaan"
+          },
+          "distractors": {
+            "en": [
+              "thank you",
+              "excuse me"
+            ],
+            "es-419": [
+              "gracias",
+              "perdón"
+            ],
+            "it": [
+              "grazie",
+              "mi scusi"
+            ],
+            "nl": [
+              "dank u",
+              "pardon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a1-cafe-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un café, un croissant et l'addition, s'il vous plaît.",
+          "translation": {
+            "en": "A coffee, a croissant and the check, please.",
+            "es-419": "Un café, un cruasán y la cuenta, por favor.",
+            "it": "Un caffè, un cornetto e il conto, per favore.",
+            "nl": "Een koffie, een croissant en de rekening, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A tea, a croissant and the check, please.",
+              "A coffee, a cake and the menu, please."
+            ],
+            "es-419": [
+              "Un té, un cruasán y la cuenta, por favor.",
+              "Un café, un pastel y el menú, por favor."
+            ],
+            "it": [
+              "Un tè, un cornetto e il conto, per favore.",
+              "Un caffè, una torta e il menù, per favore."
+            ],
+            "nl": [
+              "Een thee, een croissant en de rekening, alstublieft.",
+              "Een koffie, een taart en de menukaart, alstublieft."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

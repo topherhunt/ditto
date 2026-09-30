@@ -24,11 +24,13 @@ export const it: Dictionary = {
 
   "language.en": "Inglese",
   "language.es": "Spagnolo",
+  "language.fr": "Francese",
   "language.ga": "Irlandese",
   "language.it": "Italiano",
   "language.nl": "Olandese",
   "language.en.inSentence": "inglese",
   "language.es.inSentence": "spagnolo",
+  "language.fr.inSentence": "francese",
   "language.ga.inSentence": "irlandese",
   "language.it.inSentence": "italiano",
   "language.nl.inSentence": "olandese",

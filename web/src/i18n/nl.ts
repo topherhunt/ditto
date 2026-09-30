@@ -24,11 +24,13 @@ export const nl: Dictionary = {
 
   "language.en": "Engels",
   "language.es": "Spaans",
+  "language.fr": "Frans",
   "language.ga": "Iers",
   "language.it": "Italiaans",
   "language.nl": "Nederlands",
   "language.en.inSentence": "Engels",
   "language.es.inSentence": "Spaans",
+  "language.fr.inSentence": "Frans",
   "language.ga.inSentence": "Iers",
   "language.it.inSentence": "Italiaans",
   "language.nl.inSentence": "Nederlands",
