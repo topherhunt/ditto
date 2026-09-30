@@ -5,7 +5,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { z } from "zod";
 import { createApp } from "./app.ts";
 import { googleVerifier } from "./auth.ts";
-import { loadContent } from "./content.ts";
+import { HELD_BACK_COURSES, loadContent } from "./content.ts";
 import { openDb } from "./db.ts";
 import { openAIConversation } from "./conversation-ai.ts";
 import { fakeAI, fakeSpeech } from "./conversation-fake.ts";
@@ -48,7 +48,7 @@ const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
 rollUpMetrics(db, new Date());
 setInterval(() => rollUpMetrics(db, new Date()), 3_600_000);
 
-const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn" });
+const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn", holdBack: HELD_BACK_COURSES });
 const app = createApp({
   db,
   content,

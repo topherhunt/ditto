@@ -110,7 +110,10 @@ function ancestorsOf(id: string, byId: Map<string, { course: Course; file: strin
 /** Missing audio files: throw, print a red banner, or say nothing (test fixtures, which have no audio by design). */
 export type AudioCheck = "require" | "warn" | "skip";
 
-export function loadContent(contentDir: string, audioDir: string, opts: { audio: AudioCheck }): Content {
+/** Courses the server and the deploy check leave out until their audio is rendered; the audio scripts still see them. */
+export const HELD_BACK_COURSES: readonly Language[] = ["el"];
+
+export function loadContent(contentDir: string, audioDir: string, opts: { audio: AudioCheck; holdBack?: readonly Language[] }): Content {
   const locales = Object.fromEntries(LOCALES.map((l): [Locale, LocalizedContent] => [l, { courses: [], units: new Map() }])) as Record<Locale, LocalizedContent>;
   const courseIds = new Set<string>();
   const unitIds = new Set<string>();
@@ -149,7 +152,7 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
 
   for (const language of LANGUAGES) {
     const dir = join(contentDir, "courses", language);
-    if (!existsSync(dir)) continue;
+    if (!existsSync(dir) || opts.holdBack?.includes(language)) continue;
     const byId = new Map<string, { course: Course; file: string }>();
     for (const name of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
       const file = join(dir, name);
