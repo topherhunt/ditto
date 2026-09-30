@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-export const LANGUAGES = ["en", "es", "fr", "it", "nl", "ga"] as const;
+export const LANGUAGES = ["en", "el", "es", "fr", "it", "nl", "ga"] as const;
 export type Language = (typeof LANGUAGES)[number];
-export const LANGUAGE_NAMES: Record<Language, string> = { en: "English", es: "Latin American Spanish", fr: "French", it: "Italian", nl: "Dutch", ga: "Irish" };
+export const LANGUAGE_NAMES: Record<Language, string> = { en: "English", el: "Greek", es: "Latin American Spanish", fr: "French", it: "Italian", nl: "Dutch", ga: "Irish" };
 
 /** UI languages, which are also the support languages content can be translated into. `es-419` is Latin American Spanish. */
 export const LOCALES = ["en", "es-419", "nl", "it"] as const;
@@ -15,7 +15,7 @@ const LANGUAGE_LOCALES: Partial<Record<Language, Locale>> = { en: "en", es: "es-
 export const languageLocale = (language: Language): Locale | null => LANGUAGE_LOCALES[language] ?? null;
 
 /** Support languages each target language's content carries, in fallback order: every localized field has exactly these. */
-export const SUPPORT_LOCALES: Record<Language, readonly Locale[]> = { en: ["es-419", "it", "nl"], es: ["en", "it", "nl"], fr: ["en", "es-419", "it", "nl"], it: ["en", "es-419", "nl"], nl: ["en", "es-419"], ga: ["en", "es-419", "nl", "it"] };
+export const SUPPORT_LOCALES: Record<Language, readonly Locale[]> = { en: ["es-419", "it", "nl"], el: ["en", "es-419", "it", "nl"], es: ["en", "it", "nl"], fr: ["en", "es-419", "it", "nl"], it: ["en", "es-419", "nl"], nl: ["en", "es-419"], ga: ["en", "es-419", "nl", "it"] };
 
 /** The support language a learner with UI `locale` gets for `language`: their own when the content has it, else the first. */
 export const supportLocale = (language: Language, locale: Locale): Locale =>

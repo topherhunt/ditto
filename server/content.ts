@@ -21,6 +21,10 @@ export const VOICES: Record<Language, Voice[]> = {
     { engine: "openai", model: "marin", gender: "F" },
     { engine: "openai", model: "cedar", gender: "M" },
   ],
+  el: [
+    { engine: "openai", model: "marin", gender: "F" },
+    { engine: "openai", model: "cedar", gender: "M" },
+  ],
   es: [
     { engine: "openai", model: "marin", gender: "F" },
     { engine: "openai", model: "cedar", gender: "M" },
@@ -88,7 +92,8 @@ function lexKey(word: string, sense: string | undefined): string {
   return sense ? `${key}#${sense}` : key;
 }
 
-const END_MARKS = /[.!?]\s*$/;
+/** Greek questions end in `;`. */
+const endMarks = (language: Language) => (language === "el" ? /[.!?;]\s*$/ : /[.!?]\s*$/);
 
 /** Transitive `requires`, nearest first. Throws on unknown ids and cycles. */
 function ancestorsOf(id: string, byId: Map<string, { course: Course; file: string }>, trail: string[] = []): string[] {
@@ -210,8 +215,8 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
           if (!!unit.translation !== !!unit.distractors) fail(file, `${where} needs distractors exactly when it has a translation`);
           if (unit.translation) complete(file, `${where} translation`, unit.translation);
           if (unit.distractors) complete(file, `${where} distractors`, unit.distractors);
-          if (unit.stage === "sentence" && !END_MARKS.test(unit.text)) fail(file, `${where} is a sentence and must end with . ! or ?`);
-          if (unit.stage === "word" && END_MARKS.test(unit.text)) fail(file, `${where} is a word and must not end with . ! or ?`);
+          if (unit.stage === "sentence" && !endMarks(language).test(unit.text)) fail(file, `${where} is a sentence and must end with . ! or ?${language === "el" ? " (or ;)" : ""}`);
+          if (unit.stage === "word" && endMarks(language).test(unit.text)) fail(file, `${where} is a word and must not end with . ! or ?`);
           const ws = words(unit.text);
           if (ws.length === 0) fail(file, `${where} has no words`);
           for (const idx of Object.keys(unit.senses ?? {}))

@@ -23,7 +23,9 @@ export function Home() {
     <Show when={catalog()}>
       {(cat) => (
         <div class="d-flex flex-column gap-4">
-          <ActivityHeader activity="type" lang={lang()} fresh={fresh()}>
+          <ActivityHeader activity="type" lang={lang()} fresh={fresh()} />
+          <div class="qa-home-prefs"><LanguagePrefsSummary lang={lang()} /></div>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
             <Show when={nextLesson(cat())}>
               {(lesson) => (
                 <A href={`/${lang()}/lesson/${lesson().id}`} class="qa-next-lesson btn btn-success">
@@ -40,8 +42,7 @@ export function Home() {
                 {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
               </A>
             </Show>
-          </ActivityHeader>
-          <div class="qa-home-prefs"><LanguagePrefsSummary lang={lang()} /></div>
+          </div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>
             {([level, courses]) => {
               const passed = () => cat().passedLevels.includes(level);
@@ -111,21 +112,25 @@ export function Home() {
                                             <div class="fw-semibold">{lesson.title}</div>
                                             <div class="small text-body-secondary">{lesson.grammarFocus.join(" · ")}</div>
                                           </div>
-                                          <span class="qa-lesson-progress small text-body-secondary text-nowrap">
-                                            {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
-                                          </span>
+                                          <Show when={!stars()}>
+                                            <span class="qa-lesson-progress small text-body-secondary text-nowrap">
+                                              {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
+                                            </span>
+                                          </Show>
                                           <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
                                           <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                             <Match when={cat().unlocked.includes(lesson.id)}>
-                                              <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
-                                                classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
-                                              <Show when={stars()?.stars !== undefined && stars().stars < 3}>
-                                                <Show when={masterWait() === 0} fallback={
-                                                  <button type="button" class="qa-lesson-master-locked btn btn-sm btn-orange" disabled title={t("home.masterWait", { hours: masterWait() })}>{t("home.master")}</button>
-                                                }>
-                                                  <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-orange" title={t("home.masterTitle")}>{t("home.master")}</A>
+                                              <div class="btn-group">
+                                                <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                  classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
+                                                <Show when={stars()?.stars !== undefined && stars().stars < 3}>
+                                                  <Show when={masterWait() === 0} fallback={
+                                                    <button type="button" class="qa-lesson-master-locked btn btn-sm btn-gold" disabled title={t("home.masterWait", { hours: masterWait() })}>{t("home.master")}</button>
+                                                  }>
+                                                    <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-gold" title={t("home.masterTitle")}>{t("home.master")}</A>
+                                                  </Show>
                                                 </Show>
-                                              </Show>
+                                              </div>
                                             </Match>
                                             <Match when={cat().viaFriends[lesson.id]}>
                                               {(friends) => {

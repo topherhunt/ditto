@@ -33,19 +33,25 @@ export function createSaver() {
 
 type Field = keyof Prefs;
 
-/** Each pref's label and options, shared by the form and the catalog's summary line. */
-const FIELDS: { field: Field; label: () => string; parse: (v: string) => Prefs[Field]; options: [value: string, label: () => string][] }[] = [
+/** Each pref's label and options for the form; `short` is the option's wording in the catalog's summary line. */
+const FIELDS: { field: Field; label: () => string; parse: (v: string) => Prefs[Field]; options: [value: string, label: () => string, short?: () => string][] }[] = [
   { field: "path", label: () => t("settings.path"), parse: (v) => v as Prefs["path"], options: [
-    ["full", () => t("settings.pathFull")], ["chunks", () => t("settings.pathChunks")], ["sentences", () => t("settings.pathSentences")],
+    ["full", () => t("settings.pathFull"), () => t("settings.sumPathFull")],
+    ["chunks", () => t("settings.pathChunks"), () => t("settings.sumPathChunks")],
+    ["sentences", () => t("settings.pathSentences"), () => t("settings.pathSentences")],
   ] },
   { field: "hints", label: () => t("settings.hints"), parse: (v) => v as Prefs["hints"], options: [
-    ["letters", () => t("settings.hintsLetters")], ["initial", () => t("settings.hintsInitial")], ["none", () => t("settings.hintsNone")],
+    ["letters", () => t("settings.hintsLetters"), () => t("settings.sumHintsLetters")],
+    ["initial", () => t("settings.hintsInitial"), () => t("settings.sumHintsInitial")],
+    ["none", () => t("settings.hintsNone"), () => t("settings.sumHintsNone")],
   ] },
   { field: "autoplay", label: () => t("settings.autoplay"), parse: Number, options: [
     ["0", () => t("settings.autoplay0")], ["1", () => t("settings.autoplay1")], ["2", () => t("settings.autoplay2")], ["3", () => t("settings.autoplay3")],
   ] },
   { field: "rate", label: () => t("settings.rate"), parse: Number, options: [
-    ["1", () => t("settings.rateNormal")], ["0.9", () => "0.9×"], ["0.75", () => "0.75×"],
+    ["1", () => t("settings.rateNormal"), () => t("settings.sumRateNormal")],
+    ["0.9", () => "0.9×", () => t("settings.sumRate", { rate: "0.9" })],
+    ["0.75", () => "0.75×", () => t("settings.sumRate", { rate: "0.75" })],
   ] },
 ];
 
@@ -102,30 +108,35 @@ const IMMERSION = [
   { field: "immerseHelp", label: "settings.immerseHelp", hint: "settings.immerseHelpHint" },
 ] as const;
 
-/** A link to change the language's practice prefs, followed by a one-line recap of them. */
+/** A link to change the language's practice prefs, followed by a one-line recap of the ones that matter at a glance. */
 export function LanguagePrefsSummary(props: { lang: Language }) {
   const prefs = () => me()!.prefs[props.lang];
-  const valueLabel = (f: (typeof FIELDS)[number]) => {
-    const option = f.options.find(([value]) => value === String(prefs()[f.field]));
-    if (!option) throw new Error(`No option for ${f.field} = ${prefs()[f.field]}`);
-    return option[1]();
+  const shortLabel = (field: Field) => {
+    const f = FIELDS.find((f) => f.field === field)!;
+    const option = f.options.find(([value]) => value === String(prefs()[field]));
+    if (!option?.[2]) throw new Error(`No summary label for ${field} = ${prefs()[field]}`);
+    return option[2]();
   };
+  const parts = () => [
+    { qa: "path", text: shortLabel("path") },
+    { qa: "hints", text: shortLabel("hints") },
+    ...(prefs().studyFirst ? [{ qa: "studyFirst", text: t("settings.studyFirst") }] : []),
+    { qa: "rate", text: shortLabel("rate") },
+  ];
   return (
-    <div class="d-flex align-items-center gap-2">
+    <div class="d-flex flex-wrap align-items-center gap-2">
       <A href={`/${props.lang}/settings`} class="qa-home-settings btn btn-sm btn-outline-secondary flex-shrink-0">
         <i class="bi bi-sliders me-1" aria-hidden="true" />{t("home.practiceSettings")}
       </A>
       <div class="small">
-        <For each={FIELDS}>
-          {(f, i) => (
+        <For each={parts()}>
+          {(p, i) => (
             <>
               <Show when={i() > 0}><span class="text-body-secondary" aria-hidden="true"> · </span></Show>
-              <span class={`qa-prefs-summary-${f.field}`}><span class="text-body-secondary">{f.label()}:</span> {valueLabel(f)}</span>
+              <span class={`qa-prefs-summary-${p.qa}`}>{p.text}</span>
             </>
           )}
         </For>
-        <span class="text-body-secondary" aria-hidden="true"> · </span>
-        <span class="qa-prefs-summary-studyFirst"><span class="text-body-secondary">{t("settings.studyFirst")}:</span> {prefs().studyFirst ? t("settings.on") : t("settings.off")}</span>
       </div>
     </div>
   );

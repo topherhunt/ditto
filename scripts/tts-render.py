@@ -53,10 +53,10 @@ elif voice["engine"] == "openai":
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         raise SystemExit("OPENAI_API_KEY is not set (put it in .env)")
-    name = {"it": "Italian", "en": "American English", "es": "Latin American Spanish", "nl": "Dutch", "fr": "French", "ga": "Irish Gaelic"}[language]
+    name = {"it": "Italian", "en": "American English", "es": "Latin American Spanish", "nl": "Dutch", "fr": "French", "el": "Greek", "ga": "Irish Gaelic"}[language]
 
     def synth(text: str) -> tuple[np.ndarray, int]:
-        kind = "word" if len(text.split()) == 1 else "sentence" if text.rstrip()[-1] in ".!?" else "phrase"
+        kind = "word" if len(text.split()) == 1 else "sentence" if text.rstrip()[-1] in ".!?;" else "phrase"
         instructions = f"Say this {name} {kind} in {name} with a native {name} accent, at a normal conversational pace, the way a native speaker says it to a friend"
         body = {"model": "gpt-4o-mini-tts", "input": text, "voice": voice["model"], "response_format": "pcm", "instructions": instructions}
         req = urllib.request.Request("https://api.openai.com/v1/audio/speech", data=json.dumps(body).encode(),

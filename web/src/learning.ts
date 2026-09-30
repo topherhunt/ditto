@@ -5,7 +5,7 @@ import { me, refetchMe } from "./session.ts";
 
 const LAST_LANG_KEY = "lastLanguage";
 
-export const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", es: "🇲🇽", fr: "🇫🇷", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
+export const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", el: "🇬🇷", es: "🇲🇽", fr: "🇫🇷", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
 
 /** The courses to offer a speaker of `locale`: ones with translations into it, minus its own language. */
 export const learnable = (locale: Locale) => LANGUAGES.filter((l) => l !== locale && SUPPORT_LOCALES[l].includes(locale));

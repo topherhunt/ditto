@@ -292,8 +292,11 @@ test("the catalog's prefs line describes the course's settings and links to the 
   await signIn(page, "prefsrow1@example.com");
   await page.goto("/it/type");
   const row = page.locator(".qa-home-prefs");
-  await expect(row.locator(".qa-prefs-summary-path")).toContainText("Full: words, phrases, chunks, sentences");
-  await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Once");
+  await expect(row.locator(".qa-prefs-summary-path")).toContainText("Full path");
+  await expect(row.locator(".qa-prefs-summary-hints")).toContainText("Letter hints");
+  await expect(row.locator(".qa-prefs-summary-rate")).toContainText("Normal speed");
+  await expect(row.locator(".qa-prefs-summary-autoplay")).toHaveCount(0);
+  await expect(row.locator(".qa-prefs-summary-studyFirst")).toHaveCount(0);
   const progress = page.locator(".qa-lesson-progress").first();
   const fullTotal = (await progress.innerText()).split("/")[1].trim();
 
@@ -309,7 +312,6 @@ test("the catalog's prefs line describes the course's settings and links to the 
   await page.locator(".qa-course-settings-back").click();
   await expect(page).toHaveURL(/\/it\/type$/);
   await expect(row.locator(".qa-prefs-summary-path")).toContainText("Sentences only");
-  await expect(row.locator(".qa-prefs-summary-autoplay")).toContainText("Off");
   await expect(progress).not.toHaveText(new RegExp(`/ ${fullTotal}$`));
 });
 

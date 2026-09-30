@@ -58,6 +58,11 @@ const EXAMPLES: Partial<Record<Language, { idioms: string; pronoun: string; comp
     idioms: `("ci vediamo" = "see you", "per favore" = "please")`, pronoun: `("Le porto" = "I'll bring you", "il conto" = "the bill")`, compound: `("ho preso" = "I took")`,
     sentence: `"Le porto tutto subito." is "Le porto" / "tutto" / "subito."`, extra: "", suggestion: "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore.", register: "tu/Lei", homophones: "words that sound the same (e/è, a/ha, anno/hanno)",
   },
+  el: {
+    idioms: `("τα λέμε" = "see you", "παρακαλώ" = "please", "με συγχωρείτε" = "excuse me")`, pronoun: `("σας φέρνω" = "I'll bring you", "το λογαριασμό" = "the bill")`, compound: `("έχω φάει" = "I have eaten", "θα πάω" = "I will go")`,
+    sentence: `"Σας φέρνω όλα αμέσως." is "Σας φέρνω" / "όλα" / "αμέσως."`, extra: ` A Greek question ends in ";" (the Greek question mark), which stays attached to its last chunk. Never use the English "?" in Greek text.`,
+    suggestion: "Ναι, ευχαριστώ. Θα ήθελα και ένα ποτήρι νερό, παρακαλώ.", register: "εσύ/εσείς", homophones: "words that sound the same (η/ι/υ/ει/οι, ο/ω, ε/αι)",
+  },
   es: {
     idioms: `("hasta luego" = "see you later", "por favor" = "please")`, pronoun: `("Le traigo" = "I'll bring you", "la cuenta" = "the bill")`, compound: `("he tomado" = "I have taken")`,
     sentence: `"Le traigo todo enseguida." is "Le traigo" / "todo" / "enseguida."`, extra: "", suggestion: "Sí, gracias. Quisiera también un vaso de agua, por favor.", register: "tú/usted", homophones: "words that sound the same (b/v, haber/a ver, silent h)",

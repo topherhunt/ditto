@@ -34,7 +34,7 @@ export function exactKey(w: string): string {
   return normalizeApostrophes(w.normalize("NFC")).toLowerCase();
 }
 
-/** Base letters only: case- and accent-insensitive. */
+/** Base letters only: case- and accent-insensitive. Greek final sigma counts as sigma. */
 export function baseKey(w: string): string {
-  return normalizeApostrophes(w.normalize("NFD").replace(/\p{M}/gu, "")).toLowerCase();
+  return normalizeApostrophes(w.normalize("NFD").replace(/\p{M}/gu, "")).toLowerCase().replaceAll("ς", "σ");
 }

@@ -157,6 +157,28 @@ describe("grade: punctuation", () => {
     expect(marks(wrong)).toEqual([".:wrong>?"]);
   });
 
+  it("accepts ; or ? as the Greek question mark, still rejects a statement mark, and never reads ; as a comma", () => {
+    const q = "Πώς σε λένε;";
+    const el = (typed: string) => grade({ mode: "free", text: typed }, { language: "el", text: q, commas: [0] });
+    for (const end of [";", "?", ""]) expect(el(`πώς σε λένε${end}`).passed).toBe(true);
+    expect(marks(el("Πώς σε λένε?"))).toEqual(["?:ok"]);
+    const wrong = el("Πώς σε λένε.");
+    expect(wrong.passed).toBe(false);
+    expect(marks(wrong)).toEqual([".:wrong>;"]);
+    expect(marks(el("Πώς; σε λένε;"))).toEqual([";:stray", ";:ok"]);
+    const statement = grade({ mode: "free", text: "Είμαι καλά;" }, { language: "el", text: "Είμαι καλά." });
+    expect(statement.passed).toBe(false);
+    expect(marks(statement)).toEqual([";:wrong>."]);
+  });
+
+  it("treats Greek final sigma as sigma and a missing tonos as an accent slip", () => {
+    const el = (typed: string) => grade({ mode: "free", text: typed }, { language: "el", text: "Καλημέρα σας." });
+    expect(el("καλημερα σασ").words.map((w) => w.kind)).toEqual(["accent", "accent"]);
+    expect(el("καλημερα σασ").passed).toBe(true);
+    expect(el("καλημέρα σας.").words.map((w) => w.kind)).toEqual(["correct", "correct"]);
+    expect(el("καλημέρα μας.").passed).toBe(false);
+  });
+
   it("shows any end mark on a word or phrase without one as stray", () => {
     for (const end of [".", "!", "?", ","]) {
       const r = free(`caffè${end}`, "caffè");

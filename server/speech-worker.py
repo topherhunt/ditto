@@ -14,7 +14,7 @@ import wave
 
 import numpy as np
 
-LANGUAGE_NAMES = {"it": "Italian", "en": "English", "nl": "Dutch", "es": "Latin American Spanish", "fr": "French"}
+LANGUAGE_NAMES = {"it": "Italian", "en": "English", "nl": "Dutch", "es": "Latin American Spanish", "fr": "French", "el": "Greek"}
 
 
 def openai(text, voice, pace, language):

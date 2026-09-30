@@ -39,8 +39,10 @@ export type Answer = { mode: "free"; text: string } | { mode: "slots"; slots: st
 /** `commas`: word indices after which a comma or semicolon is optional (main text only). */
 export type GradeTarget = { language: Language; text: string; variants?: string[]; commas?: number[] };
 
-const END_MARKS = ".!?";
-const COMMA_LIKE = ",;";
+/** Greek writes its question mark as `;`: there `;` ends a sentence like `?` does, and is never a comma. */
+const endMarks = (l: Language) => (l === "el" ? ".!?;" : ".!?");
+const commaLike = (l: Language) => (l === "el" ? "," : ",;");
+const asks = (ch: string, l: Language) => ch === "?" || (l === "el" && ch === ";");
 
 type TypedWord = { text: string; after: string[] };
 type Parsed = { leading: string[]; words: TypedWord[] };
@@ -125,16 +127,16 @@ const sameMark = (a: string, b: string) => a === b || (".!".includes(a) && ".!".
  * Status of one typed mark. `gap`: the target word it follows (null after an extra word); `isEnd`: it follows the
  * last typed word. End marks are only judged when the canonical text itself ends with one.
  */
-function markStatus(ch: string, gap: number | null, isEnd: boolean, canon: Parsed, commas: Set<number>): PunctMark {
-  const canonEnd = canon.words[canon.words.length - 1].after.findLast((c) => END_MARKS.includes(c));
-  if (isEnd && canonEnd && END_MARKS.includes(ch)) {
-    return (ch === "?") === (canonEnd === "?") ? { ch, status: "ok" } : { ch, status: "wrong", expected: canonEnd };
+function markStatus(ch: string, gap: number | null, isEnd: boolean, canon: Parsed, commas: Set<number>, language: Language): PunctMark {
+  const canonEnd = canon.words[canon.words.length - 1].after.findLast((c) => endMarks(language).includes(c));
+  if (isEnd && canonEnd && endMarks(language).includes(ch)) {
+    return asks(ch, language) === asks(canonEnd, language) ? { ch, status: "ok" } : { ch, status: "wrong", expected: canonEnd };
   }
   if (gap === null) return { ch, status: "stray" };
   const here = canon.words[gap].after;
   const lastGap = gap === canon.words.length - 1;
   if (here.some((c) => sameMark(c, ch))) return { ch, status: "ok" };
-  if (COMMA_LIKE.includes(ch) && !lastGap && (commas.has(gap) || here.some((c) => COMMA_LIKE.includes(c)))) return { ch, status: "ok" };
+  if (commaLike(language).includes(ch) && !lastGap && (commas.has(gap) || here.some((c) => commaLike(language).includes(c)))) return { ch, status: "ok" };
   return { ch, status: "stray" };
 }
 
@@ -192,13 +194,13 @@ function alignFree(typed: string[], target: string[]): Aligned[] {
   return out.reverse();
 }
 
-function gradeAgainst(typed: Parsed, answer: string, commas: Set<number>, aligned: Aligned[]): GradeResult {
+function gradeAgainst(typed: Parsed, answer: string, commas: Set<number>, aligned: Aligned[], language: Language): GradeResult {
   const canon = parse(answer);
   const lastTyped = typed.words.length - 1;
   const results: WordResult[] = aligned.map(({ typedIndex: ti, targetIndex: gi }) => {
     if (ti === undefined) return { kind: "missing", target: canon.words[gi!].text, wordIndex: gi!, after: [] };
     const tw = typed.words[ti];
-    const after = tw.after.map((ch) => markStatus(ch, gi ?? null, ti === lastTyped, canon, commas));
+    const after = tw.after.map((ch) => markStatus(ch, gi ?? null, ti === lastTyped, canon, commas, language));
     if (gi === undefined) return { kind: "extra", typed: tw.text, after };
     return gradeWord(tw.text, canon.words[gi].text, gi, after);
   });
@@ -225,9 +227,9 @@ function gradeAgainst(typed: Parsed, answer: string, commas: Set<number>, aligne
   };
 }
 
-function gradeFree(typed: Parsed, answer: string, commas: Set<number>): GradeResult {
+function gradeFree(typed: Parsed, answer: string, commas: Set<number>, language: Language): GradeResult {
   const aligned = alignFree(typed.words.map((w) => w.text), parse(answer).words.map((w) => w.text));
-  return gradeAgainst(typed, answer, commas, aligned);
+  return gradeAgainst(typed, answer, commas, aligned, language);
 }
 
 function errorWeight(r: GradeResult): number {
@@ -251,16 +253,16 @@ export function grade(answer: Answer, target: GradeTarget): GradeResult {
   if (answer.mode === "slots") {
     const count = parse(target.text).words.length;
     if (answer.slots.length !== count) throw new Error(`slots mode expects ${count} entries, got ${answer.slots.length}`);
-    main = gradeAgainst(parseSlots(answer.slots), target.text, commas, answer.slots.map((_, k) => ({ typedIndex: k, targetIndex: k })));
+    main = gradeAgainst(parseSlots(answer.slots), target.text, commas, answer.slots.map((_, k) => ({ typedIndex: k, targetIndex: k })), target.language);
   } else {
-    main = gradeFree(parse(answer.text), target.text, commas);
+    main = gradeFree(parse(answer.text), target.text, commas, target.language);
   }
   if (main.passed) return main;
   const text = answer.mode === "slots" ? answer.slots.join(" ") : answer.text;
   const typed = parse(text);
   let best = main;
   for (const v of target.variants ?? []) {
-    const r = gradeFree(typed, v, new Set());
+    const r = gradeFree(typed, v, new Set(), target.language);
     if (r.passed) return r;
     if (errorWeight(r) < errorWeight(best)) best = r;
   }
@@ -269,7 +271,7 @@ export function grade(answer: Answer, target: GradeTarget): GradeResult {
   for (const accepted of [target.text, ...(target.variants ?? [])]) {
     const canon = canonicalize(accepted, target.language);
     if (canon === accepted && canonTyped === text) continue;
-    const r = gradeFree(parse(canonTyped), canon, new Set());
+    const r = gradeFree(parse(canonTyped), canon, new Set(), target.language);
     if (r.passed) return r;
     if (errorWeight(r) < errorWeight(best)) best = r;
   }

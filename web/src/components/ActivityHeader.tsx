@@ -1,4 +1,4 @@
-import { createSignal, For, type JSX, Show } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 import type { Language } from "../../../shared/content.ts";
 import type { Key } from "../i18n/en.ts";
 import { languageName, t } from "../i18n/index.ts";
@@ -16,7 +16,7 @@ const STEPS: Record<Activity, Key[]> = {
  * An activity page's title, its course, and a "?" that toggles how the activity works. The panel opens by itself while
  * the learner has done nothing in the activity, until they close it once on this device.
  */
-export function ActivityHeader(props: { activity: Activity; lang: Language; fresh: boolean; children?: JSX.Element }) {
+export function ActivityHeader(props: { activity: Activity; lang: Language; fresh: boolean }) {
   const key = `helpSeen.${props.activity}`;
   const seen = () => {
     try { return localStorage.getItem(key) !== null; } catch { return false; }
@@ -35,7 +35,6 @@ export function ActivityHeader(props: { activity: Activity; lang: Language; fres
           <i class={`bi ${open() ? "bi-question-circle-fill" : "bi-question-circle"}`} aria-hidden="true" />
         </button>
         <span class="text-body-secondary me-auto">{LANGUAGE_FLAGS[props.lang]} {languageName(props.lang)}</span>
-        {props.children}
       </div>
       <Show when={open()}>
         <div class="qa-help card border-primary-subtle bg-primary-subtle">

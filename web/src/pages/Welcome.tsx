@@ -34,6 +34,11 @@ const SAMPLES: Record<Language, Samples> = {
     talk: { partner: "Hi! What can I get you?", learner: "Yes, I take a cappuccino.", fix: "I'll have a cappuccino." },
     quiz: { prompt: "Yesterday I ___ to the cinema with Luke.", right: "went", wrong: ["have gone", "goed"] },
   },
+  el: {
+    type: { typed: "θελω ενα καφε παρακαλωω", answer: "Θέλω έναν καφέ, παρακαλώ." },
+    talk: { partner: "Γεια σου! Τι θα πάρεις;", learner: "Εγώ θέλω πίνω έναν καπουτσίνο.", fix: "Θέλω έναν καπουτσίνο." },
+    quiz: { prompt: "Χθες ___ στον κινηματογράφο με τον Λουκά.", right: "πήγα", wrong: ["πηγαίνω", "θα πάω"] },
+  },
   es: {
     type: { typed: "quisera un cafe por favorr", answer: "Quisiera un café, por favor." },
     talk: { partner: "¡Hola! ¿Qué vas a tomar?", learner: "Yo quiero tomo un capuchino.", fix: "Quiero tomar un capuchino." },

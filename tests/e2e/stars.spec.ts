@@ -67,7 +67,7 @@ test("the practice settings switch study first on, and the catalog's summary fol
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
   expect((await (await page.request.get("/api/me")).json()).prefs.it.studyFirst).toBe(true);
   await page.goto("/it/type");
-  await expect(page.locator(".qa-prefs-summary-studyFirst")).toContainText("On");
+  await expect(page.locator(".qa-prefs-summary-studyFirst")).toContainText("Study first");
 });
 
 test("a completed lesson shows its stars with a Practice button and a locked Master", async ({ page }) => {
@@ -81,6 +81,15 @@ test("a completed lesson shows its stars with a Practice button and a locked Mas
   await expect(page.locator(".qa-lesson-start").first()).toHaveClass(/btn-success/);
   await expect(page.locator(".qa-lesson-master-locked").first()).toBeDisabled();
   await expect(page.locator(".qa-lesson-master")).toHaveCount(0);
+});
+
+test("a lesson with stars hides its progress count, and a lesson without any shows it", async ({ page }) => {
+  await signIn(page, "stars4@example.com", "stars4", "A2");
+  await completeLesson(page, "it-a1-bar-1", "sentences", "letters", "corrected");
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-lesson").first().locator(".qa-lesson-stars")).toBeVisible();
+  await expect(page.locator(".qa-lesson").first().locator(".qa-lesson-progress")).toHaveCount(0);
+  await expect(page.locator(".qa-lesson").nth(1).locator(".qa-lesson-progress")).toBeVisible();
 });
 
 test("a three-star lesson has no Master button and a quieter Practice button", async ({ page }) => {
