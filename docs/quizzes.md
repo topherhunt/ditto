@@ -4,7 +4,7 @@
 
 Multiple-choice quiz decks for eight CEFR-aligned levels (A1, A1+, A2, A2+, B1, B1+, B2, B2+). Each deck holds ~50 four-option questions, reviewed on an FSRS schedule in the app's Quiz mode (`server/quiz.ts`, `web/src/pages/Quiz*.tsx`).
 
-Levels unlock in order: the first is open, and a level passes (unlocking the next) once 90% of its questions are graduated (in review) or the learner answers 20 random questions from it with no miss (`quiz_level_passes`; passes are permanent). Question audio is gpt-4o-mini-tts on OpenAI (`QUIZ_VOICES` in `server/speech.ts`), rendered on first play, cached on disk and shared by all learners.
+Levels unlock in order: the first is open, and a level passes (unlocking the next) once 90% of its questions are graduated (in review) or the learner answers 20 random questions from it with no miss (`quiz_level_passes`; passes are permanent). Question audio is gpt-4o-mini-tts on OpenAI (marin F or cedar M from `VOICES`, chosen by a hash of the text so each clip is rendered once), rendered on first play, cached on disk and shared by all learners.
 
 Decks exist for en, es, it, nl (live) and ar, el, fr, gd (dormant: kept in `content/quizzes/` but not loaded, since they aren't app languages). AR, EL, IT, FR and NL have been reviewed for quality.
 

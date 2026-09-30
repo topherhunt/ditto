@@ -54,3 +54,8 @@ Dictation of scaffolded single sentences trains recognition, spelling and core g
 
 - **Gap:** no reading of connected text and no free writing (messages, short forms), both part of A2.
 - **Idea:** short texts built from a module's vocabulary, with comprehension questions. Guided writing prompts checked by the explainer.
+
+## Study first: do long units need it?
+
+- **Gap:** study-first (listen, repeat, then test) is planned for every new unit. Sentence-length units are built from words and chunks the learner has just typed, so it may add tedium there without helping.
+- **Idea:** after launch, compare accuracy and retries on sentence units with and without it, then decide whether to skip it for units whose words were all typed correctly.

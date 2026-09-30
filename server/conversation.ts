@@ -14,10 +14,11 @@ import {
 import type { Language, Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
 import type { AppDeps } from "./app.ts";
+import { VOICES, voiceId } from "./content.ts";
 import { helpLocale, ownLocale, uiLocale, type User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
-import { partnerVoice, type Speech } from "./speech.ts";
+import type { Speech } from "./speech.ts";
 import { recordUsage, spentToday, type Usage } from "./usage.ts";
 
 export type ConversationDeps = { ai: ConversationAI; speech: Speech; audioDir: string };
@@ -38,7 +39,7 @@ const LEANED: readonly TurnSource[] = ["suggestion", "how", "moved_on"];
 
 
 type ConversationRow = {
-  id: number; user_id: number; language: Language; locale: Locale; help_locale: Locale; ui_locale: Locale; level: string; scenario: string; title: string; hard_mode: number;
+  id: number; user_id: number; language: Language; locale: Locale; help_locale: Locale; ui_locale: Locale; level: string; scenario: string; title: string; hard_mode: number; voice: string;
   created_at: string; updated_at: string;
 };
 type TurnRow = {
@@ -93,7 +94,9 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const paid = (userId: number, conversationId: number | null, purpose: string, u: Usage) => recordUsage(db, userId, conversationId, purpose, u, deps.now());
   /** Renders `text` in the partner's voice to `path`, recording what it cost. */
   const say = async (conv: ConversationRow, userId: number, text: string, speed: number, path: string) => {
-    const { usage } = await speak().speech.say(text, conv.language, partnerVoice(conv.language), speed, path);
+    const voice = VOICES[conv.language].find((v) => voiceId(v) === conv.voice);
+    if (!voice) throw new Error(`Conversation ${conv.id} has unknown voice ${conv.voice}`);
+    const { usage } = await speak().speech.say(text, conv.language, voice, speed, path);
     if (usage) paid(userId, conv.id, "speech", usage);
   };
 
@@ -201,9 +204,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
-      `INSERT INTO conversations (user_id, language, locale, help_locale, ui_locale, level, scenario, title, hard_mode, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, '', ?, ?, ?)`,
-    ).run(user.id, body.language, ownLocale(user, body.language), helpLocale(user, body.language), uiLocale(user, body.language), body.level, scenario, Number(body.hardMode), now, now)
+      `INSERT INTO conversations (user_id, language, locale, help_locale, ui_locale, level, scenario, title, hard_mode, voice, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, '', ?, ?, ?, ?)`,
+    ).run(user.id, body.language, ownLocale(user, body.language), helpLocale(user, body.language), uiLocale(user, body.language), body.level, scenario, Number(body.hardMode),
+      voiceId(VOICES[body.language][Math.floor(Math.random() * VOICES[body.language].length)]), now, now)
       .lastInsertRowid);
     await partnerTurn(conversationOr404(id, user.id), user.id);
     return c.json(conversationOut(conversationOr404(id, user.id), user.id));

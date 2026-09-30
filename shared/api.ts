@@ -155,7 +155,7 @@ export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), lev
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
 /** Conversation mode (docs/conversation.md). Irish is out until live Irish TTS exists. */
-export const SPEAK_LANGUAGES = ["it", "nl", "en", "es"] as const satisfies readonly Language[];
+export const SPEAK_LANGUAGES = ["it", "nl", "en", "es", "fr"] as const satisfies readonly Language[];
 export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
 export const STARTERS = ["cafe", "directions", "hotel", "meeting", "market", "weekend"] as const;
 export type Starter = (typeof STARTERS)[number];

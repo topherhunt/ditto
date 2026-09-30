@@ -52,35 +52,65 @@ export const joinChunks = (chunks: Chunk[]) => chunks.map((c) => c.text).join(" 
 
 const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", C1: "C2", C2: "C2" };
 
-const CHUNKING = `Chunks are for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ("ci vediamo" = "see you", "per favore" = "please"), an object pronoun or article with the word it belongs to ("Le porto" = "I'll bring you", "il conto" = "the bill"), and compound verb forms ("ho preso" = "I took"). "Le porto tutto subito." is "Le porto" / "tutto" / "subito.", never one chunk. The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
+/** Chunking examples and a suggestion sample in the language being spoken, so a prompt never shows another language. */
+const EXAMPLES: Partial<Record<Language, { idioms: string; pronoun: string; compound: string; sentence: string; extra: string; suggestion: string; register: string; homophones: string }>> = {
+  it: {
+    idioms: `("ci vediamo" = "see you", "per favore" = "please")`, pronoun: `("Le porto" = "I'll bring you", "il conto" = "the bill")`, compound: `("ho preso" = "I took")`,
+    sentence: `"Le porto tutto subito." is "Le porto" / "tutto" / "subito."`, extra: "", suggestion: "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore.", register: "tu/Lei", homophones: "words that sound the same (e/è, a/ha, anno/hanno)",
+  },
+  es: {
+    idioms: `("hasta luego" = "see you later", "por favor" = "please")`, pronoun: `("Le traigo" = "I'll bring you", "la cuenta" = "the bill")`, compound: `("he tomado" = "I have taken")`,
+    sentence: `"Le traigo todo enseguida." is "Le traigo" / "todo" / "enseguida."`, extra: "", suggestion: "Sí, gracias. Quisiera también un vaso de agua, por favor.", register: "tú/usted", homophones: "words that sound the same (b/v, haber/a ver, silent h)",
+  },
+  fr: {
+    idioms: `("à bientôt" = "see you soon", "s'il vous plaît" = "please", "tout de suite" = "right away")`, pronoun: `("je vous apporte" = "I'll bring you", "l'addition" = "the bill")`, compound: `("j'ai pris" = "I took")`,
+    sentence: `"Je vous apporte tout de suite." is "Je vous apporte" / "tout de suite."`,
+    extra: ` An elided or hyphenated word is one chunk, written exactly as in the sentence: "j'ai", "l'addition", "qu'est-ce que", "as-tu" are never split at the apostrophe or hyphen.`,
+    suggestion: "Oui, merci. Je voudrais aussi un verre d'eau, s'il vous plaît.", register: "tu/vous", homophones: "words that sound the same or silent endings (a/à, ses/ces, parle/parles/parlent, marié/mariée, -é/-er/-ez)",
+  },
+  nl: {
+    idioms: `("tot straks" = "see you later", "alsjeblieft" = "please")`, pronoun: `("breng u" = "bring you", "de rekening" = "the bill")`, compound: `("heb genomen" = "took", "have taken")`,
+    sentence: `"Ik breng u alles meteen." is "Ik" / "breng u" / "alles" / "meteen."`, extra: "", suggestion: "Ja, graag. Ik wil ook een glas water, alsjeblieft.", register: "je/u", homophones: "words that sound the same or endings that differ only in writing (d/t, ei/ij, au/ou)",
+  },
+  en: {
+    idioms: `("see you later" = the leave-taking, "right away" = immediately)`, pronoun: `("the bill", "a glass of water")`, compound: `("I've taken", "pick up")`,
+    sentence: `"I'll bring everything right away." is "I'll" / "bring" / "everything" / "right away."`, extra: "", suggestion: "Yes, please. I'd also like a glass of water, please.", register: "you (English has no formal address)", homophones: "words that sound the same (their/there, to/too)",
+  },
+};
+export const examples = (l: Language) => EXAMPLES[l] ?? (() => { throw new Error(`No Talk prompt examples for ${l}`); })();
+
+export const CHUNKING = (l: Language) => {
+  const e = examples(l);
+  return `Chunks are for word-by-word glossing: by default each chunk is one word. Group words only where glossing them one at a time would mislead: idioms and fixed expressions ${e.idioms}, an object pronoun or article with the word it belongs to ${e.pronoun}, and compound verb forms ${e.compound}. ${e.sentence}, never one chunk.${e.extra} The chunks, in order and joined with spaces, must be exactly the sentence, each chunk carrying its own punctuation. gloss is the chunk's meaning in {locale}, as it reads in this context.`;
+};
 
 const partnerInstructions = (s: Setting) => `You are a friendly native ${LANGUAGE_NAMES[s.language]} speaker in a spoken role-play with a learner at CEFR ${s.level}. Speak at ${ABOVE[s.level]}: slightly above the learner, natural, and short (one or two sentences, as in real conversation). Stay in the scenario and keep the conversation going, usually with a question.
 The conversation is open-ended: never steer toward ending it (no goodbyes, no wrapping up). When the scenario's task is done (the order is taken, the room is booked), you can ask if they need anything else, but always leave an opening too: ask something personal or contextual that invites more talk, such as how their day is going, how long they're visiting, or whether they've seen something nearby.
 Scenario: ${s.scenario}
 - title: a short title for this conversation in ${LOCALE_NAMES[s.uiLocale]}.
 - line: your next line.
-- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore." rather than "Sì, grazie." Split each suggestion into chunks.
-${CHUNKING}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
+- suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "${examples(s.language).suggestion}" rather than a bare "${examples(s.language).suggestion.split(/[.,]/)[0]}." Split each suggestion into chunks.
+${CHUNKING(s.language)}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
-const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged.
+const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged. Speech-to-text picks one spelling for {homophones}, so never count a choice between them as an error when the spoken form would be identical.
 
 meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {help}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
-Register (informal vs formal address: tu/Lei, je/u, and the verb forms that go with them) is always the learner's choice. Keep the learner's register in meant, never list it in fixes, never let it fail grammarOk, and never mention it in feedback. The partner addressing the learner formally while the learner answers informally (or the reverse) is normal and is not inconsistency, whoever the partner is (waiter, stranger, receptionist).
+Register (informal vs formal address: {register}, and the verb forms that go with them) is always the learner's choice. Keep the learner's register in meant, never list it in fixes, never let it fail grammarOk, and never mention it in feedback. The partner addressing the learner formally while the learner answers informally (or the reverse) is normal and is not inconsistency, whoever the partner is (waiter, stranger, receptionist).
 
 The learner can't read linguistics jargon. Fixes and feedback are in {help}, short and plain.
 level: the CEFR level of meant as a reply in this conversation (vocabulary, grammar and length).
 feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.
 fromSuggestion: true if the learner's reply is substantially one of the suggested replies shown to them: the same words and meaning, even reordered, slightly changed, or with words added or dropped. False for a reply of their own, even on the same topic, and when no suggestions were shown.`;
 
-const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
-${CHUNKING}`;
+const howInstructions = (l: Language) => `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
+${CHUNKING(l)}`;
 
-const GLOSS_INSTRUCTIONS = `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive numbered lines of a role-play conversation. Return exactly one entry per numbered line, in the same order, even when a line has several sentences, splitting each line, exactly as written, into chunks.
-${CHUNKING}`;
+const glossInstructions = (l: Language) => `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive numbered lines of a role-play conversation. Return exactly one entry per numbered line, in the same order, even when a line has several sentences, splitting each line, exactly as written, into chunks.
+${CHUNKING(l)}`;
 
 const fill = (t: string, s: Setting) =>
   t.replaceAll("{language}", LANGUAGE_NAMES[s.language]).replaceAll("{locale}", LOCALE_NAMES[s.locale]).replaceAll("{help}", LOCALE_NAMES[s.helpLocale])
-    .replaceAll("{level}", s.level);
+    .replaceAll("{level}", s.level).replaceAll("{register}", examples(s.language).register).replaceAll("{homophones}", examples(s.language).homophones);
 const transcript = (history: Line[]) => history.map((l) => `${l.role === "partner" ? "Partner" : "Learner"}: ${l.text}`).join("\n");
 
 export function openAIConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "gpt-transcribe"): ConversationAI {
@@ -123,11 +153,11 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
     },
     async howDoISay(setting, history, text) {
       const input = `${history.length ? `Conversation so far:\n${transcript(history)}\n\n` : ""}The learner wants to say: ${text}`;
-      const { result, usage } = await parse(HowSchema, "how", fill(HOW_INSTRUCTIONS, setting), input);
+      const { result, usage } = await parse(HowSchema, "how", fill(howInstructions(setting.language), setting), input);
       return { result: result.chunks, usage };
     },
     async gloss(setting, lines) {
-      const { result, usage } = await parse(GlossSchema, "gloss", fill(GLOSS_INSTRUCTIONS, setting),
+      const { result, usage } = await parse(GlossSchema, "gloss", fill(glossInstructions(setting.language), setting),
         `${lines.length} lines:\n${lines.map((l, i) => `${i + 1}. ${l}`).join("\n")}`);
       return { result: result.lines.map((l) => l.chunks), usage };
     },

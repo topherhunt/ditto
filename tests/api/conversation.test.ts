@@ -239,13 +239,17 @@ describe("conversation mode", () => {
     }
   });
 
-  it("speaks every line of every conversation in the language's one partner voice", async () => {
+  it("speaks every line of one conversation in the voice picked when it started, and picks the male and the female voice across conversations", async () => {
     const t = await speak();
     const conv = await t.start();
     await t.reply(conv.id); // fails, so the target is spoken
     await t.reply(conv.id, { target: "Vorrei un caffè, per favore." }); // passes, so the partner answers
-    await t.start();
-    expect(t.voices).toEqual(Array(4).fill("openai:marin"));
+    const stored = (id: number) => (t.deps.db.prepare("SELECT voice FROM conversations WHERE id = ?").get(id) as { voice: string }).voice;
+    expect(new Set(t.voices).size).toBe(1);
+    expect(t.voices[0]).toBe(stored(conv.id));
+    const started = new Set([stored(conv.id)]);
+    for (let i = 0; i < 30; i++) started.add(stored((await t.start()).id));
+    expect([...started].sort()).toEqual(["openai:cedar", "openai:marin"]);
   });
 
   it("speaks a tapped chunk in the partner's voice without storing it, only to the conversation's owner", async () => {
@@ -255,7 +259,7 @@ describe("conversation mode", () => {
     const res = await say("Le porto");
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toBe("audio/wav");
-    expect(t.voices.at(-1)).toBe("openai:marin");
+    expect(t.voices.at(-1)).toBe((t.deps.db.prepare("SELECT voice FROM conversations WHERE id = ?").get(conv.id) as { voice: string }).voice);
     expect(readdirSync(t.deps.conversation!.audioDir).filter((f) => f.startsWith("say-"))).toEqual([]);
     expect((await say("x".repeat(81))).status).toBe(400);
     await t.login("someone@example.com");
@@ -333,6 +337,15 @@ describe("conversation mode", () => {
     await t.req("PUT", "/api/locale", { locale: "es-419" });
     expect(row(await startEs())).toEqual({ locale: "en", help_locale: "en", ui_locale: "en" });
     expect((await t.req("GET", "/api/conversations?lang=es")).json.conversations).toHaveLength(2);
+  });
+
+  it("starts a French conversation and speaks the partner's line in one of the French voices", async () => {
+    const t = await speak();
+    const res = await t.req("POST", "/api/conversations", { language: "fr", level: "A2", scenario: { starter: "cafe" }, hardMode: false });
+    expect(res.status).toBe(200);
+    expect(t.deps.db.prepare("SELECT language FROM conversations WHERE id = ?").get(res.json.id)).toEqual({ language: "fr" });
+    expect(["openai:marin", "openai:cedar"]).toContain(t.voices[0]);
+    expect((await t.req("GET", "/api/conversations?lang=fr")).json.conversations).toHaveLength(1);
   });
 
   it("keeps hard mode per conversation", async () => {

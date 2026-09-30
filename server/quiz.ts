@@ -15,10 +15,9 @@ import {
 import { LANGUAGES, type Language } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
-import { voiceId } from "./content.ts";
+import { VOICES, voiceId } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import type { QuizDeck } from "./quiz-content.ts";
-import { quizVoice } from "./speech.ts";
 import { scheduleGrade } from "./srs.ts";
 import { recordUsage, underCapOr429 } from "./usage.ts";
 
@@ -298,7 +297,9 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     const raw = field.startsWith("wrong") ? (JSON.parse(q.wrong) as string[])[Number(field.slice(5))] : q[field as "question" | "correct" | "explanation"];
     // A read-aloud blank: "Io ___ italiano" would otherwise be read as underscores or skipped without a pause.
     const text = raw.replace(/_{2,}/g, "…");
-    const voice = quizVoice(deck.language);
+    // Random-looking but fixed per text, so a question is rendered (and paid for) once, not once per voice.
+    const voices = VOICES[deck.language];
+    const voice = voices[createHash("sha1").update(text.normalize("NFC")).digest().readUInt32BE(0) % voices.length];
     const pace = PACE[deck.level];
     const dir = join(audioDir, "quiz");
     const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${pace}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);

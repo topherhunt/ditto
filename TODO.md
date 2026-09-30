@@ -1,12 +1,15 @@
+### Now
 
-- [ ] test and confirm with Luis and others that people can access the app fine.
+- [ ] Test and confirm with Luis and others that people can access the app fine.
+
+### Wishlist
+
+- Currently playing audio on-demand in the Talk activity has a lag. Could each spoken gloss have its audio lazily cached on the server, hashed, so we can play it immediately the next time? And should this audio pool be merged with the pool used for the Type activity, so words generated for type don't need to be regenerated for Talk? or should the pools be kept separate because it's conceptually cleaner that way and the cost difference is trivial?
+
+### Unorganized
+
 - Talk:
   - Conversation history should be compacted in a scrollable & hidable div so you don't have trouble getting back up to the top of the page. Or, Talk with Claude to think through what is the best way to do this on mobile. Maybe chats older than the most recent 3 are hidden under a "See chat history" modal that you can easily X out of. But that also introduces friction.... I'd like to hear your suggestions. Maybe just a "Skip to top" button on the left side or sth.
-
-### For after launch
-
-- [x] Set up a throwaway gmail inbox for ditto
-- [x] Support learning Spanish
 - [ ] Review the mobile UX. Where are back-links non-obvious or confusing?
   - Type page - header is cluttered. Compact the Practice Settings line?
 - [ ] Add French

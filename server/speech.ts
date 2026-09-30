@@ -11,32 +11,6 @@ export interface Speech {
   say(text: string, language: Language, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
-/** The partner's one voice per language, on gpt-4o-mini-tts (paid, on OpenAI). */
-const PARTNER_VOICES: Partial<Record<Language, Voice>> = {
-  it: { engine: "openai", model: "marin", gender: "F" },
-  nl: { engine: "openai", model: "cedar", gender: "M" },
-  en: { engine: "openai", model: "cedar", gender: "M" },
-  es: { engine: "openai", model: "marin", gender: "F" },
-};
-export const partnerVoice = (language: Language) => {
-  const voice = PARTNER_VOICES[language];
-  if (!voice) throw new Error(`No conversation voice for ${language}`);
-  return voice;
-};
-
-/** Quiz mode's voice per language, on gpt-4o-mini-tts. */
-const QUIZ_VOICES: Partial<Record<Language, Voice>> = {
-  it: { engine: "openai", model: "marin", gender: "F" },
-  nl: { engine: "openai", model: "cedar", gender: "M" },
-  en: { engine: "openai", model: "cedar", gender: "M" },
-  es: { engine: "openai", model: "marin", gender: "F" },
-};
-export const quizVoice = (language: Language) => {
-  const voice = QUIZ_VOICES[language];
-  if (!voice) throw new Error(`No quiz voice for ${language}`);
-  return voice;
-};
-
 const OPENAI_TTS_MODEL = "gpt-4o-mini-tts";
 
 type Worker = ChildProcessByStdio<Writable, Readable, null>;
