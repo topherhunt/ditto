@@ -46,7 +46,7 @@ export type AppDeps = {
   secureCookies: boolean;
   /** Where the pronunciation proof-of-concept recorder saves takes; null (always in production) disables it. */
   pocDir: string | null;
-  /** Conversation mode's AI, local speech and audio dir; null refuses its paid calls. */
+  /** Conversation mode's AI, speech and audio dir; null refuses its paid calls. */
   conversation: ConversationDeps | null;
   /** USD per user per UTC day, across every paid call; reaching it refuses paid calls until midnight UTC. */
   dailySpendCap: number;

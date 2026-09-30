@@ -118,11 +118,16 @@ const fill = (t: string, s: Setting) =>
     .replaceAll("{level}", s.level).replaceAll("{register}", examples(s.language).register).replaceAll("{homophones}", examples(s.language).homophones);
 const transcript = (history: Line[]) => history.map((l) => `${l.role === "partner" ? "Partner" : "Learner"}: ${l.text}`).join("\n");
 
+/**
+ * Node 26's built-in fetch can reuse destroyed HTTP/2 sessions (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
+ * The npm undici Agent must share a major version with the undici bundled in Node: Node 24's (undici 7) rejects it with
+ * "invalid onRequestStart method". Using undici's own fetch instead breaks uploads, which build the global FormData.
+ */
+export const openAIClient = (apiKey: string, baseURL?: string) =>
+  new OpenAI({ apiKey, baseURL, fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
+
 export function openAIConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "gpt-transcribe"): ConversationAI {
-  // Node 26's built-in fetch can reuse destroyed HTTP/2 sessions (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
-  // The npm undici Agent must share a major version with the undici bundled in Node: Node 24's (undici 7) rejects it with
-  // "invalid onRequestStart method". Using undici's own fetch instead breaks uploads, which build the global FormData.
-  const client = new OpenAI({ apiKey, fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
+  const client = openAIClient(apiKey);
   // Priced before the first call, so a model missing from the price table fails at startup.
   tokenUsage(model, 0, 0);
   minuteUsage(transcribeModel, 0);

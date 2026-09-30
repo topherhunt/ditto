@@ -53,7 +53,7 @@ npm run dev             # API on :3000, Vite on :5173
 
 ### Audio
 
-Audio files are generated, not committed. Set up the Python venv once (the renderer and conversation mode's speech worker use it):
+Audio files are generated, not committed. Set up the Python venv for the local audio scripts once (the server itself uses no Python):
 
 ```sh
 python3 -m venv .venv

@@ -55,7 +55,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const { db } = deps;
   if (deps.conversation) mkdirSync(deps.conversation.audioDir, { recursive: true });
   const speak = () => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY and the speech worker)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY)" });
     return deps.conversation;
   };
   const Id = z.coerce.number().int();

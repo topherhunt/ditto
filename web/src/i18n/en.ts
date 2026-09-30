@@ -149,6 +149,7 @@ export const en = {
   "report.sent": "Thanks, reported.",
 
   "settings.title": "Settings",
+  "settings.account": "Account settings",
   "settings.yourLanguage": "Your language",
   "settings.yourLanguageHint": "Translations, explanations and coaching come in this language.",
   "settings.theme": "Theme",
@@ -194,7 +195,7 @@ export const en = {
   "settings.saved": "Saved",
   "settings.saveFailed": "Could not save: {error}",
   "settings.learning": "Languages you're learning",
-  "settings.learningHint": "Hidden languages keep their progress. At least one stays on.",
+  "settings.learningHint": "Hidden languages keep their progress.",
 
   "count.lesson.one": "{n} lesson",
   "count.lesson.other": "{n} lessons",

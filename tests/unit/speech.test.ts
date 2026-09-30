@@ -1,37 +1,74 @@
+import { createServer, type ServerResponse } from "node:http";
+import type { AddressInfo } from "node:net";
+import { mkdtempSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { setTimeout as sleep } from "node:timers/promises";
-import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { afterEach, describe, expect, it } from "vitest";
 import { SPEAK_LANGUAGES } from "../../shared/api.ts";
 import { CHUNKING, examples } from "../../server/conversation-ai.ts";
 import { VOICES } from "../../server/content.ts";
-import { speechWorker } from "../../server/speech.ts";
+import { openAISpeech } from "../../server/speech.ts";
 
-const echo = join(import.meta.dirname, "../fixtures/echo-worker.mjs");
-// The echo worker answers with its pid, so a changed answer means a new process.
-const pid = async (speech: ReturnType<typeof speechWorker>) => (await speech.say("x", "it", VOICES.it[0], 1, "out.wav")).seconds;
-const alive = (p: number) => { try { process.kill(p, 0); return true; } catch { return false; } };
+/** A stand-in for OpenAI's /audio/speech: `respond` gets each request's JSON body and its 1-based number. */
+async function fakeOpenAI(respond: (body: Record<string, unknown>, n: number, res: ServerResponse) => void) {
+  const bodies: Record<string, unknown>[] = [];
+  const server = createServer((req, res) => {
+    let raw = "";
+    req.on("data", (c) => (raw += c)).on("end", () => {
+      bodies.push(JSON.parse(raw));
+      respond(bodies.at(-1)!, bodies.length, res);
+    });
+  });
+  await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+  closers.push(() => { server.closeAllConnections(); server.close(); });
+  return { baseURL: `http://127.0.0.1:${(server.address() as AddressInfo).port}/v1`, bodies };
+}
+const closers: (() => void)[] = [];
+afterEach(() => closers.splice(0).forEach((c) => c()));
 
-describe("speech worker", () => {
-  it("reuses one worker while busy, stops it after the idle time, and starts a fresh one on the next call", async () => {
-    const speech = speechWorker(process.execPath, echo, 100);
-    const first = await pid(speech);
-    await sleep(50);
-    expect(await pid(speech)).toBe(first);
-    await sleep(300);
-    expect(alive(first)).toBe(false);
-    const second = await pid(speech);
-    expect(second).not.toBe(first);
+const oneSecond = Buffer.alloc(48000); // 24 kHz 16-bit mono
+const out = () => join(mkdtempSync(join(tmpdir(), "ditto-speech-")), "line.wav");
+
+describe("OpenAI speech", () => {
+  it("writes the PCM as a 24 kHz WAV, prices its length, and asks for the language, voice and pace", async () => {
+    const api = await fakeOpenAI((_b, _n, res) => res.end(oneSecond));
+    const file = out();
+    const { seconds, usage } = await openAISpeech("key", { baseURL: api.baseURL }).say("Ciao", "it", VOICES.it[1], 1.3, file);
+
+    expect(seconds).toBe(1);
+    expect(usage).toMatchObject({ model: "gpt-4o-mini-tts", audioSeconds: 1, costUsd: 0.015 / 60 });
+    const wav = readFileSync(file);
+    expect(wav.length).toBe(44 + 48000);
+    expect([wav.toString("ascii", 0, 4), wav.readUInt32LE(24), wav.readUInt16LE(34), wav.readUInt32LE(40)]).toEqual(["RIFF", 24000, 16, 48000]);
+    expect(api.bodies).toEqual([expect.objectContaining({ model: "gpt-4o-mini-tts", input: "Ciao", voice: "cedar", response_format: "pcm" })]);
+    expect(api.bodies[0].instructions).toBe("Read this Italian text aloud in Italian with a native Italian accent, slowly and very clearly, for a beginner.");
+  });
+
+  it("retries once when OpenAI stalls partway through the audio", async () => {
+    const api = await fakeOpenAI((_b, n, res) => (n === 1 ? res.write(oneSecond.subarray(0, 1000)) : res.end(oneSecond)));
+    const { seconds } = await openAISpeech("key", { baseURL: api.baseURL, timeoutMs: 200 }).say("Ciao", "it", VOICES.it[0], 1, out());
+    expect([seconds, api.bodies.length]).toEqual([1, 2]);
+  });
+
+  it("fails after a second stall, before any response", async () => {
+    const api = await fakeOpenAI(() => {});
+    await expect(openAISpeech("key", { baseURL: api.baseURL, timeoutMs: 200 }).say("Ciao", "it", VOICES.it[0], 1, out()))
+      .rejects.toThrow("OpenAI TTS timed out twice after 0.2 s (4 chars)");
+    expect(api.bodies.length).toBe(2);
+  });
+
+  it("fails an HTTP error at once, without retrying", async () => {
+    const api = await fakeOpenAI((_b, _n, res) => res.writeHead(500, { "Content-Type": "application/json" }).end('{"error":{"message":"boom"}}'));
+    await expect(openAISpeech("key", { baseURL: api.baseURL }).say("Ciao", "it", VOICES.it[0], 1, out())).rejects.toThrow(/500/);
+    expect(api.bodies.length).toBe(1);
   });
 });
 
 describe("Talk languages", () => {
-  const worker = readFileSync(join(import.meta.dirname, "../../server/speech-worker.py"), "utf8");
   const render = readFileSync(join(import.meta.dirname, "../../scripts/tts-render.py"), "utf8");
 
-  it.each(SPEAK_LANGUAGES)("%s has a female and a male voice, a name in both TTS scripts and its own prompt examples", (language) => {
+  it.each(SPEAK_LANGUAGES)("%s has a female and a male voice, a name in the TTS render script and its own prompt examples", (language) => {
     expect(VOICES[language].map((v) => v.gender).sort()).toEqual(["F", "M"]);
-    expect(worker).toContain(`"${language}": "`);
     expect(render).toContain(`"${language}": "`);
     expect(examples(language).suggestion.length).toBeGreaterThan(0);
   });

@@ -149,6 +149,7 @@ export const it: Dictionary = {
   "report.sent": "Grazie per la segnalazione.",
 
   "settings.title": "Impostazioni",
+  "settings.account": "Impostazioni dell'account",
   "settings.yourLanguage": "La tua lingua",
   "settings.yourLanguageHint": "Traduzioni, spiegazioni e correzioni arrivano in questa lingua.",
   "settings.theme": "Tema",
@@ -194,7 +195,7 @@ export const it: Dictionary = {
   "settings.saved": "Salvato",
   "settings.saveFailed": "Impossibile salvare: {error}",
   "settings.learning": "Lingue che stai imparando",
-  "settings.learningHint": "Le lingue nascoste conservano i progressi. Almeno una resta attiva.",
+  "settings.learningHint": "Le lingue nascoste conservano i progressi.",
 
   "count.lesson.one": "{n} lezione",
   "count.lesson.other": "{n} lezioni",

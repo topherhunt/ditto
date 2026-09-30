@@ -3,26 +3,17 @@
 import { writeFileSync } from "node:fs";
 import type { Chunk } from "../shared/api.ts";
 import type { ConversationAI } from "./conversation-ai.ts";
-import type { Speech } from "./speech.ts";
+import { wavHeader, type Speech } from "./speech.ts";
 import type { Usage } from "./usage.ts";
 
 export const FAKE_COST = 0.001;
 const usage = (): Usage => ({ model: "fake", inputTokens: 100, outputTokens: 50, audioSeconds: 0, costUsd: FAKE_COST });
 
-/** A valid, silent 0.1 s WAV, so fake partner lines play. */
-function silentWav(): Buffer {
-  const rate = 8000, samples = 800, data = samples * 2;
-  const b = Buffer.alloc(44 + data);
-  b.write("RIFF", 0); b.writeUInt32LE(36 + data, 4); b.write("WAVE", 8); b.write("fmt ", 12);
-  b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(rate, 24);
-  b.writeUInt32LE(rate * 2, 28); b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write("data", 36); b.writeUInt32LE(data, 40);
-  return b;
-}
-
 export function fakeSpeech(): Speech {
   return {
+    // A valid, silent 0.1 s WAV, so fake partner lines play.
     say: async (_text, _language, _voice, _pace, out) => {
-      writeFileSync(out, silentWav());
+      writeFileSync(out, Buffer.concat([wavHeader(1600, 8000), Buffer.alloc(1600)]));
       return { seconds: 0.1, usage: null };
     },
   };

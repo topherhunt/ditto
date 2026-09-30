@@ -76,7 +76,7 @@ export function Layout(props: RouteSectionProps) {
             <>
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
                 <div class="container gap-2 flex-wrap">
-                  <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</A>
+                  <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><img class="logo-icon me-2" src="/favicon.svg" alt="" />Ditto</A>
                   <ul class="navbar-nav">
                     <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}/type`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>

@@ -149,6 +149,7 @@ export const nl: Dictionary = {
   "report.sent": "Bedankt, gemeld.",
 
   "settings.title": "Instellingen",
+  "settings.account": "Accountinstellingen",
   "settings.yourLanguage": "Jouw taal",
   "settings.yourLanguageHint": "Vertalingen, uitleg en feedback krijg je in deze taal.",
   "settings.theme": "Thema",
@@ -194,7 +195,7 @@ export const nl: Dictionary = {
   "settings.saved": "Opgeslagen",
   "settings.saveFailed": "Opslaan mislukt: {error}",
   "settings.learning": "Talen die je leert",
-  "settings.learningHint": "Verborgen talen houden hun voortgang. Er blijft er altijd minstens één aan.",
+  "settings.learningHint": "Verborgen talen houden hun voortgang.",
 
   "count.lesson.one": "{n} les",
   "count.lesson.other": "{n} lessen",

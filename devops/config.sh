@@ -25,8 +25,6 @@ ENV_FILE="/etc/${SERVICE_NAME}.env"
 # Deliberately not named NODE_MAJOR: host-setup.sh uses that to change the host-wide Node.
 APP_NODE_MAJOR="${APP_NODE_MAJOR:-26}"
 APP_NODE_DIR="/opt/node${APP_NODE_MAJOR}"
-# The speech worker's Python venv (conversation and quiz voices, rendered on OpenAI).
-SPEECH_DIR="${REMOTE_DIR}/speech"
 
 require_host() {
   if [ -z "${DEPLOY_HOST}" ]; then echo "ERROR: DEPLOY_HOST is not set." >&2; exit 1; fi

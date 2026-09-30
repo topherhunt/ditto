@@ -149,6 +149,7 @@ export const es419: Dictionary = {
   "report.sent": "Gracias, lo reportaste.",
 
   "settings.title": "Ajustes",
+  "settings.account": "Ajustes de la cuenta",
   "settings.yourLanguage": "Tu idioma",
   "settings.yourLanguageHint": "Las traducciones, las explicaciones y las correcciones aparecen en este idioma.",
   "settings.theme": "Tema",
@@ -194,7 +195,7 @@ export const es419: Dictionary = {
   "settings.saved": "Guardado",
   "settings.saveFailed": "No se pudo guardar: {error}",
   "settings.learning": "Idiomas que estás aprendiendo",
-  "settings.learningHint": "Los idiomas ocultos conservan tu progreso. Al menos uno queda activo.",
+  "settings.learningHint": "Los idiomas ocultos conservan tu progreso.",
 
   "count.lesson.one": "{n} lección",
   "count.lesson.other": "{n} lecciones",

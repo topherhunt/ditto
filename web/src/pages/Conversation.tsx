@@ -7,7 +7,7 @@ import {
 import { api } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
-import { playResult, playWarning } from "../sounds.ts";
+import { playRecordStart, playRecordStop, playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
 import { autoplay } from "./player.ts";
 import { keepRecording, recordingUrl } from "../recordings.ts";
@@ -170,6 +170,7 @@ export function Conversation() {
       recorder = new MediaRecorder(stream, { mimeType: mime });
       recorder.ondataavailable = (e) => chunks.push(e.data);
       recorder.onstop = () => {
+        playRecordStop();
         stream.getTracks().forEach((track) => track.stop());
         const recording = new Blob(chunks, { type: mime });
         const reader = new FileReader();
@@ -177,6 +178,7 @@ export function Conversation() {
         reader.readAsDataURL(recording);
       };
       recorder.start();
+      playRecordStart();
       setRecState("recording");
     } catch (e) {
       setRecState("idle");
@@ -284,7 +286,7 @@ export function Conversation() {
             </Show>
 
             <Show when={recState() === "checking"} fallback={
-              <button type="button" class="qa-record btn btn-lg align-self-start" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
+              <button type="button" data-silent class="qa-record btn btn-lg align-self-start" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
                 disabled={!canRecord()} onClick={toggleRecord}>
                 <i class={`bi ${recState() === "recording" ? "bi-stop-fill" : "bi-mic-fill"} me-1`} aria-hidden="true" />
                 {recState() === "recording" ? t("speak.stop") : attempt() ? t("speak.recordAgain") : t("speak.record")}

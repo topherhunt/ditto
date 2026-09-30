@@ -79,7 +79,7 @@ export function Welcome() {
     <div class="qa-welcome d-flex flex-column gap-5">
       <section ref={hero} class="d-flex flex-column gap-4">
         <div class="text-center">
-          <h1 class="display-4 fw-semibold mb-1"><i class="bi bi-chat-heart me-2" aria-hidden="true" />Ditto</h1>
+          <h1 class="display-4 fw-semibold mb-1"><img class="logo-icon me-2" src="/favicon.svg" alt="" />Ditto</h1>
           <p class="lead mb-0">{t("welcome.title")} <span class="tilt" aria-hidden="true">👂</span></p>
         </div>
         <Show when={me()} fallback={

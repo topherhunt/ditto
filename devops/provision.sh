@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Provision Ditto's tenant only: user, dirs, private Node, speech worker (Python venv), systemd units, Caddy site, registry entry.
+# Provision Ditto's tenant only: user, dirs, private Node, systemd units, Caddy site, registry entry.
 # Idempotent. The shared host setup (Caddy, system Node, registry) already exists on racknerd1.
 . "$(cd "$(dirname "$0")" && pwd)/config.sh"
 require_host
 echo "==> Provisioning ${SERVICE_NAME}: ${DOMAIN} -> 127.0.0.1:${APP_PORT}, ${REMOTE_DIR}, Node ${APP_NODE_MAJOR} in ${APP_NODE_DIR}"
-remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' SPEECH_DIR='${SPEECH_DIR}' bash -s" <<'REMOTE'
+remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' bash -s" <<'REMOTE'
 set -euo pipefail
 if [ -d "${REGISTRY_DIR}" ]; then
   for f in "${REGISTRY_DIR}"/*.app; do
@@ -35,12 +35,6 @@ if ! "${APP_NODE_DIR}/bin/node" -v 2>/dev/null | grep -q "^v${APP_NODE_MAJOR}\."
 fi
 echo "Node: $("${APP_NODE_DIR}/bin/node" -v)"
 
-# The speech worker only calls gpt-4o-mini-tts on OpenAI and writes WAV files, so its venv needs just numpy.
-dpkg -s python3-venv >/dev/null 2>&1 || { apt-get update -q && apt-get install -y -q --no-install-recommends python3-venv; }
-[ -x "${SPEECH_DIR}/venv/bin/python" ] || python3 -m venv "${SPEECH_DIR}/venv"
-"${SPEECH_DIR}/venv/bin/pip" install -q numpy
-echo "Speech worker numpy: $("${SPEECH_DIR}/venv/bin/pip" show numpy | sed -n 's/^Version: //p')"
-
 if ! id -u "${SERVICE_USER}" >/dev/null 2>&1; then
   adduser --system --group --home "${REMOTE_DIR}" --no-create-home --shell /usr/sbin/nologin "${SERVICE_USER}"
 fi
@@ -65,7 +59,6 @@ Environment=NODE_ENV=production
 Environment=HOST=127.0.0.1
 Environment=PORT=${APP_PORT}
 Environment=DATABASE_PATH=${DATA_DIR}/app.db
-Environment=SPEECH_PYTHON=${SPEECH_DIR}/venv/bin/python
 Environment=SPEAK_AUDIO_DIR=${DATA_DIR}/speak-audio
 ExecStart=${APP_NODE_DIR}/bin/node server/index.ts
 Restart=on-failure
@@ -78,7 +71,7 @@ ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
 RestrictSUIDSGID=true
-# Node ~130 MB plus the speech worker, ~35 MB (it stops after an hour idle).
+# Node ~130 MB at rest.
 MemoryMax=512M
 
 [Install]

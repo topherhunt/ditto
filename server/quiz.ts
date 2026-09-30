@@ -286,7 +286,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
   // Only a question's own text can be voiced, so this is no free TTS proxy. Renders are shared across learners on disk, since
   // they cost money; the learner who misses the cache pays, under the daily cap.
   app.get("/api/quiz/decks/:id/say", async (c) => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (the speech worker)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (OPENAI_API_KEY)" });
     const { speech, audioDir } = deps.conversation;
     const userId = c.get("user").id;
     const deck = deckOr404(c.req.param("id"), userId);
