@@ -2,7 +2,7 @@
 
 Ditto runs on the shared VPS `racknerd1` at https://ditto.topherhunt.com. One Node process serves the SPA, the JSON API, `/health` and `/audio`; Caddy only terminates TLS and reverse-proxies to `127.0.0.1:3005` (`APP_PORT`). Like the other tenants (khet, openheroes, aurora) it has its own system user, systemd unit, Caddy site (`/etc/caddy/sites/ditto.caddy`) and registry entry (`/srv/registry/ditto.app`).
 
-Unlike the games, Ditto keeps state and secrets, and needs Node 24:
+Unlike the games, Ditto keeps state and secrets, and needs Node 26:
 
 | Path on host | What | Touched by deploy? |
 | --- | --- | --- |
@@ -11,7 +11,7 @@ Unlike the games, Ditto keeps state and secrets, and needs Node 24:
 | `/srv/ditto/data/app.db` | SQLite (WAL). Migrations run on boot. | Never |
 | `/srv/ditto/backups` | Nightly `VACUUM INTO` snapshots, newest 14 kept (`ditto-backup.timer`) | Never |
 | `/etc/ditto.env` | Secrets from `devops/production.env`, mode 640 root:ditto | Only by `push-env.sh` |
-| `/opt/node24` | Ditto's own Node 24. The host's `/usr/bin/node` (22) serves the other tenants and is left alone. | Only by `provision.sh` |
+| `/opt/node26` | Ditto's own Node 26. The host's `/usr/bin/node` (22) serves the other tenants and is left alone. | Only by `provision.sh` |
 | `/srv/ditto/speech` | The speech worker's Python `venv/` (conversation and quiz voices, rendered on OpenAI). | Only by `provision.sh` |
 | `/srv/ditto/data/speak-audio` | Conversation partner audio | Never |
 
@@ -22,7 +22,7 @@ The shared host setup (`host-setup.sh`: Caddy, system Node, `/srv/registry`) is 
 1. DNS: A record `ditto.topherhunt.com` -> `107.172.63.9` (the racknerd1 IP khet resolves to). Check with `dig +short ditto.topherhunt.com`.
 2. Google Cloud console: add `https://ditto.topherhunt.com` to the OAuth client's authorized JavaScript origins.
 3. `cp devops/deploy.env.example devops/deploy.env` (already done; defaults are Ditto's).
-4. `bash devops/provision.sh`: user, dirs, Node 24, the speech worker, the service and backup units, Caddy site, registry entry. Refuses a domain or port another app registered. Re-run it after changing the unit, then restart.
+4. `bash devops/provision.sh`: user, dirs, Node 26, the speech worker, the service and backup units, Caddy site, registry entry. Refuses a domain or port another app registered. Re-run it after changing the unit, then restart.
 5. `cp devops/production.env.example devops/production.env`, fill it in, then `bash devops/push-env.sh`.
 6. `bash devops/deploy.sh`.
 

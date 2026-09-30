@@ -33,7 +33,7 @@ Course content is JSON in `content/courses/{lang}/`, validated at boot. The sche
 
 A single Node process serves the SPA, the JSON API and the audio files.
 
-- Server: Node 24+ running TypeScript directly, [Hono](https://hono.dev), SQLite via `node:sqlite`.
+- Server: Node 26+ running TypeScript directly, [Hono](https://hono.dev), SQLite via `node:sqlite`.
 - Web: [SolidJS](https://www.solidjs.com), `@solidjs/router`, Vite, Bootstrap 5 (CSS only).
 - Tests: Vitest (unit and API) and Playwright (E2E).
 
@@ -41,7 +41,7 @@ The design doc is [docs/plan.md](docs/plan.md).
 
 ## Setup
 
-You need Node 24+ and, to render audio, macOS (the renderer encodes with `afconvert`) and Python 3.
+You need Node 26+ and, to render audio, macOS (the renderer encodes with `afconvert`) and Python 3.
 
 ```sh
 npm install

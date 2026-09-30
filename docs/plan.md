@@ -53,7 +53,7 @@ One Node process (a monolith) serves the SPA, the JSON API and audio files. Cadd
 
 | Layer | Choice | Why |
 |---|---|---|
-| Runtime | Node 24+ running TypeScript directly (native type stripping, `erasableSyntaxOnly`) | No server build step. The VPS needs Node >= 24. |
+| Runtime | Node 26+ running TypeScript directly (native type stripping, `erasableSyntaxOnly`) | No server build step. The VPS needs Node >= 26. |
 | HTTP | Hono + `@hono/node-server` | Tiny, uses standard Request/Response, and tests run in-process via `app.request()` |
 | DB | SQLite through built-in `node:sqlite`, WAL mode | One file, no daemon, no native module to compile on the VPS. Postgres would idle at around 100MB RAM for no benefit here. |
 | Frontend | Vite + SolidJS + TypeScript, `@solidjs/router` | Fine-grained reactivity, small bundle. Trap: never destructure props (it breaks reactivity) |

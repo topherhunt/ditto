@@ -20,9 +20,10 @@ BACKUP_DIR="${REMOTE_DIR}/backups"
 BACKUP_KEEP="${BACKUP_KEEP:-14}"
 # Secrets (GOOGLE_CLIENT_ID, OPENAI_API_KEY, ...) live only here on the host; push-env.sh writes it.
 ENV_FILE="/etc/${SERVICE_NAME}.env"
-# Ditto needs Node >= 24 but the shared host's /usr/bin/node serves other tenants, so Ditto gets its own.
+# Ditto needs Node 26 (its bundled undici must match the npm undici, see server/conversation-ai.ts) but the shared
+# host's /usr/bin/node serves other tenants, so Ditto gets its own.
 # Deliberately not named NODE_MAJOR: host-setup.sh uses that to change the host-wide Node.
-APP_NODE_MAJOR="${APP_NODE_MAJOR:-24}"
+APP_NODE_MAJOR="${APP_NODE_MAJOR:-26}"
 APP_NODE_DIR="/opt/node${APP_NODE_MAJOR}"
 # The speech worker's Python venv (conversation and quiz voices, rendered on OpenAI).
 SPEECH_DIR="${REMOTE_DIR}/speech"
