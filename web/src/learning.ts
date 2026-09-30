@@ -26,9 +26,9 @@ export function rememberLanguage(l: Language) {
 /** The dictation path a self-rated level starts on: beginners from single words, stronger learners past them. */
 const LEVEL_PATH: Record<LearnerLevel, PracticePath> = { A1: "full", A2: "full", B1: "chunks", B2: "sentences" };
 
-/** Saves the learner's answer to "how much do you know?" along with the practice defaults it implies. */
+/** Saves the learner's answer to "how much do you know?" along with the practice defaults it implies: beginners study each item before typing it. */
 export async function saveLevel(lang: Language, level: LearnerLevel) {
-  const prefs: Prefs = { ...me()!.prefs[lang], level, path: LEVEL_PATH[level] };
+  const prefs: Prefs = { ...me()!.prefs[lang], level, path: LEVEL_PATH[level], studyFirst: level === "A1" };
   await api.put("/api/prefs", { language: lang, prefs });
   await refetchMe();
 }

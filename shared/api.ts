@@ -18,9 +18,11 @@ export const PrefsSchema = z.strictObject({
   /** Immersion: the interface, and explanations and coaching, in the course's language. Only for a course that is also a locale. */
   immerseUi: z.boolean(),
   immerseHelp: z.boolean(),
+  /** The first time a learner meets an item, show and say it (with its translation) before asking them to type it. */
+  studyFirst: z.boolean(),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, level: null, immerseUi: false, immerseHelp: false };
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false };
 
 /** Whether a course can be immersed in: the app and the AI write only in a locale. */
 export const immersible = (l: Language) => languageLocale(l) !== null;
@@ -50,7 +52,13 @@ export const AttemptSchema = z.strictObject({
   /** The meaning check after the dictation; null exactly when the unit has no translation. A wrong pick counts as a miss. */
   meaningCorrect: z.boolean().nullable(),
   durationMs: z.int().min(0),
+  /** The study-first screen was shown before this item (learn mode only). */
+  studied: z.boolean(),
+  /** The item is part of a Master run: a lesson's sentences with no help, open once the lesson is complete and has waited MASTER_WAIT_MS. */
+  master: z.boolean(),
 });
+/** What a saved attempt answers: `stars` when it finished a run of the lesson, else null. */
+export type AttemptOut = { ok: true; stars: { earned: 1 | 2 | 3; best: 1 | 2 | 3 } | null };
 export type AttemptBody = z.infer<typeof AttemptSchema>;
 
 export const REPORT_KINDS = ["audio", "text", "translation", "accept", "other"] as const;
@@ -299,6 +307,10 @@ export type Me = { email: string; username: string | null; profilePublic: boolea
 /** `quiz`: the languages with quiz decks. `dailySpendCap`: each learner's free AI credit per UTC day, in USD. */
 export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[]; dailySpendCap: number };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
+/** Master opens this long after the last run of the lesson finished. */
+export const MASTER_WAIT_MS = 12 * 3_600_000;
+/** A lesson's best stars, and when its last run finished. */
+export type LessonStars = { stars: 1 | 2 | 3; practicedAt: string };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */
 export type CatalogLesson = Omit<ServedLesson, "units"> & { stages: Record<Stage, number> };
 export type CatalogCourse = Omit<ServedCourse, "lessons"> & { lessons: CatalogLesson[] };
@@ -306,6 +318,8 @@ export type Catalog = {
   courses: CatalogCourse[];
   /** lessonId -> path -> progress */
   progress: Record<string, Partial<Record<keyof typeof PATHS, LessonProgress>>>;
+  /** lessonId -> stars, for lessons the learner has completed. */
+  stars: Record<string, LessonStars>;
   /** Course and lesson ids the learner can start. */
   unlocked: string[];
   /** Levels the learner tested out of. */
@@ -330,7 +344,11 @@ export type MistakeEntry = {
   explanation: ExplanationOut | null;
 };
 /** `playable` is false for a lesson that is neither unlocked nor started by a friend; its attempts are refused. */
-export type LessonOut = ServedLesson & { playable: boolean; progress: Catalog["progress"][string] };
+export type LessonOut = ServedLesson & {
+  playable: boolean; progress: Catalog["progress"][string]; stars: LessonStars | null;
+  /** Ids of the lesson's units the learner has finished at least once, so study-first skips them. */
+  seen: string[];
+};
 export type ReviewOut = { units: ServedUnit[]; dueCount: number };
 export type LevelTestOut = { units: ServedUnit[] };
 

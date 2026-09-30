@@ -60,6 +60,7 @@ render(
       <Route path="/:lang/type" component={Home} />
       <Route path="/:lang/settings" component={CourseSettings} />
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />
+      <Route path="/:lang/lesson/:lessonId/master" component={() => <Practice mode="master" />} />
       <Route path="/:lang/test/:level" component={() => <Practice mode="test" />} />
       <Route path="/:lang/review" component={() => <Practice mode="review" />} />
       <Route path="/:lang/mistakes/practice" component={() => <Practice mode="mistakes" />} />

@@ -144,6 +144,7 @@ Voices, one per gender in each language:
 
 - **Path:** `full` (every stage) / `chunks` (chunk + sentence) / `sentences` (sentence only).
 - **Hints:** `letters` (first letter + a dot per letter) / `initial` (first letter only) / `none` (a single free-text box, so the word count isn't revealed either).
+- **Study first:** the first time a learner meets a unit (no earlier attempt at it), a study screen plays it and shows its text and translation before the input appears; "Got it, test me!" replays it and shows the input, and a wrong answer then counts as wrong. Words are tappable only for units of 3 or more words. On by default when onboarding (or the dashboard re-rating) picks the beginner level A1. A study screen costs a star (see Stars).
 - Also: autoplay count, playback rate.
 - Edited only on `/:lang/settings`. The catalog summarizes them in one line that links there; account Settings doesn't show them.
 
@@ -172,6 +173,8 @@ Voices, one per gender in each language:
 ## Learning flow
 
 - **Learn:** units play in lesson order, filtered by Path, and position is saved per lesson and path.
+- **Stars** (`server/stars.ts`): finishing a lesson's last unit on a path grades the run from the latest learn attempt per unit. 1 star for finishing, +1 if nothing was corrected or revealed and every meaning check was right, +1 if hints were off, no hint was pressed and no study screen was shown; a path other than `full` caps at 2. `lesson_stars` keeps the best (only goes up) and `practiced_at`. Unlocks, course folding and the leaderboard still need only 1 star (completion).
+- **Master:** a run of just the lesson's sentences with hints off and no study screen (`mode: "learn"`, `master: true`, at `/:lang/lesson/:id/master`). It earns 2 stars, or 3 with no mistakes, and does not touch `lesson_progress`. The server refuses it for non-sentences, for a lesson with no stars row, and until 12 hours (`MASTER_WAIT_MS`) after `practiced_at`. The catalog offers Master below 3 stars.
 - **Unlocks** (`server/unlocks.ts`): a course unlocks when every course it requires is complete (all lessons, on any path) or its level is passed (`level_passes`, see the level test in [curriculum.md](curriculum.md)). Within it, a lesson unlocks when the one before is complete, or at once in a passed level. A learn-mode attempt on a locked lesson gets a 403. Review and the notebook are never locked.
 - **Meaning check:** after the dictation, the learner picks the translation out of the translation and two distractors, in shuffled order. A wrong pick records the category `meaning`, adds a notebook entry, and schedules the card as a miss, even when the dictation was clean. `attempts.meaning_correct` is null for units without a translation.
 - **Mistakes notebook:**
@@ -206,7 +209,8 @@ users(id PK  -- internal only; never sent to the client
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
          , path, hints_level, outcome, wrong_submissions, hints_used, replays, accent_slips,
-         submissions JSON, meaning_correct, duration_ms, created_at)
+         submissions JSON, meaning_correct, duration_ms, studied, master, created_at)
+lesson_stars(user_id, lesson_id, stars 1..3, practiced_at, PK(user_id, lesson_id))
 lesson_progress(user_id, lesson_id, path, next_index, completed_at, PK(user_id, lesson_id, path))
 mistakes(user_id, unit_id, first_wrong_at, last_wrong_at, wrong_count, last_answer,
          categories JSON, clean_streak, removed_at, explanation JSON, PK(user_id, unit_id))
@@ -250,8 +254,8 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
 | PUT | `/api/profile-visibility` | `{public}` |
 | PUT | `/api/prefs` | |
-| GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress, plus review-due and notebook counts |
-| POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction |
+| GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress and best stars, plus review-due and notebook counts |
+| POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction. Returns `{ok, stars}`, the run's stars when the attempt finished it |
 | GET | `/api/review?lang=` | Due units with full payloads |
 | GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and saved explanations |
 | DELETE | `/api/mistakes/:unitId` | |

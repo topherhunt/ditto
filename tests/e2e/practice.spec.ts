@@ -134,7 +134,7 @@ async function completeLesson(page: Page, lessonId: string) {
   for (const u of lesson.units.filter((x) => x.stage === "sentence")) {
     const data: AttemptBody = {
       unitId: u.id, rev: u.rev, mode: "learn", path: "sentences", hintsLevel: "letters", outcome: "clean", wrongSubmissions: 0, hintsUsed: 0,
-      replays: 0, accentSlips: 0, submissions: [u.text], categories: [], meaningCorrect: u.distractors ? true : null, durationMs: 1000,
+      replays: 0, accentSlips: 0, submissions: [u.text], categories: [], meaningCorrect: u.distractors ? true : null, durationMs: 1000, studied: false, master: false,
     };
     expect((await page.request.post("/api/attempts", { data })).ok()).toBe(true);
   }

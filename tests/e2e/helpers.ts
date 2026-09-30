@@ -4,7 +4,7 @@ import { expect, type Page } from "@playwright/test";
  * Dev-logs in from the homepage, learning Italian, and lands on its dashboard. A new account answers the setup screen
  * with `level` and `username` (the email's local part by default).
  */
-export async function signIn(page: Page, email: string, username = email.split("@")[0], level = "A1") {
+export async function signIn(page: Page, email: string, username = email.split("@")[0], level = "A2") {
   await page.goto("/");
   await page.locator(".qa-learn-it").click();
   await page.locator(".qa-dev-email").fill(email);

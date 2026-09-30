@@ -1,9 +1,10 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
-import type { Catalog } from "../../../shared/api.ts";
+import { MASTER_WAIT_MS, type Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { LanguagePrefsSummary } from "../components/LanguagePrefs.tsx";
+import { Stars } from "../components/Stars.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { t } from "../i18n/index.ts";
 import { me } from "../session.ts";
@@ -98,7 +99,12 @@ export function Home() {
                                     {(lesson) => {
                                       const progress = () => cat().progress[lesson.id]?.[path()];
                                       const total = () => pathUnits(lesson, path());
-                                      const label = () => t(!progress() ? "home.start" : progress()!.nextIndex >= total() ? "home.again" : "home.continue");
+                                      const stars = () => cat().stars[lesson.id];
+                                      /** Hours until Master opens; 0 once it has. */
+                                      const masterWait = () => Math.max(0, Math.ceil((Date.parse(stars().practicedAt) + MASTER_WAIT_MS - Date.now()) / 3_600_000));
+                                      /** A finished lesson is practiced again from the top, so only a run underway continues. */
+                                      const underway = () => !!progress() && progress()!.nextIndex < total();
+                                      const label = () => t(underway() ? "home.continue" : stars() ? "home.practice" : "home.start");
                                       return (
                                         <li class="qa-lesson list-group-item d-flex align-items-center gap-3">
                                           <div class="me-auto">
@@ -107,11 +113,19 @@ export function Home() {
                                           </div>
                                           <span class="qa-lesson-progress small text-body-secondary text-nowrap">
                                             {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
-                                            {progress()?.completedAt ? " ✓" : ""}
                                           </span>
+                                          <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
                                           <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                             <Match when={cat().unlocked.includes(lesson.id)}>
-                                              <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm btn-success">{label()}</A>
+                                              <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
+                                              <Show when={stars()?.stars !== undefined && stars().stars < 3}>
+                                                <Show when={masterWait() === 0} fallback={
+                                                  <button type="button" class="qa-lesson-master-locked btn btn-sm btn-orange" disabled title={t("home.masterWait", { hours: masterWait() })}>{t("home.master")}</button>
+                                                }>
+                                                  <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-orange" title={t("home.masterTitle")}>{t("home.master")}</A>
+                                                </Show>
+                                              </Show>
                                             </Match>
                                             <Match when={cat().viaFriends[lesson.id]}>
                                               {(friends) => {

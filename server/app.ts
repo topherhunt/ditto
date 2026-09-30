@@ -4,8 +4,8 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   AttemptSchema, ExplainSchema, LevelPassSchema, PutLearningSchema, PutLocaleSchema, PutPrefsSchema, PutProfileVisibilitySchema, PutUsernameSchema, ReportSchema,
-  SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
-  type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LevelTestOut, type Me, type MistakeEntry, type ReviewOut,
+  MASTER_WAIT_MS, SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
+  type AttemptOut, type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LessonStars, type LevelTestOut, type Me, type MistakeEntry, type ReviewOut,
 } from "../shared/api.ts";
 import { LANGUAGES, LOCALES, PATHS, STAGES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
@@ -27,6 +27,7 @@ import { registerPoc } from "./poc.ts";
 import { registerQuiz } from "./quiz.ts";
 import { friendLessons, registerSocial } from "./social.ts";
 import { schedule } from "./srs.ts";
+import { starsFor } from "./stars.ts";
 import { unlockedIds } from "./unlocks.ts";
 import { recordUsage, spentToday, underCapOr429 } from "./usage.ts";
 
@@ -244,6 +245,9 @@ export function createApp(deps: AppDeps) {
   const completedLessons = (userId: number) =>
     new Set((db.prepare("SELECT DISTINCT lesson_id FROM lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL")
       .all(userId) as { lesson_id: string }[]).map((r) => r.lesson_id));
+  const starRows = (userId: number) =>
+    db.prepare("SELECT lesson_id, stars, practiced_at FROM lesson_stars WHERE user_id = ?").all(userId) as
+      { lesson_id: string; stars: LessonStars["stars"]; practiced_at: string }[];
   const passedLevels = (userId: number, language: Language) =>
     new Set((db.prepare("SELECT level FROM level_passes WHERE user_id = ? AND language = ?")
       .all(userId, language) as { level: string }[]).map((r) => r.level));
@@ -272,7 +276,9 @@ export function createApp(deps: AppDeps) {
         ...l, stages: Object.fromEntries(STAGES.map((s) => [s, units.filter((u) => u.stage === s).length])) as Record<Stage, number>,
       })),
     }));
-    return c.json<Catalog>({ courses: listed, progress, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
+    const stars: Catalog["stars"] = Object.fromEntries(starRows(userId).filter((r) => lessonIds.has(r.lesson_id))
+      .map((r) => [r.lesson_id, { stars: r.stars, practicedAt: r.practiced_at }]));
+    return c.json<Catalog>({ courses: listed, progress, stars, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
   });
 
   app.get("/api/lessons/:lessonId", (c) => {
@@ -286,7 +292,12 @@ export function createApp(deps: AppDeps) {
       path: keyof typeof PATHS; next_index: number; completed_at: string | null;
     }[];
     const progress = Object.fromEntries(rows.map((r) => [r.path, { nextIndex: r.next_index, completedAt: r.completed_at }]));
-    return c.json<LessonOut>({ ...lesson, playable: playable(userId, language, lessonId), progress });
+    const star = starRows(userId).find((r) => r.lesson_id === lessonId);
+    const seen = (db.prepare("SELECT DISTINCT unit_id FROM attempts WHERE user_id = ? AND lesson_id = ?").all(userId, lessonId) as { unit_id: string }[]).map((r) => r.unit_id);
+    return c.json<LessonOut>({
+      ...lesson, playable: playable(userId, language, lessonId), progress, seen,
+      stars: star ? { stars: star.stars, practicedAt: star.practiced_at } : null,
+    });
   });
 
   const levelOr404 = (language: Language, level: string) => {
@@ -311,6 +322,27 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
+  /**
+   * Grades the run that just ended on `unitIds` (the latest attempt at each, of this kind of run) and raises the lesson's best stars.
+   * A unit with no attempt of that kind, such as one skipped through the API, is left out.
+   */
+  const finishRun = (userId: number, lessonId: string, unitIds: string[], master: boolean, fullPath: boolean, iso: string): NonNullable<AttemptOut["stars"]> => {
+    const rows = db.prepare(
+      `SELECT unit_id, outcome, meaning_correct, hints_level, hints_used, studied FROM attempts
+       WHERE user_id = ? AND lesson_id = ? AND mode = 'learn' AND master = ? ORDER BY id`,
+    ).all(userId, lessonId, Number(master)) as { unit_id: string; outcome: string; meaning_correct: number | null; hints_level: string; hints_used: number; studied: number }[];
+    const latest = new Map(rows.map((r) => [r.unit_id, r]));
+    const run = unitIds.flatMap((id) => latest.get(id) ?? []).map((r) => ({
+      outcome: r.outcome, meaningCorrect: r.meaning_correct === null ? null : r.meaning_correct === 1, hintsLevel: r.hints_level, hintsUsed: r.hints_used, studied: r.studied === 1,
+    }));
+    const earned = starsFor(run, { master, fullPath });
+    const best = db.prepare(
+      `INSERT INTO lesson_stars (user_id, lesson_id, stars, practiced_at) VALUES (?, ?, ?, ?)
+       ON CONFLICT DO UPDATE SET stars = max(stars, excluded.stars), practiced_at = excluded.practiced_at RETURNING stars`,
+    ).get(userId, lessonId, earned, iso) as { stars: 1 | 2 | 3 };
+    return { earned, best: best.stars };
+  };
+
   app.post("/api/attempts", async (c) => {
     const a = AttemptSchema.parse(await c.req.json());
     const unit = unitOr404("en", a.unitId);
@@ -320,30 +352,44 @@ export function createApp(deps: AppDeps) {
     const userId = c.get("user").id;
     if (a.mode === "learn" && !playable(userId, unit.language, unit.lessonId))
       throw new HTTPException(403, { message: `Lesson ${unit.lessonId} is locked` });
+    if ((a.master || a.studied) && a.mode !== "learn") throw new HTTPException(400, { message: "Only a learn-mode attempt can be studied or a Master run" });
     const now = deps.now();
+    const star = a.master
+      ? db.prepare("SELECT practiced_at FROM lesson_stars WHERE user_id = ? AND lesson_id = ?").get(userId, unit.lessonId) as { practiced_at: string } | undefined
+      : undefined;
+    if (a.master) {
+      if (unit.stage !== "sentence") throw new HTTPException(400, { message: `Unit ${unit.id} is not a sentence, so it is not part of a Master run` });
+      if (!star) throw new HTTPException(403, { message: `Lesson ${unit.lessonId} must be completed before Master` });
+      if (now.getTime() < Date.parse(star.practiced_at) + MASTER_WAIT_MS) throw new HTTPException(403, { message: `Master for ${unit.lessonId} is not open yet` });
+    }
     const iso = now.toISOString();
     const meaningMissed = a.meaningCorrect === false;
     const missed = a.outcome === "corrected" || a.outcome === "revealed" || meaningMissed;
     const categories = meaningMissed ? [...a.categories, "meaning"] : a.categories;
+    let stars: AttemptOut["stars"] = null;
 
     transaction(db, () => {
       db.prepare(
         `INSERT INTO attempts (user_id, unit_id, unit_rev, course_id, lesson_id, mode, path, hints_level, outcome,
-           wrong_submissions, hints_used, replays, accent_slips, submissions, meaning_correct, duration_ms, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+           wrong_submissions, hints_used, replays, accent_slips, submissions, meaning_correct, duration_ms, created_at, studied, master)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       ).run(userId, unit.id, unit.rev, unit.courseId, unit.lessonId, a.mode, a.path, a.hintsLevel, a.outcome,
         a.wrongSubmissions, a.hintsUsed, a.replays, a.accentSlips, JSON.stringify(a.submissions),
-        a.meaningCorrect === null ? null : Number(a.meaningCorrect), a.durationMs, iso);
+        a.meaningCorrect === null ? null : Number(a.meaningCorrect), a.durationMs, iso, Number(a.studied), Number(a.master));
 
       if (a.mode === "learn") {
-        const pathUnits = lessons.get(unit.lessonId)!.units.filter((u) => (PATHS[a.path] as readonly string[]).includes(u.stage));
+        // A Master run is always the lesson's sentences from the top, so it has no saved position.
+        const pathUnits = lessons.get(unit.lessonId)!.units.filter((u) => (PATHS[a.master ? "sentences" : a.path] as readonly string[]).includes(u.stage));
         const idx = pathUnits.findIndex((u) => u.id === unit.id);
         if (idx < 0) throw new HTTPException(400, { message: `Unit ${unit.id} is not on path ${a.path}` });
         const done = idx === pathUnits.length - 1;
-        db.prepare(
-          `INSERT INTO lesson_progress (user_id, lesson_id, path, next_index, completed_at) VALUES (?, ?, ?, ?, ?)
-           ON CONFLICT DO UPDATE SET next_index = excluded.next_index, completed_at = coalesce(completed_at, excluded.completed_at)`,
-        ).run(userId, unit.lessonId, a.path, idx + 1, done ? iso : null);
+        if (!a.master) {
+          db.prepare(
+            `INSERT INTO lesson_progress (user_id, lesson_id, path, next_index, completed_at) VALUES (?, ?, ?, ?, ?)
+             ON CONFLICT DO UPDATE SET next_index = excluded.next_index, completed_at = coalesce(completed_at, excluded.completed_at)`,
+          ).run(userId, unit.lessonId, a.path, idx + 1, done ? iso : null);
+        }
+        if (done) stars = finishRun(userId, unit.lessonId, pathUnits.map((u) => u.id), a.master, a.path === "full", iso);
       }
 
       const mistake = db.prepare("SELECT categories, clean_streak FROM mistakes WHERE user_id = ? AND unit_id = ? AND removed_at IS NULL")
@@ -372,7 +418,7 @@ export function createApp(deps: AppDeps) {
         ).run(userId, unit.id, unit.language, next.due.toISOString(), JSON.stringify(next));
       }
     });
-    return c.json({ ok: true });
+    return c.json<AttemptOut>({ ok: true, stars });
   });
 
   app.post("/api/reports", async (c) => {

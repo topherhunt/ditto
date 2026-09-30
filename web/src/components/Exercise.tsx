@@ -30,14 +30,20 @@ function shuffle<T>(items: T[]): T[] {
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
  * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
  * In a level test there are no hints, the first wrong answer ends the item, and nothing is recorded.
+ * In a Master run there are no hints either, but answers are recorded (as learn attempts flagged `master`).
+ * With `study`, the item is first shown and played with its translation, and the input appears when the learner is ready.
  * Accent slips pass, shown in orange, as in every mode.
  */
 export function Exercise(props: {
-  unit: ServedUnit; prefs: Prefs; mode: SessionMode; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
+  unit: ServedUnit; prefs: Prefs; mode: SessionMode; study: boolean; onFinished: (o: Outcome, saved: Promise<unknown>) => void; onNext: () => void;
 }) {
   const unit = props.unit;
   const target = words(unit.text);
   const test = props.mode === "test";
+  const master = props.mode === "master";
+  /** Read once: the item counts as studied even after it is finished and its unit is marked seen. */
+  const study = props.study;
+  const [studying, setStudying] = createSignal(study);
   const [free, setFree] = createSignal(test || props.prefs.hints === "none");
   const [freeText, setFreeText] = createSignal("");
   const [slots, setSlots] = createSignal<string[]>(target.map(() => ""));
@@ -75,7 +81,7 @@ export function Exercise(props: {
   /** One voice per item, so replays and word taps sound like the sentence. */
   const voice = pickVoice(unit.audio);
   const audio = new Audio(unit.audio[voice]!);
-  let autoplaysLeft = props.prefs.autoplay;
+  let autoplaysLeft = study ? Math.max(1, props.prefs.autoplay) : props.prefs.autoplay;
   const play = (rate = props.prefs.rate) => {
     audio.pause();
     audio.currentTime = 0;
@@ -96,9 +102,23 @@ export function Exercise(props: {
   });
   const replay = (rate?: number) => {
     autoplaysLeft = 0;
-    replays++;
+    if (!studying()) replays++;
     play(rate);
   };
+
+  /** Ends the study screen: the same audio plays again, now with the input to type it into. */
+  function startTest() {
+    setStudying(false);
+    autoplaysLeft = 0;
+    play();
+    queueMicrotask(focusFirstOpen);
+  }
+
+  function tapWord(wordIndex: number) {
+    const w = unit.words[wordIndex];
+    setSelectedWord(w);
+    new Audio(w.audio[voice]).play().catch(() => setAutoplayBlocked(true));
+  }
 
   function focusFirstOpen() {
     if (free()) return freeInput?.focus();
@@ -177,7 +197,7 @@ export function Exercise(props: {
   function finish(accentSlips: number) {
     setDone(true);
     dictation = {
-      unitId: unit.id, rev: unit.rev, path: props.prefs.path, hintsLevel: props.prefs.hints,
+      unitId: unit.id, rev: unit.rev, path: props.prefs.path, hintsLevel: props.prefs.hints, studied: study, master,
       outcome: outcomeOf({ revealed: revealed(), wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() }),
       wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed(), replays, accentSlips, submissions, categories,
       durationMs: Date.now() - started,
@@ -198,7 +218,7 @@ export function Exercise(props: {
 
   function record(meaningCorrect: boolean | null) {
     const d = dictation!;
-    const mode = props.mode;
+    const mode = props.mode === "master" ? "learn" : props.mode;
     const save = mode === "test" ? Promise.resolve() : api.post("/api/attempts", { ...d, mode, meaningCorrect } satisfies AttemptBody);
     saved = save;
     save.catch((e: Error) => setSaveError(e.message));
@@ -258,6 +278,35 @@ export function Exercise(props: {
 
   const locked = (i: number) => done() || feedback()[i].state !== "open";
 
+  /** The item written out with its translation. Words are tappable for a gloss once there are enough of them to be a phrase. */
+  const StudyView = () => (
+    <div class="qa-study d-flex flex-column gap-2">
+      <div class="qa-study-text fs-4">
+        <For each={tokenize(unit.text)}>
+          {(tok) =>
+            tok.type === "punct" || target.length < 3 ? (
+              <span>{tok.text}</span>
+            ) : (
+              <button type="button" class="qa-study-word btn btn-link p-0 fs-4 text-decoration-none align-baseline" onClick={() => tapWord(tok.wordIndex)}>{tok.text}</button>
+            )
+          }
+        </For>
+      </div>
+      <Show when={unit.translation}>{(tr) => <div class="qa-study-translation small text-body-secondary">{tr()}</div>}</Show>
+      <Show when={selectedWord()}>
+        {(w) => (
+          <div class="qa-word-info small">
+            <strong>{w().text}</strong> <span class="text-body-secondary">({w().lemma}, {w().pos})</span> -- {w().gloss}
+          </div>
+        )}
+      </Show>
+      <div class="qa-study-prompt">{t("exercise.studyPrompt")}</div>
+      <button type="button" class="qa-study-done btn btn-success align-self-start" ref={(el) => queueMicrotask(() => el.focus())} onClick={startTest}>
+        {t("exercise.studyDone")}
+      </button>
+    </div>
+  );
+
   return (
     <>
     <div ref={card} class="qa-exercise card shadow-sm">
@@ -270,8 +319,9 @@ export function Exercise(props: {
         </div>
 
         <Show
-          when={!done()}
+          when={!done() && !studying()}
           fallback={
+            <Show when={!studying()} fallback={<StudyView />}>
             <div class="d-flex flex-column gap-2">
               <div class="qa-answer fs-4">
                 <For each={tokenize(unit.text)}>
@@ -281,11 +331,7 @@ export function Exercise(props: {
                     ) : (
                       <>
                         <button type="button" class="qa-answer-word btn btn-link p-0 fs-4 text-decoration-none align-baseline"
-                          onClick={() => {
-                            const w = unit.words[tok.wordIndex];
-                            setSelectedWord(w);
-                            new Audio(w.audio[voice]).play().catch(() => setAutoplayBlocked(true));
-                          }}>
+                          onClick={() => tapWord(tok.wordIndex)}>
                           <For each={Array.from(tok.text)}>
                             {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(tok.wordIndex)?.includes(k()) }}>{ch}</span>}
                           </For>
@@ -307,6 +353,7 @@ export function Exercise(props: {
                 <div class="small">{t("exercise.yourAnswer")} <SentenceDiff result={freeResult()!} /></div>
               </Show>
             </div>
+            </Show>
           }
         >
           <Show
@@ -363,7 +410,7 @@ export function Exercise(props: {
           </Show>
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
-            <Show when={!test}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button></Show>
+            <Show when={!test && !master}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button></Show>
             <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
           </div>
           <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary">{t("exercise.keys")}</div>}>

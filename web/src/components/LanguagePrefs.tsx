@@ -67,6 +67,14 @@ export function LanguagePrefs(props: { lang: Language }) {
           </label>
         )}
       </For>
+      <div>
+        <div class="form-check form-switch">
+          <input class="qa-settings-studyFirst form-check-input" type="checkbox" role="switch" id="studyFirst" checked={prefs().studyFirst}
+            onChange={(e) => savePrefs({ studyFirst: e.currentTarget.checked })} />
+          <label class="form-check-label" for="studyFirst">{t("settings.studyFirst")}</label>
+        </div>
+        <div class="form-text">{t("settings.studyFirstHint")}</div>
+      </div>
       <Show when={immersible(props.lang)}>
         <fieldset class="qa-settings-immersion">
           <legend class="form-label fs-6 mb-2">{t("settings.immersion")}</legend>
@@ -116,6 +124,8 @@ export function LanguagePrefsSummary(props: { lang: Language }) {
             </>
           )}
         </For>
+        <span class="text-body-secondary" aria-hidden="true"> · </span>
+        <span class="qa-prefs-summary-studyFirst"><span class="text-body-secondary">{t("settings.studyFirst")}:</span> {prefs().studyFirst ? t("settings.on") : t("settings.off")}</span>
       </div>
     </div>
   );

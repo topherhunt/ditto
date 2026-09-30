@@ -68,7 +68,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
       const unit = content.locales.en.units.get(unitId)!;
       const body: AttemptBody = {
         unitId, rev: unit.rev, mode: "learn", path: "full", hintsLevel: "letters", outcome: "clean",
-        wrongSubmissions: 0, hintsUsed: 0, replays: 0, accentSlips: 0, submissions: [unit.text], categories: [], durationMs: 1000, meaningCorrect: unit.distractors ? true : null, ...over,
+        wrongSubmissions: 0, hintsUsed: 0, replays: 0, accentSlips: 0, submissions: [unit.text], categories: [], durationMs: 1000, meaningCorrect: unit.distractors ? true : null, studied: false, master: false, ...over,
       };
       return req("POST", "/api/attempts", body);
     },

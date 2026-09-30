@@ -80,7 +80,7 @@ test("an activity's help opens by itself on a first visit, stays closed once dis
 });
 
 test("the dashboard's language menu starts another language, asks its level, and switches back", async ({ page }) => {
-  await signIn(page, "dash5@example.com");
+  await signIn(page, "dash5@example.com", "dash5", "A1");
   await page.locator(".qa-dash-lang").click();
   await expect(page.locator(".qa-dash-lang-it")).toHaveClass(/active/);
   await page.locator(".qa-dash-lang-nl").click();
