@@ -45,9 +45,6 @@ const FIELDS: { field: Field; label: () => string; parse: (v: string) => Prefs[F
     ["initial", () => t("settings.hintsInitial"), () => t("settings.sumHintsInitial")],
     ["none", () => t("settings.hintsNone"), () => t("settings.sumHintsNone")],
   ] },
-  { field: "autoplay", label: () => t("settings.autoplay"), parse: Number, options: [
-    ["0", () => t("settings.autoplay0")], ["1", () => t("settings.autoplay1")], ["2", () => t("settings.autoplay2")], ["3", () => t("settings.autoplay3")],
-  ] },
   { field: "rate", label: () => t("settings.rate"), parse: Number, options: [
     ["1", () => t("settings.rateNormal"), () => t("settings.sumRateNormal")],
     ["0.9", () => "0.9×", () => t("settings.sumRate", { rate: "0.9" })],
@@ -124,7 +121,7 @@ export function LanguagePrefsSummary(props: { lang: Language }) {
     { qa: "rate", text: shortLabel("rate") },
   ];
   return (
-    <div class="d-flex flex-wrap align-items-center gap-2">
+    <div class="d-flex align-items-center gap-2">
       <A href={`/${props.lang}/settings`} class="qa-home-settings btn btn-sm btn-outline-secondary flex-shrink-0">
         <i class="bi bi-sliders me-1" aria-hidden="true" />{t("home.practiceSettings")}
       </A>

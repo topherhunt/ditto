@@ -45,7 +45,7 @@ const child = (over: object = {}) => ({
 describe("content loading", () => {
   it("loads the real content for every language, with Irish translated for every locale", () => {
     const c = loadContent(join(root, "content"), join(root, "content/audio"), { audio: "skip" });
-    expect(new Set(c.locales.en.courses.map((x) => x.language))).toEqual(new Set(["en", "it", "nl", "ga", "es", "fr"]));
+    expect(new Set(c.locales.en.courses.map((x) => x.language))).toEqual(new Set(["en", "it", "nl", "ga", "es", "fr", "el"]));
     const irish = (l: Locale) => c.locales[l].units.get("ga-a1-failte-1-u02")!.translation;
     expect([irish("en"), irish("es-419"), irish("nl"), irish("it")]).toEqual(["Hello, Áine.", "Hola, Áine.", "Hallo, Áine.", "Ciao, Áine."]);
   });

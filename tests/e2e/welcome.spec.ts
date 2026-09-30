@@ -86,7 +86,7 @@ test("a new account that skipped the course question picks one on the setup scre
 });
 
 test("signing in from a deep link keeps the visitor on that page", async ({ page }) => {
-  await page.goto("/it/notebook");
+  await page.goto("/it/type/notebook");
   await expect(page.locator(".qa-welcome")).toBeVisible();
   await page.locator(".qa-learn-it").click();
   await page.locator(".qa-dev-email").fill("deeplink@example.com");
@@ -94,7 +94,7 @@ test("signing in from a deep link keeps the visitor on that page", async ({ page
   await page.locator(".qa-level-A1").click();
   await page.locator(".qa-username").fill("deeplink");
   await page.locator(".qa-username-save").click();
-  await expect(page).toHaveURL(/\/it\/notebook$/);
+  await expect(page).toHaveURL(/\/it\/type\/notebook$/);
   await expect(page.locator(".qa-welcome")).toHaveCount(0);
 });
 

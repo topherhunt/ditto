@@ -1,4 +1,4 @@
--- Best star rating (1-3) per lesson; `practiced_at` is when the last run of the lesson finished, which the Master wait counts from.
+-- Best star rating (1-3) per lesson; `practiced_at` is when the lesson was last practiced (any non-Master attempt, or a finished Master run), which the Master wait counts from.
 CREATE TABLE lesson_stars (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   lesson_id TEXT NOT NULL,

@@ -1,0 +1,4910 @@
+{
+  "id": "el-a1-trapezi",
+  "language": "el",
+  "level": "A1",
+  "order": 8,
+  "title": "Στο τραπέζι",
+  "description": {
+    "en": "Booking a table, ordering a meal and saying what you like and dislike",
+    "es-419": "Reservar una mesa, pedir una comida y decir qué te gusta y qué no",
+    "it": "Prenotare un tavolo, ordinare un pasto e dire che cosa ti piace e che cosa no",
+    "nl": "Een tafel reserveren, een maaltijd bestellen en zeggen wat je lekker vindt en wat niet"
+  },
+  "track": "main",
+  "requires": [
+    "el-a1-poli"
+  ],
+  "introduces": [
+    "θα",
+    "μενού",
+    "τραπέζι",
+    "κράτηση",
+    "πιάτο",
+    "ποτήρι",
+    "μαχαίρι",
+    "πιρούνι",
+    "κουτάλι",
+    "μπουκάλι",
+    "σαλάτα",
+    "σούπα",
+    "ψάρι",
+    "κρέας",
+    "κοτόπουλο",
+    "χοιρινό",
+    "πατάτα",
+    "ρύζι",
+    "μακαρόνια",
+    "πίτσα",
+    "ομελέτα",
+    "αυγό",
+    "λαχανικό",
+    "φρούτο",
+    "μήλο",
+    "μπανάνα",
+    "ντομάτα",
+    "αγγούρι",
+    "κρεμμύδι",
+    "ελιά",
+    "λάδι",
+    "αλάτι",
+    "πιπέρι",
+    "επιδόρπιο",
+    "μουσακάς",
+    "σουβλάκι",
+    "τζατζίκι",
+    "φέτα",
+    "γιαούρτι",
+    "μέλι",
+    "φαγητό",
+    "ποτό",
+    "μερίδα",
+    "άτομο",
+    "αρέσω",
+    "παραγγέλνω",
+    "κλείνω",
+    "πεινάω",
+    "διψάω",
+    "φέρνω",
+    "προτιμάω",
+    "νόστιμος",
+    "φρέσκος",
+    "γλυκός",
+    "αλμυρός",
+    "καυτός",
+    "ψητός",
+    "τηγανητός",
+    "βραστός",
+    "χορτοφάγος",
+    "ελεύθερος"
+  ],
+  "lexicon": {
+    "κράτηση": {
+      "lemma": "κράτηση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reservation, booking (f)",
+        "es-419": "reserva (f)",
+        "it": "prenotazione (f)",
+        "nl": "reservering (f)"
+      }
+    },
+    "τραπέζι": {
+      "lemma": "τραπέζι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "table (n)",
+        "es-419": "mesa (n)",
+        "it": "tavolo (n)",
+        "nl": "tafel (n)"
+      }
+    },
+    "άτομο": {
+      "lemma": "άτομο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "person (n)",
+        "es-419": "persona (n)",
+        "it": "persona (n)",
+        "nl": "persoon (n)"
+      }
+    },
+    "ελεύθερος": {
+      "lemma": "ελεύθερος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "free, available",
+        "es-419": "libre, disponible",
+        "it": "libero, disponibile",
+        "nl": "vrij, beschikbaar"
+      }
+    },
+    "κλείνω": {
+      "lemma": "κλείνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I close; also I book",
+        "es-419": "cierro; también reservo",
+        "it": "chiudo; anche prenoto",
+        "nl": "ik sluit; ook ik reserveer"
+      }
+    },
+    "ένα": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (neuter)",
+        "es-419": "un, una, uno (neutro)",
+        "it": "un, uno (neutro)",
+        "nl": "een, één (onzijdig)"
+      }
+    },
+    "μία": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (feminine); also spelled μια",
+        "es-419": "una, uno (femenino); también se escribe μια",
+        "it": "una, uno (femminile); si scrive anche μια",
+        "nl": "een, één (vrouwelijk); ook geschreven μια"
+      }
+    },
+    "δύο": {
+      "lemma": "δύο",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "άτομα": {
+      "lemma": "άτομο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (plural of άτομο) (n)",
+        "es-419": "personas (plural de άτομο) (n)",
+        "it": "persone (plurale di άτομο) (n)",
+        "nl": "personen (meervoud van άτομο) (n)"
+      }
+    },
+    "για": {
+      "lemma": "για",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "es-419": "para, por",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "τέσσερα": {
+      "lemma": "τέσσερις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four (neuter)",
+        "es-419": "cuatro (neutro)",
+        "it": "quattro (neutro)",
+        "nl": "vier (onzijdig)"
+      }
+    },
+    "έχω": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have",
+        "es-419": "tengo, he",
+        "it": "ho",
+        "nl": "ik heb"
+      }
+    },
+    "το": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter)",
+        "es-419": "el, lo",
+        "it": "il, lo",
+        "nl": "het"
+      }
+    },
+    "είναι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is, are",
+        "es-419": "es, está, son, están",
+        "it": "è, sono",
+        "nl": "is, zijn"
+      }
+    },
+    "ελεύθερο": {
+      "lemma": "ελεύθερος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "free, available (neuter)",
+        "es-419": "libre, disponible (neutro)",
+        "it": "libero, disponibile (neutro)",
+        "nl": "vrij, beschikbaar (onzijdig)"
+      }
+    },
+    "έχετε": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (formal or plural)",
+        "es-419": "usted tiene, ustedes tienen",
+        "it": "Lei ha, voi avete",
+        "nl": "u hebt, jullie hebben"
+      }
+    },
+    "δεν": {
+      "lemma": "δεν",
+      "pos": "PART",
+      "gloss": {
+        "en": "not",
+        "es-419": "no",
+        "it": "non",
+        "nl": "niet, geen"
+      }
+    },
+    "υπάρχει": {
+      "lemma": "υπάρχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is, there exists",
+        "es-419": "hay, existe",
+        "it": "c'è, esiste",
+        "nl": "er is, bestaat"
+      }
+    },
+    "η": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "es-419": "la",
+        "it": "la",
+        "nl": "de (vrouwelijk)"
+      }
+    },
+    "στο": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "at, in, to the (σε + το)",
+        "es-419": "a, en el, al (σε + το)",
+        "it": "a, in, al (σε + το)",
+        "nl": "in, op, naar het (σε + το)"
+      }
+    },
+    "όνομά": {
+      "lemma": "όνομα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "name (accent shifts before μου: το όνομά μου) (n)",
+        "es-419": "nombre (el acento se añade antes de μου: το όνομά μου) (n)",
+        "it": "nome (l'accento si aggiunge prima di μου: το όνομά μου) (n)",
+        "nl": "naam (extra accent vóór μου: το όνομά μου) (n)"
+      }
+    },
+    "μου": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "my, to me (clitic)",
+        "es-419": "mi, me (clítico)",
+        "it": "mio, mi (clitico)",
+        "nl": "mijn, mij (clitisch)"
+      }
+    },
+    "παρακαλώ": {
+      "lemma": "παρακαλώ",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "please; you're welcome",
+        "es-419": "por favor; de nada",
+        "it": "prego, per favore",
+        "nl": "alstublieft, graag gedaan"
+      }
+    },
+    "θέλω": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want",
+        "es-419": "quiero",
+        "it": "voglio",
+        "nl": "ik wil"
+      }
+    },
+    "να": {
+      "lemma": "να",
+      "pos": "PART",
+      "gloss": {
+        "en": "to (introduces a verb: θέλω να κλείσω = I want to book)",
+        "es-419": "para, que (introduce un verbo: θέλω να κλείσω = quiero reservar)",
+        "it": "che, di (introduce un verbo: θέλω να κλείσω = voglio prenotare)",
+        "nl": "om te, dat (leidt een werkwoord in: θέλω να κλείσω = ik wil reserveren)"
+      }
+    },
+    "κλείσω": {
+      "lemma": "κλείνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I close, I book (after να)",
+        "es-419": "cierre, reserve (después de να)",
+        "it": "chiuda, prenoti (dopo να)",
+        "nl": "ik sluit, ik reserveer (na να)"
+      }
+    },
+    "μπορώ": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I can, I may",
+        "es-419": "puedo",
+        "it": "posso",
+        "nl": "ik kan, ik mag"
+      }
+    },
+    "αύριο": {
+      "lemma": "αύριο",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "βράδυ": {
+      "lemma": "βράδυ",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening, night (n)",
+        "es-419": "noche, tarde (n)",
+        "it": "sera (n)",
+        "nl": "avond (n)"
+      }
+    },
+    "στις": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "at, in, to (before plural feminine: στις οκτώ = at eight)",
+        "es-419": "a, en (στις οκτώ = a las ocho)",
+        "it": "a, in (στις οκτώ = alle otto)",
+        "nl": "om, in, naar (στις οκτώ = om acht uur)"
+      }
+    },
+    "οκτώ": {
+      "lemma": "οκτώ",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "es-419": "ocho",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "μενού": {
+      "lemma": "μενού",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "menu (n)",
+        "es-419": "menú, carta (n)",
+        "it": "menù (n)",
+        "nl": "menukaart (n)"
+      }
+    },
+    "πιάτο": {
+      "lemma": "πιάτο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plate, dish (n)",
+        "es-419": "plato (n)",
+        "it": "piatto (n)",
+        "nl": "bord, gerecht (n)"
+      }
+    },
+    "ποτήρι": {
+      "lemma": "ποτήρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "glass (for drinking) (n)",
+        "es-419": "vaso, copa (n)",
+        "it": "bicchiere (n)",
+        "nl": "glas (n)"
+      }
+    },
+    "μαχαίρι": {
+      "lemma": "μαχαίρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "knife (n)",
+        "es-419": "cuchillo (n)",
+        "it": "coltello (n)",
+        "nl": "mes (n)"
+      }
+    },
+    "πιρούνι": {
+      "lemma": "πιρούνι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fork (n)",
+        "es-419": "tenedor (n)",
+        "it": "forchetta (n)",
+        "nl": "vork (n)"
+      }
+    },
+    "κουτάλι": {
+      "lemma": "κουτάλι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "spoon (n)",
+        "es-419": "cuchara (n)",
+        "it": "cucchiaio (n)",
+        "nl": "lepel (n)"
+      }
+    },
+    "μπουκάλι": {
+      "lemma": "μπουκάλι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bottle (n)",
+        "es-419": "botella (n)",
+        "it": "bottiglia (n)",
+        "nl": "fles (n)"
+      }
+    },
+    "κρασί": {
+      "lemma": "κρασί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wine (n)",
+        "es-419": "vino (n)",
+        "it": "vino (n)",
+        "nl": "wijn (n)"
+      }
+    },
+    "και": {
+      "lemma": "και",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "νερό": {
+      "lemma": "νερό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "water (n)",
+        "es-419": "agua (n)",
+        "it": "acqua (n)",
+        "nl": "water (n)"
+      }
+    },
+    "θέλουμε": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we want",
+        "es-419": "queremos",
+        "it": "vogliamo",
+        "nl": "wij willen"
+      }
+    },
+    "ποτήρια": {
+      "lemma": "ποτήρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "glasses (plural of ποτήρι) (n)",
+        "es-419": "vasos (plural de ποτήρι) (n)",
+        "it": "bicchieri (plurale di ποτήρι) (n)",
+        "nl": "glazen (meervoud van ποτήρι) (n)"
+      }
+    },
+    "σαλάτα": {
+      "lemma": "σαλάτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salad (f)",
+        "es-419": "ensalada (f)",
+        "it": "insalata (f)",
+        "nl": "salade (f)"
+      }
+    },
+    "σούπα": {
+      "lemma": "σούπα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "soup (f)",
+        "es-419": "sopa (f)",
+        "it": "zuppa (f)",
+        "nl": "soep (f)"
+      }
+    },
+    "ψάρι": {
+      "lemma": "ψάρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fish (n)",
+        "es-419": "pescado, pez (n)",
+        "it": "pesce (n)",
+        "nl": "vis (n)"
+      }
+    },
+    "κρέας": {
+      "lemma": "κρέας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meat (n)",
+        "es-419": "carne (n)",
+        "it": "carne (n)",
+        "nl": "vlees (n)"
+      }
+    },
+    "κοτόπουλο": {
+      "lemma": "κοτόπουλο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chicken (n)",
+        "es-419": "pollo (n)",
+        "it": "pollo (n)",
+        "nl": "kip (n)"
+      }
+    },
+    "ρύζι": {
+      "lemma": "ρύζι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rice (n)",
+        "es-419": "arroz (n)",
+        "it": "riso (n)",
+        "nl": "rijst (n)"
+      }
+    },
+    "πίτσα": {
+      "lemma": "πίτσα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pizza (f)",
+        "es-419": "pizza (f)",
+        "it": "pizza (f)",
+        "nl": "pizza (f)"
+      }
+    },
+    "ομελέτα": {
+      "lemma": "ομελέτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "omelet (f)",
+        "es-419": "omelette (f)",
+        "it": "omelette, frittata (f)",
+        "nl": "omelet (f)"
+      }
+    },
+    "θα": {
+      "lemma": "θα",
+      "pos": "PART",
+      "gloss": {
+        "en": "will (marks the future): θα πάρω = I'll have",
+        "es-419": "marca el futuro: θα πάρω = voy a pedir",
+        "it": "segna il futuro: θα πάρω = prendo",
+        "nl": "geeft de toekomst aan: θα πάρω = ik neem"
+      }
+    },
+    "πάρω": {
+      "lemma": "παίρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I take, I have (after θα)",
+        "es-419": "tome, pida (después de θα)",
+        "it": "prendo (dopo θα)",
+        "nl": "ik neem (na θα)"
+      }
+    },
+    "με": {
+      "lemma": "με",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "μακαρόνια": {
+      "lemma": "μακαρόνια",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pasta, spaghetti (always plural) (n)",
+        "es-419": "pasta, espaguetis (siempre plural) (n)",
+        "it": "pasta, spaghetti (sempre plurale) (n)",
+        "nl": "pasta, spaghetti (altijd meervoud) (n)"
+      }
+    },
+    "τυρί": {
+      "lemma": "τυρί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cheese (n)",
+        "es-419": "queso (n)",
+        "it": "formaggio (n)",
+        "nl": "kaas (n)"
+      }
+    },
+    "εγώ": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I (emphasis)",
+        "es-419": "yo (con énfasis)",
+        "it": "io (con enfasi)",
+        "nl": "ik (nadruk)"
+      }
+    },
+    "πάρουμε": {
+      "lemma": "παίρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we take, we have (after θα)",
+        "es-419": "tomemos, pidamos (después de θα)",
+        "it": "prendiamo (dopo θα)",
+        "nl": "wij nemen (na θα)"
+      }
+    },
+    "πίτσες": {
+      "lemma": "πίτσα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pizzas (plural of πίτσα) (f)",
+        "es-419": "pizzas (plural de πίτσα) (f)",
+        "it": "pizze (plurale di πίτσα) (f)",
+        "nl": "pizza's (meervoud van πίτσα) (f)"
+      }
+    },
+    "τρώω": {
+      "lemma": "τρώω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I eat",
+        "es-419": "como",
+        "it": "mangio",
+        "nl": "ik eet"
+      }
+    },
+    "χοιρινό": {
+      "lemma": "χοιρινό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pork (n)",
+        "es-419": "cerdo (n)",
+        "it": "maiale (n)",
+        "nl": "varkensvlees (n)"
+      }
+    },
+    "έχει": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "he, she, it has",
+        "es-419": "tiene, lleva",
+        "it": "ha",
+        "nl": "heeft"
+      }
+    },
+    "τρία": {
+      "lemma": "τρεις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three (neuter)",
+        "es-419": "tres (neutro)",
+        "it": "tre (neutro)",
+        "nl": "drie (onzijdig)"
+      }
+    },
+    "αυγά": {
+      "lemma": "αυγό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "eggs (plural of αυγό) (n)",
+        "es-419": "huevos (plural de αυγό) (n)",
+        "it": "uova (plurale di αυγό) (n)",
+        "nl": "eieren (meervoud van αυγό) (n)"
+      }
+    },
+    "ζαμπόν": {
+      "lemma": "ζαμπόν",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ham (n)",
+        "es-419": "jamón (n)",
+        "it": "prosciutto (n)",
+        "nl": "ham (n)"
+      }
+    },
+    "πατάτες": {
+      "lemma": "πατάτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "potatoes (plural of πατάτα) (f)",
+        "es-419": "papas (plural de πατάτα) (f)",
+        "it": "patate (plurale di πατάτα) (f)",
+        "nl": "aardappelen (meervoud van πατάτα) (f)"
+      }
+    },
+    "μουσακάς": {
+      "lemma": "μουσακάς",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "moussaka (m)",
+        "es-419": "musaka (m)",
+        "it": "moussaka (m)",
+        "nl": "moussaka (m)"
+      }
+    },
+    "τζατζίκι": {
+      "lemma": "τζατζίκι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tzatziki (n)",
+        "es-419": "tzatziki (n)",
+        "it": "tzatziki (n)",
+        "nl": "tzatziki (n)"
+      }
+    },
+    "φέτα": {
+      "lemma": "φέτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "feta (the cheese); also a slice (f)",
+        "es-419": "feta (el queso); también una rebanada (f)",
+        "it": "feta (il formaggio); anche una fetta (f)",
+        "nl": "feta (de kaas); ook een plak (f)"
+      }
+    },
+    "μέλι": {
+      "lemma": "μέλι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "honey (n)",
+        "es-419": "miel (n)",
+        "it": "miele (n)",
+        "nl": "honing (n)"
+      }
+    },
+    "μήλο": {
+      "lemma": "μήλο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "apple (n)",
+        "es-419": "manzana (n)",
+        "it": "mela (n)",
+        "nl": "appel (n)"
+      }
+    },
+    "ντομάτα": {
+      "lemma": "ντομάτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tomato (f)",
+        "es-419": "tomate (f)",
+        "it": "pomodoro (f)",
+        "nl": "tomaat (f)"
+      }
+    },
+    "οι": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural, masculine or feminine)",
+        "es-419": "los, las",
+        "it": "i, le",
+        "nl": "de (meervoud)"
+      }
+    },
+    "ελιές": {
+      "lemma": "ελιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "olives (plural of ελιά) (f)",
+        "es-419": "aceitunas (plural de ελιά) (f)",
+        "it": "olive (plurale di ελιά) (f)",
+        "nl": "olijven (meervoud van ελιά) (f)"
+      }
+    },
+    "λάδι": {
+      "lemma": "λάδι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "oil, olive oil (n)",
+        "es-419": "aceite (n)",
+        "it": "olio (n)",
+        "nl": "olie (n)"
+      }
+    },
+    "αλάτι": {
+      "lemma": "αλάτι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salt (n)",
+        "es-419": "sal (n)",
+        "it": "sale (n)",
+        "nl": "zout (n)"
+      }
+    },
+    "γιαούρτι": {
+      "lemma": "γιαούρτι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "yogurt (n)",
+        "es-419": "yogur (n)",
+        "it": "yogurt (n)",
+        "nl": "yoghurt (n)"
+      }
+    },
+    "αγγούρι": {
+      "lemma": "αγγούρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cucumber (n)",
+        "es-419": "pepino (n)",
+        "it": "cetriolo (n)",
+        "nl": "komkommer (n)"
+      }
+    },
+    "έναν": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (masculine, accusative)",
+        "es-419": "un, uno (masculino, acusativo)",
+        "it": "un, uno (maschile, accusativo)",
+        "nl": "een, één (mannelijk, accusatief)"
+      }
+    },
+    "μουσακά": {
+      "lemma": "μουσακάς",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "moussaka (accusative) (m)",
+        "es-419": "musaka (acusativo) (m)",
+        "it": "moussaka (accusativo) (m)",
+        "nl": "moussaka (accusatief) (m)"
+      }
+    },
+    "σουβλάκι": {
+      "lemma": "σουβλάκι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "souvlaki (n)",
+        "es-419": "souvlaki (n)",
+        "it": "souvlaki (n)",
+        "nl": "souvlaki (n)"
+      }
+    },
+    "κρεμμύδι": {
+      "lemma": "κρεμμύδι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "onion (n)",
+        "es-419": "cebolla (n)",
+        "it": "cipolla (n)",
+        "nl": "ui (n)"
+      }
+    },
+    "πιπέρι": {
+      "lemma": "πιπέρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pepper (n)",
+        "es-419": "pimienta (n)",
+        "it": "pepe (n)",
+        "nl": "peper (n)"
+      }
+    },
+    "μπανάνα": {
+      "lemma": "μπανάνα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "banana (f)",
+        "es-419": "banana (f)",
+        "it": "banana (f)",
+        "nl": "banaan (f)"
+      }
+    },
+    "πολλά": {
+      "lemma": "πολύς",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "many, a lot of (neuter plural)",
+        "es-419": "muchos, muchas (neutro plural)",
+        "it": "molti, molte (neutro plurale)",
+        "nl": "veel (onzijdig meervoud)"
+      }
+    },
+    "φρούτα": {
+      "lemma": "φρούτο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fruit (plural of φρούτο) (n)",
+        "es-419": "frutas (plural de φρούτο) (n)",
+        "it": "frutta (plurale di φρούτο) (n)",
+        "nl": "fruit (meervoud van φρούτο) (n)"
+      }
+    },
+    "λαχανικά": {
+      "lemma": "λαχανικό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vegetables (plural of λαχανικό) (n)",
+        "es-419": "verduras (plural de λαχανικό) (n)",
+        "it": "verdura, verdure (plurale di λαχανικό) (n)",
+        "nl": "groenten (meervoud van λαχανικό) (n)"
+      }
+    },
+    "επιδόρπιο": {
+      "lemma": "επιδόρπιο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dessert (n)",
+        "es-419": "postre (n)",
+        "it": "dolce, dessert (n)",
+        "nl": "nagerecht (n)"
+      }
+    },
+    "νόστιμος": {
+      "lemma": "νόστιμος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tasty, delicious",
+        "es-419": "sabroso, rico",
+        "it": "buono, gustoso",
+        "nl": "lekker, smakelijk"
+      }
+    },
+    "φρέσκος": {
+      "lemma": "φρέσκος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fresh",
+        "es-419": "fresco",
+        "it": "fresco",
+        "nl": "vers"
+      }
+    },
+    "γλυκός": {
+      "lemma": "γλυκός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sweet",
+        "es-419": "dulce",
+        "it": "dolce",
+        "nl": "zoet"
+      }
+    },
+    "αλμυρός": {
+      "lemma": "αλμυρός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "salty",
+        "es-419": "salado",
+        "it": "salato",
+        "nl": "zout"
+      }
+    },
+    "καυτός": {
+      "lemma": "καυτός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "hot, boiling hot",
+        "es-419": "caliente, hirviendo",
+        "it": "bollente",
+        "nl": "heet, kokend heet"
+      }
+    },
+    "χορτοφάγος": {
+      "lemma": "χορτοφάγος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "vegetarian (same form for men and women)",
+        "es-419": "vegetariano, vegetariana (misma forma para hombre y mujer)",
+        "it": "vegetariano, vegetariana (stessa forma per uomo e donna)",
+        "nl": "vegetarisch, vegetariër (zelfde vorm voor man en vrouw)"
+      }
+    },
+    "ψητό": {
+      "lemma": "ψητός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "roasted, grilled (neuter)",
+        "es-419": "asado, a la parrilla (neutro)",
+        "it": "arrosto, alla griglia (neutro)",
+        "nl": "gebraden, gegrild (onzijdig)"
+      }
+    },
+    "τηγανητές": {
+      "lemma": "τηγανητός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fried (feminine plural)",
+        "es-419": "fritas (femenino plural)",
+        "it": "fritte (femminile plurale)",
+        "nl": "gebakken (vrouwelijk meervoud)"
+      }
+    },
+    "βραστά": {
+      "lemma": "βραστός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "boiled (neuter plural)",
+        "es-419": "hervidos, cocidos (neutro plural)",
+        "it": "bolliti, sodi (neutro plurale)",
+        "nl": "gekookt (onzijdig meervoud)"
+      }
+    },
+    "φρέσκο": {
+      "lemma": "φρέσκος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fresh (neuter)",
+        "es-419": "fresco (neutro)",
+        "it": "fresco (neutro)",
+        "nl": "vers (onzijdig)"
+      }
+    },
+    "νόστιμο": {
+      "lemma": "νόστιμος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tasty, delicious (neuter)",
+        "es-419": "sabroso, rico (neutro)",
+        "it": "buono, gustoso (neutro)",
+        "nl": "lekker, smakelijk (onzijdig)"
+      }
+    },
+    "πολύ": {
+      "lemma": "πολύς",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "very, a lot",
+        "es-419": "muy, mucho",
+        "it": "molto",
+        "nl": "heel, veel"
+      }
+    },
+    "γλυκό": {
+      "lemma": "γλυκός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sweet (neuter)",
+        "es-419": "dulce (neutro)",
+        "it": "dolce (neutro)",
+        "nl": "zoet (onzijdig)"
+      }
+    },
+    "καυτή": {
+      "lemma": "καυτός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "hot, boiling hot (feminine)",
+        "es-419": "caliente, hirviendo (femenino)",
+        "it": "bollente (femminile)",
+        "nl": "heet, kokend heet (vrouwelijk)"
+      }
+    },
+    "είμαι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "I am",
+        "es-419": "soy, estoy",
+        "it": "sono",
+        "nl": "ik ben"
+      }
+    },
+    "γιατί": {
+      "lemma": "γιατί",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "because, why",
+        "es-419": "porque, por qué",
+        "it": "perché",
+        "nl": "want, waarom"
+      }
+    },
+    "φαγητό": {
+      "lemma": "φαγητό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "food, meal (n)",
+        "es-419": "comida (n)",
+        "it": "cibo, pasto (n)",
+        "nl": "eten, maaltijd (n)"
+      }
+    },
+    "ποτό": {
+      "lemma": "ποτό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "drink (n)",
+        "es-419": "bebida (n)",
+        "it": "bevanda (n)",
+        "nl": "drankje (n)"
+      }
+    },
+    "μερίδα": {
+      "lemma": "μερίδα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "portion, serving (f)",
+        "es-419": "porción (f)",
+        "it": "porzione (f)",
+        "nl": "portie (f)"
+      }
+    },
+    "πεινάω": {
+      "lemma": "πεινάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'm hungry",
+        "es-419": "tengo hambre",
+        "it": "ho fame",
+        "nl": "ik heb honger"
+      }
+    },
+    "διψάω": {
+      "lemma": "διψάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'm thirsty",
+        "es-419": "tengo sed",
+        "it": "ho sete",
+        "nl": "ik heb dorst"
+      }
+    },
+    "προτιμάω": {
+      "lemma": "προτιμάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I prefer",
+        "es-419": "prefiero",
+        "it": "preferisco",
+        "nl": "ik geef de voorkeur aan, ik heb liever"
+      }
+    },
+    "αρέσει": {
+      "lemma": "αρέσω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "it pleases: μου αρέσει = I like it",
+        "es-419": "gusta: μου αρέσει = me gusta",
+        "it": "piace: μου αρέσει = mi piace",
+        "nl": "bevalt: μου αρέσει = ik hou ervan"
+      }
+    },
+    "αρέσουν": {
+      "lemma": "αρέσω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they please: μου αρέσουν = I like them",
+        "es-419": "gustan: μου αρέσουν = me gustan",
+        "it": "piacciono: μου αρέσουν = mi piacciono",
+        "nl": "bevallen: μου αρέσουν = ik hou ervan"
+      }
+    },
+    "σου": {
+      "lemma": "εσύ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "your, to you (clitic)",
+        "es-419": "tu, te (clítico)",
+        "it": "tuo, ti (clitico)",
+        "nl": "jouw, je (clitisch)"
+      }
+    },
+    "τα": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter plural)",
+        "es-419": "los, las (neutro plural)",
+        "it": "i, le (neutro plurale)",
+        "nl": "de (onzijdig meervoud)"
+      }
+    },
+    "αλλά": {
+      "lemma": "αλλά",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "προτιμάς": {
+      "lemma": "προτιμάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you prefer (informal)",
+        "es-419": "prefieres",
+        "it": "preferisci",
+        "nl": "jij geeft de voorkeur aan, jij hebt liever"
+      }
+    },
+    "ή": {
+      "lemma": "ή",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "es-419": "o",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "μπύρα": {
+      "lemma": "μπύρα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beer (f)",
+        "es-419": "cerveza (f)",
+        "it": "birra (f)",
+        "nl": "bier (f)"
+      }
+    },
+    "από": {
+      "lemma": "από",
+      "pos": "ADP",
+      "gloss": {
+        "en": "from; also than, to in prefer A to B",
+        "es-419": "de, desde; también a en preferir A a B",
+        "it": "da; anche a in preferire A a B",
+        "nl": "van, uit; ook dan in liever A dan B"
+      }
+    },
+    "τι": {
+      "lemma": "τι",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what",
+        "es-419": "qué",
+        "it": "che cosa, cosa",
+        "nl": "wat"
+      }
+    },
+    "θέλετε": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you want (formal or plural)",
+        "es-419": "usted quiere, ustedes quieren",
+        "it": "Lei vuole, voi volete",
+        "nl": "u wilt, jullie willen"
+      }
+    },
+    "παραγγείλετε": {
+      "lemma": "παραγγέλνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you order (formal or plural, after να)",
+        "es-419": "usted pide, ustedes piden (después de να)",
+        "it": "Lei ordina, voi ordinate (dopo να)",
+        "nl": "u bestelt, jullie bestellen (na να)"
+      }
+    },
+    "μπορείτε": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (formal or plural)",
+        "es-419": "usted puede, ustedes pueden",
+        "it": "Lei può, voi potete",
+        "nl": "u kunt, jullie kunnen"
+      }
+    },
+    "φέρετε": {
+      "lemma": "φέρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you bring (formal or plural, after να)",
+        "es-419": "usted trae, ustedes traen (después de να)",
+        "it": "Lei porta, voi portate (dopo να)",
+        "nl": "u brengt, jullie brengen (na να)"
+      }
+    },
+    "τον": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine, accusative)",
+        "es-419": "el (masculino, acusativo)",
+        "it": "il, lo (maschile, accusativo)",
+        "nl": "de (mannelijk, accusatief)"
+      }
+    },
+    "λογαριασμό": {
+      "lemma": "λογαριασμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bill, check (accusative) (m)",
+        "es-419": "cuenta (acusativo) (m)",
+        "it": "conto (accusativo) (m)",
+        "nl": "rekening (accusatief) (m)"
+      }
+    },
+    "φέρνω": {
+      "lemma": "φέρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I bring",
+        "es-419": "traigo, llevo",
+        "it": "porto",
+        "nl": "ik breng"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "el-a1-trapezi-1",
+      "title": "Κλείνω τραπέζι",
+      "grammarFocus": {
+        "en": [
+          "θέλω να κλείσω / μπορώ να κλείσω: να + verb as a chunk",
+          "για + number + άτομα: for two people (δύο, τρία, τέσσερα)",
+          "ελεύθερο agrees with the neuter τραπέζι; ένα, μία and ένα go with the noun"
+        ],
+        "es-419": [
+          "θέλω να κλείσω / μπορώ να κλείσω: να + verbo, como bloque fijo",
+          "για + número + άτομα: para dos personas (δύο, τρία, τέσσερα)",
+          "ελεύθερο concuerda con el neutro τραπέζι; ένα, μία y ένα van con el nombre"
+        ],
+        "it": [
+          "θέλω να κλείσω / μπορώ να κλείσω: να + verbo, come blocco fisso",
+          "για + numero + άτομα: per due persone (δύο, τρία, τέσσερα)",
+          "ελεύθερο concorda con il neutro τραπέζι; ένα, μία e ένα vanno con il nome"
+        ],
+        "nl": [
+          "θέλω να κλείσω / μπορώ να κλείσω: να + werkwoord, als vaste combinatie",
+          "για + getal + άτομα: voor twee personen (δύο, τρία, τέσσερα)",
+          "ελεύθερο past bij het onzijdige τραπέζι; ένα, μία en ένα horen bij het zelfstandig naamwoord"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "κράτηση",
+          "translation": {
+            "en": "reservation",
+            "es-419": "reserva",
+            "it": "prenotazione",
+            "nl": "reservering"
+          },
+          "distractors": {
+            "en": [
+              "table",
+              "person"
+            ],
+            "es-419": [
+              "mesa",
+              "persona"
+            ],
+            "it": [
+              "tavolo",
+              "persona"
+            ],
+            "nl": [
+              "tafel",
+              "persoon"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "τραπέζι",
+          "translation": {
+            "en": "table",
+            "es-419": "mesa",
+            "it": "tavolo",
+            "nl": "tafel"
+          },
+          "distractors": {
+            "en": [
+              "menu",
+              "plate"
+            ],
+            "es-419": [
+              "menú",
+              "plato"
+            ],
+            "it": [
+              "menù",
+              "piatto"
+            ],
+            "nl": [
+              "menukaart",
+              "bord"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "άτομο",
+          "translation": {
+            "en": "person",
+            "es-419": "persona",
+            "it": "persona",
+            "nl": "persoon"
+          },
+          "distractors": {
+            "en": [
+              "table",
+              "family"
+            ],
+            "es-419": [
+              "mesa",
+              "familia"
+            ],
+            "it": [
+              "tavolo",
+              "famiglia"
+            ],
+            "nl": [
+              "tafel",
+              "gezin"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "ελεύθερος",
+          "translation": {
+            "en": "free, available",
+            "es-419": "libre, disponible",
+            "it": "libero, disponibile",
+            "nl": "vrij, beschikbaar"
+          },
+          "distractors": {
+            "en": [
+              "closed",
+              "small"
+            ],
+            "es-419": [
+              "cerrado",
+              "pequeño"
+            ],
+            "it": [
+              "chiuso",
+              "piccolo"
+            ],
+            "nl": [
+              "gesloten",
+              "klein"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "κλείνω",
+          "translation": {
+            "en": "I book, I close",
+            "es-419": "reservo, cierro",
+            "it": "prenoto, chiudo",
+            "nl": "ik reserveer, ik sluit"
+          },
+          "distractors": {
+            "en": [
+              "I pay",
+              "I bring"
+            ],
+            "es-419": [
+              "pago",
+              "traigo"
+            ],
+            "it": [
+              "pago",
+              "porto"
+            ],
+            "nl": [
+              "ik betaal",
+              "ik breng"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ένα τραπέζι",
+          "translation": {
+            "en": "a table",
+            "es-419": "una mesa",
+            "it": "un tavolo",
+            "nl": "een tafel"
+          },
+          "distractors": {
+            "en": [
+              "a menu",
+              "a bottle"
+            ],
+            "es-419": [
+              "un menú",
+              "una botella"
+            ],
+            "it": [
+              "un menù",
+              "una bottiglia"
+            ],
+            "nl": [
+              "een menukaart",
+              "een fles"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μία κράτηση",
+          "translation": {
+            "en": "a reservation",
+            "es-419": "una reserva",
+            "it": "una prenotazione",
+            "nl": "een reservering"
+          },
+          "distractors": {
+            "en": [
+              "a table",
+              "a person"
+            ],
+            "es-419": [
+              "una mesa",
+              "una persona"
+            ],
+            "it": [
+              "un tavolo",
+              "una persona"
+            ],
+            "nl": [
+              "een tafel",
+              "een persoon"
+            ]
+          },
+          "variants": [
+            "μια κράτηση"
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δύο άτομα",
+          "translation": {
+            "en": "two people",
+            "es-419": "dos personas",
+            "it": "due persone",
+            "nl": "twee personen"
+          },
+          "distractors": {
+            "en": [
+              "three people",
+              "two tables"
+            ],
+            "es-419": [
+              "tres personas",
+              "dos mesas"
+            ],
+            "it": [
+              "tre persone",
+              "due tavoli"
+            ],
+            "nl": [
+              "drie personen",
+              "twee tafels"
+            ]
+          },
+          "variants": [
+            "δυο άτομα",
+            "2 άτομα"
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "για δύο άτομα",
+          "translation": {
+            "en": "for two people",
+            "es-419": "para dos personas",
+            "it": "per due persone",
+            "nl": "voor twee personen"
+          },
+          "distractors": {
+            "en": [
+              "for three people",
+              "for two tables"
+            ],
+            "es-419": [
+              "para tres personas",
+              "para dos mesas"
+            ],
+            "it": [
+              "per tre persone",
+              "per due tavoli"
+            ],
+            "nl": [
+              "voor drie personen",
+              "voor twee tafels"
+            ]
+          },
+          "variants": [
+            "για δυο άτομα",
+            "για 2 άτομα"
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "για τέσσερα άτομα",
+          "translation": {
+            "en": "for four people",
+            "es-419": "para cuatro personas",
+            "it": "per quattro persone",
+            "nl": "voor vier personen"
+          },
+          "distractors": {
+            "en": [
+              "for five people",
+              "for ten people"
+            ],
+            "es-419": [
+              "para cinco personas",
+              "para diez personas"
+            ],
+            "it": [
+              "per cinque persone",
+              "per dieci persone"
+            ],
+            "nl": [
+              "voor vijf personen",
+              "voor tien personen"
+            ]
+          },
+          "variants": [
+            "για 4 άτομα"
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω μία κράτηση.",
+          "translation": {
+            "en": "I have a reservation.",
+            "es-419": "Tengo una reserva.",
+            "it": "Ho una prenotazione.",
+            "nl": "Ik heb een reservering."
+          },
+          "distractors": {
+            "en": [
+              "I have a table.",
+              "I want a reservation."
+            ],
+            "es-419": [
+              "Tengo una mesa.",
+              "Quiero una reserva."
+            ],
+            "it": [
+              "Ho un tavolo.",
+              "Voglio una prenotazione."
+            ],
+            "nl": [
+              "Ik heb een tafel.",
+              "Ik wil een reservering."
+            ]
+          },
+          "variants": [
+            "Έχω μια κράτηση."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το τραπέζι είναι ελεύθερο.",
+          "translation": {
+            "en": "The table is free.",
+            "es-419": "La mesa está libre.",
+            "it": "Il tavolo è libero.",
+            "nl": "De tafel is vrij."
+          },
+          "distractors": {
+            "en": [
+              "The table is small.",
+              "The table is not free."
+            ],
+            "es-419": [
+              "La mesa es pequeña.",
+              "La mesa no está libre."
+            ],
+            "it": [
+              "Il tavolo è piccolo.",
+              "Il tavolo non è libero."
+            ],
+            "nl": [
+              "De tafel is klein.",
+              "De tafel is niet vrij."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχετε ελεύθερο τραπέζι;",
+          "translation": {
+            "en": "Do you have a free table?",
+            "es-419": "¿Tienen una mesa libre?",
+            "it": "Avete un tavolo libero?",
+            "nl": "Hebt u een tafel vrij?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have a big table?",
+              "Do you have two free tables?"
+            ],
+            "es-419": [
+              "¿Tienen una mesa grande?",
+              "¿Tienen dos mesas libres?"
+            ],
+            "it": [
+              "Avete un tavolo grande?",
+              "Avete due tavoli liberi?"
+            ],
+            "nl": [
+              "Hebt u een grote tafel?",
+              "Hebt u twee tafels vrij?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν υπάρχει ελεύθερο τραπέζι.",
+          "translation": {
+            "en": "There is no free table.",
+            "es-419": "No hay ninguna mesa libre.",
+            "it": "Non c'è nessun tavolo libero.",
+            "nl": "Er is geen tafel vrij."
+          },
+          "distractors": {
+            "en": [
+              "There is a free table.",
+              "There is no big table."
+            ],
+            "es-419": [
+              "Hay una mesa libre.",
+              "No hay ninguna mesa grande."
+            ],
+            "it": [
+              "C'è un tavolo libero.",
+              "Non c'è nessun tavolo grande."
+            ],
+            "nl": [
+              "Er is een tafel vrij.",
+              "Er is geen grote tafel."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η κράτηση είναι στο όνομά μου.",
+          "translation": {
+            "en": "The reservation is under my name.",
+            "es-419": "La reserva está a mi nombre.",
+            "it": "La prenotazione è a mio nome.",
+            "nl": "De reservering staat op mijn naam."
+          },
+          "distractors": {
+            "en": [
+              "The reservation is under your name.",
+              "The table is under my name."
+            ],
+            "es-419": [
+              "La reserva está a su nombre.",
+              "La mesa está a mi nombre."
+            ],
+            "it": [
+              "La prenotazione è a suo nome.",
+              "Il tavolo è a mio nome."
+            ],
+            "nl": [
+              "De reservering staat op uw naam.",
+              "De tafel staat op mijn naam."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ένα τραπέζι για τέσσερα άτομα, παρακαλώ.",
+          "translation": {
+            "en": "A table for four, please.",
+            "es-419": "Una mesa para cuatro personas, por favor.",
+            "it": "Un tavolo per quattro persone, per favore.",
+            "nl": "Een tafel voor vier personen, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A table for five, please.",
+              "Two tables for four, please."
+            ],
+            "es-419": [
+              "Una mesa para cinco personas, por favor.",
+              "Dos mesas para cuatro personas, por favor."
+            ],
+            "it": [
+              "Un tavolo per cinque persone, per favore.",
+              "Due tavoli per quattro persone, per favore."
+            ],
+            "nl": [
+              "Een tafel voor vijf personen, alstublieft.",
+              "Twee tafels voor vier personen, alstublieft."
+            ]
+          },
+          "variants": [
+            "Ένα τραπέζι για 4 άτομα, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω να κλείσω ένα τραπέζι για δύο άτομα.",
+          "translation": {
+            "en": "I want to book a table for two.",
+            "es-419": "Quiero reservar una mesa para dos personas.",
+            "it": "Voglio prenotare un tavolo per due persone.",
+            "nl": "Ik wil een tafel voor twee personen reserveren."
+          },
+          "distractors": {
+            "en": [
+              "I want to book a table for three.",
+              "I want to book a table for four."
+            ],
+            "es-419": [
+              "Quiero reservar una mesa para tres personas.",
+              "Quiero reservar una mesa para cuatro personas."
+            ],
+            "it": [
+              "Voglio prenotare un tavolo per tre persone.",
+              "Voglio prenotare un tavolo per quattro persone."
+            ],
+            "nl": [
+              "Ik wil een tafel voor drie personen reserveren.",
+              "Ik wil een tafel voor vier personen reserveren."
+            ]
+          },
+          "variants": [
+            "Θέλω να κλείσω ένα τραπέζι για δυο άτομα.",
+            "Θέλω να κλείσω ένα τραπέζι για 2 άτομα."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ να κλείσω ένα τραπέζι για αύριο το βράδυ;",
+          "translation": {
+            "en": "Can I book a table for tomorrow evening?",
+            "es-419": "¿Puedo reservar una mesa para mañana por la noche?",
+            "it": "Posso prenotare un tavolo per domani sera?",
+            "nl": "Kan ik een tafel voor morgenavond reserveren?"
+          },
+          "distractors": {
+            "en": [
+              "Can I book a table for tomorrow morning?",
+              "Can I book two tables for tomorrow evening?"
+            ],
+            "es-419": [
+              "¿Puedo reservar una mesa para mañana por la mañana?",
+              "¿Puedo reservar dos mesas para mañana por la noche?"
+            ],
+            "it": [
+              "Posso prenotare un tavolo per domani mattina?",
+              "Posso prenotare due tavoli per domani sera?"
+            ],
+            "nl": [
+              "Kan ik een tafel voor morgenochtend reserveren?",
+              "Kan ik twee tafels voor morgenavond reserveren?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-1-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ να κλείσω ένα τραπέζι στις οκτώ;",
+          "translation": {
+            "en": "Can I book a table at eight?",
+            "es-419": "¿Puedo reservar una mesa a las ocho?",
+            "it": "Posso prenotare un tavolo alle otto?",
+            "nl": "Kan ik een tafel om acht uur reserveren?"
+          },
+          "distractors": {
+            "en": [
+              "Can I book a table at six?",
+              "Can I book a table at nine?"
+            ],
+            "es-419": [
+              "¿Puedo reservar una mesa a las seis?",
+              "¿Puedo reservar una mesa a las nueve?"
+            ],
+            "it": [
+              "Posso prenotare un tavolo alle sei?",
+              "Posso prenotare un tavolo alle nove?"
+            ],
+            "nl": [
+              "Kan ik een tafel om zes uur reserveren?",
+              "Kan ik een tafel om negen uur reserveren?"
+            ]
+          },
+          "variants": [
+            "Μπορώ να κλείσω ένα τραπέζι στις 8;"
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-1-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω να κλείσω ένα τραπέζι για τέσσερα άτομα, στις οκτώ.",
+          "translation": {
+            "en": "I want to book a table for four people, at eight.",
+            "es-419": "Quiero reservar una mesa para cuatro personas, a las ocho.",
+            "it": "Voglio prenotare un tavolo per quattro persone, alle otto.",
+            "nl": "Ik wil een tafel voor vier personen reserveren, om acht uur."
+          },
+          "distractors": {
+            "en": [
+              "I want to book a table for five people, at eight.",
+              "I want to book a table for four people, at nine."
+            ],
+            "es-419": [
+              "Quiero reservar una mesa para cinco personas, a las ocho.",
+              "Quiero reservar una mesa para cuatro personas, a las nueve."
+            ],
+            "it": [
+              "Voglio prenotare un tavolo per cinque persone, alle otto.",
+              "Voglio prenotare un tavolo per quattro persone, alle nove."
+            ],
+            "nl": [
+              "Ik wil een tafel voor vijf personen reserveren, om acht uur.",
+              "Ik wil een tafel voor vier personen reserveren, om negen uur."
+            ]
+          },
+          "variants": [
+            "Θέλω να κλείσω ένα τραπέζι για τέσσερα άτομα, στις 8.",
+            "Θέλω να κλείσω ένα τραπέζι για 4 άτομα, στις οκτώ.",
+            "Θέλω να κλείσω ένα τραπέζι για 4 άτομα, στις 8."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-trapezi-2",
+      "title": "Πιάτα και ποτήρια",
+      "grammarFocus": {
+        "en": [
+          "μπορώ να έχω...; and θέλω + accusative for asking at the table",
+          "a glass of water, a bottle of wine: ποτήρι / μπουκάλι + the drink, no word for of",
+          "δεν έχω + noun: no article after a negated έχω"
+        ],
+        "es-419": [
+          "μπορώ να έχω...; y θέλω + acusativo para pedir en la mesa",
+          "un vaso de agua, una botella de vino: ποτήρι / μπουκάλι + la bebida, sin palabra para de",
+          "δεν έχω + nombre: sin artículo después de έχω negado"
+        ],
+        "it": [
+          "μπορώ να έχω...; e θέλω + accusativo per chiedere a tavola",
+          "un bicchiere d'acqua, una bottiglia di vino: ποτήρι / μπουκάλι + la bevanda, senza parola per di",
+          "δεν έχω + nome: senza articolo dopo έχω negato"
+        ],
+        "nl": [
+          "μπορώ να έχω...; en θέλω + accusatief om aan tafel iets te vragen",
+          "een glas water, een fles wijn: ποτήρι / μπουκάλι + de drank, zonder woord voor van",
+          "δεν έχω + zelfstandig naamwoord: geen lidwoord na een ontkend έχω"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "μενού",
+          "translation": {
+            "en": "menu",
+            "es-419": "menú",
+            "it": "menù",
+            "nl": "menukaart"
+          },
+          "distractors": {
+            "en": [
+              "bill",
+              "plate"
+            ],
+            "es-419": [
+              "cuenta",
+              "plato"
+            ],
+            "it": [
+              "conto",
+              "piatto"
+            ],
+            "nl": [
+              "rekening",
+              "bord"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "πιάτο",
+          "translation": {
+            "en": "plate, dish",
+            "es-419": "plato",
+            "it": "piatto",
+            "nl": "bord"
+          },
+          "distractors": {
+            "en": [
+              "glass",
+              "spoon"
+            ],
+            "es-419": [
+              "vaso",
+              "cuchara"
+            ],
+            "it": [
+              "bicchiere",
+              "cucchiaio"
+            ],
+            "nl": [
+              "glas",
+              "lepel"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "ποτήρι",
+          "translation": {
+            "en": "glass",
+            "es-419": "vaso",
+            "it": "bicchiere",
+            "nl": "glas"
+          },
+          "distractors": {
+            "en": [
+              "bottle",
+              "plate"
+            ],
+            "es-419": [
+              "botella",
+              "plato"
+            ],
+            "it": [
+              "bottiglia",
+              "piatto"
+            ],
+            "nl": [
+              "fles",
+              "bord"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "μαχαίρι",
+          "translation": {
+            "en": "knife",
+            "es-419": "cuchillo",
+            "it": "coltello",
+            "nl": "mes"
+          },
+          "distractors": {
+            "en": [
+              "fork",
+              "spoon"
+            ],
+            "es-419": [
+              "tenedor",
+              "cuchara"
+            ],
+            "it": [
+              "forchetta",
+              "cucchiaio"
+            ],
+            "nl": [
+              "vork",
+              "lepel"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "πιρούνι",
+          "translation": {
+            "en": "fork",
+            "es-419": "tenedor",
+            "it": "forchetta",
+            "nl": "vork"
+          },
+          "distractors": {
+            "en": [
+              "knife",
+              "spoon"
+            ],
+            "es-419": [
+              "cuchillo",
+              "cuchara"
+            ],
+            "it": [
+              "coltello",
+              "cucchiaio"
+            ],
+            "nl": [
+              "mes",
+              "lepel"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "κουτάλι",
+          "translation": {
+            "en": "spoon",
+            "es-419": "cuchara",
+            "it": "cucchiaio",
+            "nl": "lepel"
+          },
+          "distractors": {
+            "en": [
+              "knife",
+              "fork"
+            ],
+            "es-419": [
+              "cuchillo",
+              "tenedor"
+            ],
+            "it": [
+              "coltello",
+              "forchetta"
+            ],
+            "nl": [
+              "mes",
+              "vork"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "μπουκάλι",
+          "translation": {
+            "en": "bottle",
+            "es-419": "botella",
+            "it": "bottiglia",
+            "nl": "fles"
+          },
+          "distractors": {
+            "en": [
+              "glass",
+              "plate"
+            ],
+            "es-419": [
+              "vaso",
+              "plato"
+            ],
+            "it": [
+              "bicchiere",
+              "piatto"
+            ],
+            "nl": [
+              "glas",
+              "bord"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "το μενού",
+          "translation": {
+            "en": "the menu",
+            "es-419": "el menú",
+            "it": "il menù",
+            "nl": "de menukaart"
+          },
+          "distractors": {
+            "en": [
+              "the bill",
+              "the table"
+            ],
+            "es-419": [
+              "la cuenta",
+              "la mesa"
+            ],
+            "it": [
+              "il conto",
+              "il tavolo"
+            ],
+            "nl": [
+              "de rekening",
+              "de tafel"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ένα μπουκάλι κρασί",
+          "translation": {
+            "en": "a bottle of wine",
+            "es-419": "una botella de vino",
+            "it": "una bottiglia di vino",
+            "nl": "een fles wijn"
+          },
+          "distractors": {
+            "en": [
+              "a bottle of water",
+              "a glass of wine"
+            ],
+            "es-419": [
+              "una botella de agua",
+              "un vaso de vino"
+            ],
+            "it": [
+              "una bottiglia d'acqua",
+              "un bicchiere di vino"
+            ],
+            "nl": [
+              "een fles water",
+              "een glas wijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ένα μαχαίρι και ένα πιρούνι",
+          "translation": {
+            "en": "a knife and a fork",
+            "es-419": "un cuchillo y un tenedor",
+            "it": "un coltello e una forchetta",
+            "nl": "een mes en een vork"
+          },
+          "distractors": {
+            "en": [
+              "a knife and a spoon",
+              "a fork and a spoon"
+            ],
+            "es-419": [
+              "un cuchillo y una cuchara",
+              "un tenedor y una cuchara"
+            ],
+            "it": [
+              "un coltello e un cucchiaio",
+              "una forchetta e un cucchiaio"
+            ],
+            "nl": [
+              "een mes en een lepel",
+              "een vork en een lepel"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχετε το μενού;",
+          "translation": {
+            "en": "Do you have the menu?",
+            "es-419": "¿Tienen el menú?",
+            "it": "Avete il menù?",
+            "nl": "Hebt u de menukaart?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have the bill?",
+              "Do I have the menu?"
+            ],
+            "es-419": [
+              "¿Tienen la cuenta?",
+              "¿Tengo el menú?"
+            ],
+            "it": [
+              "Avete il conto?",
+              "Ho il menù?"
+            ],
+            "nl": [
+              "Hebt u de rekening?",
+              "Heb ik de menukaart?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ να έχω το μενού, παρακαλώ;",
+          "translation": {
+            "en": "Can I have the menu, please?",
+            "es-419": "¿Me puede dar el menú, por favor?",
+            "it": "Posso avere il menù, per favore?",
+            "nl": "Mag ik de menukaart, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Can I have the bill, please?",
+              "Can I have two menus, please?"
+            ],
+            "es-419": [
+              "¿Me puede dar la cuenta, por favor?",
+              "¿Me puede dar dos menús, por favor?"
+            ],
+            "it": [
+              "Posso avere il conto, per favore?",
+              "Posso avere due menù, per favore?"
+            ],
+            "nl": [
+              "Mag ik de rekening, alstublieft?",
+              "Mag ik twee menukaarten, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω ένα ποτήρι νερό.",
+          "translation": {
+            "en": "I'd like a glass of water.",
+            "es-419": "Quiero un vaso de agua.",
+            "it": "Vorrei un bicchiere d'acqua.",
+            "nl": "Ik wil graag een glas water."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a bottle of water.",
+              "I'd like a glass of wine."
+            ],
+            "es-419": [
+              "Quiero una botella de agua.",
+              "Quiero un vaso de vino."
+            ],
+            "it": [
+              "Vorrei una bottiglia d'acqua.",
+              "Vorrei un bicchiere di vino."
+            ],
+            "nl": [
+              "Ik wil graag een fles water.",
+              "Ik wil graag een glas wijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλουμε ένα μπουκάλι νερό, παρακαλώ.",
+          "translation": {
+            "en": "We'd like a bottle of water, please.",
+            "es-419": "Queremos una botella de agua, por favor.",
+            "it": "Vorremmo una bottiglia d'acqua, per favore.",
+            "nl": "Wij willen graag een fles water, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "We'd like a bottle of wine, please.",
+              "We'd like two bottles of water, please."
+            ],
+            "es-419": [
+              "Queremos una botella de vino, por favor.",
+              "Queremos dos botellas de agua, por favor."
+            ],
+            "it": [
+              "Vorremmo una bottiglia di vino, per favore.",
+              "Vorremmo due bottiglie d'acqua, per favore."
+            ],
+            "nl": [
+              "Wij willen graag een fles wijn, alstublieft.",
+              "Wij willen graag twee flessen water, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ένα μπουκάλι κρασί και δύο ποτήρια, παρακαλώ.",
+          "translation": {
+            "en": "A bottle of wine and two glasses, please.",
+            "es-419": "Una botella de vino y dos vasos, por favor.",
+            "it": "Una bottiglia di vino e due bicchieri, per favore.",
+            "nl": "Een fles wijn en twee glazen, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "A bottle of wine and two plates, please.",
+              "A bottle of water and two glasses, please."
+            ],
+            "es-419": [
+              "Una botella de vino y dos platos, por favor.",
+              "Una botella de agua y dos vasos, por favor."
+            ],
+            "it": [
+              "Una bottiglia di vino e due piatti, per favore.",
+              "Una bottiglia d'acqua e due bicchieri, per favore."
+            ],
+            "nl": [
+              "Een fles wijn en twee borden, alstublieft.",
+              "Een fles water en twee glazen, alstublieft."
+            ]
+          },
+          "variants": [
+            "Ένα μπουκάλι κρασί και δυο ποτήρια, παρακαλώ.",
+            "Ένα μπουκάλι κρασί και 2 ποτήρια, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω πιρούνι.",
+          "translation": {
+            "en": "I don't have a fork.",
+            "es-419": "No tengo tenedor.",
+            "it": "Non ho la forchetta.",
+            "nl": "Ik heb geen vork."
+          },
+          "distractors": {
+            "en": [
+              "I don't have a knife.",
+              "I don't have a spoon."
+            ],
+            "es-419": [
+              "No tengo cuchillo.",
+              "No tengo cuchara."
+            ],
+            "it": [
+              "Non ho il coltello.",
+              "Non ho il cucchiaio."
+            ],
+            "nl": [
+              "Ik heb geen mes.",
+              "Ik heb geen lepel."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω ένα πιάτο, ένα μαχαίρι και ένα πιρούνι, παρακαλώ.",
+          "translation": {
+            "en": "I'd like a plate, a knife and a fork, please.",
+            "es-419": "Quiero un plato, un cuchillo y un tenedor, por favor.",
+            "it": "Vorrei un piatto, un coltello e una forchetta, per favore.",
+            "nl": "Ik wil graag een bord, een mes en een vork, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a plate, a knife and a spoon, please.",
+              "I'd like a glass, a knife and a fork, please."
+            ],
+            "es-419": [
+              "Quiero un plato, un cuchillo y una cuchara, por favor.",
+              "Quiero un vaso, un cuchillo y un tenedor, por favor."
+            ],
+            "it": [
+              "Vorrei un piatto, un coltello e un cucchiaio, per favore.",
+              "Vorrei un bicchiere, un coltello e una forchetta, per favore."
+            ],
+            "nl": [
+              "Ik wil graag een bord, een mes en een lepel, alstublieft.",
+              "Ik wil graag een glas, een mes en een vork, alstublieft."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-trapezi-3",
+      "title": "Τι θα πάρεις;",
+      "grammarFocus": {
+        "en": [
+          "θα πάρω: a fixed chunk for ordering (I'll have)",
+          "με + food: κοτόπουλο με ρύζι, no article and no partitive",
+          "ένα, μία, δύο with food nouns: μία σαλάτα, δύο πίτσες (plural -ες)"
+        ],
+        "es-419": [
+          "θα πάρω: bloque fijo para pedir (voy a pedir)",
+          "με + comida: κοτόπουλο με ρύζι, sin artículo ni partitivo",
+          "ένα, μία, δύο con comidas: μία σαλάτα, δύο πίτσες (plural -ες)"
+        ],
+        "it": [
+          "θα πάρω: blocco fisso per ordinare (prendo)",
+          "με + cibo: κοτόπουλο με ρύζι, senza articolo e senza partitivo",
+          "ένα, μία, δύο con i cibi: μία σαλάτα, δύο πίτσες (plurale -ες)"
+        ],
+        "nl": [
+          "θα πάρω: vaste combinatie om te bestellen (ik neem)",
+          "με + eten: κοτόπουλο με ρύζι, zonder lidwoord en zonder partitief",
+          "ένα, μία, δύο bij eten: μία σαλάτα, δύο πίτσες (meervoud -ες)"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "σαλάτα",
+          "translation": {
+            "en": "salad",
+            "es-419": "ensalada",
+            "it": "insalata",
+            "nl": "salade"
+          },
+          "distractors": {
+            "en": [
+              "soup",
+              "pizza"
+            ],
+            "es-419": [
+              "sopa",
+              "pizza"
+            ],
+            "it": [
+              "zuppa",
+              "pizza"
+            ],
+            "nl": [
+              "soep",
+              "pizza"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "σούπα",
+          "translation": {
+            "en": "soup",
+            "es-419": "sopa",
+            "it": "zuppa",
+            "nl": "soep"
+          },
+          "distractors": {
+            "en": [
+              "salad",
+              "rice"
+            ],
+            "es-419": [
+              "ensalada",
+              "arroz"
+            ],
+            "it": [
+              "insalata",
+              "riso"
+            ],
+            "nl": [
+              "salade",
+              "rijst"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "ψάρι",
+          "translation": {
+            "en": "fish",
+            "es-419": "pescado",
+            "it": "pesce",
+            "nl": "vis"
+          },
+          "distractors": {
+            "en": [
+              "meat",
+              "chicken"
+            ],
+            "es-419": [
+              "carne",
+              "pollo"
+            ],
+            "it": [
+              "carne",
+              "pollo"
+            ],
+            "nl": [
+              "vlees",
+              "kip"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "κρέας",
+          "translation": {
+            "en": "meat",
+            "es-419": "carne",
+            "it": "carne",
+            "nl": "vlees"
+          },
+          "distractors": {
+            "en": [
+              "fish",
+              "cheese"
+            ],
+            "es-419": [
+              "pescado",
+              "queso"
+            ],
+            "it": [
+              "pesce",
+              "formaggio"
+            ],
+            "nl": [
+              "vis",
+              "kaas"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "κοτόπουλο",
+          "translation": {
+            "en": "chicken",
+            "es-419": "pollo",
+            "it": "pollo",
+            "nl": "kip"
+          },
+          "distractors": {
+            "en": [
+              "fish",
+              "meat"
+            ],
+            "es-419": [
+              "pescado",
+              "carne"
+            ],
+            "it": [
+              "pesce",
+              "carne"
+            ],
+            "nl": [
+              "vis",
+              "vlees"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "ρύζι",
+          "translation": {
+            "en": "rice",
+            "es-419": "arroz",
+            "it": "riso",
+            "nl": "rijst"
+          },
+          "distractors": {
+            "en": [
+              "soup",
+              "bread"
+            ],
+            "es-419": [
+              "sopa",
+              "pan"
+            ],
+            "it": [
+              "zuppa",
+              "pane"
+            ],
+            "nl": [
+              "soep",
+              "brood"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "πίτσα",
+          "translation": {
+            "en": "pizza",
+            "es-419": "pizza",
+            "it": "pizza",
+            "nl": "pizza"
+          },
+          "distractors": {
+            "en": [
+              "salad",
+              "soup"
+            ],
+            "es-419": [
+              "ensalada",
+              "sopa"
+            ],
+            "it": [
+              "insalata",
+              "zuppa"
+            ],
+            "nl": [
+              "salade",
+              "soep"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "ομελέτα",
+          "translation": {
+            "en": "omelet",
+            "es-419": "omelette",
+            "it": "omelette",
+            "nl": "omelet"
+          },
+          "distractors": {
+            "en": [
+              "salad",
+              "pizza"
+            ],
+            "es-419": [
+              "ensalada",
+              "pizza"
+            ],
+            "it": [
+              "insalata",
+              "pizza"
+            ],
+            "nl": [
+              "salade",
+              "pizza"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "θα πάρω",
+          "translation": {
+            "en": "I'll have, I'll take",
+            "es-419": "voy a pedir, me llevo",
+            "it": "prendo, prenderò",
+            "nl": "ik neem"
+          },
+          "distractors": {
+            "en": [
+              "I'll pay",
+              "I want"
+            ],
+            "es-419": [
+              "voy a pagar",
+              "quiero"
+            ],
+            "it": [
+              "pagherò",
+              "voglio"
+            ],
+            "nl": [
+              "ik betaal",
+              "ik wil"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "κοτόπουλο με ρύζι",
+          "translation": {
+            "en": "chicken with rice",
+            "es-419": "pollo con arroz",
+            "it": "pollo con riso",
+            "nl": "kip met rijst"
+          },
+          "distractors": {
+            "en": [
+              "chicken with potatoes",
+              "fish with rice"
+            ],
+            "es-419": [
+              "pollo con papas",
+              "pescado con arroz"
+            ],
+            "it": [
+              "pollo con patate",
+              "pesce con riso"
+            ],
+            "nl": [
+              "kip met aardappelen",
+              "vis met rijst"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "μακαρόνια με τυρί",
+          "translation": {
+            "en": "pasta with cheese",
+            "es-419": "pasta con queso",
+            "it": "pasta al formaggio",
+            "nl": "pasta met kaas"
+          },
+          "distractors": {
+            "en": [
+              "pasta with ham",
+              "rice with cheese"
+            ],
+            "es-419": [
+              "pasta con jamón",
+              "arroz con queso"
+            ],
+            "it": [
+              "pasta al prosciutto",
+              "riso al formaggio"
+            ],
+            "nl": [
+              "pasta met ham",
+              "rijst met kaas"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάρω μία σαλάτα και ένα ψάρι.",
+          "translation": {
+            "en": "I'll have a salad and a fish.",
+            "es-419": "Voy a pedir una ensalada y un pescado.",
+            "it": "Prendo un'insalata e un pesce.",
+            "nl": "Ik neem een salade en een vis."
+          },
+          "distractors": {
+            "en": [
+              "I'll have a soup and a fish.",
+              "I'll have a salad and a chicken."
+            ],
+            "es-419": [
+              "Voy a pedir una sopa y un pescado.",
+              "Voy a pedir una ensalada y un pollo."
+            ],
+            "it": [
+              "Prendo una zuppa e un pesce.",
+              "Prendo un'insalata e un pollo."
+            ],
+            "nl": [
+              "Ik neem een soep en een vis.",
+              "Ik neem een salade en een kip."
+            ]
+          },
+          "variants": [
+            "Θα πάρω μια σαλάτα και ένα ψάρι."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Εγώ θα πάρω το κοτόπουλο με ρύζι.",
+          "translation": {
+            "en": "I'll have the chicken with rice.",
+            "es-419": "Yo voy a pedir el pollo con arroz.",
+            "it": "Io prendo il pollo con riso.",
+            "nl": "Ik neem de kip met rijst."
+          },
+          "distractors": {
+            "en": [
+              "I'll have the fish with rice.",
+              "I'll have the chicken with potatoes."
+            ],
+            "es-419": [
+              "Yo voy a pedir el pescado con arroz.",
+              "Yo voy a pedir el pollo con papas."
+            ],
+            "it": [
+              "Io prendo il pesce con riso.",
+              "Io prendo il pollo con patate."
+            ],
+            "nl": [
+              "Ik neem de vis met rijst.",
+              "Ik neem de kip met aardappelen."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάρουμε δύο πίτσες.",
+          "translation": {
+            "en": "We'll have two pizzas.",
+            "es-419": "Vamos a pedir dos pizzas.",
+            "it": "Prendiamo due pizze.",
+            "nl": "Wij nemen twee pizza's."
+          },
+          "distractors": {
+            "en": [
+              "We'll have three pizzas.",
+              "We'll have two salads."
+            ],
+            "es-419": [
+              "Vamos a pedir tres pizzas.",
+              "Vamos a pedir dos ensaladas."
+            ],
+            "it": [
+              "Prendiamo tre pizze.",
+              "Prendiamo due insalate."
+            ],
+            "nl": [
+              "Wij nemen drie pizza's.",
+              "Wij nemen twee salades."
+            ]
+          },
+          "variants": [
+            "Θα πάρουμε δυο πίτσες.",
+            "Θα πάρουμε 2 πίτσες."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν τρώω χοιρινό.",
+          "translation": {
+            "en": "I don't eat pork.",
+            "es-419": "No como cerdo.",
+            "it": "Non mangio il maiale.",
+            "nl": "Ik eet geen varkensvlees."
+          },
+          "distractors": {
+            "en": [
+              "I don't eat chicken.",
+              "I don't eat fish."
+            ],
+            "es-419": [
+              "No como pollo.",
+              "No como pescado."
+            ],
+            "it": [
+              "Non mangio il pollo.",
+              "Non mangio il pesce."
+            ],
+            "nl": [
+              "Ik eet geen kip.",
+              "Ik eet geen vis."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η ομελέτα έχει τρία αυγά.",
+          "translation": {
+            "en": "The omelet has three eggs.",
+            "es-419": "La omelette tiene tres huevos.",
+            "it": "L'omelette ha tre uova.",
+            "nl": "De omelet heeft drie eieren."
+          },
+          "distractors": {
+            "en": [
+              "The omelet has two eggs.",
+              "The omelet has three potatoes."
+            ],
+            "es-419": [
+              "La omelette tiene dos huevos.",
+              "La omelette tiene tres papas."
+            ],
+            "it": [
+              "L'omelette ha due uova.",
+              "L'omelette ha tre patate."
+            ],
+            "nl": [
+              "De omelet heeft twee eieren.",
+              "De omelet heeft drie aardappelen."
+            ]
+          },
+          "variants": [
+            "Η ομελέτα έχει 3 αυγά."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω μία ομελέτα με τυρί και ζαμπόν.",
+          "translation": {
+            "en": "I'd like an omelet with cheese and ham.",
+            "es-419": "Quiero una omelette con queso y jamón.",
+            "it": "Vorrei un'omelette con formaggio e prosciutto.",
+            "nl": "Ik wil graag een omelet met kaas en ham."
+          },
+          "distractors": {
+            "en": [
+              "I'd like an omelet with tomato and ham.",
+              "I'd like a salad with cheese and ham."
+            ],
+            "es-419": [
+              "Quiero una omelette con tomate y jamón.",
+              "Quiero una ensalada con queso y jamón."
+            ],
+            "it": [
+              "Vorrei un'omelette con pomodoro e prosciutto.",
+              "Vorrei un'insalata con formaggio e prosciutto."
+            ],
+            "nl": [
+              "Ik wil graag een omelet met tomaat en ham.",
+              "Ik wil graag een salade met kaas en ham."
+            ]
+          },
+          "variants": [
+            "Θέλω μια ομελέτα με τυρί και ζαμπόν."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-3-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάρω ψάρι με πατάτες και μία σαλάτα, παρακαλώ.",
+          "translation": {
+            "en": "I'll have fish with potatoes and a salad, please.",
+            "es-419": "Voy a pedir pescado con papas y una ensalada, por favor.",
+            "it": "Prendo il pesce con le patate e un'insalata, per favore.",
+            "nl": "Ik neem vis met aardappelen en een salade, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'll have chicken with potatoes and a salad, please.",
+              "I'll have fish with rice and a salad, please."
+            ],
+            "es-419": [
+              "Voy a pedir pollo con papas y una ensalada, por favor.",
+              "Voy a pedir pescado con arroz y una ensalada, por favor."
+            ],
+            "it": [
+              "Prendo il pollo con le patate e un'insalata, per favore.",
+              "Prendo il pesce con il riso e un'insalata, per favore."
+            ],
+            "nl": [
+              "Ik neem kip met aardappelen en een salade, alstublieft.",
+              "Ik neem vis met rijst en een salade, alstublieft."
+            ]
+          },
+          "variants": [
+            "Θα πάρω ψάρι με πατάτες και μια σαλάτα, παρακαλώ."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-trapezi-4",
+      "title": "Ελληνικά πιάτα και φρούτα",
+      "grammarFocus": {
+        "en": [
+          "a list of foods with commas and και: ντομάτα, αγγούρι, κρεμμύδι και ελιές",
+          "ένας / μία / ένα with the gender of the noun: έναν μουσακά, μία μπανάνα, ένα μήλο",
+          "πολλά + plural: πολλά φρούτα (no partitive)"
+        ],
+        "es-419": [
+          "una lista de comidas con comas y και: ντομάτα, αγγούρι, κρεμμύδι και ελιές",
+          "ένας / μία / ένα según el género del nombre: έναν μουσακά, μία μπανάνα, ένα μήλο",
+          "πολλά + plural: πολλά φρούτα (sin partitivo)"
+        ],
+        "it": [
+          "un elenco di cibi con virgole e και: ντομάτα, αγγούρι, κρεμμύδι και ελιές",
+          "ένας / μία / ένα secondo il genere del nome: έναν μουσακά, μία μπανάνα, ένα μήλο",
+          "πολλά + plurale: πολλά φρούτα (senza partitivo)"
+        ],
+        "nl": [
+          "een opsomming met komma's en και: ντομάτα, αγγούρι, κρεμμύδι και ελιές",
+          "ένας / μία / ένα naar het geslacht van het woord: έναν μουσακά, μία μπανάνα, ένα μήλο",
+          "πολλά + meervoud: πολλά φρούτα (geen partitief)"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "μουσακάς",
+          "translation": {
+            "en": "moussaka",
+            "es-419": "musaka",
+            "it": "moussaka",
+            "nl": "moussaka"
+          },
+          "distractors": {
+            "en": [
+              "souvlaki",
+              "tzatziki"
+            ],
+            "es-419": [
+              "souvlaki",
+              "tzatziki"
+            ],
+            "it": [
+              "souvlaki",
+              "tzatziki"
+            ],
+            "nl": [
+              "souvlaki",
+              "tzatziki"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "τζατζίκι",
+          "translation": {
+            "en": "tzatziki",
+            "es-419": "tzatziki",
+            "it": "tzatziki",
+            "nl": "tzatziki"
+          },
+          "distractors": {
+            "en": [
+              "yogurt",
+              "souvlaki"
+            ],
+            "es-419": [
+              "yogur",
+              "souvlaki"
+            ],
+            "it": [
+              "yogurt",
+              "souvlaki"
+            ],
+            "nl": [
+              "yoghurt",
+              "souvlaki"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "φέτα",
+          "translation": {
+            "en": "feta",
+            "es-419": "feta",
+            "it": "feta",
+            "nl": "feta"
+          },
+          "distractors": {
+            "en": [
+              "yogurt",
+              "olives"
+            ],
+            "es-419": [
+              "yogur",
+              "aceitunas"
+            ],
+            "it": [
+              "yogurt",
+              "olive"
+            ],
+            "nl": [
+              "yoghurt",
+              "olijven"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "μέλι",
+          "translation": {
+            "en": "honey",
+            "es-419": "miel",
+            "it": "miele",
+            "nl": "honing"
+          },
+          "distractors": {
+            "en": [
+              "milk",
+              "oil"
+            ],
+            "es-419": [
+              "leche",
+              "aceite"
+            ],
+            "it": [
+              "latte",
+              "olio"
+            ],
+            "nl": [
+              "melk",
+              "olie"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "μήλο",
+          "translation": {
+            "en": "apple",
+            "es-419": "manzana",
+            "it": "mela",
+            "nl": "appel"
+          },
+          "distractors": {
+            "en": [
+              "banana",
+              "tomato"
+            ],
+            "es-419": [
+              "banana",
+              "tomate"
+            ],
+            "it": [
+              "banana",
+              "pomodoro"
+            ],
+            "nl": [
+              "banaan",
+              "tomaat"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "ντομάτα",
+          "translation": {
+            "en": "tomato",
+            "es-419": "tomate",
+            "it": "pomodoro",
+            "nl": "tomaat"
+          },
+          "distractors": {
+            "en": [
+              "cucumber",
+              "onion"
+            ],
+            "es-419": [
+              "pepino",
+              "cebolla"
+            ],
+            "it": [
+              "cetriolo",
+              "cipolla"
+            ],
+            "nl": [
+              "komkommer",
+              "ui"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "οι ελιές",
+          "translation": {
+            "en": "the olives",
+            "es-419": "las aceitunas",
+            "it": "le olive",
+            "nl": "de olijven"
+          },
+          "distractors": {
+            "en": [
+              "the onions",
+              "the tomatoes"
+            ],
+            "es-419": [
+              "las cebollas",
+              "los tomates"
+            ],
+            "it": [
+              "le cipolle",
+              "i pomodori"
+            ],
+            "nl": [
+              "de uien",
+              "de tomaten"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "λάδι και αλάτι",
+          "translation": {
+            "en": "oil and salt",
+            "es-419": "aceite y sal",
+            "it": "olio e sale",
+            "nl": "olie en zout"
+          },
+          "distractors": {
+            "en": [
+              "oil and pepper",
+              "sugar and salt"
+            ],
+            "es-419": [
+              "aceite y pimienta",
+              "azúcar y sal"
+            ],
+            "it": [
+              "olio e pepe",
+              "zucchero e sale"
+            ],
+            "nl": [
+              "olie en peper",
+              "suiker en zout"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "γιαούρτι με μέλι",
+          "translation": {
+            "en": "yogurt with honey",
+            "es-419": "yogur con miel",
+            "it": "yogurt con miele",
+            "nl": "yoghurt met honing"
+          },
+          "distractors": {
+            "en": [
+              "yogurt with sugar",
+              "ice cream with honey"
+            ],
+            "es-419": [
+              "yogur con azúcar",
+              "helado con miel"
+            ],
+            "it": [
+              "yogurt con zucchero",
+              "gelato con miele"
+            ],
+            "nl": [
+              "yoghurt met suiker",
+              "ijs met honing"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ντομάτα και αγγούρι",
+          "translation": {
+            "en": "tomato and cucumber",
+            "es-419": "tomate y pepino",
+            "it": "pomodoro e cetriolo",
+            "nl": "tomaat en komkommer"
+          },
+          "distractors": {
+            "en": [
+              "tomato and onion",
+              "olive and cucumber"
+            ],
+            "es-419": [
+              "tomate y cebolla",
+              "aceituna y pepino"
+            ],
+            "it": [
+              "pomodoro e cipolla",
+              "oliva e cetriolo"
+            ],
+            "nl": [
+              "tomaat en ui",
+              "olijf en komkommer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάρω έναν μουσακά.",
+          "translation": {
+            "en": "I'll have a moussaka.",
+            "es-419": "Voy a pedir una musaka.",
+            "it": "Prendo una moussaka.",
+            "nl": "Ik neem een moussaka."
+          },
+          "distractors": {
+            "en": [
+              "I'll have a souvlaki.",
+              "I'll have a salad."
+            ],
+            "es-419": [
+              "Voy a pedir un souvlaki.",
+              "Voy a pedir una ensalada."
+            ],
+            "it": [
+              "Prendo un souvlaki.",
+              "Prendo un'insalata."
+            ],
+            "nl": [
+              "Ik neem een souvlaki.",
+              "Ik neem een salade."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω ένα σουβλάκι με τζατζίκι.",
+          "translation": {
+            "en": "I'd like a souvlaki with tzatziki.",
+            "es-419": "Quiero un souvlaki con tzatziki.",
+            "it": "Vorrei un souvlaki con tzatziki.",
+            "nl": "Ik wil graag een souvlaki met tzatziki."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a souvlaki with onion.",
+              "I'd like two souvlaki with tzatziki."
+            ],
+            "es-419": [
+              "Quiero un souvlaki con cebolla.",
+              "Quiero dos souvlaki con tzatziki."
+            ],
+            "it": [
+              "Vorrei un souvlaki con cipolla.",
+              "Vorrei due souvlaki con tzatziki."
+            ],
+            "nl": [
+              "Ik wil graag een souvlaki met ui.",
+              "Ik wil graag twee souvlaki met tzatziki."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η σαλάτα έχει ντομάτα, αγγούρι, κρεμμύδι, ελιές και φέτα.",
+          "translation": {
+            "en": "The salad has tomato, cucumber, onion, olives and feta.",
+            "es-419": "La ensalada lleva tomate, pepino, cebolla, aceitunas y feta.",
+            "it": "L'insalata ha pomodoro, cetriolo, cipolla, olive e feta.",
+            "nl": "De salade heeft tomaat, komkommer, ui, olijven en feta."
+          },
+          "distractors": {
+            "en": [
+              "The salad has tomato, cucumber, lettuce, olives and feta.",
+              "The salad has tomato, cucumber, onion, olives and ham."
+            ],
+            "es-419": [
+              "La ensalada lleva tomate, pepino, lechuga, aceitunas y feta.",
+              "La ensalada lleva tomate, pepino, cebolla, aceitunas y jamón."
+            ],
+            "it": [
+              "L'insalata ha pomodoro, cetriolo, lattuga, olive e feta.",
+              "L'insalata ha pomodoro, cetriolo, cipolla, olive e prosciutto."
+            ],
+            "nl": [
+              "De salade heeft tomaat, komkommer, sla, olijven en feta.",
+              "De salade heeft tomaat, komkommer, ui, olijven en ham."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ να έχω αλάτι και πιπέρι, παρακαλώ;",
+          "translation": {
+            "en": "Could I have salt and pepper, please?",
+            "es-419": "¿Me puede dar sal y pimienta, por favor?",
+            "it": "Posso avere sale e pepe, per favore?",
+            "nl": "Mag ik zout en peper, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Could I have oil and pepper, please?",
+              "Could I have salt and sugar, please?"
+            ],
+            "es-419": [
+              "¿Me puede dar aceite y pimienta, por favor?",
+              "¿Me puede dar sal y azúcar, por favor?"
+            ],
+            "it": [
+              "Posso avere olio e pepe, per favore?",
+              "Posso avere sale e zucchero, per favore?"
+            ],
+            "nl": [
+              "Mag ik olie en peper, alstublieft?",
+              "Mag ik zout en suiker, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τρώω ένα μήλο και μία μπανάνα.",
+          "translation": {
+            "en": "I eat an apple and a banana.",
+            "es-419": "Como una manzana y una banana.",
+            "it": "Mangio una mela e una banana.",
+            "nl": "Ik eet een appel en een banaan."
+          },
+          "distractors": {
+            "en": [
+              "I eat an apple and an orange.",
+              "I want an apple and a banana."
+            ],
+            "es-419": [
+              "Como una manzana y una naranja.",
+              "Quiero una manzana y una banana."
+            ],
+            "it": [
+              "Mangio una mela e un'arancia.",
+              "Voglio una mela e una banana."
+            ],
+            "nl": [
+              "Ik eet een appel en een sinaasappel.",
+              "Ik wil een appel en een banaan."
+            ]
+          },
+          "variants": [
+            "Τρώω ένα μήλο και μια μπανάνα."
+          ]
+        },
+        {
+          "id": "el-a1-trapezi-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τρώω πολλά φρούτα και λαχανικά.",
+          "translation": {
+            "en": "I eat a lot of fruit and vegetables.",
+            "es-419": "Como muchas frutas y verduras.",
+            "it": "Mangio molta frutta e verdura.",
+            "nl": "Ik eet veel fruit en groenten."
+          },
+          "distractors": {
+            "en": [
+              "I eat little fruit and vegetables.",
+              "I eat a lot of fruit and meat."
+            ],
+            "es-419": [
+              "Como pocas frutas y verduras.",
+              "Como muchas frutas y carne."
+            ],
+            "it": [
+              "Mangio poca frutta e verdura.",
+              "Mangio molta frutta e carne."
+            ],
+            "nl": [
+              "Ik eet weinig fruit en groenten.",
+              "Ik eet veel fruit en vlees."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχετε επιδόρπιο;",
+          "translation": {
+            "en": "Do you have dessert?",
+            "es-419": "¿Tienen postre?",
+            "it": "Avete il dolce?",
+            "nl": "Hebt u een nagerecht?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have ice cream?",
+              "Do I have dessert?"
+            ],
+            "es-419": [
+              "¿Tienen helado?",
+              "¿Tengo postre?"
+            ],
+            "it": [
+              "Avete il gelato?",
+              "Ho il dolce?"
+            ],
+            "nl": [
+              "Hebt u ijs?",
+              "Heb ik een nagerecht?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-4-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω γιαούρτι με μέλι για επιδόρπιο.",
+          "translation": {
+            "en": "I'd like yogurt with honey for dessert.",
+            "es-419": "Quiero yogur con miel de postre.",
+            "it": "Vorrei yogurt con miele per dolce.",
+            "nl": "Ik wil graag yoghurt met honing als nagerecht."
+          },
+          "distractors": {
+            "en": [
+              "I'd like yogurt with honey for breakfast.",
+              "I'd like yogurt with sugar for dessert."
+            ],
+            "es-419": [
+              "Quiero yogur con miel de desayuno.",
+              "Quiero yogur con azúcar de postre."
+            ],
+            "it": [
+              "Vorrei yogurt con miele a colazione.",
+              "Vorrei yogurt con zucchero per dolce."
+            ],
+            "nl": [
+              "Ik wil graag yoghurt met honing als ontbijt.",
+              "Ik wil graag yoghurt met suiker als nagerecht."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-trapezi-5",
+      "title": "Πώς είναι το φαγητό;",
+      "grammarFocus": {
+        "en": [
+          "adjectives agree with the noun: το κοτόπουλο είναι ψητό, η σούπα είναι καυτή, οι ελιές είναι νόστιμες",
+          "πολύ before an adjective: πολύ γλυκό, πολύ καυτή",
+          "είμαι χορτοφάγος: the same word for a man and a woman"
+        ],
+        "es-419": [
+          "el adjetivo concuerda con el nombre: το κοτόπουλο είναι ψητό, η σούπα είναι καυτή, οι ελιές είναι νόστιμες",
+          "πολύ delante de un adjetivo: πολύ γλυκό, πολύ καυτή",
+          "είμαι χορτοφάγος: la misma palabra para un hombre y una mujer"
+        ],
+        "it": [
+          "l'aggettivo concorda con il nome: το κοτόπουλο είναι ψητό, η σούπα είναι καυτή, οι ελιές είναι νόστιμες",
+          "πολύ davanti a un aggettivo: πολύ γλυκό, πολύ καυτή",
+          "είμαι χορτοφάγος: la stessa parola per un uomo e una donna"
+        ],
+        "nl": [
+          "het bijvoeglijk naamwoord past bij het zelfstandig naamwoord: το κοτόπουλο είναι ψητό, η σούπα είναι καυτή, οι ελιές είναι νόστιμες",
+          "πολύ voor een bijvoeglijk naamwoord: πολύ γλυκό, πολύ καυτή",
+          "είμαι χορτοφάγος: hetzelfde woord voor een man en een vrouw"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "νόστιμος",
+          "translation": {
+            "en": "tasty, delicious",
+            "es-419": "sabroso, rico",
+            "it": "buono, gustoso",
+            "nl": "lekker, smakelijk"
+          },
+          "distractors": {
+            "en": [
+              "sweet",
+              "salty"
+            ],
+            "es-419": [
+              "dulce",
+              "salado"
+            ],
+            "it": [
+              "dolce",
+              "salato"
+            ],
+            "nl": [
+              "zoet",
+              "zout"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "φρέσκος",
+          "translation": {
+            "en": "fresh",
+            "es-419": "fresco",
+            "it": "fresco",
+            "nl": "vers"
+          },
+          "distractors": {
+            "en": [
+              "hot",
+              "salty"
+            ],
+            "es-419": [
+              "caliente",
+              "salado"
+            ],
+            "it": [
+              "caldo",
+              "salato"
+            ],
+            "nl": [
+              "heet",
+              "zout"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "γλυκός",
+          "translation": {
+            "en": "sweet",
+            "es-419": "dulce",
+            "it": "dolce",
+            "nl": "zoet"
+          },
+          "distractors": {
+            "en": [
+              "salty",
+              "hot"
+            ],
+            "es-419": [
+              "salado",
+              "caliente"
+            ],
+            "it": [
+              "salato",
+              "caldo"
+            ],
+            "nl": [
+              "zout",
+              "heet"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "αλμυρός",
+          "translation": {
+            "en": "salty",
+            "es-419": "salado",
+            "it": "salato",
+            "nl": "zout"
+          },
+          "distractors": {
+            "en": [
+              "sweet",
+              "fresh"
+            ],
+            "es-419": [
+              "dulce",
+              "fresco"
+            ],
+            "it": [
+              "dolce",
+              "fresco"
+            ],
+            "nl": [
+              "zoet",
+              "vers"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "καυτός",
+          "translation": {
+            "en": "hot, boiling hot",
+            "es-419": "caliente, hirviendo",
+            "it": "bollente",
+            "nl": "heet, kokend heet"
+          },
+          "distractors": {
+            "en": [
+              "cold",
+              "sweet"
+            ],
+            "es-419": [
+              "frío",
+              "dulce"
+            ],
+            "it": [
+              "freddo",
+              "dolce"
+            ],
+            "nl": [
+              "koud",
+              "zoet"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "χορτοφάγος",
+          "translation": {
+            "en": "vegetarian",
+            "es-419": "vegetariano",
+            "it": "vegetariano",
+            "nl": "vegetariër"
+          },
+          "distractors": {
+            "en": [
+              "cook",
+              "waiter"
+            ],
+            "es-419": [
+              "cocinero",
+              "camarero"
+            ],
+            "it": [
+              "cuoco",
+              "cameriere"
+            ],
+            "nl": [
+              "kok",
+              "ober"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ψητό κοτόπουλο",
+          "translation": {
+            "en": "roast chicken",
+            "es-419": "pollo asado",
+            "it": "pollo arrosto",
+            "nl": "gebraden kip"
+          },
+          "distractors": {
+            "en": [
+              "fried chicken",
+              "boiled chicken"
+            ],
+            "es-419": [
+              "pollo frito",
+              "pollo hervido"
+            ],
+            "it": [
+              "pollo fritto",
+              "pollo bollito"
+            ],
+            "nl": [
+              "gebakken kip",
+              "gekookte kip"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "τηγανητές πατάτες",
+          "translation": {
+            "en": "fried potatoes",
+            "es-419": "papas fritas",
+            "it": "patate fritte",
+            "nl": "gebakken aardappelen"
+          },
+          "distractors": {
+            "en": [
+              "boiled potatoes",
+              "fried eggs"
+            ],
+            "es-419": [
+              "papas hervidas",
+              "huevos fritos"
+            ],
+            "it": [
+              "patate bollite",
+              "uova fritte"
+            ],
+            "nl": [
+              "gekookte aardappelen",
+              "gebakken eieren"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "βραστά αυγά",
+          "translation": {
+            "en": "boiled eggs",
+            "es-419": "huevos cocidos",
+            "it": "uova sode",
+            "nl": "gekookte eieren"
+          },
+          "distractors": {
+            "en": [
+              "fried eggs",
+              "boiled potatoes"
+            ],
+            "es-419": [
+              "huevos fritos",
+              "papas hervidas"
+            ],
+            "it": [
+              "uova fritte",
+              "patate bollite"
+            ],
+            "nl": [
+              "gebakken eieren",
+              "gekookte aardappelen"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "φρέσκο ψάρι",
+          "translation": {
+            "en": "fresh fish",
+            "es-419": "pescado fresco",
+            "it": "pesce fresco",
+            "nl": "verse vis"
+          },
+          "distractors": {
+            "en": [
+              "fried fish",
+              "fresh meat"
+            ],
+            "es-419": [
+              "pescado frito",
+              "carne fresca"
+            ],
+            "it": [
+              "pesce fritto",
+              "carne fresca"
+            ],
+            "nl": [
+              "gebakken vis",
+              "vers vlees"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το τζατζίκι είναι νόστιμο.",
+          "translation": {
+            "en": "The tzatziki is delicious.",
+            "es-419": "El tzatziki está rico.",
+            "it": "Il tzatziki è buonissimo.",
+            "nl": "De tzatziki is lekker."
+          },
+          "distractors": {
+            "en": [
+              "The tzatziki is salty.",
+              "The moussaka is delicious."
+            ],
+            "es-419": [
+              "El tzatziki está salado.",
+              "El musaka está rico."
+            ],
+            "it": [
+              "Il tzatziki è salato.",
+              "Il moussaka è buonissimo."
+            ],
+            "nl": [
+              "De tzatziki is zout.",
+              "De moussaka is lekker."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το κοτόπουλο είναι ψητό.",
+          "translation": {
+            "en": "The chicken is roasted.",
+            "es-419": "El pollo está asado.",
+            "it": "Il pollo è arrosto.",
+            "nl": "De kip is gebraden."
+          },
+          "distractors": {
+            "en": [
+              "The chicken is fried.",
+              "The fish is roasted."
+            ],
+            "es-419": [
+              "El pollo está frito.",
+              "El pescado está asado."
+            ],
+            "it": [
+              "Il pollo è fritto.",
+              "Il pesce è arrosto."
+            ],
+            "nl": [
+              "De kip is gebakken.",
+              "De vis is gebraden."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το μέλι είναι πολύ γλυκό.",
+          "translation": {
+            "en": "The honey is very sweet.",
+            "es-419": "La miel es muy dulce.",
+            "it": "Il miele è molto dolce.",
+            "nl": "De honing is heel zoet."
+          },
+          "distractors": {
+            "en": [
+              "The honey is very salty.",
+              "The apple is very sweet."
+            ],
+            "es-419": [
+              "La miel es muy salada.",
+              "La manzana es muy dulce."
+            ],
+            "it": [
+              "Il miele è molto salato.",
+              "Il mela è molto dolce."
+            ],
+            "nl": [
+              "De honing is heel zout.",
+              "De appel is heel zoet."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η σούπα είναι πολύ καυτή.",
+          "translation": {
+            "en": "The soup is very hot.",
+            "es-419": "La sopa está muy caliente.",
+            "it": "La zuppa è molto calda.",
+            "nl": "De soep is heel heet."
+          },
+          "distractors": {
+            "en": [
+              "The soup is very cold.",
+              "The coffee is very hot."
+            ],
+            "es-419": [
+              "La sopa está muy fría.",
+              "La café está muy caliente."
+            ],
+            "it": [
+              "La zuppa è molto fredda.",
+              "La caffè è molto calda."
+            ],
+            "nl": [
+              "De soep is heel koud.",
+              "De koffie is heel heet."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το ψάρι είναι φρέσκο;",
+          "translation": {
+            "en": "Is the fish fresh?",
+            "es-419": "¿El pescado está fresco?",
+            "it": "Il pesce è fresco?",
+            "nl": "Is de vis vers?"
+          },
+          "distractors": {
+            "en": [
+              "Is the fish hot?",
+              "Is the meat fresh?"
+            ],
+            "es-419": [
+              "¿El pescado está caliente?",
+              "¿El carne está fresco?"
+            ],
+            "it": [
+              "Il pesce è caldo?",
+              "Il carne è fresco?"
+            ],
+            "nl": [
+              "Is de vis heet?",
+              "Is de vlees vers?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαι χορτοφάγος.",
+          "translation": {
+            "en": "I'm a vegetarian.",
+            "es-419": "Soy vegetariano.",
+            "it": "Sono vegetariano.",
+            "nl": "Ik ben vegetariër."
+          },
+          "distractors": {
+            "en": [
+              "I'm hungry.",
+              "I'm a cook."
+            ],
+            "es-419": [
+              "Tengo hambre.",
+              "Soy cocinero."
+            ],
+            "it": [
+              "Ho fame.",
+              "Sono cuoco."
+            ],
+            "nl": [
+              "Ik heb honger.",
+              "Ik ben kok."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν τρώω κρέας, γιατί είμαι χορτοφάγος.",
+          "translation": {
+            "en": "I don't eat meat because I'm a vegetarian.",
+            "es-419": "No como carne porque soy vegetariano.",
+            "it": "Non mangio carne perché sono vegetariano.",
+            "nl": "Ik eet geen vlees, want ik ben vegetariër."
+          },
+          "distractors": {
+            "en": [
+              "I don't eat fish because I'm a vegetarian.",
+              "I don't eat meat because I don't like it."
+            ],
+            "es-419": [
+              "No como pescado porque soy vegetariano.",
+              "No como carne porque no me gusta."
+            ],
+            "it": [
+              "Non mangio pesce perché sono vegetariano.",
+              "Non mangio carne perché non mi piace."
+            ],
+            "nl": [
+              "Ik eet geen vis, want ik ben vegetariër.",
+              "Ik eet geen vlees, want ik hou er niet van."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-5-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάρω τηγανητές πατάτες και ψητό κοτόπουλο.",
+          "translation": {
+            "en": "I'll have fried potatoes and roast chicken.",
+            "es-419": "Voy a pedir papas fritas y pollo asado.",
+            "it": "Prendo patate fritte e pollo arrosto.",
+            "nl": "Ik neem gebakken aardappelen en gebraden kip."
+          },
+          "distractors": {
+            "en": [
+              "I'll have boiled potatoes and roast chicken.",
+              "I'll have fried potatoes and roast fish."
+            ],
+            "es-419": [
+              "Voy a pedir papas hervidas y pollo asado.",
+              "Voy a pedir papas fritas y pescado asado."
+            ],
+            "it": [
+              "Prendo patate bollite e pollo arrosto.",
+              "Prendo patate fritte e pesce arrosto."
+            ],
+            "nl": [
+              "Ik neem gekookte aardappelen en gebraden kip.",
+              "Ik neem gebakken aardappelen en gebraden vis."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-trapezi-6",
+      "title": "Τι σου αρέσει;",
+      "grammarFocus": {
+        "en": [
+          "μου αρέσει + singular, μου αρέσουν + plural: the thing liked is the subject and the person is μου / σου",
+          "πεινάω / διψάω: I'm hungry / thirsty (a verb, not be + adjective)",
+          "προτιμάω A από B: I prefer A to B"
+        ],
+        "es-419": [
+          "μου αρέσει + singular, μου αρέσουν + plural: lo que gusta es el sujeto y la persona es μου / σου",
+          "πεινάω / διψάω: tengo hambre / sed (un verbo, no ser + adjetivo)",
+          "προτιμάω A από B: prefiero A a B"
+        ],
+        "it": [
+          "μου αρέσει + singolare, μου αρέσουν + plurale: la cosa che piace è il soggetto e la persona è μου / σου",
+          "πεινάω / διψάω: ho fame / sete (un verbo, non essere + aggettivo)",
+          "προτιμάω A από B: preferisco A a B"
+        ],
+        "nl": [
+          "μου αρέσει + enkelvoud, μου αρέσουν + meervoud: wat je lekker vindt is het onderwerp en de persoon is μου / σου",
+          "πεινάω / διψάω: ik heb honger / dorst (een werkwoord, niet zijn + bijvoeglijk naamwoord)",
+          "προτιμάω A από B: ik geef de voorkeur aan A boven B"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-trapezi-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "φαγητό",
+          "translation": {
+            "en": "food",
+            "es-419": "comida",
+            "it": "cibo",
+            "nl": "eten"
+          },
+          "distractors": {
+            "en": [
+              "drink",
+              "menu"
+            ],
+            "es-419": [
+              "bebida",
+              "menú"
+            ],
+            "it": [
+              "bevanda",
+              "menù"
+            ],
+            "nl": [
+              "drank",
+              "menukaart"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "ποτό",
+          "translation": {
+            "en": "drink",
+            "es-419": "bebida",
+            "it": "bevanda",
+            "nl": "drankje"
+          },
+          "distractors": {
+            "en": [
+              "food",
+              "glass"
+            ],
+            "es-419": [
+              "comida",
+              "vaso"
+            ],
+            "it": [
+              "cibo",
+              "bicchiere"
+            ],
+            "nl": [
+              "eten",
+              "glas"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "μερίδα",
+          "translation": {
+            "en": "portion",
+            "es-419": "porción",
+            "it": "porzione",
+            "nl": "portie"
+          },
+          "distractors": {
+            "en": [
+              "plate",
+              "bottle"
+            ],
+            "es-419": [
+              "plato",
+              "botella"
+            ],
+            "it": [
+              "piatto",
+              "bottiglia"
+            ],
+            "nl": [
+              "bord",
+              "fles"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "πεινάω",
+          "translation": {
+            "en": "I'm hungry",
+            "es-419": "tengo hambre",
+            "it": "ho fame",
+            "nl": "ik heb honger"
+          },
+          "distractors": {
+            "en": [
+              "I'm thirsty",
+              "I'm cold"
+            ],
+            "es-419": [
+              "tengo sed",
+              "tengo frío"
+            ],
+            "it": [
+              "ho sete",
+              "ho freddo"
+            ],
+            "nl": [
+              "ik heb dorst",
+              "ik heb het koud"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "διψάω",
+          "translation": {
+            "en": "I'm thirsty",
+            "es-419": "tengo sed",
+            "it": "ho sete",
+            "nl": "ik heb dorst"
+          },
+          "distractors": {
+            "en": [
+              "I'm hungry",
+              "I'm cold"
+            ],
+            "es-419": [
+              "tengo hambre",
+              "tengo frío"
+            ],
+            "it": [
+              "ho fame",
+              "ho freddo"
+            ],
+            "nl": [
+              "ik heb honger",
+              "ik heb het koud"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "προτιμάω",
+          "translation": {
+            "en": "I prefer",
+            "es-419": "prefiero",
+            "it": "preferisco",
+            "nl": "ik geef de voorkeur aan"
+          },
+          "distractors": {
+            "en": [
+              "I like",
+              "I want"
+            ],
+            "es-419": [
+              "me gusta",
+              "quiero"
+            ],
+            "it": [
+              "mi piace",
+              "voglio"
+            ],
+            "nl": [
+              "ik hou van",
+              "ik wil"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μου αρέσει",
+          "translation": {
+            "en": "I like it",
+            "es-419": "me gusta",
+            "it": "mi piace",
+            "nl": "ik hou ervan"
+          },
+          "distractors": {
+            "en": [
+              "I don't like it",
+              "you like it"
+            ],
+            "es-419": [
+              "no me gusta",
+              "te gusta"
+            ],
+            "it": [
+              "non mi piace",
+              "ti piace"
+            ],
+            "nl": [
+              "ik hou er niet van",
+              "jij houdt ervan"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μου αρέσουν",
+          "translation": {
+            "en": "I like them",
+            "es-419": "me gustan",
+            "it": "mi piacciono",
+            "nl": "ik hou ervan"
+          },
+          "distractors": {
+            "en": [
+              "I don't like them",
+              "you like them"
+            ],
+            "es-419": [
+              "no me gustan",
+              "te gustan"
+            ],
+            "it": [
+              "non mi piacciono",
+              "ti piacciono"
+            ],
+            "nl": [
+              "ik hou er niet van",
+              "jij houdt ervan"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μου αρέσει το ψάρι.",
+          "translation": {
+            "en": "I like fish.",
+            "es-419": "Me gusta el pescado.",
+            "it": "Mi piace il pesce.",
+            "nl": "Ik hou van vis."
+          },
+          "distractors": {
+            "en": [
+              "I like chicken.",
+              "I don't like fish."
+            ],
+            "es-419": [
+              "Me gusta el pollo.",
+              "No me gusta el pescado."
+            ],
+            "it": [
+              "Mi piace il pollo.",
+              "Non mi piace il pesce."
+            ],
+            "nl": [
+              "Ik hou van kip.",
+              "Ik hou niet van vis."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μου αρέσουν οι ελιές.",
+          "translation": {
+            "en": "I like olives.",
+            "es-419": "Me gustan las aceitunas.",
+            "it": "Mi piacciono le olive.",
+            "nl": "Ik hou van olijven."
+          },
+          "distractors": {
+            "en": [
+              "I like onions.",
+              "I don't like olives."
+            ],
+            "es-419": [
+              "Me gustan las cebollas.",
+              "No me gustan las aceitunas."
+            ],
+            "it": [
+              "Mi piacciono le cipolle.",
+              "Non mi piacciono le olive."
+            ],
+            "nl": [
+              "Ik hou van uien.",
+              "Ik hou niet van olijven."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σου αρέσει το κρασί;",
+          "translation": {
+            "en": "Do you like wine?",
+            "es-419": "¿Te gusta el vino?",
+            "it": "Ti piace il vino?",
+            "nl": "Hou je van wijn?"
+          },
+          "distractors": {
+            "en": [
+              "Do you like coffee?",
+              "Don't you like wine?"
+            ],
+            "es-419": [
+              "¿Te gusta el café?",
+              "¿No te gusta el vino?"
+            ],
+            "it": [
+              "Ti piace il caffè?",
+              "Non ti piace il vino?"
+            ],
+            "nl": [
+              "Hou je van koffie?",
+              "Hou je niet van wijn?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σου αρέσουν τα μακαρόνια;",
+          "translation": {
+            "en": "Do you like pasta?",
+            "es-419": "¿Te gusta la pasta?",
+            "it": "Ti piace la pasta?",
+            "nl": "Hou je van pasta?"
+          },
+          "distractors": {
+            "en": [
+              "Do you like rice?",
+              "Don't you like pasta?"
+            ],
+            "es-419": [
+              "¿Te gusta el arroz?",
+              "¿No te gusta la pasta?"
+            ],
+            "it": [
+              "Ti piace il riso?",
+              "Non ti piace la pasta?"
+            ],
+            "nl": [
+              "Hou je van rijst?",
+              "Hou je niet van pasta?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μου αρέσει το ψάρι, αλλά δεν μου αρέσουν οι ελιές.",
+          "translation": {
+            "en": "I like fish, but I don't like olives.",
+            "es-419": "Me gusta el pescado, pero no me gustan las aceitunas.",
+            "it": "Mi piace il pesce, ma non mi piacciono le olive.",
+            "nl": "Ik hou van vis, maar ik hou niet van olijven."
+          },
+          "distractors": {
+            "en": [
+              "I like chicken, but I don't like olives.",
+              "I like fish, but I don't like onions."
+            ],
+            "es-419": [
+              "Me gusta el pollo, pero no me gustan las aceitunas.",
+              "Me gusta el pescado, pero no me gustan las cebollas."
+            ],
+            "it": [
+              "Mi piace il pollo, ma non mi piacciono le olive.",
+              "Mi piace il pesce, ma non mi piacciono le cipolle."
+            ],
+            "nl": [
+              "Ik hou van kip, maar ik hou niet van olijven.",
+              "Ik hou van vis, maar ik hou niet van uien."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Διψάω, θέλω ένα ποτήρι νερό.",
+          "translation": {
+            "en": "I'm thirsty, I want a glass of water.",
+            "es-419": "Tengo sed, quiero un vaso de agua.",
+            "it": "Ho sete, voglio un bicchiere d'acqua.",
+            "nl": "Ik heb dorst, ik wil een glas water."
+          },
+          "distractors": {
+            "en": [
+              "I'm thirsty, I want a bottle of water.",
+              "I'm thirsty, I want a glass of wine."
+            ],
+            "es-419": [
+              "Tengo sed, quiero una botella de agua.",
+              "Tengo sed, quiero un vaso de vino."
+            ],
+            "it": [
+              "Ho sete, voglio una bottiglia d'acqua.",
+              "Ho sete, voglio un bicchiere di vino."
+            ],
+            "nl": [
+              "Ik heb dorst, ik wil een fles water.",
+              "Ik heb dorst, ik wil een glas wijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Προτιμάς κρασί ή μπύρα;",
+          "translation": {
+            "en": "Do you prefer wine or beer?",
+            "es-419": "¿Prefieres vino o cerveza?",
+            "it": "Preferisci il vino o la birra?",
+            "nl": "Heb je liever wijn of bier?"
+          },
+          "distractors": {
+            "en": [
+              "Do you prefer wine or juice?",
+              "Do you prefer tea or beer?"
+            ],
+            "es-419": [
+              "¿Prefieres vino o jugo?",
+              "¿Prefieres té o cerveza?"
+            ],
+            "it": [
+              "Preferisci il vino o il succo?",
+              "Preferisci il tè o la birra?"
+            ],
+            "nl": [
+              "Heb je liever wijn of sap?",
+              "Heb je liever thee of bier?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Προτιμάω το ψάρι από το κοτόπουλο.",
+          "translation": {
+            "en": "I prefer fish to chicken.",
+            "es-419": "Prefiero el pescado al pollo.",
+            "it": "Preferisco il pesce al pollo.",
+            "nl": "Ik heb liever vis dan kip."
+          },
+          "distractors": {
+            "en": [
+              "I prefer chicken to fish.",
+              "I prefer fish to meat."
+            ],
+            "es-419": [
+              "Prefiero el pollo al pescado.",
+              "Prefiero el pescado al carne."
+            ],
+            "it": [
+              "Preferisco il pollo al pesce.",
+              "Preferisco il pesce al carne."
+            ],
+            "nl": [
+              "Ik heb liever kip dan vis.",
+              "Ik heb liever vis dan vlees."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τι θέλετε να παραγγείλετε;",
+          "translation": {
+            "en": "What would you like to order?",
+            "es-419": "¿Qué quieren pedir?",
+            "it": "Che cosa volete ordinare?",
+            "nl": "Wat wilt u bestellen?"
+          },
+          "distractors": {
+            "en": [
+              "What would you like to drink?",
+              "What would you like to eat?"
+            ],
+            "es-419": [
+              "¿Qué quieren tomar?",
+              "¿Qué quieren comer?"
+            ],
+            "it": [
+              "Che cosa volete bere?",
+              "Che cosa volete mangiare?"
+            ],
+            "nl": [
+              "Wat wilt u drinken?",
+              "Wat wilt u eten?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορείτε να φέρετε τον λογαριασμό;",
+          "translation": {
+            "en": "Could you bring the check?",
+            "es-419": "¿Puede traer la cuenta?",
+            "it": "Può portare il conto?",
+            "nl": "Kunt u de rekening brengen?"
+          },
+          "distractors": {
+            "en": [
+              "Could you bring the menu?",
+              "Could you bring the water?"
+            ],
+            "es-419": [
+              "¿Puede traer el menú?",
+              "¿Puede traer el agua?"
+            ],
+            "it": [
+              "Può portare il menù?",
+              "Può portare l'acqua?"
+            ],
+            "nl": [
+              "Kunt u de menukaart brengen?",
+              "Kunt u het water brengen?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Φέρνω το φαγητό στο τραπέζι.",
+          "translation": {
+            "en": "I bring the food to the table.",
+            "es-419": "Llevo la comida a la mesa.",
+            "it": "Porto il cibo al tavolo.",
+            "nl": "Ik breng het eten naar de tafel."
+          },
+          "distractors": {
+            "en": [
+              "I bring the drink to the table.",
+              "I bring the food to the kitchen."
+            ],
+            "es-419": [
+              "Llevo la bebida a la mesa.",
+              "Llevo la comida a la cocina."
+            ],
+            "it": [
+              "Porto la bevanda al tavolo.",
+              "Porto il cibo in cucina."
+            ],
+            "nl": [
+              "Ik breng het drankje naar de tafel.",
+              "Ik breng het eten naar de keuken."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-trapezi-6-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πεινάω πολύ, θα πάρω μία μερίδα μακαρόνια.",
+          "translation": {
+            "en": "I'm very hungry, I'll have a portion of pasta.",
+            "es-419": "Tengo mucha hambre, voy a pedir una porción de pasta.",
+            "it": "Ho molta fame, prendo una porzione di pasta.",
+            "nl": "Ik heb veel honger, ik neem een portie pasta."
+          },
+          "distractors": {
+            "en": [
+              "I'm very thirsty, I'll have a portion of pasta.",
+              "I'm very hungry, I'll have a portion of rice."
+            ],
+            "es-419": [
+              "Tengo mucha sed, voy a pedir una porción de pasta.",
+              "Tengo mucha hambre, voy a pedir una porción de arroz."
+            ],
+            "it": [
+              "Ho molta sete, prendo una porzione di pasta.",
+              "Ho molta fame, prendo una porzione di riso."
+            ],
+            "nl": [
+              "Ik heb veel dorst, ik neem een portie pasta.",
+              "Ik heb veel honger, ik neem een portie rijst."
+            ]
+          },
+          "variants": [
+            "Πεινάω πολύ, θα πάρω μια μερίδα μακαρόνια."
+          ]
+        }
+      ]
+    }
+  ]
+}

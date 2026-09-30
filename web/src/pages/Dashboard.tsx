@@ -56,7 +56,7 @@ export function Dashboard() {
     const today = byDay().get(dayKey(new Date()));
     const lesson = next && { href: `/${lang()}/lesson/${next.id}`, label: t("home.start") };
     if (next && Object.keys(cat.progress).length === 0) return { qa: "first", text: t("dash.coach.first", { title: next.title }), go: lesson! };
-    if (cat.dueCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.dueCount }), go: { href: `/${lang()}/review`, label: t("home.review") } };
+    if (cat.dueCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.dueCount }), go: { href: `/${lang()}/type/review`, label: t("home.review") } };
     if (next && !today?.type) return { qa: "lesson", text: t("dash.coach.lesson", { title: next.title }), go: { ...lesson!, label: t("home.continue") } };
     if (talkOn() && !today?.talk) return { qa: "talk", text: t("dash.coach.talk"), go: { href: `/${lang()}/talk`, label: t("activity.talk") } };
     if (quizOn() && !today?.quiz) return { qa: "quiz", text: t("dash.coach.quiz"), go: { href: `/${lang()}/quiz`, label: t("activity.quiz") } };

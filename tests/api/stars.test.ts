@@ -73,7 +73,7 @@ describe("Master", () => {
     expect((await t.attempt(SENTENCES[0], { master: true, hintsLevel: "none", path: "sentences" })).status).toBe(403);
   });
 
-  it("refuses a Master attempt until 12 hours after the last practice", async () => {
+  it("refuses a Master attempt until 6 hours after the last practice", async () => {
     const t = setup();
     await t.login();
     await finish(t);
@@ -81,6 +81,16 @@ describe("Master", () => {
     expect((await t.attempt(SENTENCES[0], { master: true, hintsLevel: "none", path: "sentences" })).status).toBe(403);
     t.clock.now = new Date(t.clock.now.getTime() + 1);
     expect((await t.attempt(SENTENCES[0], { master: true, hintsLevel: "none", path: "sentences" })).status).toBe(200);
+  });
+
+  it("restarts the wait when the lesson is practiced again, even without finishing the run", async () => {
+    const t = setup();
+    await t.login();
+    await finish(t);
+    t.clock.now = new Date(t.clock.now.getTime() + MASTER_WAIT_MS);
+    await t.attempt(ALL[0], { hintsLevel: "none" });
+    expect((await t.attempt(SENTENCES[0], { master: true, hintsLevel: "none", path: "sentences" })).status).toBe(403);
+    expect((await stars(t)).practicedAt).toBe(t.clock.now.toISOString());
   });
 
   it("refuses a Master attempt on a word or chunk", async () => {

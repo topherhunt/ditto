@@ -1,0 +1,5391 @@
+{
+  "id": "el-a2-istoria-mou",
+  "language": "el",
+  "level": "A2",
+  "order": 13,
+  "title": "Η ιστορία μου",
+  "description": {
+    "en": "Telling your life story: birth and school, study and work, relationships, what you have experienced, and how your story fits together",
+    "es-419": "Contar la historia de tu vida: nacimiento y escuela, estudios y trabajo, relaciones, lo que has vivido y cómo encaja tu historia",
+    "it": "Raccontare la storia della propria vita: nascita e scuola, studi e lavoro, relazioni, ciò che si è vissuto e come si compone la propria storia",
+    "nl": "Je levensverhaal vertellen: geboorte en school, studie en werk, relaties, wat je hebt meegemaakt en hoe je verhaal in elkaar zit"
+  },
+  "track": "main",
+  "requires": [
+    "el-a2-savvatokyriako"
+  ],
+  "introduces": [
+    "γεννιέμαι",
+    "παντρεύομαι",
+    "μετακομίζω",
+    "μεγαλώνω",
+    "γίνομαι",
+    "ερωτεύομαι",
+    "χωρίζω",
+    "πεθαίνω",
+    "ανοίγω",
+    "αποφασίζω",
+    "ζωή",
+    "γάμος",
+    "γέννηση",
+    "πτυχίο",
+    "δίπλωμα",
+    "ιστορία",
+    "χρονιά",
+    "πατρίδα",
+    "εξωτερικό",
+    "γειτονιά",
+    "δημοτικό",
+    "γυμνάσιο",
+    "λύκειο",
+    "απόφαση",
+    "εμπειρία",
+    "ζευγάρι",
+    "παιδικός",
+    "τελευταίος",
+    "όταν",
+    "κάποτε",
+    "πρόσφατα",
+    "ευτυχώς",
+    "ξένος",
+    "παλιός",
+    "ανάμνηση",
+    "αρχή",
+    "τέλος",
+    "αργότερα",
+    "πρώην",
+    "σχεδόν"
+  ],
+  "lexicon": {
+    "άλλαξα": {
+      "lemma": "αλλάζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I changed (αλλάζω: aorist)",
+        "es-419": "cambié (αλλάζω: aoristo)",
+        "it": "ho cambiato (αλλάζω: aoristo)",
+        "nl": "ik heb veranderd (αλλάζω: aoristus)"
+      }
+    },
+    "άνοιξα": {
+      "lemma": "ανοίγω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I opened (ανοίγω: aorist)",
+        "es-419": "abrí (ανοίγω: aoristo)",
+        "it": "ho aperto (ανοίγω: aoristo)",
+        "nl": "ik heb geopend (ανοίγω: aoristus)"
+      }
+    },
+    "άντρας": {
+      "lemma": "άντρας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "man (m)",
+        "es-419": "hombre (m)",
+        "it": "uomo (m)",
+        "nl": "man (m)"
+      }
+    },
+    "έγινα": {
+      "lemma": "γίνομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I became (γίνομαι: aorist)",
+        "es-419": "me hice, llegué a ser (γίνομαι: aoristo)",
+        "it": "sono diventato/a (γίνομαι: aoristo)",
+        "nl": "ik ben geworden (γίνομαι: aoristus)"
+      }
+    },
+    "έκανες": {
+      "lemma": "κάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you did, you made (κάνω: aorist)",
+        "es-419": "hiciste (κάνω: aoristo)",
+        "it": "hai fatto (κάνω: aoristo)",
+        "nl": "je hebt gedaan (κάνω: aoristus)"
+      }
+    },
+    "έμαθα": {
+      "lemma": "μαθαίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I learned (μαθαίνω: aorist)",
+        "es-419": "aprendí (μαθαίνω: aoristo)",
+        "it": "ho imparato (μαθαίνω: aoristo)",
+        "nl": "ik heb geleerd (μαθαίνω: aoristus)"
+      }
+    },
+    "ένα": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "ένα = a, an (neuter); also one",
+        "es-419": "ένα = un, una (neutro); también uno",
+        "it": "ένα = un, una (neutro); anche uno",
+        "nl": "ένα = een (onzijdig); ook één"
+      }
+    },
+    "έναν": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "έναν = a, one (masculine, object)",
+        "es-419": "έναν = un, uno (masculino, objeto)",
+        "it": "έναν = un, uno (maschile, complemento)",
+        "nl": "έναν = een (mannelijk, lijdend voorwerp)"
+      }
+    },
+    "ένας": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, one (m); ένα (n), μία (f)",
+        "es-419": "un, uno (m); ένα (n), μία (f)",
+        "it": "un, uno (m); ένα (n), μία (f)",
+        "nl": "een (m); ένα (n), μία (f)"
+      }
+    },
+    "έχεις#aux": {
+      "lemma": "έχω",
+      "pos": "AUX",
+      "gloss": {
+        "en": "έχεις = you have (before a participle: έχεις πάει = you have been)",
+        "es-419": "έχεις = has (antes de un participio: έχεις πάει = has ido)",
+        "it": "έχεις = hai (prima di un participio: έχεις πάει = sei stato/a)",
+        "nl": "έχεις = je hebt, je bent (voor een deelwoord: έχεις πάει = je bent geweest)"
+      }
+    },
+    "έχετε#aux": {
+      "lemma": "έχω",
+      "pos": "AUX",
+      "gloss": {
+        "en": "έχετε = you have (polite or plural, before a participle: έχετε ζήσει = you have lived)",
+        "es-419": "έχετε = han (cortés o plural, antes de un participio: έχετε ζήσει = han vivido)",
+        "it": "έχετε = ha, avete (cortese o plurale, prima di un participio: έχετε ζήσει = ha vissuto)",
+        "nl": "έχετε = u hebt, jullie hebben (voor een deelwoord: έχετε ζήσει = u hebt gewoond)"
+      }
+    },
+    "έχουμε#aux": {
+      "lemma": "έχω",
+      "pos": "AUX",
+      "gloss": {
+        "en": "έχουμε = we have (before a participle: έχουμε δει = we have seen)",
+        "es-419": "έχουμε = hemos (antes de un participio: έχουμε δει = hemos visto)",
+        "it": "έχουμε = abbiamo (prima di un participio: έχουμε δει = abbiamo visto)",
+        "nl": "έχουμε = we hebben (voor een deelwoord: έχουμε δει = we hebben gezien)"
+      }
+    },
+    "έχω": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "έχω = I have",
+        "es-419": "έχω = tengo",
+        "it": "έχω = ho",
+        "nl": "έχω = ik heb"
+      }
+    },
+    "έχω#aux": {
+      "lemma": "έχω",
+      "pos": "AUX",
+      "gloss": {
+        "en": "έχω = I have (before a participle: έχω πάει = I have been)",
+        "es-419": "έχω = he (antes de un participio: έχω πάει = he ido)",
+        "it": "έχω = ho (prima di un participio: έχω πάει = sono stato/a)",
+        "nl": "έχω = ik heb, ik ben (voor een deelwoord: έχω πάει = ik ben geweest)"
+      }
+    },
+    "ήμουν": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "ήμουν = I was",
+        "es-419": "ήμουν = estaba, fui",
+        "it": "ήμουν = ero",
+        "nl": "ήμουν = ik was"
+      }
+    },
+    "ήσυχη": {
+      "lemma": "ήσυχος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ήσυχη = quiet (f)",
+        "es-419": "ήσυχη = tranquila (f)",
+        "it": "ήσυχη = tranquilla (f)",
+        "nl": "ήσυχη = rustig (f)"
+      }
+    },
+    "ήταν": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "ήταν = was, were",
+        "es-419": "ήταν = era, fue, eran, fueron",
+        "it": "ήταν = era, erano, è stato",
+        "nl": "ήταν = was, waren"
+      }
+    },
+    "αθήνα": {
+      "lemma": "αθήνα",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Athens",
+        "es-419": "Atenas",
+        "it": "Atene",
+        "nl": "Athene"
+      }
+    },
+    "ακόμα": {
+      "lemma": "ακόμα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "still, yet; more",
+        "es-419": "todavía, aún; más",
+        "it": "ancora",
+        "nl": "nog, nog steeds"
+      }
+    },
+    "αλλά": {
+      "lemma": "αλλά",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "ανάμνηση": {
+      "lemma": "ανάμνηση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "memory (f)",
+        "es-419": "recuerdo (f)",
+        "it": "ricordo (f)",
+        "nl": "herinnering (f)"
+      }
+    },
+    "αποφάσισα": {
+      "lemma": "αποφασίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I decided (αποφασίζω: aorist)",
+        "es-419": "decidí (αποφασίζω: aoristo)",
+        "it": "ho deciso (αποφασίζω: aoristo)",
+        "nl": "ik heb besloten (αποφασίζω: aoristus)"
+      }
+    },
+    "από": {
+      "lemma": "από",
+      "pos": "ADP",
+      "gloss": {
+        "en": "from, of (πριν από = before)",
+        "es-419": "de, desde (πριν από = antes de)",
+        "it": "da, di (πριν από = prima di)",
+        "nl": "van, uit (πριν από = voor)"
+      }
+    },
+    "απόφαση": {
+      "lemma": "απόφαση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "decision (f)",
+        "es-419": "decisión (f)",
+        "it": "decisione (f)",
+        "nl": "beslissing (f)"
+      }
+    },
+    "αργότερα": {
+      "lemma": "αργότερα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "later",
+        "es-419": "más tarde",
+        "it": "più tardi",
+        "nl": "later"
+      }
+    },
+    "αρχή": {
+      "lemma": "αρχή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beginning (f)",
+        "es-419": "principio (f)",
+        "it": "inizio (f)",
+        "nl": "begin (f)"
+      }
+    },
+    "αυτή": {
+      "lemma": "αυτός",
+      "pos": "PRON",
+      "gloss": {
+        "en": "she, this (f)",
+        "es-419": "ella, esta (f)",
+        "it": "lei, questa (f)",
+        "nl": "zij, dit (f)"
+      }
+    },
+    "βρήκα": {
+      "lemma": "βρίσκω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I found (βρίσκω: aorist)",
+        "es-419": "encontré (βρίσκω: aoristo)",
+        "it": "ho trovato (βρίσκω: aoristo)",
+        "nl": "ik heb gevonden (βρίσκω: aoristus)"
+      }
+    },
+    "γάμος": {
+      "lemma": "γάμος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wedding, marriage (m)",
+        "es-419": "boda, matrimonio (m)",
+        "it": "matrimonio, nozze (m)",
+        "nl": "bruiloft, huwelijk (m)"
+      }
+    },
+    "γέννηση": {
+      "lemma": "γέννηση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "birth (f)",
+        "es-419": "nacimiento (f)",
+        "it": "nascita (f)",
+        "nl": "geboorte (f)"
+      }
+    },
+    "γειτονιά": {
+      "lemma": "γειτονιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighborhood (f)",
+        "es-419": "barrio (f)",
+        "it": "quartiere (f)",
+        "nl": "buurt (f)"
+      }
+    },
+    "γεννήθηκα": {
+      "lemma": "γεννιέμαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I was born (γεννιέμαι: aorist)",
+        "es-419": "nací (γεννιέμαι: aoristo)",
+        "it": "sono nato/a (γεννιέμαι: aoristo)",
+        "nl": "ik ben geboren (γεννιέμαι: aoristus)"
+      }
+    },
+    "γεννήθηκες": {
+      "lemma": "γεννιέμαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you were born (γεννιέμαι: aorist)",
+        "es-419": "naciste (γεννιέμαι: aoristo)",
+        "it": "sei nato/a (γεννιέμαι: aoristo)",
+        "nl": "je bent geboren (γεννιέμαι: aoristus)"
+      }
+    },
+    "για": {
+      "lemma": "για",
+      "pos": "ADP",
+      "gloss": {
+        "en": "about, for",
+        "es-419": "sobre, para",
+        "it": "su, per",
+        "nl": "over, voor"
+      }
+    },
+    "γλώσσα": {
+      "lemma": "γλώσσα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "language; tongue (f)",
+        "es-419": "idioma; lengua (f)",
+        "it": "lingua (f)",
+        "nl": "taal; tong (f)"
+      }
+    },
+    "γνώρισα": {
+      "lemma": "γνωρίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I met (γνωρίζω: aorist)",
+        "es-419": "conocí (γνωρίζω: aoristo)",
+        "it": "ho conosciuto, ho incontrato (γνωρίζω: aoristo)",
+        "nl": "ik heb ontmoet, ik heb leren kennen (γνωρίζω: aoristus)"
+      }
+    },
+    "γυμνάσιο": {
+      "lemma": "γυμνάσιο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "junior high school (ages 12 to 15) (n)",
+        "es-419": "secundaria básica (12 a 15 años) (n)",
+        "it": "scuola media (12-15 anni) (n)",
+        "nl": "onderbouw van de middelbare school (12 tot 15 jaar) (n)"
+      }
+    },
+    "γυρίζω": {
+      "lemma": "γυρίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go back, I return (γυρίζω σπίτι = I go back home)",
+        "es-419": "vuelvo (γυρίζω σπίτι = vuelvo a casa)",
+        "it": "torno (γυρίζω σπίτι = torno a casa)",
+        "nl": "ik ga terug (γυρίζω σπίτι = ik ga naar huis)"
+      }
+    },
+    "γυρίσω": {
+      "lemma": "γυρίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go back (after να: να γυρίσω = to go back)",
+        "es-419": "vuelvo (después de να: να γυρίσω = volver)",
+        "it": "torno (dopo να: να γυρίσω = tornare)",
+        "nl": "ik ga terug (na να: να γυρίσω = terug te gaan)"
+      }
+    },
+    "δάσκαλος": {
+      "lemma": "δάσκαλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "teacher (m)",
+        "es-419": "maestro (m)",
+        "it": "maestro (m)",
+        "nl": "leraar (m)"
+      }
+    },
+    "δέκα": {
+      "lemma": "δέκα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "δίπλωμα": {
+      "lemma": "δίπλωμα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "diploma, certificate (n)",
+        "es-419": "diploma (n)",
+        "it": "diploma (n)",
+        "nl": "diploma (n)"
+      }
+    },
+    "δει": {
+      "lemma": "βλέπω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "seen (after έχω: έχω δει = I have seen)",
+        "es-419": "visto (después de έχω: έχω δει = he visto)",
+        "it": "visto (dopo έχω: έχω δει = ho visto)",
+        "nl": "gezien (na έχω: έχω δει = ik heb gezien)"
+      }
+    },
+    "δεν": {
+      "lemma": "δεν",
+      "pos": "PART",
+      "gloss": {
+        "en": "δεν = not, don't",
+        "es-419": "δεν = no (delante del verbo)",
+        "it": "δεν = non",
+        "nl": "δεν = niet"
+      }
+    },
+    "δημοτικό": {
+      "lemma": "δημοτικό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "primary school (n)",
+        "es-419": "escuela primaria (n)",
+        "it": "scuola elementare (n)",
+        "nl": "basisschool (n)"
+      }
+    },
+    "δουλειά": {
+      "lemma": "δουλειά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "job, work (f)",
+        "es-419": "trabajo (f)",
+        "it": "lavoro (f)",
+        "nl": "werk, baan (f)"
+      }
+    },
+    "δούλεψα": {
+      "lemma": "δουλεύω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I worked (δουλεύω: aorist)",
+        "es-419": "trabajé (δουλεύω: aoristo)",
+        "it": "ho lavorato (δουλεύω: aoristo)",
+        "nl": "ik heb gewerkt (δουλεύω: aoristus)"
+      }
+    },
+    "δύο": {
+      "lemma": "δύο",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two (never changes)",
+        "es-419": "dos (no cambia)",
+        "it": "due (non cambia)",
+        "nl": "twee (verandert nooit)"
+      }
+    },
+    "είμαστε": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είμαστε = we are",
+        "es-419": "είμαστε = somos, estamos",
+        "it": "είμαστε = siamo",
+        "nl": "είμαστε = wij zijn"
+      }
+    },
+    "είναι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είναι = is, are; Είναι... is also how you give the time",
+        "es-419": "είναι = es, está, son; Είναι... también sirve para decir la hora",
+        "it": "είναι = è, sono; Είναι... serve anche per dire l'ora",
+        "nl": "είναι = is, zijn; Είναι... gebruik je ook voor de tijd"
+      }
+    },
+    "εμπειρία": {
+      "lemma": "εμπειρία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "experience (f)",
+        "es-419": "experiencia (f)",
+        "it": "esperienza (f)",
+        "nl": "ervaring (f)"
+      }
+    },
+    "εξωτερικό": {
+      "lemma": "εξωτερικό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "abroad, the outside (n)",
+        "es-419": "extranjero, exterior (n)",
+        "it": "estero, esterno (n)",
+        "nl": "buitenland, buitenkant (n)"
+      }
+    },
+    "ερωτεύτηκα": {
+      "lemma": "ερωτεύομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I fell in love (ερωτεύομαι: aorist)",
+        "es-419": "me enamoré (ερωτεύομαι: aoristo)",
+        "it": "mi sono innamorato/a (ερωτεύομαι: aoristo)",
+        "nl": "ik werd verliefd (ερωτεύομαι: aoristus)"
+      }
+    },
+    "εταιρεία": {
+      "lemma": "εταιρεία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "company (f)",
+        "es-419": "empresa (f)",
+        "it": "azienda, società (f)",
+        "nl": "bedrijf (f)"
+      }
+    },
+    "ευτυχώς": {
+      "lemma": "ευτυχώς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "luckily, fortunately",
+        "es-419": "por suerte, afortunadamente",
+        "it": "per fortuna, fortunatamente",
+        "nl": "gelukkig, gelukkig genoeg"
+      }
+    },
+    "ζήσει": {
+      "lemma": "ζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lived (after έχω: έχω ζήσει = I have lived)",
+        "es-419": "vivido (después de έχω: έχω ζήσει = he vivido)",
+        "it": "vissuto (dopo έχω: έχω ζήσει = ho vissuto)",
+        "nl": "gewoond (na έχω: έχω ζήσει = ik heb gewoond)"
+      }
+    },
+    "ζευγάρι": {
+      "lemma": "ζευγάρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "couple, pair (n)",
+        "es-419": "pareja, par (n)",
+        "it": "coppia, paio (n)",
+        "nl": "stel, paar (n)"
+      }
+    },
+    "ζωή": {
+      "lemma": "ζωή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "life (f)",
+        "es-419": "vida (f)",
+        "it": "vita (f)",
+        "nl": "leven (f)"
+      }
+    },
+    "η": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "η = the (feminine, nominative)",
+        "es-419": "η = la (femenino, nominativo)",
+        "it": "η = la (femminile, nominativo)",
+        "nl": "η = de (vrouwelijk, onderwerp)"
+      }
+    },
+    "θεσσαλονίκη": {
+      "lemma": "θεσσαλονίκη",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Thessaloniki",
+        "es-419": "Tesalónica",
+        "it": "Salonicco",
+        "nl": "Thessaloniki"
+      }
+    },
+    "ιστορία": {
+      "lemma": "ιστορία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "story, history (f)",
+        "es-419": "historia (f)",
+        "it": "storia (f)",
+        "nl": "verhaal, geschiedenis (f)"
+      }
+    },
+    "ιταλό": {
+      "lemma": "Ιταλός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Italian man (m, accusative)",
+        "es-419": "italiano (m, acusativo)",
+        "it": "italiano (m, accusativo)",
+        "nl": "Italiaan (m, accusatief)"
+      }
+    },
+    "κάθε": {
+      "lemma": "κάθε",
+      "pos": "DET",
+      "gloss": {
+        "en": "κάθε = every, each",
+        "es-419": "κάθε = cada",
+        "it": "κάθε = ogni",
+        "nl": "κάθε = elke"
+      }
+    },
+    "κάποτε": {
+      "lemma": "κάποτε",
+      "pos": "ADV",
+      "gloss": {
+        "en": "once, at some time in the past",
+        "es-419": "una vez, alguna vez",
+        "it": "una volta",
+        "nl": "eens, ooit"
+      }
+    },
+    "κέντρο": {
+      "lemma": "κέντρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "κέντρο = center, downtown (n)",
+        "es-419": "κέντρο = centro (m)",
+        "it": "κέντρο = centro (m)",
+        "nl": "κέντρο = centrum (n)"
+      }
+    },
+    "και": {
+      "lemma": "και",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "καλή": {
+      "lemma": "καλός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "καλή = good (f)",
+        "es-419": "καλή = buena (f)",
+        "it": "καλή = buona (f)",
+        "nl": "καλή = goed (f)"
+      }
+    },
+    "καλοκαίρι": {
+      "lemma": "καλοκαίρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "summer (n)",
+        "es-419": "verano (n)",
+        "it": "estate (n)",
+        "nl": "zomer (n)"
+      }
+    },
+    "κρήτη": {
+      "lemma": "κρήτη",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Crete (Greek island)",
+        "es-419": "Creta (isla griega)",
+        "it": "Creta (isola greca)",
+        "nl": "Kreta (Grieks eiland)"
+      }
+    },
+    "κόρης": {
+      "lemma": "κόρη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of the daughter (f, genitive: η γέννηση της κόρης μας)",
+        "es-419": "de la hija (f, genitivo: η γέννηση της κόρης μας)",
+        "it": "della figlia (f, genitivo: η γέννηση της κόρης μας)",
+        "nl": "van de dochter (f, genitief: η γέννηση της κόρης μας)"
+      }
+    },
+    "κύπρο": {
+      "lemma": "κύπρος",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cyprus, a country (accusative of Κύπρος)",
+        "es-419": "Chipre, un país (acusativo de Κύπρος)",
+        "it": "Cipro, un paese (accusativo di Κύπρος)",
+        "nl": "Cyprus, een land (accusatief van Κύπρος)"
+      }
+    },
+    "κύπρος": {
+      "lemma": "κύπρος",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Cyprus",
+        "es-419": "Chipre",
+        "it": "Cipro",
+        "nl": "Cyprus"
+      }
+    },
+    "λευκωσία": {
+      "lemma": "λευκωσία",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Nicosia, a city in Cyprus",
+        "es-419": "Nicosia, ciudad de Chipre",
+        "it": "Nicosia, città di Cipro",
+        "nl": "Nicosia, stad op Cyprus"
+      }
+    },
+    "λύκειο": {
+      "lemma": "λύκειο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "senior high school (ages 15 to 18) (n)",
+        "es-419": "bachillerato (15 a 18 años) (n)",
+        "it": "liceo (15-18 anni) (n)",
+        "nl": "bovenbouw van de middelbare school (15 tot 18 jaar) (n)"
+      }
+    },
+    "μένω": {
+      "lemma": "μένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I live, stay (μένω)",
+        "es-419": "vivo, me quedo (μένω)",
+        "it": "abito, resto (μένω)",
+        "nl": "ik woon, blijf (μένω)"
+      }
+    },
+    "μία": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "μία = a, an (feminine); also one",
+        "es-419": "μία = una (femenino); también uno",
+        "it": "μία = una (femminile); anche uno",
+        "nl": "μία = een (vrouwelijk); ook één"
+      }
+    },
+    "μαγαζί": {
+      "lemma": "μαγαζί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shop (n)",
+        "es-419": "tienda (n)",
+        "it": "negozio (n)",
+        "nl": "winkel (n)"
+      }
+    },
+    "μας": {
+      "lemma": "εμείς",
+      "pos": "PRON",
+      "gloss": {
+        "en": "μας = our, us (η παρέα μας)",
+        "es-419": "μας = nuestro, nos (η παρέα μας)",
+        "it": "μας = nostro, ci (η παρέα μας)",
+        "nl": "μας = onze, ons (η παρέα μας)"
+      }
+    },
+    "μεγάλη": {
+      "lemma": "μεγάλος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large (feminine)",
+        "es-419": "grande (femenino)",
+        "it": "grande (femminile)",
+        "nl": "groot (vrouwelijk)"
+      }
+    },
+    "μεγάλωσα": {
+      "lemma": "μεγαλώνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I grew up (μεγαλώνω: aorist)",
+        "es-419": "crecí (μεγαλώνω: aoristo)",
+        "it": "sono cresciuto/a (μεγαλώνω: aoristo)",
+        "nl": "ik ben opgegroeid (μεγαλώνω: aoristus)"
+      }
+    },
+    "μετά": {
+      "lemma": "μετά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, after, afterwards (μετά τη δουλειά = after work)",
+        "es-419": "luego, después (μετά τη δουλειά = después del trabajo)",
+        "it": "poi, dopo (μετά τη δουλειά = dopo il lavoro)",
+        "nl": "daarna, na (μετά τη δουλειά = na het werk)"
+      }
+    },
+    "μετακομίσω": {
+      "lemma": "μετακομίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I move (house) (after να: να μετακομίσω = to move)",
+        "es-419": "me mudo (después de να: να μετακομίσω = mudarme)",
+        "it": "mi trasferisco (dopo να: να μετακομίσω = trasferirmi)",
+        "nl": "ik verhuis (na να: να μετακομίσω = te verhuizen)"
+      }
+    },
+    "μετακόμισα": {
+      "lemma": "μετακομίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I moved (house) (μετακομίζω: aorist)",
+        "es-419": "me mudé (μετακομίζω: aoristo)",
+        "it": "mi sono trasferito/a (μετακομίζω: aoristo)",
+        "nl": "ik ben verhuisd (μετακομίζω: aoristus)"
+      }
+    },
+    "μητέρα": {
+      "lemma": "μητέρα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mother (f)",
+        "es-419": "madre (f)",
+        "it": "madre (f)",
+        "nl": "moeder (f)"
+      }
+    },
+    "μικρό": {
+      "lemma": "μικρός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "μικρό = small (neuter)",
+        "es-419": "μικρό = pequeño (neutro)",
+        "it": "μικρό = piccolo (neutro)",
+        "nl": "μικρό = klein (onzijdig)"
+      }
+    },
+    "μου": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "μου = my, me (after the noun)",
+        "es-419": "μου = mi, me (después del nombre)",
+        "it": "μου = mio, mi (dopo il nome)",
+        "nl": "μου = mijn, me (na het zelfstandig naamwoord)"
+      }
+    },
+    "μουσακά": {
+      "lemma": "μουσακάς",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "moussaka (accusative) (m)",
+        "es-419": "musaka (acusativo) (m)",
+        "it": "moussaka (accusativo) (m)",
+        "nl": "moussaka (accusatief) (m)"
+      }
+    },
+    "μόνη": {
+      "lemma": "μόνος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "alone (f)",
+        "es-419": "sola (f)",
+        "it": "sola (f)",
+        "nl": "alleen (f)"
+      }
+    },
+    "να": {
+      "lemma": "να",
+      "pos": "PART",
+      "gloss": {
+        "en": "να = to (introduces the subjunctive: θέλω να έρθω)",
+        "es-419": "να = que, para (introduce el subjuntivo: θέλω να έρθω)",
+        "it": "να = di, che (introduce il congiuntivo: θέλω να έρθω)",
+        "nl": "να = om te (leidt de conjunctief in: θέλω να έρθω)"
+      }
+    },
+    "ναι": {
+      "lemma": "ναι",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "ναι = yes (sounds like Dutch nee, but means ja)",
+        "es-419": "ναι = sí (ojo: suena como ni, pero es sí)",
+        "it": "ναι = sì",
+        "nl": "ναι = ja (let op: klinkt als nee, maar betekent ja)"
+      }
+    },
+    "νησιά": {
+      "lemma": "νησί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "islands (n, plural)",
+        "es-419": "islas (n, plural)",
+        "it": "isole (n, plurale)",
+        "nl": "eilanden (n, meervoud)"
+      }
+    },
+    "ξένη": {
+      "lemma": "ξένος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ξένη = foreign (f)",
+        "es-419": "ξένη = extranjera (f)",
+        "it": "ξένη = straniera (f)",
+        "nl": "ξένη = vreemd (f)"
+      }
+    },
+    "ο": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "ο = the (masculine, nominative)",
+        "es-419": "ο = el (masculino, nominativo)",
+        "it": "ο = il, lo (maschile, nominativo)",
+        "nl": "ο = de (mannelijk, onderwerp)"
+      }
+    },
+    "πάει": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "goes (he, she, it)",
+        "es-419": "va (él, ella)",
+        "it": "va (lui, lei)",
+        "nl": "gaat (hij, zij)"
+      }
+    },
+    "πάτρα": {
+      "lemma": "πάτρα",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Patras (city in Greece)",
+        "es-419": "Patras (ciudad de Grecia)",
+        "it": "Patrasso (città della Grecia)",
+        "nl": "Patras (stad in Griekenland)"
+      }
+    },
+    "πάω": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go, walk (I go)",
+        "es-419": "ir, caminar (voy)",
+        "it": "andare (vado)",
+        "nl": "gaan, lopen (ik ga)"
+      }
+    },
+    "πέθανε": {
+      "lemma": "πεθαίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "he or she died (πεθαίνω: aorist)",
+        "es-419": "murió (πεθαίνω: aoristo)",
+        "it": "è morto/a (πεθαίνω: aoristo)",
+        "nl": "hij of zij is overleden (πεθαίνω: aoristus)"
+      }
+    },
+    "πέντε": {
+      "lemma": "πέντε",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five (never changes)",
+        "es-419": "cinco (no cambia)",
+        "it": "cinque (non cambia)",
+        "nl": "vijf (verandert nooit)"
+      }
+    },
+    "πέρυσι": {
+      "lemma": "πέρυσι",
+      "pos": "ADV",
+      "gloss": {
+        "en": "last year",
+        "es-419": "el año pasado",
+        "it": "l'anno scorso",
+        "nl": "vorig jaar"
+      }
+    },
+    "πήγα": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I went (πάω: aorist)",
+        "es-419": "fui (πάω: aoristo)",
+        "it": "sono andato/a (πάω: aoristo)",
+        "nl": "ik ging, ik ben gegaan (πάω: aoristus)"
+      }
+    },
+    "πήρα": {
+      "lemma": "παίρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I took, I got (παίρνω: aorist)",
+        "es-419": "tomé, obtuve (παίρνω: aoristo)",
+        "it": "ho preso (παίρνω: aoristo)",
+        "nl": "ik nam, ik kreeg (παίρνω: aoristus)"
+      }
+    },
+    "παιδιά": {
+      "lemma": "παιδί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "children (n, plural of παιδί)",
+        "es-419": "niños, hijos (n, plural de παιδί)",
+        "it": "bambini, figli (n, plurale di παιδί)",
+        "nl": "kinderen (n, meervoud van παιδί)"
+      }
+    },
+    "παιδικά": {
+      "lemma": "παιδικός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "παιδικά = of childhood (n, plural: τα παιδικά μου χρόνια)",
+        "es-419": "παιδικά = de la infancia (n, plural: τα παιδικά μου χρόνια)",
+        "it": "παιδικά = dell'infanzia (n, plurale: τα παιδικά μου χρόνια)",
+        "nl": "παιδικά = van de jeugd (n, meervoud: τα παιδικά μου χρόνια)"
+      }
+    },
+    "παλιό": {
+      "lemma": "παλιός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "παλιό = old (m, accusative)",
+        "es-419": "παλιό = viejo (m, acusativo)",
+        "it": "παλιό = vecchio (m, accusativo)",
+        "nl": "παλιό = oud (m, accusatief)"
+      }
+    },
+    "παλιός": {
+      "lemma": "παλιός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "παλιός = old (m, of things and people you have known long)",
+        "es-419": "παλιός = viejo (m, de cosas y de personas que se conocen hace tiempo)",
+        "it": "παλιός = vecchio (m, di cose e persone che si conoscono da tempo)",
+        "nl": "παλιός = oud (m, van dingen en mensen die je al lang kent)"
+      }
+    },
+    "πανεπιστήμιο": {
+      "lemma": "πανεπιστήμιο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "university (n)",
+        "es-419": "universidad (n)",
+        "it": "università (n)",
+        "nl": "universiteit (n)"
+      }
+    },
+    "παντρεύτηκα": {
+      "lemma": "παντρεύομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I got married (παντρεύομαι: aorist)",
+        "es-419": "me casé (παντρεύομαι: aoristo)",
+        "it": "mi sono sposato/a (παντρεύομαι: aoristo)",
+        "nl": "ik ben getrouwd (παντρεύομαι: aoristus)"
+      }
+    },
+    "παντρεύτηκες": {
+      "lemma": "παντρεύομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you got married (παντρεύομαι: aorist)",
+        "es-419": "te casaste (παντρεύομαι: aoristo)",
+        "it": "ti sei sposato/a (παντρεύομαι: aoristo)",
+        "nl": "je bent getrouwd (παντρεύομαι: aoristus)"
+      }
+    },
+    "παππούς": {
+      "lemma": "παππούς",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grandfather (m)",
+        "es-419": "abuelo (m)",
+        "it": "nonno (m)",
+        "nl": "opa (m)"
+      }
+    },
+    "πατρίδα": {
+      "lemma": "πατρίδα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "homeland (f)",
+        "es-419": "patria (f)",
+        "it": "patria (f)",
+        "nl": "vaderland (f)"
+      }
+    },
+    "πολλά": {
+      "lemma": "πολύς",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "many, a lot of (neuter plural of πολύς)",
+        "es-419": "muchos, muchas (neutro plural de πολύς)",
+        "it": "molti, molte (neutro plurale di πολύς)",
+        "nl": "veel (onzijdig meervoud van πολύς)"
+      }
+    },
+    "πολλούς": {
+      "lemma": "πολύς",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "many (m, object form, plural)",
+        "es-419": "muchos (m, forma de objeto, plural)",
+        "it": "molti (m, forma dell'oggetto, plurale)",
+        "nl": "veel (m, lijdend voorwerp, meervoud)"
+      }
+    },
+    "πολύ": {
+      "lemma": "πολύς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "πολύ = very, a lot",
+        "es-419": "πολύ = muy, mucho",
+        "it": "πολύ = molto",
+        "nl": "πολύ = heel, veel"
+      }
+    },
+    "ποτέ": {
+      "lemma": "ποτέ",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never, ever (δεν ... ποτέ = never)",
+        "es-419": "nunca, jamás (δεν ... ποτέ = nunca)",
+        "it": "mai (δεν ... ποτέ = mai)",
+        "nl": "nooit (δεν ... ποτέ = nooit)"
+      }
+    },
+    "πού": {
+      "lemma": "πού",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where",
+        "es-419": "dónde",
+        "it": "dove",
+        "nl": "waar"
+      }
+    },
+    "πριν": {
+      "lemma": "πριν",
+      "pos": "ADV",
+      "gloss": {
+        "en": "before (πριν από = before)",
+        "es-419": "antes (πριν από = antes de)",
+        "it": "prima (πριν από = prima di)",
+        "nl": "voor, eerder (πριν από = voor)"
+      }
+    },
+    "πρόσφατα": {
+      "lemma": "πρόσφατα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "recently",
+        "es-419": "recientemente, hace poco",
+        "it": "di recente",
+        "nl": "onlangs"
+      }
+    },
+    "πρώην": {
+      "lemma": "πρώην",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "former, ex- (never changes)",
+        "es-419": "ex, anterior (no cambia)",
+        "it": "ex (non cambia)",
+        "nl": "ex-, voormalig (verandert nooit)"
+      }
+    },
+    "πρώτη": {
+      "lemma": "πρώτος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (feminine)",
+        "es-419": "primera (femenino)",
+        "it": "prima (femminile)",
+        "nl": "eerste (vrouwelijk)"
+      }
+    },
+    "πτυχίο": {
+      "lemma": "πτυχίο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "university degree (n)",
+        "es-419": "título universitario (n)",
+        "it": "laurea (n)",
+        "nl": "universitaire graad (n)"
+      }
+    },
+    "πόλη": {
+      "lemma": "πόλη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city, town (f)",
+        "es-419": "ciudad (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "πότε": {
+      "lemma": "πότε",
+      "pos": "ADV",
+      "gloss": {
+        "en": "when (in a question)",
+        "es-419": "cuándo (en una pregunta)",
+        "it": "quando (in una domanda)",
+        "nl": "wanneer (in een vraag)"
+      }
+    },
+    "ρόδο": {
+      "lemma": "ρόδος",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Rhodes (Greek island, accusative)",
+        "es-419": "Rodas (isla griega, acusativo)",
+        "it": "Rodi (isola greca, accusativo)",
+        "nl": "Rhodos (Grieks eiland, accusatief)"
+      }
+    },
+    "σε": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, to (before ένα, μία)",
+        "es-419": "en, a (antes de ένα, μία)",
+        "it": "in, a (prima di ένα, μία)",
+        "nl": "in, op, bij (voor ένα, μία)"
+      }
+    },
+    "σπούδασα": {
+      "lemma": "σπουδάζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I studied (σπουδάζω: aorist)",
+        "es-419": "estudié (σπουδάζω: aoristo)",
+        "it": "ho studiato (σπουδάζω: aoristo)",
+        "nl": "ik heb gestudeerd (σπουδάζω: aoristus)"
+      }
+    },
+    "σπούδασες": {
+      "lemma": "σπουδάζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you studied (σπουδάζω: aorist)",
+        "es-419": "estudiaste (σπουδάζω: aoristo)",
+        "it": "hai studiato (σπουδάζω: aoristo)",
+        "nl": "je hebt gestudeerd (σπουδάζω: aoristus)"
+      }
+    },
+    "στη": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στη = σε + τη: at, in, to (feminine singular); στη μία = at one o'clock",
+        "es-419": "στη = σε + τη: a, en (femenino singular); στη μία = a la una",
+        "it": "στη = σε + τη: a, in (femminile singolare); στη μία = all'una",
+        "nl": "στη = σε + τη: om, in, naar (vrouwelijk enkelvoud); στη μία = om één uur"
+      }
+    },
+    "στην": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at the (σε + την, f)",
+        "es-419": "en la (σε + την, f)",
+        "it": "nella, alla (σε + την, f)",
+        "nl": "in de, op de (σε + την, f)"
+      }
+    },
+    "στο": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at the (σε + το, n or m)",
+        "es-419": "en el (σε + το)",
+        "it": "nel, al (σε + το)",
+        "nl": "in het, op het (σε + το)"
+      }
+    },
+    "σχεδόν": {
+      "lemma": "σχεδόν",
+      "pos": "ADV",
+      "gloss": {
+        "en": "almost",
+        "es-419": "casi",
+        "it": "quasi",
+        "nl": "bijna"
+      }
+    },
+    "σχολείο": {
+      "lemma": "σχολείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "school (n)",
+        "es-419": "escuela (n)",
+        "it": "scuola (n)",
+        "nl": "school (n)"
+      }
+    },
+    "τέλος": {
+      "lemma": "τέλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end (n)",
+        "es-419": "final (n)",
+        "it": "fine (n)",
+        "nl": "einde (n)"
+      }
+    },
+    "τα": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "τα = the (neuter plural)",
+        "es-419": "τα = los, las (plural neutro)",
+        "it": "τα = i, le (plurale neutro)",
+        "nl": "τα = de (onzijdig meervoud)"
+      }
+    },
+    "ταξίδι": {
+      "lemma": "ταξίδι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip, journey (n); not the same as ταξί",
+        "es-419": "viaje (n); no es lo mismo que ταξί",
+        "it": "viaggio (n); non è lo stesso che ταξί",
+        "nl": "reis (n); niet hetzelfde als ταξί"
+      }
+    },
+    "τελείωσα": {
+      "lemma": "τελειώνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I finished (τελειώνω: aorist)",
+        "es-419": "terminé (τελειώνω: aoristo)",
+        "it": "ho finito (τελειώνω: aoristo)",
+        "nl": "ik ben klaar met, ik heb afgemaakt (τελειώνω: aoristus)"
+      }
+    },
+    "τελευταία": {
+      "lemma": "τελευταίος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "τελευταία = last (f)",
+        "es-419": "τελευταία = última (f)",
+        "it": "τελευταία = ultima (f)",
+        "nl": "τελευταία = laatste (f)"
+      }
+    },
+    "τη": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "τη = the (feminine, accusative; short form of την)",
+        "es-419": "τη = la (femenino, acusativo; forma corta de την)",
+        "it": "τη = la (femminile, accusativo; forma breve di την)",
+        "nl": "τη = de (vrouwelijk, lijdend voorwerp; korte vorm van την)"
+      }
+    },
+    "την": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "την = the (feminine, accusative)",
+        "es-419": "την = la (femenino, acusativo)",
+        "it": "την = la (femminile, accusativo)",
+        "nl": "την = de (vrouwelijk, lijdend voorwerp)"
+      }
+    },
+    "της": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "of the (f, genitive: η γέννηση της κόρης μας)",
+        "es-419": "de la (f, genitivo: η γέννηση της κόρης μας)",
+        "it": "della (f, genitivo: η γέννηση της κόρης μας)",
+        "nl": "van de (f, genitief: η γέννηση της κόρης μας)"
+      }
+    },
+    "τι": {
+      "lemma": "τι",
+      "pos": "PRON",
+      "gloss": {
+        "en": "τι = what; τι ώρα = what time, at what time",
+        "es-419": "τι = qué; τι ώρα = qué hora, a qué hora",
+        "it": "τι = che, cosa; τι ώρα = che ora, a che ora",
+        "nl": "τι = wat; τι ώρα = hoe laat"
+      }
+    },
+    "το": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "το = the (neuter); also the object form",
+        "es-419": "το = el, la (neutro)",
+        "it": "το = il, lo (neutro)",
+        "nl": "το = het (onzijdig)"
+      }
+    },
+    "του": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "of the (m, genitive: ο ξάδερφος του Νίκου)",
+        "es-419": "de (m, genitivo: ο ξάδερφος του Νίκου)",
+        "it": "di (m, genitivo: ο ξάδερφος του Νίκου)",
+        "nl": "van (m, genitief: ο ξάδερφος του Νίκου)"
+      }
+    },
+    "τότε": {
+      "lemma": "τότε",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, at that time",
+        "es-419": "entonces",
+        "it": "allora",
+        "nl": "toen, dan"
+      }
+    },
+    "τώρα": {
+      "lemma": "τώρα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "es-419": "ahora",
+        "it": "adesso",
+        "nl": "nu"
+      }
+    },
+    "φάει": {
+      "lemma": "τρώω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "eaten (after έχω: έχω φάει = I have eaten)",
+        "es-419": "comido (después de έχω: έχω φάει = he comido)",
+        "it": "mangiato (dopo έχω: έχω φάει = ho mangiato)",
+        "nl": "gegeten (na έχω: έχω φάει = ik heb gegeten)"
+      }
+    },
+    "φίλο": {
+      "lemma": "φίλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friend (m), object form of φίλος",
+        "es-419": "amigo (m), forma de complemento de φίλος",
+        "it": "amico (m), forma complemento di φίλος",
+        "nl": "vriend (m), lijdend voorwerp van φίλος"
+      }
+    },
+    "φίλοι": {
+      "lemma": "φίλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "φίλοι = friends (m), plural of φίλος",
+        "es-419": "φίλοι = amigos (m), plural de φίλος",
+        "it": "φίλοι = amici (m), plurale di φίλος",
+        "nl": "φίλοι = vrienden (m), meervoud van φίλος"
+      }
+    },
+    "φίλος": {
+      "lemma": "φίλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friend (m)",
+        "es-419": "amigo (m)",
+        "it": "amico (m)",
+        "nl": "vriend (m)"
+      }
+    },
+    "φίλους": {
+      "lemma": "φίλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (m, object form, plural)",
+        "es-419": "amigos (m, forma de objeto, plural)",
+        "it": "amici (m, forma dell'oggetto, plurale)",
+        "nl": "vrienden (m, lijdend voorwerp, meervoud)"
+      }
+    },
+    "φορά": {
+      "lemma": "φορά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f)",
+        "es-419": "vez (f)",
+        "it": "volta (f)",
+        "nl": "keer (f)"
+      }
+    },
+    "φορές": {
+      "lemma": "φορά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "times, occasions (f, plural of φορά)",
+        "es-419": "veces (f, plural de φορά)",
+        "it": "volte (f, plurale di φορά)",
+        "nl": "keer (f, meervoud van φορά)"
+      }
+    },
+    "φύγω": {
+      "lemma": "φεύγω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I leave (after να: να φύγω = to leave)",
+        "es-419": "me voy (después de να: να φύγω = irme)",
+        "it": "parto (dopo να: να φύγω = partire)",
+        "nl": "ik vertrek (na να: να φύγω = te vertrekken)"
+      }
+    },
+    "χαρά": {
+      "lemma": "χαρά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "χαρά = joy, pleasure (f)",
+        "es-419": "χαρά = alegría, gusto (f)",
+        "it": "χαρά = gioia, piacere (f)",
+        "nl": "χαρά = vreugde, plezier (m/f)"
+      }
+    },
+    "χαρούμενο": {
+      "lemma": "χαρούμενος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "χαρούμενο = happy (n)",
+        "es-419": "χαρούμενο = feliz (n)",
+        "it": "χαρούμενο = felice (n)",
+        "nl": "χαρούμενο = gelukkig, blij (n)"
+      }
+    },
+    "χιόνι": {
+      "lemma": "χιόνι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "snow (n)",
+        "es-419": "nieve (n)",
+        "it": "neve (n)",
+        "nl": "sneeuw (n)"
+      }
+    },
+    "χρονιά": {
+      "lemma": "χρονιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (as a period) (f)",
+        "es-419": "año (como período) (f)",
+        "it": "anno (come periodo) (f)",
+        "nl": "jaar (als periode) (f)"
+      }
+    },
+    "χρόνια": {
+      "lemma": "χρόνος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (m, irregular plural of χρόνος)",
+        "es-419": "años (m, plural irregular de χρόνος)",
+        "it": "anni (m, plurale irregolare di χρόνος)",
+        "nl": "jaren (m, onregelmatig meervoud van χρόνος)"
+      }
+    },
+    "χρόνου": {
+      "lemma": "χρόνος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of the year (m, genitive: του χρόνου)",
+        "es-419": "del año (m, genitivo: του χρόνου)",
+        "it": "dell'anno (m, genitivo: του χρόνου)",
+        "nl": "van het jaar (m, genitief: του χρόνου)"
+      }
+    },
+    "χωρίσαμε": {
+      "lemma": "χωρίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we split up (χωρίζω: aorist)",
+        "es-419": "nos separamos (χωρίζω: aoristo)",
+        "it": "ci siamo lasciati (χωρίζω: aoristo)",
+        "nl": "we zijn uit elkaar gegaan (χωρίζω: aoristus)"
+      }
+    },
+    "χωριό": {
+      "lemma": "χωριό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "village (n)",
+        "es-419": "pueblo (n)",
+        "it": "paese (n)",
+        "nl": "dorp (n)"
+      }
+    },
+    "ωραία": {
+      "lemma": "ωραίος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "beautiful, nice (feminine); also the interjection Ωραία!",
+        "es-419": "bonita, agradable (femenino); también la interjección ¡Ωραία!",
+        "it": "bella, bello (femminile); anche l'interiezione Ωραία!",
+        "nl": "mooi, fijn (vrouwelijk); ook het tussenwerpsel Ωραία!"
+      }
+    },
+    "όταν": {
+      "lemma": "όταν",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "when",
+        "es-419": "cuando",
+        "it": "quando",
+        "nl": "wanneer, toen"
+      }
+    },
+    "όχι": {
+      "lemma": "όχι",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "no",
+        "es-419": "no",
+        "it": "no",
+        "nl": "nee"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "el-a2-istoria-mou-1",
+      "title": "Γέννηση και σχολείο",
+      "grammarFocus": {
+        "en": [
+          "Aorist middle: γεννήθηκα (I was born), γεννήθηκες (you were born); active μεγάλωσα (I grew up)",
+          "Schools with στο: στο δημοτικό, στο γυμνάσιο, στο λύκειο",
+          "Place: στη Λευκωσία, στην Πάτρα, σε ένα χωριό"
+        ],
+        "es-419": [
+          "Aoristo medio: γεννήθηκα (nací), γεννήθηκες (naciste); activo μεγάλωσα (crecí)",
+          "Escuelas con στο: στο δημοτικό, στο γυμνάσιο, στο λύκειο",
+          "Lugar: στη Λευκωσία, στην Πάτρα, σε ένα χωριό"
+        ],
+        "it": [
+          "Aoristo medio: γεννήθηκα (sono nato/a), γεννήθηκες (sei nato/a); attivo μεγάλωσα (sono cresciuto/a)",
+          "Le scuole con στο: στο δημοτικό, στο γυμνάσιο, στο λύκειο",
+          "Luogo: στη Λευκωσία, στην Πάτρα, σε ένα χωριό"
+        ],
+        "nl": [
+          "Aoristus medium: γεννήθηκα (ik ben geboren), γεννήθηκες (je bent geboren); actief μεγάλωσα (ik ben opgegroeid)",
+          "Scholen met στο: στο δημοτικό, στο γυμνάσιο, στο λύκειο",
+          "Plaats: στη Λευκωσία, στην Πάτρα, σε ένα χωριό"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "δημοτικό",
+          "translation": {
+            "en": "primary school",
+            "es-419": "la escuela primaria",
+            "it": "la scuola elementare",
+            "nl": "de basisschool"
+          },
+          "distractors": {
+            "en": [
+              "high school",
+              "university"
+            ],
+            "es-419": [
+              "la secundaria",
+              "la universidad"
+            ],
+            "it": [
+              "il liceo",
+              "l'università"
+            ],
+            "nl": [
+              "de middelbare school",
+              "de universiteit"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "γυμνάσιο",
+          "translation": {
+            "en": "junior high school",
+            "es-419": "la secundaria básica",
+            "it": "la scuola media",
+            "nl": "de onderbouw van de middelbare school"
+          },
+          "distractors": {
+            "en": [
+              "primary school",
+              "university"
+            ],
+            "es-419": [
+              "la escuela primaria",
+              "la universidad"
+            ],
+            "it": [
+              "la scuola elementare",
+              "l'università"
+            ],
+            "nl": [
+              "de basisschool",
+              "de universiteit"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "λύκειο",
+          "translation": {
+            "en": "senior high school",
+            "es-419": "el bachillerato",
+            "it": "il liceo",
+            "nl": "de bovenbouw van de middelbare school"
+          },
+          "distractors": {
+            "en": [
+              "junior high school",
+              "primary school"
+            ],
+            "es-419": [
+              "la secundaria básica",
+              "la escuela primaria"
+            ],
+            "it": [
+              "la scuola media",
+              "la scuola elementare"
+            ],
+            "nl": [
+              "de onderbouw van de middelbare school",
+              "de basisschool"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "ζωή",
+          "translation": {
+            "en": "life",
+            "es-419": "la vida",
+            "it": "la vita",
+            "nl": "het leven"
+          },
+          "distractors": {
+            "en": [
+              "story",
+              "birth"
+            ],
+            "es-419": [
+              "la historia",
+              "el nacimiento"
+            ],
+            "it": [
+              "la storia",
+              "la nascita"
+            ],
+            "nl": [
+              "het verhaal",
+              "de geboorte"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "γεννήθηκα",
+          "translation": {
+            "en": "I was born",
+            "es-419": "nací",
+            "it": "sono nato/a",
+            "nl": "ik ben geboren"
+          },
+          "distractors": {
+            "en": [
+              "I grew up",
+              "I studied"
+            ],
+            "es-419": [
+              "crecí",
+              "estudié"
+            ],
+            "it": [
+              "sono cresciuto/a",
+              "ho studiato"
+            ],
+            "nl": [
+              "ik ben opgegroeid",
+              "ik heb gestudeerd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "μεγάλωσα",
+          "translation": {
+            "en": "I grew up",
+            "es-419": "crecí",
+            "it": "sono cresciuto/a",
+            "nl": "ik ben opgegroeid"
+          },
+          "distractors": {
+            "en": [
+              "I was born",
+              "I moved"
+            ],
+            "es-419": [
+              "nací",
+              "me mudé"
+            ],
+            "it": [
+              "sono nato/a",
+              "mi sono trasferito/a"
+            ],
+            "nl": [
+              "ik ben geboren",
+              "ik ben verhuisd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "στο δημοτικό",
+          "translation": {
+            "en": "in primary school",
+            "es-419": "en la escuela primaria",
+            "it": "alle elementari",
+            "nl": "op de basisschool"
+          },
+          "distractors": {
+            "en": [
+              "in high school",
+              "at university"
+            ],
+            "es-419": [
+              "en la secundaria",
+              "en la universidad"
+            ],
+            "it": [
+              "al liceo",
+              "all'università"
+            ],
+            "nl": [
+              "op de middelbare school",
+              "op de universiteit"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "στο γυμνάσιο",
+          "translation": {
+            "en": "in junior high school",
+            "es-419": "en la secundaria básica",
+            "it": "alle medie",
+            "nl": "in de onderbouw"
+          },
+          "distractors": {
+            "en": [
+              "in primary school",
+              "at university"
+            ],
+            "es-419": [
+              "en la escuela primaria",
+              "en la universidad"
+            ],
+            "it": [
+              "alle elementari",
+              "all'università"
+            ],
+            "nl": [
+              "op de basisschool",
+              "op de universiteit"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "στο λύκειο",
+          "translation": {
+            "en": "in senior high school",
+            "es-419": "en el bachillerato",
+            "it": "al liceo",
+            "nl": "in de bovenbouw"
+          },
+          "distractors": {
+            "en": [
+              "in junior high school",
+              "in primary school"
+            ],
+            "es-419": [
+              "en la secundaria básica",
+              "en la escuela primaria"
+            ],
+            "it": [
+              "alle medie",
+              "alle elementari"
+            ],
+            "nl": [
+              "in de onderbouw",
+              "op de basisschool"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η ζωή μου",
+          "translation": {
+            "en": "my life",
+            "es-419": "mi vida",
+            "it": "la mia vita",
+            "nl": "mijn leven"
+          },
+          "distractors": {
+            "en": [
+              "my story",
+              "my family"
+            ],
+            "es-419": [
+              "mi historia",
+              "mi familia"
+            ],
+            "it": [
+              "la mia storia",
+              "la mia famiglia"
+            ],
+            "nl": [
+              "mijn verhaal",
+              "mijn familie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "γεννήθηκα στη Λευκωσία",
+          "translation": {
+            "en": "I was born in Nicosia",
+            "es-419": "nací en Nicosia",
+            "it": "sono nato/a a Nicosia",
+            "nl": "ik ben geboren in Nicosia"
+          },
+          "distractors": {
+            "en": [
+              "I was born in Athens",
+              "I grew up in Nicosia"
+            ],
+            "es-419": [
+              "nací en Atenas",
+              "crecí en Nicosia"
+            ],
+            "it": [
+              "sono nato/a ad Atene",
+              "sono cresciuto/a a Nicosia"
+            ],
+            "nl": [
+              "ik ben geboren in Athene",
+              "ik ben opgegroeid in Nicosia"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μεγάλωσα στην Πάτρα",
+          "translation": {
+            "en": "I grew up in Patras",
+            "es-419": "crecí en Patras",
+            "it": "sono cresciuto/a a Patrasso",
+            "nl": "ik ben opgegroeid in Patras"
+          },
+          "distractors": {
+            "en": [
+              "I grew up in Crete",
+              "I was born in Patras"
+            ],
+            "es-419": [
+              "crecí en Creta",
+              "nací en Patras"
+            ],
+            "it": [
+              "sono cresciuto/a a Creta",
+              "sono nato/a a Patrasso"
+            ],
+            "nl": [
+              "ik ben opgegroeid op Kreta",
+              "ik ben geboren in Patras"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "πήγα στο γυμνάσιο στην πόλη",
+          "translation": {
+            "en": "I went to junior high school in the city",
+            "es-419": "fui a la secundaria básica en la ciudad",
+            "it": "sono andato/a alle medie in città",
+            "nl": "ik ging in de stad naar de onderbouw"
+          },
+          "distractors": {
+            "en": [
+              "I went to junior high school in the village",
+              "I went to primary school in the city"
+            ],
+            "es-419": [
+              "fui a la secundaria básica en el pueblo",
+              "fui a la escuela primaria en la ciudad"
+            ],
+            "it": [
+              "sono andato/a alle medie in paese",
+              "sono andato/a alle elementari in città"
+            ],
+            "nl": [
+              "ik ging in het dorp naar de onderbouw",
+              "ik ging in de stad naar de basisschool"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Γεννήθηκα στη Λευκωσία.",
+          "translation": {
+            "en": "I was born in Nicosia.",
+            "es-419": "Nací en Nicosia.",
+            "it": "Sono nato/a a Nicosia.",
+            "nl": "Ik ben geboren in Nicosia."
+          },
+          "distractors": {
+            "en": [
+              "I was born in Crete.",
+              "I grew up in Nicosia."
+            ],
+            "es-419": [
+              "Nací en Creta.",
+              "Crecí en Nicosia."
+            ],
+            "it": [
+              "Sono nato/a a Creta.",
+              "Sono cresciuto/a a Nicosia."
+            ],
+            "nl": [
+              "Ik ben geboren op Kreta.",
+              "Ik ben opgegroeid in Nicosia."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μεγάλωσα σε ένα μικρό χωριό.",
+          "translation": {
+            "en": "I grew up in a small village.",
+            "es-419": "Crecí en un pueblo pequeño.",
+            "it": "Sono cresciuto/a in un piccolo paese.",
+            "nl": "Ik ben opgegroeid in een klein dorp."
+          },
+          "distractors": {
+            "en": [
+              "I grew up in a big city.",
+              "I was born in a small village."
+            ],
+            "es-419": [
+              "Crecí en una ciudad grande.",
+              "Nací en un pueblo pequeño."
+            ],
+            "it": [
+              "Sono cresciuto/a in una grande città.",
+              "Sono nato/a in un piccolo paese."
+            ],
+            "nl": [
+              "Ik ben opgegroeid in een grote stad.",
+              "Ik ben geboren in een klein dorp."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πήγα στο δημοτικό στο χωριό.",
+          "translation": {
+            "en": "I went to primary school in the village.",
+            "es-419": "Fui a la escuela primaria en el pueblo.",
+            "it": "Sono andato/a alle elementari in paese.",
+            "nl": "Ik ging in het dorp naar de basisschool."
+          },
+          "distractors": {
+            "en": [
+              "I went to primary school in the city.",
+              "I went to high school in the village."
+            ],
+            "es-419": [
+              "Fui a la escuela primaria en la ciudad.",
+              "Fui a la secundaria en el pueblo."
+            ],
+            "it": [
+              "Sono andato/a alle elementari in città.",
+              "Sono andato/a al liceo in paese."
+            ],
+            "nl": [
+              "Ik ging in de stad naar de basisschool.",
+              "Ik ging in het dorp naar de middelbare school."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πού γεννήθηκες;",
+          "translation": {
+            "en": "Where were you born?",
+            "es-419": "¿Dónde naciste?",
+            "it": "Dove sei nato/a?",
+            "nl": "Waar ben je geboren?"
+          },
+          "distractors": {
+            "en": [
+              "Where did you grow up?",
+              "When were you born?"
+            ],
+            "es-419": [
+              "¿Dónde creciste?",
+              "¿Cuándo naciste?"
+            ],
+            "it": [
+              "Dove sei cresciuto/a?",
+              "Quando sei nato/a?"
+            ],
+            "nl": [
+              "Waar ben je opgegroeid?",
+              "Wanneer ben je geboren?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Γεννήθηκα στην Κρήτη, αλλά μεγάλωσα στην Αθήνα.",
+          "translation": {
+            "en": "I was born in Crete, but I grew up in Athens.",
+            "es-419": "Nací en Creta, pero crecí en Atenas.",
+            "it": "Sono nato/a a Creta, ma sono cresciuto/a ad Atene.",
+            "nl": "Ik ben geboren op Kreta, maar ik ben opgegroeid in Athene."
+          },
+          "distractors": {
+            "en": [
+              "I was born in Athens, but I grew up in Crete.",
+              "I was born in Crete, and I studied in Athens."
+            ],
+            "es-419": [
+              "Nací en Atenas, pero crecí en Creta.",
+              "Nací en Creta, y estudié en Atenas."
+            ],
+            "it": [
+              "Sono nato/a ad Atene, ma sono cresciuto/a a Creta.",
+              "Sono nato/a a Creta, e ho studiato ad Atene."
+            ],
+            "nl": [
+              "Ik ben geboren in Athene, maar ik ben opgegroeid op Kreta.",
+              "Ik ben geboren op Kreta en ik heb in Athene gestudeerd."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πήγα στο γυμνάσιο στην Πάτρα και στο λύκειο στην Αθήνα.",
+          "translation": {
+            "en": "I went to junior high school in Patras and to senior high school in Athens.",
+            "es-419": "Fui a la secundaria básica en Patras y al bachillerato en Atenas.",
+            "it": "Sono andato/a alle medie a Patrasso e al liceo ad Atene.",
+            "nl": "Ik ging in Patras naar de onderbouw en in Athene naar de bovenbouw."
+          },
+          "distractors": {
+            "en": [
+              "I went to junior high school in Athens and to senior high school in Patras.",
+              "I went to primary school in Patras and to senior high school in Athens."
+            ],
+            "es-419": [
+              "Fui a la secundaria básica en Atenas y al bachillerato en Patras.",
+              "Fui a la escuela primaria en Patras y al bachillerato en Atenas."
+            ],
+            "it": [
+              "Sono andato/a alle medie ad Atene e al liceo a Patrasso.",
+              "Sono andato/a alle elementari a Patrasso e al liceo ad Atene."
+            ],
+            "nl": [
+              "Ik ging in Athene naar de onderbouw en in Patras naar de bovenbouw.",
+              "Ik ging in Patras naar de basisschool en in Athene naar de bovenbouw."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-1-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η ζωή μου ήταν ήσυχη στο χωριό.",
+          "translation": {
+            "en": "My life was quiet in the village.",
+            "es-419": "Mi vida era tranquila en el pueblo.",
+            "it": "La mia vita era tranquilla in paese.",
+            "nl": "Mijn leven was rustig in het dorp."
+          },
+          "distractors": {
+            "en": [
+              "My life is quiet in the village.",
+              "My life was quiet in the city."
+            ],
+            "es-419": [
+              "Mi vida es tranquila en el pueblo.",
+              "Mi vida era tranquila en la ciudad."
+            ],
+            "it": [
+              "La mia vita è tranquilla in paese.",
+              "La mia vita era tranquilla in città."
+            ],
+            "nl": [
+              "Mijn leven is rustig in het dorp.",
+              "Mijn leven was rustig in de stad."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-istoria-mou-2",
+      "title": "Σπουδές και δουλειά",
+      "grammarFocus": {
+        "en": [
+          "Aorist active: σπούδασα, δούλεψα, μετακόμισα, άλλαξα, άνοιξα, πήρα",
+          "Time with πριν: πριν πέντε χρόνια (five years ago)",
+          "μετά + noun: μετά το πτυχίο (after the degree)"
+        ],
+        "es-419": [
+          "Aoristo activo: σπούδασα, δούλεψα, μετακόμισα, άλλαξα, άνοιξα, πήρα",
+          "Tiempo con πριν: πριν πέντε χρόνια (hace cinco años)",
+          "μετά + sustantivo: μετά το πτυχίο (después del título)"
+        ],
+        "it": [
+          "Aoristo attivo: σπούδασα, δούλεψα, μετακόμισα, άλλαξα, άνοιξα, πήρα",
+          "Il tempo con πριν: πριν πέντε χρόνια (cinque anni fa)",
+          "μετά + nome: μετά το πτυχίο (dopo la laurea)"
+        ],
+        "nl": [
+          "Aoristus actief: σπούδασα, δούλεψα, μετακόμισα, άλλαξα, άνοιξα, πήρα",
+          "Tijd met πριν: πριν πέντε χρόνια (vijf jaar geleden)",
+          "μετά + zelfstandig naamwoord: μετά το πτυχίο (na het diploma)"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "πτυχίο",
+          "translation": {
+            "en": "degree",
+            "es-419": "el título universitario",
+            "it": "la laurea",
+            "nl": "de universitaire graad"
+          },
+          "distractors": {
+            "en": [
+              "job",
+              "school"
+            ],
+            "es-419": [
+              "el trabajo",
+              "la escuela"
+            ],
+            "it": [
+              "il lavoro",
+              "la scuola"
+            ],
+            "nl": [
+              "de baan",
+              "de school"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "δίπλωμα",
+          "translation": {
+            "en": "diploma",
+            "es-419": "el diploma",
+            "it": "il diploma",
+            "nl": "het diploma"
+          },
+          "distractors": {
+            "en": [
+              "job",
+              "company"
+            ],
+            "es-419": [
+              "el trabajo",
+              "la empresa"
+            ],
+            "it": [
+              "il lavoro",
+              "l'azienda"
+            ],
+            "nl": [
+              "de baan",
+              "het bedrijf"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "εξωτερικό",
+          "translation": {
+            "en": "abroad",
+            "es-419": "el extranjero",
+            "it": "l'estero",
+            "nl": "het buitenland"
+          },
+          "distractors": {
+            "en": [
+              "the center",
+              "the village"
+            ],
+            "es-419": [
+              "el centro",
+              "el pueblo"
+            ],
+            "it": [
+              "il centro",
+              "il paese"
+            ],
+            "nl": [
+              "het centrum",
+              "het dorp"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "σπούδασα",
+          "translation": {
+            "en": "I studied",
+            "es-419": "estudié",
+            "it": "ho studiato",
+            "nl": "ik heb gestudeerd"
+          },
+          "distractors": {
+            "en": [
+              "I worked",
+              "I graduated"
+            ],
+            "es-419": [
+              "trabajé",
+              "me gradué"
+            ],
+            "it": [
+              "ho lavorato",
+              "mi sono laureato/a"
+            ],
+            "nl": [
+              "ik heb gewerkt",
+              "ik ben afgestudeerd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "μετακόμισα",
+          "translation": {
+            "en": "I moved",
+            "es-419": "me mudé",
+            "it": "mi sono trasferito/a",
+            "nl": "ik ben verhuisd"
+          },
+          "distractors": {
+            "en": [
+              "I studied",
+              "I changed"
+            ],
+            "es-419": [
+              "estudié",
+              "cambié"
+            ],
+            "it": [
+              "ho studiato",
+              "ho cambiato"
+            ],
+            "nl": [
+              "ik heb gestudeerd",
+              "ik heb veranderd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "το πτυχίο μου",
+          "translation": {
+            "en": "my degree",
+            "es-419": "mi título",
+            "it": "la mia laurea",
+            "nl": "mijn graad"
+          },
+          "distractors": {
+            "en": [
+              "my job",
+              "my school"
+            ],
+            "es-419": [
+              "mi trabajo",
+              "mi escuela"
+            ],
+            "it": [
+              "il mio lavoro",
+              "la mia scuola"
+            ],
+            "nl": [
+              "mijn baan",
+              "mijn school"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "στο εξωτερικό",
+          "translation": {
+            "en": "abroad",
+            "es-419": "en el extranjero",
+            "it": "all'estero",
+            "nl": "in het buitenland"
+          },
+          "distractors": {
+            "en": [
+              "in the center",
+              "at home"
+            ],
+            "es-419": [
+              "en el centro",
+              "en casa"
+            ],
+            "it": [
+              "in centro",
+              "a casa"
+            ],
+            "nl": [
+              "in het centrum",
+              "thuis"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "σε μία εταιρεία",
+          "translation": {
+            "en": "at a company",
+            "es-419": "en una empresa",
+            "it": "in un'azienda",
+            "nl": "bij een bedrijf"
+          },
+          "distractors": {
+            "en": [
+              "at a school",
+              "at a shop"
+            ],
+            "es-419": [
+              "en una escuela",
+              "en una tienda"
+            ],
+            "it": [
+              "in una scuola",
+              "in un negozio"
+            ],
+            "nl": [
+              "op een school",
+              "in een winkel"
+            ]
+          },
+          "variants": [
+            "σε μια εταιρεία"
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η πρώτη δουλειά μου",
+          "translation": {
+            "en": "my first job",
+            "es-419": "mi primer trabajo",
+            "it": "il mio primo lavoro",
+            "nl": "mijn eerste baan"
+          },
+          "distractors": {
+            "en": [
+              "my second job",
+              "my first house"
+            ],
+            "es-419": [
+              "mi segundo trabajo",
+              "mi primera casa"
+            ],
+            "it": [
+              "il mio secondo lavoro",
+              "la mia prima casa"
+            ],
+            "nl": [
+              "mijn tweede baan",
+              "mijn eerste huis"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "πήρα το πτυχίο μου",
+          "translation": {
+            "en": "I got my degree",
+            "es-419": "obtuve mi título",
+            "it": "ho preso la laurea",
+            "nl": "ik heb mijn diploma gehaald"
+          },
+          "distractors": {
+            "en": [
+              "I got my job",
+              "I want my degree"
+            ],
+            "es-419": [
+              "conseguí mi trabajo",
+              "quiero mi título"
+            ],
+            "it": [
+              "ho trovato il lavoro",
+              "voglio la laurea"
+            ],
+            "nl": [
+              "ik heb mijn baan gekregen",
+              "ik wil mijn diploma"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "άλλαξα δουλειά",
+          "translation": {
+            "en": "I changed jobs",
+            "es-419": "cambié de trabajo",
+            "it": "ho cambiato lavoro",
+            "nl": "ik ben van baan veranderd"
+          },
+          "distractors": {
+            "en": [
+              "I found a job",
+              "I changed cities"
+            ],
+            "es-419": [
+              "encontré trabajo",
+              "cambié de ciudad"
+            ],
+            "it": [
+              "ho trovato lavoro",
+              "ho cambiato città"
+            ],
+            "nl": [
+              "ik heb een baan gevonden",
+              "ik ben van stad veranderd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μετακόμισα στην Αθήνα",
+          "translation": {
+            "en": "I moved to Athens",
+            "es-419": "me mudé a Atenas",
+            "it": "mi sono trasferito/a ad Atene",
+            "nl": "ik ben naar Athene verhuisd"
+          },
+          "distractors": {
+            "en": [
+              "I moved to Patras",
+              "I studied in Athens"
+            ],
+            "es-419": [
+              "me mudé a Patras",
+              "estudié en Atenas"
+            ],
+            "it": [
+              "mi sono trasferito/a a Patrasso",
+              "ho studiato ad Atene"
+            ],
+            "nl": [
+              "ik ben naar Patras verhuisd",
+              "ik heb in Athene gestudeerd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "άνοιξα ένα μαγαζί",
+          "translation": {
+            "en": "I opened a shop",
+            "es-419": "abrí una tienda",
+            "it": "ho aperto un negozio",
+            "nl": "ik heb een winkel geopend"
+          },
+          "distractors": {
+            "en": [
+              "I bought a shop",
+              "I opened a restaurant"
+            ],
+            "es-419": [
+              "compré una tienda",
+              "abrí un restaurante"
+            ],
+            "it": [
+              "ho comprato un negozio",
+              "ho aperto un ristorante"
+            ],
+            "nl": [
+              "ik heb een winkel gekocht",
+              "ik heb een restaurant geopend"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σπούδασα στο πανεπιστήμιο στην Αθήνα.",
+          "translation": {
+            "en": "I studied at the university in Athens.",
+            "es-419": "Estudié en la universidad de Atenas.",
+            "it": "Ho studiato all'università ad Atene.",
+            "nl": "Ik heb gestudeerd aan de universiteit in Athene."
+          },
+          "distractors": {
+            "en": [
+              "I studied at the university in Patras.",
+              "I worked at the university in Athens."
+            ],
+            "es-419": [
+              "Estudié en la universidad de Patras.",
+              "Trabajé en la universidad de Atenas."
+            ],
+            "it": [
+              "Ho studiato all'università a Patrasso.",
+              "Ho lavorato all'università ad Atene."
+            ],
+            "nl": [
+              "Ik heb gestudeerd aan de universiteit in Patras.",
+              "Ik heb gewerkt aan de universiteit in Athene."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πήρα το πτυχίο μου πριν πέντε χρόνια.",
+          "translation": {
+            "en": "I got my degree five years ago.",
+            "es-419": "Obtuve mi título hace cinco años.",
+            "it": "Ho preso la laurea cinque anni fa.",
+            "nl": "Ik heb mijn diploma vijf jaar geleden gehaald."
+          },
+          "distractors": {
+            "en": [
+              "I got my degree ten years ago.",
+              "I got my job five years ago."
+            ],
+            "es-419": [
+              "Obtuve mi título hace diez años.",
+              "Conseguí mi trabajo hace cinco años."
+            ],
+            "it": [
+              "Ho preso la laurea dieci anni fa.",
+              "Ho trovato il lavoro cinque anni fa."
+            ],
+            "nl": [
+              "Ik heb mijn diploma tien jaar geleden gehaald.",
+              "Ik heb mijn baan vijf jaar geleden gekregen."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μετά το πτυχίο δούλεψα σε μία εταιρεία.",
+          "translation": {
+            "en": "After my degree I worked at a company.",
+            "es-419": "Después del título trabajé en una empresa.",
+            "it": "Dopo la laurea ho lavorato in un'azienda.",
+            "nl": "Na mijn diploma heb ik bij een bedrijf gewerkt."
+          },
+          "distractors": {
+            "en": [
+              "After my degree I worked at a school.",
+              "Before my degree I worked at a company."
+            ],
+            "es-419": [
+              "Después del título trabajé en una escuela.",
+              "Antes del título trabajé en una empresa."
+            ],
+            "it": [
+              "Dopo la laurea ho lavorato in una scuola.",
+              "Prima della laurea ho lavorato in un'azienda."
+            ],
+            "nl": [
+              "Na mijn diploma heb ik op een school gewerkt.",
+              "Voor mijn diploma heb ik bij een bedrijf gewerkt."
+            ]
+          },
+          "variants": [
+            "Μετά το πτυχίο δούλεψα σε μια εταιρεία."
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σπούδασα στην Αθήνα και μετακόμισα στο εξωτερικό.",
+          "translation": {
+            "en": "I studied in Athens and moved abroad.",
+            "es-419": "Estudié en Atenas y me mudé al extranjero.",
+            "it": "Ho studiato ad Atene e mi sono trasferito/a all'estero.",
+            "nl": "Ik heb in Athene gestudeerd en ben naar het buitenland verhuisd."
+          },
+          "distractors": {
+            "en": [
+              "I studied in Athens and moved to Patras.",
+              "I worked in Athens and moved abroad."
+            ],
+            "es-419": [
+              "Estudié en Atenas y me mudé a Patras.",
+              "Trabajé en Atenas y me mudé al extranjero."
+            ],
+            "it": [
+              "Ho studiato ad Atene e mi sono trasferito/a a Patrasso.",
+              "Ho lavorato ad Atene e mi sono trasferito/a all'estero."
+            ],
+            "nl": [
+              "Ik heb in Athene gestudeerd en ben naar Patras verhuisd.",
+              "Ik heb in Athene gewerkt en ben naar het buitenland verhuisd."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Άλλαξα δουλειά και μετακόμισα στη Θεσσαλονίκη.",
+          "translation": {
+            "en": "I changed jobs and moved to Thessaloniki.",
+            "es-419": "Cambié de trabajo y me mudé a Tesalónica.",
+            "it": "Ho cambiato lavoro e mi sono trasferito/a a Salonicco.",
+            "nl": "Ik ben van baan veranderd en naar Thessaloniki verhuisd."
+          },
+          "distractors": {
+            "en": [
+              "I changed jobs and moved to Athens.",
+              "I found a job and moved to Thessaloniki."
+            ],
+            "es-419": [
+              "Cambié de trabajo y me mudé a Atenas.",
+              "Encontré trabajo y me mudé a Tesalónica."
+            ],
+            "it": [
+              "Ho cambiato lavoro e mi sono trasferito/a ad Atene.",
+              "Ho trovato lavoro e mi sono trasferito/a a Salonicco."
+            ],
+            "nl": [
+              "Ik ben van baan veranderd en naar Athene verhuisd.",
+              "Ik heb een baan gevonden en ben naar Thessaloniki verhuisd."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Άνοιξα ένα μικρό μαγαζί στο κέντρο.",
+          "translation": {
+            "en": "I opened a small shop in the center.",
+            "es-419": "Abrí una tienda pequeña en el centro.",
+            "it": "Ho aperto un piccolo negozio in centro.",
+            "nl": "Ik heb een kleine winkel in het centrum geopend."
+          },
+          "distractors": {
+            "en": [
+              "I opened a big shop in the center.",
+              "I opened a small shop in the village."
+            ],
+            "es-419": [
+              "Abrí una tienda grande en el centro.",
+              "Abrí una tienda pequeña en el pueblo."
+            ],
+            "it": [
+              "Ho aperto un grande negozio in centro.",
+              "Ho aperto un piccolo negozio in paese."
+            ],
+            "nl": [
+              "Ik heb een grote winkel in het centrum geopend.",
+              "Ik heb een kleine winkel in het dorp geopend."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στο εξωτερικό έμαθα μία ξένη γλώσσα.",
+          "translation": {
+            "en": "Abroad I learned a foreign language.",
+            "es-419": "En el extranjero aprendí un idioma extranjero.",
+            "it": "All'estero ho imparato una lingua straniera.",
+            "nl": "In het buitenland heb ik een vreemde taal geleerd."
+          },
+          "distractors": {
+            "en": [
+              "Abroad I learned two foreign languages.",
+              "At home I learned a foreign language."
+            ],
+            "es-419": [
+              "En el extranjero aprendí dos idiomas extranjeros.",
+              "En casa aprendí un idioma extranjero."
+            ],
+            "it": [
+              "All'estero ho imparato due lingue straniere.",
+              "A casa ho imparato una lingua straniera."
+            ],
+            "nl": [
+              "In het buitenland heb ik twee vreemde talen geleerd.",
+              "Thuis heb ik een vreemde taal geleerd."
+            ]
+          },
+          "variants": [
+            "Στο εξωτερικό έμαθα μια ξένη γλώσσα."
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-2-u21",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πού σπούδασες;",
+          "translation": {
+            "en": "Where did you study?",
+            "es-419": "¿Dónde estudiaste?",
+            "it": "Dove hai studiato?",
+            "nl": "Waar heb je gestudeerd?"
+          },
+          "distractors": {
+            "en": [
+              "Where did you work?",
+              "When did you study?"
+            ],
+            "es-419": [
+              "¿Dónde trabajaste?",
+              "¿Cuándo estudiaste?"
+            ],
+            "it": [
+              "Dove hai lavorato?",
+              "Quando hai studiato?"
+            ],
+            "nl": [
+              "Waar heb je gewerkt?",
+              "Wanneer heb je gestudeerd?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-istoria-mou-3",
+      "title": "Σχέσεις",
+      "grammarFocus": {
+        "en": [
+          "Aorist middle: παντρεύτηκα (I got married), ερωτεύτηκα (I fell in love), έγινα (I became)",
+          "Aorist active: χωρίσαμε (we split up), πέθανε (he or she died)",
+          "Time words: πριν δέκα χρόνια (ten years ago), πέρυσι (last year)"
+        ],
+        "es-419": [
+          "Aoristo medio: παντρεύτηκα (me casé), ερωτεύτηκα (me enamoré), έγινα (me hice, llegué a ser)",
+          "Aoristo activo: χωρίσαμε (nos separamos), πέθανε (murió)",
+          "Palabras de tiempo: πριν δέκα χρόνια (hace diez años), πέρυσι (el año pasado)"
+        ],
+        "it": [
+          "Aoristo medio: παντρεύτηκα (mi sono sposato/a), ερωτεύτηκα (mi sono innamorato/a), έγινα (sono diventato/a)",
+          "Aoristo attivo: χωρίσαμε (ci siamo lasciati), πέθανε (è morto/a)",
+          "Parole di tempo: πριν δέκα χρόνια (dieci anni fa), πέρυσι (l'anno scorso)"
+        ],
+        "nl": [
+          "Aoristus medium: παντρεύτηκα (ik ben getrouwd), ερωτεύτηκα (ik werd verliefd), έγινα (ik ben geworden)",
+          "Aoristus actief: χωρίσαμε (we zijn uit elkaar gegaan), πέθανε (hij of zij is overleden)",
+          "Tijdwoorden: πριν δέκα χρόνια (tien jaar geleden), πέρυσι (vorig jaar)"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "γάμος",
+          "translation": {
+            "en": "wedding",
+            "es-419": "la boda",
+            "it": "il matrimonio",
+            "nl": "de bruiloft"
+          },
+          "distractors": {
+            "en": [
+              "birth",
+              "party"
+            ],
+            "es-419": [
+              "el nacimiento",
+              "la fiesta"
+            ],
+            "it": [
+              "la nascita",
+              "la festa"
+            ],
+            "nl": [
+              "de geboorte",
+              "het feest"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "ζευγάρι",
+          "translation": {
+            "en": "couple",
+            "es-419": "la pareja",
+            "it": "la coppia",
+            "nl": "het stel"
+          },
+          "distractors": {
+            "en": [
+              "friend",
+              "family"
+            ],
+            "es-419": [
+              "el amigo",
+              "la familia"
+            ],
+            "it": [
+              "l'amico",
+              "la famiglia"
+            ],
+            "nl": [
+              "de vriend",
+              "de familie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "παντρεύτηκα",
+          "translation": {
+            "en": "I got married",
+            "es-419": "me casé",
+            "it": "mi sono sposato/a",
+            "nl": "ik ben getrouwd"
+          },
+          "distractors": {
+            "en": [
+              "I got divorced",
+              "I fell in love"
+            ],
+            "es-419": [
+              "me divorcié",
+              "me enamoré"
+            ],
+            "it": [
+              "ho divorziato",
+              "mi sono innamorato/a"
+            ],
+            "nl": [
+              "ik ben gescheiden",
+              "ik werd verliefd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "ερωτεύτηκα",
+          "translation": {
+            "en": "I fell in love",
+            "es-419": "me enamoré",
+            "it": "mi sono innamorato/a",
+            "nl": "ik werd verliefd"
+          },
+          "distractors": {
+            "en": [
+              "I got married",
+              "I split up"
+            ],
+            "es-419": [
+              "me casé",
+              "me separé"
+            ],
+            "it": [
+              "mi sono sposato/a",
+              "mi sono lasciato/a"
+            ],
+            "nl": [
+              "ik ben getrouwd",
+              "ik heb het uitgemaakt"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ο γάμος μας",
+          "translation": {
+            "en": "our wedding",
+            "es-419": "nuestra boda",
+            "it": "il nostro matrimonio",
+            "nl": "onze bruiloft"
+          },
+          "distractors": {
+            "en": [
+              "my wedding",
+              "our family"
+            ],
+            "es-419": [
+              "mi boda",
+              "nuestra familia"
+            ],
+            "it": [
+              "il mio matrimonio",
+              "la nostra famiglia"
+            ],
+            "nl": [
+              "mijn bruiloft",
+              "onze familie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "πριν δέκα χρόνια",
+          "translation": {
+            "en": "ten years ago",
+            "es-419": "hace diez años",
+            "it": "dieci anni fa",
+            "nl": "tien jaar geleden"
+          },
+          "distractors": {
+            "en": [
+              "five years ago",
+              "in ten years"
+            ],
+            "es-419": [
+              "hace cinco años",
+              "en diez años"
+            ],
+            "it": [
+              "cinque anni fa",
+              "tra dieci anni"
+            ],
+            "nl": [
+              "vijf jaar geleden",
+              "over tien jaar"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "παντρεύτηκα στην Κρήτη",
+          "translation": {
+            "en": "I got married in Crete",
+            "es-419": "me casé en Creta",
+            "it": "mi sono sposato/a a Creta",
+            "nl": "ik ben op Kreta getrouwd"
+          },
+          "distractors": {
+            "en": [
+              "I got married in Athens",
+              "I grew up in Crete"
+            ],
+            "es-419": [
+              "me casé en Atenas",
+              "crecí en Creta"
+            ],
+            "it": [
+              "mi sono sposato/a ad Atene",
+              "sono cresciuto/a a Creta"
+            ],
+            "nl": [
+              "ik ben in Athene getrouwd",
+              "ik ben op Kreta opgegroeid"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ερωτεύτηκα έναν Ιταλό",
+          "translation": {
+            "en": "I fell in love with an Italian",
+            "es-419": "me enamoré de un italiano",
+            "it": "mi sono innamorato/a di un italiano",
+            "nl": "ik werd verliefd op een Italiaan"
+          },
+          "distractors": {
+            "en": [
+              "I fell in love with a Spaniard",
+              "I married an Italian"
+            ],
+            "es-419": [
+              "me enamoré de un español",
+              "me casé con un italiano"
+            ],
+            "it": [
+              "mi sono innamorato/a di uno spagnolo",
+              "ho sposato un italiano"
+            ],
+            "nl": [
+              "ik werd verliefd op een Spanjaard",
+              "ik ben met een Italiaan getrouwd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έγινα μητέρα",
+          "translation": {
+            "en": "I became a mother",
+            "es-419": "me convertí en madre",
+            "it": "sono diventata madre",
+            "nl": "ik ben moeder geworden"
+          },
+          "distractors": {
+            "en": [
+              "I became a teacher",
+              "I became a grandmother"
+            ],
+            "es-419": [
+              "me hice maestra",
+              "me convertí en abuela"
+            ],
+            "it": [
+              "sono diventata insegnante",
+              "sono diventata nonna"
+            ],
+            "nl": [
+              "ik ben lerares geworden",
+              "ik ben oma geworden"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Παντρεύτηκα πριν δέκα χρόνια.",
+          "translation": {
+            "en": "I got married ten years ago.",
+            "es-419": "Me casé hace diez años.",
+            "it": "Mi sono sposato/a dieci anni fa.",
+            "nl": "Ik ben tien jaar geleden getrouwd."
+          },
+          "distractors": {
+            "en": [
+              "I got married five years ago.",
+              "I got divorced ten years ago."
+            ],
+            "es-419": [
+              "Me casé hace cinco años.",
+              "Me divorcié hace diez años."
+            ],
+            "it": [
+              "Mi sono sposato/a cinque anni fa.",
+              "Ho divorziato dieci anni fa."
+            ],
+            "nl": [
+              "Ik ben vijf jaar geleden getrouwd.",
+              "Ik ben tien jaar geleden gescheiden."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πότε παντρεύτηκες;",
+          "translation": {
+            "en": "When did you get married?",
+            "es-419": "¿Cuándo te casaste?",
+            "it": "Quando ti sei sposato/a?",
+            "nl": "Wanneer ben je getrouwd?"
+          },
+          "distractors": {
+            "en": [
+              "Where did you get married?",
+              "When did you get divorced?"
+            ],
+            "es-419": [
+              "¿Dónde te casaste?",
+              "¿Cuándo te divorciaste?"
+            ],
+            "it": [
+              "Dove ti sei sposato/a?",
+              "Quando hai divorziato?"
+            ],
+            "nl": [
+              "Waar ben je getrouwd?",
+              "Wanneer ben je gescheiden?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο γάμος ήταν το καλοκαίρι στην Κρήτη.",
+          "translation": {
+            "en": "The wedding was in the summer in Crete.",
+            "es-419": "La boda fue en verano en Creta.",
+            "it": "Il matrimonio è stato in estate a Creta.",
+            "nl": "De bruiloft was in de zomer op Kreta."
+          },
+          "distractors": {
+            "en": [
+              "The wedding was in the winter in Crete.",
+              "The wedding was in the summer in Athens."
+            ],
+            "es-419": [
+              "La boda fue en invierno en Creta.",
+              "La boda fue en verano en Atenas."
+            ],
+            "it": [
+              "Il matrimonio è stato in inverno a Creta.",
+              "Il matrimonio è stato in estate ad Atene."
+            ],
+            "nl": [
+              "De bruiloft was in de winter op Kreta.",
+              "De bruiloft was in de zomer in Athene."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ερωτεύτηκα έναν Ιταλό στην Αθήνα.",
+          "translation": {
+            "en": "I fell in love with an Italian in Athens.",
+            "es-419": "Me enamoré de un italiano en Atenas.",
+            "it": "Mi sono innamorato/a di un italiano ad Atene.",
+            "nl": "Ik werd verliefd op een Italiaan in Athene."
+          },
+          "distractors": {
+            "en": [
+              "I fell in love with a Spaniard in Athens.",
+              "I met an Italian in Patras."
+            ],
+            "es-419": [
+              "Me enamoré de un español en Atenas.",
+              "Conocí a un italiano en Patras."
+            ],
+            "it": [
+              "Mi sono innamorato/a di uno spagnolo ad Atene.",
+              "Ho conosciuto un italiano a Patrasso."
+            ],
+            "nl": [
+              "Ik werd verliefd op een Spanjaard in Athene.",
+              "Ik heb een Italiaan leren kennen in Patras."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έγινα μητέρα πριν πέντε χρόνια.",
+          "translation": {
+            "en": "I became a mother five years ago.",
+            "es-419": "Me convertí en madre hace cinco años.",
+            "it": "Sono diventata madre cinque anni fa.",
+            "nl": "Ik ben vijf jaar geleden moeder geworden."
+          },
+          "distractors": {
+            "en": [
+              "I became a mother ten years ago.",
+              "I became a grandmother five years ago."
+            ],
+            "es-419": [
+              "Me convertí en madre hace diez años.",
+              "Me convertí en abuela hace cinco años."
+            ],
+            "it": [
+              "Sono diventata madre dieci anni fa.",
+              "Sono diventata nonna cinque anni fa."
+            ],
+            "nl": [
+              "Ik ben tien jaar geleden moeder geworden.",
+              "Ik ben vijf jaar geleden oma geworden."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έγινα δάσκαλος στο χωριό.",
+          "translation": {
+            "en": "I became a teacher in the village.",
+            "es-419": "Me hice maestro en el pueblo.",
+            "it": "Sono diventato insegnante in paese.",
+            "nl": "Ik ben leraar geworden in het dorp."
+          },
+          "distractors": {
+            "en": [
+              "I became a teacher in the city.",
+              "I became a doctor in the village."
+            ],
+            "es-419": [
+              "Me hice maestro en la ciudad.",
+              "Me hice médico en el pueblo."
+            ],
+            "it": [
+              "Sono diventato insegnante in città.",
+              "Sono diventato medico in paese."
+            ],
+            "nl": [
+              "Ik ben leraar geworden in de stad.",
+              "Ik ben arts geworden in het dorp."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο παππούς μου πέθανε πριν δέκα χρόνια.",
+          "translation": {
+            "en": "My grandfather died ten years ago.",
+            "es-419": "Mi abuelo murió hace diez años.",
+            "it": "Mio nonno è morto dieci anni fa.",
+            "nl": "Mijn opa is tien jaar geleden overleden."
+          },
+          "distractors": {
+            "en": [
+              "My grandfather died five years ago.",
+              "My grandmother died ten years ago."
+            ],
+            "es-419": [
+              "Mi abuelo murió hace cinco años.",
+              "Mi abuela murió hace diez años."
+            ],
+            "it": [
+              "Mio nonno è morto cinque anni fa.",
+              "Mia nonna è morta dieci anni fa."
+            ],
+            "nl": [
+              "Mijn opa is vijf jaar geleden overleden.",
+              "Mijn oma is tien jaar geleden overleden."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η γέννηση της κόρης μας ήταν μεγάλη χαρά.",
+          "translation": {
+            "en": "The birth of our daughter was a great joy.",
+            "es-419": "El nacimiento de nuestra hija fue una gran alegría.",
+            "it": "La nascita di nostra figlia è stata una grande gioia.",
+            "nl": "De geboorte van onze dochter was een grote vreugde."
+          },
+          "distractors": {
+            "en": [
+              "The birth of our son was a great joy.",
+              "The wedding of our daughter was a great joy."
+            ],
+            "es-419": [
+              "El nacimiento de nuestro hijo fue una gran alegría.",
+              "La boda de nuestra hija fue una gran alegría."
+            ],
+            "it": [
+              "La nascita di nostro figlio è stata una grande gioia.",
+              "Il matrimonio di nostra figlia è stato una grande gioia."
+            ],
+            "nl": [
+              "De geboorte van onze zoon was een grote vreugde.",
+              "De bruiloft van onze dochter was een grote vreugde."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Χωρίσαμε πέρυσι, αλλά είμαστε ακόμα φίλοι.",
+          "translation": {
+            "en": "We split up last year, but we are still friends.",
+            "es-419": "Nos separamos el año pasado, pero todavía somos amigos.",
+            "it": "Ci siamo lasciati l'anno scorso, ma siamo ancora amici.",
+            "nl": "We zijn vorig jaar uit elkaar gegaan, maar we zijn nog steeds vrienden."
+          },
+          "distractors": {
+            "en": [
+              "We split up ten years ago, but we are still friends.",
+              "We split up last year, but we are still a couple."
+            ],
+            "es-419": [
+              "Nos separamos hace diez años, pero todavía somos amigos.",
+              "Nos separamos el año pasado, pero todavía somos pareja."
+            ],
+            "it": [
+              "Ci siamo lasciati dieci anni fa, ma siamo ancora amici.",
+              "Ci siamo lasciati l'anno scorso, ma siamo ancora una coppia."
+            ],
+            "nl": [
+              "We zijn tien jaar geleden uit elkaar gegaan, maar we zijn nog steeds vrienden.",
+              "We zijn vorig jaar uit elkaar gegaan, maar we zijn nog steeds een stel."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-3-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαστε ένα χαρούμενο ζευγάρι.",
+          "translation": {
+            "en": "We are a happy couple.",
+            "es-419": "Somos una pareja feliz.",
+            "it": "Siamo una coppia felice.",
+            "nl": "Wij zijn een gelukkig stel."
+          },
+          "distractors": {
+            "en": [
+              "We are a young couple.",
+              "They are a happy couple."
+            ],
+            "es-419": [
+              "Somos una pareja joven.",
+              "Son una pareja feliz."
+            ],
+            "it": [
+              "Siamo una giovane coppia.",
+              "Sono una coppia felice."
+            ],
+            "nl": [
+              "Wij zijn een jong stel.",
+              "Zij zijn een gelukkig stel."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-istoria-mou-4",
+      "title": "Έχω πάει",
+      "grammarFocus": {
+        "en": [
+          "έχω + participle for experience: έχω πάει, έχω δει, έχω φάει, έχω ζήσει (the participle never changes)",
+          "Never: δεν έχω πάει ποτέ; questions: Έχεις πάει ποτέ...;",
+          "Places with στη/στην/στο: στη Ρόδο, στην Κρήτη, στο εξωτερικό"
+        ],
+        "es-419": [
+          "έχω + participio para la experiencia: έχω πάει, έχω δει, έχω φάει, έχω ζήσει (el participio no cambia)",
+          "Nunca: δεν έχω πάει ποτέ; preguntas: Έχεις πάει ποτέ...;",
+          "Lugares con στη/στην/στο: στη Ρόδο, στην Κρήτη, στο εξωτερικό"
+        ],
+        "it": [
+          "έχω + participio per l'esperienza: έχω πάει, έχω δει, έχω φάει, έχω ζήσει (il participio non cambia)",
+          "Mai: δεν έχω πάει ποτέ; domande: Έχεις πάει ποτέ...;",
+          "Luoghi con στη/στην/στο: στη Ρόδο, στην Κρήτη, στο εξωτερικό"
+        ],
+        "nl": [
+          "έχω + voltooid deelwoord voor ervaring: έχω πάει, έχω δει, έχω φάει, έχω ζήσει (het deelwoord verandert nooit)",
+          "Nooit: δεν έχω πάει ποτέ; vragen: Έχεις πάει ποτέ...;",
+          "Plaatsen met στη/στην/στο: στη Ρόδο, στην Κρήτη, στο εξωτερικό"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "εμπειρία",
+          "translation": {
+            "en": "experience",
+            "es-419": "la experiencia",
+            "it": "l'esperienza",
+            "nl": "de ervaring"
+          },
+          "distractors": {
+            "en": [
+              "trip",
+              "memory"
+            ],
+            "es-419": [
+              "el viaje",
+              "el recuerdo"
+            ],
+            "it": [
+              "il viaggio",
+              "il ricordo"
+            ],
+            "nl": [
+              "de reis",
+              "de herinnering"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "μία μεγάλη εμπειρία",
+          "translation": {
+            "en": "a great experience",
+            "es-419": "una gran experiencia",
+            "it": "una grande esperienza",
+            "nl": "een grote ervaring"
+          },
+          "distractors": {
+            "en": [
+              "a small experience",
+              "a great memory"
+            ],
+            "es-419": [
+              "una pequeña experiencia",
+              "un gran recuerdo"
+            ],
+            "it": [
+              "una piccola esperienza",
+              "un grande ricordo"
+            ],
+            "nl": [
+              "een kleine ervaring",
+              "een grote herinnering"
+            ]
+          },
+          "variants": [
+            "μια μεγάλη εμπειρία"
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έχω πάει",
+          "translation": {
+            "en": "I have been",
+            "es-419": "he ido",
+            "it": "ci sono stato/a",
+            "nl": "ik ben geweest"
+          },
+          "distractors": {
+            "en": [
+              "I have seen",
+              "I will go"
+            ],
+            "es-419": [
+              "he visto",
+              "iré"
+            ],
+            "it": [
+              "ho visto",
+              "andrò"
+            ],
+            "nl": [
+              "ik heb gezien",
+              "ik ga"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έχω δει",
+          "translation": {
+            "en": "I have seen",
+            "es-419": "he visto",
+            "it": "ho visto",
+            "nl": "ik heb gezien"
+          },
+          "distractors": {
+            "en": [
+              "I have been",
+              "I have eaten"
+            ],
+            "es-419": [
+              "he ido",
+              "he comido"
+            ],
+            "it": [
+              "ci sono stato/a",
+              "ho mangiato"
+            ],
+            "nl": [
+              "ik ben geweest",
+              "ik heb gegeten"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δεν έχω πάει ποτέ",
+          "translation": {
+            "en": "I have never been",
+            "es-419": "nunca he ido",
+            "it": "non ci sono mai stato/a",
+            "nl": "ik ben er nog nooit geweest"
+          },
+          "distractors": {
+            "en": [
+              "I have never seen",
+              "I have always been"
+            ],
+            "es-419": [
+              "nunca he visto",
+              "siempre he ido"
+            ],
+            "it": [
+              "non ho mai visto",
+              "ci sono sempre stato/a"
+            ],
+            "nl": [
+              "ik heb nog nooit gezien",
+              "ik ben er altijd geweest"
+            ]
+          },
+          "senses": {
+            "1": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έχω πάει στην Κρήτη",
+          "translation": {
+            "en": "I have been to Crete",
+            "es-419": "he ido a Creta",
+            "it": "sono stato/a a Creta",
+            "nl": "ik ben op Kreta geweest"
+          },
+          "distractors": {
+            "en": [
+              "I have been to Rhodes",
+              "I have never been to Crete"
+            ],
+            "es-419": [
+              "he ido a Rodas",
+              "nunca he ido a Creta"
+            ],
+            "it": [
+              "sono stato/a a Rodi",
+              "non sono mai stato/a a Creta"
+            ],
+            "nl": [
+              "ik ben op Rhodos geweest",
+              "ik ben nog nooit op Kreta geweest"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έχω φάει μουσακά",
+          "translation": {
+            "en": "I have eaten moussaka",
+            "es-419": "he comido musaca",
+            "it": "ho mangiato la moussaka",
+            "nl": "ik heb moussaka gegeten"
+          },
+          "distractors": {
+            "en": [
+              "I have eaten souvlaki",
+              "I have cooked moussaka"
+            ],
+            "es-419": [
+              "he comido souvlaki",
+              "he cocinado musaca"
+            ],
+            "it": [
+              "ho mangiato il souvlaki",
+              "ho cucinato la moussaka"
+            ],
+            "nl": [
+              "ik heb souvlaki gegeten",
+              "ik heb moussaka gemaakt"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έχω ζήσει στο εξωτερικό",
+          "translation": {
+            "en": "I have lived abroad",
+            "es-419": "he vivido en el extranjero",
+            "it": "ho vissuto all'estero",
+            "nl": "ik heb in het buitenland gewoond"
+          },
+          "distractors": {
+            "en": [
+              "I have studied abroad",
+              "I have lived in Athens"
+            ],
+            "es-419": [
+              "he estudiado en el extranjero",
+              "he vivido en Atenas"
+            ],
+            "it": [
+              "ho studiato all'estero",
+              "ho vissuto ad Atene"
+            ],
+            "nl": [
+              "ik heb in het buitenland gestudeerd",
+              "ik heb in Athene gewoond"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχεις πάει ποτέ στη Ρόδο;",
+          "translation": {
+            "en": "Have you ever been to Rhodes?",
+            "es-419": "¿Alguna vez has ido a Rodas?",
+            "it": "Sei mai stato/a a Rodi?",
+            "nl": "Ben je ooit op Rhodos geweest?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever been to Crete?",
+              "Are you going to Rhodes?"
+            ],
+            "es-419": [
+              "¿Alguna vez has ido a Creta?",
+              "¿Vas a ir a Rodas?"
+            ],
+            "it": [
+              "Sei mai stato/a a Creta?",
+              "Vai a Rodi?"
+            ],
+            "nl": [
+              "Ben je ooit op Kreta geweest?",
+              "Ga je naar Rhodos?"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ναι, έχω πάει δύο φορές.",
+          "translation": {
+            "en": "Yes, I have been twice.",
+            "es-419": "Sí, he ido dos veces.",
+            "it": "Sì, ci sono stato/a due volte.",
+            "nl": "Ja, ik ben er twee keer geweest."
+          },
+          "distractors": {
+            "en": [
+              "Yes, I have been three times.",
+              "No, I have been twice."
+            ],
+            "es-419": [
+              "Sí, he ido tres veces.",
+              "No, he ido dos veces."
+            ],
+            "it": [
+              "Sì, ci sono stato/a tre volte.",
+              "No, ci sono stato/a due volte."
+            ],
+            "nl": [
+              "Ja, ik ben er drie keer geweest.",
+              "Nee, ik ben er twee keer geweest."
+            ]
+          },
+          "variants": [
+            "Ναι, έχω πάει 2 φορές.",
+            "Ναι, έχω πάει δυο φορές."
+          ],
+          "senses": {
+            "1": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Όχι, δεν έχω πάει ποτέ στη Ρόδο.",
+          "translation": {
+            "en": "No, I have never been to Rhodes.",
+            "es-419": "No, nunca he ido a Rodas.",
+            "it": "No, non sono mai stato/a a Rodi.",
+            "nl": "Nee, ik ben nog nooit op Rhodos geweest."
+          },
+          "distractors": {
+            "en": [
+              "No, I have never been to Crete.",
+              "Yes, I have been to Rhodes."
+            ],
+            "es-419": [
+              "No, nunca he ido a Creta.",
+              "Sí, he ido a Rodas."
+            ],
+            "it": [
+              "No, non sono mai stato/a a Creta.",
+              "Sì, sono stato/a a Rodi."
+            ],
+            "nl": [
+              "Nee, ik ben nog nooit op Kreta geweest.",
+              "Ja, ik ben op Rhodos geweest."
+            ]
+          },
+          "senses": {
+            "2": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχεις δει ποτέ χιόνι στην Αθήνα;",
+          "translation": {
+            "en": "Have you ever seen snow in Athens?",
+            "es-419": "¿Alguna vez has visto nieve en Atenas?",
+            "it": "Hai mai visto la neve ad Atene?",
+            "nl": "Heb je ooit sneeuw gezien in Athene?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever seen snow in Thessaloniki?",
+              "Have you ever seen rain in Athens?"
+            ],
+            "es-419": [
+              "¿Alguna vez has visto nieve en Tesalónica?",
+              "¿Alguna vez has visto lluvia en Atenas?"
+            ],
+            "it": [
+              "Hai mai visto la neve a Salonicco?",
+              "Hai mai visto la pioggia ad Atene?"
+            ],
+            "nl": [
+              "Heb je ooit sneeuw gezien in Thessaloniki?",
+              "Heb je ooit regen gezien in Athene?"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω πάει σε πολλά νησιά, αλλά δεν έχω πάει ποτέ στην Κύπρο.",
+          "translation": {
+            "en": "I have been to many islands, but I have never been to Cyprus.",
+            "es-419": "He ido a muchas islas, pero nunca he ido a Chipre.",
+            "it": "Sono stato/a in molte isole, ma non sono mai stato/a a Cipro.",
+            "nl": "Ik ben op veel eilanden geweest, maar ik ben nog nooit op Cyprus geweest."
+          },
+          "distractors": {
+            "en": [
+              "I have been to many islands, but I have never been to Crete.",
+              "I have been to a few islands, but I have never been to Cyprus."
+            ],
+            "es-419": [
+              "He ido a muchas islas, pero nunca he ido a Creta.",
+              "He ido a pocas islas, pero nunca he ido a Chipre."
+            ],
+            "it": [
+              "Sono stato/a in molte isole, ma non sono mai stato/a a Creta.",
+              "Sono stato/a in poche isole, ma non sono mai stato/a a Cipro."
+            ],
+            "nl": [
+              "Ik ben op veel eilanden geweest, maar ik ben nog nooit op Kreta geweest.",
+              "Ik ben op een paar eilanden geweest, maar ik ben nog nooit op Cyprus geweest."
+            ]
+          },
+          "senses": {
+            "0": "aux",
+            "7": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχουμε δει την Κρήτη και τη Ρόδο.",
+          "translation": {
+            "en": "We have seen Crete and Rhodes.",
+            "es-419": "Hemos visto Creta y Rodas.",
+            "it": "Abbiamo visto Creta e Rodi.",
+            "nl": "We hebben Kreta en Rhodos gezien."
+          },
+          "distractors": {
+            "en": [
+              "We have seen Crete and Athens.",
+              "We saw Crete and Rhodes yesterday."
+            ],
+            "es-419": [
+              "Hemos visto Creta y Atenas.",
+              "Vimos Creta y Rodas ayer."
+            ],
+            "it": [
+              "Abbiamo visto Creta e Atene.",
+              "Ieri abbiamo visto Creta e Rodi."
+            ],
+            "nl": [
+              "We hebben Kreta en Athene gezien.",
+              "We hebben gisteren Kreta en Rhodos gezien."
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το ταξίδι ήταν μία ωραία εμπειρία.",
+          "translation": {
+            "en": "The trip was a nice experience.",
+            "es-419": "El viaje fue una linda experiencia.",
+            "it": "Il viaggio è stato una bella esperienza.",
+            "nl": "De reis was een mooie ervaring."
+          },
+          "distractors": {
+            "en": [
+              "The trip was a boring experience.",
+              "The food was a nice experience."
+            ],
+            "es-419": [
+              "El viaje fue una experiencia aburrida.",
+              "La comida fue una linda experiencia."
+            ],
+            "it": [
+              "Il viaggio è stato un'esperienza noiosa.",
+              "Il cibo è stato una bella esperienza."
+            ],
+            "nl": [
+              "De reis was een saaie ervaring.",
+              "Het eten was een mooie ervaring."
+            ]
+          },
+          "variants": [
+            "Το ταξίδι ήταν μια ωραία εμπειρία."
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχετε ζήσει ποτέ στο εξωτερικό;",
+          "translation": {
+            "en": "Have you ever lived abroad?",
+            "es-419": "¿Alguna vez han vivido en el extranjero?",
+            "it": "Ha mai vissuto all'estero?",
+            "nl": "Hebt u ooit in het buitenland gewoond?"
+          },
+          "distractors": {
+            "en": [
+              "Have you ever studied abroad?",
+              "Have you ever lived in Athens?"
+            ],
+            "es-419": [
+              "¿Alguna vez han estudiado en el extranjero?",
+              "¿Alguna vez han vivido en Atenas?"
+            ],
+            "it": [
+              "Ha mai studiato all'estero?",
+              "Ha mai vissuto ad Atene?"
+            ],
+            "nl": [
+              "Hebt u ooit in het buitenland gestudeerd?",
+              "Hebt u ooit in Athene gewoond?"
+            ]
+          },
+          "senses": {
+            "0": "aux"
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-4-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω φάει ποτέ μουσακά στην Κύπρο.",
+          "translation": {
+            "en": "I have never eaten moussaka in Cyprus.",
+            "es-419": "Nunca he comido musaca en Chipre.",
+            "it": "Non ho mai mangiato la moussaka a Cipro.",
+            "nl": "Ik heb nog nooit moussaka gegeten op Cyprus."
+          },
+          "distractors": {
+            "en": [
+              "I have never eaten souvlaki in Cyprus.",
+              "I have never eaten moussaka in Crete."
+            ],
+            "es-419": [
+              "Nunca he comido souvlaki en Chipre.",
+              "Nunca he comido musaca en Creta."
+            ],
+            "it": [
+              "Non ho mai mangiato il souvlaki a Cipro.",
+              "Non ho mai mangiato la moussaka a Creta."
+            ],
+            "nl": [
+              "Ik heb nog nooit souvlaki gegeten op Cyprus.",
+              "Ik heb nog nooit moussaka gegeten op Kreta."
+            ]
+          },
+          "senses": {
+            "1": "aux"
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-istoria-mou-5",
+      "title": "Σειρά και χρόνος",
+      "grammarFocus": {
+        "en": [
+          "όταν + aorist: Όταν τελείωσα το σχολείο, πήγα στην Αθήνα",
+          "Order and time: στην αρχή, αργότερα, από τότε, πρόσφατα, κάποτε",
+          "Approximation: σχεδόν; ex-: ο πρώην άντρας μου"
+        ],
+        "es-419": [
+          "όταν + aoristo: Όταν τελείωσα το σχολείο, πήγα στην Αθήνα",
+          "Orden y tiempo: στην αρχή, αργότερα, από τότε, πρόσφατα, κάποτε",
+          "Aproximación: σχεδόν; ex-: ο πρώην άντρας μου"
+        ],
+        "it": [
+          "όταν + aoristo: Όταν τελείωσα το σχολείο, πήγα στην Αθήνα",
+          "Ordine e tempo: στην αρχή, αργότερα, από τότε, πρόσφατα, κάποτε",
+          "Approssimazione: σχεδόν; ex: ο πρώην άντρας μου"
+        ],
+        "nl": [
+          "όταν + aoristus: Όταν τελείωσα το σχολείο, πήγα στην Αθήνα",
+          "Volgorde en tijd: στην αρχή, αργότερα, από τότε, πρόσφατα, κάποτε",
+          "Bijna: σχεδόν; ex-: ο πρώην άντρας μου"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "κάποτε",
+          "translation": {
+            "en": "once",
+            "es-419": "una vez",
+            "it": "una volta",
+            "nl": "eens"
+          },
+          "distractors": {
+            "en": [
+              "today",
+              "tomorrow"
+            ],
+            "es-419": [
+              "hoy",
+              "mañana"
+            ],
+            "it": [
+              "oggi",
+              "domani"
+            ],
+            "nl": [
+              "vandaag",
+              "morgen"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "πρόσφατα",
+          "translation": {
+            "en": "recently",
+            "es-419": "recientemente",
+            "it": "di recente",
+            "nl": "onlangs"
+          },
+          "distractors": {
+            "en": [
+              "long ago",
+              "always"
+            ],
+            "es-419": [
+              "hace mucho",
+              "siempre"
+            ],
+            "it": [
+              "tanto tempo fa",
+              "sempre"
+            ],
+            "nl": [
+              "lang geleden",
+              "altijd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "αργότερα",
+          "translation": {
+            "en": "later",
+            "es-419": "más tarde",
+            "it": "più tardi",
+            "nl": "later"
+          },
+          "distractors": {
+            "en": [
+              "earlier",
+              "recently"
+            ],
+            "es-419": [
+              "antes",
+              "recientemente"
+            ],
+            "it": [
+              "prima",
+              "di recente"
+            ],
+            "nl": [
+              "eerder",
+              "onlangs"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "σχεδόν",
+          "translation": {
+            "en": "almost",
+            "es-419": "casi",
+            "it": "quasi",
+            "nl": "bijna"
+          },
+          "distractors": {
+            "en": [
+              "always",
+              "never"
+            ],
+            "es-419": [
+              "siempre",
+              "nunca"
+            ],
+            "it": [
+              "sempre",
+              "mai"
+            ],
+            "nl": [
+              "altijd",
+              "nooit"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "αρχή",
+          "translation": {
+            "en": "beginning",
+            "es-419": "el principio",
+            "it": "l'inizio",
+            "nl": "het begin"
+          },
+          "distractors": {
+            "en": [
+              "end",
+              "middle"
+            ],
+            "es-419": [
+              "el final",
+              "el medio"
+            ],
+            "it": [
+              "la fine",
+              "la metà"
+            ],
+            "nl": [
+              "het einde",
+              "het midden"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "στην αρχή",
+          "translation": {
+            "en": "at the beginning",
+            "es-419": "al principio",
+            "it": "all'inizio",
+            "nl": "in het begin"
+          },
+          "distractors": {
+            "en": [
+              "at the end",
+              "in the middle"
+            ],
+            "es-419": [
+              "al final",
+              "en el medio"
+            ],
+            "it": [
+              "alla fine",
+              "a metà"
+            ],
+            "nl": [
+              "aan het einde",
+              "in het midden"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "από τότε",
+          "translation": {
+            "en": "since then",
+            "es-419": "desde entonces",
+            "it": "da allora",
+            "nl": "sindsdien"
+          },
+          "distractors": {
+            "en": [
+              "until then",
+              "from now on"
+            ],
+            "es-419": [
+              "hasta entonces",
+              "de ahora en adelante"
+            ],
+            "it": [
+              "fino ad allora",
+              "da ora in poi"
+            ],
+            "nl": [
+              "tot dan",
+              "vanaf nu"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ο πρώην άντρας μου",
+          "translation": {
+            "en": "my ex-husband",
+            "es-419": "mi exmarido",
+            "it": "il mio ex marito",
+            "nl": "mijn ex-man"
+          },
+          "distractors": {
+            "en": [
+              "my husband",
+              "my ex-wife"
+            ],
+            "es-419": [
+              "mi marido",
+              "mi exesposa"
+            ],
+            "it": [
+              "mio marito",
+              "la mia ex moglie"
+            ],
+            "nl": [
+              "mijn man",
+              "mijn ex-vrouw"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ένας παλιός φίλος",
+          "translation": {
+            "en": "an old friend",
+            "es-419": "un viejo amigo",
+            "it": "un vecchio amico",
+            "nl": "een oude vriend"
+          },
+          "distractors": {
+            "en": [
+              "a new friend",
+              "an old teacher"
+            ],
+            "es-419": [
+              "un amigo nuevo",
+              "un viejo maestro"
+            ],
+            "it": [
+              "un nuovo amico",
+              "un vecchio insegnante"
+            ],
+            "nl": [
+              "een nieuwe vriend",
+              "een oude leraar"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "όταν τελείωσα το σχολείο",
+          "translation": {
+            "en": "when I finished school",
+            "es-419": "cuando terminé la escuela",
+            "it": "quando ho finito la scuola",
+            "nl": "toen ik van school kwam"
+          },
+          "distractors": {
+            "en": [
+              "when I started school",
+              "after I finished school"
+            ],
+            "es-419": [
+              "cuando empecé la escuela",
+              "después de terminar la escuela"
+            ],
+            "it": [
+              "quando ho iniziato la scuola",
+              "dopo aver finito la scuola"
+            ],
+            "nl": [
+              "toen ik naar school ging",
+              "nadat ik van school was gekomen"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Όταν τελείωσα το σχολείο, πήγα στην Αθήνα.",
+          "translation": {
+            "en": "When I finished school, I went to Athens.",
+            "es-419": "Cuando terminé la escuela, fui a Atenas.",
+            "it": "Quando ho finito la scuola, sono andato/a ad Atene.",
+            "nl": "Toen ik van school kwam, ging ik naar Athene."
+          },
+          "distractors": {
+            "en": [
+              "When I finished school, I went to Patras.",
+              "When I finished school, I stayed in Athens."
+            ],
+            "es-419": [
+              "Cuando terminé la escuela, fui a Patras.",
+              "Cuando terminé la escuela, me quedé en Atenas."
+            ],
+            "it": [
+              "Quando ho finito la scuola, sono andato/a a Patrasso.",
+              "Quando ho finito la scuola, sono rimasto/a ad Atene."
+            ],
+            "nl": [
+              "Toen ik van school kwam, ging ik naar Patras.",
+              "Toen ik van school kwam, bleef ik in Athene."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Όταν ήμουν στη Ρόδο, γνώρισα έναν παλιό φίλο.",
+          "translation": {
+            "en": "When I was in Rhodes, I met an old friend.",
+            "es-419": "Cuando estuve en Rodas, conocí a un viejo amigo.",
+            "it": "Quando ero a Rodi, ho incontrato un vecchio amico.",
+            "nl": "Toen ik op Rhodos was, ontmoette ik een oude vriend."
+          },
+          "distractors": {
+            "en": [
+              "When I was in Crete, I met an old friend.",
+              "When I was in Rhodes, I met a new friend."
+            ],
+            "es-419": [
+              "Cuando estuve en Creta, conocí a un viejo amigo.",
+              "Cuando estuve en Rodas, conocí a un amigo nuevo."
+            ],
+            "it": [
+              "Quando ero a Creta, ho incontrato un vecchio amico.",
+              "Quando ero a Rodi, ho conosciuto un nuovo amico."
+            ],
+            "nl": [
+              "Toen ik op Kreta was, ontmoette ik een oude vriend.",
+              "Toen ik op Rhodos was, ontmoette ik een nieuwe vriend."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρόσφατα μετακόμισα στη Θεσσαλονίκη.",
+          "translation": {
+            "en": "Recently I moved to Thessaloniki.",
+            "es-419": "Hace poco me mudé a Tesalónica.",
+            "it": "Di recente mi sono trasferito/a a Salonicco.",
+            "nl": "Onlangs ben ik naar Thessaloniki verhuisd."
+          },
+          "distractors": {
+            "en": [
+              "Recently I moved to Athens.",
+              "Years ago I moved to Thessaloniki."
+            ],
+            "es-419": [
+              "Hace poco me mudé a Atenas.",
+              "Hace años me mudé a Tesalónica."
+            ],
+            "it": [
+              "Di recente mi sono trasferito/a ad Atene.",
+              "Anni fa mi sono trasferito/a a Salonicco."
+            ],
+            "nl": [
+              "Onlangs ben ik naar Athene verhuisd.",
+              "Jaren geleden ben ik naar Thessaloniki verhuisd."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Αργότερα άνοιξα ένα μικρό μαγαζί στην Αθήνα.",
+          "translation": {
+            "en": "Later I opened a small shop in Athens.",
+            "es-419": "Más tarde abrí una tienda pequeña en Atenas.",
+            "it": "Più tardi ho aperto un piccolo negozio ad Atene.",
+            "nl": "Later heb ik een kleine winkel in Athene geopend."
+          },
+          "distractors": {
+            "en": [
+              "Later I opened a big shop in Athens.",
+              "Later I opened a small shop in Patras."
+            ],
+            "es-419": [
+              "Más tarde abrí una tienda grande en Atenas.",
+              "Más tarde abrí una tienda pequeña en Patras."
+            ],
+            "it": [
+              "Più tardi ho aperto un grande negozio ad Atene.",
+              "Più tardi ho aperto un piccolo negozio a Patrasso."
+            ],
+            "nl": [
+              "Later heb ik een grote winkel in Athene geopend.",
+              "Later heb ik een kleine winkel in Patras geopend."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στην αρχή ήμουν μόνη, αλλά τώρα έχω πολλούς φίλους.",
+          "translation": {
+            "en": "At first I was alone, but now I have many friends.",
+            "es-419": "Al principio estaba sola, pero ahora tengo muchos amigos.",
+            "it": "All'inizio ero sola, ma ora ho molti amici.",
+            "nl": "In het begin was ik alleen, maar nu heb ik veel vrienden."
+          },
+          "distractors": {
+            "en": [
+              "At first I was alone, but now I have a few friends.",
+              "Now I am alone, but at first I had many friends."
+            ],
+            "es-419": [
+              "Al principio estaba sola, pero ahora tengo pocos amigos.",
+              "Ahora estoy sola, pero al principio tenía muchos amigos."
+            ],
+            "it": [
+              "All'inizio ero sola, ma ora ho pochi amici.",
+              "Ora sono sola, ma all'inizio avevo molti amici."
+            ],
+            "nl": [
+              "In het begin was ik alleen, maar nu heb ik een paar vrienden.",
+              "Nu ben ik alleen, maar in het begin had ik veel vrienden."
+            ]
+          },
+          "speaker": "F"
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Από τότε μένω στην Αθήνα.",
+          "translation": {
+            "en": "Since then I have lived in Athens.",
+            "es-419": "Desde entonces vivo en Atenas.",
+            "it": "Da allora abito ad Atene.",
+            "nl": "Sindsdien woon ik in Athene."
+          },
+          "distractors": {
+            "en": [
+              "Since then I have lived in Patras.",
+              "Until then I lived in Athens."
+            ],
+            "es-419": [
+              "Desde entonces vivo en Patras.",
+              "Hasta entonces viví en Atenas."
+            ],
+            "it": [
+              "Da allora abito a Patrasso.",
+              "Fino ad allora ho abitato ad Atene."
+            ],
+            "nl": [
+              "Sindsdien woon ik in Patras.",
+              "Tot dan woonde ik in Athene."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στο τέλος του χρόνου γυρίζω στην Κύπρο.",
+          "translation": {
+            "en": "At the end of the year I'm going back to Cyprus.",
+            "es-419": "A fin de año vuelvo a Chipre.",
+            "it": "Alla fine dell'anno torno a Cipro.",
+            "nl": "Aan het einde van het jaar ga ik terug naar Cyprus."
+          },
+          "distractors": {
+            "en": [
+              "At the end of the year I'm going back to Crete.",
+              "At the beginning of the year I'm going back to Cyprus."
+            ],
+            "es-419": [
+              "A fin de año vuelvo a Creta.",
+              "A principios de año vuelvo a Chipre."
+            ],
+            "it": [
+              "Alla fine dell'anno torno a Creta.",
+              "All'inizio dell'anno torno a Cipro."
+            ],
+            "nl": [
+              "Aan het einde van het jaar ga ik terug naar Kreta.",
+              "Aan het begin van het jaar ga ik terug naar Cyprus."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σχεδόν κάθε καλοκαίρι πάω στη Ρόδο.",
+          "translation": {
+            "en": "Almost every summer I go to Rhodes.",
+            "es-419": "Casi todos los veranos voy a Rodas.",
+            "it": "Quasi ogni estate vado a Rodi.",
+            "nl": "Bijna elke zomer ga ik naar Rhodos."
+          },
+          "distractors": {
+            "en": [
+              "Almost every summer I go to Crete.",
+              "Almost every winter I go to Rhodes."
+            ],
+            "es-419": [
+              "Casi todos los veranos voy a Creta.",
+              "Casi todos los inviernos voy a Rodas."
+            ],
+            "it": [
+              "Quasi ogni estate vado a Creta.",
+              "Quasi ogni inverno vado a Rodi."
+            ],
+            "nl": [
+              "Bijna elke zomer ga ik naar Kreta.",
+              "Bijna elke winter ga ik naar Rhodos."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τι έκανες μετά το σχολείο;",
+          "translation": {
+            "en": "What did you do after school?",
+            "es-419": "¿Qué hiciste después de la escuela?",
+            "it": "Cosa hai fatto dopo la scuola?",
+            "nl": "Wat heb je na school gedaan?"
+          },
+          "distractors": {
+            "en": [
+              "Where did you go after school?",
+              "What did you do after work?"
+            ],
+            "es-419": [
+              "¿Adónde fuiste después de la escuela?",
+              "¿Qué hiciste después del trabajo?"
+            ],
+            "it": [
+              "Dove sei andato/a dopo la scuola?",
+              "Cosa hai fatto dopo il lavoro?"
+            ],
+            "nl": [
+              "Waar ging je heen na school?",
+              "Wat heb je na het werk gedaan?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-5-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Την τελευταία φορά πήγα στην Κρήτη το καλοκαίρι.",
+          "translation": {
+            "en": "The last time, I went to Crete in the summer.",
+            "es-419": "La última vez fui a Creta en verano.",
+            "it": "L'ultima volta sono andato/a a Creta in estate.",
+            "nl": "De laatste keer ging ik in de zomer naar Kreta."
+          },
+          "distractors": {
+            "en": [
+              "The last time, I went to Crete in the winter.",
+              "The first time, I went to Crete in the summer."
+            ],
+            "es-419": [
+              "La última vez fui a Creta en invierno.",
+              "La primera vez fui a Creta en verano."
+            ],
+            "it": [
+              "L'ultima volta sono andato/a a Creta in inverno.",
+              "La prima volta sono andato/a a Creta in estate."
+            ],
+            "nl": [
+              "De laatste keer ging ik in de winter naar Kreta.",
+              "De eerste keer ging ik in de zomer naar Kreta."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-istoria-mou-6",
+      "title": "Η ιστορία μου",
+      "grammarFocus": {
+        "en": [
+          "Decisions: αποφάσισα να + verb (αποφάσισα να φύγω, αποφάσισα να γυρίσω)",
+          "Possessive after the noun and its article: η πατρίδα μου, η γειτονιά μου; ευτυχώς as a sentence opener",
+          "A life story in the aorist: γεννήθηκα, σπούδασα, παντρεύτηκα, μετακόμισα"
+        ],
+        "es-419": [
+          "Decisiones: αποφάσισα να + verbo (αποφάσισα να φύγω, αποφάσισα να γυρίσω)",
+          "El posesivo va después del sustantivo y su artículo: η πατρίδα μου, η γειτονιά μου; ευτυχώς al empezar la frase",
+          "Una historia de vida en aoristo: γεννήθηκα, σπούδασα, παντρεύτηκα, μετακόμισα"
+        ],
+        "it": [
+          "Decisioni: αποφάσισα να + verbo (αποφάσισα να φύγω, αποφάσισα να γυρίσω)",
+          "Il possessivo segue il nome con il suo articolo: η πατρίδα μου, η γειτονιά μου; ευτυχώς all'inizio della frase",
+          "Una storia di vita all'aoristo: γεννήθηκα, σπούδασα, παντρεύτηκα, μετακόμισα"
+        ],
+        "nl": [
+          "Beslissingen: αποφάσισα να + werkwoord (αποφάσισα να φύγω, αποφάσισα να γυρίσω)",
+          "Het bezittelijk voornaamwoord staat na het zelfstandig naamwoord met lidwoord: η πατρίδα μου, η γειτονιά μου; ευτυχώς aan het begin van de zin",
+          "Een levensverhaal in de aoristus: γεννήθηκα, σπούδασα, παντρεύτηκα, μετακόμισα"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-istoria-mou-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ιστορία",
+          "translation": {
+            "en": "story",
+            "es-419": "la historia",
+            "it": "la storia",
+            "nl": "het verhaal"
+          },
+          "distractors": {
+            "en": [
+              "life",
+              "family"
+            ],
+            "es-419": [
+              "la vida",
+              "la familia"
+            ],
+            "it": [
+              "la vita",
+              "la famiglia"
+            ],
+            "nl": [
+              "het leven",
+              "de familie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "πατρίδα",
+          "translation": {
+            "en": "homeland",
+            "es-419": "la patria",
+            "it": "la patria",
+            "nl": "het vaderland"
+          },
+          "distractors": {
+            "en": [
+              "city",
+              "village"
+            ],
+            "es-419": [
+              "la ciudad",
+              "el pueblo"
+            ],
+            "it": [
+              "la città",
+              "il paese"
+            ],
+            "nl": [
+              "de stad",
+              "het dorp"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "γειτονιά",
+          "translation": {
+            "en": "neighborhood",
+            "es-419": "el barrio",
+            "it": "il quartiere",
+            "nl": "de buurt"
+          },
+          "distractors": {
+            "en": [
+              "street",
+              "center"
+            ],
+            "es-419": [
+              "la calle",
+              "el centro"
+            ],
+            "it": [
+              "la strada",
+              "il centro"
+            ],
+            "nl": [
+              "de straat",
+              "het centrum"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "απόφαση",
+          "translation": {
+            "en": "decision",
+            "es-419": "la decisión",
+            "it": "la decisione",
+            "nl": "de beslissing"
+          },
+          "distractors": {
+            "en": [
+              "experience",
+              "wedding"
+            ],
+            "es-419": [
+              "la experiencia",
+              "la boda"
+            ],
+            "it": [
+              "l'esperienza",
+              "il matrimonio"
+            ],
+            "nl": [
+              "de ervaring",
+              "de bruiloft"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η πατρίδα μου",
+          "translation": {
+            "en": "my homeland",
+            "es-419": "mi patria",
+            "it": "la mia patria",
+            "nl": "mijn vaderland"
+          },
+          "distractors": {
+            "en": [
+              "my city",
+              "my family"
+            ],
+            "es-419": [
+              "mi ciudad",
+              "mi familia"
+            ],
+            "it": [
+              "la mia città",
+              "la mia famiglia"
+            ],
+            "nl": [
+              "mijn stad",
+              "mijn familie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "μία μεγάλη απόφαση",
+          "translation": {
+            "en": "a big decision",
+            "es-419": "una gran decisión",
+            "it": "una grande decisione",
+            "nl": "een grote beslissing"
+          },
+          "distractors": {
+            "en": [
+              "a small decision",
+              "a big experience"
+            ],
+            "es-419": [
+              "una decisión pequeña",
+              "una gran experiencia"
+            ],
+            "it": [
+              "una piccola decisione",
+              "una grande esperienza"
+            ],
+            "nl": [
+              "een kleine beslissing",
+              "een grote ervaring"
+            ]
+          },
+          "variants": [
+            "μια μεγάλη απόφαση"
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "μία ωραία ανάμνηση",
+          "translation": {
+            "en": "a nice memory",
+            "es-419": "un lindo recuerdo",
+            "it": "un bel ricordo",
+            "nl": "een mooie herinnering"
+          },
+          "distractors": {
+            "en": [
+              "a nice story",
+              "a bad memory"
+            ],
+            "es-419": [
+              "una linda historia",
+              "un mal recuerdo"
+            ],
+            "it": [
+              "una bella storia",
+              "un brutto ricordo"
+            ],
+            "nl": [
+              "een mooi verhaal",
+              "een slechte herinnering"
+            ]
+          },
+          "variants": [
+            "μια ωραία ανάμνηση"
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "μία καλή χρονιά",
+          "translation": {
+            "en": "a good year",
+            "es-419": "un buen año",
+            "it": "un buon anno",
+            "nl": "een goed jaar"
+          },
+          "distractors": {
+            "en": [
+              "a bad year",
+              "a good day"
+            ],
+            "es-419": [
+              "un mal año",
+              "un buen día"
+            ],
+            "it": [
+              "un brutto anno",
+              "una buona giornata"
+            ],
+            "nl": [
+              "een slecht jaar",
+              "een goede dag"
+            ]
+          },
+          "variants": [
+            "μια καλή χρονιά"
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "αποφάσισα να φύγω",
+          "translation": {
+            "en": "I decided to leave",
+            "es-419": "decidí irme",
+            "it": "ho deciso di partire",
+            "nl": "ik besloot te vertrekken"
+          },
+          "distractors": {
+            "en": [
+              "I decided to stay",
+              "I wanted to leave"
+            ],
+            "es-419": [
+              "decidí quedarme",
+              "quería irme"
+            ],
+            "it": [
+              "ho deciso di restare",
+              "volevo partire"
+            ],
+            "nl": [
+              "ik besloot te blijven",
+              "ik wilde vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "αποφάσισα να γυρίσω στην πατρίδα",
+          "translation": {
+            "en": "I decided to go back to my homeland",
+            "es-419": "decidí volver a mi patria",
+            "it": "ho deciso di tornare in patria",
+            "nl": "ik besloot terug te gaan naar mijn vaderland"
+          },
+          "distractors": {
+            "en": [
+              "I decided to go back to Athens",
+              "I decided to stay in my homeland"
+            ],
+            "es-419": [
+              "decidí volver a Atenas",
+              "decidí quedarme en mi patria"
+            ],
+            "it": [
+              "ho deciso di tornare ad Atene",
+              "ho deciso di restare in patria"
+            ],
+            "nl": [
+              "ik besloot terug te gaan naar Athene",
+              "ik besloot in mijn vaderland te blijven"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Αυτή είναι η ιστορία μου.",
+          "translation": {
+            "en": "This is my story.",
+            "es-419": "Esta es mi historia.",
+            "it": "Questa è la mia storia.",
+            "nl": "Dit is mijn verhaal."
+          },
+          "distractors": {
+            "en": [
+              "This is my life.",
+              "This is his story."
+            ],
+            "es-419": [
+              "Esta es mi vida.",
+              "Esta es su historia."
+            ],
+            "it": [
+              "Questa è la mia vita.",
+              "Questa è la sua storia."
+            ],
+            "nl": [
+              "Dit is mijn leven.",
+              "Dit is zijn verhaal."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η πατρίδα μου είναι η Κύπρος.",
+          "translation": {
+            "en": "My homeland is Cyprus.",
+            "es-419": "Mi patria es Chipre.",
+            "it": "La mia patria è Cipro.",
+            "nl": "Mijn vaderland is Cyprus."
+          },
+          "distractors": {
+            "en": [
+              "My homeland is Crete.",
+              "My family is from Cyprus."
+            ],
+            "es-419": [
+              "Mi patria es Creta.",
+              "Mi familia es de Chipre."
+            ],
+            "it": [
+              "La mia patria è Creta.",
+              "La mia famiglia è di Cipro."
+            ],
+            "nl": [
+              "Mijn vaderland is Kreta.",
+              "Mijn familie komt uit Cyprus."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η γειτονιά μου ήταν πολύ ήσυχη.",
+          "translation": {
+            "en": "My neighborhood was very quiet.",
+            "es-419": "Mi barrio era muy tranquilo.",
+            "it": "Il mio quartiere era molto tranquillo.",
+            "nl": "Mijn buurt was heel rustig."
+          },
+          "distractors": {
+            "en": [
+              "My neighborhood was very big.",
+              "My neighborhood is very quiet."
+            ],
+            "es-419": [
+              "Mi barrio era muy grande.",
+              "Mi barrio es muy tranquilo."
+            ],
+            "it": [
+              "Il mio quartiere era molto grande.",
+              "Il mio quartiere è molto tranquillo."
+            ],
+            "nl": [
+              "Mijn buurt was heel groot.",
+              "Mijn buurt is heel rustig."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τα παιδικά μου χρόνια ήταν ωραία.",
+          "translation": {
+            "en": "My childhood was lovely.",
+            "es-419": "Mi infancia fue linda.",
+            "it": "La mia infanzia è stata bella.",
+            "nl": "Mijn jeugd was mooi."
+          },
+          "distractors": {
+            "en": [
+              "My childhood was boring.",
+              "My school years were lovely."
+            ],
+            "es-419": [
+              "Mi infancia fue aburrida.",
+              "Mis años de escuela fueron lindos."
+            ],
+            "it": [
+              "La mia infanzia è stata noiosa.",
+              "I miei anni di scuola sono stati belli."
+            ],
+            "nl": [
+              "Mijn jeugd was saai.",
+              "Mijn schooljaren waren mooi."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ευτυχώς, βρήκα δουλειά στην Αθήνα.",
+          "translation": {
+            "en": "Luckily, I found a job in Athens.",
+            "es-419": "Por suerte, encontré trabajo en Atenas.",
+            "it": "Per fortuna, ho trovato lavoro ad Atene.",
+            "nl": "Gelukkig heb ik werk gevonden in Athene."
+          },
+          "distractors": {
+            "en": [
+              "Luckily, I found a job in Patras.",
+              "Luckily, I left my job in Athens."
+            ],
+            "es-419": [
+              "Por suerte, encontré trabajo en Patras.",
+              "Por suerte, dejé mi trabajo en Atenas."
+            ],
+            "it": [
+              "Per fortuna, ho trovato lavoro a Patrasso.",
+              "Per fortuna, ho lasciato il mio lavoro ad Atene."
+            ],
+            "nl": [
+              "Gelukkig heb ik werk gevonden in Patras.",
+              "Gelukkig ben ik gestopt met mijn werk in Athene."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Αποφάσισα να μετακομίσω στην Αθήνα.",
+          "translation": {
+            "en": "I decided to move to Athens.",
+            "es-419": "Decidí mudarme a Atenas.",
+            "it": "Ho deciso di trasferirmi ad Atene.",
+            "nl": "Ik besloot naar Athene te verhuizen."
+          },
+          "distractors": {
+            "en": [
+              "I decided to move to Patras.",
+              "I decided to study in Athens."
+            ],
+            "es-419": [
+              "Decidí mudarme a Patras.",
+              "Decidí estudiar en Atenas."
+            ],
+            "it": [
+              "Ho deciso di trasferirmi a Patrasso.",
+              "Ho deciso di studiare ad Atene."
+            ],
+            "nl": [
+              "Ik besloot naar Patras te verhuizen.",
+              "Ik besloot in Athene te studeren."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ήταν μία μεγάλη απόφαση για τη ζωή μου.",
+          "translation": {
+            "en": "It was a big decision for my life.",
+            "es-419": "Fue una gran decisión para mi vida.",
+            "it": "È stata una grande decisione per la mia vita.",
+            "nl": "Het was een grote beslissing voor mijn leven."
+          },
+          "distractors": {
+            "en": [
+              "It was a small decision for my life.",
+              "It was a big decision for my job."
+            ],
+            "es-419": [
+              "Fue una decisión pequeña para mi vida.",
+              "Fue una gran decisión para mi trabajo."
+            ],
+            "it": [
+              "È stata una piccola decisione per la mia vita.",
+              "È stata una grande decisione per il mio lavoro."
+            ],
+            "nl": [
+              "Het was een kleine beslissing voor mijn leven.",
+              "Het was een grote beslissing voor mijn werk."
+            ]
+          },
+          "variants": [
+            "Ήταν μια μεγάλη απόφαση για τη ζωή μου."
+          ]
+        },
+        {
+          "id": "el-a2-istoria-mou-6-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Γεννήθηκα στη Λευκωσία. Σπούδασα στην Αθήνα. Παντρεύτηκα πριν δέκα χρόνια. Έχω δύο παιδιά. Ευτυχώς, η ζωή μου είναι ήσυχη.",
+          "translation": {
+            "en": "I was born in Nicosia. I studied in Athens. I got married ten years ago. I have two children. Luckily, my life is quiet.",
+            "es-419": "Nací en Nicosia. Estudié en Atenas. Me casé hace diez años. Tengo dos hijos. Por suerte, mi vida es tranquila.",
+            "it": "Sono nato/a a Nicosia. Ho studiato ad Atene. Mi sono sposato/a dieci anni fa. Ho due figli. Per fortuna, la mia vita è tranquilla.",
+            "nl": "Ik ben geboren in Nicosia. Ik heb in Athene gestudeerd. Ik ben tien jaar geleden getrouwd. Ik heb twee kinderen. Gelukkig is mijn leven rustig."
+          },
+          "distractors": {
+            "en": [
+              "I was born in Nicosia. I studied in Patras. I got married five years ago. I have two children. Luckily, my life is quiet.",
+              "I was born in Athens. I studied in Athens. I got married ten years ago. I have three children. Luckily, my life is quiet."
+            ],
+            "es-419": [
+              "Nací en Nicosia. Estudié en Patras. Me casé hace cinco años. Tengo dos hijos. Por suerte, mi vida es tranquila.",
+              "Nací en Atenas. Estudié en Atenas. Me casé hace diez años. Tengo tres hijos. Por suerte, mi vida es tranquila."
+            ],
+            "it": [
+              "Sono nato/a a Nicosia. Ho studiato a Patrasso. Mi sono sposato/a cinque anni fa. Ho due figli. Per fortuna, la mia vita è tranquilla.",
+              "Sono nato/a ad Atene. Ho studiato ad Atene. Mi sono sposato/a dieci anni fa. Ho tre figli. Per fortuna, la mia vita è tranquilla."
+            ],
+            "nl": [
+              "Ik ben geboren in Nicosia. Ik heb in Patras gestudeerd. Ik ben vijf jaar geleden getrouwd. Ik heb twee kinderen. Gelukkig is mijn leven rustig.",
+              "Ik ben geboren in Athene. Ik heb in Athene gestudeerd. Ik ben tien jaar geleden getrouwd. Ik heb drie kinderen. Gelukkig is mijn leven rustig."
+            ]
+          },
+          "variants": [
+            "Γεννήθηκα στη Λευκωσία. Σπούδασα στην Αθήνα. Παντρεύτηκα πριν 10 χρόνια. Έχω δύο παιδιά. Ευτυχώς, η ζωή μου είναι ήσυχη.",
+            "Γεννήθηκα στη Λευκωσία. Σπούδασα στην Αθήνα. Παντρεύτηκα πριν δέκα χρόνια. Έχω 2 παιδιά. Ευτυχώς, η ζωή μου είναι ήσυχη."
+          ]
+        }
+      ]
+    }
+  ]
+}

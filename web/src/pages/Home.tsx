@@ -35,10 +35,10 @@ export function Home() {
             </Show>
             {/* A first-timer sees just the way in; these fill up once they practice. */}
             <Show when={!fresh()}>
-              <A href={`/${lang()}/review`} class="qa-review-link btn btn-primary">
+              <A href={`/${lang()}/type/review`} class="qa-review-link btn btn-primary">
                 {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
               </A>
-              <A href={`/${lang()}/notebook`} class="qa-notebook-link btn btn-outline-primary">
+              <A href={`/${lang()}/type/notebook`} class="qa-notebook-link btn btn-outline-primary">
                 {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
               </A>
             </Show>
@@ -101,7 +101,7 @@ export function Home() {
                                       const progress = () => cat().progress[lesson.id]?.[path()];
                                       const total = () => pathUnits(lesson, path());
                                       const stars = () => cat().stars[lesson.id];
-                                      /** Hours until Master opens; 0 once it has. */
+                                      /** Hours until Master opens; 0 once it has. Its locked button gets no hover events, so the tooltip sits on a wrapper span. */
                                       const masterWait = () => Math.max(0, Math.ceil((Date.parse(stars().practicedAt) + MASTER_WAIT_MS - Date.now()) / 3_600_000));
                                       /** A finished lesson is practiced again from the top, so only a run underway continues. */
                                       const underway = () => !!progress() && progress()!.nextIndex < total();
@@ -125,7 +125,9 @@ export function Home() {
                                                   classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
                                                 <Show when={stars()?.stars !== undefined && stars().stars < 3}>
                                                   <Show when={masterWait() === 0} fallback={
-                                                    <button type="button" class="qa-lesson-master-locked btn btn-sm btn-gold" disabled title={t("home.masterWait", { hours: masterWait() })}>{t("home.master")}</button>
+                                                    <span class="qa-lesson-master-locked d-inline-flex" style={{ "margin-left": "-1px" }} title={t("home.masterWait", { hours: masterWait() })}>
+                                                      <button type="button" class="btn btn-sm btn-gold rounded-start-0" disabled>{t("home.master")}</button>
+                                                    </span>
                                                   }>
                                                     <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-gold" title={t("home.masterTitle")}>{t("home.master")}</A>
                                                   </Show>

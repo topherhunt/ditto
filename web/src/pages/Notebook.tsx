@@ -5,6 +5,7 @@ import { pickVoice } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
+import { TypeCrumb } from "../components/TypeCrumb.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import { categoryName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
@@ -75,6 +76,7 @@ export function Notebook() {
   };
   return (
     <div class="d-flex flex-column gap-3">
+      <TypeCrumb lang={lang()} />
       <div class="d-flex align-items-center gap-2">
         <h1 class="h4 mb-0 me-auto">{t("notebook.title")}</h1>
         <Show when={entries()?.length}>

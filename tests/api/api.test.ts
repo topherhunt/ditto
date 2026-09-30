@@ -90,7 +90,7 @@ describe("prefs and catalog", () => {
   it("stores prefs per language", async () => {
     const t = setup();
     await t.login();
-    const prefs = { path: "sentences", hints: "none", autoplay: 2, rate: 0.75, level: "B1", immerseUi: true, immerseHelp: false, studyFirst: true };
+    const prefs = { path: "sentences", hints: "none", rate: 0.75, level: "B1", immerseUi: true, immerseHelp: false, studyFirst: true };
     expect((await t.req("PUT", "/api/prefs", { language: "nl", prefs })).status).toBe(200);
     const me = await t.req("GET", "/api/me");
     expect(me.json.prefs.nl).toEqual(prefs);
@@ -100,9 +100,9 @@ describe("prefs and catalog", () => {
   it("fills in the level and immersion for prefs saved before they existed", async () => {
     const t = setup();
     await t.login();
-    t.deps.db.prepare("UPDATE users SET prefs = ?").run(JSON.stringify({ it: { path: "chunks", hints: "none", autoplay: 2, rate: 1 } }));
+    t.deps.db.prepare("UPDATE users SET prefs = ?").run(JSON.stringify({ it: { path: "chunks", hints: "none", rate: 1 } }));
     const me = await t.req("GET", "/api/me");
-    expect(me.json.prefs.it).toEqual({ path: "chunks", hints: "none", autoplay: 2, rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false });
+    expect(me.json.prefs.it).toEqual({ path: "chunks", hints: "none", rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false });
   });
 
   it("refuses immersion for a course the app isn't translated into", async () => {

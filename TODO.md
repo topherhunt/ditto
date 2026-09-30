@@ -1,9 +1,22 @@
 ### Now
 
 - [ ] Test and confirm with Luis and others that people can access the app fine.
+- [ ] Improving the UI
+  - [ ] Fix the Internal Error
+  - [ ] The name should be "Ditto", not translated
+  - [ ] Add a favicon
+  - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
+  - [ ] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
+  - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz? 
+    - [ ] How many peolpe were ACTIVELY ENGAGED today?
+    - [ ] What were they working on? Time spent total per activity, drill dow n
 
 ### Wishlist
 
+- [ ] Set up PWA phone notifications
+  - TIme to study today
+  - Make up for lost time! Challenge: Earn 9 stars today
+  - Your friend <x> just hit <milestone> stars / level. Congratulate them.
 - Currently playing audio on-demand in the Talk activity has a lag. Could each spoken gloss have its audio lazily cached on the server, hashed, so we can play it immediately the next time? And should this audio pool be merged with the pool used for the Type activity, so words generated for type don't need to be regenerated for Talk? or should the pools be kept separate because it's conceptually cleaner that way and the cost difference is trivial?
 
 ### Unorganized
@@ -13,7 +26,7 @@
 - [ ] Review the mobile UX. Where are back-links non-obvious or confusing?
   - Type page - header is cluttered. Compact the Practice Settings line?
 - [ ] Add French
-- [ ] Add Greek
+- [x] Add Greek (content written and validated; audio not yet rendered, and a native spelling/tonos review is open)
 - [ ] Ensure We have full production logging with log rotation.
 - Smoke-test learning in each language to ensure content sounds & looks good
 - Support self-service account deletion (but preserve anonymous activity metrics & API call ledger)

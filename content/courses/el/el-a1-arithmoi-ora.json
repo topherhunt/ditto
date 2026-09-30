@@ -1,0 +1,4785 @@
+{
+  "id": "el-a1-arithmoi-ora",
+  "language": "el",
+  "level": "A1",
+  "order": 3,
+  "title": "Αριθμοί και ώρα",
+  "description": {
+    "en": "Counting to a hundred, giving your age and phone number, telling the time and naming the days",
+    "es-419": "Contar hasta cien, decir tu edad y tu número de teléfono, decir la hora y nombrar los días",
+    "it": "Contare fino a cento, dire la propria età e il numero di telefono, dire l'ora e nominare i giorni",
+    "nl": "Tot honderd tellen, je leeftijd en telefoonnummer geven, de tijd zeggen en de dagen noemen"
+  },
+  "track": "main",
+  "requires": [
+    "el-a1-xairo-poly"
+  ],
+  "introduces": [
+    "μηδέν",
+    "έξι",
+    "επτά",
+    "οκτώ",
+    "εννέα",
+    "έντεκα",
+    "δώδεκα",
+    "δεκατρείς",
+    "δεκατέσσερις",
+    "δεκαπέντε",
+    "δεκαέξι",
+    "δεκαεπτά",
+    "δεκαοκτώ",
+    "δεκαεννέα",
+    "είκοσι",
+    "τριάντα",
+    "σαράντα",
+    "πενήντα",
+    "εξήντα",
+    "εβδομήντα",
+    "ογδόντα",
+    "ενενήντα",
+    "εκατό",
+    "δευτέρα",
+    "τρίτη",
+    "τετάρτη",
+    "πέμπτη",
+    "παρασκευή",
+    "σάββατο",
+    "κυριακή",
+    "ώρα",
+    "λεπτό",
+    "τέταρτο",
+    "μισός",
+    "παρά",
+    "πότε",
+    "τώρα",
+    "σήμερα",
+    "περίπου",
+    "ακριβώς",
+    "ποιος",
+    "χρόνος",
+    "τηλέφωνο",
+    "κινητό",
+    "αριθμός",
+    "νωρίς",
+    "αργά"
+  ],
+  "lexicon": {
+    "μηδέν": {
+      "lemma": "μηδέν",
+      "pos": "NUM",
+      "gloss": {
+        "en": "zero",
+        "es-419": "cero",
+        "it": "zero",
+        "nl": "nul"
+      }
+    },
+    "ένα": {
+      "lemma": "ένας",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one (neuter: ένα, masculine: ένας, feminine: μία)",
+        "es-419": "uno (neutro: ένα, masculino: ένας, femenino: μία)",
+        "it": "uno (neutro: ένα, maschile: ένας, femminile: μία)",
+        "nl": "een (onzijdig: ένα, mannelijk: ένας, vrouwelijk: μία)"
+      }
+    },
+    "μία": {
+      "lemma": "ένας",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one (feminine: μία; the o'clock hour is feminine)",
+        "es-419": "uno (femenino: μία; la hora es femenina)",
+        "it": "uno (femminile: μία; l'ora è femminile)",
+        "nl": "een (vrouwelijk: μία; het uur is vrouwelijk)"
+      }
+    },
+    "δύο": {
+      "lemma": "δύο",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two (never changes)",
+        "es-419": "dos (no cambia)",
+        "it": "due (non cambia)",
+        "nl": "twee (verandert nooit)"
+      }
+    },
+    "τρία": {
+      "lemma": "τρεις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three (neuter form; masculine and feminine: τρεις)",
+        "es-419": "tres (forma neutra; masculino y femenino: τρεις)",
+        "it": "tre (forma neutra; maschile e femminile: τρεις)",
+        "nl": "drie (onzijdige vorm; mannelijk en vrouwelijk: τρεις)"
+      }
+    },
+    "τρεις": {
+      "lemma": "τρεις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three (masculine and feminine; neuter: τρία)",
+        "es-419": "tres (masculino y femenino; neutro: τρία)",
+        "it": "tre (maschile e femminile; neutro: τρία)",
+        "nl": "drie (mannelijk en vrouwelijk; onzijdig: τρία)"
+      }
+    },
+    "τέσσερα": {
+      "lemma": "τέσσερις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four (neuter form; masculine and feminine: τέσσερις)",
+        "es-419": "cuatro (forma neutra; masculino y femenino: τέσσερις)",
+        "it": "quattro (forma neutra; maschile e femminile: τέσσερις)",
+        "nl": "vier (onzijdige vorm; mannelijk en vrouwelijk: τέσσερις)"
+      }
+    },
+    "τέσσερις": {
+      "lemma": "τέσσερις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four (masculine and feminine; neuter: τέσσερα)",
+        "es-419": "cuatro (masculino y femenino; neutro: τέσσερα)",
+        "it": "quattro (maschile e femminile; neutro: τέσσερα)",
+        "nl": "vier (mannelijk en vrouwelijk; onzijdig: τέσσερα)"
+      }
+    },
+    "πέντε": {
+      "lemma": "πέντε",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five (never changes)",
+        "es-419": "cinco (no cambia)",
+        "it": "cinque (non cambia)",
+        "nl": "vijf (verandert nooit)"
+      }
+    },
+    "έξι": {
+      "lemma": "έξι",
+      "pos": "NUM",
+      "gloss": {
+        "en": "six",
+        "es-419": "seis",
+        "it": "sei",
+        "nl": "zes"
+      }
+    },
+    "επτά": {
+      "lemma": "επτά",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seven (also spelled εφτά)",
+        "es-419": "siete (también se escribe εφτά)",
+        "it": "sette (si scrive anche εφτά)",
+        "nl": "zeven (ook geschreven als εφτά)"
+      }
+    },
+    "οκτώ": {
+      "lemma": "οκτώ",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight (also spelled οχτώ)",
+        "es-419": "ocho (también se escribe οχτώ)",
+        "it": "otto (si scrive anche οχτώ)",
+        "nl": "acht (ook geschreven als οχτώ)"
+      }
+    },
+    "εννέα": {
+      "lemma": "εννέα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "nine (also spelled εννιά)",
+        "es-419": "nueve (también se escribe εννιά)",
+        "it": "nove (si scrive anche εννιά)",
+        "nl": "negen (ook geschreven als εννιά)"
+      }
+    },
+    "δέκα": {
+      "lemma": "δέκα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "έντεκα": {
+      "lemma": "έντεκα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eleven",
+        "es-419": "once",
+        "it": "undici",
+        "nl": "elf"
+      }
+    },
+    "δώδεκα": {
+      "lemma": "δώδεκα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twelve",
+        "es-419": "doce",
+        "it": "dodici",
+        "nl": "twaalf"
+      }
+    },
+    "δεκατρία": {
+      "lemma": "δεκατρείς",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirteen (neuter form; masculine and feminine: δεκατρείς)",
+        "es-419": "trece (forma neutra; masculino y femenino: δεκατρείς)",
+        "it": "tredici (forma neutra; maschile e femminile: δεκατρείς)",
+        "nl": "dertien (onzijdige vorm; mannelijk en vrouwelijk: δεκατρείς)"
+      }
+    },
+    "δεκατρείς": {
+      "lemma": "δεκατρείς",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirteen (masculine and feminine; neuter: δεκατρία)",
+        "es-419": "trece (masculino y femenino; neutro: δεκατρία)",
+        "it": "tredici (maschile e femminile; neutro: δεκατρία)",
+        "nl": "dertien (mannelijk en vrouwelijk; onzijdig: δεκατρία)"
+      }
+    },
+    "δεκατέσσερα": {
+      "lemma": "δεκατέσσερις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fourteen (neuter form; masculine and feminine: δεκατέσσερις)",
+        "es-419": "catorce (forma neutra; masculino y femenino: δεκατέσσερις)",
+        "it": "quattordici (forma neutra; maschile e femminile: δεκατέσσερις)",
+        "nl": "veertien (onzijdige vorm; mannelijk en vrouwelijk: δεκατέσσερις)"
+      }
+    },
+    "δεκαπέντε": {
+      "lemma": "δεκαπέντε",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifteen",
+        "es-419": "quince",
+        "it": "quindici",
+        "nl": "vijftien"
+      }
+    },
+    "δεκαέξι": {
+      "lemma": "δεκαέξι",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixteen",
+        "es-419": "dieciséis",
+        "it": "sedici",
+        "nl": "zestien"
+      }
+    },
+    "δεκαεπτά": {
+      "lemma": "δεκαεπτά",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seventeen (also spelled δεκαεφτά)",
+        "es-419": "diecisiete (también se escribe δεκαεφτά)",
+        "it": "diciassette (si scrive anche δεκαεφτά)",
+        "nl": "zeventien (ook geschreven als δεκαεφτά)"
+      }
+    },
+    "δεκαοκτώ": {
+      "lemma": "δεκαοκτώ",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eighteen (also spelled δεκαοχτώ)",
+        "es-419": "dieciocho (también se escribe δεκαοχτώ)",
+        "it": "diciotto (si scrive anche δεκαοχτώ)",
+        "nl": "achttien (ook geschreven als δεκαοχτώ)"
+      }
+    },
+    "δεκαεννέα": {
+      "lemma": "δεκαεννέα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "nineteen (also spelled δεκαεννιά)",
+        "es-419": "diecinueve (también se escribe δεκαεννιά)",
+        "it": "diciannove (si scrive anche δεκαεννιά)",
+        "nl": "negentien (ook geschreven als δεκαεννιά)"
+      }
+    },
+    "είκοσι": {
+      "lemma": "είκοσι",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty",
+        "es-419": "veinte",
+        "it": "venti",
+        "nl": "twintig"
+      }
+    },
+    "τριάντα": {
+      "lemma": "τριάντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirty",
+        "es-419": "treinta",
+        "it": "trenta",
+        "nl": "dertig"
+      }
+    },
+    "σαράντα": {
+      "lemma": "σαράντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "forty",
+        "es-419": "cuarenta",
+        "it": "quaranta",
+        "nl": "veertig"
+      }
+    },
+    "πενήντα": {
+      "lemma": "πενήντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty",
+        "es-419": "cincuenta",
+        "it": "cinquanta",
+        "nl": "vijftig"
+      }
+    },
+    "εξήντα": {
+      "lemma": "εξήντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "sixty",
+        "es-419": "sesenta",
+        "it": "sessanta",
+        "nl": "zestig"
+      }
+    },
+    "εβδομήντα": {
+      "lemma": "εβδομήντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seventy",
+        "es-419": "setenta",
+        "it": "settanta",
+        "nl": "zeventig"
+      }
+    },
+    "ογδόντα": {
+      "lemma": "ογδόντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eighty",
+        "es-419": "ochenta",
+        "it": "ottanta",
+        "nl": "tachtig"
+      }
+    },
+    "ενενήντα": {
+      "lemma": "ενενήντα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ninety",
+        "es-419": "noventa",
+        "it": "novanta",
+        "nl": "negentig"
+      }
+    },
+    "εκατό": {
+      "lemma": "εκατό",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one hundred",
+        "es-419": "cien",
+        "it": "cento",
+        "nl": "honderd"
+      }
+    },
+    "ευρώ": {
+      "lemma": "ευρώ",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euro (n): never changes in the plural",
+        "es-419": "euro (n): no cambia en plural",
+        "it": "euro (n): non cambia al plurale",
+        "nl": "euro (n): verandert niet in het meervoud"
+      }
+    },
+    "έχω": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "έχω = I have",
+        "es-419": "έχω = tengo",
+        "it": "έχω = ho",
+        "nl": "έχω = ik heb"
+      }
+    },
+    "έχεις": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "έχεις = you have (informal singular)",
+        "es-419": "έχεις = tienes",
+        "it": "έχεις = hai",
+        "nl": "έχεις = je hebt"
+      }
+    },
+    "δεν": {
+      "lemma": "δεν",
+      "pos": "PART",
+      "gloss": {
+        "en": "δεν = not, don't",
+        "es-419": "δεν = no (delante del verbo)",
+        "it": "δεν = non",
+        "nl": "δεν = niet"
+      }
+    },
+    "θέλω": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "θέλω = I want; Θέλω... is also the polite way to order",
+        "es-419": "θέλω = quiero; Θέλω... también es la forma cortés de pedir",
+        "it": "θέλω = voglio; Θέλω... è anche la forma cortese per ordinare",
+        "nl": "θέλω = ik wil; Θέλω... is ook de beleefde manier om te bestellen"
+      }
+    },
+    "θέλετε": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "θέλετε = you want (formal singular or plural)",
+        "es-419": "θέλετε = quiere, quieren",
+        "it": "θέλετε = vuole, volete",
+        "nl": "θέλετε = u wilt, jullie willen"
+      }
+    },
+    "παρακαλώ": {
+      "lemma": "παρακαλώ",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "please; you're welcome",
+        "es-419": "por favor; de nada",
+        "it": "per favore; prego",
+        "nl": "alstublieft; graag gedaan"
+      }
+    },
+    "καφέδες": {
+      "lemma": "καφές",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coffees (plural of καφές (m))",
+        "es-419": "cafés (plural de καφές (m))",
+        "it": "caffè (plurale di καφές (m))",
+        "nl": "koffies (meervoud van καφές (m))"
+      }
+    },
+    "μπισκότα": {
+      "lemma": "μπισκότο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cookies (plural of μπισκότο (n))",
+        "es-419": "galletas (plural de μπισκότο (n))",
+        "it": "biscotti (plurale di μπισκότο (n))",
+        "nl": "koekjes (meervoud van μπισκότο (n))"
+      }
+    },
+    "κρουασάν": {
+      "lemma": "κρουασάν",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "croissant (n): same form in the plural",
+        "es-419": "cruasán (n): misma forma en plural",
+        "it": "cornetto (n): stessa forma al plurale",
+        "nl": "croissant (n): zelfde vorm in het meervoud"
+      }
+    },
+    "κάνει": {
+      "lemma": "κάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "κάνει = it makes, it costs, it comes to (κάνω)",
+        "es-419": "κάνει = hace, cuesta, son (κάνω)",
+        "it": "κάνει = fa, costa (κάνω)",
+        "nl": "κάνει = het maakt, het kost (κάνω)"
+      }
+    },
+    "και": {
+      "lemma": "και",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ο": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "ο = the (masculine, nominative)",
+        "es-419": "ο = el (masculino, nominativo)",
+        "it": "ο = il, lo (maschile, nominativo)",
+        "nl": "ο = de (mannelijk, onderwerp)"
+      }
+    },
+    "η": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "η = the (feminine, nominative)",
+        "es-419": "η = la (femenino, nominativo)",
+        "it": "η = la (femminile, nominativo)",
+        "nl": "η = de (vrouwelijk, onderwerp)"
+      }
+    },
+    "το": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "το = the (neuter); also the object form",
+        "es-419": "το = el, la (neutro)",
+        "it": "το = il, lo (neutro)",
+        "nl": "το = het (onzijdig)"
+      }
+    },
+    "την": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "την = the (feminine, accusative)",
+        "es-419": "την = la (femenino, acusativo)",
+        "it": "την = la (femminile, accusativo)",
+        "nl": "την = de (vrouwelijk, lijdend voorwerp)"
+      }
+    },
+    "τη": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "τη = the (feminine, accusative; short form of την)",
+        "es-419": "τη = la (femenino, acusativo; forma corta de την)",
+        "it": "τη = la (femminile, accusativo; forma breve di την)",
+        "nl": "τη = de (vrouwelijk, lijdend voorwerp; korte vorm van την)"
+      }
+    },
+    "στις": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στις = σε + τις: at, on, to (plural feminine); στις οκτώ = at eight o'clock",
+        "es-419": "στις = σε + τις: a, en (plural femenino); στις οκτώ = a las ocho",
+        "it": "στις = σε + τις: a, in (plurale femminile); στις οκτώ = alle otto",
+        "nl": "στις = σε + τις: om, op, naar (meervoud vrouwelijk); στις οκτώ = om acht uur"
+      }
+    },
+    "στη": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στη = σε + τη: at, in, to (feminine singular); στη μία = at one o'clock",
+        "es-419": "στη = σε + τη: a, en (femenino singular); στη μία = a la una",
+        "it": "στη = σε + τη: a, in (femminile singolare); στη μία = all'una",
+        "nl": "στη = σε + τη: om, in, naar (vrouwelijk enkelvoud); στη μία = om één uur"
+      }
+    },
+    "μου": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "μου = my, me (after the noun)",
+        "es-419": "μου = mi, me (después del nombre)",
+        "it": "μου = mio, mi (dopo il nome)",
+        "nl": "μου = mijn, me (na het zelfstandig naamwoord)"
+      }
+    },
+    "σου": {
+      "lemma": "εσύ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "σου = your, you (informal, after the noun)",
+        "es-419": "σου = tu, te (informal, después del nombre)",
+        "it": "σου = tuo, ti (informale, dopo il nome)",
+        "nl": "σου = jouw, je (informeel, na het zelfstandig naamwoord)"
+      }
+    },
+    "είμαι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είμαι = I am",
+        "es-419": "είμαι = soy, estoy",
+        "it": "είμαι = sono",
+        "nl": "είμαι = ik ben"
+      }
+    },
+    "είσαι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είσαι = you are (informal singular)",
+        "es-419": "είσαι = eres, estás",
+        "it": "είσαι = sei",
+        "nl": "είσαι = je bent"
+      }
+    },
+    "είναι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είναι = is, are; Είναι... is also how you give the time",
+        "es-419": "είναι = es, está, son; Είναι... también sirve para decir la hora",
+        "it": "είναι = è, sono; Είναι... serve anche per dire l'ora",
+        "nl": "είναι = is, zijn; Είναι... gebruik je ook voor de tijd"
+      }
+    },
+    "μπορώ": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "μπορώ = I can",
+        "es-419": "μπορώ = puedo",
+        "it": "μπορώ = posso",
+        "nl": "μπορώ = ik kan"
+      }
+    },
+    "μπορείς": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "μπορείς = you can (informal singular)",
+        "es-419": "μπορείς = puedes",
+        "it": "μπορείς = puoi",
+        "nl": "μπορείς = je kunt"
+      }
+    },
+    "μπορείτε": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "μπορείτε = you can (formal singular or plural)",
+        "es-419": "μπορείτε = puede, pueden",
+        "it": "μπορείτε = può, potete",
+        "nl": "μπορείτε = u kunt, jullie kunnen"
+      }
+    },
+    "τι": {
+      "lemma": "τι",
+      "pos": "PRON",
+      "gloss": {
+        "en": "τι = what; τι ώρα = what time, at what time",
+        "es-419": "τι = qué; τι ώρα = qué hora, a qué hora",
+        "it": "τι = che, cosa; τι ώρα = che ora, a che ora",
+        "nl": "τι = wat; τι ώρα = hoe laat"
+      }
+    },
+    "πόσο": {
+      "lemma": "πόσος",
+      "pos": "ADV",
+      "gloss": {
+        "en": "πόσο = how much; πόσο χρονών = how old",
+        "es-419": "πόσο = cuánto; πόσο χρονών = cuántos años",
+        "it": "πόσο = quanto; πόσο χρονών = quanti anni",
+        "nl": "πόσο = hoeveel; πόσο χρονών = hoe oud"
+      }
+    },
+    "ποιο": {
+      "lemma": "ποιος",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ποιο = which, what (neuter)",
+        "es-419": "ποιο = cuál, qué (neutro)",
+        "it": "ποιο = quale (neutro)",
+        "nl": "ποιο = welk, wat (onzijdig)"
+      }
+    },
+    "ποιον": {
+      "lemma": "ποιος",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ποιον = which (masculine, object)",
+        "es-419": "ποιον = qué, cuál (masculino, complemento)",
+        "it": "ποιον = quale (maschile, complemento)",
+        "nl": "ποιον = welk (mannelijk, lijdend voorwerp)"
+      }
+    },
+    "συγγνώμη": {
+      "lemma": "συγγνώμη",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sorry, excuse me",
+        "es-419": "perdón, disculpe",
+        "it": "scusi, scusa",
+        "nl": "sorry, pardon"
+      }
+    },
+    "πολύ": {
+      "lemma": "πολύς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "πολύ = very, a lot",
+        "es-419": "πολύ = muy, mucho",
+        "it": "πολύ = molto",
+        "nl": "πολύ = heel, erg, veel"
+      }
+    },
+    "αύριο": {
+      "lemma": "αύριο",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "νίκος": {
+      "lemma": "νίκος",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Nikos (man's name)",
+        "es-419": "Nikos (nombre de hombre)",
+        "it": "Nikos (nome maschile)",
+        "nl": "Nikos (jongensnaam)"
+      }
+    },
+    "λογαριασμός": {
+      "lemma": "λογαριασμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bill, check (m)",
+        "es-419": "cuenta (m)",
+        "it": "conto (m)",
+        "nl": "rekening (m)"
+      }
+    },
+    "τηλέφωνο": {
+      "lemma": "τηλέφωνο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "phone, phone number (n)",
+        "es-419": "teléfono, número de teléfono (n)",
+        "it": "telefono, numero di telefono (n)",
+        "nl": "telefoon, telefoonnummer (n)"
+      }
+    },
+    "τηλέφωνό": {
+      "lemma": "τηλέφωνο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "phone number (n): τηλέφωνό takes a second accent before μου/σου",
+        "es-419": "número de teléfono (n): τηλέφωνό lleva un segundo acento antes de μου/σου",
+        "it": "numero di telefono (n): τηλέφωνό prende un secondo accento prima di μου/σου",
+        "nl": "telefoonnummer (n): τηλέφωνό krijgt een tweede accent voor μου/σου"
+      }
+    },
+    "κινητό": {
+      "lemma": "κινητό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cell phone (n)",
+        "es-419": "celular (n)",
+        "it": "cellulare (n)",
+        "nl": "mobiele telefoon (n)"
+      }
+    },
+    "αριθμός": {
+      "lemma": "αριθμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m)",
+        "es-419": "número (m)",
+        "it": "numero (m)",
+        "nl": "nummer, getal (m)"
+      }
+    },
+    "αριθμό": {
+      "lemma": "αριθμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m), accusative",
+        "es-419": "número (m), acusativo",
+        "it": "numero (m), accusativo",
+        "nl": "nummer, getal (m), lijdend voorwerp"
+      }
+    },
+    "χρονών": {
+      "lemma": "χρόνος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "χρονών = years old (χρόνος (m) = year); Είμαι 25 χρονών = I'm 25",
+        "es-419": "χρονών = años (χρόνος (m) = año); Είμαι 25 χρονών = tengo 25 años",
+        "it": "χρονών = anni (χρόνος (m) = anno); Είμαι 25 χρονών = ho 25 anni",
+        "nl": "χρονών = jaar oud (χρόνος (m) = jaar); Είμαι 25 χρονών = ik ben 25 jaar oud"
+      }
+    },
+    "ώρα": {
+      "lemma": "ώρα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hour, time of day (f)",
+        "es-419": "hora (f)",
+        "it": "ora (f)",
+        "nl": "uur, tijd (f)"
+      }
+    },
+    "ακριβώς": {
+      "lemma": "ακριβώς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "exactly, sharp; ακριβώς is not ακριβός (expensive)",
+        "es-419": "exactamente, en punto; ακριβώς no es ακριβός (caro)",
+        "it": "esattamente, in punto; ακριβώς non è ακριβός (caro)",
+        "nl": "precies; ακριβώς is niet ακριβός (duur)"
+      }
+    },
+    "περίπου": {
+      "lemma": "περίπου",
+      "pos": "ADV",
+      "gloss": {
+        "en": "about, approximately",
+        "es-419": "más o menos, aproximadamente",
+        "it": "circa, più o meno",
+        "nl": "ongeveer"
+      }
+    },
+    "τέταρτο": {
+      "lemma": "τέταρτο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "quarter (n): a quarter of an hour",
+        "es-419": "cuarto (n): un cuarto de hora",
+        "it": "quarto (n): un quarto d'ora",
+        "nl": "kwartier (n)"
+      }
+    },
+    "λεπτό": {
+      "lemma": "λεπτό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minute (n)",
+        "es-419": "minuto (n)",
+        "it": "minuto (n)",
+        "nl": "minuut (n)"
+      }
+    },
+    "παρά": {
+      "lemma": "παρά",
+      "pos": "ADP",
+      "gloss": {
+        "en": "παρά = to (before the hour): έξι παρά είκοσι = twenty to six",
+        "es-419": "παρά = menos (antes de la hora): έξι παρά είκοσι = las seis menos veinte",
+        "it": "παρά = meno (prima dell'ora): έξι παρά είκοσι = le sei meno venti",
+        "nl": "παρά = voor (vóór het uur): έξι παρά είκοσι = twintig voor zes"
+      }
+    },
+    "μισή": {
+      "lemma": "μισός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "μισή = half (feminine); και μισή = half past",
+        "es-419": "μισή = media (femenino); και μισή = y media",
+        "it": "μισή = mezza (femminile); και μισή = e mezza",
+        "nl": "μισή = half (vrouwelijk); και μισή = half (Grieks: τρεις και μισή = 3:30)"
+      }
+    },
+    "σήμερα": {
+      "lemma": "σήμερα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today; σήμερα is not 'summer'",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "τώρα": {
+      "lemma": "τώρα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "es-419": "ahora",
+        "it": "adesso",
+        "nl": "nu"
+      }
+    },
+    "πότε": {
+      "lemma": "πότε",
+      "pos": "ADV",
+      "gloss": {
+        "en": "when (in a question)",
+        "es-419": "cuándo (en una pregunta)",
+        "it": "quando (in una domanda)",
+        "nl": "wanneer (in een vraag)"
+      }
+    },
+    "νωρίς": {
+      "lemma": "νωρίς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "early",
+        "es-419": "temprano",
+        "it": "presto",
+        "nl": "vroeg"
+      }
+    },
+    "αργά": {
+      "lemma": "αργά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "late (also: slowly)",
+        "es-419": "tarde (también: despacio)",
+        "it": "tardi (anche: lentamente)",
+        "nl": "laat (ook: langzaam)"
+      }
+    },
+    "δευτέρα": {
+      "lemma": "δευτέρα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (f)",
+        "es-419": "lunes (f)",
+        "it": "lunedì (f)",
+        "nl": "maandag (f)"
+      }
+    },
+    "τρίτη": {
+      "lemma": "τρίτη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Tuesday (f)",
+        "es-419": "martes (f)",
+        "it": "martedì (f)",
+        "nl": "dinsdag (f)"
+      }
+    },
+    "τετάρτη": {
+      "lemma": "τετάρτη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Wednesday (f)",
+        "es-419": "miércoles (f)",
+        "it": "mercoledì (f)",
+        "nl": "woensdag (f)"
+      }
+    },
+    "πέμπτη": {
+      "lemma": "πέμπτη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Thursday (f)",
+        "es-419": "jueves (f)",
+        "it": "giovedì (f)",
+        "nl": "donderdag (f)"
+      }
+    },
+    "παρασκευή": {
+      "lemma": "παρασκευή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Friday (f)",
+        "es-419": "viernes (f)",
+        "it": "venerdì (f)",
+        "nl": "vrijdag (f)"
+      }
+    },
+    "σάββατο": {
+      "lemma": "σάββατο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (n)",
+        "es-419": "sábado (n)",
+        "it": "sabato (n)",
+        "nl": "zaterdag (n)"
+      }
+    },
+    "κυριακή": {
+      "lemma": "κυριακή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (f)",
+        "es-419": "domingo (f)",
+        "it": "domenica (f)",
+        "nl": "zondag (f)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "el-a1-arithmoi-ora-1",
+      "title": "Από το μηδέν στο είκοσι",
+      "grammarFocus": {
+        "en": [
+          "numbers 0-20: δύο to δώδεκα never change; 13 and 14 have masculine/feminine forms (δεκατρείς, δεκατέσσερις) and a neuter form (δεκατρία, δεκατέσσερα)",
+          "the noun after the number stays plural and ευρώ never changes"
+        ],
+        "es-419": [
+          "números 0-20: de δύο a δώδεκα no cambian; 13 y 14 tienen forma masculina/femenina (δεκατρείς, δεκατέσσερις) y neutra (δεκατρία, δεκατέσσερα)",
+          "el sustantivo después del número va en plural y ευρώ no cambia"
+        ],
+        "it": [
+          "i numeri 0-20: da δύο a δώδεκα non cambiano; 13 e 14 hanno una forma maschile/femminile (δεκατρείς, δεκατέσσερις) e una neutra (δεκατρία, δεκατέσσερα)",
+          "il nome dopo il numero resta al plurale e ευρώ non cambia"
+        ],
+        "nl": [
+          "getallen 0-20: van δύο tot δώδεκα veranderen niet; 13 en 14 hebben een mannelijke/vrouwelijke vorm (δεκατρείς, δεκατέσσερις) en een onzijdige (δεκατρία, δεκατέσσερα)",
+          "het zelfstandig naamwoord na het getal blijft meervoud en ευρώ verandert nooit"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "μηδέν",
+          "translation": {
+            "en": "zero",
+            "es-419": "cero",
+            "it": "zero",
+            "nl": "nul"
+          },
+          "distractors": {
+            "en": [
+              "one",
+              "ten"
+            ],
+            "es-419": [
+              "uno",
+              "diez"
+            ],
+            "it": [
+              "uno",
+              "dieci"
+            ],
+            "nl": [
+              "een",
+              "tien"
+            ]
+          },
+          "variants": [
+            "0"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "έξι",
+          "translation": {
+            "en": "six",
+            "es-419": "seis",
+            "it": "sei",
+            "nl": "zes"
+          },
+          "distractors": {
+            "en": [
+              "five",
+              "sixteen"
+            ],
+            "es-419": [
+              "cinco",
+              "dieciséis"
+            ],
+            "it": [
+              "cinque",
+              "sedici"
+            ],
+            "nl": [
+              "vijf",
+              "zestien"
+            ]
+          },
+          "variants": [
+            "6"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "επτά",
+          "translation": {
+            "en": "seven",
+            "es-419": "siete",
+            "it": "sette",
+            "nl": "zeven"
+          },
+          "distractors": {
+            "en": [
+              "eight",
+              "seventeen"
+            ],
+            "es-419": [
+              "ocho",
+              "diecisiete"
+            ],
+            "it": [
+              "otto",
+              "diciassette"
+            ],
+            "nl": [
+              "acht",
+              "zeventien"
+            ]
+          },
+          "variants": [
+            "7",
+            "εφτά"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "οκτώ",
+          "translation": {
+            "en": "eight",
+            "es-419": "ocho",
+            "it": "otto",
+            "nl": "acht"
+          },
+          "distractors": {
+            "en": [
+              "seven",
+              "eighteen"
+            ],
+            "es-419": [
+              "siete",
+              "dieciocho"
+            ],
+            "it": [
+              "sette",
+              "diciotto"
+            ],
+            "nl": [
+              "zeven",
+              "achttien"
+            ]
+          },
+          "variants": [
+            "8",
+            "οχτώ"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "εννέα",
+          "translation": {
+            "en": "nine",
+            "es-419": "nueve",
+            "it": "nove",
+            "nl": "negen"
+          },
+          "distractors": {
+            "en": [
+              "eight",
+              "nineteen"
+            ],
+            "es-419": [
+              "ocho",
+              "diecinueve"
+            ],
+            "it": [
+              "otto",
+              "diciannove"
+            ],
+            "nl": [
+              "acht",
+              "negentien"
+            ]
+          },
+          "variants": [
+            "9",
+            "εννιά"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "έντεκα",
+          "translation": {
+            "en": "eleven",
+            "es-419": "once",
+            "it": "undici",
+            "nl": "elf"
+          },
+          "distractors": {
+            "en": [
+              "ten",
+              "twelve"
+            ],
+            "es-419": [
+              "diez",
+              "doce"
+            ],
+            "it": [
+              "dieci",
+              "dodici"
+            ],
+            "nl": [
+              "tien",
+              "twaalf"
+            ]
+          },
+          "variants": [
+            "11"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "δώδεκα",
+          "translation": {
+            "en": "twelve",
+            "es-419": "doce",
+            "it": "dodici",
+            "nl": "twaalf"
+          },
+          "distractors": {
+            "en": [
+              "eleven",
+              "two"
+            ],
+            "es-419": [
+              "once",
+              "dos"
+            ],
+            "it": [
+              "undici",
+              "due"
+            ],
+            "nl": [
+              "elf",
+              "twee"
+            ]
+          },
+          "variants": [
+            "12"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έξι ευρώ",
+          "translation": {
+            "en": "six euros",
+            "es-419": "seis euros",
+            "it": "sei euro",
+            "nl": "zes euro"
+          },
+          "distractors": {
+            "en": [
+              "sixteen euros",
+              "five euros"
+            ],
+            "es-419": [
+              "dieciséis euros",
+              "cinco euros"
+            ],
+            "it": [
+              "sedici euro",
+              "cinque euro"
+            ],
+            "nl": [
+              "zestien euro",
+              "vijf euro"
+            ]
+          },
+          "variants": [
+            "6 ευρώ"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω επτά ευρώ.",
+          "translation": {
+            "en": "I have seven euros.",
+            "es-419": "Tengo siete euros.",
+            "it": "Ho sette euro.",
+            "nl": "Ik heb zeven euro."
+          },
+          "distractors": {
+            "en": [
+              "I have seventeen euros.",
+              "I have eight euros."
+            ],
+            "es-419": [
+              "Tengo diecisiete euros.",
+              "Tengo ocho euros."
+            ],
+            "it": [
+              "Ho diciassette euro.",
+              "Ho otto euro."
+            ],
+            "nl": [
+              "Ik heb zeventien euro.",
+              "Ik heb acht euro."
+            ]
+          },
+          "variants": [
+            "Έχω 7 ευρώ.",
+            "Έχω εφτά ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχεις δώδεκα ευρώ;",
+          "translation": {
+            "en": "Do you have twelve euros?",
+            "es-419": "¿Tienes doce euros?",
+            "it": "Hai dodici euro?",
+            "nl": "Heb je twaalf euro?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have two euros?",
+              "Do you have eleven euros?"
+            ],
+            "es-419": [
+              "¿Tienes dos euros?",
+              "¿Tienes once euros?"
+            ],
+            "it": [
+              "Hai due euro?",
+              "Hai undici euro?"
+            ],
+            "nl": [
+              "Heb je twee euro?",
+              "Heb je elf euro?"
+            ]
+          },
+          "variants": [
+            "Έχεις 12 ευρώ;"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δεκατρία ευρώ",
+          "translation": {
+            "en": "thirteen euros",
+            "es-419": "trece euros",
+            "it": "tredici euro",
+            "nl": "dertien euro"
+          },
+          "distractors": {
+            "en": [
+              "three euros",
+              "fourteen euros"
+            ],
+            "es-419": [
+              "tres euros",
+              "catorce euros"
+            ],
+            "it": [
+              "tre euro",
+              "quattordici euro"
+            ],
+            "nl": [
+              "drie euro",
+              "veertien euro"
+            ]
+          },
+          "variants": [
+            "13 ευρώ"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δεκατέσσερα μπισκότα",
+          "translation": {
+            "en": "fourteen cookies",
+            "es-419": "catorce galletas",
+            "it": "quattordici biscotti",
+            "nl": "veertien koekjes"
+          },
+          "distractors": {
+            "en": [
+              "four cookies",
+              "thirteen cookies"
+            ],
+            "es-419": [
+              "cuatro galletas",
+              "trece galletas"
+            ],
+            "it": [
+              "quattro biscotti",
+              "tredici biscotti"
+            ],
+            "nl": [
+              "vier koekjes",
+              "dertien koekjes"
+            ]
+          },
+          "variants": [
+            "14 μπισκότα"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "δεκαπέντε",
+          "translation": {
+            "en": "fifteen",
+            "es-419": "quince",
+            "it": "quindici",
+            "nl": "vijftien"
+          },
+          "distractors": {
+            "en": [
+              "five",
+              "sixteen"
+            ],
+            "es-419": [
+              "cinco",
+              "dieciséis"
+            ],
+            "it": [
+              "cinque",
+              "sedici"
+            ],
+            "nl": [
+              "vijf",
+              "zestien"
+            ]
+          },
+          "variants": [
+            "15"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "δεκαεπτά",
+          "translation": {
+            "en": "seventeen",
+            "es-419": "diecisiete",
+            "it": "diciassette",
+            "nl": "zeventien"
+          },
+          "distractors": {
+            "en": [
+              "seven",
+              "eighteen"
+            ],
+            "es-419": [
+              "siete",
+              "dieciocho"
+            ],
+            "it": [
+              "sette",
+              "diciotto"
+            ],
+            "nl": [
+              "zeven",
+              "achttien"
+            ]
+          },
+          "variants": [
+            "17",
+            "δεκαεφτά"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "δεκαεννέα",
+          "translation": {
+            "en": "nineteen",
+            "es-419": "diecinueve",
+            "it": "diciannove",
+            "nl": "negentien"
+          },
+          "distractors": {
+            "en": [
+              "nine",
+              "twenty"
+            ],
+            "es-419": [
+              "nueve",
+              "veinte"
+            ],
+            "it": [
+              "nove",
+              "venti"
+            ],
+            "nl": [
+              "negen",
+              "twintig"
+            ]
+          },
+          "variants": [
+            "19",
+            "δεκαεννιά"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω δεκαέξι ευρώ.",
+          "translation": {
+            "en": "I have sixteen euros.",
+            "es-419": "Tengo dieciséis euros.",
+            "it": "Ho sedici euro.",
+            "nl": "Ik heb zestien euro."
+          },
+          "distractors": {
+            "en": [
+              "I have six euros.",
+              "I have fifteen euros."
+            ],
+            "es-419": [
+              "Tengo seis euros.",
+              "Tengo quince euros."
+            ],
+            "it": [
+              "Ho sei euro.",
+              "Ho quindici euro."
+            ],
+            "nl": [
+              "Ik heb zes euro.",
+              "Ik heb vijftien euro."
+            ]
+          },
+          "variants": [
+            "Έχω 16 ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω δεκαοκτώ ευρώ.",
+          "translation": {
+            "en": "I don't have eighteen euros.",
+            "es-419": "No tengo dieciocho euros.",
+            "it": "Non ho diciotto euro.",
+            "nl": "Ik heb geen achttien euro."
+          },
+          "distractors": {
+            "en": [
+              "I don't have eight euros.",
+              "I don't have nineteen euros."
+            ],
+            "es-419": [
+              "No tengo ocho euros.",
+              "No tengo diecinueve euros."
+            ],
+            "it": [
+              "Non ho otto euro.",
+              "Non ho diciannove euro."
+            ],
+            "nl": [
+              "Ik heb geen acht euro.",
+              "Ik heb geen negentien euro."
+            ]
+          },
+          "variants": [
+            "Δεν έχω 18 ευρώ.",
+            "Δεν έχω δεκαοχτώ ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω δεκατρείς καφέδες, παρακαλώ.",
+          "translation": {
+            "en": "I'd like thirteen coffees, please.",
+            "es-419": "Quiero trece cafés, por favor.",
+            "it": "Vorrei tredici caffè, per favore.",
+            "nl": "Ik wil graag dertien koffies, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'd like three coffees, please.",
+              "I'd like fourteen coffees, please."
+            ],
+            "es-419": [
+              "Quiero tres cafés, por favor.",
+              "Quiero catorce cafés, por favor."
+            ],
+            "it": [
+              "Vorrei tre caffè, per favore.",
+              "Vorrei quattordici caffè, per favore."
+            ],
+            "nl": [
+              "Ik wil graag drie koffies, alstublieft.",
+              "Ik wil graag veertien koffies, alstublieft."
+            ]
+          },
+          "variants": [
+            "Θέλω 13 καφέδες, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "είκοσι ευρώ, παρακαλώ.",
+          "translation": {
+            "en": "twenty euros, please.",
+            "es-419": "veinte euros, por favor.",
+            "it": "venti euro, per favore.",
+            "nl": "twintig euro, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "ten euros, please.",
+              "nineteen euros, please."
+            ],
+            "es-419": [
+              "diez euros, por favor.",
+              "diecinueve euros, por favor."
+            ],
+            "it": [
+              "dieci euro, per favore.",
+              "diciannove euro, per favore."
+            ],
+            "nl": [
+              "tien euro, alstublieft.",
+              "negentien euro, alstublieft."
+            ]
+          },
+          "variants": [
+            "20 ευρώ, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-1-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω δεκατρία μπισκότα και δεκατέσσερα κρουασάν.",
+          "translation": {
+            "en": "I have thirteen cookies and fourteen croissants.",
+            "es-419": "Tengo trece galletas y catorce cruasanes.",
+            "it": "Ho tredici biscotti e quattordici cornetti.",
+            "nl": "Ik heb dertien koekjes en veertien croissants."
+          },
+          "distractors": {
+            "en": [
+              "I have thirteen cookies and four croissants.",
+              "I have three cookies and fourteen croissants."
+            ],
+            "es-419": [
+              "Tengo trece galletas y cuatro cruasanes.",
+              "Tengo tres galletas y catorce cruasanes."
+            ],
+            "it": [
+              "Ho tredici biscotti e quattro cornetti.",
+              "Ho tre biscotti e quattordici cornetti."
+            ],
+            "nl": [
+              "Ik heb dertien koekjes en vier croissants.",
+              "Ik heb drie koekjes en veertien croissants."
+            ]
+          },
+          "variants": [
+            "Έχω 13 μπισκότα και 14 κρουασάν."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-arithmoi-ora-2",
+      "title": "Από το είκοσι στο εκατό",
+      "grammarFocus": {
+        "en": [
+          "tens: τριάντα, σαράντα, πενήντα ... ενενήντα, then εκατό",
+          "compound numbers are written as two words, tens first (είκοσι πέντε); only the last digit 1, 3, 4 agrees with the noun"
+        ],
+        "es-419": [
+          "decenas: τριάντα, σαράντα, πενήντα ... ενενήντα, y luego εκατό",
+          "los números compuestos se escriben en dos palabras, primero la decena (είκοσι πέντε); solo la última cifra 1, 3, 4 concuerda con el sustantivo"
+        ],
+        "it": [
+          "le decine: τριάντα, σαράντα, πενήντα ... ενενήντα, poi εκατό",
+          "i numeri composti si scrivono in due parole, prima la decina (είκοσι πέντε); solo l'ultima cifra 1, 3, 4 concorda con il nome"
+        ],
+        "nl": [
+          "tientallen: τριάντα, σαράντα, πενήντα ... ενενήντα, daarna εκατό",
+          "samengestelde getallen worden in twee woorden geschreven, eerst het tiental (είκοσι πέντε); alleen het laatste cijfer 1, 3, 4 congrueert met het zelfstandig naamwoord"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "τριάντα",
+          "translation": {
+            "en": "thirty",
+            "es-419": "treinta",
+            "it": "trenta",
+            "nl": "dertig"
+          },
+          "distractors": {
+            "en": [
+              "thirteen",
+              "forty"
+            ],
+            "es-419": [
+              "trece",
+              "cuarenta"
+            ],
+            "it": [
+              "tredici",
+              "quaranta"
+            ],
+            "nl": [
+              "dertien",
+              "veertig"
+            ]
+          },
+          "variants": [
+            "30"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "σαράντα",
+          "translation": {
+            "en": "forty",
+            "es-419": "cuarenta",
+            "it": "quaranta",
+            "nl": "veertig"
+          },
+          "distractors": {
+            "en": [
+              "fourteen",
+              "thirty"
+            ],
+            "es-419": [
+              "catorce",
+              "treinta"
+            ],
+            "it": [
+              "quattordici",
+              "trenta"
+            ],
+            "nl": [
+              "veertien",
+              "dertig"
+            ]
+          },
+          "variants": [
+            "40"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "πενήντα",
+          "translation": {
+            "en": "fifty",
+            "es-419": "cincuenta",
+            "it": "cinquanta",
+            "nl": "vijftig"
+          },
+          "distractors": {
+            "en": [
+              "fifteen",
+              "sixty"
+            ],
+            "es-419": [
+              "quince",
+              "sesenta"
+            ],
+            "it": [
+              "quindici",
+              "sessanta"
+            ],
+            "nl": [
+              "vijftien",
+              "zestig"
+            ]
+          },
+          "variants": [
+            "50"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "εξήντα",
+          "translation": {
+            "en": "sixty",
+            "es-419": "sesenta",
+            "it": "sessanta",
+            "nl": "zestig"
+          },
+          "distractors": {
+            "en": [
+              "sixteen",
+              "fifty"
+            ],
+            "es-419": [
+              "dieciséis",
+              "cincuenta"
+            ],
+            "it": [
+              "sedici",
+              "cinquanta"
+            ],
+            "nl": [
+              "zestien",
+              "vijftig"
+            ]
+          },
+          "variants": [
+            "60"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "εβδομήντα",
+          "translation": {
+            "en": "seventy",
+            "es-419": "setenta",
+            "it": "settanta",
+            "nl": "zeventig"
+          },
+          "distractors": {
+            "en": [
+              "seventeen",
+              "eighty"
+            ],
+            "es-419": [
+              "diecisiete",
+              "ochenta"
+            ],
+            "it": [
+              "diciassette",
+              "ottanta"
+            ],
+            "nl": [
+              "zeventien",
+              "tachtig"
+            ]
+          },
+          "variants": [
+            "70"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "ογδόντα",
+          "translation": {
+            "en": "eighty",
+            "es-419": "ochenta",
+            "it": "ottanta",
+            "nl": "tachtig"
+          },
+          "distractors": {
+            "en": [
+              "eighteen",
+              "seventy"
+            ],
+            "es-419": [
+              "dieciocho",
+              "setenta"
+            ],
+            "it": [
+              "diciotto",
+              "settanta"
+            ],
+            "nl": [
+              "achttien",
+              "zeventig"
+            ]
+          },
+          "variants": [
+            "80"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "ενενήντα",
+          "translation": {
+            "en": "ninety",
+            "es-419": "noventa",
+            "it": "novanta",
+            "nl": "negentig"
+          },
+          "distractors": {
+            "en": [
+              "nineteen",
+              "eighty"
+            ],
+            "es-419": [
+              "diecinueve",
+              "ochenta"
+            ],
+            "it": [
+              "diciannove",
+              "ottanta"
+            ],
+            "nl": [
+              "negentien",
+              "tachtig"
+            ]
+          },
+          "variants": [
+            "90"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "εκατό",
+          "translation": {
+            "en": "one hundred",
+            "es-419": "cien",
+            "it": "cento",
+            "nl": "honderd"
+          },
+          "distractors": {
+            "en": [
+              "ten",
+              "ninety"
+            ],
+            "es-419": [
+              "diez",
+              "noventa"
+            ],
+            "it": [
+              "dieci",
+              "novanta"
+            ],
+            "nl": [
+              "tien",
+              "negentig"
+            ]
+          },
+          "variants": [
+            "100"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "είκοσι πέντε",
+          "translation": {
+            "en": "twenty-five",
+            "es-419": "veinticinco",
+            "it": "venticinque",
+            "nl": "vijfentwintig"
+          },
+          "distractors": {
+            "en": [
+              "fifteen",
+              "thirty-five"
+            ],
+            "es-419": [
+              "quince",
+              "treinta y cinco"
+            ],
+            "it": [
+              "quindici",
+              "trentacinque"
+            ],
+            "nl": [
+              "vijftien",
+              "vijfendertig"
+            ]
+          },
+          "variants": [
+            "25"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ογδόντα εννέα",
+          "translation": {
+            "en": "eighty-nine",
+            "es-419": "ochenta y nueve",
+            "it": "ottantanove",
+            "nl": "negenentachtig"
+          },
+          "distractors": {
+            "en": [
+              "ninety-eight",
+              "seventy-nine"
+            ],
+            "es-419": [
+              "noventa y ocho",
+              "setenta y nueve"
+            ],
+            "it": [
+              "novantotto",
+              "settantanove"
+            ],
+            "nl": [
+              "achtennegentig",
+              "negenenzeventig"
+            ]
+          },
+          "variants": [
+            "89",
+            "ογδόντα εννιά"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "είκοσι ένα ευρώ",
+          "translation": {
+            "en": "twenty-one euros",
+            "es-419": "veintiún euros",
+            "it": "ventun euro",
+            "nl": "eenentwintig euro"
+          },
+          "distractors": {
+            "en": [
+              "twenty euros",
+              "thirty-one euros"
+            ],
+            "es-419": [
+              "veinte euros",
+              "treinta y un euros"
+            ],
+            "it": [
+              "venti euro",
+              "trentun euro"
+            ],
+            "nl": [
+              "twintig euro",
+              "eenendertig euro"
+            ]
+          },
+          "variants": [
+            "21 ευρώ"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω πενήντα ευρώ.",
+          "translation": {
+            "en": "I have fifty euros.",
+            "es-419": "Tengo cincuenta euros.",
+            "it": "Ho cinquanta euro.",
+            "nl": "Ik heb vijftig euro."
+          },
+          "distractors": {
+            "en": [
+              "I have fifteen euros.",
+              "I have sixty euros."
+            ],
+            "es-419": [
+              "Tengo quince euros.",
+              "Tengo sesenta euros."
+            ],
+            "it": [
+              "Ho quindici euro.",
+              "Ho sessanta euro."
+            ],
+            "nl": [
+              "Ik heb vijftien euro.",
+              "Ik heb zestig euro."
+            ]
+          },
+          "variants": [
+            "Έχω 50 ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω εκατό ευρώ.",
+          "translation": {
+            "en": "I don't have one hundred euros.",
+            "es-419": "No tengo cien euros.",
+            "it": "Non ho cento euro.",
+            "nl": "Ik heb geen honderd euro."
+          },
+          "distractors": {
+            "en": [
+              "I don't have ten euros.",
+              "I don't have ninety euros."
+            ],
+            "es-419": [
+              "No tengo diez euros.",
+              "No tengo noventa euros."
+            ],
+            "it": [
+              "Non ho dieci euro.",
+              "Non ho novanta euro."
+            ],
+            "nl": [
+              "Ik heb geen tien euro.",
+              "Ik heb geen negentig euro."
+            ]
+          },
+          "variants": [
+            "Δεν έχω 100 ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο λογαριασμός είναι εξήντα τρία ευρώ.",
+          "translation": {
+            "en": "The bill is sixty-three euros.",
+            "es-419": "La cuenta es de sesenta y tres euros.",
+            "it": "Il conto è di sessantatré euro.",
+            "nl": "De rekening is drieënzestig euro."
+          },
+          "distractors": {
+            "en": [
+              "The bill is thirty-six euros.",
+              "The bill is fifty-three euros."
+            ],
+            "es-419": [
+              "La cuenta es de treinta y seis euros.",
+              "La cuenta es de cincuenta y tres euros."
+            ],
+            "it": [
+              "Il conto è di trentasei euro.",
+              "Il conto è di cinquantatré euro."
+            ],
+            "nl": [
+              "De rekening is zesendertig euro.",
+              "De rekening is drieënvijftig euro."
+            ]
+          },
+          "variants": [
+            "Ο λογαριασμός είναι 63 ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Κάνει ενενήντα οκτώ ευρώ.",
+          "translation": {
+            "en": "It comes to ninety-eight euros.",
+            "es-419": "Son noventa y ocho euros.",
+            "it": "Fanno novantotto euro.",
+            "nl": "Dat is achtennegentig euro."
+          },
+          "distractors": {
+            "en": [
+              "It comes to eighty-nine euros.",
+              "It comes to eighty-eight euros."
+            ],
+            "es-419": [
+              "Son ochenta y nueve euros.",
+              "Son ochenta y ocho euros."
+            ],
+            "it": [
+              "Fanno ottantanove euro.",
+              "Fanno ottantotto euro."
+            ],
+            "nl": [
+              "Dat is negenentachtig euro.",
+              "Dat is achtentachtig euro."
+            ]
+          },
+          "variants": [
+            "Κάνει 98 ευρώ.",
+            "Κάνει ενενήντα οχτώ ευρώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω είκοσι πέντε μπισκότα, παρακαλώ.",
+          "translation": {
+            "en": "I'd like twenty-five cookies, please.",
+            "es-419": "Quiero veinticinco galletas, por favor.",
+            "it": "Vorrei venticinque biscotti, per favore.",
+            "nl": "Ik wil graag vijfentwintig koekjes, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "I'd like fifteen cookies, please.",
+              "I'd like thirty-five cookies, please."
+            ],
+            "es-419": [
+              "Quiero quince galletas, por favor.",
+              "Quiero treinta y cinco galletas, por favor."
+            ],
+            "it": [
+              "Vorrei quindici biscotti, per favore.",
+              "Vorrei trentacinque biscotti, per favore."
+            ],
+            "nl": [
+              "Ik wil graag vijftien koekjes, alstublieft.",
+              "Ik wil graag vijfendertig koekjes, alstublieft."
+            ]
+          },
+          "variants": [
+            "Θέλω 25 μπισκότα, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "εκατό ευρώ, παρακαλώ.",
+          "translation": {
+            "en": "one hundred euros, please.",
+            "es-419": "cien euros, por favor.",
+            "it": "cento euro, per favore.",
+            "nl": "honderd euro, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "ten euros, please.",
+              "ninety euros, please."
+            ],
+            "es-419": [
+              "diez euros, por favor.",
+              "noventa euros, por favor."
+            ],
+            "it": [
+              "dieci euro, per favore.",
+              "novanta euro, per favore."
+            ],
+            "nl": [
+              "tien euro, alstublieft.",
+              "negentig euro, alstublieft."
+            ]
+          },
+          "variants": [
+            "100 ευρώ, παρακαλώ."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-2-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω σαράντα οκτώ ευρώ και δέκα μπισκότα.",
+          "translation": {
+            "en": "I have forty-eight euros and ten cookies.",
+            "es-419": "Tengo cuarenta y ocho euros y diez galletas.",
+            "it": "Ho quarantotto euro e dieci biscotti.",
+            "nl": "Ik heb achtenveertig euro en tien koekjes."
+          },
+          "distractors": {
+            "en": [
+              "I have eighty-four euros and ten cookies.",
+              "I have forty-eight euros and eight cookies."
+            ],
+            "es-419": [
+              "Tengo ochenta y cuatro euros y diez galletas.",
+              "Tengo cuarenta y ocho euros y ocho galletas."
+            ],
+            "it": [
+              "Ho ottantaquattro euro e dieci biscotti.",
+              "Ho quarantotto euro e otto biscotti."
+            ],
+            "nl": [
+              "Ik heb vierentachtig euro en tien koekjes.",
+              "Ik heb achtenveertig euro en acht koekjes."
+            ]
+          },
+          "variants": [
+            "Έχω 48 ευρώ και δέκα μπισκότα.",
+            "Έχω σαράντα οχτώ ευρώ και δέκα μπισκότα."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-arithmoi-ora-3",
+      "title": "Ηλικία και τηλέφωνο",
+      "grammarFocus": {
+        "en": [
+          "age: Είμαι είκοσι πέντε χρονών (literally: I am 25 of years)",
+          "Ποιο είναι...; asks for a number or name: ποιο before a neuter noun, ποιος before a masculine one, ποιον for a masculine object",
+          "the clitic σου/μου pulls the stress of τηλέφωνο: το τηλέφωνό σου"
+        ],
+        "es-419": [
+          "edad: Είμαι είκοσι πέντε χρονών (literalmente: soy de 25 años)",
+          "Ποιο είναι...; pregunta por un número o nombre: ποιο con un sustantivo neutro, ποιος con uno masculino, ποιον para un complemento masculino",
+          "el clítico σου/μου atrae un segundo acento: το τηλέφωνό σου"
+        ],
+        "it": [
+          "età: Είμαι είκοσι πέντε χρονών (letteralmente: sono di 25 anni)",
+          "Ποιο είναι...; chiede un numero o un nome: ποιο con un nome neutro, ποιος con uno maschile, ποιον per un complemento maschile",
+          "il clitico σου/μου richiama un secondo accento: το τηλέφωνό σου"
+        ],
+        "nl": [
+          "leeftijd: Είμαι είκοσι πέντε χρονών (letterlijk: ik ben van 25 jaar)",
+          "Ποιο είναι...; vraagt naar een nummer of naam: ποιο bij een onzijdig woord, ποιος bij een mannelijk, ποιον voor een mannelijk lijdend voorwerp",
+          "het clitic σου/μου trekt een tweede accent: το τηλέφωνό σου"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "τηλέφωνο",
+          "translation": {
+            "en": "phone",
+            "es-419": "teléfono",
+            "it": "telefono",
+            "nl": "telefoon"
+          },
+          "distractors": {
+            "en": [
+              "cell phone",
+              "number"
+            ],
+            "es-419": [
+              "celular",
+              "número"
+            ],
+            "it": [
+              "cellulare",
+              "numero"
+            ],
+            "nl": [
+              "mobiele telefoon",
+              "nummer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "κινητό",
+          "translation": {
+            "en": "cell phone",
+            "es-419": "celular",
+            "it": "cellulare",
+            "nl": "mobiele telefoon"
+          },
+          "distractors": {
+            "en": [
+              "phone",
+              "number"
+            ],
+            "es-419": [
+              "teléfono",
+              "número"
+            ],
+            "it": [
+              "telefono",
+              "numero"
+            ],
+            "nl": [
+              "telefoon",
+              "nummer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "αριθμός",
+          "translation": {
+            "en": "number",
+            "es-419": "número",
+            "it": "numero",
+            "nl": "nummer"
+          },
+          "distractors": {
+            "en": [
+              "phone",
+              "age"
+            ],
+            "es-419": [
+              "teléfono",
+              "edad"
+            ],
+            "it": [
+              "telefono",
+              "età"
+            ],
+            "nl": [
+              "telefoon",
+              "leeftijd"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "το κινητό μου",
+          "translation": {
+            "en": "my cell phone",
+            "es-419": "mi celular",
+            "it": "il mio cellulare",
+            "nl": "mijn mobiele telefoon"
+          },
+          "distractors": {
+            "en": [
+              "your cell phone",
+              "my phone"
+            ],
+            "es-419": [
+              "tu celular",
+              "mi teléfono"
+            ],
+            "it": [
+              "il tuo cellulare",
+              "il mio telefono"
+            ],
+            "nl": [
+              "jouw mobiele telefoon",
+              "mijn telefoon"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "το τηλέφωνό σου",
+          "translation": {
+            "en": "your phone number",
+            "es-419": "tu número de teléfono",
+            "it": "il tuo numero di telefono",
+            "nl": "jouw telefoonnummer"
+          },
+          "distractors": {
+            "en": [
+              "my phone number",
+              "your cell phone number"
+            ],
+            "es-419": [
+              "mi número de teléfono",
+              "tu número de celular"
+            ],
+            "it": [
+              "il mio numero di telefono",
+              "il tuo numero di cellulare"
+            ],
+            "nl": [
+              "mijn telefoonnummer",
+              "jouw mobiele nummer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ποιο είναι το τηλέφωνό σου;",
+          "translation": {
+            "en": "What's your phone number?",
+            "es-419": "¿Cuál es tu número de teléfono?",
+            "it": "Qual è il tuo numero di telefono?",
+            "nl": "Wat is je telefoonnummer?"
+          },
+          "distractors": {
+            "en": [
+              "What's your cell phone number?",
+              "What's your address?"
+            ],
+            "es-419": [
+              "¿Cuál es tu número de celular?",
+              "¿Cuál es tu dirección?"
+            ],
+            "it": [
+              "Qual è il tuo numero di cellulare?",
+              "Qual è il tuo indirizzo?"
+            ],
+            "nl": [
+              "Wat is je mobiele nummer?",
+              "Wat is je adres?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το κινητό μου είναι έξι εννέα τέσσερα ένα δύο οκτώ επτά.",
+          "translation": {
+            "en": "My cell phone number is six nine four one two eight seven.",
+            "es-419": "Mi celular es seis nueve cuatro uno dos ocho siete.",
+            "it": "Il mio cellulare è sei nove quattro uno due otto sette.",
+            "nl": "Mijn mobiele nummer is zes negen vier een twee acht zeven."
+          },
+          "distractors": {
+            "en": [
+              "My cell phone number is six nine four one two seven eight.",
+              "My cell phone number is six nine four two one eight seven."
+            ],
+            "es-419": [
+              "Mi celular es seis nueve cuatro uno dos siete ocho.",
+              "Mi celular es seis nueve cuatro dos uno ocho siete."
+            ],
+            "it": [
+              "Il mio cellulare è sei nove quattro uno due sette otto.",
+              "Il mio cellulare è sei nove quattro due uno otto sette."
+            ],
+            "nl": [
+              "Mijn mobiele nummer is zes negen vier een twee zeven acht.",
+              "Mijn mobiele nummer is zes negen vier twee een acht zeven."
+            ]
+          },
+          "variants": [
+            "Το κινητό μου είναι 6 9 4 1 2 8 7.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δυο οκτώ επτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δυο οκτώ εφτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δυο οχτώ επτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δυο οχτώ εφτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δύο οκτώ εφτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δύο οχτώ επτά.",
+            "Το κινητό μου είναι έξι εννέα τέσσερα ένα δύο οχτώ εφτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δυο οκτώ επτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δυο οκτώ εφτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δυο οχτώ επτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δυο οχτώ εφτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δύο οκτώ επτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δύο οκτώ εφτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δύο οχτώ επτά.",
+            "Το κινητό μου είναι έξι εννιά τέσσερα ένα δύο οχτώ εφτά."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχεις κινητό;",
+          "translation": {
+            "en": "Do you have a cell phone?",
+            "es-419": "¿Tienes celular?",
+            "it": "Hai un cellulare?",
+            "nl": "Heb je een mobiele telefoon?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have a phone number?",
+              "Do you want a cell phone?"
+            ],
+            "es-419": [
+              "¿Tienes número de teléfono?",
+              "¿Quieres un celular?"
+            ],
+            "it": [
+              "Hai un numero di telefono?",
+              "Vuoi un cellulare?"
+            ],
+            "nl": [
+              "Heb je een telefoonnummer?",
+              "Wil je een mobiele telefoon?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω κινητό.",
+          "translation": {
+            "en": "I don't have a cell phone.",
+            "es-419": "No tengo celular.",
+            "it": "Non ho il cellulare.",
+            "nl": "Ik heb geen mobiele telefoon."
+          },
+          "distractors": {
+            "en": [
+              "I don't have a phone number.",
+              "I have a cell phone."
+            ],
+            "es-419": [
+              "No tengo número de teléfono.",
+              "Tengo celular."
+            ],
+            "it": [
+              "Non ho un numero di telefono.",
+              "Ho il cellulare."
+            ],
+            "nl": [
+              "Ik heb geen telefoonnummer.",
+              "Ik heb een mobiele telefoon."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ποιον αριθμό θέλετε;",
+          "translation": {
+            "en": "Which number do you want?",
+            "es-419": "¿Qué número quiere?",
+            "it": "Quale numero vuole?",
+            "nl": "Welk nummer wilt u?"
+          },
+          "distractors": {
+            "en": [
+              "Which number do you have?",
+              "Which coffee do you want?"
+            ],
+            "es-419": [
+              "¿Qué número tiene?",
+              "¿Qué café quiere?"
+            ],
+            "it": [
+              "Quale numero ha?",
+              "Quale caffè vuole?"
+            ],
+            "nl": [
+              "Welk nummer hebt u?",
+              "Welke koffie wilt u?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "χρονών",
+          "translation": {
+            "en": "years old",
+            "es-419": "años",
+            "it": "anni",
+            "nl": "jaar oud"
+          },
+          "distractors": {
+            "en": [
+              "months old",
+              "days old"
+            ],
+            "es-419": [
+              "meses",
+              "días"
+            ],
+            "it": [
+              "mesi",
+              "giorni"
+            ],
+            "nl": [
+              "maanden oud",
+              "dagen oud"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "είκοσι πέντε χρονών",
+          "translation": {
+            "en": "twenty-five years old",
+            "es-419": "veinticinco años",
+            "it": "venticinque anni",
+            "nl": "vijfentwintig jaar oud"
+          },
+          "distractors": {
+            "en": [
+              "fifteen years old",
+              "thirty-five years old"
+            ],
+            "es-419": [
+              "quince años",
+              "treinta y cinco años"
+            ],
+            "it": [
+              "quindici anni",
+              "trentacinque anni"
+            ],
+            "nl": [
+              "vijftien jaar oud",
+              "vijfendertig jaar oud"
+            ]
+          },
+          "variants": [
+            "25 χρονών"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πόσο χρονών είσαι;",
+          "translation": {
+            "en": "How old are you?",
+            "es-419": "¿Cuántos años tienes?",
+            "it": "Quanti anni hai?",
+            "nl": "Hoe oud ben je?"
+          },
+          "distractors": {
+            "en": [
+              "How old is Nikos?",
+              "How tall are you?"
+            ],
+            "es-419": [
+              "¿Cuántos años tiene Nikos?",
+              "¿Cuánto mides?"
+            ],
+            "it": [
+              "Quanti anni ha Nikos?",
+              "Quanto sei alto?"
+            ],
+            "nl": [
+              "Hoe oud is Nikos?",
+              "Hoe lang ben je?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πόσο χρονών είναι ο Νίκος;",
+          "translation": {
+            "en": "How old is Nikos?",
+            "es-419": "¿Cuántos años tiene Nikos?",
+            "it": "Quanti anni ha Nikos?",
+            "nl": "Hoe oud is Nikos?"
+          },
+          "distractors": {
+            "en": [
+              "How old is Maria?",
+              "How tall is Nikos?"
+            ],
+            "es-419": [
+              "¿Cuántos años tiene María?",
+              "¿Cuánto mide Nikos?"
+            ],
+            "it": [
+              "Quanti anni ha Maria?",
+              "Quanto è alto Nikos?"
+            ],
+            "nl": [
+              "Hoe oud is Maria?",
+              "Hoe lang is Nikos?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαι είκοσι πέντε χρονών.",
+          "translation": {
+            "en": "I'm twenty-five years old.",
+            "es-419": "Tengo veinticinco años.",
+            "it": "Ho venticinque anni.",
+            "nl": "Ik ben vijfentwintig jaar oud."
+          },
+          "distractors": {
+            "en": [
+              "I'm fifteen years old.",
+              "I'm thirty-five years old."
+            ],
+            "es-419": [
+              "Tengo quince años.",
+              "Tengo treinta y cinco años."
+            ],
+            "it": [
+              "Ho quindici anni.",
+              "Ho trentacinque anni."
+            ],
+            "nl": [
+              "Ik ben vijftien jaar oud.",
+              "Ik ben vijfendertig jaar oud."
+            ]
+          },
+          "variants": [
+            "Είμαι 25 χρονών."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο Νίκος είναι τριάντα χρονών.",
+          "translation": {
+            "en": "Nikos is thirty years old.",
+            "es-419": "Nikos tiene treinta años.",
+            "it": "Nikos ha trenta anni.",
+            "nl": "Nikos is dertig jaar oud."
+          },
+          "distractors": {
+            "en": [
+              "Nikos is thirteen years old.",
+              "Nikos is forty years old."
+            ],
+            "es-419": [
+              "Nikos tiene trece años.",
+              "Nikos tiene cuarenta años."
+            ],
+            "it": [
+              "Nikos ha tredici anni.",
+              "Nikos ha quaranta anni."
+            ],
+            "nl": [
+              "Nikos is dertien jaar oud.",
+              "Nikos is veertig jaar oud."
+            ]
+          },
+          "variants": [
+            "Ο Νίκος είναι 30 χρονών."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαι τριάντα ένα χρονών.",
+          "translation": {
+            "en": "I'm thirty-one years old.",
+            "es-419": "Tengo treinta y un años.",
+            "it": "Ho trentun anni.",
+            "nl": "Ik ben eenendertig jaar oud."
+          },
+          "distractors": {
+            "en": [
+              "I'm thirteen years old.",
+              "I'm twenty-one years old."
+            ],
+            "es-419": [
+              "Tengo trece años.",
+              "Tengo veintiún años."
+            ],
+            "it": [
+              "Ho tredici anni.",
+              "Ho ventun anni."
+            ],
+            "nl": [
+              "Ik ben dertien jaar oud.",
+              "Ik ben eenentwintig jaar oud."
+            ]
+          },
+          "variants": [
+            "Είμαι 31 χρονών."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-arithmoi-ora-4",
+      "title": "Τι ώρα είναι;",
+      "grammarFocus": {
+        "en": [
+          "Τι ώρα είναι; Είναι + hour: μία is feminine (μία, δύο, τρεις, τέσσερις) because it agrees with ώρα",
+          "στις + hour for 'at' (στη μία for one o'clock)",
+          "ακριβώς = exactly, περίπου = about"
+        ],
+        "es-419": [
+          "Τι ώρα είναι; Είναι + hora: μία es femenino (μία, δύο, τρεις, τέσσερις) porque concuerda con ώρα",
+          "στις + hora para 'a las' (στη μία para la una)",
+          "ακριβώς = en punto, exactamente; περίπου = más o menos"
+        ],
+        "it": [
+          "Τι ώρα είναι; Είναι + ora: μία è femminile (μία, δύο, τρεις, τέσσερις) perché concorda con ώρα",
+          "στις + ora per 'alle' (στη μία per l'una)",
+          "ακριβώς = in punto, esattamente; περίπου = circa"
+        ],
+        "nl": [
+          "Τι ώρα είναι; Είναι + uur: μία is vrouwelijk (μία, δύο, τρεις, τέσσερις) omdat het congrueert met ώρα",
+          "στις + uur voor 'om' (στη μία voor één uur)",
+          "ακριβώς = precies, περίπου = ongeveer"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ώρα",
+          "translation": {
+            "en": "hour",
+            "es-419": "hora",
+            "it": "ora",
+            "nl": "uur"
+          },
+          "distractors": {
+            "en": [
+              "minute",
+              "day"
+            ],
+            "es-419": [
+              "minuto",
+              "día"
+            ],
+            "it": [
+              "minuto",
+              "giorno"
+            ],
+            "nl": [
+              "minuut",
+              "dag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "ακριβώς",
+          "translation": {
+            "en": "exactly",
+            "es-419": "exactamente",
+            "it": "esattamente",
+            "nl": "precies"
+          },
+          "distractors": {
+            "en": [
+              "about",
+              "almost"
+            ],
+            "es-419": [
+              "más o menos",
+              "casi"
+            ],
+            "it": [
+              "circa",
+              "quasi"
+            ],
+            "nl": [
+              "ongeveer",
+              "bijna"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "περίπου",
+          "translation": {
+            "en": "about",
+            "es-419": "más o menos",
+            "it": "circa",
+            "nl": "ongeveer"
+          },
+          "distractors": {
+            "en": [
+              "exactly",
+              "almost"
+            ],
+            "es-419": [
+              "exactamente",
+              "casi"
+            ],
+            "it": [
+              "esattamente",
+              "quasi"
+            ],
+            "nl": [
+              "precies",
+              "bijna"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "τι ώρα είναι",
+          "translation": {
+            "en": "what time is it",
+            "es-419": "qué hora es",
+            "it": "che ore sono",
+            "nl": "hoe laat is het"
+          },
+          "distractors": {
+            "en": [
+              "what day is it",
+              "what time is it there"
+            ],
+            "es-419": [
+              "qué día es",
+              "qué hora es allá"
+            ],
+            "it": [
+              "che giorno è",
+              "che ore sono là"
+            ],
+            "nl": [
+              "welke dag is het",
+              "hoe laat is het daar"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Συγγνώμη, τι ώρα είναι;",
+          "translation": {
+            "en": "Excuse me, what time is it?",
+            "es-419": "Disculpe, ¿qué hora es?",
+            "it": "Scusi, che ore sono?",
+            "nl": "Pardon, hoe laat is het?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, what day is it?",
+              "Excuse me, how much is it?"
+            ],
+            "es-419": [
+              "Disculpe, ¿qué día es?",
+              "Disculpe, ¿cuánto es?"
+            ],
+            "it": [
+              "Scusi, che giorno è?",
+              "Scusi, quanto costa?"
+            ],
+            "nl": [
+              "Pardon, welke dag is het?",
+              "Pardon, hoeveel kost het?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι μία.",
+          "translation": {
+            "en": "It's one o'clock.",
+            "es-419": "Es la una.",
+            "it": "È l'una.",
+            "nl": "Het is één uur."
+          },
+          "distractors": {
+            "en": [
+              "It's two o'clock.",
+              "It's eleven o'clock."
+            ],
+            "es-419": [
+              "Son las dos.",
+              "Son las once."
+            ],
+            "it": [
+              "Sono le due.",
+              "Sono le undici."
+            ],
+            "nl": [
+              "Het is twee uur.",
+              "Het is elf uur."
+            ]
+          },
+          "variants": [
+            "Είναι 1.",
+            "Είναι μια."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι δύο.",
+          "translation": {
+            "en": "It's two o'clock.",
+            "es-419": "Son las dos.",
+            "it": "Sono le due.",
+            "nl": "Het is twee uur."
+          },
+          "distractors": {
+            "en": [
+              "It's twelve o'clock.",
+              "It's one o'clock."
+            ],
+            "es-419": [
+              "Son las doce.",
+              "Es la una."
+            ],
+            "it": [
+              "Sono le dodici.",
+              "È l'una."
+            ],
+            "nl": [
+              "Het is twaalf uur.",
+              "Het is één uur."
+            ]
+          },
+          "variants": [
+            "Είναι 2.",
+            "Είναι δυο."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι τρεις ακριβώς.",
+          "translation": {
+            "en": "It's exactly three o'clock.",
+            "es-419": "Son las tres en punto.",
+            "it": "Sono le tre in punto.",
+            "nl": "Het is precies drie uur."
+          },
+          "distractors": {
+            "en": [
+              "It's about three o'clock.",
+              "It's exactly four o'clock."
+            ],
+            "es-419": [
+              "Son más o menos las tres.",
+              "Son las cuatro en punto."
+            ],
+            "it": [
+              "Sono circa le tre.",
+              "Sono le quattro in punto."
+            ],
+            "nl": [
+              "Het is ongeveer drie uur.",
+              "Het is precies vier uur."
+            ]
+          },
+          "variants": [
+            "Είναι 3 ακριβώς."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι πέντε ακριβώς.",
+          "translation": {
+            "en": "It's exactly five o'clock.",
+            "es-419": "Son las cinco en punto.",
+            "it": "Sono le cinque in punto.",
+            "nl": "Het is precies vijf uur."
+          },
+          "distractors": {
+            "en": [
+              "It's exactly six o'clock.",
+              "It's about five o'clock."
+            ],
+            "es-419": [
+              "Son las seis en punto.",
+              "Son más o menos las cinco."
+            ],
+            "it": [
+              "Sono le sei in punto.",
+              "Sono circa le cinque."
+            ],
+            "nl": [
+              "Het is precies zes uur.",
+              "Het is ongeveer vijf uur."
+            ]
+          },
+          "variants": [
+            "Είναι 5 ακριβώς."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι περίπου εννέα.",
+          "translation": {
+            "en": "It's about nine o'clock.",
+            "es-419": "Son más o menos las nueve.",
+            "it": "Sono circa le nove.",
+            "nl": "Het is ongeveer negen uur."
+          },
+          "distractors": {
+            "en": [
+              "It's exactly nine o'clock.",
+              "It's about six o'clock."
+            ],
+            "es-419": [
+              "Son las nueve en punto.",
+              "Son más o menos las seis."
+            ],
+            "it": [
+              "Sono le nove in punto.",
+              "Sono circa le sei."
+            ],
+            "nl": [
+              "Het is precies negen uur.",
+              "Het is ongeveer zes uur."
+            ]
+          },
+          "variants": [
+            "Είναι περίπου 9.",
+            "Είναι περίπου εννιά."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι δέκα η ώρα.",
+          "translation": {
+            "en": "It's ten o'clock.",
+            "es-419": "Son las diez.",
+            "it": "Sono le dieci.",
+            "nl": "Het is tien uur."
+          },
+          "distractors": {
+            "en": [
+              "It's nine o'clock.",
+              "It's eleven o'clock."
+            ],
+            "es-419": [
+              "Son las nueve.",
+              "Son las once."
+            ],
+            "it": [
+              "Sono le nove.",
+              "Sono le undici."
+            ],
+            "nl": [
+              "Het is negen uur.",
+              "Het is elf uur."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "Στις οκτώ",
+          "translation": {
+            "en": "at eight o'clock",
+            "es-419": "a las ocho",
+            "it": "alle otto",
+            "nl": "om acht uur"
+          },
+          "distractors": {
+            "en": [
+              "at six o'clock",
+              "at nine o'clock"
+            ],
+            "es-419": [
+              "a las seis",
+              "a las nueve"
+            ],
+            "it": [
+              "alle sei",
+              "alle nove"
+            ],
+            "nl": [
+              "om zes uur",
+              "om negen uur"
+            ]
+          },
+          "variants": [
+            "Στις 8",
+            "Στις οχτώ"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "Στη μία",
+          "translation": {
+            "en": "at one o'clock",
+            "es-419": "a la una",
+            "it": "all'una",
+            "nl": "om één uur"
+          },
+          "distractors": {
+            "en": [
+              "at two o'clock",
+              "at eleven o'clock"
+            ],
+            "es-419": [
+              "a las dos",
+              "a las once"
+            ],
+            "it": [
+              "alle due",
+              "alle undici"
+            ],
+            "nl": [
+              "om twee uur",
+              "om elf uur"
+            ]
+          },
+          "variants": [
+            "Στη 1",
+            "Στη μια"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "Στις τέσσερις",
+          "translation": {
+            "en": "at four o'clock",
+            "es-419": "a las cuatro",
+            "it": "alle quattro",
+            "nl": "om vier uur"
+          },
+          "distractors": {
+            "en": [
+              "at five o'clock",
+              "at seven o'clock"
+            ],
+            "es-419": [
+              "a las cinco",
+              "a las siete"
+            ],
+            "it": [
+              "alle cinque",
+              "alle sette"
+            ],
+            "nl": [
+              "om vijf uur",
+              "om zeven uur"
+            ]
+          },
+          "variants": [
+            "Στις 4"
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στις οκτώ ακριβώς.",
+          "translation": {
+            "en": "At eight o'clock sharp.",
+            "es-419": "A las ocho en punto.",
+            "it": "Alle otto in punto.",
+            "nl": "Om acht uur precies."
+          },
+          "distractors": {
+            "en": [
+              "At six o'clock sharp.",
+              "At about eight o'clock."
+            ],
+            "es-419": [
+              "A las seis en punto.",
+              "A eso de las ocho."
+            ],
+            "it": [
+              "Alle sei in punto.",
+              "Verso le otto."
+            ],
+            "nl": [
+              "Om zes uur precies.",
+              "Om ongeveer acht uur."
+            ]
+          },
+          "variants": [
+            "Στις 8 ακριβώς.",
+            "Στις οχτώ ακριβώς."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τι ώρα μπορείς;",
+          "translation": {
+            "en": "What time can you make it?",
+            "es-419": "¿A qué hora puedes?",
+            "it": "A che ora puoi?",
+            "nl": "Hoe laat kun je?"
+          },
+          "distractors": {
+            "en": [
+              "What day can you make it?",
+              "What time do you want it?"
+            ],
+            "es-419": [
+              "¿Qué día puedes?",
+              "¿A qué hora lo quieres?"
+            ],
+            "it": [
+              "Che giorno puoi?",
+              "A che ora lo vuoi?"
+            ],
+            "nl": [
+              "Welke dag kun je?",
+              "Hoe laat wil je het?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-4-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ στις έξι.",
+          "translation": {
+            "en": "I can make it at six.",
+            "es-419": "Puedo a las seis.",
+            "it": "Posso alle sei.",
+            "nl": "Ik kan om zes uur."
+          },
+          "distractors": {
+            "en": [
+              "I can make it at five.",
+              "I can make it at seven."
+            ],
+            "es-419": [
+              "Puedo a las cinco.",
+              "Puedo a las siete."
+            ],
+            "it": [
+              "Posso alle cinque.",
+              "Posso alle sette."
+            ],
+            "nl": [
+              "Ik kan om vijf uur.",
+              "Ik kan om zeven uur."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-arithmoi-ora-5",
+      "title": "Τέταρτα και μισή",
+      "grammarFocus": {
+        "en": [
+          "και τέταρτο = a quarter past, και μισή = half past, παρά τέταρτο = a quarter to",
+          "και/παρά + minutes: Είναι έξι παρά είκοσι = twenty to six",
+          "the hour after παρά is the hour that is coming"
+        ],
+        "es-419": [
+          "και τέταρτο = y cuarto, και μισή = y media, παρά τέταρτο = menos cuarto",
+          "και/παρά + minutos: Είναι έξι παρά είκοσι = son las seis menos veinte",
+          "la hora después de παρά es la hora que viene"
+        ],
+        "it": [
+          "και τέταρτο = e un quarto, και μισή = e mezza, παρά τέταρτο = meno un quarto",
+          "και/παρά + minuti: Είναι έξι παρά είκοσι = sono le sei meno venti",
+          "l'ora dopo παρά è l'ora che sta per arrivare"
+        ],
+        "nl": [
+          "και τέταρτο = kwart over, και μισή = half (Nederlands: half vier = 3:30, Grieks: τρεις και μισή), παρά τέταρτο = kwart voor",
+          "και/παρά + minuten: Είναι έξι παρά είκοσι = twintig voor zes",
+          "het uur na παρά is het komende uur"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "τέταρτο",
+          "translation": {
+            "en": "quarter",
+            "es-419": "cuarto",
+            "it": "quarto",
+            "nl": "kwartier"
+          },
+          "distractors": {
+            "en": [
+              "half",
+              "minute"
+            ],
+            "es-419": [
+              "mitad",
+              "minuto"
+            ],
+            "it": [
+              "metà",
+              "minuto"
+            ],
+            "nl": [
+              "half",
+              "minuut"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "λεπτό",
+          "translation": {
+            "en": "minute",
+            "es-419": "minuto",
+            "it": "minuto",
+            "nl": "minuut"
+          },
+          "distractors": {
+            "en": [
+              "hour",
+              "quarter"
+            ],
+            "es-419": [
+              "hora",
+              "cuarto"
+            ],
+            "it": [
+              "ora",
+              "quarto"
+            ],
+            "nl": [
+              "uur",
+              "kwartier"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "παρά",
+          "translation": {
+            "en": "to (before the hour)",
+            "es-419": "menos (antes de la hora)",
+            "it": "meno (prima dell'ora)",
+            "nl": "voor (vóór het hele uur)"
+          },
+          "distractors": {
+            "en": [
+              "past",
+              "at"
+            ],
+            "es-419": [
+              "y",
+              "a"
+            ],
+            "it": [
+              "e",
+              "a"
+            ],
+            "nl": [
+              "over",
+              "om"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "και τέταρτο",
+          "translation": {
+            "en": "a quarter past",
+            "es-419": "y cuarto",
+            "it": "e un quarto",
+            "nl": "kwart over"
+          },
+          "distractors": {
+            "en": [
+              "a quarter to",
+              "half past"
+            ],
+            "es-419": [
+              "menos cuarto",
+              "y media"
+            ],
+            "it": [
+              "meno un quarto",
+              "e mezza"
+            ],
+            "nl": [
+              "kwart voor",
+              "half"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "και μισή",
+          "translation": {
+            "en": "half past",
+            "es-419": "y media",
+            "it": "e mezza",
+            "nl": "half"
+          },
+          "distractors": {
+            "en": [
+              "a quarter past",
+              "a quarter to"
+            ],
+            "es-419": [
+              "y cuarto",
+              "menos cuarto"
+            ],
+            "it": [
+              "e un quarto",
+              "meno un quarto"
+            ],
+            "nl": [
+              "kwart over",
+              "kwart voor"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "παρά τέταρτο",
+          "translation": {
+            "en": "a quarter to",
+            "es-419": "menos cuarto",
+            "it": "meno un quarto",
+            "nl": "kwart voor"
+          },
+          "distractors": {
+            "en": [
+              "a quarter past",
+              "half past"
+            ],
+            "es-419": [
+              "y cuarto",
+              "y media"
+            ],
+            "it": [
+              "e un quarto",
+              "e mezza"
+            ],
+            "nl": [
+              "kwart over",
+              "half"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "παρά είκοσι",
+          "translation": {
+            "en": "twenty to",
+            "es-419": "menos veinte",
+            "it": "meno venti",
+            "nl": "twintig voor"
+          },
+          "distractors": {
+            "en": [
+              "twenty past",
+              "ten to"
+            ],
+            "es-419": [
+              "y veinte",
+              "menos diez"
+            ],
+            "it": [
+              "e venti",
+              "meno dieci"
+            ],
+            "nl": [
+              "twintig over",
+              "tien voor"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι τρεις και τέταρτο.",
+          "translation": {
+            "en": "It's a quarter past three.",
+            "es-419": "Son las tres y cuarto.",
+            "it": "Sono le tre e un quarto.",
+            "nl": "Het is kwart over drie."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter to three.",
+              "It's a quarter past four."
+            ],
+            "es-419": [
+              "Son las tres menos cuarto.",
+              "Son las cuatro y cuarto."
+            ],
+            "it": [
+              "Sono le tre meno un quarto.",
+              "Sono le quattro e un quarto."
+            ],
+            "nl": [
+              "Het is kwart voor drie.",
+              "Het is kwart over vier."
+            ]
+          },
+          "variants": [
+            "Είναι 3 και τέταρτο."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι πέντε και τέταρτο.",
+          "translation": {
+            "en": "It's a quarter past five.",
+            "es-419": "Son las cinco y cuarto.",
+            "it": "Sono le cinque e un quarto.",
+            "nl": "Het is kwart over vijf."
+          },
+          "distractors": {
+            "en": [
+              "It's half past five.",
+              "It's a quarter past six."
+            ],
+            "es-419": [
+              "Son las cinco y media.",
+              "Son las seis y cuarto."
+            ],
+            "it": [
+              "Sono le cinque e mezza.",
+              "Sono le sei e un quarto."
+            ],
+            "nl": [
+              "Het is half zes.",
+              "Het is kwart over zes."
+            ]
+          },
+          "variants": [
+            "Είναι 5 και τέταρτο."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι επτά και μισή.",
+          "translation": {
+            "en": "It's half past seven.",
+            "es-419": "Son las siete y media.",
+            "it": "Sono le sette e mezza.",
+            "nl": "Het is half acht."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past seven.",
+              "It's half past eight."
+            ],
+            "es-419": [
+              "Son las siete y cuarto.",
+              "Son las ocho y media."
+            ],
+            "it": [
+              "Sono le sette e un quarto.",
+              "Sono le otto e mezza."
+            ],
+            "nl": [
+              "Het is kwart over zeven.",
+              "Het is half negen."
+            ]
+          },
+          "variants": [
+            "Είναι 7 και μισή.",
+            "Είναι εφτά και μισή."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι μία και μισή.",
+          "translation": {
+            "en": "It's half past one.",
+            "es-419": "Es la una y media.",
+            "it": "È l'una e mezza.",
+            "nl": "Het is half twee."
+          },
+          "distractors": {
+            "en": [
+              "It's half past two.",
+              "It's a quarter past one."
+            ],
+            "es-419": [
+              "Son las dos y media.",
+              "Es la una y cuarto."
+            ],
+            "it": [
+              "Sono le due e mezza.",
+              "È l'una e un quarto."
+            ],
+            "nl": [
+              "Het is half drie.",
+              "Het is kwart over één."
+            ]
+          },
+          "variants": [
+            "Είναι 1 και μισή.",
+            "Είναι μια και μισή."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι τέσσερις παρά τέταρτο.",
+          "translation": {
+            "en": "It's a quarter to four.",
+            "es-419": "Son las cuatro menos cuarto.",
+            "it": "Sono le quattro meno un quarto.",
+            "nl": "Het is kwart voor vier."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past four.",
+              "It's a quarter to five."
+            ],
+            "es-419": [
+              "Son las cuatro y cuarto.",
+              "Son las cinco menos cuarto."
+            ],
+            "it": [
+              "Sono le quattro e un quarto.",
+              "Sono le cinque meno un quarto."
+            ],
+            "nl": [
+              "Het is kwart over vier.",
+              "Het is kwart voor vijf."
+            ]
+          },
+          "variants": [
+            "Είναι 4 παρά τέταρτο."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι έξι παρά είκοσι.",
+          "translation": {
+            "en": "It's twenty to six.",
+            "es-419": "Son las seis menos veinte.",
+            "it": "Sono le sei meno venti.",
+            "nl": "Het is twintig voor zes."
+          },
+          "distractors": {
+            "en": [
+              "It's twenty past six.",
+              "It's ten to six."
+            ],
+            "es-419": [
+              "Son las seis y veinte.",
+              "Son las seis menos diez."
+            ],
+            "it": [
+              "Sono le sei e venti.",
+              "Sono le sei meno dieci."
+            ],
+            "nl": [
+              "Het is twintig over zes.",
+              "Het is tien voor zes."
+            ]
+          },
+          "variants": [
+            "Είναι 6 παρά 20."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι τρεις και πέντε.",
+          "translation": {
+            "en": "It's five past three.",
+            "es-419": "Son las tres y cinco.",
+            "it": "Sono le tre e cinque.",
+            "nl": "Het is vijf over drie."
+          },
+          "distractors": {
+            "en": [
+              "It's five to three.",
+              "It's ten past three."
+            ],
+            "es-419": [
+              "Son las tres menos cinco.",
+              "Son las tres y diez."
+            ],
+            "it": [
+              "Sono le tre meno cinque.",
+              "Sono le tre e dieci."
+            ],
+            "nl": [
+              "Het is vijf voor drie.",
+              "Het is tien over drie."
+            ]
+          },
+          "variants": [
+            "Είναι 3 και 5."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι δύο παρά δέκα.",
+          "translation": {
+            "en": "It's ten to two.",
+            "es-419": "Son las dos menos diez.",
+            "it": "Sono le due meno dieci.",
+            "nl": "Het is tien voor twee."
+          },
+          "distractors": {
+            "en": [
+              "It's ten past two.",
+              "It's ten to three."
+            ],
+            "es-419": [
+              "Son las dos y diez.",
+              "Son las tres menos diez."
+            ],
+            "it": [
+              "Sono le due e dieci.",
+              "Sono le tre meno dieci."
+            ],
+            "nl": [
+              "Het is tien over twee.",
+              "Het is tien voor drie."
+            ]
+          },
+          "variants": [
+            "Είναι 2 παρά 10.",
+            "Είναι δυο παρά δέκα."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στις οκτώ και μισή.",
+          "translation": {
+            "en": "At half past eight.",
+            "es-419": "A las ocho y media.",
+            "it": "Alle otto e mezza.",
+            "nl": "Om half negen."
+          },
+          "distractors": {
+            "en": [
+              "At a quarter past eight.",
+              "At half past nine."
+            ],
+            "es-419": [
+              "A las ocho y cuarto.",
+              "A las nueve y media."
+            ],
+            "it": [
+              "Alle otto e un quarto.",
+              "Alle nove e mezza."
+            ],
+            "nl": [
+              "Om kwart over acht.",
+              "Om half tien."
+            ]
+          },
+          "variants": [
+            "Στις 8 και μισή.",
+            "Στις οχτώ και μισή."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στη μία και τέταρτο.",
+          "translation": {
+            "en": "At a quarter past one.",
+            "es-419": "A la una y cuarto.",
+            "it": "All'una e un quarto.",
+            "nl": "Om kwart over één."
+          },
+          "distractors": {
+            "en": [
+              "At half past one.",
+              "At a quarter past two."
+            ],
+            "es-419": [
+              "A la una y media.",
+              "A las dos y cuarto."
+            ],
+            "it": [
+              "All'una e mezza.",
+              "Alle due e un quarto."
+            ],
+            "nl": [
+              "Om half twee.",
+              "Om kwart over twee."
+            ]
+          },
+          "variants": [
+            "Στη 1 και τέταρτο.",
+            "Στη μια και τέταρτο."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a1-arithmoi-ora-6",
+      "title": "Οι μέρες της εβδομάδας",
+      "grammarFocus": {
+        "en": [
+          "days are lowercase nouns: δευτέρα, τρίτη, τετάρτη, πέμπτη, παρασκευή, σάββατο, κυριακή",
+          "την/τη/το + day = on that day (Μπορώ την πέμπτη)",
+          "πότε = when, νωρίς = early, αργά = late"
+        ],
+        "es-419": [
+          "los días son sustantivos en minúscula: δευτέρα, τρίτη, τετάρτη, πέμπτη, παρασκευή, σάββατο, κυριακή",
+          "την/τη/το + día = ese día (Μπορώ την πέμπτη)",
+          "πότε = cuándo, νωρίς = temprano, αργά = tarde"
+        ],
+        "it": [
+          "i giorni sono nomi minuscoli: δευτέρα, τρίτη, τετάρτη, πέμπτη, παρασκευή, σάββατο, κυριακή",
+          "την/τη/το + giorno = in quel giorno (Μπορώ την πέμπτη)",
+          "πότε = quando, νωρίς = presto, αργά = tardi"
+        ],
+        "nl": [
+          "dagen zijn kleine-letter zelfstandige naamwoorden: δευτέρα, τρίτη, τετάρτη, πέμπτη, παρασκευή, σάββατο, κυριακή",
+          "την/τη/το + dag = op die dag (Μπορώ την πέμπτη)",
+          "πότε = wanneer, νωρίς = vroeg, αργά = laat"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-arithmoi-ora-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "δευτέρα",
+          "translation": {
+            "en": "Monday",
+            "es-419": "lunes",
+            "it": "lunedì",
+            "nl": "maandag"
+          },
+          "distractors": {
+            "en": [
+              "Tuesday",
+              "Sunday"
+            ],
+            "es-419": [
+              "martes",
+              "domingo"
+            ],
+            "it": [
+              "martedì",
+              "domenica"
+            ],
+            "nl": [
+              "dinsdag",
+              "zondag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "τρίτη",
+          "translation": {
+            "en": "Tuesday",
+            "es-419": "martes",
+            "it": "martedì",
+            "nl": "dinsdag"
+          },
+          "distractors": {
+            "en": [
+              "Monday",
+              "Thursday"
+            ],
+            "es-419": [
+              "lunes",
+              "jueves"
+            ],
+            "it": [
+              "lunedì",
+              "giovedì"
+            ],
+            "nl": [
+              "maandag",
+              "donderdag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "τετάρτη",
+          "translation": {
+            "en": "Wednesday",
+            "es-419": "miércoles",
+            "it": "mercoledì",
+            "nl": "woensdag"
+          },
+          "distractors": {
+            "en": [
+              "Thursday",
+              "Tuesday"
+            ],
+            "es-419": [
+              "jueves",
+              "martes"
+            ],
+            "it": [
+              "giovedì",
+              "martedì"
+            ],
+            "nl": [
+              "donderdag",
+              "dinsdag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "πέμπτη",
+          "translation": {
+            "en": "Thursday",
+            "es-419": "jueves",
+            "it": "giovedì",
+            "nl": "donderdag"
+          },
+          "distractors": {
+            "en": [
+              "Wednesday",
+              "Friday"
+            ],
+            "es-419": [
+              "miércoles",
+              "viernes"
+            ],
+            "it": [
+              "mercoledì",
+              "venerdì"
+            ],
+            "nl": [
+              "woensdag",
+              "vrijdag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "παρασκευή",
+          "translation": {
+            "en": "Friday",
+            "es-419": "viernes",
+            "it": "venerdì",
+            "nl": "vrijdag"
+          },
+          "distractors": {
+            "en": [
+              "Thursday",
+              "Saturday"
+            ],
+            "es-419": [
+              "jueves",
+              "sábado"
+            ],
+            "it": [
+              "giovedì",
+              "sabato"
+            ],
+            "nl": [
+              "donderdag",
+              "zaterdag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "σάββατο",
+          "translation": {
+            "en": "Saturday",
+            "es-419": "sábado",
+            "it": "sabato",
+            "nl": "zaterdag"
+          },
+          "distractors": {
+            "en": [
+              "Friday",
+              "Sunday"
+            ],
+            "es-419": [
+              "viernes",
+              "domingo"
+            ],
+            "it": [
+              "venerdì",
+              "domenica"
+            ],
+            "nl": [
+              "vrijdag",
+              "zondag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "κυριακή",
+          "translation": {
+            "en": "Sunday",
+            "es-419": "domingo",
+            "it": "domenica",
+            "nl": "zondag"
+          },
+          "distractors": {
+            "en": [
+              "Saturday",
+              "Monday"
+            ],
+            "es-419": [
+              "sábado",
+              "lunes"
+            ],
+            "it": [
+              "sabato",
+              "lunedì"
+            ],
+            "nl": [
+              "zaterdag",
+              "maandag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "τη δευτέρα",
+          "translation": {
+            "en": "on Monday",
+            "es-419": "el lunes",
+            "it": "lunedì",
+            "nl": "op maandag"
+          },
+          "distractors": {
+            "en": [
+              "on Tuesday",
+              "on Sunday"
+            ],
+            "es-419": [
+              "el martes",
+              "el domingo"
+            ],
+            "it": [
+              "martedì",
+              "domenica"
+            ],
+            "nl": [
+              "op dinsdag",
+              "op zondag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "την πέμπτη",
+          "translation": {
+            "en": "on Thursday",
+            "es-419": "el jueves",
+            "it": "giovedì",
+            "nl": "op donderdag"
+          },
+          "distractors": {
+            "en": [
+              "on Wednesday",
+              "on Friday"
+            ],
+            "es-419": [
+              "el miércoles",
+              "el viernes"
+            ],
+            "it": [
+              "mercoledì",
+              "venerdì"
+            ],
+            "nl": [
+              "op woensdag",
+              "op vrijdag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "σήμερα",
+          "translation": {
+            "en": "today",
+            "es-419": "hoy",
+            "it": "oggi",
+            "nl": "vandaag"
+          },
+          "distractors": {
+            "en": [
+              "tomorrow",
+              "now"
+            ],
+            "es-419": [
+              "mañana",
+              "ahora"
+            ],
+            "it": [
+              "domani",
+              "adesso"
+            ],
+            "nl": [
+              "morgen",
+              "nu"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "τώρα",
+          "translation": {
+            "en": "now",
+            "es-419": "ahora",
+            "it": "adesso",
+            "nl": "nu"
+          },
+          "distractors": {
+            "en": [
+              "today",
+              "later"
+            ],
+            "es-419": [
+              "hoy",
+              "después"
+            ],
+            "it": [
+              "oggi",
+              "dopo"
+            ],
+            "nl": [
+              "vandaag",
+              "straks"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "πότε",
+          "translation": {
+            "en": "when",
+            "es-419": "cuándo",
+            "it": "quando",
+            "nl": "wanneer"
+          },
+          "distractors": {
+            "en": [
+              "where",
+              "how"
+            ],
+            "es-419": [
+              "dónde",
+              "cómo"
+            ],
+            "it": [
+              "dove",
+              "come"
+            ],
+            "nl": [
+              "waar",
+              "hoe"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "νωρίς",
+          "translation": {
+            "en": "early",
+            "es-419": "temprano",
+            "it": "presto",
+            "nl": "vroeg"
+          },
+          "distractors": {
+            "en": [
+              "late",
+              "now"
+            ],
+            "es-419": [
+              "tarde",
+              "ahora"
+            ],
+            "it": [
+              "tardi",
+              "adesso"
+            ],
+            "nl": [
+              "laat",
+              "nu"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "αργά",
+          "translation": {
+            "en": "late",
+            "es-419": "tarde",
+            "it": "tardi",
+            "nl": "laat"
+          },
+          "distractors": {
+            "en": [
+              "early",
+              "now"
+            ],
+            "es-419": [
+              "temprano",
+              "ahora"
+            ],
+            "it": [
+              "presto",
+              "adesso"
+            ],
+            "nl": [
+              "vroeg",
+              "nu"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σήμερα είναι τρίτη.",
+          "translation": {
+            "en": "Today is Tuesday.",
+            "es-419": "Hoy es martes.",
+            "it": "Oggi è martedì.",
+            "nl": "Vandaag is het dinsdag."
+          },
+          "distractors": {
+            "en": [
+              "Today is Thursday.",
+              "Tomorrow is Tuesday."
+            ],
+            "es-419": [
+              "Hoy es jueves.",
+              "Mañana es martes."
+            ],
+            "it": [
+              "Oggi è giovedì.",
+              "Domani è martedì."
+            ],
+            "nl": [
+              "Vandaag is het donderdag.",
+              "Morgen is het dinsdag."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Αύριο είναι τετάρτη.",
+          "translation": {
+            "en": "Tomorrow is Wednesday.",
+            "es-419": "Mañana es miércoles.",
+            "it": "Domani è mercoledì.",
+            "nl": "Morgen is het woensdag."
+          },
+          "distractors": {
+            "en": [
+              "Tomorrow is Friday.",
+              "Today is Wednesday."
+            ],
+            "es-419": [
+              "Mañana es viernes.",
+              "Hoy es miércoles."
+            ],
+            "it": [
+              "Domani è venerdì.",
+              "Oggi è mercoledì."
+            ],
+            "nl": [
+              "Morgen is het vrijdag.",
+              "Vandaag is het woensdag."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πότε μπορείς;",
+          "translation": {
+            "en": "When can you?",
+            "es-419": "¿Cuándo puedes?",
+            "it": "Quando puoi?",
+            "nl": "Wanneer kun je?"
+          },
+          "distractors": {
+            "en": [
+              "When can he?",
+              "Where can you?"
+            ],
+            "es-419": [
+              "¿Cuándo puede?",
+              "¿Dónde puedes?"
+            ],
+            "it": [
+              "Quando può?",
+              "Dove puoi?"
+            ],
+            "nl": [
+              "Wanneer kan hij?",
+              "Waar kun je?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ την πέμπτη.",
+          "translation": {
+            "en": "I can make it on Thursday.",
+            "es-419": "Puedo el jueves.",
+            "it": "Posso giovedì.",
+            "nl": "Ik kan donderdag."
+          },
+          "distractors": {
+            "en": [
+              "I can make it on Wednesday.",
+              "I can make it on Friday."
+            ],
+            "es-419": [
+              "Puedo el miércoles.",
+              "Puedo el viernes."
+            ],
+            "it": [
+              "Posso mercoledì.",
+              "Posso venerdì."
+            ],
+            "nl": [
+              "Ik kan woensdag.",
+              "Ik kan vrijdag."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν μπορώ τη δευτέρα.",
+          "translation": {
+            "en": "I can't make it on Monday.",
+            "es-419": "No puedo el lunes.",
+            "it": "Non posso lunedì.",
+            "nl": "Ik kan maandag niet."
+          },
+          "distractors": {
+            "en": [
+              "I can't make it on Sunday.",
+              "I can make it on Monday."
+            ],
+            "es-419": [
+              "No puedo el domingo.",
+              "Puedo el lunes."
+            ],
+            "it": [
+              "Non posso domenica.",
+              "Posso lunedì."
+            ],
+            "nl": [
+              "Ik kan zondag niet.",
+              "Ik kan maandag."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορείτε το σάββατο;",
+          "translation": {
+            "en": "Can you make it on Saturday?",
+            "es-419": "¿Puede el sábado?",
+            "it": "Può sabato?",
+            "nl": "Kunt u zaterdag?"
+          },
+          "distractors": {
+            "en": [
+              "Can you make it on Sunday?",
+              "Can you make it on Friday?"
+            ],
+            "es-419": [
+              "¿Puede el domingo?",
+              "¿Puede el viernes?"
+            ],
+            "it": [
+              "Può domenica?",
+              "Può venerdì?"
+            ],
+            "nl": [
+              "Kunt u zondag?",
+              "Kunt u vrijdag?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u21",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι πέντε και μισή.",
+          "translation": {
+            "en": "It's half past five.",
+            "es-419": "Son las cinco y media.",
+            "it": "Sono le cinque e mezza.",
+            "nl": "Het is half zes."
+          },
+          "distractors": {
+            "en": [
+              "It's a quarter past five.",
+              "It's half past six."
+            ],
+            "es-419": [
+              "Son las cinco y cuarto.",
+              "Son las seis y media."
+            ],
+            "it": [
+              "Sono le cinque e un quarto.",
+              "Sono le sei e mezza."
+            ],
+            "nl": [
+              "Het is kwart over vijf.",
+              "Het is half zeven."
+            ]
+          },
+          "variants": [
+            "Είναι 5 και μισή."
+          ]
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u22",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Τώρα είναι αργά.",
+          "translation": {
+            "en": "It's late now.",
+            "es-419": "Ahora es tarde.",
+            "it": "Adesso è tardi.",
+            "nl": "Nu is het laat."
+          },
+          "distractors": {
+            "en": [
+              "It's early now.",
+              "It's late today."
+            ],
+            "es-419": [
+              "Ahora es temprano.",
+              "Hoy es tarde."
+            ],
+            "it": [
+              "Adesso è presto.",
+              "Oggi è tardi."
+            ],
+            "nl": [
+              "Nu is het vroeg.",
+              "Vandaag is het laat."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u23",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στις έξι είναι πολύ νωρίς.",
+          "translation": {
+            "en": "Six o'clock is very early.",
+            "es-419": "Las seis es muy temprano.",
+            "it": "Le sei sono molto presto.",
+            "nl": "Zes uur is heel vroeg."
+          },
+          "distractors": {
+            "en": [
+              "Six o'clock is very late.",
+              "Seven o'clock is very early."
+            ],
+            "es-419": [
+              "Las seis es muy tarde.",
+              "Las siete es muy temprano."
+            ],
+            "it": [
+              "Le sei sono molto tardi.",
+              "Le sette sono molto presto."
+            ],
+            "nl": [
+              "Zes uur is heel laat.",
+              "Zeven uur is heel vroeg."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-arithmoi-ora-6-u24",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορώ την πέμπτη, στις έξι και μισή.",
+          "translation": {
+            "en": "I can make it on Thursday, at half past six.",
+            "es-419": "Puedo el jueves, a las seis y media.",
+            "it": "Posso giovedì, alle sei e mezza.",
+            "nl": "Ik kan donderdag, om half zeven."
+          },
+          "distractors": {
+            "en": [
+              "I can make it on Thursday, at half past five.",
+              "I can make it on Friday, at half past six."
+            ],
+            "es-419": [
+              "Puedo el jueves, a las cinco y media.",
+              "Puedo el viernes, a las seis y media."
+            ],
+            "it": [
+              "Posso giovedì, alle cinque e mezza.",
+              "Posso venerdì, alle sei e mezza."
+            ],
+            "nl": [
+              "Ik kan donderdag, om half zes.",
+              "Ik kan vrijdag, om half zeven."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

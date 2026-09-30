@@ -5,7 +5,7 @@ test("a learner's engaged time is reported with only the page's activity and lan
   await signIn(page, "engaged@example.com");
   // Takes effect from the next page load, so sign-in runs on the real clock.
   await page.clock.install();
-  await page.goto("/it/notebook");
+  await page.goto("/it/type/notebook");
   await expect(page.locator(".qa-user")).toBeVisible();
   const report = page.waitForRequest((r) => r.url().endsWith("/api/metrics/engaged"));
   await page.keyboard.press("Shift");

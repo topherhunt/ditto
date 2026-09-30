@@ -79,7 +79,8 @@ test("a completed lesson shows its stars with a Practice button and a locked Mas
   await expect(stars.locator(".qa-star-off")).toHaveCount(2);
   await expect(page.locator(".qa-lesson-start").first()).toHaveText("Practice");
   await expect(page.locator(".qa-lesson-start").first()).toHaveClass(/btn-success/);
-  await expect(page.locator(".qa-lesson-master-locked").first()).toBeDisabled();
+  await expect(page.locator(".qa-lesson-master-locked").first().locator("button")).toBeDisabled();
+  await expect(page.locator(".qa-lesson-master-locked").first()).toHaveAttribute("title", /opens|unlocks/i);
   await expect(page.locator(".qa-lesson-master")).toHaveCount(0);
 });
 

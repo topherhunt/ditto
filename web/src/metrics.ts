@@ -22,12 +22,11 @@ export function pageOf(pathname: string): Page | null {
   const language = first as Language;
   const [section, sub, third] = rest;
   const activity: Activity =
-    section === undefined || section === "type" ? "home"
+    section === undefined ? "home"
+    : section === "type" ? (sub === "review" ? "review" : sub === "notebook" ? "notebook" : "home")
     : section === "lesson" ? "lesson"
-    : section === "review" ? "review"
     : section === "mistakes" ? "mistakes"
     : section === "test" ? "level-test"
-    : section === "notebook" ? "notebook"
     : section === "talk" ? "talk"
     : section === "settings" ? "settings"
     : section === "quiz" ? (sub === "test" ? "quiz-test" : third === "study" ? "quiz-study" : "quiz-decks")

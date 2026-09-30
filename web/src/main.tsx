@@ -62,9 +62,9 @@ render(
       <Route path="/:lang/lesson/:lessonId" component={() => <Practice mode="learn" />} />
       <Route path="/:lang/lesson/:lessonId/master" component={() => <Practice mode="master" />} />
       <Route path="/:lang/test/:level" component={() => <Practice mode="test" />} />
-      <Route path="/:lang/review" component={() => <Practice mode="review" />} />
+      <Route path="/:lang/type/review" component={() => <Practice mode="review" />} />
       <Route path="/:lang/mistakes/practice" component={() => <Practice mode="mistakes" />} />
-      <Route path="/:lang/notebook" component={Notebook} />
+      <Route path="/:lang/type/notebook" component={Notebook} />
       <Route path="/:lang/talk" component={Speak} />
       <Route path="/:lang/talk/:id" component={Conversation} />
       <Route path="/:lang/quiz" component={QuizHome} />

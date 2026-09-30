@@ -1,0 +1,5193 @@
+{
+  "id": "el-a2-giatros",
+  "language": "el",
+  "level": "A2",
+  "order": 16,
+  "title": "Στον γιατρό",
+  "description": {
+    "en": "Seeing the doctor: body parts, what hurts, illnesses, medicine and advice, and feeling better",
+    "es-419": "En el médico: partes del cuerpo, qué duele, enfermedades, medicinas y consejos, y sentirse mejor",
+    "it": "Dal dottore: parti del corpo, cosa fa male, malattie, medicine e consigli, e sentirsi meglio",
+    "nl": "Bij de dokter: lichaamsdelen, wat pijn doet, ziektes, medicijnen en adviezen, en je beter voelen"
+  },
+  "track": "main",
+  "requires": [
+    "el-a2-ti-egine"
+  ],
+  "introduces": [
+    "κεφάλι",
+    "μάτι",
+    "αυτί",
+    "μύτη",
+    "στόμα",
+    "λαιμός",
+    "χέρι",
+    "δάχτυλο",
+    "γόνατο",
+    "πλάτη",
+    "στομάχι",
+    "καρδιά",
+    "κοιλιά",
+    "πρόσωπο",
+    "μαλλιά",
+    "σώμα",
+    "πονάω",
+    "πόνος",
+    "πυρετός",
+    "βήχας",
+    "κρυολόγημα",
+    "γρίπη",
+    "αλλεργία",
+    "αρρώστια",
+    "άρρωστος",
+    "ασθενής",
+    "φάρμακο",
+    "χάπι",
+    "αντιβιοτικό",
+    "συνταγή",
+    "ασθενοφόρο",
+    "εξέταση",
+    "πίεση",
+    "υγεία",
+    "νιώθω",
+    "αρρωσταίνω",
+    "κρυώνω",
+    "ζεσταίνομαι",
+    "βήχω",
+    "ζαλίζομαι",
+    "σοβαρός",
+    "υγρό",
+    "καλύτερα",
+    "σύντομα",
+    "προσέχω"
+  ],
+  "lexicon": {
+    "άνθρωπος": {
+      "lemma": "άνθρωπος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "person, human being (m, even for a woman)",
+        "es-419": "persona (m, también para una mujer)",
+        "it": "persona (m, anche per una donna)",
+        "nl": "mens (m, ook voor een vrouw)"
+      }
+    },
+    "άρρωστη": {
+      "lemma": "άρρωστος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "άρρωστη = sick, ill (feminine)",
+        "es-419": "άρρωστη = enferma (femenino)",
+        "it": "άρρωστη = malata (femminile)",
+        "nl": "άρρωστη = ziek (vrouwelijk)"
+      }
+    },
+    "άρρωστος": {
+      "lemma": "άρρωστος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "άρρωστος = sick, ill (masculine)",
+        "es-419": "άρρωστος = enfermo (masculino)",
+        "it": "άρρωστος = malato (maschile)",
+        "nl": "άρρωστος = ziek (mannelijk)"
+      }
+    },
+    "έβηξα": {
+      "lemma": "βήχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "έβηξα = I coughed (past)",
+        "es-419": "έβηξα = tosí (pasado)",
+        "it": "έβηξα = ho tossito (passato)",
+        "nl": "έβηξα = ik heb gehoest (verleden tijd)"
+      }
+    },
+    "ένα": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (n); ένας (m), μία (f), ένα (n)",
+        "es-419": "un, una (n); ένας (m), μία (f), ένα (n)",
+        "it": "un, una, uno (n); ένας (m), μία (f), ένα (n)",
+        "nl": "een, één (n); ένας (m), μία (f), ένα (n)"
+      }
+    },
+    "ένας": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, one (m); ένα (n), μία (f)",
+        "es-419": "un, uno (m); ένα (n), μία (f)",
+        "it": "un, uno (m); ένα (n), μία (f)",
+        "nl": "een (m); ένα (n), μία (f)"
+      }
+    },
+    "έξω": {
+      "lemma": "έξω",
+      "pos": "ADV",
+      "gloss": {
+        "en": "outside, out (with από)",
+        "es-419": "fuera (con από)",
+        "it": "fuori (con από)",
+        "nl": "buiten (met από)"
+      }
+    },
+    "έτσι": {
+      "lemma": "έτσι",
+      "pos": "ADV",
+      "gloss": {
+        "en": "έτσι = like this, this way",
+        "es-419": "έτσι = así, de esta manera",
+        "it": "έτσι = così, in questo modo",
+        "nl": "έτσι = zo, op deze manier"
+      }
+    },
+    "έχει": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has; also: there is, there are (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "es-419": "tiene; también: hay (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "it": "ha; anche: c'è, ci sono (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "nl": "heeft; ook: er is, er zijn (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)"
+      }
+    },
+    "έχετε": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "es-419": "ustedes tienen, usted tiene (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "it": "avete, ha (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "nl": "u hebt, jullie hebben (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)"
+      }
+    },
+    "έχω": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "es-419": "tengo (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "it": "ho (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)",
+        "nl": "ik heb (έχω: έχω, έχεις, έχει, έχουμε, έχετε, έχουν)"
+      }
+    },
+    "ήμουν": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "ήμουν = I was",
+        "es-419": "ήμουν = era, estaba, fui, estuve",
+        "it": "ήμουν = ero, sono stato",
+        "nl": "ήμουν = ik was"
+      }
+    },
+    "αδελφή": {
+      "lemma": "αδελφή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "αδελφή = sister (f)",
+        "es-419": "αδελφή = hermana (f)",
+        "it": "αδελφή = sorella (f)",
+        "nl": "αδελφή = zus (f)"
+      }
+    },
+    "αλλά": {
+      "lemma": "αλλά",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "αλλεργία": {
+      "lemma": "αλλεργία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "allergy (f)",
+        "es-419": "alergia (f)",
+        "it": "allergia (f)",
+        "nl": "allergie (f)"
+      }
+    },
+    "αντιβιοτικό": {
+      "lemma": "αντιβιοτικό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "antibiotic (n)",
+        "es-419": "antibiótico (n)",
+        "it": "antibiotico (n)",
+        "nl": "antibioticum (n)"
+      }
+    },
+    "από": {
+      "lemma": "από",
+      "pos": "ADP",
+      "gloss": {
+        "en": "from",
+        "es-419": "de, desde",
+        "it": "da",
+        "nl": "van, vanuit"
+      }
+    },
+    "αρρωσταίνω": {
+      "lemma": "αρρωσταίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I get sick",
+        "es-419": "me enfermo",
+        "it": "mi ammalo",
+        "nl": "ik word ziek"
+      }
+    },
+    "αρρώστια": {
+      "lemma": "αρρώστια",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "illness (f)",
+        "es-419": "enfermedad (f)",
+        "it": "malattia (f)",
+        "nl": "ziekte (f)"
+      }
+    },
+    "ασθενής": {
+      "lemma": "ασθενής",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "patient (m)",
+        "es-419": "paciente (m)",
+        "it": "paziente (m)",
+        "nl": "patiënt (m)"
+      }
+    },
+    "ασθενοφόρο": {
+      "lemma": "ασθενοφόρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ambulance (n)",
+        "es-419": "ambulancia (n)",
+        "it": "ambulanza (n)",
+        "nl": "ziekenwagen (n)"
+      }
+    },
+    "αυτί": {
+      "lemma": "αυτί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ear (n)",
+        "es-419": "oreja (n)",
+        "it": "orecchio (n)",
+        "nl": "oor (n)"
+      }
+    },
+    "βήχα": {
+      "lemma": "βήχας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cough (object form of βήχας) (m)",
+        "es-419": "tos (forma de complemento de βήχας) (m)",
+        "it": "tosse (forma complemento di βήχας) (m)",
+        "nl": "hoest (lijdend voorwerp van βήχας) (m)"
+      }
+    },
+    "βήχας": {
+      "lemma": "βήχας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cough (m)",
+        "es-419": "tos (m)",
+        "it": "tosse (m)",
+        "nl": "hoest (m)"
+      }
+    },
+    "βήχω": {
+      "lemma": "βήχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I cough",
+        "es-419": "toso",
+        "it": "tossisco",
+        "nl": "ik hoest"
+      }
+    },
+    "γάλα": {
+      "lemma": "γάλα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "milk (n)",
+        "es-419": "leche (n)",
+        "it": "latte (n)",
+        "nl": "melk (n)"
+      }
+    },
+    "γίνεις": {
+      "lemma": "γίνομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "γίνεις = you become (θα γίνεις καλά = you'll get well)",
+        "es-419": "γίνεις = te vuelves (θα γίνεις καλά = te vas a poner bien)",
+        "it": "γίνεις = diventi (θα γίνεις καλά = guarirai)",
+        "nl": "γίνεις = je wordt (θα γίνεις καλά = je wordt beter)"
+      }
+    },
+    "για": {
+      "lemma": "για",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, to (destination or purpose)",
+        "es-419": "para, a (destino o finalidad)",
+        "it": "per (destinazione o scopo)",
+        "nl": "voor, naar (bestemming of doel)"
+      }
+    },
+    "γιατρό": {
+      "lemma": "γιατρός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor (object form of γιατρός); στον γιατρό = to the doctor (m)",
+        "es-419": "médico (forma de complemento de γιατρός); στον γιατρό = al médico (m)",
+        "it": "dottore (forma complemento di γιατρός); στον γιατρό = dal dottore (m)",
+        "nl": "arts (lijdend voorwerp van γιατρός); στον γιατρό = naar de arts (m)"
+      }
+    },
+    "γιατρός": {
+      "lemma": "γιατρός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor (m or f)",
+        "es-419": "médico (m o f)",
+        "it": "medico (m o f)",
+        "nl": "dokter (m of f)"
+      }
+    },
+    "γρήγορα": {
+      "lemma": "γρήγορα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "γρήγορα = fast, quickly",
+        "es-419": "γρήγορα = rápido, rápidamente",
+        "it": "γρήγορα = veloce, in fretta",
+        "nl": "γρήγορα = snel"
+      }
+    },
+    "γρίπη": {
+      "lemma": "γρίπη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "flu (f)",
+        "es-419": "gripe (f)",
+        "it": "influenza (f)",
+        "nl": "griep (f)"
+      }
+    },
+    "γόνατα": {
+      "lemma": "γόνατο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "knees (n, plural)",
+        "es-419": "rodillas (n, plural)",
+        "it": "ginocchia (n, plural)",
+        "nl": "knieën (n, plural)"
+      }
+    },
+    "γόνατό": {
+      "lemma": "γόνατο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "knee (with a second accent before μου) (n)",
+        "es-419": "rodilla (con un segundo acento antes de μου) (n)",
+        "it": "ginocchio (con un secondo accento prima di μου) (n)",
+        "nl": "knie (met een tweede accent voor μου) (n)"
+      }
+    },
+    "δάχτυλό": {
+      "lemma": "δάχτυλο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "finger (with a second accent before μου) (n)",
+        "es-419": "dedo (con un segundo acento antes de μου) (n)",
+        "it": "dito (con un secondo accento prima di μου) (n)",
+        "nl": "vinger (met een tweede accent voor μου) (n)"
+      }
+    },
+    "δίνει": {
+      "lemma": "δίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "δίνει = gives",
+        "es-419": "δίνει = da",
+        "it": "δίνει = dà",
+        "nl": "δίνει = geeft"
+      }
+    },
+    "δεν": {
+      "lemma": "δεν",
+      "pos": "PART",
+      "gloss": {
+        "en": "not (before a verb)",
+        "es-419": "no (antes de un verbo)",
+        "it": "non (davanti a un verbo)",
+        "nl": "niet (voor een werkwoord)"
+      }
+    },
+    "δουλειά": {
+      "lemma": "δουλειά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (f)",
+        "es-419": "trabajo (f)",
+        "it": "lavoro (f)",
+        "nl": "werk (n)"
+      }
+    },
+    "είμαι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "είμαι = I am",
+        "es-419": "είμαι = soy, estoy",
+        "it": "είμαι = sono",
+        "nl": "είμαι = ik ben"
+      }
+    },
+    "είναι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is, are (είμαι: είμαι, είσαι, είναι, είμαστε, είστε, είναι)",
+        "es-419": "es, está, son, están (είμαι: είμαι, είσαι, είναι, είμαστε, είστε, είναι)",
+        "it": "è, sono (είμαι: είμαι, είσαι, είναι, είμαστε, είστε, είναι)",
+        "nl": "is, zijn (είμαι: είμαι, είσαι, είναι, είμαστε, είστε, είναι)"
+      }
+    },
+    "εβδομάδα": {
+      "lemma": "εβδομάδα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f); την εβδομάδα = a week, per week",
+        "es-419": "semana (f); την εβδομάδα = por semana",
+        "it": "settimana (f); την εβδομάδα = alla settimana",
+        "nl": "week (f); την εβδομάδα = per week"
+      }
+    },
+    "εδώ": {
+      "lemma": "εδώ",
+      "pos": "ADV",
+      "gloss": {
+        "en": "εδώ = here",
+        "es-419": "εδώ = aquí",
+        "it": "εδώ = qui",
+        "nl": "εδώ = hier"
+      }
+    },
+    "εξέταση": {
+      "lemma": "εξέταση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "medical examination, test (f)",
+        "es-419": "examen médico (f)",
+        "it": "esame, visita (f)",
+        "nl": "onderzoek (f)"
+      }
+    },
+    "ευγενικός": {
+      "lemma": "ευγενικός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "kind, polite (m); ευγενική (f), ευγενικό (n)",
+        "es-419": "amable (m); ευγενική (f), ευγενικό (n)",
+        "it": "gentile (m); ευγενική (f), ευγενικό (n)",
+        "nl": "vriendelijk, beleefd (m); ευγενική (f), ευγενικό (n)"
+      }
+    },
+    "ευχαριστώ": {
+      "lemma": "ευχαριστώ",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "ευχαριστώ = thanks, thank you",
+        "es-419": "ευχαριστώ = gracias",
+        "it": "ευχαριστώ = grazie",
+        "nl": "ευχαριστώ = bedankt, dank je"
+      }
+    },
+    "ζαλίζομαι": {
+      "lemma": "ζαλίζομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I get dizzy (a middle verb)",
+        "es-419": "me mareo (verbo medio)",
+        "it": "mi gira la testa (verbo medio)",
+        "nl": "ik word duizelig (middenvorm)"
+      }
+    },
+    "ζεσταίνομαι": {
+      "lemma": "ζεσταίνομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'm hot, I feel hot (a middle verb)",
+        "es-419": "tengo calor (verbo medio)",
+        "it": "ho caldo (verbo medio)",
+        "nl": "ik heb het warm (middenvorm)"
+      }
+    },
+    "ζεστό": {
+      "lemma": "ζεστός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "hot, warm (n form of ζεστός)",
+        "es-419": "caluroso, caliente (forma neutra de ζεστός)",
+        "it": "caldo (forma neutra di ζεστός)",
+        "nl": "warm, heet (onz. vorm van ζεστός)"
+      }
+    },
+    "η": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f, nominative)",
+        "es-419": "la (f, nominativo)",
+        "it": "la (f, nominativo)",
+        "nl": "de (v., eerste naamval)"
+      }
+    },
+    "θέλω": {
+      "lemma": "θέλω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want (θέλω: θέλω, θέλεις, θέλει, θέλουμε, θέλετε, θέλουν)",
+        "es-419": "quiero (θέλω: θέλω, θέλεις, θέλει, θέλουμε, θέλετε, θέλουν)",
+        "it": "voglio (θέλω: θέλω, θέλεις, θέλει, θέλουμε, θέλετε, θέλουν)",
+        "nl": "ik wil (θέλω: θέλω, θέλεις, θέλει, θέλουμε, θέλετε, θέλουν)"
+      }
+    },
+    "θα": {
+      "lemma": "θα",
+      "pos": "PART",
+      "gloss": {
+        "en": "θα = will (future: θα έρθω = I'll come)",
+        "es-419": "θα = marca el futuro (θα έρθω = voy a venir)",
+        "it": "θα = segna il futuro (θα έρθω = verrò)",
+        "nl": "θα = zal (toekomst: θα έρθω = ik kom)"
+      }
+    },
+    "κάθε": {
+      "lemma": "κάθε",
+      "pos": "DET",
+      "gloss": {
+        "en": "κάθε = every, each",
+        "es-419": "κάθε = cada",
+        "it": "κάθε = ogni",
+        "nl": "κάθε = elke"
+      }
+    },
+    "κάνω": {
+      "lemma": "κάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I do, I make (κάνω, κάνεις, κάνει, κάνουμε, κάνετε, κάνουν)",
+        "es-419": "hago (κάνω, κάνεις, κάνει, κάνουμε, κάνετε, κάνουν)",
+        "it": "faccio (κάνω, κάνεις, κάνει, κάνουμε, κάνετε, κάνουν)",
+        "nl": "ik doe, ik maak (κάνω, κάνεις, κάνει, κάνουμε, κάνετε, κάνουν)"
+      }
+    },
+    "κάτι": {
+      "lemma": "κάτι",
+      "pos": "PRON",
+      "gloss": {
+        "en": "something",
+        "es-419": "algo",
+        "it": "qualcosa",
+        "nl": "iets"
+      }
+    },
+    "και": {
+      "lemma": "και",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "καιρό": {
+      "lemma": "καιρός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, weather (object form); πόσο καιρό = how long (m)",
+        "es-419": "tiempo, clima (forma de complemento); πόσο καιρό = cuánto tiempo (m)",
+        "it": "tempo, meteo (forma complemento); πόσο καιρό = da quanto tempo (m)",
+        "nl": "tijd, weer (lijdend voorwerp); πόσο καιρό = hoe lang (m)"
+      }
+    },
+    "καλά": {
+      "lemma": "καλά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "καλά = well",
+        "es-419": "καλά = bien",
+        "it": "καλά = bene",
+        "nl": "καλά = goed"
+      }
+    },
+    "καλέσουμε": {
+      "lemma": "καλώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "καλέσουμε = (that) we call (after πρέπει να)",
+        "es-419": "καλέσουμε = (que) llamemos (tras πρέπει να)",
+        "it": "καλέσουμε = (che) chiamiamo (dopo πρέπει να)",
+        "nl": "καλέσουμε = (dat) we bellen (na πρέπει να)"
+      }
+    },
+    "καλή": {
+      "lemma": "καλός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "καλή = good (feminine)",
+        "es-419": "καλή = buena (femenino)",
+        "it": "καλή = buona (femminile)",
+        "nl": "καλή = goed (vrouwelijk)"
+      }
+    },
+    "καλύτερα": {
+      "lemma": "καλύτερα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "καλύτερα = better; Νιώθω καλύτερα = I feel better",
+        "es-419": "καλύτερα = mejor; Νιώθω καλύτερα = me siento mejor",
+        "it": "καλύτερα = meglio; Νιώθω καλύτερα = mi sento meglio",
+        "nl": "καλύτερα = beter; Νιώθω καλύτερα = ik voel me beter"
+      }
+    },
+    "καρδιά": {
+      "lemma": "καρδιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "heart (f)",
+        "es-419": "corazón (f)",
+        "it": "cuore (f)",
+        "nl": "hart (f)"
+      }
+    },
+    "καφέ": {
+      "lemma": "καφές",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "coffee (m, accusative of καφές)",
+        "es-419": "café (m, acusativo de καφές)",
+        "it": "caffè (m, accusativo di καφές)",
+        "nl": "koffie (m, accusatief van καφές)"
+      }
+    },
+    "κεφάλι": {
+      "lemma": "κεφάλι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "head (n)",
+        "es-419": "cabeza (n)",
+        "it": "testa (n)",
+        "nl": "hoofd (n)"
+      }
+    },
+    "κλειστό": {
+      "lemma": "κλειστός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "κλειστό = closed (neuter)",
+        "es-419": "κλειστό = cerrado (neutro)",
+        "it": "κλειστό = chiuso (neutro)",
+        "nl": "κλειστό = gesloten, dicht (onzijdig)"
+      }
+    },
+    "κοιλιά": {
+      "lemma": "κοιλιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "belly, tummy (f)",
+        "es-419": "barriga, panza (f)",
+        "it": "pancia (f)",
+        "nl": "buik (f)"
+      }
+    },
+    "κοιμήθηκα": {
+      "lemma": "κοιμάμαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "κοιμήθηκα = I slept (past)",
+        "es-419": "κοιμήθηκα = dormí (pasado)",
+        "it": "κοιμήθηκα = ho dormito (passato)",
+        "nl": "κοιμήθηκα = ik heb geslapen (verleden tijd)"
+      }
+    },
+    "κοντά": {
+      "lemma": "κοντά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "near, close",
+        "es-419": "cerca",
+        "it": "vicino",
+        "nl": "dichtbij"
+      }
+    },
+    "κουρασμένη": {
+      "lemma": "κουρασμένος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (f)",
+        "es-419": "cansada (f)",
+        "it": "stanca (f)",
+        "nl": "moe (f)"
+      }
+    },
+    "κρυολόγημα": {
+      "lemma": "κρυολόγημα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "a cold (the illness) (n)",
+        "es-419": "resfriado (n)",
+        "it": "raffreddore (n)",
+        "nl": "verkoudheid (n)"
+      }
+    },
+    "κρυώνω": {
+      "lemma": "κρυώνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'm cold, I feel cold",
+        "es-419": "tengo frío",
+        "it": "ho freddo",
+        "nl": "ik heb het koud"
+      }
+    },
+    "κυριακή": {
+      "lemma": "κυριακή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (f)",
+        "es-419": "domingo (f)",
+        "it": "domenica (f)",
+        "nl": "zondag (f)"
+      }
+    },
+    "λίγο": {
+      "lemma": "λίγος",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a little, a bit (n form of λίγος)",
+        "es-419": "un poco (forma neutra de λίγος)",
+        "it": "un po' (forma neutra di λίγος)",
+        "nl": "een beetje (onz. vorm van λίγος)"
+      }
+    },
+    "λαιμός": {
+      "lemma": "λαιμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "throat, neck (m)",
+        "es-419": "garganta, cuello (m)",
+        "it": "gola, collo (m)",
+        "nl": "keel, nek (m)"
+      }
+    },
+    "λεπτά": {
+      "lemma": "λεπτό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (n, plural)",
+        "es-419": "minutos (n, plural)",
+        "it": "minuti (m, plurale)",
+        "nl": "minuten (n, meervoud)"
+      }
+    },
+    "μάτι": {
+      "lemma": "μάτι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "eye (n)",
+        "es-419": "ojo (n)",
+        "it": "occhio (n)",
+        "nl": "oog (n)"
+      }
+    },
+    "μάτια": {
+      "lemma": "μάτι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "eyes (n, plural)",
+        "es-419": "ojos (n, plural)",
+        "it": "occhi (n, plural)",
+        "nl": "ogen (n, plural)"
+      }
+    },
+    "μέλι": {
+      "lemma": "μέλι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "honey (n)",
+        "es-419": "miel (n)",
+        "it": "miele (n)",
+        "nl": "honing (n)"
+      }
+    },
+    "μέρα": {
+      "lemma": "μέρα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day; τη μέρα = per day, in the daytime (f)",
+        "es-419": "día; τη μέρα = al día, de día (f)",
+        "it": "giorno; τη μέρα = al giorno, di giorno (f)",
+        "nl": "dag; τη μέρα = per dag, overdag (f)"
+      }
+    },
+    "μία": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (f); also spelled μια",
+        "es-419": "un, una (f); se escribe también μια",
+        "it": "un, una (f); si scrive anche μια",
+        "nl": "een, één (f); ook geschreven als μια"
+      }
+    },
+    "μαλλιά": {
+      "lemma": "μαλλιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hair (n, plural)",
+        "es-419": "cabello, pelo (n, plural)",
+        "it": "capelli (n, plural)",
+        "nl": "haar (n, plural)"
+      }
+    },
+    "με": {
+      "lemma": "με",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "με#pron": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "με = me (object, clitic: Με πονάει ο λαιμός = my throat hurts)",
+        "es-419": "με = me (objeto, clítico: Με πονάει ο λαιμός = me duele la garganta)",
+        "it": "με = mi (oggetto, clitico: Με πονάει ο λαιμός = mi fa male la gola)",
+        "nl": "με = me (lijdend voorwerp, clitic: Με πονάει ο λαιμός = mijn keel doet pijn)"
+      }
+    },
+    "μείνετε": {
+      "lemma": "μένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "μείνετε = (that) you stay (after πρέπει να)",
+        "es-419": "μείνετε = (que) se queden (tras πρέπει να)",
+        "it": "μείνετε = (che) resti, restiate (dopo πρέπει να)",
+        "nl": "μείνετε = (dat) u blijft (na πρέπει να)"
+      }
+    },
+    "μεγάλο": {
+      "lemma": "μεγάλος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "μεγάλο = big, large (neuter)",
+        "es-419": "μεγάλο = grande (neutro)",
+        "it": "μεγάλο = grande (neutro)",
+        "nl": "μεγάλο = groot (onzijdig)"
+      }
+    },
+    "μου": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "my, me (clitic of εγώ, after the noun)",
+        "es-419": "mi, me (clítico de εγώ, después del sustantivo)",
+        "it": "mio, mi (clitico di εγώ, dopo il nome)",
+        "nl": "mijn, me (clitic van εγώ, na het zelfstandig naamwoord)"
+      }
+    },
+    "μύτη": {
+      "lemma": "μύτη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "nose (f)",
+        "es-419": "nariz (f)",
+        "it": "naso (f)",
+        "nl": "neus (f)"
+      }
+    },
+    "να": {
+      "lemma": "να",
+      "pos": "PART",
+      "gloss": {
+        "en": "to (marks the subjunctive: Μπορώ να έχω...)",
+        "es-419": "que, para (marca el subjuntivo: Μπορώ να έχω...)",
+        "it": "di, da (segna il congiuntivo: Μπορώ να έχω...)",
+        "nl": "om te (markeert de conjunctief: Μπορώ να έχω...)"
+      }
+    },
+    "νερό": {
+      "lemma": "νερό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "water (n)",
+        "es-419": "agua (n)",
+        "it": "acqua (n)",
+        "nl": "water (n)"
+      }
+    },
+    "νιώθεις": {
+      "lemma": "νιώθω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "νιώθεις = you feel (informal)",
+        "es-419": "νιώθεις = te sientes (informal)",
+        "it": "νιώθεις = ti senti (informale)",
+        "nl": "νιώθεις = je voelt je (informeel)"
+      }
+    },
+    "νιώθετε": {
+      "lemma": "νιώθω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "νιώθετε = you feel (formal or plural)",
+        "es-419": "νιώθετε = se siente, se sienten",
+        "it": "νιώθετε = si sente, vi sentite",
+        "nl": "νιώθετε = u voelt zich, jullie voelen je"
+      }
+    },
+    "νιώθω": {
+      "lemma": "νιώθω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "νιώθω = I feel",
+        "es-419": "νιώθω = me siento",
+        "it": "νιώθω = mi sento",
+        "nl": "νιώθω = ik voel me"
+      }
+    },
+    "νιώσεις": {
+      "lemma": "νιώθω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "νιώσεις = you will feel (θα νιώσεις)",
+        "es-419": "νιώσεις = te sentirás (θα νιώσεις)",
+        "it": "νιώσεις = ti sentirai (θα νιώσεις)",
+        "nl": "νιώσεις = je zult je voelen (θα νιώσεις)"
+      }
+    },
+    "νύχτα": {
+      "lemma": "νύχτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night (f); τη νύχτα = at night",
+        "es-419": "noche (f); τη νύχτα = por la noche",
+        "it": "notte (f); τη νύχτα = di notte",
+        "nl": "nacht (f); τη νύχτα = 's nachts"
+      }
+    },
+    "ξεκουραστείς": {
+      "lemma": "ξεκουράζομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ξεκουραστείς = (that) you rest (informal)",
+        "es-419": "ξεκουραστείς = (que) descanses (informal)",
+        "it": "ξεκουραστείς = (che) tu riposi (informale)",
+        "nl": "ξεκουραστείς = (dat) je uitrust (informeel)"
+      }
+    },
+    "ξεκουραστείτε": {
+      "lemma": "ξεκουράζομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ξεκουραστείτε = (that) you rest (after πρέπει να)",
+        "es-419": "ξεκουραστείτε = (que) descansen (tras πρέπει να)",
+        "it": "ξεκουραστείτε = (che) riposi, riposiate (dopo πρέπει να)",
+        "nl": "ξεκουραστείτε = (dat) u rust uit (na πρέπει να)"
+      }
+    },
+    "ξεκουραστώ": {
+      "lemma": "ξεκουράζομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ξεκουραστώ = (that) I rest (θα ξεκουραστώ = I'll rest)",
+        "es-419": "ξεκουραστώ = (que) descanse (θα ξεκουραστώ = voy a descansar)",
+        "it": "ξεκουραστώ = (che) io riposi (θα ξεκουραστώ = riposerò)",
+        "nl": "ξεκουραστώ = (dat) ik uitrust (θα ξεκουραστώ = ik ga rusten)"
+      }
+    },
+    "ο": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m, nominative)",
+        "es-419": "el (m, nominativo)",
+        "it": "il, lo (m, nominativo)",
+        "nl": "de (m., eerste naamval)"
+      }
+    },
+    "πάρετε": {
+      "lemma": "παίρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πάρετε = (that) you take (after πρέπει να)",
+        "es-419": "πάρετε = (que) tomen (tras πρέπει να)",
+        "it": "πάρετε = (che) prenda, prendiate (dopo πρέπει να)",
+        "nl": "πάρετε = (dat) u neemt (na πρέπει να)"
+      }
+    },
+    "πάτε": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you go (formal or plural)",
+        "es-419": "van (usted, ustedes)",
+        "it": "va, andate (Lei, voi)",
+        "nl": "gaat, gaan (u, jullie)"
+      }
+    },
+    "πάω": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go (πάω: πάω, πας, πάει, πάμε, πάτε, πάνε)",
+        "es-419": "voy (πάω: πάω, πας, πάει, πάμε, πάτε, πάνε)",
+        "it": "vado (πάω: πάω, πας, πάει, πάμε, πάτε, πάνε)",
+        "nl": "ik ga (πάω: πάω, πας, πάει, πάμε, πάτε, πάνε)"
+      }
+    },
+    "πέντε": {
+      "lemma": "πέντε",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five (invariable)",
+        "es-419": "cinco (invariable)",
+        "it": "cinque (invariabile)",
+        "nl": "vijf (onveranderlijk)"
+      }
+    },
+    "πέρασε": {
+      "lemma": "περνάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πέρασε = it passed, it went away (past)",
+        "es-419": "πέρασε = se pasó (pasado)",
+        "it": "πέρασε = è passato (passato)",
+        "nl": "πέρασε = het ging over (verleden tijd)"
+      }
+    },
+    "πίεσή": {
+      "lemma": "πίεση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "blood pressure, pressure (with a second accent before μου) (f)",
+        "es-419": "presión arterial, presión (con un segundo acento antes de μου) (f)",
+        "it": "pressione (con un secondo accento prima di μου) (f)",
+        "nl": "bloeddruk, druk (met een tweede accent voor μου) (f)"
+      }
+    },
+    "πίνεις": {
+      "lemma": "πίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πίνεις = you drink (informal)",
+        "es-419": "πίνεις = bebes (informal)",
+        "it": "πίνεις = bevi (informale)",
+        "nl": "πίνεις = je drinkt (informeel)"
+      }
+    },
+    "πίνετε": {
+      "lemma": "πίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πίνετε = you drink (formal or plural)",
+        "es-419": "πίνετε = beben, bebe (cortés o plural)",
+        "it": "πίνετε = beve, bevete (cortese o plurale)",
+        "nl": "πίνετε = u drinkt, jullie drinken"
+      }
+    },
+    "πίνω": {
+      "lemma": "πίνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I drink (πίνω, πίνεις, πίνει, πίνουμε, πίνετε, πίνουν)",
+        "es-419": "bebo (πίνω, πίνεις, πίνει, πίνουμε, πίνετε, πίνουν)",
+        "it": "bevo (πίνω, πίνεις, πίνει, πίνουμε, πίνετε, πίνουν)",
+        "nl": "ik drink (πίνω, πίνεις, πίνει, πίνουμε, πίνετε, πίνουν)"
+      }
+    },
+    "παίρνω": {
+      "lemma": "παίρνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I take, I get (παίρνω ένα ντους = I take a shower)",
+        "es-419": "tomo, recibo (παίρνω ένα ντους = me doy una ducha)",
+        "it": "prendo (παίρνω ένα ντους = faccio una doccia)",
+        "nl": "ik neem (παίρνω ένα ντους = ik neem een douche)"
+      }
+    },
+    "παιδί": {
+      "lemma": "παιδί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "παιδί = child (n)",
+        "es-419": "παιδί = niño, hijo (m)",
+        "it": "παιδί = bambino, figlio (m)",
+        "nl": "παιδί = kind (n)"
+      }
+    },
+    "πατέρας": {
+      "lemma": "πατέρας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "father (m)",
+        "es-419": "padre (m)",
+        "it": "padre (m)",
+        "nl": "vader (m)"
+      }
+    },
+    "περασμένη": {
+      "lemma": "περασμένος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "περασμένη = last, past (feminine)",
+        "es-419": "περασμένη = pasada (femenino)",
+        "it": "περασμένη = scorsa (femminile)",
+        "nl": "περασμένη = vorige (vrouwelijk)"
+      }
+    },
+    "περιμένει": {
+      "lemma": "περιμένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "περιμένει = waits",
+        "es-419": "περιμένει = espera",
+        "it": "περιμένει = aspetta",
+        "nl": "περιμένει = wacht"
+      }
+    },
+    "περνάει": {
+      "lemma": "περνάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "περνάει = it passes, it goes away",
+        "es-419": "περνάει = se pasa",
+        "it": "περνάει = passa",
+        "nl": "περνάει = het gaat over"
+      }
+    },
+    "πλάτη": {
+      "lemma": "πλάτη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "back (f)",
+        "es-419": "espalda (f)",
+        "it": "schiena (f)",
+        "nl": "rug (f)"
+      }
+    },
+    "πολλά": {
+      "lemma": "πολύς",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "many, a lot of (neuter plural)",
+        "es-419": "muchos, muchas (neutro plural)",
+        "it": "molti, molte (neutro plurale)",
+        "nl": "veel (onzijdig meervoud)"
+      }
+    },
+    "πολύ": {
+      "lemma": "πολύς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "πολύ = very, a lot",
+        "es-419": "πολύ = muy, mucho",
+        "it": "πολύ = molto",
+        "nl": "πολύ = erg, veel"
+      }
+    },
+    "πονάει": {
+      "lemma": "πονάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πονάει = it hurts (πονάω: πονάει, πονάνε; the body part is the subject)",
+        "es-419": "πονάει = duele (πονάω: πονάει, πονάνε; la parte del cuerpo es el sujeto)",
+        "it": "πονάει = fa male (πονάω: πονάει, πονάνε; la parte del corpo è il soggetto)",
+        "nl": "πονάει = doet pijn (πονάω: πονάει, πονάνε; het lichaamsdeel is het onderwerp)"
+      }
+    },
+    "πονάνε": {
+      "lemma": "πονάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "πονάνε = they hurt (plural body parts)",
+        "es-419": "πονάνε = duelen (partes del cuerpo en plural)",
+        "it": "πονάνε = fanno male (parti del corpo al plurale)",
+        "nl": "πονάνε = doen pijn (lichaamsdelen in het meervoud)"
+      }
+    },
+    "πρέπει": {
+      "lemma": "πρέπει",
+      "pos": "VERB",
+      "gloss": {
+        "en": "must, have to (impersonal, always with να)",
+        "es-419": "hay que, se debe (impersonal, siempre con να)",
+        "it": "bisogna, si deve (impersonale, sempre con να)",
+        "nl": "moet, het is nodig (onpersoonlijk, altijd met να)"
+      }
+    },
+    "προσέχετε": {
+      "lemma": "προσέχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "προσέχετε = you take care (formal or plural)",
+        "es-419": "προσέχετε = cuidan, cuida (cortés o plural)",
+        "it": "προσέχετε = curate, cura (cortese o plurale)",
+        "nl": "προσέχετε = u let op, jullie letten op"
+      }
+    },
+    "προσέχω": {
+      "lemma": "προσέχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I watch out, I take care, I pay attention",
+        "es-419": "tengo cuidado, cuido",
+        "it": "faccio attenzione, curo",
+        "nl": "ik let op, ik pas op"
+      }
+    },
+    "πρόσωπό": {
+      "lemma": "πρόσωπο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "face (with a second accent before σου) (n)",
+        "es-419": "cara (con un segundo acento antes de σου) (n)",
+        "it": "faccia (con un secondo accento prima di σου) (n)",
+        "nl": "gezicht (met een tweede accent voor σου) (n)"
+      }
+    },
+    "πυρετό": {
+      "lemma": "πυρετός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fever (object form of πυρετός); έχω πυρετό = I have a fever (m)",
+        "es-419": "fiebre (forma de complemento de πυρετός); έχω πυρετό = tengo fiebre (m)",
+        "it": "febbre (forma complemento di πυρετός); έχω πυρετό = ho la febbre (m)",
+        "nl": "koorts (lijdend voorwerp van πυρετός); έχω πυρετό = ik heb koorts (m)"
+      }
+    },
+    "πυρετός": {
+      "lemma": "πυρετός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fever (m)",
+        "es-419": "fiebre (m)",
+        "it": "febbre (m)",
+        "nl": "koorts (m)"
+      }
+    },
+    "πόνο": {
+      "lemma": "πόνος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pain (object form of πόνος) (m)",
+        "es-419": "dolor (forma de complemento de πόνος) (m)",
+        "it": "dolore (forma complemento di πόνος) (m)",
+        "nl": "pijn (lijdend voorwerp van πόνος) (m)"
+      }
+    },
+    "πόνος": {
+      "lemma": "πόνος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pain (m)",
+        "es-419": "dolor (m)",
+        "it": "dolore (m)",
+        "nl": "pijn (m)"
+      }
+    },
+    "πόσο": {
+      "lemma": "πόσος",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how much",
+        "es-419": "cuánto",
+        "it": "quanto",
+        "nl": "hoeveel"
+      }
+    },
+    "πώς": {
+      "lemma": "πώς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how",
+        "es-419": "cómo",
+        "it": "come",
+        "nl": "hoe"
+      }
+    },
+    "ραντεβού": {
+      "lemma": "ραντεβού",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ραντεβού = appointment, date (n)",
+        "es-419": "ραντεβού = cita (f)",
+        "it": "ραντεβού = appuntamento (m)",
+        "nl": "ραντεβού = afspraak (m/f)"
+      }
+    },
+    "σήμερα": {
+      "lemma": "σήμερα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "σας": {
+      "lemma": "εσείς",
+      "pos": "PRON",
+      "gloss": {
+        "en": "your (clitic of εσείς, after the noun)",
+        "es-419": "su, sus (de ustedes; clítico de εσείς, después del sustantivo)",
+        "it": "vostro, suo (clitico di εσείς, dopo il nome)",
+        "nl": "uw, jullie (clitic van εσείς, na het zelfstandig naamwoord)"
+      }
+    },
+    "σε": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "σε = in, at, to",
+        "es-419": "σε = en, a",
+        "it": "σε = in, a",
+        "nl": "σε = in, op, naar"
+      }
+    },
+    "σηκώνομαι": {
+      "lemma": "σηκώνομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I get up (σηκώνομαι, σηκώνεσαι, σηκώνεται: a middle verb, -ομαι ending)",
+        "es-419": "me levanto (σηκώνομαι, σηκώνεσαι, σηκώνεται: verbo medio, terminación -ομαι)",
+        "it": "mi alzo (σηκώνομαι, σηκώνεσαι, σηκώνεται: verbo medio, desinenza -ομαι)",
+        "nl": "ik sta op (σηκώνομαι, σηκώνεσαι, σηκώνεται: middenvorm op -ομαι)"
+      }
+    },
+    "σιγά": {
+      "lemma": "σιγά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "σιγά = slowly, softly; σιγά σιγά = little by little",
+        "es-419": "σιγά = despacio, suavemente; σιγά σιγά = poco a poco",
+        "it": "σιγά = piano, lentamente; σιγά σιγά = piano piano",
+        "nl": "σιγά = langzaam, zachtjes; σιγά σιγά = langzaam aan"
+      }
+    },
+    "σοβαρό": {
+      "lemma": "σοβαρός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "σοβαρό = serious (neuter)",
+        "es-419": "σοβαρό = grave, serio (neutro)",
+        "it": "σοβαρό = grave, serio (neutro)",
+        "nl": "σοβαρό = ernstig (onzijdig)"
+      }
+    },
+    "σου": {
+      "lemma": "εσύ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "σου = your, to you (informal)",
+        "es-419": "σου = tu, te (informal)",
+        "it": "σου = tuo, ti (informale)",
+        "nl": "σου = jouw, je (informeel)"
+      }
+    },
+    "σπίτι": {
+      "lemma": "σπίτι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "σπίτι = house, home (n)",
+        "es-419": "σπίτι = casa (f)",
+        "it": "σπίτι = casa (f)",
+        "nl": "σπίτι = huis, thuis (n)"
+      }
+    },
+    "στη": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "σε + τη: to, at, in (before a feminine noun)",
+        "es-419": "σε + τη: a, en (ante un sustantivo femenino)",
+        "it": "σε + τη: a, in (davanti a un nome femminile)",
+        "nl": "σε + τη: naar, in (voor een vrouwelijk woord)"
+      }
+    },
+    "στην": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "σε + την: to, at, in (before a feminine noun)",
+        "es-419": "σε + την: a, en (ante un sustantivo femenino)",
+        "it": "σε + την: a, in (davanti a un nome femminile)",
+        "nl": "σε + την: naar, in (voor een vrouwelijk woord)"
+      }
+    },
+    "στις": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "σε + τις: at, in (with hours and dates)",
+        "es-419": "σε + τις: a, en (con horas y fechas)",
+        "it": "σε + τις: a, in (con ore e date)",
+        "nl": "σε + τις: om, op (bij uren en data)"
+      }
+    },
+    "στο": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "σε + το: to, at, in, on (before a neuter noun)",
+        "es-419": "σε + το: a, en (ante un sustantivo neutro)",
+        "it": "σε + το: a, in (davanti a un nome neutro)",
+        "nl": "σε + το: naar, in, op (voor een onzijdig woord)"
+      }
+    },
+    "στομάχι": {
+      "lemma": "στομάχι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "stomach (n)",
+        "es-419": "estómago (n)",
+        "it": "stomaco (n)",
+        "nl": "maag (n)"
+      }
+    },
+    "στον": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στον = σε + τον: in, at, to the (before a masculine noun)",
+        "es-419": "στον = σε + τον: en, a, al (delante de un nombre masculino)",
+        "it": "στον = σε + τον: in, a, al (davanti a un nome maschile)",
+        "nl": "στον = σε + τον: in, op, naar de (vóór een mannelijk woord)"
+      }
+    },
+    "στόμα": {
+      "lemma": "στόμα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mouth (n)",
+        "es-419": "boca (n)",
+        "it": "bocca (n)",
+        "nl": "mond (n)"
+      }
+    },
+    "συνταγή": {
+      "lemma": "συνταγή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prescription (f)",
+        "es-419": "receta médica (f)",
+        "it": "ricetta medica (f)",
+        "nl": "recept van de arts (f)"
+      }
+    },
+    "συχνά": {
+      "lemma": "συχνά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "often",
+        "es-419": "a menudo",
+        "it": "spesso",
+        "nl": "vaak"
+      }
+    },
+    "σύντομα": {
+      "lemma": "σύντομα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "σύντομα = soon",
+        "es-419": "σύντομα = pronto",
+        "it": "σύντομα = presto, fra poco",
+        "nl": "σύντομα = binnenkort"
+      }
+    },
+    "σώμα": {
+      "lemma": "σώμα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "body (n)",
+        "es-419": "cuerpo (n)",
+        "it": "corpo (n)",
+        "nl": "lichaam (n)"
+      }
+    },
+    "τα": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "τα = the (neuter plural)",
+        "es-419": "τα = los, las (neutro plural)",
+        "it": "τα = i, le, gli (neutro plurale)",
+        "nl": "τα = de (onzijdig meervoud)"
+      }
+    },
+    "τη": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f, accusative; short form of την)",
+        "es-419": "la (f, acusativo; forma corta de την)",
+        "it": "la (f, accusativo; forma breve di την)",
+        "nl": "de (v., vierde naamval; korte vorm van την)"
+      }
+    },
+    "την": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f, accusative)",
+        "es-419": "la (f, acusativo)",
+        "it": "la (f, accusativo)",
+        "nl": "de (v., vierde naamval)"
+      }
+    },
+    "τι": {
+      "lemma": "τι",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what",
+        "es-419": "qué",
+        "it": "che, cosa",
+        "nl": "wat"
+      }
+    },
+    "το": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (n)",
+        "es-419": "el, la (n)",
+        "it": "il, lo, la (n)",
+        "nl": "het, de (n)"
+      }
+    },
+    "τον": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m, accusative)",
+        "es-419": "el (m, acusativo)",
+        "it": "il, lo (m, accusativo)",
+        "nl": "de (m., vierde naamval)"
+      }
+    },
+    "τρεις": {
+      "lemma": "τρεις",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three (m/f); τρία (n)",
+        "es-419": "tres (m/f); τρία (n)",
+        "it": "tre (m/f); τρία (n)",
+        "nl": "drie (m/v); τρία (o)"
+      }
+    },
+    "τρώω": {
+      "lemma": "τρώω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I eat",
+        "es-419": "como",
+        "it": "mangio",
+        "nl": "ik eet"
+      }
+    },
+    "τσάι": {
+      "lemma": "τσάι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tea (n)",
+        "es-419": "té (n)",
+        "it": "tè (n)",
+        "nl": "thee (n)"
+      }
+    },
+    "τώρα": {
+      "lemma": "τώρα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "es-419": "ahora",
+        "it": "adesso",
+        "nl": "nu"
+      }
+    },
+    "υγεία": {
+      "lemma": "υγεία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "health (f)",
+        "es-419": "salud (f)",
+        "it": "salute (f)",
+        "nl": "gezondheid (f)"
+      }
+    },
+    "υγρά": {
+      "lemma": "υγρό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fluids, liquids (n, plural)",
+        "es-419": "líquidos (n, plural)",
+        "it": "liquidi (n, plural)",
+        "nl": "vocht, vloeistoffen (n, plural)"
+      }
+    },
+    "υπάρχει": {
+      "lemma": "υπάρχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "υπάρχει = there is",
+        "es-419": "υπάρχει = hay",
+        "it": "υπάρχει = c'è",
+        "nl": "υπάρχει = er is"
+      }
+    },
+    "φάρμακο": {
+      "lemma": "φάρμακο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "medicine, drug (n)",
+        "es-419": "medicamento (n)",
+        "it": "farmaco, medicina (n)",
+        "nl": "medicijn (n)"
+      }
+    },
+    "φαρμακείο": {
+      "lemma": "φαρμακείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pharmacy (n)",
+        "es-419": "farmacia (n)",
+        "it": "farmacia (n)",
+        "nl": "apotheek (n)"
+      }
+    },
+    "φορές": {
+      "lemma": "φορά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "times, occasions (f, plural of φορά)",
+        "es-419": "veces (f, plural de φορά)",
+        "it": "volte (f, plurale di φορά)",
+        "nl": "keer (f, meervoud van φορά)"
+      }
+    },
+    "φτάνει": {
+      "lemma": "φτάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrives (φτάνω: φτάνω, φτάνεις, φτάνει, φτάνουμε, φτάνετε, φτάνουν)",
+        "es-419": "llega (φτάνω: φτάνω, φτάνεις, φτάνει, φτάνουμε, φτάνετε, φτάνουν)",
+        "it": "arriva (φτάνω: φτάνω, φτάνεις, φτάνει, φτάνουμε, φτάνετε, φτάνουν)",
+        "nl": "komt aan (φτάνω: φτάνω, φτάνεις, φτάνει, φτάνουμε, φτάνετε, φτάνουν)"
+      }
+    },
+    "χάπι": {
+      "lemma": "χάπι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pill (n)",
+        "es-419": "pastilla (n)",
+        "it": "pillola (n)",
+        "nl": "pil (n)"
+      }
+    },
+    "χέρι": {
+      "lemma": "χέρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hand (n)",
+        "es-419": "mano (n)",
+        "it": "mano (n)",
+        "nl": "hand (n)"
+      }
+    },
+    "χειμώνα": {
+      "lemma": "χειμώνας",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "winter (m, accusative of χειμώνας); τον χειμώνα = in winter",
+        "es-419": "invierno (m, acusativo de χειμώνας); τον χειμώνα = en invierno",
+        "it": "inverno (m, accusativo di χειμώνας); τον χειμώνα = in inverno",
+        "nl": "winter (m, vierde naamval van χειμώνας); τον χειμώνα = in de winter"
+      }
+    },
+    "χθες": {
+      "lemma": "χθες",
+      "pos": "ADV",
+      "gloss": {
+        "en": "χθες = yesterday",
+        "es-419": "χθες = ayer",
+        "it": "χθες = ieri",
+        "nl": "χθες = gisteren"
+      }
+    },
+    "χτυπάει": {
+      "lemma": "χτυπάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "χτυπάει = beats, hits; Η καρδιά χτυπάει = the heart beats",
+        "es-419": "χτυπάει = late, golpea; Η καρδιά χτυπάει = el corazón late",
+        "it": "χτυπάει = batte, colpisce; Η καρδιά χτυπάει = il cuore batte",
+        "nl": "χτυπάει = klopt, slaat; Η καρδιά χτυπάει = het hart klopt"
+      }
+    },
+    "όλη": {
+      "lemma": "όλος",
+      "pos": "DET",
+      "gloss": {
+        "en": "όλη = all, whole (feminine)",
+        "es-419": "όλη = toda, entera (femenino)",
+        "it": "όλη = tutta, intera (femminile)",
+        "nl": "όλη = hele, al (vrouwelijk)"
+      }
+    },
+    "όλο": {
+      "lemma": "όλος",
+      "pos": "DET",
+      "gloss": {
+        "en": "όλο = all, whole (neuter)",
+        "es-419": "όλο = todo, entero (neutro)",
+        "it": "όλο = tutto, intero (neutro)",
+        "nl": "όλο = heel, al (onzijdig)"
+      }
+    },
+    "όταν": {
+      "lemma": "όταν",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "όταν = when",
+        "es-419": "όταν = cuando",
+        "it": "όταν = quando",
+        "nl": "όταν = wanneer, als"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "el-a2-giatros-1",
+      "title": "Το σώμα",
+      "grammarFocus": {
+        "en": [
+          "body parts with the article: το κεφάλι, η μύτη, το στόμα, τα μάτια",
+          "πονάει / πονάνε with the subject after the verb: Πονάει το κεφάλι μου, Πονάνε τα μάτια μου",
+          "με πονάει / με πονάνε: Με πονάει ο λαιμός"
+        ],
+        "es-419": [
+          "partes del cuerpo con artículo: το κεφάλι, η μύτη, το στόμα, τα μάτια",
+          "πονάει / πονάνε con el sujeto después del verbo: Πονάει το κεφάλι μου, Πονάνε τα μάτια μου",
+          "με πονάει / με πονάνε: Με πονάει ο λαιμός"
+        ],
+        "it": [
+          "parti del corpo con l'articolo: το κεφάλι, η μύτη, το στόμα, τα μάτια",
+          "πονάει / πονάνε con il soggetto dopo il verbo: Πονάει το κεφάλι μου, Πονάνε τα μάτια μου",
+          "με πονάει / με πονάνε: Με πονάει ο λαιμός"
+        ],
+        "nl": [
+          "lichaamsdelen met lidwoord: το κεφάλι, η μύτη, το στόμα, τα μάτια",
+          "πονάει / πονάνε met het onderwerp na het werkwoord: Πονάει το κεφάλι μου, Πονάνε τα μάτια μου",
+          "με πονάει / με πονάνε: Με πονάει ο λαιμός"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "κεφάλι",
+          "translation": {
+            "en": "head",
+            "es-419": "cabeza",
+            "it": "testa",
+            "nl": "hoofd"
+          },
+          "distractors": {
+            "en": [
+              "neck",
+              "face"
+            ],
+            "es-419": [
+              "cuello",
+              "cara"
+            ],
+            "it": [
+              "collo",
+              "faccia"
+            ],
+            "nl": [
+              "nek",
+              "gezicht"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "μάτι",
+          "translation": {
+            "en": "eye",
+            "es-419": "ojo",
+            "it": "occhio",
+            "nl": "oog"
+          },
+          "distractors": {
+            "en": [
+              "ear",
+              "nose"
+            ],
+            "es-419": [
+              "oreja",
+              "nariz"
+            ],
+            "it": [
+              "orecchio",
+              "naso"
+            ],
+            "nl": [
+              "oor",
+              "neus"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "αυτί",
+          "translation": {
+            "en": "ear",
+            "es-419": "oreja",
+            "it": "orecchio",
+            "nl": "oor"
+          },
+          "distractors": {
+            "en": [
+              "eye",
+              "mouth"
+            ],
+            "es-419": [
+              "ojo",
+              "boca"
+            ],
+            "it": [
+              "occhio",
+              "bocca"
+            ],
+            "nl": [
+              "oog",
+              "mond"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "μύτη",
+          "translation": {
+            "en": "nose",
+            "es-419": "nariz",
+            "it": "naso",
+            "nl": "neus"
+          },
+          "distractors": {
+            "en": [
+              "mouth",
+              "ear"
+            ],
+            "es-419": [
+              "boca",
+              "oreja"
+            ],
+            "it": [
+              "bocca",
+              "orecchio"
+            ],
+            "nl": [
+              "mond",
+              "oor"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "στόμα",
+          "translation": {
+            "en": "mouth",
+            "es-419": "boca",
+            "it": "bocca",
+            "nl": "mond"
+          },
+          "distractors": {
+            "en": [
+              "nose",
+              "tooth"
+            ],
+            "es-419": [
+              "nariz",
+              "diente"
+            ],
+            "it": [
+              "naso",
+              "dente"
+            ],
+            "nl": [
+              "neus",
+              "tand"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "λαιμός",
+          "translation": {
+            "en": "throat, neck",
+            "es-419": "garganta, cuello",
+            "it": "gola, collo",
+            "nl": "keel, nek"
+          },
+          "distractors": {
+            "en": [
+              "stomach",
+              "back"
+            ],
+            "es-419": [
+              "estómago",
+              "espalda"
+            ],
+            "it": [
+              "stomaco",
+              "schiena"
+            ],
+            "nl": [
+              "maag",
+              "rug"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "το χέρι μου",
+          "translation": {
+            "en": "my hand",
+            "es-419": "mi mano",
+            "it": "la mia mano",
+            "nl": "mijn hand"
+          },
+          "distractors": {
+            "en": [
+              "my foot",
+              "your hand"
+            ],
+            "es-419": [
+              "mi pie",
+              "tu mano"
+            ],
+            "it": [
+              "il mio piede",
+              "la tua mano"
+            ],
+            "nl": [
+              "mijn voet",
+              "jouw hand"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "το δάχτυλό μου",
+          "translation": {
+            "en": "my finger",
+            "es-419": "mi dedo",
+            "it": "il mio dito",
+            "nl": "mijn vinger"
+          },
+          "distractors": {
+            "en": [
+              "my hand",
+              "your finger"
+            ],
+            "es-419": [
+              "mi mano",
+              "tu dedo"
+            ],
+            "it": [
+              "la mia mano",
+              "il tuo dito"
+            ],
+            "nl": [
+              "mijn hand",
+              "jouw vinger"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "το γόνατό μου",
+          "translation": {
+            "en": "my knee",
+            "es-419": "mi rodilla",
+            "it": "il mio ginocchio",
+            "nl": "mijn knie"
+          },
+          "distractors": {
+            "en": [
+              "my elbow",
+              "your knee"
+            ],
+            "es-419": [
+              "mi codo",
+              "tu rodilla"
+            ],
+            "it": [
+              "il mio gomito",
+              "il tuo ginocchio"
+            ],
+            "nl": [
+              "mijn elleboog",
+              "jouw knie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η πλάτη μου",
+          "translation": {
+            "en": "my back",
+            "es-419": "mi espalda",
+            "it": "la mia schiena",
+            "nl": "mijn rug"
+          },
+          "distractors": {
+            "en": [
+              "my stomach",
+              "your back"
+            ],
+            "es-419": [
+              "mi estómago",
+              "tu espalda"
+            ],
+            "it": [
+              "il mio stomaco",
+              "la tua schiena"
+            ],
+            "nl": [
+              "mijn maag",
+              "jouw rug"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η κοιλιά μου",
+          "translation": {
+            "en": "my belly",
+            "es-419": "mi barriga",
+            "it": "la mia pancia",
+            "nl": "mijn buik"
+          },
+          "distractors": {
+            "en": [
+              "my back",
+              "your belly"
+            ],
+            "es-419": [
+              "mi espalda",
+              "tu barriga"
+            ],
+            "it": [
+              "la mia schiena",
+              "la tua pancia"
+            ],
+            "nl": [
+              "mijn rug",
+              "jouw buik"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "το πρόσωπό σου",
+          "translation": {
+            "en": "your face",
+            "es-419": "tu cara",
+            "it": "la tua faccia",
+            "nl": "jouw gezicht"
+          },
+          "distractors": {
+            "en": [
+              "my face",
+              "your head"
+            ],
+            "es-419": [
+              "mi cara",
+              "tu cabeza"
+            ],
+            "it": [
+              "la mia faccia",
+              "la tua testa"
+            ],
+            "nl": [
+              "mijn gezicht",
+              "jouw hoofd"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "τα μαλλιά μου",
+          "translation": {
+            "en": "my hair",
+            "es-419": "mi cabello",
+            "it": "i miei capelli",
+            "nl": "mijn haar"
+          },
+          "distractors": {
+            "en": [
+              "your hair",
+              "my eyes"
+            ],
+            "es-419": [
+              "tu cabello",
+              "mis ojos"
+            ],
+            "it": [
+              "i tuoi capelli",
+              "i miei occhi"
+            ],
+            "nl": [
+              "jouw haar",
+              "mijn ogen"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πονάει το κεφάλι μου.",
+          "translation": {
+            "en": "My head hurts.",
+            "es-419": "Me duele la cabeza.",
+            "it": "Mi fa male la testa.",
+            "nl": "Mijn hoofd doet pijn."
+          },
+          "distractors": {
+            "en": [
+              "My back hurts.",
+              "Your head hurts."
+            ],
+            "es-419": [
+              "Me duele la espalda.",
+              "Te duele la cabeza."
+            ],
+            "it": [
+              "Mi fa male la schiena.",
+              "Ti fa male la testa."
+            ],
+            "nl": [
+              "Mijn rug doet pijn.",
+              "Jouw hoofd doet pijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πονάνε τα μάτια μου.",
+          "translation": {
+            "en": "My eyes hurt.",
+            "es-419": "Me duelen los ojos.",
+            "it": "Mi fanno male gli occhi.",
+            "nl": "Mijn ogen doen pijn."
+          },
+          "distractors": {
+            "en": [
+              "My ears hurt.",
+              "My eye hurts."
+            ],
+            "es-419": [
+              "Me duelen los oídos.",
+              "Me duele el ojo."
+            ],
+            "it": [
+              "Mi fanno male le orecchie.",
+              "Mi fa male l'occhio."
+            ],
+            "nl": [
+              "Mijn oren doen pijn.",
+              "Mijn oog doet pijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Με πονάει ο λαιμός.",
+          "translation": {
+            "en": "My throat hurts.",
+            "es-419": "Me duele la garganta.",
+            "it": "Mi fa male la gola.",
+            "nl": "Mijn keel doet pijn."
+          },
+          "distractors": {
+            "en": [
+              "My head hurts.",
+              "My stomach hurts."
+            ],
+            "es-419": [
+              "Me duele la cabeza.",
+              "Me duele el estómago."
+            ],
+            "it": [
+              "Mi fa male la testa.",
+              "Mi fa male lo stomaco."
+            ],
+            "nl": [
+              "Mijn hoofd doet pijn.",
+              "Mijn maag doet pijn."
+            ]
+          },
+          "senses": {
+            "0": "pron"
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πονάει το στομάχι μου.",
+          "translation": {
+            "en": "My stomach hurts.",
+            "es-419": "Me duele el estómago.",
+            "it": "Mi fa male lo stomaco.",
+            "nl": "Mijn maag doet pijn."
+          },
+          "distractors": {
+            "en": [
+              "My back hurts.",
+              "My throat hurts."
+            ],
+            "es-419": [
+              "Me duele la espalda.",
+              "Me duele la garganta."
+            ],
+            "it": [
+              "Mi fa male la schiena.",
+              "Mi fa male la gola."
+            ],
+            "nl": [
+              "Mijn rug doet pijn.",
+              "Mijn keel doet pijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Με πονάνε τα γόνατα.",
+          "translation": {
+            "en": "My knees hurt.",
+            "es-419": "Me duelen las rodillas.",
+            "it": "Mi fanno male le ginocchia.",
+            "nl": "Mijn knieën doen pijn."
+          },
+          "distractors": {
+            "en": [
+              "My hands hurt.",
+              "My knee hurts."
+            ],
+            "es-419": [
+              "Me duelen las manos.",
+              "Me duele la rodilla."
+            ],
+            "it": [
+              "Mi fanno male le mani.",
+              "Mi fa male il ginocchio."
+            ],
+            "nl": [
+              "Mijn handen doen pijn.",
+              "Mijn knie doet pijn."
+            ]
+          },
+          "senses": {
+            "0": "pron"
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πονάει η πλάτη σου;",
+          "translation": {
+            "en": "Does your back hurt?",
+            "es-419": "¿Te duele la espalda?",
+            "it": "Ti fa male la schiena?",
+            "nl": "Doet je rug pijn?"
+          },
+          "distractors": {
+            "en": [
+              "Does your stomach hurt?",
+              "Does your knee hurt?"
+            ],
+            "es-419": [
+              "¿Te duele el estómago?",
+              "¿Te duele la rodilla?"
+            ],
+            "it": [
+              "Ti fa male lo stomaco?",
+              "Ti fa male il ginocchio?"
+            ],
+            "nl": [
+              "Doet je maag pijn?",
+              "Doet je knie pijn?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πονάει όλο το σώμα μου.",
+          "translation": {
+            "en": "My whole body hurts.",
+            "es-419": "Me duele todo el cuerpo.",
+            "it": "Mi fa male tutto il corpo.",
+            "nl": "Mijn hele lichaam doet pijn."
+          },
+          "distractors": {
+            "en": [
+              "My whole head hurts.",
+              "My whole back hurts."
+            ],
+            "es-419": [
+              "Me duele toda la cabeza.",
+              "Me duele toda la espalda."
+            ],
+            "it": [
+              "Mi fa male tutta la testa.",
+              "Mi fa male tutta la schiena."
+            ],
+            "nl": [
+              "Mijn hele hoofd doet pijn.",
+              "Mijn hele rug doet pijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-1-u21",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η καρδιά μου χτυπάει γρήγορα.",
+          "translation": {
+            "en": "My heart is beating fast.",
+            "es-419": "Mi corazón late rápido.",
+            "it": "Il mio cuore batte veloce.",
+            "nl": "Mijn hart klopt snel."
+          },
+          "distractors": {
+            "en": [
+              "My heart is beating slowly.",
+              "My heart hurts a lot."
+            ],
+            "es-419": [
+              "Mi corazón late despacio.",
+              "Me duele mucho el corazón."
+            ],
+            "it": [
+              "Il mio cuore batte lentamente.",
+              "Mi fa molto male il cuore."
+            ],
+            "nl": [
+              "Mijn hart klopt langzaam.",
+              "Mijn hart doet veel pijn."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-giatros-2",
+      "title": "Αρρώστιες",
+      "grammarFocus": {
+        "en": [
+          "illnesses after έχω: Έχω πυρετό, Έχω γρίπη, Έχω αλλεργία στο γάλα",
+          "από + time word: Έχω γρίπη από χθες",
+          "άρρωστος agrees with the subject: Είμαι άρρωστος / Η αδελφή μου είναι άρρωστη"
+        ],
+        "es-419": [
+          "enfermedades con έχω: Έχω πυρετό, Έχω γρίπη, Έχω αλλεργία στο γάλα",
+          "από + palabra de tiempo: Έχω γρίπη από χθες",
+          "άρρωστος concuerda con el sujeto: Είμαι άρρωστος / Η αδελφή μου είναι άρρωστη"
+        ],
+        "it": [
+          "malattie con έχω: Έχω πυρετό, Έχω γρίπη, Έχω αλλεργία στο γάλα",
+          "από + parola di tempo: Έχω γρίπη από χθες",
+          "άρρωστος concorda con il soggetto: Είμαι άρρωστος / Η αδελφή μου είναι άρρωστη"
+        ],
+        "nl": [
+          "ziektes met έχω: Έχω πυρετό, Έχω γρίπη, Έχω αλλεργία στο γάλα",
+          "από + tijdswoord: Έχω γρίπη από χθες",
+          "άρρωστος congrueert met het onderwerp: Είμαι άρρωστος / Η αδελφή μου είναι άρρωστη"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "πυρετός",
+          "translation": {
+            "en": "fever",
+            "es-419": "fiebre",
+            "it": "febbre",
+            "nl": "koorts"
+          },
+          "distractors": {
+            "en": [
+              "cough",
+              "cold"
+            ],
+            "es-419": [
+              "tos",
+              "resfriado"
+            ],
+            "it": [
+              "tosse",
+              "raffreddore"
+            ],
+            "nl": [
+              "hoest",
+              "verkoudheid"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "βήχας",
+          "translation": {
+            "en": "cough",
+            "es-419": "tos",
+            "it": "tosse",
+            "nl": "hoest"
+          },
+          "distractors": {
+            "en": [
+              "fever",
+              "flu"
+            ],
+            "es-419": [
+              "fiebre",
+              "gripe"
+            ],
+            "it": [
+              "febbre",
+              "influenza"
+            ],
+            "nl": [
+              "koorts",
+              "griep"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "γρίπη",
+          "translation": {
+            "en": "flu",
+            "es-419": "gripe",
+            "it": "influenza",
+            "nl": "griep"
+          },
+          "distractors": {
+            "en": [
+              "cold",
+              "allergy"
+            ],
+            "es-419": [
+              "resfriado",
+              "alergia"
+            ],
+            "it": [
+              "raffreddore",
+              "allergia"
+            ],
+            "nl": [
+              "verkoudheid",
+              "allergie"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "αλλεργία",
+          "translation": {
+            "en": "allergy",
+            "es-419": "alergia",
+            "it": "allergia",
+            "nl": "allergie"
+          },
+          "distractors": {
+            "en": [
+              "flu",
+              "fever"
+            ],
+            "es-419": [
+              "gripe",
+              "fiebre"
+            ],
+            "it": [
+              "influenza",
+              "febbre"
+            ],
+            "nl": [
+              "griep",
+              "koorts"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "πόνος",
+          "translation": {
+            "en": "pain",
+            "es-419": "dolor",
+            "it": "dolore",
+            "nl": "pijn"
+          },
+          "distractors": {
+            "en": [
+              "fever",
+              "cough"
+            ],
+            "es-419": [
+              "fiebre",
+              "tos"
+            ],
+            "it": [
+              "febbre",
+              "tosse"
+            ],
+            "nl": [
+              "koorts",
+              "hoest"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "κρυολόγημα",
+          "translation": {
+            "en": "a cold",
+            "es-419": "un resfriado",
+            "it": "un raffreddore",
+            "nl": "een verkoudheid"
+          },
+          "distractors": {
+            "en": [
+              "the flu",
+              "a cough"
+            ],
+            "es-419": [
+              "la gripe",
+              "una tos"
+            ],
+            "it": [
+              "l'influenza",
+              "una tosse"
+            ],
+            "nl": [
+              "de griep",
+              "een hoest"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "αρρώστια",
+          "translation": {
+            "en": "illness",
+            "es-419": "enfermedad",
+            "it": "malattia",
+            "nl": "ziekte"
+          },
+          "distractors": {
+            "en": [
+              "allergy",
+              "pain"
+            ],
+            "es-419": [
+              "alergia",
+              "dolor"
+            ],
+            "it": [
+              "allergia",
+              "dolore"
+            ],
+            "nl": [
+              "allergie",
+              "pijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ένας άρρωστος άνθρωπος",
+          "translation": {
+            "en": "a sick person",
+            "es-419": "una persona enferma",
+            "it": "una persona malata",
+            "nl": "een zieke"
+          },
+          "distractors": {
+            "en": [
+              "a sick child",
+              "a tired person"
+            ],
+            "es-419": [
+              "un niño enfermo",
+              "una persona cansada"
+            ],
+            "it": [
+              "un bambino malato",
+              "una persona stanca"
+            ],
+            "nl": [
+              "een ziek kind",
+              "een vermoeid persoon"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω πυρετό και βήχα.",
+          "translation": {
+            "en": "I have a fever and a cough.",
+            "es-419": "Tengo fiebre y tos.",
+            "it": "Ho la febbre e la tosse.",
+            "nl": "Ik heb koorts en hoest."
+          },
+          "distractors": {
+            "en": [
+              "I have a fever and a cold.",
+              "I have a sore throat and a cough."
+            ],
+            "es-419": [
+              "Tengo fiebre y resfriado.",
+              "Tengo dolor de garganta y tos."
+            ],
+            "it": [
+              "Ho la febbre e il raffreddore.",
+              "Ho mal di gola e la tosse."
+            ],
+            "nl": [
+              "Ik heb koorts en een verkoudheid.",
+              "Ik heb keelpijn en hoest."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω γρίπη από χθες.",
+          "translation": {
+            "en": "I've had the flu since yesterday.",
+            "es-419": "Tengo gripe desde ayer.",
+            "it": "Ho l'influenza da ieri.",
+            "nl": "Ik heb sinds gisteren de griep."
+          },
+          "distractors": {
+            "en": [
+              "I've had a cold since yesterday.",
+              "I've had the flu since Monday."
+            ],
+            "es-419": [
+              "Tengo resfriado desde ayer.",
+              "Tengo gripe desde el lunes."
+            ],
+            "it": [
+              "Ho il raffreddore da ieri.",
+              "Ho l'influenza da lunedì."
+            ],
+            "nl": [
+              "Ik ben sinds gisteren verkouden.",
+              "Ik heb sinds maandag de griep."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω κρυολόγημα από την κυριακή.",
+          "translation": {
+            "en": "I've had a cold since Sunday.",
+            "es-419": "Tengo un resfriado desde el domingo.",
+            "it": "Ho il raffreddore da domenica.",
+            "nl": "Ik ben sinds zondag verkouden."
+          },
+          "distractors": {
+            "en": [
+              "I've had the flu since Sunday.",
+              "I've had a cold since Saturday."
+            ],
+            "es-419": [
+              "Tengo gripe desde el domingo.",
+              "Tengo un resfriado desde el sábado."
+            ],
+            "it": [
+              "Ho l'influenza da domenica.",
+              "Ho il raffreddore da sabato."
+            ],
+            "nl": [
+              "Ik heb sinds zondag de griep.",
+              "Ik ben sinds zaterdag verkouden."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το παιδί μου έχει πυρετό.",
+          "translation": {
+            "en": "My child has a fever.",
+            "es-419": "Mi hijo tiene fiebre.",
+            "it": "Il mio bambino ha la febbre.",
+            "nl": "Mijn kind heeft koorts."
+          },
+          "distractors": {
+            "en": [
+              "My child has a cough.",
+              "My brother has a fever."
+            ],
+            "es-419": [
+              "Mi hijo tiene tos.",
+              "Mi hermano tiene fiebre."
+            ],
+            "it": [
+              "Il mio bambino ha la tosse.",
+              "Mio fratello ha la febbre."
+            ],
+            "nl": [
+              "Mijn kind heeft hoest.",
+              "Mijn broer heeft koorts."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω αλλεργία στο γάλα.",
+          "translation": {
+            "en": "I'm allergic to milk.",
+            "es-419": "Tengo alergia a la leche.",
+            "it": "Ho un'allergia al latte.",
+            "nl": "Ik ben allergisch voor melk."
+          },
+          "distractors": {
+            "en": [
+              "I'm allergic to eggs.",
+              "I'm allergic to fish."
+            ],
+            "es-419": [
+              "Tengo alergia a los huevos.",
+              "Tengo alergia al pescado."
+            ],
+            "it": [
+              "Ho un'allergia alle uova.",
+              "Ho un'allergia al pesce."
+            ],
+            "nl": [
+              "Ik ben allergisch voor eieren.",
+              "Ik ben allergisch voor vis."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η αδελφή μου είναι άρρωστη.",
+          "translation": {
+            "en": "My sister is sick.",
+            "es-419": "Mi hermana está enferma.",
+            "it": "Mia sorella è malata.",
+            "nl": "Mijn zus is ziek."
+          },
+          "distractors": {
+            "en": [
+              "My brother is sick.",
+              "My sister is tired."
+            ],
+            "es-419": [
+              "Mi hermano está enfermo.",
+              "Mi hermana está cansada."
+            ],
+            "it": [
+              "Mio fratello è malato.",
+              "Mia sorella è stanca."
+            ],
+            "nl": [
+              "Mijn broer is ziek.",
+              "Mijn zus is moe."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαι άρρωστος από χθες.",
+          "translation": {
+            "en": "I've been sick since yesterday.",
+            "es-419": "Estoy enfermo desde ayer.",
+            "it": "Sono malato da ieri.",
+            "nl": "Ik ben sinds gisteren ziek."
+          },
+          "distractors": {
+            "en": [
+              "I've been tired since yesterday.",
+              "I've been sick since Monday."
+            ],
+            "es-419": [
+              "Estoy cansado desde ayer.",
+              "Estoy enfermo desde el lunes."
+            ],
+            "it": [
+              "Sono stanco da ieri.",
+              "Sono malato da lunedì."
+            ],
+            "nl": [
+              "Ik ben sinds gisteren moe.",
+              "Ik ben sinds maandag ziek."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "el-a2-giatros-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ήμουν άρρωστη την περασμένη εβδομάδα.",
+          "translation": {
+            "en": "Last week I was sick.",
+            "es-419": "La semana pasada estuve enferma.",
+            "it": "La settimana scorsa ero malata.",
+            "nl": "Vorige week was ik ziek."
+          },
+          "distractors": {
+            "en": [
+              "Last week I was tired.",
+              "Last month I was sick."
+            ],
+            "es-419": [
+              "La semana pasada estuve cansada.",
+              "El mes pasado estuve enferma."
+            ],
+            "it": [
+              "La settimana scorsa ero stanca.",
+              "Il mese scorso ero malata."
+            ],
+            "nl": [
+              "Vorige week was ik moe.",
+              "Vorige maand was ik ziek."
+            ]
+          },
+          "speaker": "F"
+        },
+        {
+          "id": "el-a2-giatros-2-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω πυρετό, αλλά έχω πόνο στο στομάχι.",
+          "translation": {
+            "en": "I don't have a fever, but I have a stomachache.",
+            "es-419": "No tengo fiebre, pero me duele el estómago.",
+            "it": "Non ho la febbre, ma ho mal di stomaco.",
+            "nl": "Ik heb geen koorts, maar ik heb maagpijn."
+          },
+          "distractors": {
+            "en": [
+              "I don't have a fever, but I have a headache.",
+              "I don't have a cough, but I have a stomachache."
+            ],
+            "es-419": [
+              "No tengo fiebre, pero me duele la cabeza.",
+              "No tengo tos, pero me duele el estómago."
+            ],
+            "it": [
+              "Non ho la febbre, ma ho mal di testa.",
+              "Non ho la tosse, ma ho mal di stomaco."
+            ],
+            "nl": [
+              "Ik heb geen koorts, maar ik heb hoofdpijn.",
+              "Ik heb geen hoest, maar ik heb maagpijn."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω μεγάλο πόνο στην πλάτη.",
+          "translation": {
+            "en": "I have a lot of pain in my back.",
+            "es-419": "Tengo mucho dolor de espalda.",
+            "it": "Ho molto dolore alla schiena.",
+            "nl": "Ik heb veel pijn in mijn rug."
+          },
+          "distractors": {
+            "en": [
+              "I have a lot of pain in my knee.",
+              "I have a little pain in my back."
+            ],
+            "es-419": [
+              "Tengo mucho dolor en la rodilla.",
+              "Tengo un poco de dolor de espalda."
+            ],
+            "it": [
+              "Ho molto dolore al ginocchio.",
+              "Ho un po' di dolore alla schiena."
+            ],
+            "nl": [
+              "Ik heb veel pijn in mijn knie.",
+              "Ik heb een beetje pijn in mijn rug."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-2-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Κάθε χειμώνα έχω κρυολόγημα.",
+          "translation": {
+            "en": "Every winter I have a cold.",
+            "es-419": "Cada invierno tengo un resfriado.",
+            "it": "Ogni inverno ho il raffreddore.",
+            "nl": "Elke winter ben ik verkouden."
+          },
+          "distractors": {
+            "en": [
+              "Every summer I have a cold.",
+              "Every winter I have the flu."
+            ],
+            "es-419": [
+              "Cada verano tengo un resfriado.",
+              "Cada invierno tengo gripe."
+            ],
+            "it": [
+              "Ogni estate ho il raffreddore.",
+              "Ogni inverno ho l'influenza."
+            ],
+            "nl": [
+              "Elke zomer ben ik verkouden.",
+              "Elke winter heb ik de griep."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-giatros-3",
+      "title": "Στον γιατρό",
+      "grammarFocus": {
+        "en": [
+          "νιώθω + adjective or adverb: Νιώθω πολύ κουρασμένη",
+          "πόσο καιρό + present: Πόσο καιρό νιώθεις έτσι;",
+          "formal questions with -ετε: Πώς νιώθετε;"
+        ],
+        "es-419": [
+          "νιώθω + adjetivo o adverbio: Νιώθω πολύ κουρασμένη",
+          "πόσο καιρό + presente: Πόσο καιρό νιώθεις έτσι;",
+          "preguntas formales con -ετε: Πώς νιώθετε;"
+        ],
+        "it": [
+          "νιώθω + aggettivo o avverbio: Νιώθω πολύ κουρασμένη",
+          "πόσο καιρό + presente: Πόσο καιρό νιώθεις έτσι;",
+          "domande formali con -ετε: Πώς νιώθετε;"
+        ],
+        "nl": [
+          "νιώθω + bijvoeglijk naamwoord of bijwoord: Νιώθω πολύ κουρασμένη",
+          "πόσο καιρό + tegenwoordige tijd: Πόσο καιρό νιώθεις έτσι;",
+          "beleefde vragen met -ετε: Πώς νιώθετε;"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "γιατρός",
+          "translation": {
+            "en": "doctor",
+            "es-419": "médico",
+            "it": "dottore",
+            "nl": "arts"
+          },
+          "distractors": {
+            "en": [
+              "nurse",
+              "patient"
+            ],
+            "es-419": [
+              "enfermero",
+              "paciente"
+            ],
+            "it": [
+              "infermiere",
+              "paziente"
+            ],
+            "nl": [
+              "verpleger",
+              "patiënt"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ο ασθενής",
+          "translation": {
+            "en": "the patient",
+            "es-419": "el paciente",
+            "it": "il paziente",
+            "nl": "de patiënt"
+          },
+          "distractors": {
+            "en": [
+              "the doctor",
+              "the nurse"
+            ],
+            "es-419": [
+              "el médico",
+              "el enfermero"
+            ],
+            "it": [
+              "il dottore",
+              "l'infermiere"
+            ],
+            "nl": [
+              "de arts",
+              "de verpleger"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η εξέταση",
+          "translation": {
+            "en": "the examination",
+            "es-419": "el examen médico",
+            "it": "l'esame",
+            "nl": "het onderzoek"
+          },
+          "distractors": {
+            "en": [
+              "the prescription",
+              "the medicine"
+            ],
+            "es-419": [
+              "la receta",
+              "el medicamento"
+            ],
+            "it": [
+              "la ricetta",
+              "il farmaco"
+            ],
+            "nl": [
+              "het recept",
+              "het medicijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η πίεσή μου",
+          "translation": {
+            "en": "my blood pressure",
+            "es-419": "mi presión arterial",
+            "it": "la mia pressione",
+            "nl": "mijn bloeddruk"
+          },
+          "distractors": {
+            "en": [
+              "your blood pressure",
+              "my fever"
+            ],
+            "es-419": [
+              "tu presión arterial",
+              "mi fiebre"
+            ],
+            "it": [
+              "la tua pressione",
+              "la mia febbre"
+            ],
+            "nl": [
+              "jouw bloeddruk",
+              "mijn koorts"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "πόσο καιρό",
+          "translation": {
+            "en": "how long",
+            "es-419": "cuánto tiempo",
+            "it": "da quanto tempo",
+            "nl": "hoe lang"
+          },
+          "distractors": {
+            "en": [
+              "how often",
+              "how far"
+            ],
+            "es-419": [
+              "con qué frecuencia",
+              "a qué distancia"
+            ],
+            "it": [
+              "quanto spesso",
+              "quanto lontano"
+            ],
+            "nl": [
+              "hoe vaak",
+              "hoe ver"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχω ραντεβού με τον γιατρό στις πέντε.",
+          "translation": {
+            "en": "I have an appointment with the doctor at five.",
+            "es-419": "Tengo una cita con el médico a las cinco.",
+            "it": "Ho un appuntamento con il dottore alle cinque.",
+            "nl": "Ik heb een afspraak met de arts om vijf uur."
+          },
+          "distractors": {
+            "en": [
+              "I have an appointment with the doctor at six.",
+              "I have an appointment with the nurse at five."
+            ],
+            "es-419": [
+              "Tengo una cita con el médico a las seis.",
+              "Tengo una cita con el enfermero a las cinco."
+            ],
+            "it": [
+              "Ho un appuntamento con il dottore alle sei.",
+              "Ho un appuntamento con l'infermiere alle cinque."
+            ],
+            "nl": [
+              "Ik heb een afspraak met de arts om zes uur.",
+              "Ik heb een afspraak met de verpleger om vijf uur."
+            ]
+          },
+          "variants": [
+            "Έχω ραντεβού με τον γιατρό στις 5."
+          ]
+        },
+        {
+          "id": "el-a2-giatros-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πώς νιώθετε;",
+          "translation": {
+            "en": "How are you feeling?",
+            "es-419": "¿Cómo se siente?",
+            "it": "Come si sente?",
+            "nl": "Hoe voelt u zich?"
+          },
+          "distractors": {
+            "en": [
+              "Where does it hurt?",
+              "How long have you felt like this?"
+            ],
+            "es-419": [
+              "¿Dónde le duele?",
+              "¿Desde cuándo se siente así?"
+            ],
+            "it": [
+              "Dove Le fa male?",
+              "Da quanto tempo si sente così?"
+            ],
+            "nl": [
+              "Waar doet het pijn?",
+              "Hoe lang voelt u zich al zo?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Νιώθω πολύ κουρασμένη.",
+          "translation": {
+            "en": "I feel very tired.",
+            "es-419": "Me siento muy cansada.",
+            "it": "Mi sento molto stanca.",
+            "nl": "Ik voel me erg moe."
+          },
+          "distractors": {
+            "en": [
+              "I feel very sick.",
+              "I feel a little tired."
+            ],
+            "es-419": [
+              "Me siento muy mal.",
+              "Me siento un poco cansada."
+            ],
+            "it": [
+              "Mi sento molto male.",
+              "Mi sento un po' stanca."
+            ],
+            "nl": [
+              "Ik voel me erg ziek.",
+              "Ik voel me een beetje moe."
+            ]
+          },
+          "speaker": "F"
+        },
+        {
+          "id": "el-a2-giatros-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πόσο καιρό νιώθεις έτσι;",
+          "translation": {
+            "en": "How long have you felt like this?",
+            "es-419": "¿Desde hace cuánto tiempo te sientes así?",
+            "it": "Da quanto tempo ti senti così?",
+            "nl": "Hoe lang voel je je al zo?"
+          },
+          "distractors": {
+            "en": [
+              "How long have you been sick?",
+              "How often do you feel like this?"
+            ],
+            "es-419": [
+              "¿Desde hace cuánto tiempo estás enfermo?",
+              "¿Con qué frecuencia te sientes así?"
+            ],
+            "it": [
+              "Da quanto tempo sei malato?",
+              "Quanto spesso ti senti così?"
+            ],
+            "nl": [
+              "Hoe lang ben je al ziek?",
+              "Hoe vaak voel je je zo?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Νιώθω έτσι από χθες.",
+          "translation": {
+            "en": "I've felt like this since yesterday.",
+            "es-419": "Me siento así desde ayer.",
+            "it": "Mi sento così da ieri.",
+            "nl": "Ik voel me zo sinds gisteren."
+          },
+          "distractors": {
+            "en": [
+              "I've felt like this since Monday.",
+              "I felt like this yesterday."
+            ],
+            "es-419": [
+              "Me siento así desde el lunes.",
+              "Ayer me sentí así."
+            ],
+            "it": [
+              "Mi sento così da lunedì.",
+              "Ieri mi sono sentito così."
+            ],
+            "nl": [
+              "Ik voel me zo sinds maandag.",
+              "Gisteren voelde ik me zo."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ζαλίζομαι όταν σηκώνομαι.",
+          "translation": {
+            "en": "I get dizzy when I stand up.",
+            "es-419": "Me mareo cuando me levanto.",
+            "it": "Mi gira la testa quando mi alzo.",
+            "nl": "Ik word duizelig als ik opsta."
+          },
+          "distractors": {
+            "en": [
+              "I get dizzy when I sit down.",
+              "I get tired when I stand up."
+            ],
+            "es-419": [
+              "Me mareo cuando me siento.",
+              "Me canso cuando me levanto."
+            ],
+            "it": [
+              "Mi gira la testa quando mi siedo.",
+              "Mi stanco quando mi alzo."
+            ],
+            "nl": [
+              "Ik word duizelig als ik ga zitten.",
+              "Ik word moe als ik opsta."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ζαλίζομαι και έχω πυρετό.",
+          "translation": {
+            "en": "I'm dizzy and I have a fever.",
+            "es-419": "Me mareo y tengo fiebre.",
+            "it": "Ho le vertigini e ho la febbre.",
+            "nl": "Ik ben duizelig en ik heb koorts."
+          },
+          "distractors": {
+            "en": [
+              "I'm dizzy and I have a cough.",
+              "I have a headache and a fever."
+            ],
+            "es-419": [
+              "Me mareo y tengo tos.",
+              "Me duele la cabeza y tengo fiebre."
+            ],
+            "it": [
+              "Ho le vertigini e ho la tosse.",
+              "Ho mal di testa e la febbre."
+            ],
+            "nl": [
+              "Ik ben duizelig en ik hoest.",
+              "Ik heb hoofdpijn en koorts."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν είναι κάτι σοβαρό.",
+          "translation": {
+            "en": "It's nothing serious.",
+            "es-419": "No es nada grave.",
+            "it": "Non è niente di grave.",
+            "nl": "Het is niets ernstigs."
+          },
+          "distractors": {
+            "en": [
+              "It's something serious.",
+              "It's nothing new."
+            ],
+            "es-419": [
+              "Es algo grave.",
+              "No es nada nuevo."
+            ],
+            "it": [
+              "È qualcosa di grave.",
+              "Non è niente di nuovo."
+            ],
+            "nl": [
+              "Het is iets ernstigs.",
+              "Het is niets nieuws."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η πίεσή μου είναι καλή.",
+          "translation": {
+            "en": "My blood pressure is good.",
+            "es-419": "Mi presión arterial está bien.",
+            "it": "La mia pressione è buona.",
+            "nl": "Mijn bloeddruk is goed."
+          },
+          "distractors": {
+            "en": [
+              "My blood pressure is bad.",
+              "Your blood pressure is good."
+            ],
+            "es-419": [
+              "Mi presión arterial está mal.",
+              "Tu presión arterial está bien."
+            ],
+            "it": [
+              "La mia pressione è cattiva.",
+              "La tua pressione è buona."
+            ],
+            "nl": [
+              "Mijn bloeddruk is slecht.",
+              "Jouw bloeddruk is goed."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο γιατρός μου είναι πολύ ευγενικός.",
+          "translation": {
+            "en": "My doctor is very polite.",
+            "es-419": "Mi médico es muy amable.",
+            "it": "Il mio dottore è molto gentile.",
+            "nl": "Mijn arts is erg beleefd."
+          },
+          "distractors": {
+            "en": [
+              "My doctor is very young.",
+              "My teacher is very polite."
+            ],
+            "es-419": [
+              "Mi médico es muy joven.",
+              "Mi maestro es muy amable."
+            ],
+            "it": [
+              "Il mio dottore è molto giovane.",
+              "Il mio insegnante è molto gentile."
+            ],
+            "nl": [
+              "Mijn arts is erg jong.",
+              "Mijn leraar is erg beleefd."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο ασθενής περιμένει έξω.",
+          "translation": {
+            "en": "The patient is waiting outside.",
+            "es-419": "El paciente espera afuera.",
+            "it": "Il paziente aspetta fuori.",
+            "nl": "De patiënt wacht buiten."
+          },
+          "distractors": {
+            "en": [
+              "The patient is waiting inside.",
+              "The doctor is waiting outside."
+            ],
+            "es-419": [
+              "El paciente espera adentro.",
+              "El médico espera afuera."
+            ],
+            "it": [
+              "Il paziente aspetta dentro.",
+              "Il dottore aspetta fuori."
+            ],
+            "nl": [
+              "De patiënt wacht binnen.",
+              "De arts wacht buiten."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να κάνω μία εξέταση.",
+          "translation": {
+            "en": "I have to have an examination.",
+            "es-419": "Tengo que hacerme un examen.",
+            "it": "Devo fare un esame.",
+            "nl": "Ik moet een onderzoek laten doen."
+          },
+          "distractors": {
+            "en": [
+              "I have to have a test tomorrow.",
+              "I have to see a doctor."
+            ],
+            "es-419": [
+              "Tengo que hacerme un examen mañana.",
+              "Tengo que ver a un médico."
+            ],
+            "it": [
+              "Devo fare un esame domani.",
+              "Devo vedere un dottore."
+            ],
+            "nl": [
+              "Ik moet morgen een onderzoek laten doen.",
+              "Ik moet naar een arts."
+            ]
+          },
+          "variants": [
+            "Πρέπει να κάνω μια εξέταση."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a2-giatros-4",
+      "title": "Φάρμακα",
+      "grammarFocus": {
+        "en": [
+          "πρέπει να + verb for instructions: Πρέπει να πάρετε ένα χάπι",
+          "frequency with φορές: τρεις φορές τη μέρα",
+          "για + accusative: ένα φάρμακο για τον βήχα"
+        ],
+        "es-419": [
+          "πρέπει να + verbo para instrucciones: Πρέπει να πάρετε ένα χάπι",
+          "frecuencia con φορές: τρεις φορές τη μέρα",
+          "για + acusativo: ένα φάρμακο για τον βήχα"
+        ],
+        "it": [
+          "πρέπει να + verbo per le istruzioni: Πρέπει να πάρετε ένα χάπι",
+          "frequenza con φορές: τρεις φορές τη μέρα",
+          "για + accusativo: ένα φάρμακο για τον βήχα"
+        ],
+        "nl": [
+          "πρέπει να + werkwoord voor instructies: Πρέπει να πάρετε ένα χάπι",
+          "frequentie met φορές: τρεις φορές τη μέρα",
+          "για + accusatief: ένα φάρμακο για τον βήχα"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "φάρμακο",
+          "translation": {
+            "en": "medicine",
+            "es-419": "medicamento",
+            "it": "farmaco",
+            "nl": "medicijn"
+          },
+          "distractors": {
+            "en": [
+              "pill",
+              "prescription"
+            ],
+            "es-419": [
+              "pastilla",
+              "receta"
+            ],
+            "it": [
+              "pillola",
+              "ricetta"
+            ],
+            "nl": [
+              "pil",
+              "recept"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "χάπι",
+          "translation": {
+            "en": "pill",
+            "es-419": "pastilla",
+            "it": "pillola",
+            "nl": "pil"
+          },
+          "distractors": {
+            "en": [
+              "medicine",
+              "prescription"
+            ],
+            "es-419": [
+              "medicamento",
+              "receta"
+            ],
+            "it": [
+              "farmaco",
+              "ricetta"
+            ],
+            "nl": [
+              "medicijn",
+              "recept"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "αντιβιοτικό",
+          "translation": {
+            "en": "antibiotic",
+            "es-419": "antibiótico",
+            "it": "antibiotico",
+            "nl": "antibioticum"
+          },
+          "distractors": {
+            "en": [
+              "pill",
+              "medicine"
+            ],
+            "es-419": [
+              "pastilla",
+              "medicamento"
+            ],
+            "it": [
+              "pillola",
+              "farmaco"
+            ],
+            "nl": [
+              "pil",
+              "medicijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "συνταγή",
+          "translation": {
+            "en": "prescription",
+            "es-419": "receta",
+            "it": "ricetta",
+            "nl": "recept"
+          },
+          "distractors": {
+            "en": [
+              "medicine",
+              "receipt"
+            ],
+            "es-419": [
+              "medicamento",
+              "recibo"
+            ],
+            "it": [
+              "farmaco",
+              "scontrino"
+            ],
+            "nl": [
+              "medicijn",
+              "bon"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "ασθενοφόρο",
+          "translation": {
+            "en": "ambulance",
+            "es-419": "ambulancia",
+            "it": "ambulanza",
+            "nl": "ziekenwagen"
+          },
+          "distractors": {
+            "en": [
+              "hospital",
+              "taxi"
+            ],
+            "es-419": [
+              "hospital",
+              "taxi"
+            ],
+            "it": [
+              "ospedale",
+              "taxi"
+            ],
+            "nl": [
+              "ziekenhuis",
+              "taxi"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ένα χάπι",
+          "translation": {
+            "en": "a pill",
+            "es-419": "una pastilla",
+            "it": "una pillola",
+            "nl": "een pil"
+          },
+          "distractors": {
+            "en": [
+              "two pills",
+              "a medicine"
+            ],
+            "es-419": [
+              "dos pastillas",
+              "un medicamento"
+            ],
+            "it": [
+              "due pillole",
+              "un farmaco"
+            ],
+            "nl": [
+              "twee pillen",
+              "een medicijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "τρεις φορές τη μέρα",
+          "translation": {
+            "en": "three times a day",
+            "es-419": "tres veces al día",
+            "it": "tre volte al giorno",
+            "nl": "drie keer per dag"
+          },
+          "distractors": {
+            "en": [
+              "twice a day",
+              "three times a week"
+            ],
+            "es-419": [
+              "dos veces al día",
+              "tres veces a la semana"
+            ],
+            "it": [
+              "due volte al giorno",
+              "tre volte a settimana"
+            ],
+            "nl": [
+              "twee keer per dag",
+              "drie keer per week"
+            ]
+          },
+          "variants": [
+            "3 φορές τη μέρα"
+          ]
+        },
+        {
+          "id": "el-a2-giatros-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να πάρετε ένα χάπι.",
+          "translation": {
+            "en": "You need to take a pill.",
+            "es-419": "Deben tomar una pastilla.",
+            "it": "Deve prendere una pillola.",
+            "nl": "U moet een pil nemen."
+          },
+          "distractors": {
+            "en": [
+              "You need to take two pills.",
+              "You need to take the medicine."
+            ],
+            "es-419": [
+              "Deben tomar dos pastillas.",
+              "Deben tomar el medicamento."
+            ],
+            "it": [
+              "Deve prendere due pillole.",
+              "Deve prendere il farmaco."
+            ],
+            "nl": [
+              "U moet twee pillen nemen.",
+              "U moet het medicijn nemen."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να πάρετε ένα χάπι τρεις φορές τη μέρα.",
+          "translation": {
+            "en": "You need to take a pill three times a day.",
+            "es-419": "Deben tomar una pastilla tres veces al día.",
+            "it": "Deve prendere una pillola tre volte al giorno.",
+            "nl": "U moet drie keer per dag een pil nemen."
+          },
+          "distractors": {
+            "en": [
+              "You need to take a pill twice a day.",
+              "You need to take two pills three times a day."
+            ],
+            "es-419": [
+              "Deben tomar una pastilla dos veces al día.",
+              "Deben tomar dos pastillas tres veces al día."
+            ],
+            "it": [
+              "Deve prendere una pillola due volte al giorno.",
+              "Deve prendere due pillole tre volte al giorno."
+            ],
+            "nl": [
+              "U moet twee keer per dag een pil nemen.",
+              "U moet drie keer per dag twee pillen nemen."
+            ]
+          },
+          "variants": [
+            "Πρέπει να πάρετε ένα χάπι 3 φορές τη μέρα."
+          ]
+        },
+        {
+          "id": "el-a2-giatros-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Παίρνω ένα αντιβιοτικό.",
+          "translation": {
+            "en": "I'm taking an antibiotic.",
+            "es-419": "Estoy tomando un antibiótico.",
+            "it": "Sto prendendo un antibiotico.",
+            "nl": "Ik neem een antibioticum."
+          },
+          "distractors": {
+            "en": [
+              "I'm taking a vitamin.",
+              "I'm buying an antibiotic."
+            ],
+            "es-419": [
+              "Estoy tomando una vitamina.",
+              "Estoy comprando un antibiótico."
+            ],
+            "it": [
+              "Sto prendendo una vitamina.",
+              "Sto comprando un antibiotico."
+            ],
+            "nl": [
+              "Ik neem een vitamine.",
+              "Ik koop een antibioticum."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο γιατρός μου δίνει μία συνταγή.",
+          "translation": {
+            "en": "My doctor is giving me a prescription.",
+            "es-419": "Mi médico me da una receta.",
+            "it": "Il mio dottore mi dà una ricetta.",
+            "nl": "Mijn arts geeft me een recept."
+          },
+          "distractors": {
+            "en": [
+              "My doctor is giving me a letter.",
+              "My nurse is giving me a prescription."
+            ],
+            "es-419": [
+              "Mi médico me da una carta.",
+              "Mi enfermera me da una receta."
+            ],
+            "it": [
+              "Il mio dottore mi dà una lettera.",
+              "La mia infermiera mi dà una ricetta."
+            ],
+            "nl": [
+              "Mijn arts geeft me een brief.",
+              "Mijn verpleegster geeft me een recept."
+            ]
+          },
+          "variants": [
+            "Ο γιατρός μου δίνει μια συνταγή."
+          ]
+        },
+        {
+          "id": "el-a2-giatros-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έχετε συνταγή;",
+          "translation": {
+            "en": "Do you have a prescription?",
+            "es-419": "¿Tienen receta?",
+            "it": "Ha la ricetta?",
+            "nl": "Hebt u een recept?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have an appointment?",
+              "Do you have a receipt?"
+            ],
+            "es-419": [
+              "¿Tienen una cita?",
+              "¿Tienen un recibo?"
+            ],
+            "it": [
+              "Ha un appuntamento?",
+              "Ha lo scontrino?"
+            ],
+            "nl": [
+              "Hebt u een afspraak?",
+              "Hebt u een bon?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θέλω ένα φάρμακο για τον βήχα.",
+          "translation": {
+            "en": "I'd like a medicine for the cough.",
+            "es-419": "Quiero un medicamento para la tos.",
+            "it": "Vorrei un farmaco per la tosse.",
+            "nl": "Ik wil een medicijn tegen de hoest."
+          },
+          "distractors": {
+            "en": [
+              "I'd like a medicine for the fever.",
+              "I'd like a pill for the cough."
+            ],
+            "es-419": [
+              "Quiero un medicamento para la fiebre.",
+              "Quiero una pastilla para la tos."
+            ],
+            "it": [
+              "Vorrei un farmaco per la febbre.",
+              "Vorrei una pillola per la tosse."
+            ],
+            "nl": [
+              "Ik wil een medicijn tegen de koorts.",
+              "Ik wil een pil tegen de hoest."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Υπάρχει φαρμακείο εδώ κοντά;",
+          "translation": {
+            "en": "Is there a pharmacy nearby?",
+            "es-419": "¿Hay una farmacia cerca de aquí?",
+            "it": "C'è una farmacia qui vicino?",
+            "nl": "Is er een apotheek in de buurt?"
+          },
+          "distractors": {
+            "en": [
+              "Is there a bank nearby?",
+              "Is the pharmacy far away?"
+            ],
+            "es-419": [
+              "¿Hay un banco cerca de aquí?",
+              "¿Está lejos la farmacia?"
+            ],
+            "it": [
+              "C'è una banca qui vicino?",
+              "La farmacia è lontana?"
+            ],
+            "nl": [
+              "Is er een bank in de buurt?",
+              "Is de apotheek ver weg?"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το φαρμακείο είναι κλειστό.",
+          "translation": {
+            "en": "The pharmacy is closed.",
+            "es-419": "La farmacia está cerrada.",
+            "it": "La farmacia è chiusa.",
+            "nl": "De apotheek is dicht."
+          },
+          "distractors": {
+            "en": [
+              "The pharmacy is open.",
+              "The bank is closed."
+            ],
+            "es-419": [
+              "La farmacia está abierta.",
+              "El banco está cerrado."
+            ],
+            "it": [
+              "La farmacia è aperta.",
+              "La banca è chiusa."
+            ],
+            "nl": [
+              "De apotheek is open.",
+              "De bank is dicht."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να καλέσουμε το ασθενοφόρο.",
+          "translation": {
+            "en": "We have to call an ambulance.",
+            "es-419": "Tenemos que llamar a la ambulancia.",
+            "it": "Dobbiamo chiamare l'ambulanza.",
+            "nl": "We moeten de ziekenwagen bellen."
+          },
+          "distractors": {
+            "en": [
+              "We have to call the police.",
+              "We have to call a taxi."
+            ],
+            "es-419": [
+              "Tenemos que llamar a la policía.",
+              "Tenemos que llamar un taxi."
+            ],
+            "it": [
+              "Dobbiamo chiamare la polizia.",
+              "Dobbiamo chiamare un taxi."
+            ],
+            "nl": [
+              "We moeten de politie bellen.",
+              "We moeten een taxi bellen."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-4-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το ασθενοφόρο φτάνει σε πέντε λεπτά.",
+          "translation": {
+            "en": "The ambulance arrives in five minutes.",
+            "es-419": "La ambulancia llega en cinco minutos.",
+            "it": "L'ambulanza arriva tra cinque minuti.",
+            "nl": "De ziekenwagen komt over vijf minuten aan."
+          },
+          "distractors": {
+            "en": [
+              "The ambulance arrives in ten minutes.",
+              "The taxi arrives in five minutes."
+            ],
+            "es-419": [
+              "La ambulancia llega en diez minutos.",
+              "El taxi llega en cinco minutos."
+            ],
+            "it": [
+              "L'ambulanza arriva tra dieci minuti.",
+              "Il taxi arriva tra cinque minuti."
+            ],
+            "nl": [
+              "De ziekenwagen komt over tien minuten aan.",
+              "De taxi komt over vijf minuten aan."
+            ]
+          },
+          "variants": [
+            "Το ασθενοφόρο φτάνει σε 5 λεπτά."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-a2-giatros-5",
+      "title": "Συμβουλές",
+      "grammarFocus": {
+        "en": [
+          "πρέπει να + verb for advice: Πρέπει να ξεκουραστείτε",
+          "δεν πρέπει να + verb for what not to do: Δεν πρέπει να πάτε στη δουλειά",
+          "καλύτερα να + verb as a chunk: Καλύτερα να ξεκουραστείς"
+        ],
+        "es-419": [
+          "πρέπει να + verbo para consejos: Πρέπει να ξεκουραστείτε",
+          "δεν πρέπει να + verbo para lo que no se debe hacer: Δεν πρέπει να πάτε στη δουλειά",
+          "καλύτερα να + verbo como bloque: Καλύτερα να ξεκουραστείς"
+        ],
+        "it": [
+          "πρέπει να + verbo per i consigli: Πρέπει να ξεκουραστείτε",
+          "δεν πρέπει να + verbo per ciò che non si deve fare: Δεν πρέπει να πάτε στη δουλειά",
+          "καλύτερα να + verbo come blocco: Καλύτερα να ξεκουραστείς"
+        ],
+        "nl": [
+          "πρέπει να + werkwoord voor advies: Πρέπει να ξεκουραστείτε",
+          "δεν πρέπει να + werkwoord voor wat niet mag: Δεν πρέπει να πάτε στη δουλειά",
+          "καλύτερα να + werkwoord als vaste combinatie: Καλύτερα να ξεκουραστείς"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "υγεία",
+          "translation": {
+            "en": "health",
+            "es-419": "salud",
+            "it": "salute",
+            "nl": "gezondheid"
+          },
+          "distractors": {
+            "en": [
+              "illness",
+              "pain"
+            ],
+            "es-419": [
+              "enfermedad",
+              "dolor"
+            ],
+            "it": [
+              "malattia",
+              "dolore"
+            ],
+            "nl": [
+              "ziekte",
+              "pijn"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "η υγεία μου",
+          "translation": {
+            "en": "my health",
+            "es-419": "mi salud",
+            "it": "la mia salute",
+            "nl": "mijn gezondheid"
+          },
+          "distractors": {
+            "en": [
+              "your health",
+              "my illness"
+            ],
+            "es-419": [
+              "tu salud",
+              "mi enfermedad"
+            ],
+            "it": [
+              "la tua salute",
+              "la mia malattia"
+            ],
+            "nl": [
+              "jouw gezondheid",
+              "mijn ziekte"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "πολλά υγρά",
+          "translation": {
+            "en": "a lot of fluids",
+            "es-419": "muchos líquidos",
+            "it": "molti liquidi",
+            "nl": "veel vocht"
+          },
+          "distractors": {
+            "en": [
+              "a lot of water",
+              "a few fluids"
+            ],
+            "es-419": [
+              "mucha agua",
+              "pocos líquidos"
+            ],
+            "it": [
+              "molta acqua",
+              "pochi liquidi"
+            ],
+            "nl": [
+              "veel water",
+              "weinig vocht"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "σύντομα",
+          "translation": {
+            "en": "soon",
+            "es-419": "pronto",
+            "it": "presto",
+            "nl": "binnenkort"
+          },
+          "distractors": {
+            "en": [
+              "now",
+              "tomorrow"
+            ],
+            "es-419": [
+              "ahora",
+              "mañana"
+            ],
+            "it": [
+              "adesso",
+              "domani"
+            ],
+            "nl": [
+              "nu",
+              "morgen"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "καλύτερα",
+          "translation": {
+            "en": "better",
+            "es-419": "mejor",
+            "it": "meglio",
+            "nl": "beter"
+          },
+          "distractors": {
+            "en": [
+              "well",
+              "soon"
+            ],
+            "es-419": [
+              "bien",
+              "pronto"
+            ],
+            "it": [
+              "bene",
+              "presto"
+            ],
+            "nl": [
+              "goed",
+              "binnenkort"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να ξεκουραστείτε.",
+          "translation": {
+            "en": "You need to rest.",
+            "es-419": "Deben descansar.",
+            "it": "Deve riposare.",
+            "nl": "U moet rusten."
+          },
+          "distractors": {
+            "en": [
+              "You need to eat.",
+              "You need to go out."
+            ],
+            "es-419": [
+              "Deben comer.",
+              "Deben salir."
+            ],
+            "it": [
+              "Deve mangiare.",
+              "Deve uscire."
+            ],
+            "nl": [
+              "U moet eten.",
+              "U moet uitgaan."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να ξεκουραστείτε και να πίνετε νερό.",
+          "translation": {
+            "en": "You need to rest and drink water.",
+            "es-419": "Deben descansar y tomar agua.",
+            "it": "Deve riposare e bere acqua.",
+            "nl": "U moet rusten en water drinken."
+          },
+          "distractors": {
+            "en": [
+              "You need to rest and drink tea.",
+              "You need to eat and drink water."
+            ],
+            "es-419": [
+              "Deben descansar y tomar té.",
+              "Deben comer y tomar agua."
+            ],
+            "it": [
+              "Deve riposare e bere tè.",
+              "Deve mangiare e bere acqua."
+            ],
+            "nl": [
+              "U moet rusten en thee drinken.",
+              "U moet eten en water drinken."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να πίνετε πολλά υγρά.",
+          "translation": {
+            "en": "You need to drink a lot of fluids.",
+            "es-419": "Deben tomar muchos líquidos.",
+            "it": "Deve bere molti liquidi.",
+            "nl": "U moet veel vocht drinken."
+          },
+          "distractors": {
+            "en": [
+              "You need to drink a few fluids.",
+              "You need to eat a lot."
+            ],
+            "es-419": [
+              "Deben tomar pocos líquidos.",
+              "Deben comer mucho."
+            ],
+            "it": [
+              "Deve bere pochi liquidi.",
+              "Deve mangiare molto."
+            ],
+            "nl": [
+              "U moet weinig vocht drinken.",
+              "U moet veel eten."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να μείνετε στο σπίτι.",
+          "translation": {
+            "en": "You have to stay at home.",
+            "es-419": "Deben quedarse en casa.",
+            "it": "Deve restare a casa.",
+            "nl": "U moet thuisblijven."
+          },
+          "distractors": {
+            "en": [
+              "You have to go to work.",
+              "You have to stay at the hospital."
+            ],
+            "es-419": [
+              "Deben ir al trabajo.",
+              "Deben quedarse en el hospital."
+            ],
+            "it": [
+              "Deve andare al lavoro.",
+              "Deve restare all'ospedale."
+            ],
+            "nl": [
+              "U moet naar uw werk gaan.",
+              "U moet in het ziekenhuis blijven."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν πρέπει να πάτε στη δουλειά.",
+          "translation": {
+            "en": "You must not go to work.",
+            "es-419": "No deben ir al trabajo.",
+            "it": "Non deve andare al lavoro.",
+            "nl": "U mag niet naar uw werk gaan."
+          },
+          "distractors": {
+            "en": [
+              "You must go to work.",
+              "You must not go to school."
+            ],
+            "es-419": [
+              "Deben ir al trabajo.",
+              "No deben ir a la escuela."
+            ],
+            "it": [
+              "Deve andare al lavoro.",
+              "Non deve andare a scuola."
+            ],
+            "nl": [
+              "U moet naar uw werk gaan.",
+              "U mag niet naar school gaan."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να προσέχετε την υγεία σας.",
+          "translation": {
+            "en": "You need to take care of your health.",
+            "es-419": "Deben cuidar su salud.",
+            "it": "Deve curare la sua salute.",
+            "nl": "U moet op uw gezondheid letten."
+          },
+          "distractors": {
+            "en": [
+              "You need to take care of your family.",
+              "You need to take care of your work."
+            ],
+            "es-419": [
+              "Deben cuidar a su familia.",
+              "Deben cuidar su trabajo."
+            ],
+            "it": [
+              "Deve curare la sua famiglia.",
+              "Deve curare il suo lavoro."
+            ],
+            "nl": [
+              "U moet op uw gezin letten.",
+              "U moet op uw werk letten."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Προσέχω τι τρώω.",
+          "translation": {
+            "en": "I watch what I eat.",
+            "es-419": "Cuido lo que como.",
+            "it": "Faccio attenzione a cosa mangio.",
+            "nl": "Ik let op wat ik eet."
+          },
+          "distractors": {
+            "en": [
+              "I watch what I drink.",
+              "I don't watch what I eat."
+            ],
+            "es-419": [
+              "Cuido lo que tomo.",
+              "No cuido lo que como."
+            ],
+            "it": [
+              "Faccio attenzione a cosa bevo.",
+              "Non faccio attenzione a cosa mangio."
+            ],
+            "nl": [
+              "Ik let op wat ik drink.",
+              "Ik let niet op wat ik eet."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν πρέπει να πίνεις καφέ.",
+          "translation": {
+            "en": "You shouldn't drink coffee.",
+            "es-419": "No debes tomar café.",
+            "it": "Non devi bere caffè.",
+            "nl": "Je moet geen koffie drinken."
+          },
+          "distractors": {
+            "en": [
+              "You should drink coffee.",
+              "You shouldn't drink tea."
+            ],
+            "es-419": [
+              "Debes tomar café.",
+              "No debes tomar té."
+            ],
+            "it": [
+              "Devi bere caffè.",
+              "Non devi bere tè."
+            ],
+            "nl": [
+              "Je moet koffie drinken.",
+              "Je moet geen thee drinken."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Καλύτερα να ξεκουραστείς.",
+          "translation": {
+            "en": "You'd better rest.",
+            "es-419": "Mejor descansa.",
+            "it": "Meglio che tu riposi.",
+            "nl": "Je kunt beter gaan rusten."
+          },
+          "distractors": {
+            "en": [
+              "You'd better eat.",
+              "You'd better go out."
+            ],
+            "es-419": [
+              "Mejor come.",
+              "Mejor sal."
+            ],
+            "it": [
+              "Meglio che tu mangi.",
+              "Meglio che tu esca."
+            ],
+            "nl": [
+              "Je kunt beter gaan eten.",
+              "Je kunt beter uitgaan."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα ξεκουραστώ λίγο.",
+          "translation": {
+            "en": "I'll rest for a bit.",
+            "es-419": "Voy a descansar un poco.",
+            "it": "Riposerò un po'.",
+            "nl": "Ik ga even rusten."
+          },
+          "distractors": {
+            "en": [
+              "I'll rest a lot.",
+              "I'll work for a bit."
+            ],
+            "es-419": [
+              "Voy a descansar mucho.",
+              "Voy a trabajar un poco."
+            ],
+            "it": [
+              "Riposerò molto.",
+              "Lavorerò un po'."
+            ],
+            "nl": [
+              "Ik ga veel rusten.",
+              "Ik ga even werken."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα πάω στον γιατρό σύντομα.",
+          "translation": {
+            "en": "I'll go to the doctor soon.",
+            "es-419": "Voy a ir al médico pronto.",
+            "it": "Andrò dal dottore presto.",
+            "nl": "Ik ga binnenkort naar de arts."
+          },
+          "distractors": {
+            "en": [
+              "I'll go to the pharmacy soon.",
+              "I'll go to the doctor today."
+            ],
+            "es-419": [
+              "Voy a ir a la farmacia pronto.",
+              "Voy a ir al médico hoy."
+            ],
+            "it": [
+              "Andrò in farmacia presto.",
+              "Andrò dal dottore oggi."
+            ],
+            "nl": [
+              "Ik ga binnenkort naar de apotheek.",
+              "Ik ga vandaag naar de arts."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-5-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα νιώσεις καλύτερα σύντομα.",
+          "translation": {
+            "en": "You'll feel better soon.",
+            "es-419": "Te sentirás mejor pronto.",
+            "it": "Ti sentirai meglio presto.",
+            "nl": "Je voelt je binnenkort beter."
+          },
+          "distractors": {
+            "en": [
+              "You'll feel better tomorrow.",
+              "I'll feel better soon."
+            ],
+            "es-419": [
+              "Te sentirás mejor mañana.",
+              "Me sentiré mejor pronto."
+            ],
+            "it": [
+              "Ti sentirai meglio domani.",
+              "Mi sentirò meglio presto."
+            ],
+            "nl": [
+              "Je voelt je morgen beter.",
+              "Ik voel me binnenkort beter."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a2-giatros-6",
+      "title": "Πώς είσαι τώρα;",
+      "grammarFocus": {
+        "en": [
+          "verbs of state: κρυώνω, ζεσταίνομαι, αρρωσταίνω, βήχω",
+          "νιώθω καλύτερα and είμαι καλά: Σήμερα νιώθω καλύτερα",
+          "θα + γίνεις καλά as a chunk: Θα γίνεις καλά σύντομα"
+        ],
+        "es-419": [
+          "verbos de estado: κρυώνω, ζεσταίνομαι, αρρωσταίνω, βήχω",
+          "νιώθω καλύτερα y είμαι καλά: Σήμερα νιώθω καλύτερα",
+          "θα + γίνεις καλά como bloque: Θα γίνεις καλά σύντομα"
+        ],
+        "it": [
+          "verbi di stato: κρυώνω, ζεσταίνομαι, αρρωσταίνω, βήχω",
+          "νιώθω καλύτερα e είμαι καλά: Σήμερα νιώθω καλύτερα",
+          "θα + γίνεις καλά come blocco: Θα γίνεις καλά σύντομα"
+        ],
+        "nl": [
+          "werkwoorden van toestand: κρυώνω, ζεσταίνομαι, αρρωσταίνω, βήχω",
+          "νιώθω καλύτερα en είμαι καλά: Σήμερα νιώθω καλύτερα",
+          "θα + γίνεις καλά als vaste combinatie: Θα γίνεις καλά σύντομα"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a2-giatros-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "βήχω",
+          "translation": {
+            "en": "I cough",
+            "es-419": "toso",
+            "it": "tossisco",
+            "nl": "ik hoest"
+          },
+          "distractors": {
+            "en": [
+              "I sleep",
+              "I run"
+            ],
+            "es-419": [
+              "duermo",
+              "corro"
+            ],
+            "it": [
+              "dormo",
+              "corro"
+            ],
+            "nl": [
+              "ik slaap",
+              "ik ren"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "κρυώνω",
+          "translation": {
+            "en": "I'm cold",
+            "es-419": "tengo frío",
+            "it": "ho freddo",
+            "nl": "ik heb het koud"
+          },
+          "distractors": {
+            "en": [
+              "I'm hot",
+              "I'm hungry"
+            ],
+            "es-419": [
+              "tengo calor",
+              "tengo hambre"
+            ],
+            "it": [
+              "ho caldo",
+              "ho fame"
+            ],
+            "nl": [
+              "ik heb het warm",
+              "ik heb honger"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "ζεσταίνομαι",
+          "translation": {
+            "en": "I'm hot",
+            "es-419": "tengo calor",
+            "it": "ho caldo",
+            "nl": "ik heb het warm"
+          },
+          "distractors": {
+            "en": [
+              "I'm cold",
+              "I'm thirsty"
+            ],
+            "es-419": [
+              "tengo frío",
+              "tengo sed"
+            ],
+            "it": [
+              "ho freddo",
+              "ho sete"
+            ],
+            "nl": [
+              "ik heb het koud",
+              "ik heb dorst"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "αρρωσταίνω",
+          "translation": {
+            "en": "I get sick",
+            "es-419": "me enfermo",
+            "it": "mi ammalo",
+            "nl": "ik word ziek"
+          },
+          "distractors": {
+            "en": [
+              "I get tired",
+              "I get better"
+            ],
+            "es-419": [
+              "me canso",
+              "me mejoro"
+            ],
+            "it": [
+              "mi stanco",
+              "mi riprendo"
+            ],
+            "nl": [
+              "ik word moe",
+              "ik word beter"
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Κρυώνω και βήχω.",
+          "translation": {
+            "en": "I'm cold and I'm coughing.",
+            "es-419": "Tengo frío y toso.",
+            "it": "Ho freddo e tossisco.",
+            "nl": "Ik heb het koud en ik hoest."
+          },
+          "distractors": {
+            "en": [
+              "I'm hot and I'm coughing.",
+              "I'm cold and I'm hungry."
+            ],
+            "es-419": [
+              "Tengo calor y toso.",
+              "Tengo frío y tengo hambre."
+            ],
+            "it": [
+              "Ho caldo e tossisco.",
+              "Ho freddo e ho fame."
+            ],
+            "nl": [
+              "Ik heb het warm en ik hoest.",
+              "Ik heb het koud en ik heb honger."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ζεσταίνομαι πολύ και ζαλίζομαι.",
+          "translation": {
+            "en": "I'm very hot and dizzy.",
+            "es-419": "Tengo mucho calor y me mareo.",
+            "it": "Ho molto caldo e mi gira la testa.",
+            "nl": "Ik heb het erg warm en ik word duizelig."
+          },
+          "distractors": {
+            "en": [
+              "I'm very cold and dizzy.",
+              "I'm very hot and hungry."
+            ],
+            "es-419": [
+              "Tengo mucho frío y me mareo.",
+              "Tengo mucho calor y tengo hambre."
+            ],
+            "it": [
+              "Ho molto freddo e mi gira la testa.",
+              "Ho molto caldo e ho fame."
+            ],
+            "nl": [
+              "Ik heb het erg koud en ik word duizelig.",
+              "Ik heb het erg warm en ik heb honger."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Αρρωσταίνω πολύ συχνά τον χειμώνα.",
+          "translation": {
+            "en": "I get sick very often in winter.",
+            "es-419": "Me enfermo muy seguido en invierno.",
+            "it": "Mi ammalo molto spesso in inverno.",
+            "nl": "In de winter word ik heel vaak ziek."
+          },
+          "distractors": {
+            "en": [
+              "I get sick very often in summer.",
+              "I rarely get sick in winter."
+            ],
+            "es-419": [
+              "Me enfermo muy seguido en verano.",
+              "Casi nunca me enfermo en invierno."
+            ],
+            "it": [
+              "Mi ammalo molto spesso in estate.",
+              "Mi ammalo raramente in inverno."
+            ],
+            "nl": [
+              "In de zomer word ik heel vaak ziek.",
+              "In de winter word ik zelden ziek."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έβηξα όλη τη νύχτα.",
+          "translation": {
+            "en": "I coughed all night.",
+            "es-419": "Tosí toda la noche.",
+            "it": "Ho tossito tutta la notte.",
+            "nl": "Ik heb de hele nacht gehoest."
+          },
+          "distractors": {
+            "en": [
+              "I coughed all day.",
+              "I slept all night."
+            ],
+            "es-419": [
+              "Tosí todo el día.",
+              "Dormí toda la noche."
+            ],
+            "it": [
+              "Ho tossito tutto il giorno.",
+              "Ho dormito tutta la notte."
+            ],
+            "nl": [
+              "Ik heb de hele dag gehoest.",
+              "Ik heb de hele nacht geslapen."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν κοιμήθηκα καλά.",
+          "translation": {
+            "en": "I didn't sleep well.",
+            "es-419": "No dormí bien.",
+            "it": "Non ho dormito bene.",
+            "nl": "Ik heb niet goed geslapen."
+          },
+          "distractors": {
+            "en": [
+              "I slept well.",
+              "I didn't eat well."
+            ],
+            "es-419": [
+              "Dormí bien.",
+              "No comí bien."
+            ],
+            "it": [
+              "Ho dormito bene.",
+              "Non ho mangiato bene."
+            ],
+            "nl": [
+              "Ik heb goed geslapen.",
+              "Ik heb niet goed gegeten."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Σήμερα νιώθω καλύτερα.",
+          "translation": {
+            "en": "Today I feel better.",
+            "es-419": "Hoy me siento mejor.",
+            "it": "Oggi mi sento meglio.",
+            "nl": "Vandaag voel ik me beter."
+          },
+          "distractors": {
+            "en": [
+              "Today I feel worse.",
+              "Yesterday I felt better."
+            ],
+            "es-419": [
+              "Hoy me siento peor.",
+              "Ayer me sentí mejor."
+            ],
+            "it": [
+              "Oggi mi sento peggio.",
+              "Ieri mi sono sentito meglio."
+            ],
+            "nl": [
+              "Vandaag voel ik me slechter.",
+              "Gisteren voelde ik me beter."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο πυρετός πέρασε.",
+          "translation": {
+            "en": "The fever is gone.",
+            "es-419": "La fiebre se pasó.",
+            "it": "La febbre è passata.",
+            "nl": "De koorts is weg."
+          },
+          "distractors": {
+            "en": [
+              "The cough is gone.",
+              "The fever came back."
+            ],
+            "es-419": [
+              "La tos se pasó.",
+              "La fiebre volvió."
+            ],
+            "it": [
+              "La tosse è passata.",
+              "La febbre è tornata."
+            ],
+            "nl": [
+              "De hoest is weg.",
+              "De koorts is teruggekomen."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο βήχας περνάει σιγά σιγά.",
+          "translation": {
+            "en": "The cough is slowly going away.",
+            "es-419": "La tos se va pasando poco a poco.",
+            "it": "La tosse passa piano piano.",
+            "nl": "De hoest gaat langzaam over."
+          },
+          "distractors": {
+            "en": [
+              "The fever is slowly going away.",
+              "The cough is getting worse."
+            ],
+            "es-419": [
+              "La fiebre se va pasando poco a poco.",
+              "La tos está empeorando."
+            ],
+            "it": [
+              "La febbre passa piano piano.",
+              "La tosse peggiora."
+            ],
+            "nl": [
+              "De koorts gaat langzaam over.",
+              "De hoest wordt erger."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Θα γίνεις καλά σύντομα.",
+          "translation": {
+            "en": "You'll get well soon.",
+            "es-419": "Te vas a poner bien pronto.",
+            "it": "Guarirai presto.",
+            "nl": "Je wordt snel beter."
+          },
+          "distractors": {
+            "en": [
+              "You'll get sick soon.",
+              "You'll be home soon."
+            ],
+            "es-419": [
+              "Te vas a enfermar pronto.",
+              "Pronto estarás en casa."
+            ],
+            "it": [
+              "Ti ammalerai presto.",
+              "Sarai a casa presto."
+            ],
+            "nl": [
+              "Je wordt snel ziek.",
+              "Je bent snel thuis."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είμαι καλά τώρα, ευχαριστώ.",
+          "translation": {
+            "en": "I'm fine now, thank you.",
+            "es-419": "Ahora estoy bien, gracias.",
+            "it": "Ora sto bene, grazie.",
+            "nl": "Ik ben nu in orde, dank u."
+          },
+          "distractors": {
+            "en": [
+              "I'm tired now, thank you.",
+              "I was fine yesterday, thank you."
+            ],
+            "es-419": [
+              "Ahora estoy cansado, gracias.",
+              "Ayer estaba bien, gracias."
+            ],
+            "it": [
+              "Ora sono stanco, grazie.",
+              "Ieri stavo bene, grazie."
+            ],
+            "nl": [
+              "Ik ben nu moe, dank u.",
+              "Gisteren was ik in orde, dank u."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Όταν κρυώνω, πίνω ένα ζεστό τσάι με μέλι.",
+          "translation": {
+            "en": "When I'm cold, I drink a hot tea with honey.",
+            "es-419": "Cuando tengo frío, tomo un té caliente con miel.",
+            "it": "Quando ho freddo, bevo un tè caldo con il miele.",
+            "nl": "Als ik het koud heb, drink ik een warme thee met honing."
+          },
+          "distractors": {
+            "en": [
+              "When I'm hot, I drink a cold tea with honey.",
+              "When I'm cold, I drink hot milk with honey."
+            ],
+            "es-419": [
+              "Cuando tengo calor, tomo un té frío con miel.",
+              "Cuando tengo frío, tomo leche caliente con miel."
+            ],
+            "it": [
+              "Quando ho caldo, bevo un tè freddo con il miele.",
+              "Quando ho freddo, bevo latte caldo con il miele."
+            ],
+            "nl": [
+              "Als ik het warm heb, drink ik een koude thee met honing.",
+              "Als ik het koud heb, drink ik warme melk met honing."
+            ]
+          }
+        },
+        {
+          "id": "el-a2-giatros-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο πατέρας μου είναι πολύ καλύτερα.",
+          "translation": {
+            "en": "My father is much better.",
+            "es-419": "Mi papá está mucho mejor.",
+            "it": "Mio padre sta molto meglio.",
+            "nl": "Mijn vader gaat veel beter."
+          },
+          "distractors": {
+            "en": [
+              "My father is a little better.",
+              "My mother is much better."
+            ],
+            "es-419": [
+              "Mi papá está un poco mejor.",
+              "Mi mamá está mucho mejor."
+            ],
+            "it": [
+              "Mio padre sta un po' meglio.",
+              "Mia madre sta molto meglio."
+            ],
+            "nl": [
+              "Mijn vader gaat iets beter.",
+              "Mijn moeder gaat veel beter."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

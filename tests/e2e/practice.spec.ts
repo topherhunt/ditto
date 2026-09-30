@@ -64,6 +64,8 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
   await page.locator(".qa-nav-type").click();
   await page.locator(".qa-notebook-link").click();
+  await expect(page).toHaveURL(/\/it\/type\/notebook$/);
+  await expect(page.locator(".qa-type-crumb")).toContainText("Listen and type");
   await expect(page.locator(".qa-mistake-text")).toHaveText(["per favore", "vorrei"]);
   await expect(page.locator(".qa-mistake").filter({ hasText: "vorrei" }).locator(".qa-letter-insert")).toHaveText("r");
 
@@ -235,8 +237,10 @@ test("review is empty for a new learner", async ({ page }) => {
   await page.goto("/it/type");
   // Review only links from the catalog once there is progress.
   await expect(page.locator(".qa-review-link")).toHaveCount(0);
-  await page.goto("/it/review");
+  await page.goto("/it/type/review");
   await expect(page.locator(".qa-session-done")).toContainText("Nothing to practice");
+  await page.locator(".qa-type-crumb").click();
+  await expect(page).toHaveURL(/\/it\/type$/);
 });
 
 test("dark by default with a persistent theme setting; sign out from the account menu", async ({ page }) => {
@@ -295,7 +299,6 @@ test("the catalog's prefs line describes the course's settings and links to the 
   await expect(row.locator(".qa-prefs-summary-path")).toContainText("Full path");
   await expect(row.locator(".qa-prefs-summary-hints")).toContainText("Letter hints");
   await expect(row.locator(".qa-prefs-summary-rate")).toContainText("Normal speed");
-  await expect(row.locator(".qa-prefs-summary-autoplay")).toHaveCount(0);
   await expect(row.locator(".qa-prefs-summary-studyFirst")).toHaveCount(0);
   const progress = page.locator(".qa-lesson-progress").first();
   const fullTotal = (await progress.innerText()).split("/")[1].trim();
@@ -305,8 +308,6 @@ test("the catalog's prefs line describes the course's settings and links to the 
   await expect(page.locator(".qa-course-settings-title")).toHaveText("Italian practice settings");
   await expect(page.locator(".qa-settings-path")).toHaveValue("full");
   await page.locator(".qa-settings-path").selectOption("sentences");
-  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
-  await page.locator(".qa-settings-autoplay").selectOption("0");
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
 
   await page.locator(".qa-course-settings-back").click();

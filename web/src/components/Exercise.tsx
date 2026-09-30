@@ -81,27 +81,18 @@ export function Exercise(props: {
   /** One voice per item, so replays and word taps sound like the sentence. */
   const voice = pickVoice(unit.audio);
   const audio = new Audio(unit.audio[voice]!);
-  let autoplaysLeft = study ? Math.max(1, props.prefs.autoplay) : props.prefs.autoplay;
-  const play = (rate = props.prefs.rate) => {
+    const play = (rate = props.prefs.rate) => {
     audio.pause();
     audio.currentTime = 0;
     audio.playbackRate = rate;
     audio.play().then(() => setAutoplayBlocked(false), () => setAutoplayBlocked(true));
   };
-  const onEnded = () => {
-    if (--autoplaysLeft > 0) setTimeout(() => play(), 700);
-  };
-  audio.addEventListener("ended", onEnded);
   onMount(() => {
-    if (autoplaysLeft > 0) play();
+    play();
     focusFirstOpen();
   });
-  onCleanup(() => {
-    audio.removeEventListener("ended", onEnded);
-    audio.pause();
-  });
+  onCleanup(() => audio.pause());
   const replay = (rate?: number) => {
-    autoplaysLeft = 0;
     if (!studying()) replays++;
     play(rate);
   };
@@ -109,7 +100,6 @@ export function Exercise(props: {
   /** Ends the study screen: the same audio plays again, now with the input to type it into. */
   function startTest() {
     setStudying(false);
-    autoplaysLeft = 0;
     play();
     queueMicrotask(focusFirstOpen);
   }

@@ -384,6 +384,8 @@ export function createApp(deps: AppDeps) {
         if (idx < 0) throw new HTTPException(400, { message: `Unit ${unit.id} is not on path ${a.path}` });
         const done = idx === pathUnits.length - 1;
         if (!a.master) {
+          // Any practice restarts the Master wait, not just a finished run.
+          db.prepare("UPDATE lesson_stars SET practiced_at = ? WHERE user_id = ? AND lesson_id = ?").run(iso, userId, unit.lessonId);
           db.prepare(
             `INSERT INTO lesson_progress (user_id, lesson_id, path, next_index, completed_at) VALUES (?, ?, ?, ?, ?)
              ON CONFLICT DO UPDATE SET next_index = excluded.next_index, completed_at = coalesce(completed_at, excluded.completed_at)`,

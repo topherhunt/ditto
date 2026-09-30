@@ -1,0 +1,4901 @@
+{
+  "id": "el-a1-poli",
+  "language": "el",
+  "level": "A1",
+  "order": 7,
+  "title": "Στην πόλη",
+  "description": {
+    "en": "Asking for and giving directions, finding places in town and using public transport",
+    "es-419": "Preguntar y dar indicaciones, encontrar lugares en la ciudad y usar el transporte público",
+    "it": "Chiedere e dare indicazioni, trovare luoghi in città e usare i mezzi pubblici",
+    "nl": "De weg vragen en uitleggen, plekken in de stad vinden en het openbaar vervoer gebruiken"
+  },
+  "track": "main",
+  "requires": [
+    "el-a1-mera-mou"
+  ],
+  "introduces": [
+    "πόλη",
+    "χωριό",
+    "κέντρο",
+    "δρόμος",
+    "γωνία",
+    "φανάρι",
+    "πλατεία",
+    "στάση",
+    "λεωφορείο",
+    "μετρό",
+    "ταξί",
+    "τρένο",
+    "σταθμός",
+    "αεροδρόμιο",
+    "τράπεζα",
+    "φαρμακείο",
+    "αρτοποιείο",
+    "ταχυδρομείο",
+    "μουσείο",
+    "εκκλησία",
+    "πάρκο",
+    "παραλία",
+    "θέατρο",
+    "βιβλιοπωλείο",
+    "περίπτερο",
+    "τουαλέτα",
+    "αστυνομία",
+    "χάρτης",
+    "στροφή",
+    "μέτρο",
+    "χιλιόμετρο",
+    "πόδι",
+    "αυτοκίνητο",
+    "ευθεία",
+    "δεξιά",
+    "αριστερά",
+    "κοντά",
+    "μακριά",
+    "δίπλα",
+    "απέναντι",
+    "μπροστά",
+    "πίσω",
+    "πάνω",
+    "κάτω",
+    "μέσα",
+    "έξω",
+    "ανάμεσα",
+    "εκεί",
+    "πρώτος",
+    "δεύτερος",
+    "πάω",
+    "έρχομαι",
+    "υπάρχω",
+    "στρίβω",
+    "συνεχίζω",
+    "βρίσκω",
+    "περιμένω",
+    "φτάνω",
+    "περνάω",
+    "δείχνω",
+    "πρέπει",
+    "ανοιχτός",
+    "κλειστός"
+  ],
+  "lexicon": {
+    "πόλη": {
+      "lemma": "πόλη",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city, town (f)",
+        "es-419": "ciudad (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "κέντρο": {
+      "lemma": "κέντρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "center, downtown (n)",
+        "es-419": "centro (n)",
+        "it": "centro (n)",
+        "nl": "centrum (n)"
+      }
+    },
+    "στο": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στο = σε + το: in, at, to the (before a neuter noun)",
+        "es-419": "στο = σε + το: en, a, al (delante de un nombre neutro)",
+        "it": "στο = σε + το: in, a, al (davanti a un nome neutro)",
+        "nl": "στο = σε + το: in, op, naar het (vóór een onzijdig woord)"
+      }
+    },
+    "στη": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στη = σε + τη: in, at, to the (before a feminine noun)",
+        "es-419": "στη = σε + τη: en, a, a la (delante de un nombre femenino)",
+        "it": "στη = σε + τη: in, a, alla (davanti a un nome femminile)",
+        "nl": "στη = σε + τη: in, op, naar de (vóór een vrouwelijk woord)"
+      }
+    },
+    "στην": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στην = σε + την: in, at, to the (before a feminine noun)",
+        "es-419": "στην = σε + την: en, a, a la (delante de un nombre femenino)",
+        "it": "στην = σε + την: in, a, alla (davanti a un nome femminile)",
+        "nl": "στην = σε + την: in, op, naar de (vóór een vrouwelijk woord)"
+      }
+    },
+    "στον": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στον = σε + τον: in, at, to the (before a masculine noun)",
+        "es-419": "στον = σε + τον: en, a, al (delante de un nombre masculino)",
+        "it": "στον = σε + τον: in, a, al (davanti a un nome maschile)",
+        "nl": "στον = σε + τον: in, op, naar de (vóór een mannelijk woord)"
+      }
+    },
+    "στις": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "στις = σε + τις: in, at, to the (plural feminine); also at + time",
+        "es-419": "στις = σε + τις: en, a las (plural femenino); también con la hora",
+        "it": "στις = σε + τις: in, a, alle (plurale femminile); anche con l'ora",
+        "nl": "στις = σε + τις: in, om (met een tijdstip)"
+      }
+    },
+    "σε": {
+      "lemma": "σε",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, to (σε + article becomes στο, στη, στην, στον)",
+        "es-419": "en, a (σε + artículo se vuelve στο, στη, στην, στον)",
+        "it": "in, a (σε + articolo diventa στο, στη, στην, στον)",
+        "nl": "in, op, naar (σε + lidwoord wordt στο, στη, στην, στον)"
+      }
+    },
+    "μένω": {
+      "lemma": "μένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to live, stay (I live)",
+        "es-419": "vivir, quedarse (vivo)",
+        "it": "abitare, restare (abito)",
+        "nl": "wonen, blijven (ik woon)"
+      }
+    },
+    "μένει": {
+      "lemma": "μένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lives (he, she, it)",
+        "es-419": "vive (él, ella)",
+        "it": "abita (lui, lei)",
+        "nl": "woont (hij, zij)"
+      }
+    },
+    "χωριό": {
+      "lemma": "χωριό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "village (n)",
+        "es-419": "pueblo (n)",
+        "it": "paese (n)",
+        "nl": "dorp (n)"
+      }
+    },
+    "η": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine, nominative)",
+        "es-419": "la (femenino, nominativo)",
+        "it": "la (femminile, nominativo)",
+        "nl": "de (vrouwelijk, nominatief)"
+      }
+    },
+    "ο": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine, nominative)",
+        "es-419": "el (masculino, nominativo)",
+        "it": "il (maschile, nominativo)",
+        "nl": "de (mannelijk, nominatief)"
+      }
+    },
+    "το": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter)",
+        "es-419": "el, lo (neutro)",
+        "it": "il (neutro)",
+        "nl": "het (onzijdig)"
+      }
+    },
+    "τα": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (neuter plural)",
+        "es-419": "los, las (neutro plural)",
+        "it": "i, gli (neutro plurale)",
+        "nl": "de (onzijdig meervoud)"
+      }
+    },
+    "την": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine, accusative)",
+        "es-419": "la (femenino, acusativo)",
+        "it": "la (femminile, accusativo)",
+        "nl": "de (vrouwelijk, accusatief)"
+      }
+    },
+    "τη": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine, accusative; short form before some consonants)",
+        "es-419": "la (femenino, acusativo; forma corta)",
+        "it": "la (femminile, accusativo; forma breve)",
+        "nl": "de (vrouwelijk, accusatief; korte vorm)"
+      }
+    },
+    "τον": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine, accusative)",
+        "es-419": "el (masculino, acusativo)",
+        "it": "il (maschile, accusativo)",
+        "nl": "de (mannelijk, accusatief)"
+      }
+    },
+    "τις": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural, accusative)",
+        "es-419": "las (femenino plural, acusativo)",
+        "it": "le (femminile plurale, accusativo)",
+        "nl": "de (vrouwelijk meervoud, accusatief)"
+      }
+    },
+    "του": {
+      "lemma": "ο",
+      "pos": "DET",
+      "gloss": {
+        "en": "of the (masculine or neuter genitive; here in a fixed phrase)",
+        "es-419": "del (genitivo masculino o neutro; aquí en una frase fija)",
+        "it": "del (genitivo maschile o neutro; qui in una frase fissa)",
+        "nl": "van de (genitief mannelijk of onzijdig; hier in een vaste uitdrukking)"
+      }
+    },
+    "γιαγιά": {
+      "lemma": "γιαγιά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grandmother (f)",
+        "es-419": "abuela (f)",
+        "it": "nonna (f)",
+        "nl": "oma (f)"
+      }
+    },
+    "μου": {
+      "lemma": "εγώ",
+      "pos": "PRON",
+      "gloss": {
+        "en": "my, me (clitic, after the noun)",
+        "es-419": "mi, me (clítico, después del nombre)",
+        "it": "mio, mi (clitico, dopo il nome)",
+        "nl": "mijn, mij (clitisch, na het zelfstandig naamwoord)"
+      }
+    },
+    "ένα": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (neuter)",
+        "es-419": "un, una, uno (neutro)",
+        "it": "un, uno (neutro)",
+        "nl": "een, één (onzijdig)"
+      }
+    },
+    "έναν": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (masculine, accusative)",
+        "es-419": "un, uno (masculino, acusativo)",
+        "it": "un, uno (maschile, accusativo)",
+        "nl": "een, één (mannelijk, accusatief)"
+      }
+    },
+    "μία": {
+      "lemma": "ένας",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (feminine); also written μια",
+        "es-419": "una, uno (femenino); también se escribe μια",
+        "it": "una, uno (femminile); si scrive anche μια",
+        "nl": "een, één (vrouwelijk); ook geschreven als μια"
+      }
+    },
+    "δρόμος": {
+      "lemma": "δρόμος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "street, road, way (m)",
+        "es-419": "calle, camino (m)",
+        "it": "strada, via (m)",
+        "nl": "straat, weg (m)"
+      }
+    },
+    "πλατεία": {
+      "lemma": "πλατεία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "square, plaza (f)",
+        "es-419": "plaza (f)",
+        "it": "piazza (f)",
+        "nl": "plein (f)"
+      }
+    },
+    "είναι": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is, are (he, she, it, they)",
+        "es-419": "es, está, son, están",
+        "it": "è, sono",
+        "nl": "is, zijn"
+      }
+    },
+    "είστε": {
+      "lemma": "είμαι",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are (you, formal or plural)",
+        "es-419": "es, está, son, están (usted, ustedes)",
+        "it": "è, siete (Lei, voi)",
+        "nl": "bent, zijn (u, jullie)"
+      }
+    },
+    "μεγάλη": {
+      "lemma": "μεγάλος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large (feminine)",
+        "es-419": "grande (femenino)",
+        "it": "grande (femminile)",
+        "nl": "groot (vrouwelijk)"
+      }
+    },
+    "και": {
+      "lemma": "και",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "ωραία": {
+      "lemma": "ωραίος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "beautiful, nice (feminine); also the interjection Ωραία!",
+        "es-419": "bonita, agradable (femenino); también la interjección ¡Ωραία!",
+        "it": "bella, bello (femminile); anche l'interiezione Ωραία!",
+        "nl": "mooi, fijn (vrouwelijk); ook het tussenwerpsel Ωραία!"
+      }
+    },
+    "πάρκο": {
+      "lemma": "πάρκο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "park (n)",
+        "es-419": "parque (n)",
+        "it": "parco (n)",
+        "nl": "park (n)"
+      }
+    },
+    "υπάρχει": {
+      "lemma": "υπάρχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "there is (υπάρχω: to exist, there is or there are)",
+        "es-419": "hay (υπάρχω: existir, hay)",
+        "it": "c'è (υπάρχω: esistere, c'è o ci sono)",
+        "nl": "er is (υπάρχω: bestaan, er is of er zijn)"
+      }
+    },
+    "μουσείο": {
+      "lemma": "μουσείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "museum (n)",
+        "es-419": "museo (n)",
+        "it": "museo (n)",
+        "nl": "museum (n)"
+      }
+    },
+    "τράπεζα": {
+      "lemma": "τράπεζα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bank (f)",
+        "es-419": "banco (f)",
+        "it": "banca (f)",
+        "nl": "bank (f)"
+      }
+    },
+    "φαρμακείο": {
+      "lemma": "φαρμακείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pharmacy (n)",
+        "es-419": "farmacia (n)",
+        "it": "farmacia (n)",
+        "nl": "apotheek (n)"
+      }
+    },
+    "εδώ": {
+      "lemma": "εδώ",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here",
+        "es-419": "aquí",
+        "it": "qui, qua",
+        "nl": "hier"
+      }
+    },
+    "κοντά": {
+      "lemma": "κοντά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "near, close",
+        "es-419": "cerca",
+        "it": "vicino",
+        "nl": "dichtbij"
+      }
+    },
+    "ναι": {
+      "lemma": "ναι",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "yes",
+        "es-419": "sí",
+        "it": "sì",
+        "nl": "ja"
+      }
+    },
+    "δεξιά": {
+      "lemma": "δεξιά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "to the right, right",
+        "es-419": "a la derecha",
+        "it": "a destra",
+        "nl": "rechts"
+      }
+    },
+    "αριστερά": {
+      "lemma": "αριστερά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "to the left, left",
+        "es-419": "a la izquierda",
+        "it": "a sinistra",
+        "nl": "links"
+      }
+    },
+    "ευθεία": {
+      "lemma": "ευθεία",
+      "pos": "ADV",
+      "gloss": {
+        "en": "straight ahead",
+        "es-419": "todo recto",
+        "it": "dritto, avanti",
+        "nl": "rechtdoor"
+      }
+    },
+    "μακριά": {
+      "lemma": "μακριά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "far, far away",
+        "es-419": "lejos",
+        "it": "lontano",
+        "nl": "ver"
+      }
+    },
+    "από": {
+      "lemma": "από",
+      "pos": "ADP",
+      "gloss": {
+        "en": "from, of; after some place words (απέναντι από, πίσω από)",
+        "es-419": "de, desde; tras algunas palabras de lugar (απέναντι από, πίσω από)",
+        "it": "da, di; dopo alcune parole di luogo (απέναντι από, πίσω από)",
+        "nl": "van, uit; na sommige plaatswoorden (απέναντι από, πίσω από)"
+      }
+    },
+    "δίπλα": {
+      "lemma": "δίπλα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "next to, beside (with σε + article)",
+        "es-419": "al lado, junto (con σε + artículo)",
+        "it": "accanto (con σε + articolo)",
+        "nl": "naast (met σε + lidwoord)"
+      }
+    },
+    "απέναντι": {
+      "lemma": "απέναντι",
+      "pos": "ADV",
+      "gloss": {
+        "en": "opposite, across (with από)",
+        "es-419": "enfrente (con από)",
+        "it": "di fronte (con από)",
+        "nl": "tegenover (met από)"
+      }
+    },
+    "εκκλησία": {
+      "lemma": "εκκλησία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "church (f)",
+        "es-419": "iglesia (f)",
+        "it": "chiesa (f)",
+        "nl": "kerk (f)"
+      }
+    },
+    "θέατρο": {
+      "lemma": "θέατρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "theater (n)",
+        "es-419": "teatro (n)",
+        "it": "teatro (n)",
+        "nl": "theater (n)"
+      }
+    },
+    "μπροστά": {
+      "lemma": "μπροστά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "in front, ahead (with από)",
+        "es-419": "delante (con από)",
+        "it": "davanti (con από)",
+        "nl": "voor, vooraan (met από)"
+      }
+    },
+    "πίσω": {
+      "lemma": "πίσω",
+      "pos": "ADV",
+      "gloss": {
+        "en": "behind, back (with από)",
+        "es-419": "detrás, atrás (con από)",
+        "it": "dietro, indietro (con από)",
+        "nl": "achter, terug (met από)"
+      }
+    },
+    "παραλία": {
+      "lemma": "παραλία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beach (f)",
+        "es-419": "playa (f)",
+        "it": "spiaggia (f)",
+        "nl": "strand (n)"
+      }
+    },
+    "αρτοποιείο": {
+      "lemma": "αρτοποιείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bakery (n)",
+        "es-419": "panadería (n)",
+        "it": "panificio, panetteria (n)",
+        "nl": "bakkerij (n)"
+      }
+    },
+    "ανάμεσα": {
+      "lemma": "ανάμεσα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "between (with σε + article)",
+        "es-419": "entre (con σε + artículo)",
+        "it": "tra, fra (con σε + articolo)",
+        "nl": "tussen (met σε + lidwoord)"
+      }
+    },
+    "βιβλιοπωλείο": {
+      "lemma": "βιβλιοπωλείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bookstore (n)",
+        "es-419": "librería (n)",
+        "it": "libreria (n)",
+        "nl": "boekhandel (m)"
+      }
+    },
+    "μέσα": {
+      "lemma": "μέσα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "inside, in",
+        "es-419": "dentro",
+        "it": "dentro",
+        "nl": "binnen"
+      }
+    },
+    "μαγαζί": {
+      "lemma": "μαγαζί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shop, store (n)",
+        "es-419": "tienda (n)",
+        "it": "negozio (n)",
+        "nl": "winkel (m)"
+      }
+    },
+    "έξω": {
+      "lemma": "έξω",
+      "pos": "ADV",
+      "gloss": {
+        "en": "outside, out (with από)",
+        "es-419": "fuera (con από)",
+        "it": "fuori (con από)",
+        "nl": "buiten (met από)"
+      }
+    },
+    "γραφείο": {
+      "lemma": "γραφείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "office, desk (n)",
+        "es-419": "oficina, escritorio (n)",
+        "it": "ufficio, scrivania (n)",
+        "nl": "kantoor, bureau (n)"
+      }
+    },
+    "πάνω": {
+      "lemma": "πάνω",
+      "pos": "ADV",
+      "gloss": {
+        "en": "up, upstairs, above",
+        "es-419": "arriba, encima",
+        "it": "su, sopra, di sopra",
+        "nl": "boven, omhoog"
+      }
+    },
+    "κάτω": {
+      "lemma": "κάτω",
+      "pos": "ADV",
+      "gloss": {
+        "en": "down, downstairs, below",
+        "es-419": "abajo, debajo",
+        "it": "giù, sotto, di sotto",
+        "nl": "beneden, omlaag"
+      }
+    },
+    "ταχυδρομείο": {
+      "lemma": "ταχυδρομείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "post office (n)",
+        "es-419": "correo (n)",
+        "it": "ufficio postale (n)",
+        "nl": "postkantoor (n)"
+      }
+    },
+    "εκεί": {
+      "lemma": "εκεί",
+      "pos": "ADV",
+      "gloss": {
+        "en": "there, over there",
+        "es-419": "allí, allá",
+        "it": "là, lì",
+        "nl": "daar"
+      }
+    },
+    "πάω": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to go, walk (I go)",
+        "es-419": "ir, caminar (voy)",
+        "it": "andare (vado)",
+        "nl": "gaan, lopen (ik ga)"
+      }
+    },
+    "σχολείο": {
+      "lemma": "σχολείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "school (n)",
+        "es-419": "escuela (n)",
+        "it": "scuola (n)",
+        "nl": "school (f)"
+      }
+    },
+    "πάμε": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we go, let's go",
+        "es-419": "vamos",
+        "it": "andiamo",
+        "nl": "we gaan"
+      }
+    },
+    "έρχομαι": {
+      "lemma": "έρχομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to come (I come)",
+        "es-419": "venir (vengo)",
+        "it": "venire (vengo)",
+        "nl": "komen (ik kom)"
+      }
+    },
+    "πού": {
+      "lemma": "πού",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where (with the accent: a question word)",
+        "es-419": "dónde, adónde (con tilde: pregunta)",
+        "it": "dove (con l'accento: domanda)",
+        "nl": "waar (met accent: vraagwoord)"
+      }
+    },
+    "πας": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you go (informal singular)",
+        "es-419": "vas (tú)",
+        "it": "vai (tu)",
+        "nl": "je gaat (jij)"
+      }
+    },
+    "μαζί": {
+      "lemma": "μαζί",
+      "pos": "ADV",
+      "gloss": {
+        "en": "together, with each other",
+        "es-419": "juntos",
+        "it": "insieme",
+        "nl": "samen"
+      }
+    },
+    "φτάνω": {
+      "lemma": "φτάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to arrive, reach (I arrive)",
+        "es-419": "llegar (llego)",
+        "it": "arrivare (arrivo)",
+        "nl": "aankomen (ik kom aan)"
+      }
+    },
+    "φτάνουμε": {
+      "lemma": "φτάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we arrive",
+        "es-419": "llegamos",
+        "it": "arriviamo",
+        "nl": "we komen aan"
+      }
+    },
+    "σταθμός": {
+      "lemma": "σταθμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "station (m)",
+        "es-419": "estación (m)",
+        "it": "stazione (f)",
+        "nl": "station (n)"
+      }
+    },
+    "πέντε": {
+      "lemma": "πέντε",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "es-419": "cinco",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "περνάω": {
+      "lemma": "περνάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pass, go past, cross (I pass)",
+        "es-419": "pasar, cruzar (paso)",
+        "it": "passare, attraversare (passo)",
+        "nl": "voorbijgaan, oversteken (ik ga langs)"
+      }
+    },
+    "φανάρι": {
+      "lemma": "φανάρι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "traffic light (n)",
+        "es-419": "semáforo (n)",
+        "it": "semaforo (n)",
+        "nl": "stoplicht (n)"
+      }
+    },
+    "στρίβω": {
+      "lemma": "στρίβω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to turn (I turn)",
+        "es-419": "doblar, girar (doblo)",
+        "it": "girare, svoltare (giro)",
+        "nl": "afslaan (ik sla af)"
+      }
+    },
+    "συνεχίζω": {
+      "lemma": "συνεχίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to continue, keep going (I continue)",
+        "es-419": "seguir, continuar (sigo)",
+        "it": "continuare (continuo)",
+        "nl": "doorgaan (ik ga door)"
+      }
+    },
+    "στρίψτε": {
+      "lemma": "στρίβω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "turn! (you, formal or plural)",
+        "es-419": "¡doble!, ¡doblen! (usted, ustedes)",
+        "it": "giri!, girate! (Lei, voi)",
+        "nl": "sla af! (u, jullie)"
+      }
+    },
+    "γωνία": {
+      "lemma": "γωνία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "corner (f)",
+        "es-419": "esquina (f)",
+        "it": "angolo (m)",
+        "nl": "hoek (f)"
+      }
+    },
+    "συνεχίστε": {
+      "lemma": "συνεχίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "keep going! (you, formal or plural)",
+        "es-419": "¡siga!, ¡sigan! (usted, ustedes)",
+        "it": "continui!, continuate! (Lei, voi)",
+        "nl": "ga door! (u, jullie)"
+      }
+    },
+    "πηγαίνετε": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go! (you, formal or plural; πηγαίνω = πάω)",
+        "es-419": "¡vaya!, ¡vayan! (usted, ustedes; πηγαίνω = πάω)",
+        "it": "vada!, andate! (Lei, voi; πηγαίνω = πάω)",
+        "nl": "ga! (u, jullie; πηγαίνω = πάω)"
+      }
+    },
+    "μέχρι": {
+      "lemma": "μέχρι",
+      "pos": "ADP",
+      "gloss": {
+        "en": "until, up to",
+        "es-419": "hasta",
+        "it": "fino a",
+        "nl": "tot"
+      }
+    },
+    "μετά": {
+      "lemma": "μετά",
+      "pos": "ADV",
+      "gloss": {
+        "en": "then, after, afterwards",
+        "es-419": "después, luego",
+        "it": "poi, dopo",
+        "nl": "daarna, dan"
+      }
+    },
+    "στάση": {
+      "lemma": "στάση",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "stop (bus stop) (f)",
+        "es-419": "parada (f)",
+        "it": "fermata (f)",
+        "nl": "halte (f)"
+      }
+    },
+    "λεωφορείο": {
+      "lemma": "λεωφορείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bus (n)",
+        "es-419": "autobús (n)",
+        "it": "autobus (m)",
+        "nl": "bus (m)"
+      }
+    },
+    "με": {
+      "lemma": "με",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with, by (a means of transport)",
+        "es-419": "con, en (un medio de transporte)",
+        "it": "con, in (un mezzo di trasporto)",
+        "nl": "met (een vervoermiddel)"
+      }
+    },
+    "μετρό": {
+      "lemma": "μετρό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "subway, metro (n); does not change",
+        "es-419": "metro (n); no cambia",
+        "it": "metropolitana (f); non cambia",
+        "nl": "metro (m); verandert niet"
+      }
+    },
+    "ταξί": {
+      "lemma": "ταξί",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "taxi (n); watch out: ταξίδι is a trip",
+        "es-419": "taxi (n); ojo: ταξίδι es un viaje",
+        "it": "taxi (m); attenzione: ταξίδι è un viaggio",
+        "nl": "taxi (m); let op: ταξίδι is een reis"
+      }
+    },
+    "τρένο": {
+      "lemma": "τρένο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "train (n)",
+        "es-419": "tren (n)",
+        "it": "treno (m)",
+        "nl": "trein (m)"
+      }
+    },
+    "αεροδρόμιο": {
+      "lemma": "αεροδρόμιο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "airport (n)",
+        "es-419": "aeropuerto (n)",
+        "it": "aeroporto (m)",
+        "nl": "vliegveld (n)"
+      }
+    },
+    "αυτοκίνητο": {
+      "lemma": "αυτοκίνητο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "car (n)",
+        "es-419": "coche, auto (n)",
+        "it": "auto, macchina (f)",
+        "nl": "auto (m)"
+      }
+    },
+    "λεωφορείου": {
+      "lemma": "λεωφορείο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of the bus (genitive, in a fixed phrase) (n)",
+        "es-419": "del autobús (genitivo, en una frase fija) (n)",
+        "it": "dell'autobus (genitivo, in una frase fissa) (m)",
+        "nl": "van de bus (genitief, in een vaste uitdrukking) (m)"
+      }
+    },
+    "έρχεται": {
+      "lemma": "έρχομαι",
+      "pos": "VERB",
+      "gloss": {
+        "en": "comes, is coming (he, she, it)",
+        "es-419": "viene, llega (él, ella, ello)",
+        "it": "viene, arriva (lui, lei)",
+        "nl": "komt (hij, zij, het)"
+      }
+    },
+    "δέκα": {
+      "lemma": "δέκα",
+      "pos": "NUM",
+      "gloss": {
+        "en": "ten",
+        "es-419": "diez",
+        "it": "dieci",
+        "nl": "tien"
+      }
+    },
+    "λεπτά": {
+      "lemma": "λεπτό",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (n, plural)",
+        "es-419": "minutos (n, plural)",
+        "it": "minuti (m, plurale)",
+        "nl": "minuten (n, meervoud)"
+      }
+    },
+    "δουλειά": {
+      "lemma": "δουλειά",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (f)",
+        "es-419": "trabajo (f)",
+        "it": "lavoro (f)",
+        "nl": "werk (n)"
+      }
+    },
+    "φίλος": {
+      "lemma": "φίλος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friend (m)",
+        "es-419": "amigo (m)",
+        "it": "amico (m)",
+        "nl": "vriend (m)"
+      }
+    },
+    "πάει": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "goes (he, she, it)",
+        "es-419": "va (él, ella)",
+        "it": "va (lui, lei)",
+        "nl": "gaat (hij, zij)"
+      }
+    },
+    "πόδια": {
+      "lemma": "πόδι",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "feet, legs (n, plural)",
+        "es-419": "pies, piernas (n, plural)",
+        "it": "piedi, gambe (n, plurale)",
+        "nl": "voeten, benen (n, meervoud)"
+      }
+    },
+    "δεν": {
+      "lemma": "δεν",
+      "pos": "PART",
+      "gloss": {
+        "en": "not (before a verb)",
+        "es-419": "no (antes de un verbo)",
+        "it": "non (davanti a un verbo)",
+        "nl": "niet (voor een werkwoord)"
+      }
+    },
+    "έχω": {
+      "lemma": "έχω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to have (I have)",
+        "es-419": "tener (tengo)",
+        "it": "avere (ho)",
+        "nl": "hebben (ik heb)"
+      }
+    },
+    "φτάνει": {
+      "lemma": "φτάνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrives (he, she, it)",
+        "es-419": "llega (él, ella, ello)",
+        "it": "arriva (lui, lei)",
+        "nl": "komt aan (hij, zij, het)"
+      }
+    },
+    "οκτώ": {
+      "lemma": "οκτώ",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "es-419": "ocho",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "εκατό": {
+      "lemma": "εκατό",
+      "pos": "NUM",
+      "gloss": {
+        "en": "one hundred",
+        "es-419": "cien",
+        "it": "cento",
+        "nl": "honderd"
+      }
+    },
+    "μέτρα": {
+      "lemma": "μέτρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meters (n, plural)",
+        "es-419": "metros (n, plural)",
+        "it": "metri (n, plurale)",
+        "nl": "meters (n, meervoud)"
+      }
+    },
+    "χιλιόμετρο": {
+      "lemma": "χιλιόμετρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilometer (n)",
+        "es-419": "kilómetro (n)",
+        "it": "chilometro (n)",
+        "nl": "kilometer (m)"
+      }
+    },
+    "δύο": {
+      "lemma": "δύο",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two; also written δυο",
+        "es-419": "dos; también se escribe δυο",
+        "it": "due; si scrive anche δυο",
+        "nl": "twee; ook geschreven als δυο"
+      }
+    },
+    "χιλιόμετρα": {
+      "lemma": "χιλιόμετρο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilometers (n, plural)",
+        "es-419": "kilómetros (n, plural)",
+        "it": "chilometri (n, plurale)",
+        "nl": "kilometers (n, meervoud)"
+      }
+    },
+    "μόνο": {
+      "lemma": "μόνος",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just",
+        "es-419": "solo, solamente",
+        "it": "solo, soltanto",
+        "nl": "alleen, maar"
+      }
+    },
+    "περίπου": {
+      "lemma": "περίπου",
+      "pos": "ADV",
+      "gloss": {
+        "en": "about, approximately",
+        "es-419": "más o menos, unos",
+        "it": "circa, più o meno",
+        "nl": "ongeveer"
+      }
+    },
+    "πρώτος": {
+      "lemma": "πρώτος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (masculine)",
+        "es-419": "primero (masculino)",
+        "it": "primo (maschile)",
+        "nl": "eerste (mannelijk)"
+      }
+    },
+    "δεύτερος": {
+      "lemma": "δεύτερος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "second (masculine)",
+        "es-419": "segundo (masculino)",
+        "it": "secondo (maschile)",
+        "nl": "tweede (mannelijk)"
+      }
+    },
+    "πρώτη": {
+      "lemma": "πρώτος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (feminine)",
+        "es-419": "primera (femenino)",
+        "it": "prima (femminile)",
+        "nl": "eerste (vrouwelijk)"
+      }
+    },
+    "στροφή": {
+      "lemma": "στροφή",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "turn, bend in the road (f)",
+        "es-419": "curva, giro (f)",
+        "it": "svolta, curva (f)",
+        "nl": "afslag, bocht (f)"
+      }
+    },
+    "δεύτερη": {
+      "lemma": "δεύτερος",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "second (feminine)",
+        "es-419": "segunda (femenino)",
+        "it": "seconda (femminile)",
+        "nl": "tweede (vrouwelijk)"
+      }
+    },
+    "περιμένω": {
+      "lemma": "περιμένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wait, wait for (I wait)",
+        "es-419": "esperar (espero)",
+        "it": "aspettare (aspetto)",
+        "nl": "wachten (ik wacht)"
+      }
+    },
+    "περιμένουμε": {
+      "lemma": "περιμένω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we wait",
+        "es-419": "esperamos",
+        "it": "aspettiamo",
+        "nl": "we wachten"
+      }
+    },
+    "αλλά": {
+      "lemma": "αλλά",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "χάρτης": {
+      "lemma": "χάρτης",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "map (m)",
+        "es-419": "mapa (m)",
+        "it": "mappa, carta (f)",
+        "nl": "kaart, plattegrond (f)"
+      }
+    },
+    "χάρτη": {
+      "lemma": "χάρτης",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "map (m, accusative)",
+        "es-419": "mapa (m, acusativo)",
+        "it": "mappa, carta (f, accusativo)",
+        "nl": "kaart, plattegrond (f, accusatief)"
+      }
+    },
+    "δείχνω": {
+      "lemma": "δείχνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to show, point out (I show)",
+        "es-419": "mostrar, señalar (muestro)",
+        "it": "mostrare, indicare (mostro)",
+        "nl": "laten zien, wijzen (ik laat zien)"
+      }
+    },
+    "μπορείτε": {
+      "lemma": "μπορώ",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can, may (formal or plural)",
+        "es-419": "puede, pueden (usted, ustedes)",
+        "it": "può, potete (Lei, voi)",
+        "nl": "kunt, mag (u, jullie)"
+      }
+    },
+    "να": {
+      "lemma": "να",
+      "pos": "PART",
+      "gloss": {
+        "en": "to (before a verb: να + verb)",
+        "es-419": "que, para (antes de un verbo: να + verbo)",
+        "it": "di, che (davanti a un verbo: να + verbo)",
+        "nl": "om te (voor een werkwoord: να + werkwoord)"
+      }
+    },
+    "δείξετε": {
+      "lemma": "δείχνω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to show (you, formal or plural, after να)",
+        "es-419": "mostrar (usted, ustedes, después de να)",
+        "it": "mostrare (Lei, voi, dopo να)",
+        "nl": "laten zien (u, jullie, na να)"
+      }
+    },
+    "βρίσκω": {
+      "lemma": "βρίσκω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to find (I find)",
+        "es-419": "encontrar (encuentro)",
+        "it": "trovare (trovo)",
+        "nl": "vinden (ik vind)"
+      }
+    },
+    "συγγνώμη": {
+      "lemma": "συγγνώμη",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sorry, excuse me",
+        "es-419": "perdón, disculpe",
+        "it": "scusa, scusi",
+        "nl": "sorry, pardon"
+      }
+    },
+    "πρέπει": {
+      "lemma": "πρέπει",
+      "pos": "VERB",
+      "gloss": {
+        "en": "must, have to (impersonal, never changes)",
+        "es-419": "hay que, tener que (impersonal, no cambia)",
+        "it": "bisogna, si deve (impersonale, non cambia)",
+        "nl": "moeten, het is nodig (onpersoonlijk, verandert niet)"
+      }
+    },
+    "πάτε": {
+      "lemma": "πάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you go (formal or plural)",
+        "es-419": "van (usted, ustedes)",
+        "it": "va, andate (Lei, voi)",
+        "nl": "gaat, gaan (u, jullie)"
+      }
+    },
+    "στρίψετε": {
+      "lemma": "στρίβω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to turn (you, formal or plural, after να)",
+        "es-419": "doblar (usted, ustedes, después de να)",
+        "it": "girare (Lei, voi, dopo να)",
+        "nl": "afslaan (u, jullie, na να)"
+      }
+    },
+    "συνεχίσετε": {
+      "lemma": "συνεχίζω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to continue (you, formal or plural, after να)",
+        "es-419": "seguir (usted, ustedes, después de να)",
+        "it": "continuare (Lei, voi, dopo να)",
+        "nl": "doorgaan (u, jullie, na να)"
+      }
+    },
+    "ανοιχτός": {
+      "lemma": "ανοιχτός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "open (masculine)",
+        "es-419": "abierto (masculino)",
+        "it": "aperto (maschile)",
+        "nl": "open (mannelijk)"
+      }
+    },
+    "κλειστός": {
+      "lemma": "κλειστός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed (masculine)",
+        "es-419": "cerrado (masculino)",
+        "it": "chiuso (maschile)",
+        "nl": "dicht, gesloten (mannelijk)"
+      }
+    },
+    "περίπτερο": {
+      "lemma": "περίπτερο",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kiosk, newsstand (n)",
+        "es-419": "quiosco (n)",
+        "it": "edicola, chiosco (f)",
+        "nl": "kiosk (m)"
+      }
+    },
+    "ανοιχτό": {
+      "lemma": "ανοιχτός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "open (neuter)",
+        "es-419": "abierto (neutro)",
+        "it": "aperto (neutro)",
+        "nl": "open (onzijdig)"
+      }
+    },
+    "κλειστή": {
+      "lemma": "κλειστός",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed (feminine)",
+        "es-419": "cerrado (femenino)",
+        "it": "chiuso (femminile)",
+        "nl": "dicht, gesloten (vrouwelijk)"
+      }
+    },
+    "σήμερα": {
+      "lemma": "σήμερα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "τουαλέτα": {
+      "lemma": "τουαλέτα",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "restroom, toilet (f)",
+        "es-419": "baño (f)",
+        "it": "bagno, toilette (f)",
+        "nl": "toilet (n)"
+      }
+    },
+    "αστυνομία": {
+      "lemma": "αστυνομία",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "police, police station (f)",
+        "es-419": "policía (f)",
+        "it": "polizia (f)",
+        "nl": "politie (f)"
+      }
+    },
+    "ρωτάω": {
+      "lemma": "ρωτάω",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask (I ask)",
+        "es-419": "preguntar (pregunto)",
+        "it": "chiedere (chiedo)",
+        "nl": "vragen (ik vraag)"
+      }
+    },
+    "αστυνομικό": {
+      "lemma": "αστυνομικός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "police officer (m or f, accusative)",
+        "es-419": "policía (m o f, acusativo)",
+        "it": "poliziotto (m o f, accusativo)",
+        "nl": "agent (m of f, accusatief)"
+      }
+    },
+    "ευχαριστώ": {
+      "lemma": "ευχαριστώ",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thank you, thanks",
+        "es-419": "gracias",
+        "it": "grazie",
+        "nl": "dank u, bedankt"
+      }
+    },
+    "πολύ": {
+      "lemma": "πολύς",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very, a lot",
+        "es-419": "muy, mucho",
+        "it": "molto",
+        "nl": "heel, veel"
+      }
+    },
+    "τώρα": {
+      "lemma": "τώρα",
+      "pos": "ADV",
+      "gloss": {
+        "en": "now",
+        "es-419": "ahora",
+        "it": "adesso",
+        "nl": "nu"
+      }
+    },
+    "σταθμό": {
+      "lemma": "σταθμός",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "station (m, accusative)",
+        "es-419": "estación (m, acusativo)",
+        "it": "stazione (f, accusativo)",
+        "nl": "station (n, accusatief)"
+      }
+    },
+    "δρόμο": {
+      "lemma": "δρόμος",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "street, road, way (m, accusative)",
+        "es-419": "calle, camino (m, acusativo)",
+        "it": "strada, via (m, accusativo)",
+        "nl": "straat, weg (m, accusatief)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "el-a1-poli-1",
+      "title": "Τι υπάρχει στην πόλη;",
+      "grammarFocus": {
+        "en": [
+          "Υπάρχει... = there is...; υπάρχουν = there are",
+          "σε + article: στην πόλη, στο κέντρο, στη γωνία",
+          "A question ends with ; in Greek"
+        ],
+        "es-419": [
+          "Υπάρχει... = hay...; υπάρχουν = hay (plural)",
+          "σε + artículo: στην πόλη, στο κέντρο, στη γωνία",
+          "En griego la pregunta termina con ;"
+        ],
+        "it": [
+          "Υπάρχει... = c'è...; υπάρχουν = ci sono",
+          "σε + articolo: στην πόλη, στο κέντρο, στη γωνία",
+          "In greco la domanda finisce con ;"
+        ],
+        "nl": [
+          "Υπάρχει... = er is...; υπάρχουν = er zijn",
+          "σε + lidwoord: στην πόλη, στο κέντρο, στη γωνία",
+          "Een vraag eindigt in het Grieks op ;"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "πόλη",
+          "translation": {
+            "en": "city",
+            "es-419": "ciudad",
+            "it": "città",
+            "nl": "stad"
+          },
+          "distractors": {
+            "en": [
+              "village",
+              "street"
+            ],
+            "es-419": [
+              "pueblo",
+              "calle"
+            ],
+            "it": [
+              "paese",
+              "strada"
+            ],
+            "nl": [
+              "dorp",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "κέντρο",
+          "translation": {
+            "en": "center",
+            "es-419": "centro",
+            "it": "centro",
+            "nl": "centrum"
+          },
+          "distractors": {
+            "en": [
+              "square",
+              "park"
+            ],
+            "es-419": [
+              "plaza",
+              "parque"
+            ],
+            "it": [
+              "piazza",
+              "parco"
+            ],
+            "nl": [
+              "plein",
+              "park"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "στο κέντρο",
+          "translation": {
+            "en": "in the center",
+            "es-419": "en el centro",
+            "it": "in centro",
+            "nl": "in het centrum"
+          },
+          "distractors": {
+            "en": [
+              "in the park",
+              "in the village"
+            ],
+            "es-419": [
+              "en el parque",
+              "en el pueblo"
+            ],
+            "it": [
+              "nel parco",
+              "nel paese"
+            ],
+            "nl": [
+              "in het park",
+              "in het dorp"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μένω στο κέντρο.",
+          "translation": {
+            "en": "I live downtown.",
+            "es-419": "Vivo en el centro.",
+            "it": "Abito in centro.",
+            "nl": "Ik woon in het centrum."
+          },
+          "distractors": {
+            "en": [
+              "I work downtown.",
+              "I live in the village."
+            ],
+            "es-419": [
+              "Trabajo en el centro.",
+              "Vivo en el pueblo."
+            ],
+            "it": [
+              "Lavoro in centro.",
+              "Abito in paese."
+            ],
+            "nl": [
+              "Ik werk in het centrum.",
+              "Ik woon in het dorp."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "χωριό",
+          "translation": {
+            "en": "village",
+            "es-419": "pueblo",
+            "it": "paese",
+            "nl": "dorp"
+          },
+          "distractors": {
+            "en": [
+              "city",
+              "country"
+            ],
+            "es-419": [
+              "ciudad",
+              "país"
+            ],
+            "it": [
+              "città",
+              "nazione"
+            ],
+            "nl": [
+              "stad",
+              "land"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η γιαγιά μου μένει σε ένα χωριό.",
+          "translation": {
+            "en": "My grandmother lives in a village.",
+            "es-419": "Mi abuela vive en un pueblo.",
+            "it": "Mia nonna abita in un paese.",
+            "nl": "Mijn oma woont in een dorp."
+          },
+          "distractors": {
+            "en": [
+              "My grandmother lives in a city.",
+              "My grandfather lives in a village."
+            ],
+            "es-419": [
+              "Mi abuela vive en una ciudad.",
+              "Mi abuelo vive en un pueblo."
+            ],
+            "it": [
+              "Mia nonna abita in una città.",
+              "Mio nonno abita in un paese."
+            ],
+            "nl": [
+              "Mijn oma woont in een stad.",
+              "Mijn opa woont in een dorp."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "δρόμος",
+          "translation": {
+            "en": "street",
+            "es-419": "calle",
+            "it": "strada",
+            "nl": "straat"
+          },
+          "distractors": {
+            "en": [
+              "square",
+              "corner"
+            ],
+            "es-419": [
+              "plaza",
+              "esquina"
+            ],
+            "it": [
+              "piazza",
+              "angolo"
+            ],
+            "nl": [
+              "plein",
+              "hoek"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "πλατεία",
+          "translation": {
+            "en": "square",
+            "es-419": "plaza",
+            "it": "piazza",
+            "nl": "plein"
+          },
+          "distractors": {
+            "en": [
+              "street",
+              "park"
+            ],
+            "es-419": [
+              "calle",
+              "parque"
+            ],
+            "it": [
+              "strada",
+              "parco"
+            ],
+            "nl": [
+              "straat",
+              "park"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "στην πλατεία",
+          "translation": {
+            "en": "in the square",
+            "es-419": "en la plaza",
+            "it": "in piazza",
+            "nl": "op het plein"
+          },
+          "distractors": {
+            "en": [
+              "in the park",
+              "in the street"
+            ],
+            "es-419": [
+              "en el parque",
+              "en la calle"
+            ],
+            "it": [
+              "nel parco",
+              "in strada"
+            ],
+            "nl": [
+              "in het park",
+              "in de straat"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η πλατεία είναι μεγάλη και ωραία.",
+          "translation": {
+            "en": "The square is big and beautiful.",
+            "es-419": "La plaza es grande y bonita.",
+            "it": "La piazza è grande e bella.",
+            "nl": "Het plein is groot en mooi."
+          },
+          "distractors": {
+            "en": [
+              "The square is small and beautiful.",
+              "The square is big and ugly."
+            ],
+            "es-419": [
+              "La plaza es pequeña y bonita.",
+              "La plaza es grande y fea."
+            ],
+            "it": [
+              "La piazza è piccola e bella.",
+              "La piazza è grande e brutta."
+            ],
+            "nl": [
+              "Het plein is klein en mooi.",
+              "Het plein is groot en lelijk."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "πάρκο",
+          "translation": {
+            "en": "park",
+            "es-419": "parque",
+            "it": "parco",
+            "nl": "park"
+          },
+          "distractors": {
+            "en": [
+              "garden",
+              "square"
+            ],
+            "es-419": [
+              "jardín",
+              "plaza"
+            ],
+            "it": [
+              "giardino",
+              "piazza"
+            ],
+            "nl": [
+              "tuin",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Υπάρχει ένα πάρκο στην πόλη.",
+          "translation": {
+            "en": "There is a park in the city.",
+            "es-419": "Hay un parque en la ciudad.",
+            "it": "C'è un parco in città.",
+            "nl": "Er is een park in de stad."
+          },
+          "distractors": {
+            "en": [
+              "There is a museum in the city.",
+              "There are two parks in the city."
+            ],
+            "es-419": [
+              "Hay un museo en la ciudad.",
+              "Hay dos parques en la ciudad."
+            ],
+            "it": [
+              "C'è un museo in città.",
+              "Ci sono due parchi in città."
+            ],
+            "nl": [
+              "Er is een museum in de stad.",
+              "Er zijn twee parken in de stad."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "μουσείο",
+          "translation": {
+            "en": "museum",
+            "es-419": "museo",
+            "it": "museo",
+            "nl": "museum"
+          },
+          "distractors": {
+            "en": [
+              "theater",
+              "church"
+            ],
+            "es-419": [
+              "teatro",
+              "iglesia"
+            ],
+            "it": [
+              "teatro",
+              "chiesa"
+            ],
+            "nl": [
+              "theater",
+              "kerk"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "τράπεζα",
+          "translation": {
+            "en": "bank",
+            "es-419": "banco",
+            "it": "banca",
+            "nl": "bank"
+          },
+          "distractors": {
+            "en": [
+              "shop",
+              "station"
+            ],
+            "es-419": [
+              "tienda",
+              "estación"
+            ],
+            "it": [
+              "negozio",
+              "stazione"
+            ],
+            "nl": [
+              "winkel",
+              "station"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "φαρμακείο",
+          "translation": {
+            "en": "pharmacy",
+            "es-419": "farmacia",
+            "it": "farmacia",
+            "nl": "apotheek"
+          },
+          "distractors": {
+            "en": [
+              "bakery",
+              "bank"
+            ],
+            "es-419": [
+              "panadería",
+              "banco"
+            ],
+            "it": [
+              "panetteria",
+              "banca"
+            ],
+            "nl": [
+              "bakkerij",
+              "bank"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u16",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "εδώ κοντά",
+          "translation": {
+            "en": "near here",
+            "es-419": "cerca de aquí",
+            "it": "qui vicino",
+            "nl": "hier in de buurt"
+          },
+          "distractors": {
+            "en": [
+              "far from here",
+              "right here"
+            ],
+            "es-419": [
+              "lejos de aquí",
+              "justo aquí"
+            ],
+            "it": [
+              "lontano da qui",
+              "proprio qui"
+            ],
+            "nl": [
+              "ver hiervandaan",
+              "precies hier"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Υπάρχει ένα φαρμακείο εδώ κοντά;",
+          "translation": {
+            "en": "Is there a pharmacy near here?",
+            "es-419": "¿Hay una farmacia cerca de aquí?",
+            "it": "C'è una farmacia qui vicino?",
+            "nl": "Is er hier een apotheek in de buurt?"
+          },
+          "distractors": {
+            "en": [
+              "Is there a bank near here?",
+              "Is there a pharmacy far from here?"
+            ],
+            "es-419": [
+              "¿Hay un banco cerca de aquí?",
+              "¿Hay una farmacia lejos de aquí?"
+            ],
+            "it": [
+              "C'è una banca qui vicino?",
+              "C'è una farmacia lontano da qui?"
+            ],
+            "nl": [
+              "Is er hier een bank in de buurt?",
+              "Is er een apotheek ver hiervandaan?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-1-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ναι, υπάρχει μία τράπεζα και ένα μουσείο.",
+          "variants": [
+            "Ναι, υπάρχει μια τράπεζα και ένα μουσείο."
+          ],
+          "translation": {
+            "en": "Yes, there is a bank and a museum.",
+            "es-419": "Sí, hay un banco y un museo.",
+            "it": "Sì, c'è una banca e un museo.",
+            "nl": "Ja, er is een bank en een museum."
+          },
+          "distractors": {
+            "en": [
+              "Yes, there is a pharmacy and a museum.",
+              "Yes, there is a bank and a park."
+            ],
+            "es-419": [
+              "Sí, hay una farmacia y un museo.",
+              "Sí, hay un banco y un parque."
+            ],
+            "it": [
+              "Sì, c'è una farmacia e un museo.",
+              "Sì, c'è una banca e un parco."
+            ],
+            "nl": [
+              "Ja, er is een apotheek en een museum.",
+              "Ja, er is een bank en een park."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-poli-2",
+      "title": "Πού είναι;",
+      "grammarFocus": {
+        "en": [
+          "δίπλα σε, ανάμεσα σε + article: δίπλα στην τράπεζα",
+          "απέναντι από, πίσω από, μπροστά από, μακριά από, έξω από + article",
+          "Place words do not change: δεξιά, αριστερά, κοντά, μακριά"
+        ],
+        "es-419": [
+          "δίπλα σε, ανάμεσα σε + artículo: δίπλα στην τράπεζα = al lado del banco",
+          "απέναντι από, πίσω από, μπροστά από, μακριά από, έξω από + artículo",
+          "Las palabras de lugar no cambian: δεξιά, αριστερά, κοντά, μακριά"
+        ],
+        "it": [
+          "δίπλα σε, ανάμεσα σε + articolo: δίπλα στην τράπεζα = accanto alla banca",
+          "απέναντι από, πίσω από, μπροστά από, μακριά από, έξω από + articolo",
+          "Le parole di luogo non cambiano: δεξιά, αριστερά, κοντά, μακριά"
+        ],
+        "nl": [
+          "δίπλα σε, ανάμεσα σε + lidwoord: δίπλα στην τράπεζα = naast de bank",
+          "απέναντι από, πίσω από, μπροστά από, μακριά από, έξω από + lidwoord",
+          "Plaatswoorden veranderen niet: δεξιά, αριστερά, κοντά, μακριά"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "δεξιά",
+          "translation": {
+            "en": "to the right",
+            "es-419": "a la derecha",
+            "it": "a destra",
+            "nl": "rechts"
+          },
+          "distractors": {
+            "en": [
+              "to the left",
+              "straight ahead"
+            ],
+            "es-419": [
+              "a la izquierda",
+              "todo recto"
+            ],
+            "it": [
+              "a sinistra",
+              "dritto"
+            ],
+            "nl": [
+              "links",
+              "rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "αριστερά",
+          "translation": {
+            "en": "to the left",
+            "es-419": "a la izquierda",
+            "it": "a sinistra",
+            "nl": "links"
+          },
+          "distractors": {
+            "en": [
+              "to the right",
+              "straight ahead"
+            ],
+            "es-419": [
+              "a la derecha",
+              "todo recto"
+            ],
+            "it": [
+              "a destra",
+              "dritto"
+            ],
+            "nl": [
+              "rechts",
+              "rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "ευθεία",
+          "translation": {
+            "en": "straight ahead",
+            "es-419": "todo recto",
+            "it": "dritto",
+            "nl": "rechtdoor"
+          },
+          "distractors": {
+            "en": [
+              "to the right",
+              "backward"
+            ],
+            "es-419": [
+              "a la derecha",
+              "hacia atrás"
+            ],
+            "it": [
+              "a destra",
+              "indietro"
+            ],
+            "nl": [
+              "rechts",
+              "achteruit"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "κοντά",
+          "translation": {
+            "en": "near",
+            "es-419": "cerca",
+            "it": "vicino",
+            "nl": "dichtbij"
+          },
+          "distractors": {
+            "en": [
+              "far",
+              "here"
+            ],
+            "es-419": [
+              "lejos",
+              "aquí"
+            ],
+            "it": [
+              "lontano",
+              "qui"
+            ],
+            "nl": [
+              "ver",
+              "hier"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "μακριά",
+          "translation": {
+            "en": "far",
+            "es-419": "lejos",
+            "it": "lontano",
+            "nl": "ver"
+          },
+          "distractors": {
+            "en": [
+              "near",
+              "there"
+            ],
+            "es-419": [
+              "cerca",
+              "allí"
+            ],
+            "it": [
+              "vicino",
+              "là"
+            ],
+            "nl": [
+              "dichtbij",
+              "daar"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μακριά από το κέντρο",
+          "translation": {
+            "en": "far from downtown",
+            "es-419": "lejos del centro",
+            "it": "lontano dal centro",
+            "nl": "ver van het centrum"
+          },
+          "distractors": {
+            "en": [
+              "near downtown",
+              "far from the park"
+            ],
+            "es-419": [
+              "cerca del centro",
+              "lejos del parque"
+            ],
+            "it": [
+              "vicino al centro",
+              "lontano dal parco"
+            ],
+            "nl": [
+              "dicht bij het centrum",
+              "ver van het park"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "δίπλα",
+          "translation": {
+            "en": "next to",
+            "es-419": "al lado",
+            "it": "accanto",
+            "nl": "naast"
+          },
+          "distractors": {
+            "en": [
+              "opposite",
+              "behind"
+            ],
+            "es-419": [
+              "enfrente",
+              "detrás"
+            ],
+            "it": [
+              "di fronte",
+              "dietro"
+            ],
+            "nl": [
+              "tegenover",
+              "achter"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δίπλα στην τράπεζα",
+          "translation": {
+            "en": "next to the bank",
+            "es-419": "al lado del banco",
+            "it": "accanto alla banca",
+            "nl": "naast de bank"
+          },
+          "distractors": {
+            "en": [
+              "opposite the bank",
+              "next to the pharmacy"
+            ],
+            "es-419": [
+              "enfrente del banco",
+              "al lado de la farmacia"
+            ],
+            "it": [
+              "di fronte alla banca",
+              "accanto alla farmacia"
+            ],
+            "nl": [
+              "tegenover de bank",
+              "naast de apotheek"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το μουσείο είναι δίπλα στην τράπεζα.",
+          "translation": {
+            "en": "The museum is next to the bank.",
+            "es-419": "El museo está al lado del banco.",
+            "it": "Il museo è accanto alla banca.",
+            "nl": "Het museum is naast de bank."
+          },
+          "distractors": {
+            "en": [
+              "The museum is opposite the bank.",
+              "The park is next to the bank."
+            ],
+            "es-419": [
+              "El museo está enfrente del banco.",
+              "El parque está al lado del banco."
+            ],
+            "it": [
+              "Il museo è di fronte alla banca.",
+              "Il parco è accanto alla banca."
+            ],
+            "nl": [
+              "Het museum is tegenover de bank.",
+              "Het park is naast de bank."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "απέναντι",
+          "translation": {
+            "en": "opposite",
+            "es-419": "enfrente",
+            "it": "di fronte",
+            "nl": "tegenover"
+          },
+          "distractors": {
+            "en": [
+              "behind",
+              "next to"
+            ],
+            "es-419": [
+              "detrás",
+              "al lado"
+            ],
+            "it": [
+              "dietro",
+              "accanto"
+            ],
+            "nl": [
+              "achter",
+              "naast"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "απέναντι από το πάρκο",
+          "translation": {
+            "en": "opposite the park",
+            "es-419": "enfrente del parque",
+            "it": "di fronte al parco",
+            "nl": "tegenover het park"
+          },
+          "distractors": {
+            "en": [
+              "next to the park",
+              "opposite the square"
+            ],
+            "es-419": [
+              "al lado del parque",
+              "enfrente de la plaza"
+            ],
+            "it": [
+              "accanto al parco",
+              "di fronte alla piazza"
+            ],
+            "nl": [
+              "naast het park",
+              "tegenover het plein"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η εκκλησία είναι απέναντι από το θέατρο.",
+          "translation": {
+            "en": "The church is across from the theater.",
+            "es-419": "La iglesia está enfrente del teatro.",
+            "it": "La chiesa è di fronte al teatro.",
+            "nl": "De kerk is tegenover het theater."
+          },
+          "distractors": {
+            "en": [
+              "The church is behind the theater.",
+              "The museum is across from the theater."
+            ],
+            "es-419": [
+              "La iglesia está detrás del teatro.",
+              "El museo está enfrente del teatro."
+            ],
+            "it": [
+              "La chiesa è dietro il teatro.",
+              "Il museo è di fronte al teatro."
+            ],
+            "nl": [
+              "De kerk is achter het theater.",
+              "Het museum is tegenover het theater."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "μπροστά",
+          "translation": {
+            "en": "in front",
+            "es-419": "delante",
+            "it": "davanti",
+            "nl": "voor"
+          },
+          "distractors": {
+            "en": [
+              "behind",
+              "next to"
+            ],
+            "es-419": [
+              "detrás",
+              "al lado"
+            ],
+            "it": [
+              "dietro",
+              "accanto"
+            ],
+            "nl": [
+              "achter",
+              "naast"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "πίσω",
+          "translation": {
+            "en": "behind",
+            "es-419": "detrás",
+            "it": "dietro",
+            "nl": "achter"
+          },
+          "distractors": {
+            "en": [
+              "in front",
+              "next to"
+            ],
+            "es-419": [
+              "delante",
+              "al lado"
+            ],
+            "it": [
+              "davanti",
+              "accanto"
+            ],
+            "nl": [
+              "voor",
+              "naast"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η παραλία είναι πίσω από το θέατρο.",
+          "translation": {
+            "en": "The beach is behind the theater.",
+            "es-419": "La playa está detrás del teatro.",
+            "it": "La spiaggia è dietro il teatro.",
+            "nl": "Het strand ligt achter het theater."
+          },
+          "distractors": {
+            "en": [
+              "The beach is in front of the theater.",
+              "The park is behind the theater."
+            ],
+            "es-419": [
+              "La playa está delante del teatro.",
+              "El parque está detrás del teatro."
+            ],
+            "it": [
+              "La spiaggia è davanti al teatro.",
+              "Il parco è dietro il teatro."
+            ],
+            "nl": [
+              "Het strand ligt voor het theater.",
+              "Het park ligt achter het theater."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το αρτοποιείο είναι ανάμεσα στο φαρμακείο και στο βιβλιοπωλείο.",
+          "translation": {
+            "en": "The bakery is between the pharmacy and the bookstore.",
+            "es-419": "La panadería está entre la farmacia y la librería.",
+            "it": "Il panificio è tra la farmacia e la libreria.",
+            "nl": "De bakkerij ligt tussen de apotheek en de boekhandel."
+          },
+          "distractors": {
+            "en": [
+              "The bakery is next to the pharmacy and the bookstore.",
+              "The post office is between the pharmacy and the bookstore."
+            ],
+            "es-419": [
+              "La panadería está al lado de la farmacia y la librería.",
+              "El correo está entre la farmacia y la librería."
+            ],
+            "it": [
+              "Il panificio è accanto alla farmacia e alla libreria.",
+              "L'ufficio postale è tra la farmacia e la libreria."
+            ],
+            "nl": [
+              "De bakkerij ligt naast de apotheek en de boekhandel.",
+              "Het postkantoor ligt tussen de apotheek en de boekhandel."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u17",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "μέσα στο μαγαζί",
+          "translation": {
+            "en": "inside the shop",
+            "es-419": "dentro de la tienda",
+            "it": "dentro il negozio",
+            "nl": "in de winkel"
+          },
+          "distractors": {
+            "en": [
+              "outside the shop",
+              "inside the school"
+            ],
+            "es-419": [
+              "fuera de la tienda",
+              "dentro de la escuela"
+            ],
+            "it": [
+              "fuori dal negozio",
+              "dentro la scuola"
+            ],
+            "nl": [
+              "buiten de winkel",
+              "in de school"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u18",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "έξω από το μαγαζί",
+          "translation": {
+            "en": "outside the shop",
+            "es-419": "fuera de la tienda",
+            "it": "fuori dal negozio",
+            "nl": "buiten de winkel"
+          },
+          "distractors": {
+            "en": [
+              "inside the shop",
+              "outside the school"
+            ],
+            "es-419": [
+              "dentro de la tienda",
+              "fuera de la escuela"
+            ],
+            "it": [
+              "dentro il negozio",
+              "fuori dalla scuola"
+            ],
+            "nl": [
+              "in de winkel",
+              "buiten de school"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u19",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το γραφείο είναι πάνω και το μαγαζί είναι κάτω.",
+          "translation": {
+            "en": "The office is upstairs and the shop is downstairs.",
+            "es-419": "La oficina está arriba y la tienda está abajo.",
+            "it": "L'ufficio è di sopra e il negozio è di sotto.",
+            "nl": "Het kantoor is boven en de winkel is beneden."
+          },
+          "distractors": {
+            "en": [
+              "The office is downstairs and the shop is upstairs.",
+              "The office is upstairs and the school is downstairs."
+            ],
+            "es-419": [
+              "La oficina está abajo y la tienda está arriba.",
+              "La oficina está arriba y la escuela está abajo."
+            ],
+            "it": [
+              "L'ufficio è di sotto e il negozio è di sopra.",
+              "L'ufficio è di sopra e la scuola è di sotto."
+            ],
+            "nl": [
+              "Het kantoor is beneden en de winkel is boven.",
+              "Het kantoor is boven en de school is beneden."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-2-u20",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το ταχυδρομείο είναι εκεί, απέναντι από την τράπεζα.",
+          "translation": {
+            "en": "The post office is over there, across from the bank.",
+            "es-419": "El correo está allí, enfrente del banco.",
+            "it": "L'ufficio postale è là, di fronte alla banca.",
+            "nl": "Het postkantoor is daar, tegenover de bank."
+          },
+          "distractors": {
+            "en": [
+              "The post office is here, across from the bank.",
+              "The post office is over there, next to the bank."
+            ],
+            "es-419": [
+              "El correo está aquí, enfrente del banco.",
+              "El correo está allí, al lado del banco."
+            ],
+            "it": [
+              "L'ufficio postale è qui, di fronte alla banca.",
+              "L'ufficio postale è là, accanto alla banca."
+            ],
+            "nl": [
+              "Het postkantoor is hier, tegenover de bank.",
+              "Het postkantoor is daar, naast de bank."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-poli-3",
+      "title": "Πηγαίνετε ευθεία",
+      "grammarFocus": {
+        "en": [
+          "πάω: πάω, πας, πάει, πάμε, πάτε, πάνε",
+          "έρχομαι: έρχομαι, έρχεσαι, έρχεται, ερχόμαστε, έρχεστε, έρχονται",
+          "Commands as fixed phrases: Πηγαίνετε, Στρίψτε, Συνεχίστε"
+        ],
+        "es-419": [
+          "πάω: πάω, πας, πάει, πάμε, πάτε, πάνε (ir)",
+          "έρχομαι: έρχομαι, έρχεσαι, έρχεται, ερχόμαστε, έρχεστε, έρχονται (venir)",
+          "Órdenes como frases hechas: Πηγαίνετε, Στρίψτε, Συνεχίστε"
+        ],
+        "it": [
+          "πάω: πάω, πας, πάει, πάμε, πάτε, πάνε (andare)",
+          "έρχομαι: έρχομαι, έρχεσαι, έρχεται, ερχόμαστε, έρχεστε, έρχονται (venire)",
+          "Comandi come frasi fisse: Πηγαίνετε, Στρίψτε, Συνεχίστε"
+        ],
+        "nl": [
+          "πάω: πάω, πας, πάει, πάμε, πάτε, πάνε (gaan)",
+          "έρχομαι: έρχομαι, έρχεσαι, έρχεται, ερχόμαστε, έρχεστε, έρχονται (komen)",
+          "Bevelen als vaste uitdrukkingen: Πηγαίνετε, Στρίψτε, Συνεχίστε"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "πάω",
+          "translation": {
+            "en": "I go",
+            "es-419": "voy",
+            "it": "vado",
+            "nl": "ik ga"
+          },
+          "distractors": {
+            "en": [
+              "I come",
+              "I stay"
+            ],
+            "es-419": [
+              "vengo",
+              "me quedo"
+            ],
+            "it": [
+              "vengo",
+              "resto"
+            ],
+            "nl": [
+              "ik kom",
+              "ik blijf"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "πάω στο σχολείο",
+          "translation": {
+            "en": "I go to school",
+            "es-419": "voy a la escuela",
+            "it": "vado a scuola",
+            "nl": "ik ga naar school"
+          },
+          "distractors": {
+            "en": [
+              "I come to school",
+              "I go to work"
+            ],
+            "es-419": [
+              "vengo a la escuela",
+              "voy al trabajo"
+            ],
+            "it": [
+              "vengo a scuola",
+              "vado al lavoro"
+            ],
+            "nl": [
+              "ik kom naar school",
+              "ik ga naar mijn werk"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "πάμε στην παραλία",
+          "translation": {
+            "en": "we go to the beach",
+            "es-419": "vamos a la playa",
+            "it": "andiamo in spiaggia",
+            "nl": "we gaan naar het strand"
+          },
+          "distractors": {
+            "en": [
+              "we go to the park",
+              "we come to the beach"
+            ],
+            "es-419": [
+              "vamos al parque",
+              "venimos a la playa"
+            ],
+            "it": [
+              "andiamo al parco",
+              "veniamo in spiaggia"
+            ],
+            "nl": [
+              "we gaan naar het park",
+              "we komen naar het strand"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "έρχομαι",
+          "translation": {
+            "en": "I come",
+            "es-419": "vengo",
+            "it": "vengo",
+            "nl": "ik kom"
+          },
+          "distractors": {
+            "en": [
+              "I go",
+              "I arrive"
+            ],
+            "es-419": [
+              "voy",
+              "llego"
+            ],
+            "it": [
+              "vado",
+              "arrivo"
+            ],
+            "nl": [
+              "ik ga",
+              "ik kom aan"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Έρχομαι από το χωριό.",
+          "translation": {
+            "en": "I come from the village.",
+            "es-419": "Vengo del pueblo.",
+            "it": "Vengo dal paese.",
+            "nl": "Ik kom uit het dorp."
+          },
+          "distractors": {
+            "en": [
+              "I am going to the village.",
+              "I come from the city."
+            ],
+            "es-419": [
+              "Voy al pueblo.",
+              "Vengo de la ciudad."
+            ],
+            "it": [
+              "Vado al paese.",
+              "Vengo dalla città."
+            ],
+            "nl": [
+              "Ik ga naar het dorp.",
+              "Ik kom uit de stad."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πού πας;",
+          "translation": {
+            "en": "Where are you going?",
+            "es-419": "¿Adónde vas?",
+            "it": "Dove vai?",
+            "nl": "Waar ga je heen?"
+          },
+          "distractors": {
+            "en": [
+              "Where are you from?",
+              "When are you going?"
+            ],
+            "es-419": [
+              "¿De dónde eres?",
+              "¿Cuándo vas?"
+            ],
+            "it": [
+              "Di dove sei?",
+              "Quando vai?"
+            ],
+            "nl": [
+              "Waar kom je vandaan?",
+              "Wanneer ga je?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πάμε μαζί στο κέντρο;",
+          "translation": {
+            "en": "Shall we go downtown together?",
+            "es-419": "¿Vamos juntos al centro?",
+            "it": "Andiamo insieme in centro?",
+            "nl": "Gaan we samen naar het centrum?"
+          },
+          "distractors": {
+            "en": [
+              "Shall we go to the park together?",
+              "Shall we go downtown tomorrow?"
+            ],
+            "es-419": [
+              "¿Vamos juntos al parque?",
+              "¿Vamos al centro mañana?"
+            ],
+            "it": [
+              "Andiamo insieme al parco?",
+              "Andiamo in centro domani?"
+            ],
+            "nl": [
+              "Gaan we samen naar het park?",
+              "Gaan we morgen naar het centrum?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "φτάνω",
+          "translation": {
+            "en": "I arrive",
+            "es-419": "llego",
+            "it": "arrivo",
+            "nl": "ik kom aan"
+          },
+          "distractors": {
+            "en": [
+              "I leave",
+              "I wait"
+            ],
+            "es-419": [
+              "salgo",
+              "espero"
+            ],
+            "it": [
+              "parto",
+              "aspetto"
+            ],
+            "nl": [
+              "ik vertrek",
+              "ik wacht"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Φτάνουμε στον σταθμό στις πέντε.",
+          "variants": [
+            "Φτάνουμε στον σταθμό στις 5."
+          ],
+          "translation": {
+            "en": "We arrive at the station at five.",
+            "es-419": "Llegamos a la estación a las cinco.",
+            "it": "Arriviamo alla stazione alle cinque.",
+            "nl": "We komen om vijf uur aan op het station."
+          },
+          "distractors": {
+            "en": [
+              "We arrive at the airport at five.",
+              "We arrive at the station at six."
+            ],
+            "es-419": [
+              "Llegamos al aeropuerto a las cinco.",
+              "Llegamos a la estación a las seis."
+            ],
+            "it": [
+              "Arriviamo all'aeroporto alle cinque.",
+              "Arriviamo alla stazione alle sei."
+            ],
+            "nl": [
+              "We komen om vijf uur aan op het vliegveld.",
+              "We komen om zes uur aan op het station."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "περνάω",
+          "translation": {
+            "en": "I pass",
+            "es-419": "paso",
+            "it": "passo",
+            "nl": "ik ga langs"
+          },
+          "distractors": {
+            "en": [
+              "I turn",
+              "I continue"
+            ],
+            "es-419": [
+              "doblo",
+              "sigo"
+            ],
+            "it": [
+              "giro",
+              "continuo"
+            ],
+            "nl": [
+              "ik sla af",
+              "ik ga door"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "περνάω από το φανάρι",
+          "translation": {
+            "en": "I go past the traffic light",
+            "es-419": "paso el semáforo",
+            "it": "passo il semaforo",
+            "nl": "ik ga langs het stoplicht"
+          },
+          "distractors": {
+            "en": [
+              "I stop at the traffic light",
+              "I go past the corner"
+            ],
+            "es-419": [
+              "me detengo en el semáforo",
+              "paso la esquina"
+            ],
+            "it": [
+              "mi fermo al semaforo",
+              "passo l'angolo"
+            ],
+            "nl": [
+              "ik stop bij het stoplicht",
+              "ik ga langs de hoek"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "στρίβω",
+          "translation": {
+            "en": "I turn",
+            "es-419": "doblo",
+            "it": "giro",
+            "nl": "ik sla af"
+          },
+          "distractors": {
+            "en": [
+              "I pass",
+              "I continue"
+            ],
+            "es-419": [
+              "paso",
+              "sigo"
+            ],
+            "it": [
+              "passo",
+              "continuo"
+            ],
+            "nl": [
+              "ik ga langs",
+              "ik ga door"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "συνεχίζω",
+          "translation": {
+            "en": "I continue",
+            "es-419": "sigo",
+            "it": "continuo",
+            "nl": "ik ga door"
+          },
+          "distractors": {
+            "en": [
+              "I turn",
+              "I arrive"
+            ],
+            "es-419": [
+              "doblo",
+              "llego"
+            ],
+            "it": [
+              "giro",
+              "arrivo"
+            ],
+            "nl": [
+              "ik sla af",
+              "ik kom aan"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "στρίψτε δεξιά",
+          "translation": {
+            "en": "turn right",
+            "es-419": "doble a la derecha",
+            "it": "giri a destra",
+            "nl": "sla rechtsaf"
+          },
+          "distractors": {
+            "en": [
+              "turn left",
+              "go straight ahead"
+            ],
+            "es-419": [
+              "doble a la izquierda",
+              "siga todo recto"
+            ],
+            "it": [
+              "giri a sinistra",
+              "vada dritto"
+            ],
+            "nl": [
+              "sla linksaf",
+              "ga rechtdoor"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "στρίψτε αριστερά στη γωνία",
+          "translation": {
+            "en": "turn left at the corner",
+            "es-419": "doble a la izquierda en la esquina",
+            "it": "giri a sinistra all'angolo",
+            "nl": "sla bij de hoek linksaf"
+          },
+          "distractors": {
+            "en": [
+              "turn right at the corner",
+              "turn left at the traffic light"
+            ],
+            "es-419": [
+              "doble a la derecha en la esquina",
+              "doble a la izquierda en el semáforo"
+            ],
+            "it": [
+              "giri a destra all'angolo",
+              "giri a sinistra al semaforo"
+            ],
+            "nl": [
+              "sla bij de hoek rechtsaf",
+              "sla bij het stoplicht linksaf"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u16",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "συνεχίστε ευθεία",
+          "translation": {
+            "en": "keep going straight",
+            "es-419": "siga todo recto",
+            "it": "continui dritto",
+            "nl": "ga rechtdoor"
+          },
+          "distractors": {
+            "en": [
+              "keep going to the right",
+              "go straight to the traffic light"
+            ],
+            "es-419": [
+              "siga a la derecha",
+              "vaya recto hasta el semáforo"
+            ],
+            "it": [
+              "continui a destra",
+              "vada dritto fino al semaforo"
+            ],
+            "nl": [
+              "ga naar rechts door",
+              "ga rechtdoor tot het stoplicht"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πηγαίνετε ευθεία και στρίψτε δεξιά στο φανάρι.",
+          "translation": {
+            "en": "Go straight and turn right at the traffic light.",
+            "es-419": "Vaya todo recto y doble a la derecha en el semáforo.",
+            "it": "Vada dritto e giri a destra al semaforo.",
+            "nl": "Ga rechtdoor en sla bij het stoplicht rechtsaf."
+          },
+          "distractors": {
+            "en": [
+              "Go straight and turn left at the traffic light.",
+              "Go straight and turn right at the corner."
+            ],
+            "es-419": [
+              "Vaya todo recto y doble a la izquierda en el semáforo.",
+              "Vaya todo recto y doble a la derecha en la esquina."
+            ],
+            "it": [
+              "Vada dritto e giri a sinistra al semaforo.",
+              "Vada dritto e giri a destra all'angolo."
+            ],
+            "nl": [
+              "Ga rechtdoor en sla bij het stoplicht linksaf.",
+              "Ga rechtdoor en sla bij de hoek rechtsaf."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-3-u18",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πηγαίνετε ευθεία μέχρι τη γωνία, και μετά στρίψτε αριστερά.",
+          "translation": {
+            "en": "Go straight to the corner, and then turn left.",
+            "es-419": "Vaya todo recto hasta la esquina y después doble a la izquierda.",
+            "it": "Vada dritto fino all'angolo e poi giri a sinistra.",
+            "nl": "Ga rechtdoor tot de hoek en sla dan linksaf."
+          },
+          "distractors": {
+            "en": [
+              "Go straight to the corner, and then turn right.",
+              "Go straight to the light, and then turn left."
+            ],
+            "es-419": [
+              "Vaya todo recto hasta la esquina y después doble a la derecha.",
+              "Vaya todo recto hasta el semáforo y después doble a la izquierda."
+            ],
+            "it": [
+              "Vada dritto fino all'angolo e poi giri a destra.",
+              "Vada dritto fino al semaforo e poi giri a sinistra."
+            ],
+            "nl": [
+              "Ga rechtdoor tot de hoek en sla dan rechtsaf.",
+              "Ga rechtdoor tot het stoplicht en sla dan linksaf."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-poli-4",
+      "title": "Στο λεωφορείο",
+      "grammarFocus": {
+        "en": [
+          "με + means of transport: με το λεωφορείο, με το μετρό, με ταξί, με τα πόδια",
+          "η στάση του λεωφορείου = the bus stop (του λεωφορείου is a fixed phrase for now)",
+          "στον σταθμό, στο αεροδρόμιο: σε + article"
+        ],
+        "es-419": [
+          "με + medio de transporte: με το λεωφορείο, με το μετρό, με ταξί, με τα πόδια",
+          "η στάση του λεωφορείου = la parada del autobús (του λεωφορείου es una frase fija por ahora)",
+          "στον σταθμό, στο αεροδρόμιο: σε + artículo"
+        ],
+        "it": [
+          "με + mezzo di trasporto: με το λεωφορείο, με το μετρό, με ταξί, με τα πόδια",
+          "η στάση του λεωφορείου = la fermata dell'autobus (του λεωφορείου è una frase fissa per ora)",
+          "στον σταθμό, στο αεροδρόμιο: σε + articolo"
+        ],
+        "nl": [
+          "με + vervoermiddel: με το λεωφορείο, με το μετρό, με ταξί, με τα πόδια",
+          "η στάση του λεωφορείου = de bushalte (του λεωφορείου is voorlopig een vaste uitdrukking)",
+          "στον σταθμό, στο αεροδρόμιο: σε + lidwoord"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "στάση",
+          "translation": {
+            "en": "stop",
+            "es-419": "parada",
+            "it": "fermata",
+            "nl": "halte"
+          },
+          "distractors": {
+            "en": [
+              "station",
+              "ticket"
+            ],
+            "es-419": [
+              "estación",
+              "boleto"
+            ],
+            "it": [
+              "stazione",
+              "biglietto"
+            ],
+            "nl": [
+              "station",
+              "kaartje"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "λεωφορείο",
+          "translation": {
+            "en": "bus",
+            "es-419": "autobús",
+            "it": "autobus",
+            "nl": "bus"
+          },
+          "distractors": {
+            "en": [
+              "train",
+              "taxi"
+            ],
+            "es-419": [
+              "tren",
+              "taxi"
+            ],
+            "it": [
+              "treno",
+              "taxi"
+            ],
+            "nl": [
+              "trein",
+              "taxi"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "με το μετρό",
+          "translation": {
+            "en": "by subway",
+            "es-419": "en metro",
+            "it": "in metropolitana",
+            "nl": "met de metro"
+          },
+          "distractors": {
+            "en": [
+              "by train",
+              "by bus"
+            ],
+            "es-419": [
+              "en tren",
+              "en autobús"
+            ],
+            "it": [
+              "in treno",
+              "in autobus"
+            ],
+            "nl": [
+              "met de trein",
+              "met de bus"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "ταξί",
+          "translation": {
+            "en": "taxi",
+            "es-419": "taxi",
+            "it": "taxi",
+            "nl": "taxi"
+          },
+          "distractors": {
+            "en": [
+              "bus",
+              "car"
+            ],
+            "es-419": [
+              "autobús",
+              "coche"
+            ],
+            "it": [
+              "autobus",
+              "auto"
+            ],
+            "nl": [
+              "bus",
+              "auto"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "τρένο",
+          "translation": {
+            "en": "train",
+            "es-419": "tren",
+            "it": "treno",
+            "nl": "trein"
+          },
+          "distractors": {
+            "en": [
+              "subway",
+              "bus"
+            ],
+            "es-419": [
+              "metro",
+              "autobús"
+            ],
+            "it": [
+              "metropolitana",
+              "autobus"
+            ],
+            "nl": [
+              "metro",
+              "bus"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "σταθμός",
+          "translation": {
+            "en": "station",
+            "es-419": "estación",
+            "it": "stazione",
+            "nl": "station"
+          },
+          "distractors": {
+            "en": [
+              "stop",
+              "airport"
+            ],
+            "es-419": [
+              "parada",
+              "aeropuerto"
+            ],
+            "it": [
+              "fermata",
+              "aeroporto"
+            ],
+            "nl": [
+              "halte",
+              "vliegveld"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "αεροδρόμιο",
+          "translation": {
+            "en": "airport",
+            "es-419": "aeropuerto",
+            "it": "aeroporto",
+            "nl": "vliegveld"
+          },
+          "distractors": {
+            "en": [
+              "station",
+              "port"
+            ],
+            "es-419": [
+              "estación",
+              "puerto"
+            ],
+            "it": [
+              "stazione",
+              "porto"
+            ],
+            "nl": [
+              "station",
+              "haven"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "αυτοκίνητο",
+          "translation": {
+            "en": "car",
+            "es-419": "coche",
+            "it": "auto",
+            "nl": "auto"
+          },
+          "distractors": {
+            "en": [
+              "bus",
+              "taxi"
+            ],
+            "es-419": [
+              "autobús",
+              "taxi"
+            ],
+            "it": [
+              "autobus",
+              "taxi"
+            ],
+            "nl": [
+              "bus",
+              "taxi"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "η στάση του λεωφορείου",
+          "translation": {
+            "en": "the bus stop",
+            "es-419": "la parada del autobús",
+            "it": "la fermata dell'autobus",
+            "nl": "de bushalte"
+          },
+          "distractors": {
+            "en": [
+              "the subway station",
+              "the taxi stop"
+            ],
+            "es-419": [
+              "la estación de metro",
+              "la parada de taxis"
+            ],
+            "it": [
+              "la stazione della metropolitana",
+              "la fermata dei taxi"
+            ],
+            "nl": [
+              "het metrostation",
+              "de taxistandplaats"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πού είναι η στάση του λεωφορείου;",
+          "translation": {
+            "en": "Where is the bus stop?",
+            "es-419": "¿Dónde está la parada del autobús?",
+            "it": "Dov'è la fermata dell'autobus?",
+            "nl": "Waar is de bushalte?"
+          },
+          "distractors": {
+            "en": [
+              "Where is the subway station?",
+              "Where is the taxi stop?"
+            ],
+            "es-419": [
+              "¿Dónde está la estación de metro?",
+              "¿Dónde está la parada de taxis?"
+            ],
+            "it": [
+              "Dov'è la stazione della metropolitana?",
+              "Dov'è la fermata dei taxi?"
+            ],
+            "nl": [
+              "Waar is het metrostation?",
+              "Waar is de taxistandplaats?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το λεωφορείο έρχεται σε δέκα λεπτά.",
+          "variants": [
+            "Το λεωφορείο έρχεται σε 10 λεπτά."
+          ],
+          "translation": {
+            "en": "The bus is coming in ten minutes.",
+            "es-419": "El autobús llega en diez minutos.",
+            "it": "L'autobus arriva tra dieci minuti.",
+            "nl": "De bus komt over tien minuten."
+          },
+          "distractors": {
+            "en": [
+              "The bus is coming in five minutes.",
+              "The train is coming in ten minutes."
+            ],
+            "es-419": [
+              "El autobús llega en cinco minutos.",
+              "El tren llega en diez minutos."
+            ],
+            "it": [
+              "L'autobus arriva tra cinque minuti.",
+              "Il treno arriva tra dieci minuti."
+            ],
+            "nl": [
+              "De bus komt over vijf minuten.",
+              "De trein komt over tien minuten."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πάω στη δουλειά με το μετρό.",
+          "translation": {
+            "en": "I go to work by subway.",
+            "es-419": "Voy al trabajo en metro.",
+            "it": "Vado al lavoro in metropolitana.",
+            "nl": "Ik ga met de metro naar mijn werk."
+          },
+          "distractors": {
+            "en": [
+              "I go to work by bus.",
+              "I go to school by subway."
+            ],
+            "es-419": [
+              "Voy al trabajo en autobús.",
+              "Voy a la escuela en metro."
+            ],
+            "it": [
+              "Vado al lavoro in autobus.",
+              "Vado a scuola in metropolitana."
+            ],
+            "nl": [
+              "Ik ga met de bus naar mijn werk.",
+              "Ik ga met de metro naar school."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ο φίλος μου πάει στο αεροδρόμιο με ταξί.",
+          "translation": {
+            "en": "My friend goes to the airport by taxi.",
+            "es-419": "Mi amigo va al aeropuerto en taxi.",
+            "it": "Il mio amico va all'aeroporto in taxi.",
+            "nl": "Mijn vriend gaat met de taxi naar het vliegveld."
+          },
+          "distractors": {
+            "en": [
+              "My friend goes to the airport by bus.",
+              "My friend goes to the station by taxi."
+            ],
+            "es-419": [
+              "Mi amigo va al aeropuerto en autobús.",
+              "Mi amigo va a la estación en taxi."
+            ],
+            "it": [
+              "Il mio amico va all'aeroporto in autobus.",
+              "Il mio amico va alla stazione in taxi."
+            ],
+            "nl": [
+              "Mijn vriend gaat met de bus naar het vliegveld.",
+              "Mijn vriend gaat met de taxi naar het station."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "με τα πόδια",
+          "translation": {
+            "en": "on foot",
+            "es-419": "a pie",
+            "it": "a piedi",
+            "nl": "te voet"
+          },
+          "distractors": {
+            "en": [
+              "by car",
+              "by bus"
+            ],
+            "es-419": [
+              "en coche",
+              "en autobús"
+            ],
+            "it": [
+              "in auto",
+              "in autobus"
+            ],
+            "nl": [
+              "met de auto",
+              "met de bus"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν έχω αυτοκίνητο, πάω με τα πόδια.",
+          "translation": {
+            "en": "I don't have a car, I walk.",
+            "es-419": "No tengo coche, voy a pie.",
+            "it": "Non ho l'auto, vado a piedi.",
+            "nl": "Ik heb geen auto, ik ga te voet."
+          },
+          "distractors": {
+            "en": [
+              "I don't have a car, I take the bus.",
+              "I don't have a phone, I walk."
+            ],
+            "es-419": [
+              "No tengo coche, voy en autobús.",
+              "No tengo teléfono, voy a pie."
+            ],
+            "it": [
+              "Non ho l'auto, vado in autobus.",
+              "Non ho il telefono, vado a piedi."
+            ],
+            "nl": [
+              "Ik heb geen auto, ik ga met de bus.",
+              "Ik heb geen telefoon, ik ga te voet."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το τρένο φτάνει στον σταθμό στις οκτώ.",
+          "variants": [
+            "Το τρένο φτάνει στον σταθμό στις 8."
+          ],
+          "translation": {
+            "en": "The train arrives at the station at eight.",
+            "es-419": "El tren llega a la estación a las ocho.",
+            "it": "Il treno arriva alla stazione alle otto.",
+            "nl": "De trein komt om acht uur aan op het station."
+          },
+          "distractors": {
+            "en": [
+              "The bus arrives at the station at eight.",
+              "The train arrives at the station at nine."
+            ],
+            "es-419": [
+              "El autobús llega a la estación a las ocho.",
+              "El tren llega a la estación a las nueve."
+            ],
+            "it": [
+              "L'autobus arriva alla stazione alle otto.",
+              "Il treno arriva alla stazione alle nove."
+            ],
+            "nl": [
+              "De bus komt om acht uur aan op het station.",
+              "De trein komt om negen uur aan op het station."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-poli-5",
+      "title": "Πόσο μακριά είναι;",
+      "grammarFocus": {
+        "en": [
+          "Ordinals agree with the noun: πρώτος, πρώτη; δεύτερος, δεύτερη",
+          "Distance and time: Είναι πέντε λεπτά με τα πόδια",
+          "δύο, πέντε, δέκα, εκατό do not change before the noun"
+        ],
+        "es-419": [
+          "Los ordinales concuerdan con el nombre: πρώτος, πρώτη; δεύτερος, δεύτερη",
+          "Distancia y tiempo: Είναι πέντε λεπτά με τα πόδια = Son cinco minutos a pie",
+          "δύο, πέντε, δέκα, εκατό no cambian delante del nombre"
+        ],
+        "it": [
+          "Gli ordinali concordano con il nome: πρώτος, πρώτη; δεύτερος, δεύτερη",
+          "Distanza e tempo: Είναι πέντε λεπτά με τα πόδια = Sono cinque minuti a piedi",
+          "δύο, πέντε, δέκα, εκατό non cambiano davanti al nome"
+        ],
+        "nl": [
+          "Rangtelwoorden passen zich aan het zelfstandig naamwoord aan: πρώτος, πρώτη; δεύτερος, δεύτερη",
+          "Afstand en tijd: Είναι πέντε λεπτά με τα πόδια = Het is vijf minuten lopen",
+          "δύο, πέντε, δέκα, εκατό veranderen niet voor het zelfstandig naamwoord"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "εκατό μέτρα",
+          "variants": [
+            "100 μέτρα"
+          ],
+          "translation": {
+            "en": "a hundred meters",
+            "es-419": "cien metros",
+            "it": "cento metri",
+            "nl": "honderd meter"
+          },
+          "distractors": {
+            "en": [
+              "ten meters",
+              "a hundred kilometers"
+            ],
+            "es-419": [
+              "diez metros",
+              "cien kilómetros"
+            ],
+            "it": [
+              "dieci metri",
+              "cento chilometri"
+            ],
+            "nl": [
+              "tien meter",
+              "honderd kilometer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "χιλιόμετρο",
+          "translation": {
+            "en": "kilometer",
+            "es-419": "kilómetro",
+            "it": "chilometro",
+            "nl": "kilometer"
+          },
+          "distractors": {
+            "en": [
+              "meter",
+              "mile"
+            ],
+            "es-419": [
+              "metro",
+              "milla"
+            ],
+            "it": [
+              "metro",
+              "miglio"
+            ],
+            "nl": [
+              "meter",
+              "mijl"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "δύο χιλιόμετρα",
+          "variants": [
+            "2 χιλιόμετρα",
+            "δυο χιλιόμετρα"
+          ],
+          "translation": {
+            "en": "two kilometers",
+            "es-419": "dos kilómetros",
+            "it": "due chilometri",
+            "nl": "twee kilometer"
+          },
+          "distractors": {
+            "en": [
+              "two meters",
+              "three kilometers"
+            ],
+            "es-419": [
+              "dos metros",
+              "tres kilómetros"
+            ],
+            "it": [
+              "due metri",
+              "tre chilometri"
+            ],
+            "nl": [
+              "twee meter",
+              "drie kilometer"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι μόνο δέκα μέτρα.",
+          "variants": [
+            "Είναι μόνο 10 μέτρα."
+          ],
+          "translation": {
+            "en": "It is only ten meters.",
+            "es-419": "Son solo diez metros.",
+            "it": "Sono solo dieci metri.",
+            "nl": "Het is maar tien meter."
+          },
+          "distractors": {
+            "en": [
+              "It is only ten kilometers.",
+              "It is only fifty meters."
+            ],
+            "es-419": [
+              "Son solo diez kilómetros.",
+              "Son solo cincuenta metros."
+            ],
+            "it": [
+              "Sono solo dieci chilometri.",
+              "Sono solo cinquanta metri."
+            ],
+            "nl": [
+              "Het is maar tien kilometer.",
+              "Het is maar vijftig meter."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το μουσείο είναι ένα χιλιόμετρο από εδώ.",
+          "variants": [
+            "Το μουσείο είναι 1 χιλιόμετρο από εδώ."
+          ],
+          "translation": {
+            "en": "The museum is one kilometer from here.",
+            "es-419": "El museo está a un kilómetro de aquí.",
+            "it": "Il museo è a un chilometro da qui.",
+            "nl": "Het museum is een kilometer hiervandaan."
+          },
+          "distractors": {
+            "en": [
+              "The museum is two kilometers from here.",
+              "The bank is one kilometer from here."
+            ],
+            "es-419": [
+              "El museo está a dos kilómetros de aquí.",
+              "El banco está a un kilómetro de aquí."
+            ],
+            "it": [
+              "Il museo è a due chilometri da qui.",
+              "La banca è a un chilometro da qui."
+            ],
+            "nl": [
+              "Het museum is twee kilometer hiervandaan.",
+              "De bank is een kilometer hiervandaan."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι πέντε λεπτά με τα πόδια.",
+          "variants": [
+            "Είναι 5 λεπτά με τα πόδια."
+          ],
+          "translation": {
+            "en": "It is five minutes on foot.",
+            "es-419": "Son cinco minutos a pie.",
+            "it": "Sono cinque minuti a piedi.",
+            "nl": "Het is vijf minuten lopen."
+          },
+          "distractors": {
+            "en": [
+              "It is fifteen minutes on foot.",
+              "It is five minutes by bus."
+            ],
+            "es-419": [
+              "Son quince minutos a pie.",
+              "Son cinco minutos en autobús."
+            ],
+            "it": [
+              "Sono quindici minuti a piedi.",
+              "Sono cinque minuti in autobus."
+            ],
+            "nl": [
+              "Het is vijftien minuten lopen.",
+              "Het is vijf minuten met de bus."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Είναι περίπου δέκα λεπτά με το λεωφορείο.",
+          "variants": [
+            "Είναι περίπου 10 λεπτά με το λεωφορείο."
+          ],
+          "translation": {
+            "en": "It is about ten minutes by bus.",
+            "es-419": "Son unos diez minutos en autobús.",
+            "it": "Sono circa dieci minuti in autobus.",
+            "nl": "Het is ongeveer tien minuten met de bus."
+          },
+          "distractors": {
+            "en": [
+              "It is about twenty minutes by bus.",
+              "It is about ten minutes by train."
+            ],
+            "es-419": [
+              "Son unos veinte minutos en autobús.",
+              "Son unos diez minutos en tren."
+            ],
+            "it": [
+              "Sono circa venti minuti in autobus.",
+              "Sono circa dieci minuti in treno."
+            ],
+            "nl": [
+              "Het is ongeveer twintig minuten met de bus.",
+              "Het is ongeveer tien minuten met de trein."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "πρώτος",
+          "translation": {
+            "en": "first",
+            "es-419": "primero",
+            "it": "primo",
+            "nl": "eerste"
+          },
+          "distractors": {
+            "en": [
+              "second",
+              "third"
+            ],
+            "es-419": [
+              "segundo",
+              "tercero"
+            ],
+            "it": [
+              "secondo",
+              "terzo"
+            ],
+            "nl": [
+              "tweede",
+              "derde"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "δεύτερος",
+          "translation": {
+            "en": "second",
+            "es-419": "segundo",
+            "it": "secondo",
+            "nl": "tweede"
+          },
+          "distractors": {
+            "en": [
+              "first",
+              "third"
+            ],
+            "es-419": [
+              "primero",
+              "tercero"
+            ],
+            "it": [
+              "primo",
+              "terzo"
+            ],
+            "nl": [
+              "eerste",
+              "derde"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "η πρώτη στροφή",
+          "translation": {
+            "en": "the first turn",
+            "es-419": "la primera curva",
+            "it": "la prima svolta",
+            "nl": "de eerste afslag"
+          },
+          "distractors": {
+            "en": [
+              "the second turn",
+              "the first street"
+            ],
+            "es-419": [
+              "la segunda curva",
+              "la primera calle"
+            ],
+            "it": [
+              "la seconda svolta",
+              "la prima strada"
+            ],
+            "nl": [
+              "de tweede afslag",
+              "de eerste straat"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "στροφή",
+          "translation": {
+            "en": "turn",
+            "es-419": "curva",
+            "it": "svolta",
+            "nl": "afslag"
+          },
+          "distractors": {
+            "en": [
+              "corner",
+              "street"
+            ],
+            "es-419": [
+              "esquina",
+              "calle"
+            ],
+            "it": [
+              "angolo",
+              "strada"
+            ],
+            "nl": [
+              "hoek",
+              "straat"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η δεύτερη στροφή δεξιά.",
+          "translation": {
+            "en": "The second turn on the right.",
+            "es-419": "La segunda curva a la derecha.",
+            "it": "La seconda svolta a destra.",
+            "nl": "De tweede afslag rechts."
+          },
+          "distractors": {
+            "en": [
+              "The first turn on the right.",
+              "The second turn on the left."
+            ],
+            "es-419": [
+              "La primera curva a la derecha.",
+              "La segunda curva a la izquierda."
+            ],
+            "it": [
+              "La prima svolta a destra.",
+              "La seconda svolta a sinistra."
+            ],
+            "nl": [
+              "De eerste afslag rechts.",
+              "De tweede afslag links."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "περιμένω",
+          "translation": {
+            "en": "I wait",
+            "es-419": "espero",
+            "it": "aspetto",
+            "nl": "ik wacht"
+          },
+          "distractors": {
+            "en": [
+              "I arrive",
+              "I look for"
+            ],
+            "es-419": [
+              "llego",
+              "busco"
+            ],
+            "it": [
+              "arrivo",
+              "cerco"
+            ],
+            "nl": [
+              "ik kom aan",
+              "ik zoek"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Περιμένω το λεωφορείο στη στάση.",
+          "translation": {
+            "en": "I wait for the bus at the stop.",
+            "es-419": "Espero el autobús en la parada.",
+            "it": "Aspetto l'autobus alla fermata.",
+            "nl": "Ik wacht op de bus bij de halte."
+          },
+          "distractors": {
+            "en": [
+              "I wait for the taxi at the stop.",
+              "I wait for the bus at the station."
+            ],
+            "es-419": [
+              "Espero el taxi en la parada.",
+              "Espero el autobús en la estación."
+            ],
+            "it": [
+              "Aspetto il taxi alla fermata.",
+              "Aspetto l'autobus alla stazione."
+            ],
+            "nl": [
+              "Ik wacht op de taxi bij de halte.",
+              "Ik wacht op de bus op het station."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Περιμένουμε δέκα λεπτά, αλλά το λεωφορείο δεν έρχεται.",
+          "variants": [
+            "Περιμένουμε 10 λεπτά, αλλά το λεωφορείο δεν έρχεται."
+          ],
+          "translation": {
+            "en": "We wait ten minutes, but the bus doesn't come.",
+            "es-419": "Esperamos diez minutos, pero el autobús no llega.",
+            "it": "Aspettiamo dieci minuti, ma l'autobus non arriva.",
+            "nl": "We wachten tien minuten, maar de bus komt niet."
+          },
+          "distractors": {
+            "en": [
+              "We wait five minutes, but the bus doesn't come.",
+              "We wait ten minutes, but the taxi doesn't come."
+            ],
+            "es-419": [
+              "Esperamos cinco minutos, pero el autobús no llega.",
+              "Esperamos diez minutos, pero el taxi no llega."
+            ],
+            "it": [
+              "Aspettiamo cinque minuti, ma l'autobus non arriva.",
+              "Aspettiamo dieci minuti, ma il taxi non arriva."
+            ],
+            "nl": [
+              "We wachten vijf minuten, maar de bus komt niet.",
+              "We wachten tien minuten, maar de taxi komt niet."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Στρίψτε στην πρώτη στροφή δεξιά, και είστε εκεί.",
+          "translation": {
+            "en": "Turn right at the first turn, and you are there.",
+            "es-419": "Doble a la derecha en la primera curva y ya está allí.",
+            "it": "Giri a destra alla prima svolta ed è arrivato.",
+            "nl": "Sla bij de eerste afslag rechtsaf en u bent er."
+          },
+          "distractors": {
+            "en": [
+              "Turn left at the first turn, and you are there.",
+              "Turn right at the second turn, and you are there."
+            ],
+            "es-419": [
+              "Doble a la izquierda en la primera curva y ya está allí.",
+              "Doble a la derecha en la segunda curva y ya está allí."
+            ],
+            "it": [
+              "Giri a sinistra alla prima svolta ed è arrivato.",
+              "Giri a destra alla seconda svolta ed è arrivato."
+            ],
+            "nl": [
+              "Sla bij de eerste afslag linksaf en u bent er.",
+              "Sla bij de tweede afslag rechtsaf en u bent er."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "el-a1-poli-6",
+      "title": "Ρωτάω τον δρόμο",
+      "grammarFocus": {
+        "en": [
+          "πρέπει να + verb: πρέπει never changes (Πρέπει να πάτε ευθεία)",
+          "Μπορείτε να μου δείξετε...; = Can you show me...?",
+          "ανοιχτός and κλειστός agree with the noun: ανοιχτό, κλειστή"
+        ],
+        "es-419": [
+          "πρέπει να + verbo: πρέπει no cambia (Πρέπει να πάτε ευθεία = Tiene que ir todo recto)",
+          "Μπορείτε να μου δείξετε...; = ¿Puede mostrarme...?",
+          "ανοιχτός y κλειστός concuerdan con el nombre: ανοιχτό, κλειστή"
+        ],
+        "it": [
+          "πρέπει να + verbo: πρέπει non cambia (Πρέπει να πάτε ευθεία = Deve andare dritto)",
+          "Μπορείτε να μου δείξετε...; = Può mostrarmi...?",
+          "ανοιχτός e κλειστός concordano con il nome: ανοιχτό, κλειστή"
+        ],
+        "nl": [
+          "πρέπει να + werkwoord: πρέπει verandert niet (Πρέπει να πάτε ευθεία = U moet rechtdoor gaan)",
+          "Μπορείτε να μου δείξετε...; = Kunt u mij... laten zien?",
+          "ανοιχτός en κλειστός passen zich aan het zelfstandig naamwoord aan: ανοιχτό, κλειστή"
+        ]
+      },
+      "units": [
+        {
+          "id": "el-a1-poli-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "χάρτης",
+          "translation": {
+            "en": "map",
+            "es-419": "mapa",
+            "it": "mappa",
+            "nl": "kaart"
+          },
+          "distractors": {
+            "en": [
+              "sign",
+              "address"
+            ],
+            "es-419": [
+              "letrero",
+              "dirección"
+            ],
+            "it": [
+              "cartello",
+              "indirizzo"
+            ],
+            "nl": [
+              "bord",
+              "adres"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "στον χάρτη",
+          "translation": {
+            "en": "on the map",
+            "es-419": "en el mapa",
+            "it": "sulla mappa",
+            "nl": "op de kaart"
+          },
+          "distractors": {
+            "en": [
+              "on the bus",
+              "in the book"
+            ],
+            "es-419": [
+              "en el autobús",
+              "en el libro"
+            ],
+            "it": [
+              "sull'autobus",
+              "nel libro"
+            ],
+            "nl": [
+              "in de bus",
+              "in het boek"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "δείχνω",
+          "translation": {
+            "en": "I show",
+            "es-419": "muestro",
+            "it": "mostro",
+            "nl": "ik laat zien"
+          },
+          "distractors": {
+            "en": [
+              "I find",
+              "I ask"
+            ],
+            "es-419": [
+              "encuentro",
+              "pregunto"
+            ],
+            "it": [
+              "trovo",
+              "chiedo"
+            ],
+            "nl": [
+              "ik vind",
+              "ik vraag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Μπορείτε να μου δείξετε τον δρόμο;",
+          "translation": {
+            "en": "Can you show me the way?",
+            "es-419": "¿Puede mostrarme el camino?",
+            "it": "Può mostrarmi la strada?",
+            "nl": "Kunt u mij de weg wijzen?"
+          },
+          "distractors": {
+            "en": [
+              "Can you show me the map?",
+              "Can you show me the station?"
+            ],
+            "es-419": [
+              "¿Puede mostrarme el mapa?",
+              "¿Puede mostrarme la estación?"
+            ],
+            "it": [
+              "Può mostrarmi la mappa?",
+              "Può mostrarmi la stazione?"
+            ],
+            "nl": [
+              "Kunt u mij de kaart laten zien?",
+              "Kunt u mij het station wijzen?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "βρίσκω",
+          "translation": {
+            "en": "I find",
+            "es-419": "encuentro",
+            "it": "trovo",
+            "nl": "ik vind"
+          },
+          "distractors": {
+            "en": [
+              "I show",
+              "I ask"
+            ],
+            "es-419": [
+              "muestro",
+              "pregunto"
+            ],
+            "it": [
+              "mostro",
+              "chiedo"
+            ],
+            "nl": [
+              "ik laat zien",
+              "ik vraag"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Δεν βρίσκω το ταχυδρομείο.",
+          "translation": {
+            "en": "I can't find the post office.",
+            "es-419": "No encuentro el correo.",
+            "it": "Non trovo l'ufficio postale.",
+            "nl": "Ik kan het postkantoor niet vinden."
+          },
+          "distractors": {
+            "en": [
+              "I can't find the pharmacy.",
+              "I can't find the bank."
+            ],
+            "es-419": [
+              "No encuentro la farmacia.",
+              "No encuentro el banco."
+            ],
+            "it": [
+              "Non trovo la farmacia.",
+              "Non trovo la banca."
+            ],
+            "nl": [
+              "Ik kan de apotheek niet vinden.",
+              "Ik kan de bank niet vinden."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Συγγνώμη, πού είναι το ταχυδρομείο;",
+          "translation": {
+            "en": "Excuse me, where is the post office?",
+            "es-419": "Disculpe, ¿dónde está el correo?",
+            "it": "Scusi, dov'è l'ufficio postale?",
+            "nl": "Pardon, waar is het postkantoor?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, where is the pharmacy?",
+              "Excuse me, is there a post office here?"
+            ],
+            "es-419": [
+              "Disculpe, ¿dónde está la farmacia?",
+              "Disculpe, ¿hay un correo aquí?"
+            ],
+            "it": [
+              "Scusi, dov'è la farmacia?",
+              "Scusi, c'è un ufficio postale qui?"
+            ],
+            "nl": [
+              "Pardon, waar is de apotheek?",
+              "Pardon, is er hier een postkantoor?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να πάτε ευθεία.",
+          "translation": {
+            "en": "You have to go straight.",
+            "es-419": "Tiene que ir todo recto.",
+            "it": "Deve andare dritto.",
+            "nl": "U moet rechtdoor gaan."
+          },
+          "distractors": {
+            "en": [
+              "You have to turn right.",
+              "You have to wait here."
+            ],
+            "es-419": [
+              "Tiene que doblar a la derecha.",
+              "Tiene que esperar aquí."
+            ],
+            "it": [
+              "Deve girare a destra.",
+              "Deve aspettare qui."
+            ],
+            "nl": [
+              "U moet rechtsaf slaan.",
+              "U moet hier wachten."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Πρέπει να στρίψετε αριστερά και να συνεχίσετε ευθεία.",
+          "translation": {
+            "en": "You have to turn left and keep going straight.",
+            "es-419": "Tiene que doblar a la izquierda y seguir todo recto.",
+            "it": "Deve girare a sinistra e continuare dritto.",
+            "nl": "U moet linksaf slaan en rechtdoor blijven gaan."
+          },
+          "distractors": {
+            "en": [
+              "You have to turn right and keep going straight.",
+              "You have to turn left and wait at the traffic light."
+            ],
+            "es-419": [
+              "Tiene que doblar a la derecha y seguir todo recto.",
+              "Tiene que doblar a la izquierda y esperar en el semáforo."
+            ],
+            "it": [
+              "Deve girare a destra e continuare dritto.",
+              "Deve girare a sinistra e aspettare al semaforo."
+            ],
+            "nl": [
+              "U moet rechtsaf slaan en rechtdoor blijven gaan.",
+              "U moet linksaf slaan en bij het stoplicht wachten."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "ανοιχτός",
+          "translation": {
+            "en": "open",
+            "es-419": "abierto",
+            "it": "aperto",
+            "nl": "open"
+          },
+          "distractors": {
+            "en": [
+              "closed",
+              "busy"
+            ],
+            "es-419": [
+              "cerrado",
+              "ocupado"
+            ],
+            "it": [
+              "chiuso",
+              "occupato"
+            ],
+            "nl": [
+              "dicht",
+              "druk"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "κλειστός",
+          "translation": {
+            "en": "closed",
+            "es-419": "cerrado",
+            "it": "chiuso",
+            "nl": "dicht"
+          },
+          "distractors": {
+            "en": [
+              "open",
+              "full"
+            ],
+            "es-419": [
+              "abierto",
+              "lleno"
+            ],
+            "it": [
+              "aperto",
+              "pieno"
+            ],
+            "nl": [
+              "open",
+              "vol"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Το περίπτερο είναι ανοιχτό μέχρι τις οκτώ.",
+          "variants": [
+            "Το περίπτερο είναι ανοιχτό μέχρι τις 8."
+          ],
+          "translation": {
+            "en": "The kiosk is open until eight.",
+            "es-419": "El quiosco está abierto hasta las ocho.",
+            "it": "L'edicola è aperta fino alle otto.",
+            "nl": "De kiosk is open tot acht uur."
+          },
+          "distractors": {
+            "en": [
+              "The kiosk is open until nine.",
+              "The shop is open until eight."
+            ],
+            "es-419": [
+              "El quiosco está abierto hasta las nueve.",
+              "La tienda está abierta hasta las ocho."
+            ],
+            "it": [
+              "L'edicola è aperta fino alle nove.",
+              "Il negozio è aperto fino alle otto."
+            ],
+            "nl": [
+              "De kiosk is open tot negen uur.",
+              "De winkel is open tot acht uur."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η τράπεζα είναι κλειστή σήμερα.",
+          "translation": {
+            "en": "The bank is closed today.",
+            "es-419": "El banco está cerrado hoy.",
+            "it": "La banca è chiusa oggi.",
+            "nl": "De bank is vandaag dicht."
+          },
+          "distractors": {
+            "en": [
+              "The bank is open today.",
+              "The bank is closed tomorrow."
+            ],
+            "es-419": [
+              "El banco está abierto hoy.",
+              "El banco está cerrado mañana."
+            ],
+            "it": [
+              "La banca è aperta oggi.",
+              "La banca è chiusa domani."
+            ],
+            "nl": [
+              "De bank is vandaag open.",
+              "De bank is morgen dicht."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Συγγνώμη, πού είναι η τουαλέτα;",
+          "translation": {
+            "en": "Excuse me, where is the restroom?",
+            "es-419": "Disculpe, ¿dónde está el baño?",
+            "it": "Scusi, dov'è il bagno?",
+            "nl": "Pardon, waar is het toilet?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, where is the pharmacy?",
+              "Excuse me, is there a restroom here?"
+            ],
+            "es-419": [
+              "Disculpe, ¿dónde está la farmacia?",
+              "Disculpe, ¿hay un baño aquí?"
+            ],
+            "it": [
+              "Scusi, dov'è la farmacia?",
+              "Scusi, c'è un bagno qui?"
+            ],
+            "nl": [
+              "Pardon, waar is de apotheek?",
+              "Pardon, is er hier een toilet?"
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Η αστυνομία είναι στην πλατεία.",
+          "translation": {
+            "en": "The police station is in the square.",
+            "es-419": "La policía está en la plaza.",
+            "it": "La polizia è in piazza.",
+            "nl": "De politie zit op het plein."
+          },
+          "distractors": {
+            "en": [
+              "The police station is in the park.",
+              "The post office is in the square."
+            ],
+            "es-419": [
+              "La policía está en el parque.",
+              "El correo está en la plaza."
+            ],
+            "it": [
+              "La polizia è nel parco.",
+              "L'ufficio postale è in piazza."
+            ],
+            "nl": [
+              "De politie zit in het park.",
+              "Het postkantoor is op het plein."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ρωτάω έναν αστυνομικό στον δρόμο.",
+          "translation": {
+            "en": "I ask a police officer on the street.",
+            "es-419": "Le pregunto a un policía en la calle.",
+            "it": "Chiedo a un poliziotto per strada.",
+            "nl": "Ik vraag het aan een agent op straat."
+          },
+          "distractors": {
+            "en": [
+              "I ask a teacher on the street.",
+              "I ask a police officer in the square."
+            ],
+            "es-419": [
+              "Le pregunto a un profesor en la calle.",
+              "Le pregunto a un policía en la plaza."
+            ],
+            "it": [
+              "Chiedo a un insegnante per strada.",
+              "Chiedo a un poliziotto in piazza."
+            ],
+            "nl": [
+              "Ik vraag het aan een leraar op straat.",
+              "Ik vraag het aan een agent op het plein."
+            ]
+          }
+        },
+        {
+          "id": "el-a1-poli-6-u17",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ευχαριστώ πολύ, τώρα βρίσκω τον δρόμο!",
+          "translation": {
+            "en": "Thank you very much, now I can find the way!",
+            "es-419": "¡Muchas gracias, ahora encuentro el camino!",
+            "it": "Grazie mille, ora trovo la strada!",
+            "nl": "Hartelijk dank, nu vind ik de weg!"
+          },
+          "distractors": {
+            "en": [
+              "Thank you very much, now I can find the post office!",
+              "Thank you very much, now I can find the bank!"
+            ],
+            "es-419": [
+              "¡Muchas gracias, ahora encuentro el correo!",
+              "¡Muchas gracias, ahora encuentro el banco!"
+            ],
+            "it": [
+              "Grazie mille, ora trovo l'ufficio postale!",
+              "Grazie mille, ora trovo la banca!"
+            ],
+            "nl": [
+              "Hartelijk dank, nu vind ik het postkantoor!",
+              "Hartelijk dank, nu vind ik de bank!"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

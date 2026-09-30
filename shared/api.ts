@@ -11,7 +11,6 @@ export type LearnerLevel = (typeof LEARNER_LEVELS)[number];
 export const PrefsSchema = z.strictObject({
   path: z.enum(Object.keys(PATHS) as [keyof typeof PATHS]),
   hints: z.enum(HINT_LEVELS),
-  autoplay: z.int().min(0).max(3),
   rate: z.number().min(0.5).max(1),
   /** Self-rated: the conversation level and which levels the coach suggests testing out of. Null until the learner is asked. */
   level: z.enum(LEARNER_LEVELS).nullable(),
@@ -22,7 +21,7 @@ export const PrefsSchema = z.strictObject({
   studyFirst: z.boolean(),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", autoplay: 1, rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false };
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false };
 
 /** Whether a course can be immersed in: the app and the AI write only in a locale. */
 export const immersible = (l: Language) => languageLocale(l) !== null;
@@ -308,7 +307,7 @@ export type Me = { email: string; username: string | null; profilePublic: boolea
 export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[]; dailySpendCap: number };
 export type LessonProgress = { nextIndex: number; completedAt: string | null };
 /** Master opens this long after the last run of the lesson finished. */
-export const MASTER_WAIT_MS = 12 * 3_600_000;
+export const MASTER_WAIT_MS = 6 * 3_600_000;
 /** A lesson's best stars, and when its last run finished. */
 export type LessonStars = { stars: 1 | 2 | 3; practicedAt: string };
 /** A lesson as the catalog lists it: unit counts per stage instead of the units, which `/api/lessons/:id` serves. */

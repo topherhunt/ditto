@@ -1,6 +1,6 @@
 # Curriculum: A1 to B1
 
-This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md), [curriculum-en.md](curriculum-en.md), [curriculum-nl.md](curriculum-nl.md), [curriculum-es.md](curriculum-es.md) and [curriculum-ga.md](curriculum-ga.md) (A1).
+This doc covers the language-neutral structure, the ordering principles and the module list. Each language has its own plan, with its grammar sequence and the lemmas every module introduces: [curriculum-it.md](curriculum-it.md), [curriculum-en.md](curriculum-en.md), [curriculum-nl.md](curriculum-nl.md), [curriculum-es.md](curriculum-es.md) and [curriculum-ga.md](curriculum-ga.md) (A1) and [curriculum-el.md](curriculum-el.md).
 
 ## Principles
 
