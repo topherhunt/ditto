@@ -1,6 +1,6 @@
 import OpenAI, { toFile } from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
-import { Agent } from "undici";
+import { Agent, fetch as undiciFetch } from "undici";
 import { z } from "zod";
 import { CEFR_LEVELS, type Chunk, type CoachVerdict } from "../shared/api.ts";
 import { LANGUAGE_NAMES, LOCALE_NAMES, type Language, type Locale } from "../shared/content.ts";
@@ -120,7 +120,9 @@ const transcript = (history: Line[]) => history.map((l) => `${l.role === "partne
 
 export function openAIConversation(apiKey: string, model: string, effort: "none" | "low" | "medium" = "low", transcribeModel = "gpt-transcribe"): ConversationAI {
   // Node 26's built-in fetch can reuse destroyed HTTP/2 sessions (ERR_HTTP2_INVALID_SESSION); HTTP/1.1 avoids it.
-  const client = new OpenAI({ apiKey, fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
+  // The Agent must go with undici's own fetch: Node's built-in fetch bundles a different undici per Node version
+  // and rejects a mismatched Agent ("invalid onRequestStart method" on Node 24 in production).
+  const client = new OpenAI({ apiKey, fetch: undiciFetch as unknown as typeof fetch,fetchOptions: { dispatcher: new Agent({ allowH2: false }) } });
   // Priced before the first call, so a model missing from the price table fails at startup.
   tokenUsage(model, 0, 0);
   minuteUsage(transcribeModel, 0);

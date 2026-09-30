@@ -3,8 +3,11 @@
 - [ ] Test and confirm with Luis and others that people can access the app fine.
 - [ ] Improving the UI
   - [ ] Fix the Internal Error
-  - [ ] The name should be "Ditto", not translated
-  - [ ] Add a favicon
+  - [ ] Revise & polish the French typing course content
+  - [ ] Revise & polish the Greek typing course content
+  - [ ] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there. 
+  - [ ] The name should be "Ditto", not translated. Confirm that this is the case in all languages. 
+  - [ ] Add a favicon.
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
   - [ ] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
   - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz? 
