@@ -40,7 +40,7 @@ export function registerAdminUsers(app: Hono<{ Variables: { user: User } }>, dep
        (SELECT count(DISTINCT lesson_id) FROM lesson_progress WHERE user_id = u.id AND completed_at IS NOT NULL) AS lessons_completed,
        (SELECT count(*) FROM friendships WHERE status = 'accepted' AND u.id IN (requester_id, addressee_id)) AS friends,
        (SELECT count(*) FROM friendships WHERE status = 'pending' AND requester_id = u.id) AS pending_sent,
-       (SELECT count(*) FROM friendships WHERE status = 'blocked' AND requester_id = u.id) AS blocked_by,
+       (SELECT count(*) FROM blocks WHERE blocked_id = u.id) AS blocked_by,
        (SELECT count(*) FROM reports WHERE user_id = u.id)
          + (SELECT count(*) FROM conversation_attempts a JOIN conversations c ON c.id = a.conversation_id
             WHERE c.user_id = u.id AND a.reported_at IS NOT NULL) AS reports,
@@ -107,9 +107,8 @@ export function registerAdminUsers(app: Hono<{ Variables: { user: User } }>, dep
         `SELECT u.public_id AS id, u.username FROM friendships f JOIN users u ON u.id = CASE f.requester_id WHEN ?1 THEN f.addressee_id ELSE f.requester_id END
          WHERE f.status = 'accepted' AND ?1 IN (f.requester_id, f.addressee_id) ORDER BY u.username COLLATE NOCASE`,
       ),
-      // A block is stored on the blocked account's request: requester = blocked, addressee = blocker.
-      blockedBy: people("SELECT u.public_id AS id, u.username FROM friendships f JOIN users u ON u.id = f.addressee_id WHERE f.status = 'blocked' AND f.requester_id = ?"),
-      blocked: people("SELECT u.public_id AS id, u.username FROM friendships f JOIN users u ON u.id = f.requester_id WHERE f.status = 'blocked' AND f.addressee_id = ?"),
+      blockedBy: people("SELECT u.public_id AS id, u.username FROM blocks k JOIN users u ON u.id = k.blocker_id WHERE k.blocked_id = ?"),
+      blocked: people("SELECT u.public_id AS id, u.username FROM blocks k JOIN users u ON u.id = k.blocked_id WHERE k.blocker_id = ?"),
       reports: db.prepare(
         `SELECT kind, note, text, created_at AS createdAt FROM reports WHERE user_id = ?1
          UNION ALL SELECT 'speaking', a.report_note, a.target, a.reported_at FROM conversation_attempts a JOIN conversations c ON c.id = a.conversation_id

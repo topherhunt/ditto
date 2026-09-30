@@ -1,6 +1,6 @@
 # Usage metrics
 
-What Ditto measures about how it is used, why, and how the numbers answer product questions. It is also the source for the usage section of the privacy policy ([privacy.md](privacy.md)). Code: `server/metrics.ts`, `web/src/metrics.ts`, migration `023-metrics.sql`; report at `/admin/metrics` (account menu > Metrics, admins only).
+What Ditto measures about how it is used, why, and how the numbers answer product questions. It is also the source for the usage section of the privacy policy (`web/src/pages/Privacy.tsx`, obligations in [privacy.md](privacy.md)). Code: `server/metrics.ts`, `web/src/metrics.ts`, migration `023-metrics.sql`; report at `/admin/metrics` (account menu > Metrics, admins only).
 
 ## Principle
 

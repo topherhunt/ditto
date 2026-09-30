@@ -5,7 +5,7 @@ import {
   BOARD_SIZE, CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FRIEND_REQUESTS_PER_DAY, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
   PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile,
-  type Relation,
+  type Relation, UserReportSchema,
 } from "../shared/api.ts";
 import type { Language, ServedCourse, ServedLesson } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
@@ -105,14 +105,30 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   const pair = (from: number, to: number) =>
     db.prepare("SELECT status FROM friendships WHERE requester_id = ? AND addressee_id = ?").get(from, to) as
-      { status: "pending" | "accepted" | "blocked" } | undefined;
+      { status: "pending" | "accepted" } | undefined;
+  const blocks = (blocker: number, blocked: number) => !!db.prepare("SELECT 1 FROM blocks WHERE blocker_id = ? AND blocked_id = ?").get(blocker, blocked);
+  /** Blocking deletes the pair's friendships, so a request from the blocked side is one sent since: pending to them, invisible to the blocker. */
   const relation = (me: number, other: number): Relation => {
     if (me === other) return "self";
+    if (blocks(me, other)) return "blocked";
     const mine = pair(me, other);
     if (mine) return mine.status === "accepted" ? "friends" : "outgoing";
     const theirs = pair(other, me);
     if (!theirs) return "none";
-    return theirs.status === "accepted" ? "friends" : theirs.status === "pending" ? "incoming" : "blocked";
+    return theirs.status === "accepted" ? "friends" : "incoming";
+  };
+  const unpair = (a: number, b: number) =>
+    db.prepare("DELETE FROM friendships WHERE (requester_id = ? AND addressee_id = ?) OR (requester_id = ? AND addressee_id = ?)").run(a, b, b, a);
+  const unfriend = (a: number, b: number) => {
+    unpair(a, b);
+    db.prepare(
+      `UPDATE challenges SET status = 'cancelled' WHERE status IN ('pending', 'active')
+       AND ((challenger_id = ? AND opponent_id = ?) OR (challenger_id = ? AND opponent_id = ?))`,
+    ).run(a, b, b, a);
+  };
+  const block = (me: number, other: number) => {
+    unfriend(me, other);
+    db.prepare("INSERT OR IGNORE INTO blocks (blocker_id, blocked_id, created_at) VALUES (?, ?, ?)").run(me, other, iso());
   };
   const accept = (requester: number, addressee: number) => {
     db.prepare("UPDATE friendships SET status = 'accepted', responded_at = ? WHERE requester_id = ? AND addressee_id = ?")
@@ -125,11 +141,12 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const rows = db.prepare("SELECT requester_id AS r, addressee_id AS a, status FROM friendships WHERE requester_id = ? OR addressee_id = ? ORDER BY created_at")
       .all(me, me) as { r: number; a: number; status: string }[];
     const pick = (keep: (x: (typeof rows)[number]) => boolean) => rows.filter(keep).map((x) => person(x.r === me ? x.a : x.r));
+    const blocked = (db.prepare("SELECT blocked_id AS id FROM blocks WHERE blocker_id = ? ORDER BY created_at").all(me) as { id: number }[]).map((b) => b.id);
     return c.json<FriendsOut>({
       friends: pick((x) => x.status === "accepted").sort(byName),
-      incoming: pick((x) => x.a === me && x.status === "pending"),
-      outgoing: pick((x) => x.r === me && x.status !== "accepted"),
-      blocked: pick((x) => x.a === me && x.status === "blocked"),
+      incoming: pick((x) => x.a === me && x.status === "pending" && !blocked.includes(x.r)),
+      outgoing: pick((x) => x.r === me && x.status === "pending"),
+      blocked: blocked.map(person),
     });
   });
 
@@ -179,7 +196,7 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     transaction(db, () => {
       if (rel === "none") {
         db.prepare("INSERT INTO friendships (requester_id, addressee_id, status, created_at) VALUES (?, ?, 'pending', ?)").run(me, other, iso());
-        notify(other, "friend_request", me);
+        if (!blocks(other, me)) notify(other, "friend_request", me);
       }
       if (rel === "incoming") accept(other, me);
     });
@@ -190,21 +207,39 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const action = z.enum(FRIEND_ACTIONS).parse(c.req.param("action"));
     const other = userId(c.req.param("id"));
     const me = c.get("user").id;
-    const needs = { accept: "incoming", decline: "incoming", block: "incoming", unblock: "blocked", unfriend: "friends" } as const;
-    if (relation(me, other) !== needs[action]) throw new HTTPException(404, { message: `No ${needs[action]} friendship to ${action}` });
+    const rel = relation(me, other);
+    const needs = {
+      accept: ["incoming"], decline: ["incoming"], block: ["none", "outgoing", "incoming", "friends"], unblock: ["blocked"], unfriend: ["friends"],
+    } as const satisfies Record<(typeof FRIEND_ACTIONS)[number], Relation[]>;
+    if (!(needs[action] as readonly Relation[]).includes(rel)) throw new HTTPException(404, { message: `Can't ${action} an account whose relation is ${rel}` });
     transaction(db, () => {
       if (action === "accept") accept(other, me);
-      else if (action === "block")
-        db.prepare("UPDATE friendships SET status = 'blocked', responded_at = ? WHERE requester_id = ? AND addressee_id = ?").run(iso(), other, me);
-      else if (action === "unfriend") {
-        db.prepare("DELETE FROM friendships WHERE (requester_id = ? AND addressee_id = ?) OR (requester_id = ? AND addressee_id = ?)").run(me, other, other, me);
-        db.prepare(
-          `UPDATE challenges SET status = 'cancelled' WHERE status IN ('pending', 'active')
-           AND ((challenger_id = ? AND opponent_id = ?) OR (challenger_id = ? AND opponent_id = ?))`,
-        ).run(me, other, other, me);
-      } else db.prepare("DELETE FROM friendships WHERE requester_id = ? AND addressee_id = ?").run(other, me);
+      else if (action === "block") block(me, other);
+      else if (action === "unblock") {
+        db.prepare("DELETE FROM blocks WHERE blocker_id = ? AND blocked_id = ?").run(me, other);
+        // Drops a request they sent while blocked, which the blocker never saw.
+        unpair(me, other);
+      } else if (action === "unfriend") unfriend(me, other);
+      else db.prepare("DELETE FROM friendships WHERE requester_id = ? AND addressee_id = ?").run(other, me);
     });
     return c.json({ ok: true });
+  });
+
+  app.post("/api/people/:id/report", async (c) => {
+    const { reason, note } = UserReportSchema.parse(await c.req.json());
+    const other = userId(c.req.param("id"));
+    const me = c.get("user").id;
+    if (me === other) throw new HTTPException(400, { message: "That's you" });
+    if (db.prepare("SELECT 1 FROM user_reports WHERE reporter_id = ? AND reported_id = ? AND resolved_at IS NULL").get(me, other))
+      throw new HTTPException(409, { message: "You already reported them" });
+    const { username } = db.prepare("SELECT username FROM users WHERE id = ?").get(other) as { username: string | null };
+    const posted = db.prepare("SELECT blurb FROM friend_board WHERE user_id = ?").get(other) as { blurb: string | null } | undefined;
+    transaction(db, () => {
+      db.prepare("INSERT INTO user_reports (reporter_id, reported_id, reason, note, username, blurb, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .run(me, other, reason, note || null, username, posted ? posted.blurb : null, iso());
+      block(me, other);
+    });
+    return c.json({ relation: relation(me, other) });
   });
 
   const mainTrack = (language: Language) =>
@@ -236,12 +271,14 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const done = completions(id);
     const worked = (db.prepare("SELECT lesson_id, max(created_at) AS last FROM attempts WHERE user_id = ? AND mode = 'learn' GROUP BY lesson_id ORDER BY last DESC")
       .all(id) as { lesson_id: string; last: string }[]).filter((r) => courseOf.has(r.lesson_id));
-    const firstStudied = db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid LIMIT 1").get(id) as { language: Language } | undefined;
+    const studying = (db.prepare("SELECT language FROM learning_languages WHERE user_id = ? ORDER BY rowid").all(id) as { language: Language }[]).map((r) => r.language);
+    const workedLanguages = worked.map((r) => courseOf.get(r.lesson_id)!.language);
     const windowed = ACTIVITY_WINDOWS.map(([window, days]) => ({ window, lessons: done.filter((r) => r.at >= daysAgo(days)).length }))
       .find((w) => w.lessons >= 2);
     return {
       done, worked,
-      language: worked.length ? courseOf.get(worked[0].lesson_id)!.language : (firstStudied?.language ?? null),
+      // A lesson in a language they don't study (trying one out) doesn't count.
+      language: workedLanguages.find((l) => studying.includes(l)) ?? studying[0] ?? workedLanguages[0] ?? null,
       activity: windowed ?? (done.length ? { lastCompletedAt: done.at(-1)!.at } : null),
     };
   };
@@ -273,8 +310,7 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     // A block in either direction hides each from the other, silently.
     const rows = db.prepare(
       `SELECT user_id, blurb FROM friend_board b WHERE user_id = ?1 OR NOT EXISTS (
-         SELECT 1 FROM friendships f WHERE f.status = 'blocked'
-         AND ((f.requester_id = ?1 AND f.addressee_id = b.user_id) OR (f.requester_id = b.user_id AND f.addressee_id = ?1))
+         SELECT 1 FROM blocks k WHERE (k.blocker_id = ?1 AND k.blocked_id = b.user_id) OR (k.blocker_id = b.user_id AND k.blocked_id = ?1)
        ) ORDER BY user_id = ?1 DESC, random() LIMIT ?2`,
     ).all(me, BOARD_SIZE) as { user_id: number; blurb: string | null }[];
     // SQL keeps the viewer within the limit; this puts them somewhere random.

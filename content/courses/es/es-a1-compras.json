@@ -1,0 +1,4035 @@
+{
+  "id": "es-a1-compras",
+  "language": "es",
+  "level": "A1",
+  "order": 10,
+  "title": "De compras",
+  "description": {
+    "en": "Buying food at the market and clothes in a store: quantities, colors, sizes and prices",
+    "it": "Comprare cibo al mercato e vestiti in un negozio: quantità, colori, taglie e prezzi",
+    "nl": "Eten kopen op de markt en kleding in een winkel: hoeveelheden, kleuren, maten en prijzen"
+  },
+  "track": "main",
+  "requires": [
+    "es-a1-tiempo-libre"
+  ],
+  "introduces": [
+    "comprar",
+    "vender",
+    "gastar",
+    "quedar",
+    "faltar",
+    "mirar",
+    "mostrar",
+    "ayudar",
+    "cambiar",
+    "la",
+    "esto",
+    "ese",
+    "aquel",
+    "color",
+    "blanco",
+    "rojo",
+    "amarillo",
+    "gris",
+    "rosado",
+    "morado",
+    "talla",
+    "ropa",
+    "camisa",
+    "camiseta",
+    "pantalón",
+    "jeans",
+    "falda",
+    "vestido",
+    "chaqueta",
+    "suéter",
+    "zapato",
+    "bolsa",
+    "probador",
+    "mercado",
+    "caja",
+    "recibo",
+    "oferta",
+    "descuento",
+    "precio",
+    "caro",
+    "barato",
+    "apretado",
+    "cómodo",
+    "kilo",
+    "gramo",
+    "docena",
+    "huevo",
+    "plátano",
+    "manzana",
+    "fresa",
+    "uva",
+    "dinero",
+    "cambio",
+    "ciento",
+    "doscientos",
+    "trescientos",
+    "cuatrocientos",
+    "quinientos",
+    "mediano",
+    "billete"
+  ],
+  "lexicon": {
+    "amarillo": {
+      "lemma": "amarillo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "yellow",
+        "it": "giallo",
+        "nl": "geel"
+      }
+    },
+    "apretado": {
+      "lemma": "apretado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tight",
+        "it": "stretto",
+        "nl": "strak, krap"
+      }
+    },
+    "apretados": {
+      "lemma": "apretado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tight (masculine plural)",
+        "it": "stretti (maschile plurale)",
+        "nl": "strak, krap (mannelijk meervoud)"
+      }
+    },
+    "aquel": {
+      "lemma": "aquel",
+      "pos": "DET",
+      "gloss": {
+        "en": "that (over there, far away); forms: aquel, aquella, aquellos, aquellas",
+        "it": "quello (laggiù, lontano); forme: aquel, aquella, aquellos, aquellas",
+        "nl": "die (daar, verder weg); vormen: aquel, aquella, aquellos, aquellas"
+      }
+    },
+    "aquella": {
+      "lemma": "aquel",
+      "pos": "DET",
+      "gloss": {
+        "en": "that (over there; feminine)",
+        "it": "quella (laggiù; femminile)",
+        "nl": "die (daar; vrouwelijk)"
+      }
+    },
+    "aquellas": {
+      "lemma": "aquel",
+      "pos": "DET",
+      "gloss": {
+        "en": "those (over there; feminine plural)",
+        "it": "quelle (laggiù; femminile plurale)",
+        "nl": "die (daar; vrouwelijk meervoud)"
+      }
+    },
+    "aquí": {
+      "lemma": "aquí",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here",
+        "it": "qui, qua",
+        "nl": "hier"
+      }
+    },
+    "ayudar": {
+      "lemma": "ayudar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to help; ¿la puedo ayudar? = can I help you (a woman)?",
+        "it": "aiutare",
+        "nl": "helpen"
+      }
+    },
+    "azul": {
+      "lemma": "azul",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "blue; el azul = the blue one",
+        "it": "blu, azzurro; el azul = quello blu",
+        "nl": "blauw; el azul = de blauwe"
+      }
+    },
+    "baratas": {
+      "lemma": "barato",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cheap (feminine plural); más baratas = cheaper",
+        "it": "economiche (femminile plurale); más baratas = più economiche",
+        "nl": "goedkoop (vrouwelijk meervoud); más baratas = goedkoper"
+      }
+    },
+    "barato": {
+      "lemma": "barato",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cheap",
+        "it": "economico",
+        "nl": "goedkoop"
+      }
+    },
+    "billete": {
+      "lemma": "billete",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bill, banknote (m)",
+        "it": "banconota (m); attenzione: il biglietto del bus è boleto",
+        "nl": "bankbiljet, briefje (m)"
+      }
+    },
+    "blanco": {
+      "lemma": "blanco",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "white",
+        "it": "bianco",
+        "nl": "wit"
+      }
+    },
+    "bolsa": {
+      "lemma": "bolsa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bag (f)",
+        "it": "sacchetto, borsa (f)",
+        "nl": "tas, tasje (f)"
+      }
+    },
+    "buenas": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (feminine plural); buenas tardes = good afternoon",
+        "it": "buone; buenas tardes = buon pomeriggio",
+        "nl": "goed (vrouwelijk meervoud); buenas tardes = goedemiddag"
+      }
+    },
+    "buenos": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (masculine plural); buenos días = good morning",
+        "it": "buoni; buenos días = buongiorno",
+        "nl": "goed (mannelijk meervoud); buenos días = goedemorgen"
+      }
+    },
+    "busca": {
+      "lemma": "buscar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "are you looking for (buscar, usted)",
+        "it": "cerca (buscar, Lei)",
+        "nl": "zoekt u (buscar, usted)"
+      }
+    },
+    "busco": {
+      "lemma": "buscar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'm looking for (buscar)",
+        "it": "cerco (buscar)",
+        "nl": "ik zoek (buscar)"
+      }
+    },
+    "caja": {
+      "lemma": "caja",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "checkout, register (f); also box",
+        "it": "cassa (f); anche scatola",
+        "nl": "kassa (f); ook doos"
+      }
+    },
+    "cambiar": {
+      "lemma": "cambiar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to exchange, to change; cambiar A por B = exchange A for B",
+        "it": "cambiare; cambiar A por B = cambiare A con B",
+        "nl": "ruilen, veranderen; cambiar A por B = A ruilen voor B"
+      }
+    },
+    "cambio": {
+      "lemma": "cambio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "change, the coins and bills you get back (m)",
+        "it": "resto, spiccioli (m)",
+        "nl": "wisselgeld (m)"
+      }
+    },
+    "camisa": {
+      "lemma": "camisa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shirt (f)",
+        "it": "camicia (f)",
+        "nl": "overhemd, blouse (f)"
+      }
+    },
+    "camiseta": {
+      "lemma": "camiseta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "T-shirt (f)",
+        "it": "maglietta (f); attenzione: non è una camicetta",
+        "nl": "T-shirt (f)"
+      }
+    },
+    "caro": {
+      "lemma": "caro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "expensive",
+        "it": "caro (costoso)",
+        "nl": "duur"
+      }
+    },
+    "chaqueta": {
+      "lemma": "chaqueta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jacket (f)",
+        "it": "giacca (f)",
+        "nl": "jas, jasje (f)"
+      }
+    },
+    "ciento": {
+      "lemma": "ciento",
+      "pos": "NUM",
+      "gloss": {
+        "en": "hundred, before another number: ciento veinte = 120 (exactly 100 is cien)",
+        "it": "cento, davanti a un altro numero: ciento veinte = 120 (100 esatto è cien)",
+        "nl": "honderd, vóór een ander getal: ciento veinte = 120 (precies 100 is cien)"
+      }
+    },
+    "color": {
+      "lemma": "color",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "color (m)",
+        "it": "colore (m)",
+        "nl": "kleur (m)"
+      }
+    },
+    "comprar": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to buy",
+        "it": "comprare",
+        "nl": "kopen"
+      }
+    },
+    "compro": {
+      "lemma": "comprar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I buy (comprar)",
+        "it": "compro (comprar)",
+        "nl": "ik koop (comprar)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "cuatrocientos": {
+      "lemma": "cuatrocientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four hundred",
+        "it": "quattrocento",
+        "nl": "vierhonderd"
+      }
+    },
+    "cuesta": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "it costs (costar, o>ue)",
+        "it": "costa (costar)",
+        "nl": "het kost (costar)"
+      }
+    },
+    "cuestan": {
+      "lemma": "costar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they cost (costar, o>ue)",
+        "it": "costano (costar)",
+        "nl": "ze kosten (costar)"
+      }
+    },
+    "cuánto": {
+      "lemma": "cuánto",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how much",
+        "it": "quanto",
+        "nl": "hoeveel"
+      }
+    },
+    "cómo": {
+      "lemma": "cómo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how",
+        "it": "come",
+        "nl": "hoe"
+      }
+    },
+    "cómodo": {
+      "lemma": "cómodo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "comfortable",
+        "it": "comodo",
+        "nl": "comfortabel, lekker zittend"
+      }
+    },
+    "cómodos": {
+      "lemma": "cómodo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "comfortable (masculine plural)",
+        "it": "comodi (maschile plurale)",
+        "nl": "comfortabel (mannelijk meervoud)"
+      }
+    },
+    "da": {
+      "lemma": "dar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gives (dar); ¿me da...? = can I have...?",
+        "it": "dà (dar); ¿me da...? = mi dà...?",
+        "nl": "geeft (dar); ¿me da...? = mag ik...?"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; un kilo de = a kilo of",
+        "it": "di, da",
+        "nl": "van; un kilo de tomates = een kilo tomaten"
+      }
+    },
+    "descuento": {
+      "lemma": "descuento",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "discount (m)",
+        "it": "sconto (m)",
+        "nl": "korting (m)"
+      }
+    },
+    "dinero": {
+      "lemma": "dinero",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "money (m)",
+        "it": "soldi, denaro (m; singolare: el dinero)",
+        "nl": "geld (m)"
+      }
+    },
+    "disculpe": {
+      "lemma": "disculpar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excuse me (disculpar, to usted)",
+        "it": "mi scusi (disculpar, a usted)",
+        "nl": "pardon, neemt u me niet kwalijk (disculpar, tegen usted)"
+      }
+    },
+    "docena": {
+      "lemma": "docena",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dozen (f); una docena de huevos = a dozen eggs",
+        "it": "dozzina (f)",
+        "nl": "dozijn (f)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "doscientos": {
+      "lemma": "doscientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two hundred; feminine doscientas",
+        "it": "duecento; femminile doscientas",
+        "nl": "tweehonderd; vrouwelijk doscientas"
+      }
+    },
+    "días": {
+      "lemma": "día",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "days (m); buenos días = good morning",
+        "it": "giorni (m); buenos días = buongiorno",
+        "nl": "dagen (m); buenos días = goedemorgen"
+      }
+    },
+    "dónde": {
+      "lemma": "dónde",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where",
+        "it": "dove",
+        "nl": "waar"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine)",
+        "it": "il, lo (maschile)",
+        "nl": "de, het (mannelijk)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, at, on",
+        "it": "in, a, su",
+        "nl": "in, op, bij"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is, it is (ser)",
+        "it": "è (ser)",
+        "nl": "is, het is (ser)"
+      }
+    },
+    "esas": {
+      "lemma": "ese",
+      "pos": "DET",
+      "gloss": {
+        "en": "those (feminine plural)",
+        "it": "quelle (femminile plurale)",
+        "nl": "die (vrouwelijk meervoud)"
+      }
+    },
+    "ese": {
+      "lemma": "ese",
+      "pos": "DET",
+      "gloss": {
+        "en": "that (masculine); forms: ese, esa, esos, esas",
+        "it": "quello, codesto (maschile); forme: ese, esa, esos, esas",
+        "nl": "die, dat (mannelijk); vormen: ese, esa, esos, esas"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (feminine)",
+        "it": "questa (femminile)",
+        "nl": "deze, dit (vrouwelijk)"
+      }
+    },
+    "estas": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "these (feminine plural)",
+        "it": "queste (femminile plurale)",
+        "nl": "deze (vrouwelijk meervoud)"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (masculine)",
+        "it": "questo (maschile)",
+        "nl": "deze, dit (mannelijk)"
+      }
+    },
+    "esto": {
+      "lemma": "esto",
+      "pos": "PRON",
+      "gloss": {
+        "en": "this (thing); neuter, for something you can't name yet",
+        "it": "questo, questa cosa (neutro)",
+        "nl": "dit (onzijdig, voor iets zonder naam)"
+      }
+    },
+    "estos": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "these (masculine plural)",
+        "it": "questi (maschile plurale)",
+        "nl": "deze (mannelijk meervoud)"
+      }
+    },
+    "estoy": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I am (estar); estoy mirando = I'm looking",
+        "it": "sto, sono (estar); estoy mirando = sto guardando",
+        "nl": "ik ben (estar); estoy mirando = ik ben aan het kijken"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar, location)",
+        "it": "è, si trova (estar)",
+        "nl": "is, ligt (estar)"
+      }
+    },
+    "están": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they are (estar); están en oferta = they're on sale",
+        "it": "sono (estar)",
+        "nl": "ze zijn (estar)"
+      }
+    },
+    "falda": {
+      "lemma": "falda",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "skirt (f)",
+        "it": "gonna (f)",
+        "nl": "rok (f)"
+      }
+    },
+    "falta": {
+      "lemma": "faltar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is missing (faltar); me falta = I'm missing, I need",
+        "it": "manca (faltar); me falta = mi manca",
+        "nl": "ontbreekt (faltar); me falta = ik mis nog, ik heb nog nodig"
+      }
+    },
+    "faltan": {
+      "lemma": "faltar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "are missing (faltar); me faltan dos = I need two more",
+        "it": "mancano (faltar)",
+        "nl": "ontbreken (faltar); me faltan dos = ik mis er nog twee"
+      }
+    },
+    "faltar": {
+      "lemma": "faltar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to be missing, to be lacking; works like gustar: me falta leche = I need milk",
+        "it": "mancare; funziona come mancare: me falta leche = mi manca il latte",
+        "nl": "ontbreken; werkt als gustar: me falta leche = ik heb geen melk meer, ik mis nog melk"
+      }
+    },
+    "favor": {
+      "lemma": "favor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "favor (m); por favor = please",
+        "it": "favore (m); por favor = per favore",
+        "nl": "gunst (m); por favor = alstublieft"
+      }
+    },
+    "favorito": {
+      "lemma": "favorito",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "favorite",
+        "it": "preferito",
+        "nl": "lievelings-, favoriet"
+      }
+    },
+    "fiesta": {
+      "lemma": "fiesta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "party (f)",
+        "it": "festa (f)",
+        "nl": "feest (f)"
+      }
+    },
+    "fresas": {
+      "lemma": "fresa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "strawberries (f)",
+        "it": "fragole (f)",
+        "nl": "aardbeien (f)"
+      }
+    },
+    "fruta": {
+      "lemma": "fruta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fruit (f)",
+        "it": "frutta (f); una fruta = un frutto",
+        "nl": "fruit (f); una fruta = een vrucht"
+      }
+    },
+    "gasto": {
+      "lemma": "gastar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I spend (gastar)",
+        "it": "spendo (gastar)",
+        "nl": "ik geef uit (gastar)"
+      }
+    },
+    "gracias": {
+      "lemma": "gracias",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thanks, thank you",
+        "it": "grazie",
+        "nl": "dank je, dank u"
+      }
+    },
+    "gramo": {
+      "lemma": "gramo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gram (m)",
+        "it": "grammo (m)",
+        "nl": "gram (m)"
+      }
+    },
+    "gramos": {
+      "lemma": "gramo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grams (m)",
+        "it": "grammi (m)",
+        "nl": "gram (m)"
+      }
+    },
+    "grande": {
+      "lemma": "grande",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big; me queda grande = it's too big for me",
+        "it": "grande; me queda grande = mi sta grande",
+        "nl": "groot; me queda grande = het is me te groot"
+      }
+    },
+    "gris": {
+      "lemma": "gris",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "gray; same for masculine and feminine; plural grises",
+        "it": "grigio; uguale al maschile e al femminile; plurale grises",
+        "nl": "grijs; zelfde vorm voor mannelijk en vrouwelijk; meervoud grises"
+      }
+    },
+    "grises": {
+      "lemma": "gris",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "gray (plural)",
+        "it": "grigi, grigie (plurale)",
+        "nl": "grijs (meervoud)"
+      }
+    },
+    "gustan": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "please (gustar); me gustan = I like (plural thing)",
+        "it": "piacciono (gustar)",
+        "nl": "bevallen (gustar); me gustan = ik vind ... mooi, ik hou van"
+      }
+    },
+    "huevo": {
+      "lemma": "huevo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "egg (m)",
+        "it": "uovo (m)",
+        "nl": "ei (m)"
+      }
+    },
+    "huevos": {
+      "lemma": "huevo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "eggs (m)",
+        "it": "uova (m); attenzione: in spagnolo il plurale è regolare, los huevos",
+        "nl": "eieren (m)"
+      }
+    },
+    "jeans": {
+      "lemma": "jeans",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "jeans (m, plural)",
+        "it": "jeans (m, plurale)",
+        "nl": "spijkerbroek, jeans (m, meervoud)"
+      }
+    },
+    "jugo": {
+      "lemma": "jugo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "juice (m)",
+        "it": "succo (m)",
+        "nl": "sap (m)"
+      }
+    },
+    "kilo": {
+      "lemma": "kilo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kilo (m)",
+        "it": "chilo (m)",
+        "nl": "kilo (m)"
+      }
+    },
+    "la#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "her, it, you (formal, a woman); direct object for a feminine noun or person, before the verb",
+        "it": "la (oggetto diretto femminile, prima del verbo); anche La di cortesia",
+        "nl": "haar, het, hem, u (lijdend voorwerp, vrouwelijk, vóór het werkwoord)"
+      }
+    },
+    "leche": {
+      "lemma": "leche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "milk (f)",
+        "it": "latte (f)",
+        "nl": "melk (f)"
+      }
+    },
+    "llevo": {
+      "lemma": "llevar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I take (llevar); me la llevo = I'll take it (when buying)",
+        "it": "porto, prendo (llevar); me la llevo = la prendo",
+        "nl": "ik neem mee (llevar); me la llevo = ik neem hem"
+      }
+    },
+    "lo": {
+      "lemma": "lo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (direct object, before the verb); me lo puedo probar = can I try it on",
+        "it": "lo (oggetto diretto, prima del verbo)",
+        "nl": "het, hem (lijdend voorwerp, vóór het werkwoord)"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural); los sábados = on Saturdays",
+        "it": "i, gli; los sábados = il sabato",
+        "nl": "de (mannelijk meervoud); los sábados = op zaterdag"
+      }
+    },
+    "manzanas": {
+      "lemma": "manzana",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "apples (f)",
+        "it": "mele (f)",
+        "nl": "appels (f)"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me, for me",
+        "it": "mi",
+        "nl": "me, mij"
+      }
+    },
+    "mediana": {
+      "lemma": "mediano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "medium (feminine); talla mediana = size M",
+        "it": "media (femminile); talla mediana = taglia M",
+        "nl": "medium (vrouwelijk); talla mediana = maat M"
+      }
+    },
+    "mediano": {
+      "lemma": "mediano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "medium (size)",
+        "it": "medio (di taglia)",
+        "nl": "middelgroot, medium"
+      }
+    },
+    "medio": {
+      "lemma": "medio",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "half; medio kilo = half a kilo (no article)",
+        "it": "mezzo; medio kilo = mezzo chilo",
+        "nl": "half; medio kilo = een halve kilo"
+      }
+    },
+    "mercado": {
+      "lemma": "mercado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "market (m)",
+        "it": "mercato (m)",
+        "nl": "markt (m)"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "il mio, la mia",
+        "nl": "mijn"
+      }
+    },
+    "mirando": {
+      "lemma": "mirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "looking (mirar); estoy mirando = I'm looking",
+        "it": "guardando (mirar); attenzione: non è mirare",
+        "nl": "kijkend (mirar); estoy mirando = ik ben aan het kijken"
+      }
+    },
+    "mirar": {
+      "lemma": "mirar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to look (at), watch",
+        "it": "guardare; attenzione: non è mirare (= apuntar)",
+        "nl": "kijken (naar)"
+      }
+    },
+    "morado": {
+      "lemma": "morado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "purple",
+        "it": "viola",
+        "nl": "paars"
+      }
+    },
+    "mostrar": {
+      "lemma": "mostrar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to show (o>ue: muestro)",
+        "it": "mostrare, far vedere (o>ue: muestro)",
+        "nl": "laten zien, tonen (o>ue: muestro)"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much",
+        "it": "molto",
+        "nl": "veel"
+      }
+    },
+    "muy": {
+      "lemma": "muy",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very, really",
+        "it": "molto (davanti ad aggettivi)",
+        "nl": "heel, erg"
+      }
+    },
+    "más": {
+      "lemma": "más",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more; más barato = cheaper; qué más = what else",
+        "it": "più; qué más = che altro",
+        "nl": "meer; más barato = goedkoper; qué más = wat nog meer"
+      }
+    },
+    "naranjas": {
+      "lemma": "naranja",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "oranges (f)",
+        "it": "arance (f)",
+        "nl": "sinaasappels (f)"
+      }
+    },
+    "negro": {
+      "lemma": "negro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "black; en negro = in black",
+        "it": "nero; en negro = in nero",
+        "nl": "zwart; en negro = in het zwart"
+      }
+    },
+    "negros": {
+      "lemma": "negro",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "black (masculine plural)",
+        "it": "neri (maschile plurale)",
+        "nl": "zwart (mannelijk meervoud)"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "no, not",
+        "it": "no, non",
+        "nl": "nee, niet"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us; nos falta = we need",
+        "it": "ci; nos falta = ci manca",
+        "nl": "ons; nos falta = we missen nog"
+      }
+    },
+    "oferta": {
+      "lemma": "oferta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sale, special offer (f); en oferta = on sale",
+        "it": "offerta (f); en oferta = in offerta",
+        "nl": "aanbieding (f); en oferta = in de aanbieding"
+      }
+    },
+    "otra": {
+      "lemma": "otro",
+      "pos": "DET",
+      "gloss": {
+        "en": "another (feminine); never un otro",
+        "it": "un'altra; attenzione: senza articolo, otra talla",
+        "nl": "een andere (vrouwelijk); zonder un"
+      }
+    },
+    "pagar": {
+      "lemma": "pagar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pay",
+        "it": "pagare",
+        "nl": "betalen"
+      }
+    },
+    "pantalones": {
+      "lemma": "pantalón",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pants (m); usually plural: los pantalones = one pair",
+        "it": "pantaloni (m)",
+        "nl": "broek (m); meestal meervoud: los pantalones = één broek"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "pastel": {
+      "lemma": "pastel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cake (m)",
+        "it": "torta (m)",
+        "nl": "taart (m)"
+      }
+    },
+    "pero": {
+      "lemma": "pero",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "pesos": {
+      "lemma": "peso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pesos (m)",
+        "it": "pesos (m)",
+        "nl": "pesos (m)"
+      }
+    },
+    "plátano": {
+      "lemma": "plátano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "banana (m)",
+        "it": "banana (m)",
+        "nl": "banaan (m)"
+      }
+    },
+    "plátanos": {
+      "lemma": "plátano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bananas (m)",
+        "it": "banane (m)",
+        "nl": "bananen (m)"
+      }
+    },
+    "poco": {
+      "lemma": "poco",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a little; un poco = a bit",
+        "it": "poco; un poco = un po'",
+        "nl": "weinig; un poco = een beetje"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; por favor = please; cambiar por = exchange for",
+        "it": "per; por favor = per favore; cambiar por = cambiare con",
+        "nl": "voor, door; por favor = alstublieft; cambiar por = ruilen voor"
+      }
+    },
+    "precios": {
+      "lemma": "precio",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prices (m)",
+        "it": "prezzi (m)",
+        "nl": "prijzen (m)"
+      }
+    },
+    "prefiero": {
+      "lemma": "preferir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I prefer (preferir, e>ie)",
+        "it": "preferisco (preferir)",
+        "nl": "ik heb liever (preferir)"
+      }
+    },
+    "probador": {
+      "lemma": "probador",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fitting room (m)",
+        "it": "camerino (m)",
+        "nl": "paskamer (m)"
+      }
+    },
+    "probar": {
+      "lemma": "probar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to try; probarse = to try on (clothes)",
+        "it": "provare; probarse = provarsi (vestiti)",
+        "nl": "proberen; probarse = passen (kleding)"
+      }
+    },
+    "puede": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you can (poder, usted)",
+        "it": "può (poder, Lei)",
+        "nl": "u kunt (poder, usted)"
+      }
+    },
+    "puedo": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I can, may I (poder)",
+        "it": "posso (poder)",
+        "nl": "ik kan, mag ik (poder)"
+      }
+    },
+    "queda": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fits, looks (quedar); me queda bien = it fits me well",
+        "it": "sta (quedar); me queda bien = mi sta bene",
+        "nl": "zit, staat (quedar); me queda bien = het zit me goed"
+      }
+    },
+    "quedan": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fit, look (quedar; plural subject)",
+        "it": "stanno (quedar; soggetto plurale)",
+        "nl": "zitten, staan (quedar; meervoudig onderwerp)"
+      }
+    },
+    "quedar": {
+      "lemma": "quedar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to fit, to look (clothes); works like gustar: me queda grande = it's too big for me",
+        "it": "stare (di vestiti); me queda grande = mi sta grande",
+        "nl": "zitten, staan (van kleding); werkt als gustar: me queda grande = het is me te groot"
+      }
+    },
+    "queso": {
+      "lemma": "queso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cheese (m)",
+        "it": "formaggio (m)",
+        "nl": "kaas (m)"
+      }
+    },
+    "quinientos": {
+      "lemma": "quinientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five hundred; watch out: not cincocientos",
+        "it": "cinquecento; attenzione: non cincocientos",
+        "nl": "vijfhonderd; let op: niet cincocientos"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what; ¡qué caro! = how expensive!",
+        "it": "che cosa; ¡qué caro! = che caro!",
+        "nl": "wat; ¡qué caro! = wat duur!"
+      }
+    },
+    "recibo": {
+      "lemma": "recibo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "receipt (m)",
+        "it": "scontrino, ricevuta (m)",
+        "nl": "bonnetje, kassabon (m)"
+      }
+    },
+    "ricas": {
+      "lemma": "rico",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tasty, delicious (feminine plural)",
+        "it": "buone, gustose (femminile plurale)",
+        "nl": "lekker (vrouwelijk meervoud)"
+      }
+    },
+    "roja": {
+      "lemma": "rojo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "red (feminine)",
+        "it": "rossa (femminile)",
+        "nl": "rood (vrouwelijk)"
+      }
+    },
+    "rojo": {
+      "lemma": "rojo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "red; forms: rojo, roja, rojos, rojas",
+        "it": "rosso; forme: rojo, roja, rojos, rojas",
+        "nl": "rood; vormen: rojo, roja, rojos, rojas"
+      }
+    },
+    "ropa": {
+      "lemma": "ropa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "clothes (f; always singular: la ropa); watch out: not rope",
+        "it": "vestiti, abbigliamento (f; sempre singolare: la ropa)",
+        "nl": "kleren, kleding (f; altijd enkelvoud: la ropa); let op: niet 'rope' (touw)"
+      }
+    },
+    "rosado": {
+      "lemma": "rosado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "pink",
+        "it": "rosa",
+        "nl": "roze"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "itself, themselves; se ven = they look",
+        "it": "si; se ven = sembrano",
+        "nl": "zich; se ven = ze zien er ... uit"
+      }
+    },
+    "siempre": {
+      "lemma": "siempre",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always",
+        "it": "sempre",
+        "nl": "altijd"
+      }
+    },
+    "solo": {
+      "lemma": "solo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just",
+        "it": "solo, soltanto",
+        "nl": "alleen, maar"
+      }
+    },
+    "son": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they are (ser)",
+        "it": "sono (ser, loro)",
+        "nl": "zijn (ser, zij)"
+      }
+    },
+    "suéter": {
+      "lemma": "suéter",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sweater (m)",
+        "it": "maglione (m)",
+        "nl": "trui (m)"
+      }
+    },
+    "suéteres": {
+      "lemma": "suéter",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sweaters (m)",
+        "it": "maglioni (m)",
+        "nl": "truien (m)"
+      }
+    },
+    "sábados": {
+      "lemma": "sábado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturdays (m)",
+        "it": "sabati (m)",
+        "nl": "zaterdagen (m)"
+      }
+    },
+    "sí": {
+      "lemma": "sí",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "yes",
+        "it": "sì",
+        "nl": "ja"
+      }
+    },
+    "talla": {
+      "lemma": "talla",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "size, of clothes (f); shoes use número",
+        "it": "taglia (f)",
+        "nl": "maat, van kleding (f)"
+      }
+    },
+    "también": {
+      "lemma": "también",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, too",
+        "it": "anche",
+        "nl": "ook"
+      }
+    },
+    "tardes": {
+      "lemma": "tarde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "afternoons (f); buenas tardes = good afternoon",
+        "it": "pomeriggi (f); buenas tardes = buon pomeriggio",
+        "nl": "middagen (f); buenas tardes = goedemiddag"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have (tener)",
+        "it": "ho (tener)",
+        "nl": "ik heb (tener)"
+      }
+    },
+    "tiene": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "do you have (tener, usted)",
+        "it": "ha (tener, Lei)",
+        "nl": "heeft u (tener, usted)"
+      }
+    },
+    "tomates": {
+      "lemma": "tomate",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tomatoes (m)",
+        "it": "pomodori (m)",
+        "nl": "tomaten (m)"
+      }
+    },
+    "trescientos": {
+      "lemma": "trescientos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three hundred",
+        "it": "trecento",
+        "nl": "driehonderd"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine); also one",
+        "it": "un, uno; anche uno (numero)",
+        "nl": "een (mannelijk); ook één"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "unos": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some (masculine plural)",
+        "it": "dei, alcuni (maschile plurale)",
+        "nl": "een paar, wat (mannelijk meervoud)"
+      }
+    },
+    "uvas": {
+      "lemma": "uva",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grapes (f)",
+        "it": "uva, acini d'uva (f); attenzione: in spagnolo si usa spesso al plurale, las uvas",
+        "nl": "druiven (f)"
+      }
+    },
+    "veinte": {
+      "lemma": "veinte",
+      "pos": "NUM",
+      "gloss": {
+        "en": "twenty",
+        "it": "venti",
+        "nl": "twintig"
+      }
+    },
+    "ven": {
+      "lemma": "ver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they see (ver); se ven ricas = they look tasty",
+        "it": "vedono (ver); se ven ricas = sembrano buone",
+        "nl": "ze zien (ver); se ven ricas = ze zien er lekker uit"
+      }
+    },
+    "venden": {
+      "lemma": "vender",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you sell, they sell (vender; ustedes, ellos)",
+        "it": "vendete, vendono (vender; ustedes, ellos)",
+        "nl": "jullie verkopen, ze verkopen (vender; ustedes, ellos)"
+      }
+    },
+    "vender": {
+      "lemma": "vender",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to sell",
+        "it": "vendere",
+        "nl": "verkopen"
+      }
+    },
+    "verdad": {
+      "lemma": "verdad",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "truth (f); ¿verdad? = right?",
+        "it": "verità (f); ¿verdad? = vero?",
+        "nl": "waarheid (f); ¿verdad? = toch?"
+      }
+    },
+    "vestido": {
+      "lemma": "vestido",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dress (m)",
+        "it": "vestito da donna, abito (m); attenzione: non è un completo da uomo",
+        "nl": "jurk (m)"
+      }
+    },
+    "viene": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "comes (venir); viene en blanco = it comes in white",
+        "it": "viene (venir); viene en blanco = c'è in bianco",
+        "nl": "komt (venir); viene en blanco = is er in het wit"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "zapato": {
+      "lemma": "zapato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shoe (m)",
+        "it": "scarpa (m)",
+        "nl": "schoen (m)"
+      }
+    },
+    "zapatos": {
+      "lemma": "zapato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shoes (m)",
+        "it": "scarpe (m)",
+        "nl": "schoenen (m)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a1-compras-1",
+      "title": "En el mercado",
+      "grammarFocus": {
+        "en": [
+          "este, ese, aquel: estas manzanas, esas uvas, aquellas fresas",
+          "neuter esto: ¿Qué es esto?"
+        ],
+        "it": [
+          "este, ese, aquel: estas manzanas, esas uvas, aquellas fresas",
+          "esto neutro: ¿Qué es esto?"
+        ],
+        "nl": [
+          "este, ese, aquel: estas manzanas, esas uvas, aquellas fresas",
+          "onzijdig esto: ¿Qué es esto?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "mercado",
+          "translation": {
+            "en": "market",
+            "it": "mercato",
+            "nl": "markt"
+          },
+          "distractors": {
+            "en": [
+              "supermarket",
+              "square"
+            ],
+            "it": [
+              "supermercato",
+              "piazza"
+            ],
+            "nl": [
+              "supermarkt",
+              "plein"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "comprar",
+          "translation": {
+            "en": "to buy",
+            "it": "comprare",
+            "nl": "kopen"
+          },
+          "distractors": {
+            "en": [
+              "to sell",
+              "to pay"
+            ],
+            "it": [
+              "vendere",
+              "pagare"
+            ],
+            "nl": [
+              "verkopen",
+              "betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Los sábados compro fruta en el mercado.",
+          "commas": [
+            1
+          ],
+          "translation": {
+            "en": "On Saturdays I buy fruit at the market.",
+            "it": "Il sabato compro la frutta al mercato.",
+            "nl": "Op zaterdag koop ik fruit op de markt."
+          },
+          "distractors": {
+            "en": [
+              "On Sundays I buy fruit at the market.",
+              "On Saturdays I buy bread at the market."
+            ],
+            "it": [
+              "La domenica compro la frutta al mercato.",
+              "Il sabato compro il pane al mercato."
+            ],
+            "nl": [
+              "Op zondag koop ik fruit op de markt.",
+              "Op zaterdag koop ik brood op de markt."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En este mercado los precios son muy buenos.",
+          "commas": [
+            2
+          ],
+          "translation": {
+            "en": "The prices at this market are really good.",
+            "it": "In questo mercato i prezzi sono ottimi.",
+            "nl": "Op deze markt zijn de prijzen heel goed."
+          },
+          "distractors": {
+            "en": [
+              "The prices at this market are really bad.",
+              "The prices at this store are really good."
+            ],
+            "it": [
+              "In questo mercato i prezzi sono pessimi.",
+              "In questo negozio i prezzi sono ottimi."
+            ],
+            "nl": [
+              "Op deze markt zijn de prijzen heel slecht.",
+              "In deze winkel zijn de prijzen heel goed."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "vender",
+          "translation": {
+            "en": "to sell",
+            "it": "vendere",
+            "nl": "verkopen"
+          },
+          "distractors": {
+            "en": [
+              "to buy",
+              "to spend"
+            ],
+            "it": [
+              "comprare",
+              "spendere"
+            ],
+            "nl": [
+              "kopen",
+              "uitgeven"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Venden fresas aquí?",
+          "translation": {
+            "en": "Do you sell strawberries here?",
+            "it": "Vendete fragole qui?",
+            "nl": "Verkopen jullie hier aardbeien?"
+          },
+          "distractors": {
+            "en": [
+              "Do you sell grapes here?",
+              "Do you buy strawberries here?"
+            ],
+            "it": [
+              "Vendete uva qui?",
+              "Comprate fragole qui?"
+            ],
+            "nl": [
+              "Verkopen jullie hier druiven?",
+              "Kopen jullie hier aardbeien?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Cuánto cuestan estas manzanas?",
+          "translation": {
+            "en": "How much are these apples?",
+            "it": "Quanto costano queste mele?",
+            "nl": "Hoeveel kosten deze appels?"
+          },
+          "distractors": {
+            "en": [
+              "How much is this apple?",
+              "How much are these bananas?"
+            ],
+            "it": [
+              "Quanto costa questa mela?",
+              "Quanto costano queste banane?"
+            ],
+            "nl": [
+              "Hoeveel kost deze appel?",
+              "Hoeveel kosten deze bananen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "ese",
+          "translation": {
+            "en": "that",
+            "it": "quello",
+            "nl": "die, dat"
+          },
+          "distractors": {
+            "en": [
+              "this",
+              "which"
+            ],
+            "it": [
+              "questo",
+              "quale"
+            ],
+            "nl": [
+              "deze, dit",
+              "welke"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "esas uvas",
+          "translation": {
+            "en": "those grapes",
+            "it": "quell'uva",
+            "nl": "die druiven"
+          },
+          "distractors": {
+            "en": [
+              "these grapes",
+              "those strawberries"
+            ],
+            "it": [
+              "quest'uva",
+              "quelle fragole"
+            ],
+            "nl": [
+              "deze druiven",
+              "die aardbeien"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esas uvas se ven muy ricas.",
+          "translation": {
+            "en": "Those grapes look really good.",
+            "it": "Quell'uva sembra buonissima.",
+            "nl": "Die druiven zien er heel lekker uit."
+          },
+          "distractors": {
+            "en": [
+              "These grapes look really good.",
+              "Those grapes look very expensive."
+            ],
+            "it": [
+              "Quest'uva sembra buonissima.",
+              "Quell'uva sembra carissima."
+            ],
+            "nl": [
+              "Deze druiven zien er heel lekker uit.",
+              "Die druiven zien er heel duur uit."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "aquel",
+          "translation": {
+            "en": "that (over there)",
+            "it": "quello (laggiù)",
+            "nl": "die daar"
+          },
+          "distractors": {
+            "en": [
+              "this (right here)",
+              "the other one"
+            ],
+            "it": [
+              "questo (qui)",
+              "l'altro"
+            ],
+            "nl": [
+              "deze hier",
+              "de andere"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "aquellas fresas",
+          "translation": {
+            "en": "those strawberries over there",
+            "it": "quelle fragole laggiù",
+            "nl": "die aardbeien daar"
+          },
+          "distractors": {
+            "en": [
+              "these strawberries right here",
+              "those grapes over there"
+            ],
+            "it": [
+              "queste fragole qui",
+              "quell'uva laggiù"
+            ],
+            "nl": [
+              "deze aardbeien hier",
+              "die druiven daar"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "barato",
+          "translation": {
+            "en": "cheap",
+            "it": "economico",
+            "nl": "goedkoop"
+          },
+          "distractors": {
+            "en": [
+              "expensive",
+              "fresh"
+            ],
+            "it": [
+              "caro",
+              "fresco"
+            ],
+            "nl": [
+              "duur",
+              "vers"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aquellas fresas son más baratas.",
+          "translation": {
+            "en": "Those strawberries over there are cheaper.",
+            "it": "Quelle fragole laggiù costano meno.",
+            "nl": "Die aardbeien daar zijn goedkoper."
+          },
+          "distractors": {
+            "en": [
+              "Those strawberries over there are more expensive.",
+              "These strawberries right here are cheaper."
+            ],
+            "it": [
+              "Quelle fragole laggiù costano di più.",
+              "Queste fragole qui costano meno."
+            ],
+            "nl": [
+              "Die aardbeien daar zijn duurder.",
+              "Deze aardbeien hier zijn goedkoper."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "esto",
+          "translation": {
+            "en": "this (thing)",
+            "it": "questo, questa cosa",
+            "nl": "dit"
+          },
+          "distractors": {
+            "en": [
+              "that (thing)",
+              "what"
+            ],
+            "it": [
+              "quello, quella cosa",
+              "che cosa"
+            ],
+            "nl": [
+              "dat",
+              "wat"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Disculpe, ¿qué es esto? ¿Es una fruta?",
+          "translation": {
+            "en": "Excuse me, what is this? Is it a fruit?",
+            "it": "Scusi, che cos'è questo? È un frutto?",
+            "nl": "Pardon, wat is dit? Is het een vrucht?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, what is this? Is it a vegetable?",
+              "Excuse me, how much is this? Is it a fruit?"
+            ],
+            "it": [
+              "Scusi, che cos'è questo? È una verdura?",
+              "Scusi, quanto costa questo? È un frutto?"
+            ],
+            "nl": [
+              "Pardon, wat is dit? Is het een groente?",
+              "Pardon, wat kost dit? Is het een vrucht?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-compras-2",
+      "title": "Medio kilo de tomates",
+      "grammarFocus": {
+        "en": [
+          "un kilo de, medio kilo de, una docena de: no article after de",
+          "faltar works like gustar: Me falta leche / Me faltan dos plátanos"
+        ],
+        "it": [
+          "un kilo de, medio kilo de, una docena de: niente articolo dopo de",
+          "faltar funziona come gustar (e come mancare): Me falta leche / Me faltan dos plátanos"
+        ],
+        "nl": [
+          "un kilo de, medio kilo de, una docena de: geen lidwoord na de",
+          "faltar werkt als gustar: Me falta leche / Me faltan dos plátanos"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "kilo",
+          "translation": {
+            "en": "kilo",
+            "it": "chilo",
+            "nl": "kilo"
+          },
+          "distractors": {
+            "en": [
+              "gram",
+              "liter"
+            ],
+            "it": [
+              "grammo",
+              "litro"
+            ],
+            "nl": [
+              "gram",
+              "liter"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "medio kilo de tomates",
+          "translation": {
+            "en": "half a kilo of tomatoes",
+            "it": "mezzo chilo di pomodori",
+            "nl": "een halve kilo tomaten"
+          },
+          "distractors": {
+            "en": [
+              "a kilo of tomatoes",
+              "half a kilo of potatoes"
+            ],
+            "it": [
+              "un chilo di pomodori",
+              "mezzo chilo di patate"
+            ],
+            "nl": [
+              "een kilo tomaten",
+              "een halve kilo aardappels"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Buenos días. Medio kilo de tomates, por favor.",
+          "translation": {
+            "en": "Good morning. Half a kilo of tomatoes, please.",
+            "it": "Buongiorno. Mezzo chilo di pomodori, per favore.",
+            "nl": "Goedemorgen. Een halve kilo tomaten, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Good morning. A kilo of tomatoes, please.",
+              "Good evening. Half a kilo of tomatoes, please."
+            ],
+            "it": [
+              "Buongiorno. Un chilo di pomodori, per favore.",
+              "Buonasera. Mezzo chilo di pomodori, per favore."
+            ],
+            "nl": [
+              "Goedemorgen. Een kilo tomaten, alstublieft.",
+              "Goedenavond. Een halve kilo tomaten, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "docena",
+          "translation": {
+            "en": "dozen",
+            "it": "dozzina",
+            "nl": "dozijn"
+          },
+          "distractors": {
+            "en": [
+              "kilo",
+              "half"
+            ],
+            "it": [
+              "chilo",
+              "metà"
+            ],
+            "nl": [
+              "kilo",
+              "helft"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "huevo",
+          "translation": {
+            "en": "egg",
+            "it": "uovo",
+            "nl": "ei"
+          },
+          "distractors": {
+            "en": [
+              "potato",
+              "apple"
+            ],
+            "it": [
+              "patata",
+              "mela"
+            ],
+            "nl": [
+              "aardappel",
+              "appel"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una docena de huevos",
+          "translation": {
+            "en": "a dozen eggs",
+            "it": "una dozzina di uova",
+            "nl": "een dozijn eieren"
+          },
+          "distractors": {
+            "en": [
+              "half a dozen eggs",
+              "a dozen apples"
+            ],
+            "it": [
+              "mezza dozzina di uova",
+              "una dozzina di mele"
+            ],
+            "nl": [
+              "een half dozijn eieren",
+              "een dozijn appels"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me da también una docena de huevos?",
+          "translation": {
+            "en": "Can I also get a dozen eggs?",
+            "it": "Mi dà anche una dozzina di uova?",
+            "nl": "Mag ik ook een dozijn eieren?"
+          },
+          "distractors": {
+            "en": [
+              "Can I also get half a dozen eggs?",
+              "Can I also get a dozen apples?"
+            ],
+            "it": [
+              "Mi dà anche mezza dozzina di uova?",
+              "Mi dà anche una dozzina di mele?"
+            ],
+            "nl": [
+              "Mag ik ook een half dozijn eieren?",
+              "Mag ik ook een dozijn appels?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "gramo",
+          "translation": {
+            "en": "gram",
+            "it": "grammo",
+            "nl": "gram"
+          },
+          "distractors": {
+            "en": [
+              "kilo",
+              "liter"
+            ],
+            "it": [
+              "chilo",
+              "litro"
+            ],
+            "nl": [
+              "kilo",
+              "liter"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "doscientos gramos de queso",
+          "variants": [
+            "200 gramos de queso"
+          ],
+          "translation": {
+            "en": "two hundred grams of cheese",
+            "it": "duecento grammi di formaggio",
+            "nl": "tweehonderd gram kaas"
+          },
+          "distractors": {
+            "en": [
+              "three hundred grams of cheese",
+              "two hundred grams of ham"
+            ],
+            "it": [
+              "trecento grammi di formaggio",
+              "duecento grammi di prosciutto"
+            ],
+            "nl": [
+              "driehonderd gram kaas",
+              "tweehonderd gram ham"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Y doscientos gramos de ese queso, por favor.",
+          "variants": [
+            "Y 200 gramos de ese queso, por favor."
+          ],
+          "translation": {
+            "en": "And two hundred grams of that cheese, please.",
+            "it": "E duecento grammi di quel formaggio, per favore.",
+            "nl": "En tweehonderd gram van die kaas, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "And three hundred grams of that cheese, please.",
+              "And two hundred grams of that ham, please."
+            ],
+            "it": [
+              "E trecento grammi di quel formaggio, per favore.",
+              "E duecento grammi di quel prosciutto, per favore."
+            ],
+            "nl": [
+              "En driehonderd gram van die kaas, alstublieft.",
+              "En tweehonderd gram van die ham, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "faltar",
+          "translation": {
+            "en": "to be missing, to be lacking",
+            "it": "mancare",
+            "nl": "ontbreken"
+          },
+          "distractors": {
+            "en": [
+              "to cost",
+              "to be enough"
+            ],
+            "it": [
+              "costare",
+              "bastare"
+            ],
+            "nl": [
+              "kosten",
+              "genoeg zijn"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me falta",
+          "translation": {
+            "en": "I'm missing",
+            "it": "mi manca",
+            "nl": "ik mis nog"
+          },
+          "distractors": {
+            "en": [
+              "I have",
+              "I like"
+            ],
+            "it": [
+              "ho",
+              "mi piace"
+            ],
+            "nl": [
+              "ik heb nog",
+              "ik hou van"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "plátano",
+          "translation": {
+            "en": "banana",
+            "it": "banana",
+            "nl": "banaan"
+          },
+          "distractors": {
+            "en": [
+              "apple",
+              "pear"
+            ],
+            "it": [
+              "mela",
+              "pera"
+            ],
+            "nl": [
+              "appel",
+              "peer"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me faltan dos plátanos para el pastel.",
+          "variants": [
+            "Me faltan 2 plátanos para el pastel."
+          ],
+          "translation": {
+            "en": "I still need two bananas for the cake.",
+            "it": "Mi mancano due banane per la torta.",
+            "nl": "Ik mis nog twee bananen voor de taart."
+          },
+          "distractors": {
+            "en": [
+              "I still need two apples for the cake.",
+              "I still need two bananas for the salad."
+            ],
+            "it": [
+              "Mi mancano due mele per la torta.",
+              "Mi mancano due banane per l'insalata."
+            ],
+            "nl": [
+              "Ik mis nog twee appels voor de taart.",
+              "Ik mis nog twee bananen voor de salade."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Qué más nos falta? ¿Leche?",
+          "translation": {
+            "en": "What else do we need? Milk?",
+            "it": "Cos'altro ci manca? Il latte?",
+            "nl": "Wat hebben we nog meer nodig? Melk?"
+          },
+          "distractors": {
+            "en": [
+              "What else do we need? Bread?",
+              "What else do we have? Milk?"
+            ],
+            "it": [
+              "Cos'altro ci manca? Il pane?",
+              "Cos'altro abbiamo? Il latte?"
+            ],
+            "nl": [
+              "Wat hebben we nog meer nodig? Brood?",
+              "Wat hebben we nog meer? Melk?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sí, y un kilo de naranjas para el jugo.",
+          "variants": [
+            "Sí, y 1 kilo de naranjas para el jugo."
+          ],
+          "translation": {
+            "en": "Yes, and a kilo of oranges for the juice.",
+            "it": "Sì, e un chilo di arance per il succo.",
+            "nl": "Ja, en een kilo sinaasappels voor het sap."
+          },
+          "distractors": {
+            "en": [
+              "Yes, and a kilo of apples for the juice.",
+              "Yes, and half a kilo of oranges for the cake."
+            ],
+            "it": [
+              "Sì, e un chilo di mele per il succo.",
+              "Sì, e mezzo chilo di arance per la torta."
+            ],
+            "nl": [
+              "Ja, en een kilo appels voor het sap.",
+              "Ja, en een halve kilo sinaasappels voor de taart."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-compras-3",
+      "title": "¿De qué color?",
+      "grammarFocus": {
+        "en": [
+          "color agreement: una camisa roja, unos zapatos negros",
+          "azul, verde, gris change only for number: suéteres grises"
+        ],
+        "it": [
+          "accordo dei colori: una camisa roja, unos zapatos negros",
+          "azul, verde, gris cambiano solo al plurale: suéteres grises"
+        ],
+        "nl": [
+          "kleuren buigen mee: una camisa roja, unos zapatos negros",
+          "azul, verde, gris veranderen alleen in het meervoud: suéteres grises"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "color",
+          "translation": {
+            "en": "color",
+            "it": "colore",
+            "nl": "kleur"
+          },
+          "distractors": {
+            "en": [
+              "size",
+              "price"
+            ],
+            "it": [
+              "taglia",
+              "prezzo"
+            ],
+            "nl": [
+              "maat",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "de qué color",
+          "translation": {
+            "en": "what color",
+            "it": "di che colore",
+            "nl": "welke kleur"
+          },
+          "distractors": {
+            "en": [
+              "what size",
+              "how much"
+            ],
+            "it": [
+              "di che taglia",
+              "quanto"
+            ],
+            "nl": [
+              "welke maat",
+              "hoeveel"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "rojo",
+          "translation": {
+            "en": "red",
+            "it": "rosso",
+            "nl": "rood"
+          },
+          "distractors": {
+            "en": [
+              "pink",
+              "purple"
+            ],
+            "it": [
+              "rosa",
+              "viola"
+            ],
+            "nl": [
+              "roze",
+              "paars"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "camisa",
+          "translation": {
+            "en": "shirt",
+            "it": "camicia",
+            "nl": "overhemd"
+          },
+          "distractors": {
+            "en": [
+              "T-shirt",
+              "skirt"
+            ],
+            "it": [
+              "maglietta",
+              "gonna"
+            ],
+            "nl": [
+              "T-shirt",
+              "rok"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una camisa roja",
+          "translation": {
+            "en": "a red shirt",
+            "it": "una camicia rossa",
+            "nl": "een rood overhemd"
+          },
+          "distractors": {
+            "en": [
+              "a pink shirt",
+              "a red skirt"
+            ],
+            "it": [
+              "una camicia rosa",
+              "una gonna rossa"
+            ],
+            "nl": [
+              "een roze overhemd",
+              "een rode rok"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Busco una camisa roja para una fiesta.",
+          "translation": {
+            "en": "I'm looking for a red shirt for a party.",
+            "it": "Cerco una camicia rossa per una festa.",
+            "nl": "Ik zoek een rood overhemd voor een feest."
+          },
+          "distractors": {
+            "en": [
+              "I'm looking for a red skirt for a party.",
+              "I'm looking for a white shirt for a party."
+            ],
+            "it": [
+              "Cerco una gonna rossa per una festa.",
+              "Cerco una camicia bianca per una festa."
+            ],
+            "nl": [
+              "Ik zoek een rode rok voor een feest.",
+              "Ik zoek een wit overhemd voor een feest."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "zapato",
+          "translation": {
+            "en": "shoe",
+            "it": "scarpa",
+            "nl": "schoen"
+          },
+          "distractors": {
+            "en": [
+              "sock",
+              "boot"
+            ],
+            "it": [
+              "calzino",
+              "stivale"
+            ],
+            "nl": [
+              "sok",
+              "laars"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "unos zapatos negros",
+          "translation": {
+            "en": "some black shoes",
+            "it": "delle scarpe nere",
+            "nl": "zwarte schoenen"
+          },
+          "distractors": {
+            "en": [
+              "some brown shoes",
+              "some black socks"
+            ],
+            "it": [
+              "delle scarpe marroni",
+              "dei calzini neri"
+            ],
+            "nl": [
+              "bruine schoenen",
+              "zwarte sokken"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Tiene estos zapatos en negro?",
+          "translation": {
+            "en": "Do you have these shoes in black?",
+            "it": "Ha queste scarpe in nero?",
+            "nl": "Heeft u deze schoenen in het zwart?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have these shoes in white?",
+              "Do you have these boots in black?"
+            ],
+            "it": [
+              "Ha queste scarpe in bianco?",
+              "Ha questi stivali in nero?"
+            ],
+            "nl": [
+              "Heeft u deze schoenen in het wit?",
+              "Heeft u deze laarzen in het zwart?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "gris",
+          "translation": {
+            "en": "gray",
+            "it": "grigio",
+            "nl": "grijs"
+          },
+          "distractors": {
+            "en": [
+              "white",
+              "brown"
+            ],
+            "it": [
+              "bianco",
+              "marrone"
+            ],
+            "nl": [
+              "wit",
+              "bruin"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dos suéteres grises",
+          "variants": [
+            "2 suéteres grises"
+          ],
+          "translation": {
+            "en": "two gray sweaters",
+            "it": "due maglioni grigi",
+            "nl": "twee grijze truien"
+          },
+          "distractors": {
+            "en": [
+              "two green sweaters",
+              "two gray jackets"
+            ],
+            "it": [
+              "due maglioni verdi",
+              "due giacche grigie"
+            ],
+            "nl": [
+              "twee groene truien",
+              "twee grijze jassen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me gustan los suéteres grises, pero prefiero el azul.",
+          "translation": {
+            "en": "I like the gray sweaters, but I prefer the blue one.",
+            "it": "Mi piacciono i maglioni grigi, ma preferisco quello blu.",
+            "nl": "Ik vind de grijze truien mooi, maar ik heb liever de blauwe."
+          },
+          "distractors": {
+            "en": [
+              "I like the green sweaters, but I prefer the blue one.",
+              "I like the gray sweaters, but I prefer the red one."
+            ],
+            "it": [
+              "Mi piacciono i maglioni verdi, ma preferisco quello blu.",
+              "Mi piacciono i maglioni grigi, ma preferisco quello rosso."
+            ],
+            "nl": [
+              "Ik vind de groene truien mooi, maar ik heb liever de blauwe.",
+              "Ik vind de grijze truien mooi, maar ik heb liever de rode."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "amarillo",
+          "translation": {
+            "en": "yellow",
+            "it": "giallo",
+            "nl": "geel"
+          },
+          "distractors": {
+            "en": [
+              "orange",
+              "green"
+            ],
+            "it": [
+              "arancione",
+              "verde"
+            ],
+            "nl": [
+              "oranje",
+              "groen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "blanco",
+          "translation": {
+            "en": "white",
+            "it": "bianco",
+            "nl": "wit"
+          },
+          "distractors": {
+            "en": [
+              "black",
+              "gray"
+            ],
+            "it": [
+              "nero",
+              "grigio"
+            ],
+            "nl": [
+              "zwart",
+              "grijs"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esta falda viene en blanco, amarillo y rosado.",
+          "translation": {
+            "en": "This skirt comes in white, yellow and pink.",
+            "it": "Questa gonna c'è in bianco, giallo e rosa.",
+            "nl": "Deze rok is er in wit, geel en roze."
+          },
+          "distractors": {
+            "en": [
+              "This dress comes in white, yellow and pink.",
+              "This skirt comes in black, yellow and pink."
+            ],
+            "it": [
+              "Questo vestito c'è in bianco, giallo e rosa.",
+              "Questa gonna c'è in nero, giallo e rosa."
+            ],
+            "nl": [
+              "Deze jurk is er in wit, geel en roze.",
+              "Deze rok is er in zwart, geel en roze."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mi vestido favorito es morado.",
+          "translation": {
+            "en": "My favorite dress is purple.",
+            "it": "Il mio vestito preferito è viola.",
+            "nl": "Mijn lievelingsjurk is paars."
+          },
+          "distractors": {
+            "en": [
+              "My favorite skirt is purple.",
+              "My favorite dress is pink."
+            ],
+            "it": [
+              "La mia gonna preferita è viola.",
+              "Il mio vestito preferito è rosa."
+            ],
+            "nl": [
+              "Mijn lievelingsrok is paars.",
+              "Mijn lievelingsjurk is roze."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-compras-4",
+      "title": "¿Qué talla es?",
+      "grammarFocus": {
+        "en": [
+          "quedar works like gustar: Me queda grande / Me quedan apretados",
+          "¿Cómo me queda? = How does it look on me?"
+        ],
+        "it": [
+          "quedar funziona come gustar (e come stare per i vestiti): Me queda grande / Me quedan apretados",
+          "¿Cómo me queda? = Come mi sta?"
+        ],
+        "nl": [
+          "quedar werkt als gustar: Me queda grande / Me quedan apretados",
+          "¿Cómo me queda? = Hoe staat het me?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ropa",
+          "translation": {
+            "en": "clothes",
+            "it": "vestiti",
+            "nl": "kleren"
+          },
+          "distractors": {
+            "en": [
+              "shoes",
+              "store"
+            ],
+            "it": [
+              "scarpe",
+              "negozio"
+            ],
+            "nl": [
+              "schoenen",
+              "winkel"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Siempre gasto mucho dinero en ropa.",
+          "translation": {
+            "en": "I always spend a lot of money on clothes.",
+            "it": "Spendo sempre molti soldi in vestiti.",
+            "nl": "Ik geef altijd veel geld uit aan kleren."
+          },
+          "distractors": {
+            "en": [
+              "I never spend a lot of money on clothes.",
+              "I always spend a lot of money on shoes."
+            ],
+            "it": [
+              "Non spendo mai molti soldi in vestiti.",
+              "Spendo sempre molti soldi in scarpe."
+            ],
+            "nl": [
+              "Ik geef nooit veel geld uit aan kleren.",
+              "Ik geef altijd veel geld uit aan schoenen."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "talla",
+          "translation": {
+            "en": "size",
+            "it": "taglia",
+            "nl": "maat"
+          },
+          "distractors": {
+            "en": [
+              "color",
+              "price"
+            ],
+            "it": [
+              "colore",
+              "prezzo"
+            ],
+            "nl": [
+              "kleur",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Qué talla es esta camiseta?",
+          "translation": {
+            "en": "What size is this T-shirt?",
+            "it": "Di che taglia è questa maglietta?",
+            "nl": "Welke maat is dit T-shirt?"
+          },
+          "distractors": {
+            "en": [
+              "What color is this T-shirt?",
+              "What size is this shirt?"
+            ],
+            "it": [
+              "Di che colore è questa maglietta?",
+              "Di che taglia è questa camicia?"
+            ],
+            "nl": [
+              "Welke kleur heeft dit T-shirt?",
+              "Welke maat is dit overhemd?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "mediano",
+          "translation": {
+            "en": "medium",
+            "it": "medio",
+            "nl": "medium"
+          },
+          "distractors": {
+            "en": [
+              "small",
+              "long"
+            ],
+            "it": [
+              "piccolo",
+              "lungo"
+            ],
+            "nl": [
+              "klein",
+              "lang"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es mediana. ¿Busca otra talla?",
+          "translation": {
+            "en": "It's a medium. Are you looking for another size?",
+            "it": "È una M. Cerca un'altra taglia?",
+            "nl": "Het is een medium. Zoekt u een andere maat?"
+          },
+          "distractors": {
+            "en": [
+              "It's a small. Are you looking for another size?",
+              "It's a medium. Are you looking for another color?"
+            ],
+            "it": [
+              "È una S. Cerca un'altra taglia?",
+              "È una M. Cerca un altro colore?"
+            ],
+            "nl": [
+              "Het is een small. Zoekt u een andere maat?",
+              "Het is een medium. Zoekt u een andere kleur?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "quedar",
+          "translation": {
+            "en": "to fit (clothes)",
+            "it": "stare (di vestiti)",
+            "nl": "zitten, staan (kleding)"
+          },
+          "distractors": {
+            "en": [
+              "to cost",
+              "to wear"
+            ],
+            "it": [
+              "costare",
+              "portare"
+            ],
+            "nl": [
+              "kosten",
+              "dragen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me queda grande",
+          "translation": {
+            "en": "it's too big for me",
+            "it": "mi sta grande",
+            "nl": "het is me te groot"
+          },
+          "distractors": {
+            "en": [
+              "it's too small for me",
+              "it's too long for me"
+            ],
+            "it": [
+              "mi sta piccolo",
+              "mi sta lungo"
+            ],
+            "nl": [
+              "het is me te klein",
+              "het is me te lang"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Esta chaqueta me queda grande.",
+          "translation": {
+            "en": "This jacket is too big for me.",
+            "it": "Questa giacca mi sta grande.",
+            "nl": "Deze jas is me te groot."
+          },
+          "distractors": {
+            "en": [
+              "This jacket is too small for me.",
+              "This skirt is too big for me."
+            ],
+            "it": [
+              "Questa giacca mi sta piccola.",
+              "Questa gonna mi sta grande."
+            ],
+            "nl": [
+              "Deze jas is me te klein.",
+              "Deze rok is me te groot."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "apretado",
+          "translation": {
+            "en": "tight",
+            "it": "stretto",
+            "nl": "strak, krap"
+          },
+          "distractors": {
+            "en": [
+              "loose",
+              "short"
+            ],
+            "it": [
+              "largo",
+              "corto"
+            ],
+            "nl": [
+              "wijd",
+              "kort"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estos pantalones me quedan muy apretados.",
+          "translation": {
+            "en": "These pants are really tight on me.",
+            "it": "Questi pantaloni mi stanno molto stretti.",
+            "nl": "Deze broek zit me heel krap."
+          },
+          "distractors": {
+            "en": [
+              "These pants are really loose on me.",
+              "These pants are really short on me."
+            ],
+            "it": [
+              "Questi pantaloni mi stanno molto larghi.",
+              "Questi pantaloni mi stanno molto corti."
+            ],
+            "nl": [
+              "Deze broek zit me heel wijd.",
+              "Deze broek is me veel te kort."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "cómodo",
+          "translation": {
+            "en": "comfortable",
+            "it": "comodo",
+            "nl": "comfortabel"
+          },
+          "distractors": {
+            "en": [
+              "pretty",
+              "cheap"
+            ],
+            "it": [
+              "bello",
+              "economico"
+            ],
+            "nl": [
+              "mooi",
+              "goedkoop"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estos jeans son muy cómodos.",
+          "translation": {
+            "en": "These jeans are very comfortable.",
+            "it": "Questi jeans sono molto comodi.",
+            "nl": "Deze spijkerbroek zit heel lekker."
+          },
+          "distractors": {
+            "en": [
+              "These jeans are very cheap.",
+              "These shoes are very comfortable."
+            ],
+            "it": [
+              "Questi jeans sono molto economici.",
+              "Queste scarpe sono molto comode."
+            ],
+            "nl": [
+              "Deze spijkerbroek is heel goedkoop.",
+              "Deze schoenen zitten heel lekker."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cómo me queda",
+          "translation": {
+            "en": "how does it look on me",
+            "it": "come mi sta",
+            "nl": "hoe staat het me"
+          },
+          "distractors": {
+            "en": [
+              "how much does it cost",
+              "what size is it"
+            ],
+            "it": [
+              "quanto costa",
+              "che taglia è"
+            ],
+            "nl": [
+              "hoeveel kost het",
+              "welke maat is het"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Y este suéter, ¿cómo me queda?",
+          "translation": {
+            "en": "And this sweater, how does it look on me?",
+            "it": "E questo maglione, come mi sta?",
+            "nl": "En deze trui, hoe staat die me?"
+          },
+          "distractors": {
+            "en": [
+              "And this sweater, how much does it cost?",
+              "And this jacket, how does it look on me?"
+            ],
+            "it": [
+              "E questo maglione, quanto costa?",
+              "E questa giacca, come mi sta?"
+            ],
+            "nl": [
+              "En deze trui, hoeveel kost die?",
+              "En deze jas, hoe staat die me?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-compras-5",
+      "title": "¿Me lo puedo probar?",
+      "grammarFocus": {
+        "en": [
+          "lo / la for a thing, before the verb: ¿Me lo puedo probar? / Me la llevo",
+          "estar + gerund: Solo estoy mirando"
+        ],
+        "it": [
+          "lo / la per una cosa, prima del verbo: ¿Me lo puedo probar? / Me la llevo",
+          "estar + gerundio: Solo estoy mirando"
+        ],
+        "nl": [
+          "lo / la voor een ding, vóór het werkwoord: ¿Me lo puedo probar? / Me la llevo",
+          "estar + gerundio: Solo estoy mirando"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "ayudar",
+          "translation": {
+            "en": "to help",
+            "it": "aiutare",
+            "nl": "helpen"
+          },
+          "distractors": {
+            "en": [
+              "to look for",
+              "to wait"
+            ],
+            "it": [
+              "cercare",
+              "aspettare"
+            ],
+            "nl": [
+              "zoeken",
+              "wachten"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Buenas tardes, ¿la puedo ayudar?",
+          "senses": {
+            "2": "pron"
+          },
+          "translation": {
+            "en": "Good afternoon, can I help you?",
+            "it": "Buon pomeriggio, posso aiutarla?",
+            "nl": "Goedemiddag, kan ik u helpen?"
+          },
+          "distractors": {
+            "en": [
+              "Good morning, can I help you?",
+              "Good afternoon, can I show you something?"
+            ],
+            "it": [
+              "Buongiorno, posso aiutarla?",
+              "Buon pomeriggio, posso mostrarle qualcosa?"
+            ],
+            "nl": [
+              "Goedemorgen, kan ik u helpen?",
+              "Goedemiddag, kan ik u iets laten zien?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "mirar",
+          "translation": {
+            "en": "to look (at)",
+            "it": "guardare",
+            "nl": "kijken"
+          },
+          "distractors": {
+            "en": [
+              "to try on",
+              "to buy"
+            ],
+            "it": [
+              "provare",
+              "comprare"
+            ],
+            "nl": [
+              "passen",
+              "kopen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "solo estoy mirando",
+          "translation": {
+            "en": "I'm just looking",
+            "it": "sto solo guardando",
+            "nl": "ik kijk alleen even"
+          },
+          "distractors": {
+            "en": [
+              "I'm just waiting",
+              "I'm just paying"
+            ],
+            "it": [
+              "sto solo aspettando",
+              "sto solo pagando"
+            ],
+            "nl": [
+              "ik wacht alleen even",
+              "ik betaal alleen even"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "No, gracias, solo estoy mirando.",
+          "translation": {
+            "en": "No, thanks, I'm just looking.",
+            "it": "No, grazie, sto solo guardando.",
+            "nl": "Nee, dank u, ik kijk alleen even."
+          },
+          "distractors": {
+            "en": [
+              "No, thanks, I'm just waiting.",
+              "Yes, thanks, I'm looking for a dress."
+            ],
+            "it": [
+              "No, grazie, sto solo aspettando.",
+              "Sì, grazie, cerco un vestito."
+            ],
+            "nl": [
+              "Nee, dank u, ik wacht alleen even.",
+              "Ja, graag, ik zoek een jurk."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "mostrar",
+          "translation": {
+            "en": "to show",
+            "it": "mostrare, far vedere",
+            "nl": "laten zien"
+          },
+          "distractors": {
+            "en": [
+              "to sell",
+              "to try"
+            ],
+            "it": [
+              "vendere",
+              "provare"
+            ],
+            "nl": [
+              "verkopen",
+              "proberen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me puede mostrar aquel vestido rojo?",
+          "translation": {
+            "en": "Can you show me that red dress over there?",
+            "it": "Mi può far vedere quel vestito rosso laggiù?",
+            "nl": "Kunt u me die rode jurk daar laten zien?"
+          },
+          "distractors": {
+            "en": [
+              "Can you show me that pink dress over there?",
+              "Can you bring me that red dress over there?"
+            ],
+            "it": [
+              "Mi può far vedere quel vestito rosa laggiù?",
+              "Mi può portare quel vestito rosso laggiù?"
+            ],
+            "nl": [
+              "Kunt u me die roze jurk daar laten zien?",
+              "Kunt u me die rode jurk daar brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "probador",
+          "translation": {
+            "en": "fitting room",
+            "it": "camerino",
+            "nl": "paskamer"
+          },
+          "distractors": {
+            "en": [
+              "checkout",
+              "restroom"
+            ],
+            "it": [
+              "cassa",
+              "bagno"
+            ],
+            "nl": [
+              "kassa",
+              "toilet"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me lo puedo probar",
+          "translation": {
+            "en": "can I try it on",
+            "it": "posso provarlo",
+            "nl": "mag ik het passen"
+          },
+          "distractors": {
+            "en": [
+              "can I take it",
+              "can I pay for it"
+            ],
+            "it": [
+              "posso prenderlo",
+              "posso pagarlo"
+            ],
+            "nl": [
+              "mag ik het meenemen",
+              "mag ik het betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me lo puedo probar? ¿Dónde está el probador?",
+          "translation": {
+            "en": "Can I try it on? Where's the fitting room?",
+            "it": "Posso provarlo? Dov'è il camerino?",
+            "nl": "Mag ik hem passen? Waar is de paskamer?"
+          },
+          "distractors": {
+            "en": [
+              "Can I try it on? Where's the checkout?",
+              "Can I pay for it? Where's the fitting room?"
+            ],
+            "it": [
+              "Posso provarlo? Dov'è la cassa?",
+              "Posso pagarlo? Dov'è il camerino?"
+            ],
+            "nl": [
+              "Mag ik hem passen? Waar is de kassa?",
+              "Mag ik hem betalen? Waar is de paskamer?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me queda un poco apretado. ¿Tiene una talla más grande?",
+          "translation": {
+            "en": "It's a little tight on me. Do you have a bigger size?",
+            "it": "Mi sta un po' stretto. Ha una taglia più grande?",
+            "nl": "Hij zit een beetje krap. Heeft u een grotere maat?"
+          },
+          "distractors": {
+            "en": [
+              "It's a little tight on me. Do you have another color?",
+              "It's a little long on me. Do you have a bigger size?"
+            ],
+            "it": [
+              "Mi sta un po' stretto. Ha un altro colore?",
+              "Mi sta un po' lungo. Ha una taglia più grande?"
+            ],
+            "nl": [
+              "Hij zit een beetje krap. Heeft u een andere kleur?",
+              "Hij is een beetje lang. Heeft u een grotere maat?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Y cuánto cuesta? ¿Cuatrocientos pesos?",
+          "variants": [
+            "¿Y cuánto cuesta? ¿400 pesos?"
+          ],
+          "translation": {
+            "en": "And how much is it? Four hundred pesos?",
+            "it": "E quanto costa? Quattrocento pesos?",
+            "nl": "En hoeveel kost hij? Vierhonderd pesos?"
+          },
+          "distractors": {
+            "en": [
+              "And how much is it? Three hundred pesos?",
+              "And how much is it? Four thousand pesos?"
+            ],
+            "it": [
+              "E quanto costa? Trecento pesos?",
+              "E quanto costa? Quattromila pesos?"
+            ],
+            "nl": [
+              "En hoeveel kost hij? Driehonderd pesos?",
+              "En hoeveel kost hij? Vierduizend pesos?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me la llevo",
+          "senses": {
+            "1": "pron"
+          },
+          "translation": {
+            "en": "I'll take it",
+            "it": "la prendo",
+            "nl": "ik neem hem"
+          },
+          "distractors": {
+            "en": [
+              "I'll try it on",
+              "I'll leave it"
+            ],
+            "it": [
+              "la provo",
+              "la lascio"
+            ],
+            "nl": [
+              "ik pas hem",
+              "ik laat hem liggen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Y esta chaqueta también. Me la llevo.",
+          "senses": {
+            "5": "pron"
+          },
+          "translation": {
+            "en": "And this jacket too. I'll take it.",
+            "it": "E anche questa giacca. La prendo.",
+            "nl": "En deze jas ook. Die neem ik."
+          },
+          "distractors": {
+            "en": [
+              "And this skirt too. I'll take it.",
+              "And this jacket too. I'll try it on."
+            ],
+            "it": [
+              "E anche questa gonna. La prendo.",
+              "E anche questa giacca. La provo."
+            ],
+            "nl": [
+              "En deze rok ook. Die neem ik.",
+              "En deze jas ook. Die pas ik."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-compras-6",
+      "title": "En la caja",
+      "grammarFocus": {
+        "en": [
+          "hundreds: ciento veinte, doscientos, trescientos, cuatrocientos, quinientos",
+          "cambiar = exchange; el cambio = change (money)"
+        ],
+        "it": [
+          "le centinaia: ciento veinte, doscientos, trescientos, cuatrocientos, quinientos",
+          "cambiar = cambiare; el cambio = il resto"
+        ],
+        "nl": [
+          "honderdtallen: ciento veinte, doscientos, trescientos, cuatrocientos, quinientos",
+          "cambiar = ruilen; el cambio = wisselgeld"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-compras-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "caja",
+          "translation": {
+            "en": "checkout, register",
+            "it": "cassa",
+            "nl": "kassa"
+          },
+          "distractors": {
+            "en": [
+              "fitting room",
+              "receipt"
+            ],
+            "it": [
+              "camerino",
+              "scontrino"
+            ],
+            "nl": [
+              "paskamer",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Puede pagar en aquella caja.",
+          "translation": {
+            "en": "You can pay at that register over there.",
+            "it": "Può pagare a quella cassa laggiù.",
+            "nl": "U kunt bij die kassa daar betalen."
+          },
+          "distractors": {
+            "en": [
+              "You can pay at this register right here.",
+              "You can wait at that register over there."
+            ],
+            "it": [
+              "Può pagare a questa cassa qui.",
+              "Può aspettare a quella cassa laggiù."
+            ],
+            "nl": [
+              "U kunt bij deze kassa hier betalen.",
+              "U kunt bij die kassa daar wachten."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "caro",
+          "translation": {
+            "en": "expensive",
+            "it": "caro",
+            "nl": "duur"
+          },
+          "distractors": {
+            "en": [
+              "cheap",
+              "pretty"
+            ],
+            "it": [
+              "economico",
+              "bello"
+            ],
+            "nl": [
+              "goedkoop",
+              "mooi"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "ciento veinte pesos",
+          "variants": [
+            "120 pesos"
+          ],
+          "translation": {
+            "en": "a hundred and twenty pesos",
+            "it": "centoventi pesos",
+            "nl": "honderdtwintig pesos"
+          },
+          "distractors": {
+            "en": [
+              "a hundred and fifty pesos",
+              "two hundred and twenty pesos"
+            ],
+            "it": [
+              "centocinquanta pesos",
+              "duecentoventi pesos"
+            ],
+            "nl": [
+              "honderdvijftig pesos",
+              "tweehonderdtwintig pesos"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Ciento veinte pesos? ¡Qué caro!",
+          "variants": [
+            "¿120 pesos? ¡Qué caro!"
+          ],
+          "translation": {
+            "en": "A hundred and twenty pesos? That's so expensive!",
+            "it": "Centoventi pesos? Che caro!",
+            "nl": "Honderdtwintig pesos? Wat duur!"
+          },
+          "distractors": {
+            "en": [
+              "A hundred and twenty pesos? That's so cheap!",
+              "Two hundred and twenty pesos? That's so expensive!"
+            ],
+            "it": [
+              "Centoventi pesos? Che economico!",
+              "Duecentoventi pesos? Che caro!"
+            ],
+            "nl": [
+              "Honderdtwintig pesos? Wat goedkoop!",
+              "Tweehonderdtwintig pesos? Wat duur!"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "oferta",
+          "translation": {
+            "en": "sale, special offer",
+            "it": "offerta",
+            "nl": "aanbieding"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "price"
+            ],
+            "it": [
+              "scontrino",
+              "prezzo"
+            ],
+            "nl": [
+              "bonnetje",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Estos zapatos están en oferta, ¿verdad?",
+          "translation": {
+            "en": "These shoes are on sale, right?",
+            "it": "Queste scarpe sono in offerta, vero?",
+            "nl": "Deze schoenen zijn in de aanbieding, toch?"
+          },
+          "distractors": {
+            "en": [
+              "These shoes are really comfortable, right?",
+              "Those shoes over there are on sale, right?"
+            ],
+            "it": [
+              "Queste scarpe sono comodissime, vero?",
+              "Quelle scarpe laggiù sono in offerta, vero?"
+            ],
+            "nl": [
+              "Deze schoenen zitten heel lekker, toch?",
+              "Die schoenen daar zijn in de aanbieding, toch?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "descuento",
+          "translation": {
+            "en": "discount",
+            "it": "sconto",
+            "nl": "korting"
+          },
+          "distractors": {
+            "en": [
+              "price",
+              "receipt"
+            ],
+            "it": [
+              "prezzo",
+              "scontrino"
+            ],
+            "nl": [
+              "prijs",
+              "bonnetje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sí, con el descuento cuestan trescientos pesos.",
+          "variants": [
+            "Sí, con el descuento cuestan 300 pesos."
+          ],
+          "commas": [
+            3
+          ],
+          "translation": {
+            "en": "Yes, with the discount they're three hundred pesos.",
+            "it": "Sì, con lo sconto costano trecento pesos.",
+            "nl": "Ja, met de korting kosten ze driehonderd pesos."
+          },
+          "distractors": {
+            "en": [
+              "Yes, with the discount they're four hundred pesos.",
+              "Yes, without the discount they're three hundred pesos."
+            ],
+            "it": [
+              "Sì, con lo sconto costano quattrocento pesos.",
+              "Sì, senza lo sconto costano trecento pesos."
+            ],
+            "nl": [
+              "Ja, met de korting kosten ze vierhonderd pesos.",
+              "Ja, zonder de korting kosten ze driehonderd pesos."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "billete",
+          "translation": {
+            "en": "bill, banknote",
+            "it": "banconota",
+            "nl": "bankbiljet"
+          },
+          "distractors": {
+            "en": [
+              "coin",
+              "card"
+            ],
+            "it": [
+              "moneta",
+              "carta"
+            ],
+            "nl": [
+              "munt",
+              "pasje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "cambio",
+          "translation": {
+            "en": "change (money)",
+            "it": "resto, spiccioli",
+            "nl": "wisselgeld"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "tip"
+            ],
+            "it": [
+              "scontrino",
+              "mancia"
+            ],
+            "nl": [
+              "bonnetje",
+              "fooi"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Solo tengo un billete de quinientos. ¿Tiene cambio?",
+          "variants": [
+            "Solo tengo un billete de 500. ¿Tiene cambio?"
+          ],
+          "translation": {
+            "en": "I only have a five-hundred-peso bill. Do you have change?",
+            "it": "Ho solo una banconota da cinquecento. Ha il resto?",
+            "nl": "Ik heb alleen een briefje van vijfhonderd. Heeft u wisselgeld?"
+          },
+          "distractors": {
+            "en": [
+              "I only have a two-hundred-peso bill. Do you have change?",
+              "I only have a five-hundred-peso bill. Do you have a bag?"
+            ],
+            "it": [
+              "Ho solo una banconota da duecento. Ha il resto?",
+              "Ho solo una banconota da cinquecento. Ha un sacchetto?"
+            ],
+            "nl": [
+              "Ik heb alleen een briefje van tweehonderd. Heeft u wisselgeld?",
+              "Ik heb alleen een briefje van vijfhonderd. Heeft u een tasje?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "recibo",
+          "translation": {
+            "en": "receipt",
+            "it": "scontrino, ricevuta",
+            "nl": "bonnetje"
+          },
+          "distractors": {
+            "en": [
+              "discount",
+              "bag"
+            ],
+            "it": [
+              "sconto",
+              "sacchetto"
+            ],
+            "nl": [
+              "korting",
+              "tasje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me da el recibo y una bolsa, por favor?",
+          "translation": {
+            "en": "Can I have the receipt and a bag, please?",
+            "it": "Mi dà lo scontrino e un sacchetto, per favore?",
+            "nl": "Mag ik het bonnetje en een tasje, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Can I have the change and a bag, please?",
+              "Can I have the receipt and a pen, please?"
+            ],
+            "it": [
+              "Mi dà il resto e un sacchetto, per favore?",
+              "Mi dà lo scontrino e una penna, per favore?"
+            ],
+            "nl": [
+              "Mag ik het wisselgeld en een tasje, alstublieft?",
+              "Mag ik het bonnetje en een pen, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-compras-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Puedo cambiar esta camisa por otra talla?",
+          "translation": {
+            "en": "Can I exchange this shirt for another size?",
+            "it": "Posso cambiare questa camicia con un'altra taglia?",
+            "nl": "Kan ik dit overhemd ruilen voor een andere maat?"
+          },
+          "distractors": {
+            "en": [
+              "Can I exchange this shirt for another color?",
+              "Can I try on this shirt in another size?"
+            ],
+            "it": [
+              "Posso cambiare questa camicia con un altro colore?",
+              "Posso provare questa camicia in un'altra taglia?"
+            ],
+            "nl": [
+              "Kan ik dit overhemd ruilen voor een andere kleur?",
+              "Kan ik dit overhemd in een andere maat passen?"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

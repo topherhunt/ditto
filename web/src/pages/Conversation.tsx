@@ -10,6 +10,7 @@ import { useLang } from "./lang.ts";
 import { playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
 import { autoplay } from "./player.ts";
+import { keepRecording, recordingUrl } from "../recordings.ts";
 
 /** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
 function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string, text: string) => void; class?: string }) {
@@ -37,6 +38,8 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
 
 function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string, text: string) => void }) {
   const turn = () => props.turn;
+  /** A learner's reply replays from this browser; the server keeps only admins'. */
+  const [kept] = createResource(() => turn().role === "learner" && turn().audioUrl === null && turn().id, recordingUrl);
   return (
     <Show when={turn().role === "partner"} fallback={
       <div class="qa-turn qa-turn-learner align-self-end text-end" style={{ "max-width": "85%" }}>
@@ -44,7 +47,7 @@ function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string
           <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
             {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
           </Show>
-          <Show when={turn().audioUrl}>{(u) => <PlayButton url={u()} class="btn-link p-0" />}</Show>
+          <Show when={turn().audioUrl ?? kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
         </div>
         <div class="small text-body-secondary">
           <Show when={turn().source !== "own"}>{t(`speak.source.${turn().source as "suggestion" | "how" | "moved_on"}`)}</Show>
@@ -131,7 +134,7 @@ export function Conversation() {
     }
   };
 
-  const send = (audio: string, mime: "audio/webm" | "audio/mp4") => run(async () => {
+  const send = (recording: Blob, audio: string, mime: "audio/webm" | "audio/mp4") => run(async () => {
     setRecState("checking");
     setStep("sending");
     try {
@@ -140,11 +143,13 @@ export function Conversation() {
       }, (e) => setStep(e.step));
       if (res.attempt.passed) {
         playResult(true);
+        const mine = res.turns.find((x) => x.role === "learner");
+        if (mine && mine.audioUrl === null) keepRecording(mine.id, recording);
         advance(res.turns, { reliance: res.reliance, spend: res.spend });
       } else {
         playWarning();
         update({ spend: res.spend });
-        setAttempt(res.attempt);
+        setAttempt({ ...res.attempt, audioUrl: res.attempt.audioUrl ?? URL.createObjectURL(recording) });
       }
     } finally {
       setRecState("idle");
@@ -163,9 +168,10 @@ export function Conversation() {
       recorder.ondataavailable = (e) => chunks.push(e.data);
       recorder.onstop = () => {
         stream.getTracks().forEach((track) => track.stop());
+        const recording = new Blob(chunks, { type: mime });
         const reader = new FileReader();
-        reader.onload = () => void send((reader.result as string).split(",")[1], mime);
-        reader.readAsDataURL(new Blob(chunks, { type: mime }));
+        reader.onload = () => void send(recording, (reader.result as string).split(",")[1], mime);
+        reader.readAsDataURL(recording);
       };
       recorder.start();
       setRecState("recording");
@@ -321,7 +327,7 @@ function Retry(props: { attempt: SpeakAttemptOut; conversationId: number; onElse
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>
         <div class="d-flex align-items-center gap-2 small text-body-secondary">
-          <PlayButton url={a().audioUrl} class="qa-retry-play-own" color="btn-outline-secondary" />
+          <Show when={a().audioUrl}>{(u) => <PlayButton url={u()} class="qa-retry-play-own" color="btn-outline-secondary" />}</Show>
           <span class="qa-retry-heard">{t("speak.youSaid", { text: a().transcript })}</span>
         </div>
       </div>

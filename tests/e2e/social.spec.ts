@@ -167,7 +167,7 @@ test("a new account picks a username, finds a stranger by username, sees only th
   await expect(page.locator(".qa-user")).toHaveText("wren.b");
 });
 
-test("make new friends: post from the leaderboard, see yourself labeled on the board, befriend someone on it, and take your entry down", async ({ page }) => {
+test("make new friends: post from the Friends page, see yourself labeled on the board, befriend someone on it, and take your entry down", async ({ page }) => {
   await signIn(page, "poster@example.com");
   await openFriends(page);
   await page.locator(".qa-make-friends").click();
@@ -177,8 +177,7 @@ test("make new friends: post from the leaderboard, see yourself labeled on the b
   await signOut(page);
 
   await signIn(page, "joiner@example.com");
-  await page.locator(".qa-user").click();
-  await page.locator(".qa-nav-leaderboard").click();
+  await openFriends(page);
   await page.locator(".qa-make-friends").click();
   await expect(page).toHaveURL(/\/friends\/board$/);
   await expect(page.locator(".qa-board")).toHaveCount(0);
@@ -195,6 +194,47 @@ test("make new friends: post from the leaderboard, see yourself labeled on the b
   await page.locator(".qa-board-retract").click();
   await expect(page.locator(".qa-board-form")).toBeVisible();
   await expect(page.locator(".qa-board")).toHaveCount(0);
+});
+
+test("a profile's menu blocks and unblocks, reporting blocks too, and the operator takes the reported board post down", async ({ page }) => {
+  await signIn(page, "heckler@example.com");
+  await openFriends(page);
+  await page.locator(".qa-make-friends").click();
+  await page.locator(".qa-board-blurb").fill("something rude");
+  await page.locator(".qa-board-post").click();
+  const heckler = await (await page.request.get("/api/profile/me")).json();
+  await signOut(page);
+
+  await signIn(page, "reporter@example.com");
+  await page.goto(`/people/${heckler.person.id}`);
+  await expect(page.locator(".qa-profile-befriend")).toBeVisible();
+  page.once("dialog", (d) => d.accept());
+  await page.locator(".qa-profile-menu").click();
+  await page.locator(".qa-profile-block").click();
+  await expect(page.locator(".qa-profile-blocked")).toBeVisible();
+  await expect(page.locator(".qa-profile-befriend")).toHaveCount(0);
+  await page.locator(".qa-profile-menu").click();
+  await page.locator(".qa-profile-unblock").click();
+  await expect(page.locator(".qa-profile-befriend")).toBeVisible();
+
+  await page.locator(".qa-profile-menu").click();
+  await page.locator(".qa-profile-report").click();
+  await page.locator(".qa-report-reason").selectOption("board_post");
+  await page.locator(".qa-report-note").fill("Not nice");
+  await page.locator(".qa-report-send").click();
+  await expect(page.locator(".qa-report-sent")).toBeVisible();
+  await expect(page.locator(".qa-profile-blocked")).toBeVisible();
+  await signOut(page);
+
+  await signIn(page, "admin@example.com");
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-user-reports").click();
+  const report = page.locator(".qa-user-report").filter({ hasText: "heckler reported by reporter" });
+  await expect(report).toContainText("something rude");
+  await expect(report).toContainText("Not nice");
+  await report.locator(".qa-take-down").click();
+  await expect(report.locator(".qa-user-report-resolution")).toContainText("Took down the board post");
+  await expect(report.locator(".qa-dismiss")).toHaveCount(0);
 });
 
 test("your own profile says who sees what, never shows your email, and going private hides it from strangers", async ({ page }) => {

@@ -16,6 +16,7 @@ const PARTNER_VOICES: Partial<Record<Language, Voice>> = {
   it: { engine: "openai", model: "marin", gender: "F" },
   nl: { engine: "openai", model: "cedar", gender: "M" },
   en: { engine: "openai", model: "cedar", gender: "M" },
+  es: { engine: "openai", model: "marin", gender: "F" },
 };
 export const partnerVoice = (language: Language) => {
   const voice = PARTNER_VOICES[language];
@@ -28,6 +29,7 @@ const QUIZ_VOICES: Partial<Record<Language, Voice>> = {
   it: { engine: "openai", model: "marin", gender: "F" },
   nl: { engine: "openai", model: "cedar", gender: "M" },
   en: { engine: "openai", model: "cedar", gender: "M" },
+  es: { engine: "openai", model: "marin", gender: "F" },
 };
 export const quizVoice = (language: Language) => {
   const voice = QUIZ_VOICES[language];

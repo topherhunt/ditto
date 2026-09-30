@@ -7,6 +7,9 @@ import { setImmersion, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage } from "../learning.ts";
 import { FEEDBACK_URL } from "../links.ts";
 import { trackPage } from "../metrics.ts";
+import { About } from "../pages/About.tsx";
+import { Privacy } from "../pages/Privacy.tsx";
+import { Terms } from "../pages/Terms.tsx";
 import { Welcome } from "../pages/Welcome.tsx";
 import { logout, me, refetchMe } from "../session.ts";
 import { capHits, spend, usdShort } from "../spend.ts";
@@ -44,7 +47,16 @@ export function Layout(props: RouteSectionProps) {
     <ErrorBoundary fallback={(err) => <div class="container py-4"><div class="alert alert-danger">{String(err)}</div></div>}>
       <Switch>
         <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
-        <Match when={me() === null}><div class="container py-4" style={{ "max-width": "52rem" }}><Welcome /></div></Match>
+        {/* Signed out, every path but these shows the homepage. Google's OAuth review needs /privacy and /terms public. */}
+        <Match when={me() === null}>
+          <div class="container py-4" style={{ "max-width": "52rem" }}>
+            <Switch fallback={<Welcome />}>
+              <Match when={location.pathname === "/about"}><About /></Match>
+              <Match when={location.pathname === "/privacy"}><Privacy /></Match>
+              <Match when={location.pathname === "/terms"}><Terms /></Match>
+            </Switch>
+          </div>
+        </Match>
         {/* A new account has no username yet, and the leaderboard and profiles need one. */}
         <Match when={me() && me()!.username === null}><Setup /></Match>
         {/* Only a learner who skipped the homepage's question gets here: a new account without a pick, or one from before the question. */}
@@ -92,6 +104,7 @@ export function Layout(props: RouteSectionProps) {
                         {user().admin && <li><A href="/admin/users" class="qa-nav-users dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people me-2" aria-hidden="true" />Users</A></li>}
                         {user().admin && <li><A href="/admin/metrics" class="qa-nav-metrics dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-graph-up me-2" aria-hidden="true" />Metrics</A></li>}
                         {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-bug me-2" aria-hidden="true" />Reports</A></li>}
+                        {user().admin && <li><A href="/admin/user-reports" class="qa-nav-user-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-flag me-2" aria-hidden="true" />People reports</A></li>}
                         {user().admin && config()?.poc && <li><A href="/admin/pronunciation" class="qa-nav-poc dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-mic me-2" aria-hidden="true" />Pronunciation POC</A></li>}
                         {user().admin && <li><A href="/admin/speaking" class="qa-nav-speaking dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-chat-dots me-2" aria-hidden="true" />Speaking</A></li>}
                         <li><hr class="dropdown-divider" /></li>
@@ -110,9 +123,12 @@ export function Layout(props: RouteSectionProps) {
       </Switch>
       <footer class="container py-3 small text-body-secondary d-flex flex-wrap justify-content-between gap-2" style={{ "max-width": "52rem" }}>
         <span>
-          <Show when={me()}><A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span></Show>
+          <A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-about link-secondary" href="/about">{t("nav.about")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-privacy link-secondary" href="/privacy">{t("footer.privacy")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-terms link-secondary" href="/terms">{t("footer.terms")}</A><span class="mx-2" aria-hidden="true">•</span>
           <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
-            <i class="bi bi-chat-left-text me-1" aria-hidden="true" />{t("footer.feedback")}
+            <i class="bi bi-bug-fill me-1" aria-hidden="true" />{t("footer.feedback")}
           </a>
         </span>
         <Show when={me() && spend()}>

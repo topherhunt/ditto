@@ -23,6 +23,7 @@ Ditto is a dictation trainer for language learners. You listen to a word, phrase
 | Italian (`it`) | A1 to B1 curriculum, [docs/curriculum-it.md](docs/curriculum-it.md) | English, Spanish, Dutch |
 | English (`en`) | A1 to B1 curriculum, [docs/curriculum-en.md](docs/curriculum-en.md) | Spanish, Italian, Dutch |
 | Dutch (`nl`) | A1 to B1 curriculum, [docs/curriculum-nl.md](docs/curriculum-nl.md) | English, Spanish |
+| Spanish (`es`), Latin American | A1 to B1 curriculum, [docs/curriculum-es.md](docs/curriculum-es.md) | English, Italian, Dutch |
 | Irish (`ga`) | A1, [docs/curriculum-ga.md](docs/curriculum-ga.md) | English |
 
 Course content is JSON in `content/courses/{lang}/`, validated at boot. The schema and rules are in [docs/plan.md](docs/plan.md#content-model).
@@ -58,7 +59,7 @@ python3 -m venv .venv
 .venv/bin/pip install numpy
 ```
 
-English, Italian and Dutch audio renders on OpenAI (gpt-4o-mini-tts), so it needs `OPENAI_API_KEY` in `.env`.
+English, Spanish, Italian and Dutch audio renders on OpenAI (gpt-4o-mini-tts), so it needs `OPENAI_API_KEY` in `.env`.
 
 ```sh
 npm run content:audio            # renders only missing files into content/audio/

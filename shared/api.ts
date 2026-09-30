@@ -125,6 +125,19 @@ export const BOARD_BLURB_MAX = 140;
 export const PostBoardSchema = z.strictObject({ blurb: z.string().trim().max(BOARD_BLURB_MAX).regex(/^[^\r\n]*$/) });
 export const BOARD_SIZE = 50;
 export const FRIEND_ACTIONS = ["accept", "decline", "block", "unblock", "unfriend"] as const;
+export const USER_REPORT_REASONS = ["username", "board_post", "requests", "other"] as const;
+export type UserReportReason = (typeof USER_REPORT_REASONS)[number];
+/** Reporting also blocks. */
+export const USER_REPORT_NOTE_MAX = 500;
+export const UserReportSchema = z.strictObject({ reason: z.enum(USER_REPORT_REASONS), note: z.string().trim().max(USER_REPORT_NOTE_MAX) });
+export const USER_REPORT_ACTIONS = { "take-down": "took_down_post", "clear-username": "cleared_username", dismiss: "dismissed" } as const;
+export type UserReportResolution = (typeof USER_REPORT_ACTIONS)[keyof typeof USER_REPORT_ACTIONS];
+/** For the operator. `username` and `blurb` are as they were when reported; `blurbNow` is the board entry's blurb today, if it has one. */
+export type AdminUserReport = {
+  id: number; reporter: Person; reported: Person; reason: UserReportReason; note: string | null;
+  username: string | null; blurb: string | null; onBoard: boolean; blurbNow: string | null;
+  createdAt: string; resolvedAt: string | null; resolution: UserReportResolution | null;
+};
 
 export const RACE_DAYS = [1, 3, 7, 14, 30] as const;
 /** High enough that nobody finishes a first-to race on its first day. */
@@ -142,7 +155,7 @@ export const LevelPassSchema = z.strictObject({ language: z.enum(LANGUAGES), lev
 export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.string().min(1).max(500) });
 
 /** Conversation mode (docs/conversation.md). Irish is out until live Irish TTS exists. */
-export const SPEAK_LANGUAGES = ["it", "nl", "en"] as const satisfies readonly Language[];
+export const SPEAK_LANGUAGES = ["it", "nl", "en", "es"] as const satisfies readonly Language[];
 export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
 export const STARTERS = ["cafe", "directions", "hotel", "meeting", "market", "weekend"] as const;
 export type Starter = (typeof STARTERS)[number];
@@ -190,9 +203,12 @@ export type CoachVerdict = {
   fixes: { wrong: string; right: string; why: string }[];
   feedback: string;
 };
-/** `failures`: failed tries at this target so far, this one included. `targetAudioUrl`: the partner voice saying the target, on a failed attempt. */
+/**
+ * `failures`: failed tries at this target so far, this one included. `audioUrl`: the recording, kept only for admins (a learner's
+ * replays from the browser). `targetAudioUrl`: the partner voice saying the target, on a failed attempt.
+ */
 export type SpeakAttemptOut = {
-  id: number; passed: boolean; target: string; transcript: string; verdict: CoachVerdict; failures: number; audioUrl: string;
+  id: number; passed: boolean; target: string; transcript: string; verdict: CoachVerdict; failures: number; audioUrl: string | null;
   targetAudioUrl: string | null;
 };
 /** The attempts route streams these as NDJSON: each step as it starts, then the result or an error. */
@@ -367,7 +383,7 @@ export type Profile = {
   relation: Relation;
   /** Null for a private account the viewer isn't friends with. */
   summary: {
-    /** The language of the lesson worked on most recently, else the first one studied; null with neither. */
+    /** The studied language worked on most recently, else the first one studied, else any worked on; null with none. */
     language: Language | null;
     activity: RecentActivity;
     lessons: Record<LeaderboardWindow, number>;

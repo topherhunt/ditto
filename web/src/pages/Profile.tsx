@@ -1,6 +1,8 @@
 import { A, useNavigate, useParams } from "@solidjs/router";
-import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
-import { FRIEND_REQUESTS_PER_DAY, type LeaderboardWindow, type Profile as ProfileOut } from "../../../shared/api.ts";
+import { createEffect, createResource, createSignal, For, Match, on, onCleanup, Show, Switch } from "solid-js";
+import {
+  FRIEND_REQUESTS_PER_DAY, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, type LeaderboardWindow, type Profile as ProfileOut, type UserReportReason,
+} from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ProgressGraph } from "../components/ProgressGraph.tsx";
 import { languageName, t } from "../i18n/index.ts";
@@ -26,6 +28,31 @@ export function Profile() {
   async function befriend(p: ProfileOut) {
     if ((await sendFriendRequest(p.person.id)) === null) setLimited(true);
     else await refetch();
+  }
+
+  const [menuOpen, setMenuOpen] = createSignal(false);
+  let menuRoot: HTMLDivElement | undefined;
+  const closeOnOutsideClick = (e: MouseEvent) => {
+    if (menuRoot && !menuRoot.contains(e.target as Node)) setMenuOpen(false);
+  };
+  document.addEventListener("click", closeOnOutsideClick);
+  onCleanup(() => document.removeEventListener("click", closeOnOutsideClick));
+  async function setBlocked(p: ProfileOut, on: boolean) {
+    setMenuOpen(false);
+    if (on && !confirm(t("profile.blockConfirm", { name: displayName(p.person) }))) return;
+    await api.post(`/api/friends/${p.person.id}/${on ? "block" : "unblock"}`);
+    await refetch();
+  }
+  const [reporting, setReporting] = createSignal(false);
+  const [reported, setReported] = createSignal(false);
+  const [reason, setReason] = createSignal<UserReportReason>("username");
+  const [note, setNote] = createSignal("");
+  createEffect(on(() => params.id, () => { setReporting(false); setReported(false); setLimited(false); }, { defer: true }));
+  async function report(p: ProfileOut) {
+    await api.post(`/api/people/${p.person.id}/report`, { reason: reason(), note: note() });
+    setReporting(false);
+    setReported(true);
+    await refetch();
   }
 
   return (
@@ -56,10 +83,48 @@ export function Profile() {
                 <button type="button" class="qa-profile-befriend btn btn-sm btn-success" onClick={() => befriend(p())}>{t("profile.acceptRequest")}</button>
               </Match>
               <Match when={p().relation === "outgoing"}><span class="qa-profile-sent small text-body-secondary">{t("profile.requestSent")}</span></Match>
-              <Match when={p().relation === "blocked"}><span class="small text-body-secondary">{t("profile.blockedThem")}</span></Match>
+              <Match when={p().relation === "blocked"}><span class="qa-profile-blocked small text-body-secondary">{t("profile.blockedThem")}</span></Match>
             </Switch>
+            <Show when={p().relation !== "self"}>
+              <div class="dropdown" ref={menuRoot}>
+                <button type="button" class="qa-profile-menu btn btn-sm btn-outline-secondary" aria-label={t("profile.more")} aria-expanded={menuOpen()}
+                  onClick={() => setMenuOpen(!menuOpen())}>
+                  <i class="bi bi-three-dots" aria-hidden="true" />
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
+                  <Show when={p().relation === "blocked"} fallback={
+                    <li><button type="button" class="qa-profile-block dropdown-item" onClick={() => setBlocked(p(), true)}>
+                      <i class="bi bi-slash-circle me-2" aria-hidden="true" />{t("profile.block")}
+                    </button></li>
+                  }>
+                    <li><button type="button" class="qa-profile-unblock dropdown-item" onClick={() => setBlocked(p(), false)}>
+                      <i class="bi bi-arrow-counterclockwise me-2" aria-hidden="true" />{t("profile.unblock")}
+                    </button></li>
+                  </Show>
+                  <li><button type="button" class="qa-profile-report dropdown-item text-danger" onClick={() => { setMenuOpen(false); setReporting(true); }}>
+                    <i class="bi bi-flag me-2" aria-hidden="true" />{t("profile.report")}
+                  </button></li>
+                </ul>
+              </div>
+            </Show>
           </div>
           <Show when={limited()}><p class="qa-friend-limit alert alert-info mb-0">{t("friends.limit", { n: FRIEND_REQUESTS_PER_DAY })}</p></Show>
+          <Show when={reported()}><p class="qa-report-sent alert alert-success mb-0">{t("profile.reportSent")}</p></Show>
+          <Show when={reporting()}>
+            <form class="qa-report-form card card-body d-flex flex-column gap-2" onSubmit={(e) => { e.preventDefault(); void report(p()); }}>
+              <h2 class="h6 mb-0">{t("profile.reportTitle", { name: displayName(p().person) })}</h2>
+              <select class="qa-report-reason form-select" value={reason()} onChange={(e) => setReason(e.currentTarget.value as UserReportReason)}>
+                <For each={USER_REPORT_REASONS}>{(r) => <option value={r}>{t(`profile.reason.${r}`)}</option>}</For>
+              </select>
+              <textarea class="qa-report-note form-control" rows={3} maxLength={USER_REPORT_NOTE_MAX} placeholder={t("profile.reportNote")}
+                value={note()} onInput={(e) => setNote(e.currentTarget.value)} />
+              <p class="small text-body-secondary mb-0">{t("profile.reportHint")}</p>
+              <div class="d-flex gap-2">
+                <button type="submit" class="qa-report-send btn btn-sm btn-danger">{t("profile.reportSend")}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" onClick={() => setReporting(false)}>{t("profile.cancel")}</button>
+              </div>
+            </form>
+          </Show>
           <Show when={p().summary} fallback={
             <Show when={p().relation !== "blocked"}><p class="qa-profile-hidden text-body-secondary mb-0">{t("profile.hidden")}</p></Show>
           }>

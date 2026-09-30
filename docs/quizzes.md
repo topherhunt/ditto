@@ -6,7 +6,7 @@ Multiple-choice quiz decks for eight CEFR-aligned levels (A1, A1+, A2, A2+, B1, 
 
 Levels unlock in order: the first is open, and a level passes (unlocking the next) once 90% of its questions are graduated (in review) or the learner answers 20 random questions from it with no miss (`quiz_level_passes`; passes are permanent). Question audio is gpt-4o-mini-tts on OpenAI (`QUIZ_VOICES` in `server/speech.ts`), rendered on first play, cached on disk and shared by all learners.
 
-Decks exist for en, it, nl (live) and ar, el, fr, gd (dormant: kept in `content/quizzes/` but not loaded, since they aren't app languages). AR, EL, IT, FR and NL have been reviewed for quality.
+Decks exist for en, it, nl (live) and ar, el, es, fr, gd (dormant: kept in `content/quizzes/` but not loaded, since they aren't app languages). AR, EL, IT, FR and NL have been reviewed for quality.
 
 ### How the app stores presets
 
@@ -127,6 +127,23 @@ The tables below list constructs **non-exhaustively** -- they indicate the terri
 | B1+ | Pronouns y and en, double pronoun order, plus-que-parfait, si-clauses (type 1 and 2), passive voice (être + participe passé) |
 | B2 | Subjonctif passé, concordance des temps, gérondif (en + participe présent), periodo ipotetico / si-clauses (all three types), passive alternatives (se faire + inf, on) |
 | B2+ | Subjonctif imparfait (literary), advanced subjonctif triggers, formal register and discourse markers (néanmoins, toutefois, par ailleurs), subtle pronoun placement, common confusables (an/année, jour/journée, savoir/connaître) |
+
+### Spanish (es)
+
+Latin American Spanish, matching the `es-419` UI locale: `ustedes`, no `vosotros`, LatAm vocabulary (carro, computadora, celular).
+
+| Level | Grammar constructs |
+|-------|--------------------|
+| A1 | Present tense regular (-ar, -er, -ir), ser/estar (basic uses), tener, articles (el/la/los/las, un/una/unos/unas), gender and plurals, negation (no), hay |
+| A1+ | Stem-changing present (e→ie, o→ue, e→i), irregular present (ir, hacer, poder, querer, salir, venir, decir), al/del, possessive adjectives (mi, tu, su, nuestro), question words (qué, cuál, dónde, cómo, cuándo, quién), gustar |
+| A2 | Pretérito indefinido (regular and common irregulars: ser/ir, hacer, tener, estar), reflexive verbs, direct object pronouns (lo, la, los, las), ir a + infinitive, basic conjunctions (porque, cuando, si, que, pero) |
+| A2+ | Pretérito vs imperfecto, indirect object pronouns (le, les), combined pronouns (se lo), estar + gerundio, por vs para (basic), comparatives and superlatives |
+| B1 | Presente de subjuntivo (querer que, esperar que, es importante que, ojalá), futuro simple, condicional simple, imperativo (tú/usted/ustedes, affirmative and negative), relative pronouns (que, quien, donde, lo que), connectors (para que, antes de que, aunque) |
+| B1+ | Pretérito perfecto (he hecho) and pluscuamperfecto, pretérito perfecto de subjuntivo, si-clauses (types 1 and 2), se impersonal and pasiva refleja, indirect speech |
+| B2 | Imperfecto de subjuntivo, pluscuamperfecto de subjuntivo, si-clauses (all three types), concordancia de tiempos, passive with ser, relatives el cual / cuyo |
+| B2+ | Subjunctive in relative clauses (busco a alguien que sepa), concessives (aunque + indicative vs subjunctive), formal register and discourse markers (no obstante, por ende, asimismo), dequeísmo, common confusables (por/para, saber/conocer, pedir/preguntar, ser/estar with meaning change) |
+
+Spanish landmines (§2d): voseo forms (tenés, hablás, vení) and vosotros forms (habláis, tenéis) are valid Spanish, so never use them as distractors. Clitic placement is often free (lo voy a hacer / voy a hacerlo), subject pronouns are optional, -ra and -se imperfect subjunctive are both standard, and ser/estar or por/para with a change of meaning are both grammatical.
 
 ### English (en)
 

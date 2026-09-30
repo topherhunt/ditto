@@ -7,7 +7,11 @@ import { LANGUAGE_FLAGS } from "../learning.ts";
 import { activityText, displayName, sendFriendRequest } from "../social.ts";
 
 export function MakeFriendsButton() {
-  return <A href="/friends/board" class="qa-make-friends btn btn-outline-primary align-self-start">{t("board.open")}</A>;
+  return (
+    <A href="/friends/board" class="qa-make-friends btn btn-outline-primary align-self-start">
+      <i class="bi bi-person-fill-add me-1" />{t("board.open")}
+    </A>
+  );
 }
 
 /** Learners who opted in to meet strangers. You see it once you've posted your own entry. */

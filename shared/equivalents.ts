@@ -87,7 +87,7 @@ function names(s: string): string {
 
 // Not applied to Irish, where `ana` is a word and the names only vary by accent.
 const RULES: Record<Language, (s: string) => string> = {
-  en: (s) => names(english(s)), it: (s) => names(euro(s)), nl: (s) => names(euro(s)), ga: euro,
+  en: (s) => names(english(s)), es: names, it: (s) => names(euro(s)), nl: (s) => names(euro(s)), ga: euro,
 };
 
 /** The canonical spelling of `text` in `language`: equal canonical forms are the same answer. */

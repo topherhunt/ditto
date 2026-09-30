@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import { basename } from "node:path";
 import OpenAI, { toFile } from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { Agent } from "undici";
@@ -40,8 +38,8 @@ export type CoachIn = Setting & {
 export type Paid<T> = { result: T; usage: Usage };
 
 export interface ConversationAI {
-  /** Billed by audio length, which the response reports. */
-  transcribe(file: string, language: Language): Promise<Paid<string>>;
+  /** `name`'s extension tells the API the format. Billed by audio length, which the response reports. */
+  transcribe(audio: Buffer, name: string, language: Language): Promise<Paid<string>>;
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
   howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
@@ -102,8 +100,8 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
   };
 
   return {
-    async transcribe(file, language) {
-      const res = await client.audio.transcriptions.create({ model: transcribeModel, language, file: await toFile(readFileSync(file), basename(file)) });
+    async transcribe(audio, name, language) {
+      const res = await client.audio.transcriptions.create({ model: transcribeModel, language, file: await toFile(audio, name) });
       if (res.usage?.type !== "duration") throw new Error(`${transcribeModel} returned no duration usage (got ${JSON.stringify(res.usage)})`);
       return { result: res.text, usage: minuteUsage(transcribeModel, res.usage.seconds) };
     },

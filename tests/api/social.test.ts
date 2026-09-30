@@ -89,7 +89,7 @@ describe("friend requests", () => {
     expect((await t.req("GET", `/api/friends/search?q=${A}`)).json.relation).toBe("friends");
   });
 
-  it("blocking is silent: the blocked requester still sees a pending request and can't re-notify", async () => {
+  it("blocking is silent: a request the blocked account sends looks pending to them but never reaches the blocker, and unblocking drops it", async () => {
     const t = setup();
     const [ana] = await accounts(t, A, B);
     await t.login(A);
@@ -98,15 +98,36 @@ describe("friend requests", () => {
     expect((await t.req("POST", `/api/friends/${ana}/block`, {})).status).toBe(200);
     expect((await t.req("GET", "/api/friends")).json).toMatchObject({ incoming: [], blocked: [{ id: ana }] });
     expect((await request(t, A)).status).toBe(409);
+    expect((await t.req("POST", `/api/friends/${ana}/block`, {})).status).toBe(404);
 
     await t.login(A);
-    expect((await t.req("GET", `/api/friends/search?q=${B}`)).json.relation).toBe("outgoing");
+    expect((await t.req("GET", `/api/friends/search?q=${B}`)).json.relation).toBe("none");
     expect((await request(t, B)).json.relation).toBe("outgoing");
+    expect((await t.req("GET", `/api/profile/${idOf(t, B)}`)).json.relation).toBe("outgoing");
     await t.login(B);
     expect((await t.req("GET", "/api/notifications")).json.items).toHaveLength(1);
+    expect((await t.req("GET", "/api/friends")).json.incoming).toEqual([]);
 
     expect((await t.req("POST", `/api/friends/${ana}/unblock`, {})).status).toBe(200);
     expect((await t.req("GET", `/api/friends/search?q=${A}`)).json.relation).toBe("none");
+    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ incoming: [], blocked: [] });
+  });
+
+  it("anyone can block anyone else; blocking a friend ends the friendship and any open race", async () => {
+    const t = setup();
+    const [ana, bo, cyd] = await accounts(t, A, B, C);
+    await t.login(C);
+    expect((await t.req("POST", `/api/friends/${ana}/block`, {})).status).toBe(200);
+    expect((await t.req("GET", `/api/profile/${ana}`)).json.relation).toBe("blocked");
+    expect((await t.req("POST", `/api/friends/${cyd}/block`, {})).status).toBe(404);
+
+    await befriend(t, A, B);
+    await t.req("POST", "/api/challenges", { opponentId: ana, kind: "most", days: 7 });
+    expect((await t.req("POST", `/api/friends/${ana}/block`, {})).status).toBe(200);
+    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [], blocked: [{ id: ana }] });
+    await t.login(A);
+    expect((await t.req("GET", "/api/friends")).json.friends).toEqual([]);
+    expect((await t.req("GET", "/api/challenges")).json[0]).toMatchObject({ status: "cancelled", challenger: { id: bo } });
   });
 
   it(`allows ${FRIEND_REQUESTS_PER_DAY} new requests in any 24 hours, counting declined ones but not accepting someone else's`, async () => {
@@ -217,6 +238,61 @@ describe("friend board", () => {
     expect(names((await get(t)).entries)).toEqual(["ana", "cyd"]);
     await t.login(B);
     expect(names((await get(t)).entries)).toEqual(["bob", "cyd"]);
+  });
+});
+
+describe("reporting people", () => {
+  const report = (t: T, id: string, body: object) => t.req("POST", `/api/people/${id}/report`, body);
+
+  it("blocks them too, keeps their username and board post as they were, and allows one open report per person", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B);
+    await t.login(A);
+    await t.req("PUT", "/api/friend-board", { blurb: "rude words" });
+    await t.login(B);
+    expect((await report(t, bo, { reason: "other", note: "" })).status).toBe(400);
+    expect((await report(t, ana, { reason: "spam", note: "" })).status).toBe(400);
+    expect((await report(t, ana, { reason: "board_post", note: " so rude " })).json).toEqual({ relation: "blocked" });
+    expect((await report(t, ana, { reason: "username", note: "" })).status).toBe(409);
+    await t.login(A);
+    await t.req("PUT", "/api/username", { username: "angel" });
+    await t.req("PUT", "/api/friend-board", { blurb: "nice words" });
+
+    expect(t.deps.db.prepare("SELECT reason, note, username, blurb FROM user_reports").all())
+      .toEqual([{ reason: "board_post", note: "so rude", username: "ana", blurb: "rude words" }]);
+    await t.login(B);
+    expect((await t.req("GET", "/api/friends")).json.blocked).toEqual([{ id: ana, username: "angel" }]);
+  });
+
+  it("is admin-only to review; taking down a post or clearing a username resolves every open report about it", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B, C);
+    await t.login(A);
+    await t.req("PUT", "/api/friend-board", { blurb: "rude words" });
+    for (const [email, reason] of [[B, "board_post"], [C, "board_post"]]) {
+      await t.login(email);
+      await report(t, ana, { reason, note: "" });
+    }
+    await t.login(C);
+    await report(t, bo, { reason: "username", note: "" });
+    expect((await t.req("GET", "/api/admin/user-reports")).status).toBe(403);
+
+    await t.login("admin@example.com");
+    const reports = (await t.req("GET", "/api/admin/user-reports")).json;
+    expect(reports).toHaveLength(3);
+    expect(reports.find((r: { reporter: { id: string } }) => r.reporter.id === bo))
+      .toMatchObject({ reported: { id: ana, username: "ana" }, reason: "board_post", blurb: "rude words", onBoard: true, blurbNow: "rude words", resolution: null });
+    const about = (id: string) => reports.find((r: { reported: { id: string } }) => r.reported.id === id).id;
+    expect((await t.req("POST", `/api/admin/user-reports/${about(ana)}/take-down`, {})).json).toMatchObject({ onBoard: false, resolution: "took_down_post" });
+    expect((await t.req("POST", `/api/admin/user-reports/${about(ana)}/dismiss`, {})).status).toBe(409);
+    expect((await t.req("POST", `/api/admin/user-reports/${about(bo)}/clear-username`, {})).json).toMatchObject({ resolution: "cleared_username" });
+    expect((await t.req("POST", "/api/admin/user-reports/999/dismiss", {})).status).toBe(404);
+
+    expect((await t.req("GET", "/api/admin/user-reports")).json.map((r: { resolution: string }) => r.resolution).sort())
+      .toEqual(["cleared_username", "took_down_post", "took_down_post"]);
+    expect(t.deps.db.prepare("SELECT count(*) AS n FROM friend_board").get()).toEqual({ n: 0 });
+    await t.login(B);
+    expect((await t.req("GET", "/api/me")).json.username).toBeNull();
   });
 });
 
@@ -366,6 +442,17 @@ describe("profiles", () => {
     });
     expect(p.details.languages[0].recent.map((r: { lessonId: string }) => r.lessonId)).toEqual(["it-a1-bar-2", "it-a1-bar-1"]);
     expect(p.details.languages[0].recent[0]).toMatchObject({ lessonTitle: expect.any(String), courseTitle: "Al bar", completed: true });
+  });
+
+  it("show the studied language practiced most recently, not one just tried out", async () => {
+    const t = setup();
+    const [ana] = await accounts(t, A);
+    await t.login(A);
+    await t.req("PUT", "/api/learning", { languages: ["nl"] });
+    await completeBar1(t);
+    expect((await t.req("GET", `/api/profile/${ana}`)).json.summary.language).toBe("nl");
+    await t.req("PUT", "/api/learning", { languages: ["nl", "it"] });
+    expect((await t.req("GET", `/api/profile/${ana}`)).json.summary.language).toBe("it");
   });
 
   it("names the first unfinished main-track module", async () => {

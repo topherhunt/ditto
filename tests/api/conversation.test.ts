@@ -88,7 +88,6 @@ describe("conversation mode", () => {
     expect(retry.turns[0]).toMatchObject({ source: "suggestion", level: "A2" });
     // The partner's call glosses the learner line it answers.
     expect(retry.turns[0].chunks.map((x: { text: string }) => x.text)).toEqual(["Vorrei", "un", "caffè,", "per", "favore."]);
-    expect((await t.req("GET", retry.turns[0].audioUrl)).headers.get("content-type")).toBe("audio/webm");
     expect(retry.reliance).toEqual({ leaned: 1, of: 1 });
     // Opening, two transcriptions and coach calls, and the partner's answer, each partner line with its gloss.
     expect(retry.spend.conversation).toBeCloseTo(8 * FAKE_COST, 6);
@@ -153,7 +152,7 @@ describe("conversation mode", () => {
     const conv = await t.start();
     let coached = 0;
     const transcribe = t.ai.transcribe;
-    t.ai.transcribe = async (file, language) => ({ ...(await transcribe(file, language)), result: "  " });
+    t.ai.transcribe = async (audio, name, language) => ({ ...(await transcribe(audio, name, language)), result: "  " });
     t.ai.coach = async (c) => { coached++; return fakeAI().coach(c); };
     expect((await t.reply(conv.id)).status).toBe(422);
     expect(coached).toBe(0);
@@ -333,6 +332,28 @@ describe("conversation mode", () => {
     t.ai.coach = async (c) => { shown = c.suggestions; return passFirstTry("Un caffè, per favore.")(); };
     await t.reply(conv.id);
     expect(shown).toEqual([]);
+  });
+
+  it("sends a learner's recording to transcription without storing it, but keeps an admin's own", async () => {
+    const t = await speak();
+    const heard: [string, string][] = [];
+    const transcribe = t.ai.transcribe;
+    t.ai.transcribe = async (audio, name, language) => { heard.push([audio.toString("base64"), name]); return transcribe(audio, name, language); };
+    const recordings = () => readdirSync(t.deps.conversation!.audioDir).filter((f) => !f.endsWith(".wav"));
+
+    const conv = await t.start();
+    const first = (await t.reply(conv.id)).json;
+    const retry = (await t.reply(conv.id, { target: first.attempt.target })).json;
+    expect(heard).toEqual([[audio, "reply.webm"], [audio, "reply.webm"]]);
+    expect(first.attempt.audioUrl).toBeNull();
+    expect(retry.turns[0]).toMatchObject({ role: "learner", audioUrl: null });
+    expect(recordings()).toEqual([]);
+
+    await t.login("admin@example.com");
+    const own = await t.start();
+    const kept = (await t.reply(own.id)).json.attempt;
+    expect(recordings()).toHaveLength(1);
+    expect((await t.req("GET", kept.audioUrl)).headers.get("content-type")).toBe("audio/webm");
   });
 
   it("hides a conversation and its audio from other learners, but lets admins hear it", async () => {

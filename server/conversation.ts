@@ -48,7 +48,7 @@ type TurnRow = {
 };
 type AttemptRow = {
   id: number; conversation_id: number; target: string; transcript: string; verdict: string;
-  passed: number; audio_file: string; target_audio_file: string | null; turn_id: number;
+  passed: number; audio_file: string | null; target_audio_file: string | null; turn_id: number;
 };
 
 export function registerConversation(app: Hono<{ Variables: { user: User } }>, deps: AppDeps) {
@@ -166,7 +166,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     (db.prepare("SELECT count(*) AS n FROM conversation_attempts WHERE turn_id = ? AND target = ? AND passed = 0").get(turnId, target) as { n: number }).n;
   const toAttempt = (r: AttemptRow): SpeakAttemptOut => ({
     id: r.id, passed: r.passed === 1, target: r.target, transcript: r.transcript,
-    verdict: JSON.parse(r.verdict) as CoachVerdict, failures: failures(r.turn_id, r.target), audioUrl: audioUrl(r.conversation_id, r.audio_file),
+    verdict: JSON.parse(r.verdict) as CoachVerdict, failures: failures(r.turn_id, r.target),
+    audioUrl: r.audio_file === null ? null : audioUrl(r.conversation_id, r.audio_file),
     targetAudioUrl: r.target_audio_file === null ? null : audioUrl(r.conversation_id, r.target_audio_file),
   });
   /** The partner voice saying a retry target, rendered once per target per turn. */
@@ -231,16 +232,18 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   // SpeakAttemptEvent lines, so later failures arrive as an {error, status} line under HTTP 200.
   app.post("/api/conversations/:id/attempts", async (c) => {
     const body = SpeakAttemptSchema.parse(await c.req.json());
-    const { ai, audioDir } = speak();
-    const userId = c.get("user").id;
+    const { ai } = speak();
+    const user = c.get("user");
+    const userId = user.id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     const turn = awaitingReply(conv.id);
-    const file = saveAudio(conv.id, EXT[body.mime], Buffer.from(body.audio, "base64"));
-    const path = join(audioDir, file);
+    const audio = Buffer.from(body.audio, "base64");
+    // A learner's voice is sent to transcription and never stored (docs/privacy.md); admins keep their own to diagnose the coach.
+    const file = isAdmin(deps, user) ? saveAudio(conv.id, EXT[body.mime], audio) : null;
 
     const check = async (step: (s: CheckStep) => Promise<unknown>): Promise<SpeakAttemptResult> => {
       await step("listening");
-      const { result: transcript, usage } = await ai.transcribe(path, conv.language);
+      const { result: transcript, usage } = await ai.transcribe(audio, `reply.${EXT[body.mime]}`, conv.language);
       paid(userId, conv.id, "transcribe", usage);
       if (!transcript.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
       await step("judging");

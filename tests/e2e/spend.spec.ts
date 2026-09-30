@@ -12,6 +12,19 @@ test("the feedback link is in the footer before and after signing in", async ({ 
   await signIn(page, "footer@example.com");
   await expect(link).toBeVisible();
   await expect(page.locator(".qa-spend-today")).toHaveText(/^Usage today: \$0 \/ \$\d+(\.\d\d)?$/);
+  await page.locator(".qa-footer-about").click();
+  await expect(page).toHaveURL(/\/about$/);
+});
+
+test("signed out, the footer's About link shows the About page and Home leads back", async ({ page }) => {
+  await page.goto("/");
+  await page.locator(".qa-footer-about").click();
+  await expect(page.locator(".qa-about-tips").first()).toBeVisible();
+  await expect(page.locator(".qa-dev-email")).toHaveCount(0);
+  await page.locator(".qa-footer-home").click();
+  await expect(page.locator(".qa-dev-email")).toBeVisible();
+  await page.goto("/about");
+  await expect(page.locator(".qa-about-tips").first()).toBeVisible();
 });
 
 test("a paid call refused at the cap sends the learner to the congratulations page, in their interface language", async ({ page }) => {

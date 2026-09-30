@@ -8,7 +8,7 @@ import { nl } from "./nl.ts";
 const DICTIONARIES: Record<Locale, Dictionary> = { en, "es-419": es419, nl, it };
 
 /** Each locale's name in its own language, for the pickers. */
-export const LOCALE_LABELS: Record<Locale, string> = { en: "English", "es-419": "Español (Latinoamérica)", nl: "Nederlands", it: "Italiano" };
+export const LOCALE_LABELS: Record<Locale, string> = { en: "English", "es-419": "Español", nl: "Nederlands", it: "Italiano" };
 
 const STORAGE_KEY = "locale";
 const IMMERSION_KEY = "immersion";

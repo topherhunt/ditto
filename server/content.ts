@@ -21,6 +21,10 @@ export const VOICES: Record<Language, Voice[]> = {
     { engine: "openai", model: "marin", gender: "F" },
     { engine: "openai", model: "cedar", gender: "M" },
   ],
+  es: [
+    { engine: "openai", model: "marin", gender: "F" },
+    { engine: "openai", model: "cedar", gender: "M" },
+  ],
   it: [
     { engine: "openai", model: "marin", gender: "F" },
     { engine: "openai", model: "cedar", gender: "M" },

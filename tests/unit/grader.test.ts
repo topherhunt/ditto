@@ -146,6 +146,17 @@ describe("grade: punctuation", () => {
     }
   });
 
+  it("accepts Spanish ¿ and ¡ typed or omitted, and still checks the end mark", () => {
+    const q = "Hola, ¿cómo estás?";
+    const es = (typed: string) => grade({ mode: "free", text: typed }, { language: "es", text: q });
+    expect(es("hola como estas?").passed).toBe(true);
+    expect(marks(es("Hola, ¿cómo estás?"))).toEqual([",:ok", "¿:ok", "?:ok"]);
+    expect(marks(es("¡hola como estas?"))).toEqual(["¡:stray", "?:ok"]);
+    const wrong = es("hola como estas.");
+    expect(wrong.passed).toBe(false);
+    expect(marks(wrong)).toEqual([".:wrong>?"]);
+  });
+
   it("shows any end mark on a word or phrase without one as stray", () => {
     for (const end of [".", "!", "?", ","]) {
       const r = free(`caffè${end}`, "caffè");

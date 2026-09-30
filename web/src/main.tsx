@@ -10,6 +10,8 @@ import { Conversation } from "./pages/Conversation.tsx";
 import { CourseSettings } from "./pages/CourseSettings.tsx";
 import { Dashboard } from "./pages/Dashboard.tsx";
 import { FriendBoard } from "./pages/FriendBoard.tsx";
+import { Privacy } from "./pages/Privacy.tsx";
+import { Terms } from "./pages/Terms.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
@@ -28,6 +30,7 @@ import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
 import { Welcome } from "./pages/Welcome.tsx";
 import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
+import { UserReportsAdmin } from "./pages/UserReportsAdmin.tsx";
 import { UserAdmin, UsersAdmin } from "./pages/UsersAdmin.tsx";
 import { installClickSound } from "./sounds.ts";
 
@@ -38,6 +41,8 @@ render(
     <Router root={Layout}>
       <Route path="/" component={Welcome} />
       <Route path="/about" component={About} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route path="/cap" component={CapReached} />
       <Route path="/friends" component={Friends} />
       <Route path="/friends/board" component={FriendBoard} />
@@ -49,6 +54,7 @@ render(
       <Route path="/admin/speaking" component={SpeakingAdmin} />
       <Route path="/admin/metrics" component={MetricsAdmin} />
       <Route path="/admin/users" component={UsersAdmin} />
+      <Route path="/admin/user-reports" component={UserReportsAdmin} />
       <Route path="/admin/users/:id" component={UserAdmin} />
       <Route path="/:lang" component={Dashboard} />
       <Route path="/:lang/type" component={Home} />

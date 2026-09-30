@@ -1,0 +1,3908 @@
+{
+  "id": "es-a1-restaurante",
+  "language": "es",
+  "level": "A1",
+  "order": 8,
+  "title": "En el restaurante",
+  "description": {
+    "en": "Booking a table, ordering a meal and saying what you like",
+    "it": "Prenotare un tavolo, ordinare un pasto e dire cosa ti piace",
+    "nl": "Een tafel reserveren, een maaltijd bestellen en zeggen wat je lekker vindt"
+  },
+  "track": "main",
+  "requires": [
+    "es-a1-ciudad"
+  ],
+  "introduces": [
+    "gustar",
+    "encantar",
+    "preferir",
+    "pedir",
+    "reservar",
+    "recomendar",
+    "desear",
+    "probar",
+    "beber",
+    "sentar",
+    "le",
+    "mí",
+    "ti",
+    "restaurante",
+    "mesa",
+    "menú",
+    "plato",
+    "entrada",
+    "fuerte",
+    "postre",
+    "sopa",
+    "ensalada",
+    "carne",
+    "pollo",
+    "pescado",
+    "arroz",
+    "frijol",
+    "papa",
+    "tomate",
+    "verdura",
+    "fruta",
+    "pasta",
+    "pizza",
+    "taco",
+    "tortilla",
+    "aguacate",
+    "sal",
+    "pimienta",
+    "aceite",
+    "salsa",
+    "delicioso",
+    "picante",
+    "vegetariano",
+    "malo",
+    "hambre",
+    "sed",
+    "alguno",
+    "bastante",
+    "propina",
+    "separado",
+    "enseguida",
+    "reservación",
+    "limón",
+    "helado",
+    "incluir"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "a",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at; a las ocho = at eight; a mí = (to) me",
+        "it": "a; a las ocho = alle otto; a mí = a me",
+        "nl": "naar, om; a las ocho = om acht uur; a mí = (aan) mij"
+      }
+    },
+    "aceite": {
+      "lemma": "aceite",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "oil (m)",
+        "it": "olio (m); attenzione: aceite = olio (aceto = vinagre)",
+        "nl": "olie (m)"
+      }
+    },
+    "agua": {
+      "lemma": "agua",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "water (f; el agua, un agua); agua con gas = sparkling water",
+        "it": "acqua (f; el agua, un agua); agua con gas = acqua frizzante",
+        "nl": "water (f; el agua, un agua); agua con gas = bruisend water"
+      }
+    },
+    "aguacate": {
+      "lemma": "aguacate",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "avocado (m)",
+        "it": "avocado (m)",
+        "nl": "avocado (m)"
+      }
+    },
+    "algo": {
+      "lemma": "algo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "something, anything; algo de beber = something to drink",
+        "it": "qualcosa; algo de beber = qualcosa da bere",
+        "nl": "iets; algo de beber = iets te drinken"
+      }
+    },
+    "algún": {
+      "lemma": "alguno",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, any (alguno before a masculine singular noun)",
+        "it": "qualche, qualcuno (alguno davanti a un nome maschile singolare)",
+        "nl": "een, enig, wat (alguno vóór een mannelijk enkelvoud)"
+      }
+    },
+    "aquí": {
+      "lemma": "aquí",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here",
+        "it": "qui",
+        "nl": "hier"
+      }
+    },
+    "arroz": {
+      "lemma": "arroz",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rice (m)",
+        "it": "riso (m)",
+        "nl": "rijst (m)"
+      }
+    },
+    "bastante": {
+      "lemma": "bastante",
+      "pos": "ADV",
+      "gloss": {
+        "en": "quite, pretty; also enough",
+        "it": "piuttosto, abbastanza",
+        "nl": "vrij, behoorlijk; ook genoeg"
+      }
+    },
+    "beber": {
+      "lemma": "beber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to drink; algo de beber = something to drink (tomar is more common for ordering)",
+        "it": "bere; algo de beber = qualcosa da bere (per ordinare si usa più spesso tomar)",
+        "nl": "drinken; algo de beber = iets te drinken (bij bestellen vaker tomar)"
+      }
+    },
+    "bienvenidos": {
+      "lemma": "bienvenido",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "welcome (to several people)",
+        "it": "benvenuti",
+        "nl": "welkom (tegen meerdere mensen)"
+      }
+    },
+    "buenas": {
+      "lemma": "bueno",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good (bueno); buenas noches = good evening, good night",
+        "it": "buone (bueno); buenas noches = buonasera, buonanotte",
+        "nl": "goed (bueno); buenas noches = goedenavond, goedenacht"
+      }
+    },
+    "carne": {
+      "lemma": "carne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meat (f)",
+        "it": "carne (f)",
+        "nl": "vlees (f)"
+      }
+    },
+    "cerveza": {
+      "lemma": "cerveza",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beer (f)",
+        "it": "birra (f)",
+        "nl": "bier (f)"
+      }
+    },
+    "chocolate": {
+      "lemma": "chocolate",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chocolate (m)",
+        "it": "cioccolato (m)",
+        "nl": "chocolade (m)"
+      }
+    },
+    "claro": {
+      "lemma": "claro",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sure, of course",
+        "it": "certo, certamente",
+        "nl": "natuurlijk, zeker"
+      }
+    },
+    "comemos": {
+      "lemma": "comer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we eat; shall we eat? (comer)",
+        "it": "mangiamo (comer)",
+        "nl": "we eten; zullen we eten? (comer)"
+      }
+    },
+    "comida": {
+      "lemma": "comida",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "food; also meal (f)",
+        "it": "cibo; anche pasto (f); attenzione: comida = cibo o pasto",
+        "nl": "eten; ook maaltijd (f)"
+      }
+    },
+    "con": {
+      "lemma": "con",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "cuatro": {
+      "lemma": "cuatro",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four",
+        "it": "quattro",
+        "nl": "vier"
+      }
+    },
+    "cuenta": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bill, check (f)",
+        "it": "conto (f)",
+        "nl": "rekening (f); let op: la cuenta = de rekening (nota = cijfer, briefje)"
+      }
+    },
+    "cuentas": {
+      "lemma": "cuenta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bills, checks (cuenta); cuentas separadas = separate checks",
+        "it": "conti (cuenta); cuentas separadas = conti separati",
+        "nl": "rekeningen (cuenta); cuentas separadas = aparte rekeningen"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; de entrada = as a starter; de postre = for dessert",
+        "it": "di, da; de entrada = come antipasto; de postre = come dolce",
+        "nl": "van, uit; de entrada = als voorgerecht; de postre = als toetje"
+      }
+    },
+    "delicioso": {
+      "lemma": "delicioso",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "delicious",
+        "it": "delizioso, buonissimo",
+        "nl": "heerlijk, lekker"
+      }
+    },
+    "desean": {
+      "lemma": "desear",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you wish, you'd like (ustedes; polite, from a waiter) (desear)",
+        "it": "desiderate (ustedes; cortese, detto da un cameriere) (desear)",
+        "nl": "u wenst, jullie willen (ustedes; beleefd, van een ober) (desear)"
+      }
+    },
+    "desear": {
+      "lemma": "desear",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wish, to want (polite)",
+        "it": "desiderare",
+        "nl": "wensen, willen (beleefd)"
+      }
+    },
+    "disculpe": {
+      "lemma": "disculpar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "excuse me (to usted) (disculpar)",
+        "it": "mi scusi (a usted) (disculpar)",
+        "nl": "pardon, neemt u me niet kwalijk (tegen usted) (disculpar)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "el": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine singular)",
+        "it": "il, lo (maschile singolare)",
+        "nl": "de, het (mannelijk enkelvoud)"
+      }
+    },
+    "ella": {
+      "lemma": "ella",
+      "pos": "PRON",
+      "gloss": {
+        "en": "she; para ella = for her",
+        "it": "lei; para ella = per lei",
+        "nl": "zij; para ella = voor haar"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, on",
+        "it": "in, su",
+        "nl": "in, op"
+      }
+    },
+    "encanta": {
+      "lemma": "encantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(it) delights; me encanta = I love it (encantar)",
+        "it": "piace moltissimo; me encanta = lo adoro (encantar)",
+        "nl": "(het) bevalt enorm; me encanta = ik ben er dol op (encantar)"
+      }
+    },
+    "encantan": {
+      "lemma": "encantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(they) delight; me encantan las verduras = I love vegetables (encantar)",
+        "it": "piacciono moltissimo; me encantan las verduras = adoro le verdure (encantar)",
+        "nl": "(ze) bevallen enorm; me encantan las verduras = ik ben dol op groente (encantar)"
+      }
+    },
+    "encantar": {
+      "lemma": "encantar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to love (a thing); works like gustar: me encanta = I love it; watch out: the thing loved is the subject",
+        "it": "piacere moltissimo, adorare; funziona come gustar; attenzione: non ha un gemello italiano (me encanta = lo adoro)",
+        "nl": "dol zijn op; werkt als gustar: me encanta = ik ben er dol op; let op: wat je leuk vindt is het onderwerp"
+      }
+    },
+    "ensalada": {
+      "lemma": "ensalada",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salad (f)",
+        "it": "insalata (f)",
+        "nl": "salade (f)"
+      }
+    },
+    "enseguida": {
+      "lemma": "enseguida",
+      "pos": "ADV",
+      "gloss": {
+        "en": "right away, at once",
+        "it": "subito",
+        "nl": "meteen, zo dadelijk"
+      }
+    },
+    "entrada": {
+      "lemma": "entrada",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "starter, appetizer (f); also entrance, ticket",
+        "it": "antipasto (f); anche ingresso, biglietto",
+        "nl": "voorgerecht (f); ook ingang, kaartje"
+      }
+    },
+    "es": {
+      "lemma": "ser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (ser)",
+        "it": "è (ser)",
+        "nl": "is (ser)"
+      }
+    },
+    "esta": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (feminine); esta noche = tonight",
+        "it": "questa; esta noche = stasera",
+        "nl": "deze, dit (vrouwelijk); esta noche = vanavond"
+      }
+    },
+    "este": {
+      "lemma": "este",
+      "pos": "DET",
+      "gloss": {
+        "en": "this (masculine)",
+        "it": "questo",
+        "nl": "deze, dit (mannelijk)"
+      }
+    },
+    "está": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is (estar: states, how food tastes); está delicioso = it's delicious",
+        "it": "è (estar: stati, sapore); está delicioso = è buonissimo",
+        "nl": "is (estar: toestand, smaak); está delicioso = het is heerlijk"
+      }
+    },
+    "están": {
+      "lemma": "estar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you are (ustedes), they are (estar)",
+        "it": "siete (ustedes), sono (estar)",
+        "nl": "jullie zijn, u bent, ze zijn (estar)"
+      }
+    },
+    "favor": {
+      "lemma": "favor",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "favor (m); por favor = please",
+        "it": "favore (m); por favor = per favore",
+        "nl": "gunst (m); por favor = alstublieft"
+      }
+    },
+    "frijol": {
+      "lemma": "frijol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bean (m)",
+        "it": "fagiolo (m)",
+        "nl": "boon (m)"
+      }
+    },
+    "frijoles": {
+      "lemma": "frijol",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "beans (frijol, m)",
+        "it": "fagioli (frijol, m)",
+        "nl": "bonen (frijol, m)"
+      }
+    },
+    "fruta": {
+      "lemma": "fruta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fruit (f)",
+        "it": "frutta (f)",
+        "nl": "fruit (f)"
+      }
+    },
+    "fuerte": {
+      "lemma": "fuerte",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "strong; plato fuerte = main course",
+        "it": "forte; plato fuerte = secondo, piatto principale",
+        "nl": "sterk; plato fuerte = hoofdgerecht"
+      }
+    },
+    "gas": {
+      "lemma": "gas",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gas (m); agua con gas = sparkling water",
+        "it": "gas (m); agua con gas = acqua frizzante",
+        "nl": "gas (m); agua con gas = bruisend water"
+      }
+    },
+    "gusta": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(it) pleases; me gusta = I like it; le gusta = he/she likes it, you (usted) like it (gustar)",
+        "it": "piace; me gusta = mi piace; le gusta = gli/le piace, Le piace (gustar)",
+        "nl": "(het) bevalt; me gusta = ik vind het lekker/leuk; le gusta = hij/zij vindt het lekker, u vindt het lekker (gustar)"
+      }
+    },
+    "gustan": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(they) please; me gustan los tacos = I like tacos (gustar)",
+        "it": "piacciono; me gustan los tacos = mi piacciono i tacos (gustar)",
+        "nl": "(ze) bevallen; me gustan los tacos = ik hou van taco's (gustar)"
+      }
+    },
+    "gustar": {
+      "lemma": "gustar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to like; watch out: the thing liked is the subject: me gusta el pescado (singular), me gustan las papas (plural)",
+        "it": "piacere; funziona proprio come piacere: me gusta el pescado, me gustan las papas",
+        "nl": "lekker/leuk vinden; let op: wat je lekker vindt is het onderwerp: me gusta el pescado (enkelvoud), me gustan las papas (meervoud); vgl. ik hou van"
+      }
+    },
+    "hambre": {
+      "lemma": "hambre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hunger (f; el hambre); tengo hambre = I'm hungry; watch out: Spanish uses tener",
+        "it": "fame (f; el hambre); tengo hambre = ho fame",
+        "nl": "honger (f; el hambre); tengo hambre = ik heb honger"
+      }
+    },
+    "helado": {
+      "lemma": "helado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ice cream (m)",
+        "it": "gelato (m)",
+        "nl": "ijs, ijsje (m)"
+      }
+    },
+    "hola": {
+      "lemma": "hola",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hello, hi",
+        "it": "ciao, salve",
+        "nl": "hallo, hoi"
+      }
+    },
+    "incluida": {
+      "lemma": "incluir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "included (feminine; incluir = include)",
+        "it": "inclusa (incluir = includere)",
+        "nl": "inbegrepen (vrouwelijk; incluir = insluiten)"
+      }
+    },
+    "la": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine singular)",
+        "it": "la (femminile singolare)",
+        "nl": "de, het (vrouwelijk enkelvoud)"
+      }
+    },
+    "las": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine plural)",
+        "it": "le (femminile plurale)",
+        "nl": "de (vrouwelijk meervoud)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "PRON",
+      "gloss": {
+        "en": "(to) you (usted), (to) him, (to) her; indirect object: le recomiendo = I recommend to you",
+        "it": "Le, gli, le (complemento indiretto): le recomiendo = Le consiglio",
+        "nl": "(aan) u, hem, haar (meewerkend voorwerp): le recomiendo = ik raad u aan"
+      }
+    },
+    "limón": {
+      "lemma": "limón",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lemon; in Mexico also lime (m)",
+        "it": "limone; in Messico anche lime (m)",
+        "nl": "citroen; in Mexico ook limoen (m)"
+      }
+    },
+    "listos": {
+      "lemma": "listo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ready (plural); listos para pedir = ready to order",
+        "it": "pronti; listos para pedir = pronti per ordinare",
+        "nl": "klaar (meervoud); listos para pedir = klaar om te bestellen"
+      }
+    },
+    "los": {
+      "lemma": "el",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine plural)",
+        "it": "i, gli (maschile plurale)",
+        "nl": "de (mannelijk meervoud)"
+      }
+    },
+    "mala": {
+      "lemma": "malo",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bad (feminine of malo)",
+        "it": "cattiva (femminile di malo)",
+        "nl": "slecht (vrouwelijk van malo)"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, to me; me gusta = I like it",
+        "it": "mi; me gusta = mi piace",
+        "nl": "mij, me; me gusta = ik vind het lekker"
+      }
+    },
+    "menú": {
+      "lemma": "menú",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "menu (m)",
+        "it": "menù (m)",
+        "nl": "menukaart, menu (m)"
+      }
+    },
+    "mesa": {
+      "lemma": "mesa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "table (f)",
+        "it": "tavolo (f)",
+        "nl": "tafel (f)"
+      }
+    },
+    "mexicana": {
+      "lemma": "mexicano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "Mexican (feminine); lowercase in Spanish",
+        "it": "messicana; minuscolo in spagnolo",
+        "nl": "Mexicaans (vrouwelijk); kleine letter in het Spaans"
+      }
+    },
+    "mi": {
+      "lemma": "mi",
+      "pos": "DET",
+      "gloss": {
+        "en": "my",
+        "it": "mio, mia",
+        "nl": "mijn"
+      }
+    },
+    "mucha": {
+      "lemma": "mucho",
+      "pos": "DET",
+      "gloss": {
+        "en": "a lot of, much (feminine); tengo mucha hambre = I'm really hungry",
+        "it": "tanta, molta; tengo mucha hambre = ho tanta fame",
+        "nl": "veel (vrouwelijk); tengo mucha hambre = ik heb erge honger"
+      }
+    },
+    "mucho": {
+      "lemma": "mucho",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, very much; me gusta mucho = I really like it",
+        "it": "molto; me gusta mucho = mi piace molto",
+        "nl": "veel, erg; me gusta mucho = ik vind het heel lekker"
+      }
+    },
+    "mí": {
+      "lemma": "mí",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me (after a preposition): para mí = for me, a mí = (to) me",
+        "it": "me (dopo una preposizione): para mí = per me, a mí = a me",
+        "nl": "mij (na een voorzetsel): para mí = voor mij, a mí = (aan) mij"
+      }
+    },
+    "no": {
+      "lemma": "no",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not; no (before the verb)",
+        "it": "non; no (prima del verbo)",
+        "nl": "niet; nee (vóór het werkwoord)"
+      }
+    },
+    "noche": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night, evening (f); esta noche = tonight",
+        "it": "notte, sera (f); esta noche = stasera",
+        "nl": "nacht, avond (f); esta noche = vanavond"
+      }
+    },
+    "noches": {
+      "lemma": "noche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "nights (noche); buenas noches = good evening, good night",
+        "it": "notti (noche); buenas noches = buonasera, buonanotte",
+        "nl": "nachten (noche); buenas noches = goedenavond, goedenacht"
+      }
+    },
+    "nombre": {
+      "lemma": "nombre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "name (m); a nombre de = under the name of",
+        "it": "nome (m); a nombre de = a nome di",
+        "nl": "naam (m); a nombre de = op naam van"
+      }
+    },
+    "nos": {
+      "lemma": "nos",
+      "pos": "PRON",
+      "gloss": {
+        "en": "us, to us; ourselves; ¿nos trae...? = could you bring us...?",
+        "it": "ci; ¿nos trae...? = ci porta...?",
+        "nl": "ons; onszelf; ¿nos trae...? = kunt u ons ... brengen?"
+      }
+    },
+    "o": {
+      "lemma": "o",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "ocho": {
+      "lemma": "ocho",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "ortiz": {
+      "lemma": "Ortiz",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Ortiz (surname)",
+        "it": "Ortiz (cognome)",
+        "nl": "Ortiz (achternaam)"
+      }
+    },
+    "papas": {
+      "lemma": "papa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "potatoes (papa, f); watch out: papa = potato, papá = dad",
+        "it": "patate (papa, f); attenzione: papa = patata, papá = papà",
+        "nl": "aardappels (papa, f); let op: papa = aardappel, papá = papa"
+      }
+    },
+    "papá": {
+      "lemma": "papá",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dad (m)",
+        "it": "papà (m)",
+        "nl": "papa, vader (m)"
+      }
+    },
+    "para": {
+      "lemma": "para",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for; para mí = for me",
+        "it": "per; para mí = per me",
+        "nl": "voor; para mí = voor mij"
+      }
+    },
+    "pasas": {
+      "lemma": "pasar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you pass; ¿me pasas...? = could you pass me...? (pasar)",
+        "it": "passi; ¿me pasas...? = mi passi...? (pasar)",
+        "nl": "je geeft door; ¿me pasas...? = kun je me ... aangeven? (pasar)"
+      }
+    },
+    "pasen": {
+      "lemma": "pasar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come in! (to ustedes) (pasar)",
+        "it": "entrate!, prego! (a ustedes) (pasar)",
+        "nl": "komt u binnen! (tegen ustedes) (pasar)"
+      }
+    },
+    "pasta": {
+      "lemma": "pasta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pasta (f)",
+        "it": "pasta (f)",
+        "nl": "pasta (f)"
+      }
+    },
+    "pedir": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to order, to ask for; e>i: pido, pides, pide",
+        "it": "ordinare, chiedere; e>i: pido, pides, pide",
+        "nl": "bestellen, vragen om; e>i: pido, pides, pide"
+      }
+    },
+    "perdón": {
+      "lemma": "perdón",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "sorry, excuse me",
+        "it": "scusa, scusi",
+        "nl": "sorry, pardon"
+      }
+    },
+    "personas": {
+      "lemma": "persona",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (persona, f)",
+        "it": "persone (persona, f)",
+        "nl": "personen (persona, f)"
+      }
+    },
+    "pescado": {
+      "lemma": "pescado",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fish (as food) (m)",
+        "it": "pesce (da mangiare) (m)",
+        "nl": "vis (als gerecht) (m)"
+      }
+    },
+    "picante": {
+      "lemma": "picante",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "spicy, hot",
+        "it": "piccante",
+        "nl": "pittig, scherp"
+      }
+    },
+    "pide": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "orders, asks for (pedir)",
+        "it": "ordina, chiede (pedir)",
+        "nl": "bestelt, vraagt om (pedir)"
+      }
+    },
+    "pido": {
+      "lemma": "pedir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I order, I'm having (pedir)",
+        "it": "ordino, prendo (pedir)",
+        "nl": "ik bestel, ik neem (pedir)"
+      }
+    },
+    "pimienta": {
+      "lemma": "pimienta",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pepper (the spice) (f)",
+        "it": "pepe (f)",
+        "nl": "peper (f)"
+      }
+    },
+    "pizza": {
+      "lemma": "pizza",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pizza (f)",
+        "it": "pizza (f)",
+        "nl": "pizza (f)"
+      }
+    },
+    "plato": {
+      "lemma": "plato",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dish, plate (m); plato fuerte = main course",
+        "it": "piatto (m); plato fuerte = secondo",
+        "nl": "gerecht, bord (m); plato fuerte = hoofdgerecht"
+      }
+    },
+    "poco": {
+      "lemma": "poco",
+      "pos": "PRON",
+      "gloss": {
+        "en": "a little; un poco de = a little",
+        "it": "poco; un poco de = un po' di",
+        "nl": "weinig; un poco de = een beetje"
+      }
+    },
+    "podemos": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we can (poder)",
+        "it": "possiamo (poder)",
+        "nl": "we kunnen, we mogen (poder)"
+      }
+    },
+    "pollo": {
+      "lemma": "pollo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chicken (m)",
+        "it": "pollo (m)",
+        "nl": "kip (m)"
+      }
+    },
+    "por": {
+      "lemma": "por",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, by; por favor = please",
+        "it": "per; por favor = per favore",
+        "nl": "voor, door; por favor = alstublieft"
+      }
+    },
+    "postre": {
+      "lemma": "postre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dessert (m); de postre = for dessert",
+        "it": "dolce, dessert (m); de postre = come dolce",
+        "nl": "nagerecht, toetje (m); de postre = als toetje"
+      }
+    },
+    "preferir": {
+      "lemma": "preferir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to prefer; e>ie: prefiero, prefieres, prefiere",
+        "it": "preferire; e>ie: prefiero, prefieres, prefiere",
+        "nl": "liever hebben, verkiezen; e>ie: prefiero, prefieres, prefiere"
+      }
+    },
+    "prefieres": {
+      "lemma": "preferir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you prefer (preferir)",
+        "it": "preferisci (preferir)",
+        "nl": "jij hebt liever (preferir)"
+      }
+    },
+    "prefiero": {
+      "lemma": "preferir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I prefer, I'd rather have (preferir)",
+        "it": "preferisco (preferir)",
+        "nl": "ik heb liever (preferir)"
+      }
+    },
+    "primera": {
+      "lemma": "primero",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (feminine); primera vez = first time",
+        "it": "prima; primera vez = prima volta",
+        "nl": "eerste; primera vez = eerste keer"
+      }
+    },
+    "probar": {
+      "lemma": "probar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to try, to taste; o>ue: pruebo",
+        "it": "assaggiare, provare; o>ue: pruebo",
+        "nl": "proeven, uitproberen; o>ue: pruebo"
+      }
+    },
+    "propina": {
+      "lemma": "propina",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tip (f)",
+        "it": "mancia (f)",
+        "nl": "fooi (f)"
+      }
+    },
+    "puede": {
+      "lemma": "poder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can (usted); ¿nos puede traer...? = could you bring us...? (poder)",
+        "it": "può (poder); ¿nos puede traer...? = ci può portare...?",
+        "nl": "kunt u, kan (poder); ¿nos puede traer...? = kunt u ons ... brengen?"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that; tener que = have to",
+        "it": "che; tener que = dovere",
+        "nl": "dat; tener que = moeten"
+      }
+    },
+    "quiero": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I want (querer)",
+        "it": "voglio (querer)",
+        "nl": "ik wil (querer)"
+      }
+    },
+    "quisiera": {
+      "lemma": "querer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I'd like (querer); quisiera reservar = I'd like to book",
+        "it": "vorrei (querer); quisiera reservar = vorrei prenotare",
+        "nl": "ik wil graag (querer); quisiera reservar = ik wil graag reserveren"
+      }
+    },
+    "qué": {
+      "lemma": "qué",
+      "pos": "PRON",
+      "gloss": {
+        "en": "what",
+        "it": "che cosa, cosa",
+        "nl": "wat"
+      }
+    },
+    "recomendar": {
+      "lemma": "recomendar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to recommend; e>ie: recomiendo, recomienda",
+        "it": "consigliare; e>ie: recomiendo, recomienda",
+        "nl": "aanraden; e>ie: recomiendo, recomienda"
+      }
+    },
+    "recomienda": {
+      "lemma": "recomendar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you (usted) recommend; ¿qué me recomienda? = what do you recommend? (recomendar)",
+        "it": "consiglia; ¿qué me recomienda? = cosa mi consiglia? (recomendar)",
+        "nl": "u raadt aan; ¿qué me recomienda? = wat raadt u aan? (recomendar)"
+      }
+    },
+    "recomiendo": {
+      "lemma": "recomendar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I recommend (recomendar)",
+        "it": "consiglio (recomendar)",
+        "nl": "ik raad aan (recomendar)"
+      }
+    },
+    "reservación": {
+      "lemma": "reservación",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reservation, booking (f)",
+        "it": "prenotazione (f)",
+        "nl": "reservering (f)"
+      }
+    },
+    "reservar": {
+      "lemma": "reservar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to book, to reserve",
+        "it": "prenotare",
+        "nl": "reserveren"
+      }
+    },
+    "restaurante": {
+      "lemma": "restaurante",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "restaurant (m)",
+        "it": "ristorante (m)",
+        "nl": "restaurant (m)"
+      }
+    },
+    "sal": {
+      "lemma": "sal",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salt (f)",
+        "it": "sale (f); attenzione: in spagnolo è femminile: la sal",
+        "nl": "zout (f)"
+      }
+    },
+    "salsa": {
+      "lemma": "salsa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sauce, often a spicy one (f)",
+        "it": "salsa, spesso piccante (f); attenzione: il sugo di pomodoro per la pasta è salsa de tomate",
+        "nl": "saus, vaak pittig (f)"
+      }
+    },
+    "sed": {
+      "lemma": "sed",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "thirst (f); tengo sed = I'm thirsty; watch out: Spanish uses tener",
+        "it": "sete (f); tengo sed = ho sete",
+        "nl": "dorst (f); tengo sed = ik heb dorst"
+      }
+    },
+    "sentar": {
+      "lemma": "sentar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sentarse = to sit down; ¿nos podemos sentar? = can we sit down?",
+        "it": "sentarse = sedersi; ¿nos podemos sentar? = possiamo sederci?",
+        "nl": "sentarse = gaan zitten; ¿nos podemos sentar? = mogen we gaan zitten?"
+      }
+    },
+    "sentarse": {
+      "lemma": "sentar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sentarse = sentar + se: to sit down; e>ie: me siento",
+        "it": "sentarse = sentar + se: sedersi; e>ie: me siento",
+        "nl": "sentarse = sentar + se: gaan zitten; e>ie: me siento"
+      }
+    },
+    "separadas": {
+      "lemma": "separado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "separate (feminine plural); cuentas separadas = separate checks",
+        "it": "separate; cuentas separadas = conti separati",
+        "nl": "apart (vrouwelijk meervoud); cuentas separadas = aparte rekeningen"
+      }
+    },
+    "separado": {
+      "lemma": "separado",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "separate",
+        "it": "separato",
+        "nl": "apart, gescheiden"
+      }
+    },
+    "siéntense": {
+      "lemma": "sentar",
+      "pos": "VERB",
+      "gloss": {
+        "en": "siéntense = sienten + se: sit down! (to ustedes) (sentarse)",
+        "it": "siéntense = sienten + se: sedetevi!, si accomodino! (a ustedes) (sentarse)",
+        "nl": "siéntense = sienten + se: gaat u zitten! (tegen ustedes) (sentarse)"
+      }
+    },
+    "solo": {
+      "lemma": "solo",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just",
+        "it": "solo, soltanto",
+        "nl": "alleen, maar"
+      }
+    },
+    "sopa": {
+      "lemma": "sopa",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "soup (f)",
+        "it": "zuppa, minestra (f)",
+        "nl": "soep (f)"
+      }
+    },
+    "tacos": {
+      "lemma": "taco",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tacos (taco, m)",
+        "it": "tacos (taco, m)",
+        "nl": "taco's (taco, m)"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you, to you (tú); te gusta = you like it",
+        "it": "ti; te gusta = ti piace",
+        "nl": "jou, je (tú); te gusta = jij vindt het lekker"
+      }
+    },
+    "tenemos": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "we have (tener)",
+        "it": "abbiamo (tener)",
+        "nl": "we hebben (tener)"
+      }
+    },
+    "tengo": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I have; tengo hambre = I'm hungry, tengo sed = I'm thirsty (tener)",
+        "it": "ho; tengo hambre = ho fame, tengo sed = ho sete (tener)",
+        "nl": "ik heb; tengo hambre = ik heb honger, tengo sed = ik heb dorst (tener)"
+      }
+    },
+    "ti": {
+      "lemma": "ti",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (tú, after a preposition): a ti = (to) you; ¿y a ti? = what about you?",
+        "it": "te (dopo una preposizione): a ti = a te; ¿y a ti? = e a te?",
+        "nl": "jou (tú, na een voorzetsel): a ti = (aan) jou; ¿y a ti? = en jij?"
+      }
+    },
+    "tienen": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (ustedes; also to a restaurant or store) (tener)",
+        "it": "avete (ustedes; anche a un ristorante o un negozio) (tener)",
+        "nl": "jullie hebben, u heeft (ustedes; ook tegen een restaurant of winkel) (tener)"
+      }
+    },
+    "tienes": {
+      "lemma": "tener",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have; tienes que = you have to (tener)",
+        "it": "hai; tienes que = devi (tener)",
+        "nl": "jij hebt; tienes que = je moet (tener)"
+      }
+    },
+    "tomate": {
+      "lemma": "tomate",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tomato (m)",
+        "it": "pomodoro (m)",
+        "nl": "tomaat (m)"
+      }
+    },
+    "tortillas": {
+      "lemma": "tortilla",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tortillas (tortilla, f): thin flatbreads, in Mexico made of corn",
+        "it": "tortillas (tortilla, f): sottili focacce, in Messico di mais",
+        "nl": "tortilla's (tortilla, f): dunne platte broodjes, in Mexico van maïs"
+      }
+    },
+    "trae": {
+      "lemma": "traer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you (usted) bring; ¿me trae...? = could you bring me...? (traer)",
+        "it": "porta; ¿me trae...? = mi porta...? (traer)",
+        "nl": "u brengt; ¿me trae...? = kunt u me ... brengen? (traer)"
+      }
+    },
+    "traer": {
+      "lemma": "traer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to bring; irregular: traigo",
+        "it": "portare; irregolare: traigo",
+        "nl": "brengen; onregelmatig: traigo"
+      }
+    },
+    "traigo": {
+      "lemma": "traer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I bring; le traigo = I'll bring you (traer)",
+        "it": "porto; le traigo = Le porto (traer)",
+        "nl": "ik breng; le traigo = ik breng u (traer)"
+      }
+    },
+    "un": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (masculine)",
+        "it": "un, uno",
+        "nl": "een (mannelijk)"
+      }
+    },
+    "una": {
+      "lemma": "uno",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an (feminine)",
+        "it": "una",
+        "nl": "een (vrouwelijk)"
+      }
+    },
+    "vaso": {
+      "lemma": "vaso",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "drinking glass (m); watch out: not a vase",
+        "it": "bicchiere (m); attenzione: vaso = bicchiere (vaso da fiori = florero)",
+        "nl": "glas (om uit te drinken) (m); let op: vaso = drinkglas (vaas = florero)"
+      }
+    },
+    "vegetariano": {
+      "lemma": "vegetariano",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "vegetarian",
+        "it": "vegetariano",
+        "nl": "vegetarisch"
+      }
+    },
+    "verduras": {
+      "lemma": "verdura",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vegetables (verdura, f)",
+        "it": "verdure (verdura, f)",
+        "nl": "groente (verdura, f)"
+      }
+    },
+    "vez": {
+      "lemma": "vez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); primera vez = first time",
+        "it": "volta (f); primera vez = prima volta",
+        "nl": "keer (f); primera vez = eerste keer"
+      }
+    },
+    "voy": {
+      "lemma": "ir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I go; voy a pedir = I'm going to order (ir)",
+        "it": "vado; voy a pedir = prenderò (ir)",
+        "nl": "ik ga; voy a pedir = ik ga bestellen (ir)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; ¿y a ti? = what about you?",
+        "it": "e; ¿y a ti? = e a te?",
+        "nl": "en; ¿y a ti? = en jij?"
+      }
+    },
+    "yo": {
+      "lemma": "yo",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "it": "io",
+        "nl": "ik"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "es-a1-restaurante-1",
+      "title": "Una mesa para dos",
+      "grammarFocus": {
+        "en": [
+          "¿Tienen una mesa para dos? (tienen = do you have, to a restaurant)",
+          "quisiera + infinitive: Quisiera reservar una mesa",
+          "sentarse = sit down: ¿Nos podemos sentar aquí? / Pasen y siéntense (to several guests)"
+        ],
+        "it": [
+          "¿Tienen una mesa para dos? (tienen = avete, a un ristorante)",
+          "quisiera + infinito: Quisiera reservar una mesa",
+          "sentarse = sedersi: ¿Nos podemos sentar aquí? / Pasen y siéntense (a più ospiti)"
+        ],
+        "nl": [
+          "¿Tienen una mesa para dos? (tienen = hebben jullie, tegen een restaurant)",
+          "quisiera + infinitief: Quisiera reservar una mesa",
+          "sentarse = gaan zitten: ¿Nos podemos sentar aquí? / Pasen y siéntense (tegen meerdere gasten)"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "restaurante",
+          "translation": {
+            "en": "restaurant",
+            "it": "ristorante",
+            "nl": "restaurant"
+          },
+          "distractors": {
+            "en": [
+              "hotel",
+              "bakery"
+            ],
+            "it": [
+              "albergo",
+              "pasticceria"
+            ],
+            "nl": [
+              "hotel",
+              "bakkerij"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "mesa",
+          "translation": {
+            "en": "table",
+            "it": "tavolo",
+            "nl": "tafel"
+          },
+          "distractors": {
+            "en": [
+              "chair",
+              "menu"
+            ],
+            "it": [
+              "sedia",
+              "menù"
+            ],
+            "nl": [
+              "stoel",
+              "menukaart"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "una mesa para dos",
+          "variants": [
+            "una mesa para 2"
+          ],
+          "translation": {
+            "en": "a table for two",
+            "it": "un tavolo per due",
+            "nl": "een tafel voor twee"
+          },
+          "distractors": {
+            "en": [
+              "a table for ten",
+              "a chair for two"
+            ],
+            "it": [
+              "un tavolo per dieci",
+              "una sedia per due"
+            ],
+            "nl": [
+              "een tafel voor tien",
+              "een stoel voor twee"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Buenas noches, ¿tienen una mesa para dos?",
+          "variants": [
+            "Buenas noches, ¿tienen una mesa para 2?"
+          ],
+          "translation": {
+            "en": "Good evening, do you have a table for two?",
+            "it": "Buonasera, avete un tavolo per due?",
+            "nl": "Goedenavond, hebben jullie een tafel voor twee?"
+          },
+          "distractors": {
+            "en": [
+              "Good evening, do you have a table for five?",
+              "Good morning, do you have a table for two?"
+            ],
+            "it": [
+              "Buonasera, avete un tavolo per cinque?",
+              "Buongiorno, avete un tavolo per due?"
+            ],
+            "nl": [
+              "Goedenavond, hebben jullie een tafel voor vijf?",
+              "Goedemorgen, hebben jullie een tafel voor twee?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "reservar",
+          "translation": {
+            "en": "to book, to reserve",
+            "it": "prenotare",
+            "nl": "reserveren"
+          },
+          "distractors": {
+            "en": [
+              "to order",
+              "to pay"
+            ],
+            "it": [
+              "ordinare",
+              "pagare"
+            ],
+            "nl": [
+              "bestellen",
+              "betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "quisiera reservar una mesa",
+          "translation": {
+            "en": "I'd like to book a table",
+            "it": "vorrei prenotare un tavolo",
+            "nl": "ik wil graag een tafel reserveren"
+          },
+          "distractors": {
+            "en": [
+              "I'd like to book a taxi",
+              "I'd like to pay for a table"
+            ],
+            "it": [
+              "vorrei prenotare un taxi",
+              "vorrei pagare un tavolo"
+            ],
+            "nl": [
+              "ik wil graag een taxi reserveren",
+              "ik wil graag een tafel betalen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "para esta noche",
+          "translation": {
+            "en": "for tonight",
+            "it": "per stasera",
+            "nl": "voor vanavond"
+          },
+          "distractors": {
+            "en": [
+              "for tomorrow night",
+              "for this afternoon"
+            ],
+            "it": [
+              "per domani sera",
+              "per oggi pomeriggio"
+            ],
+            "nl": [
+              "voor morgenavond",
+              "voor vanmiddag"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hola, quisiera reservar una mesa para esta noche.",
+          "translation": {
+            "en": "Hi, I'd like to book a table for tonight.",
+            "it": "Salve, vorrei prenotare un tavolo per stasera.",
+            "nl": "Hallo, ik wil graag een tafel reserveren voor vanavond."
+          },
+          "distractors": {
+            "en": [
+              "Hi, I'd like to book a table for tomorrow.",
+              "Hi, I'd like to book a taxi for tonight."
+            ],
+            "it": [
+              "Salve, vorrei prenotare un tavolo per domani.",
+              "Salve, vorrei prenotare un taxi per stasera."
+            ],
+            "nl": [
+              "Hallo, ik wil graag een tafel reserveren voor morgen.",
+              "Hallo, ik wil graag een taxi reserveren voor vanavond."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "a las ocho",
+          "variants": [
+            "a las 8"
+          ],
+          "translation": {
+            "en": "at eight",
+            "it": "alle otto",
+            "nl": "om acht uur"
+          },
+          "distractors": {
+            "en": [
+              "at nine",
+              "at six"
+            ],
+            "it": [
+              "alle nove",
+              "alle sei"
+            ],
+            "nl": [
+              "om negen uur",
+              "om zes uur"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Para cuatro personas, a las ocho.",
+          "variants": [
+            "Para 4 personas, a las 8.",
+            "Para cuatro personas, a las 8.",
+            "Para 4 personas, a las ocho."
+          ],
+          "translation": {
+            "en": "For four people, at eight.",
+            "it": "Per quattro persone, alle otto.",
+            "nl": "Voor vier personen, om acht uur."
+          },
+          "distractors": {
+            "en": [
+              "For four people, at nine.",
+              "For eight people, at four."
+            ],
+            "it": [
+              "Per quattro persone, alle nove.",
+              "Per otto persone, alle quattro."
+            ],
+            "nl": [
+              "Voor vier personen, om negen uur.",
+              "Voor acht personen, om vier uur."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "reservación",
+          "translation": {
+            "en": "reservation, booking",
+            "it": "prenotazione",
+            "nl": "reservering"
+          },
+          "distractors": {
+            "en": [
+              "receipt",
+              "menu"
+            ],
+            "it": [
+              "ricevuta",
+              "menù"
+            ],
+            "nl": [
+              "bonnetje",
+              "menukaart"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tenemos una reservación a nombre de Ortiz.",
+          "translation": {
+            "en": "We have a reservation under the name Ortiz.",
+            "it": "Abbiamo una prenotazione a nome Ortiz.",
+            "nl": "We hebben een reservering op naam van Ortiz."
+          },
+          "distractors": {
+            "en": [
+              "We need a reservation under the name Ortiz.",
+              "We have a reservation at the Ortiz restaurant."
+            ],
+            "it": [
+              "Ci serve una prenotazione a nome Ortiz.",
+              "Abbiamo una prenotazione al ristorante Ortiz."
+            ],
+            "nl": [
+              "We hebben een reservering nodig op naam van Ortiz.",
+              "We hebben een reservering bij restaurant Ortiz."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "sentarse",
+          "translation": {
+            "en": "to sit down",
+            "it": "sedersi",
+            "nl": "gaan zitten"
+          },
+          "distractors": {
+            "en": [
+              "to stand up",
+              "to wait"
+            ],
+            "it": [
+              "alzarsi",
+              "aspettare"
+            ],
+            "nl": [
+              "opstaan",
+              "wachten"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, ¿nos podemos sentar aquí?",
+          "translation": {
+            "en": "Excuse me, can we sit here?",
+            "it": "Scusi, possiamo sederci qui?",
+            "nl": "Pardon, mogen we hier zitten?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, can we eat here?",
+              "Excuse me, can we sit over there?"
+            ],
+            "it": [
+              "Scusi, possiamo mangiare qui?",
+              "Scusi, possiamo sederci lì?"
+            ],
+            "nl": [
+              "Pardon, mogen we hier eten?",
+              "Pardon, mogen we daar zitten?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pasen y siéntense",
+          "translation": {
+            "en": "come in and sit down",
+            "it": "entrate e sedetevi",
+            "nl": "komt u binnen en gaat u zitten"
+          },
+          "distractors": {
+            "en": [
+              "come in and wait",
+              "come in and order"
+            ],
+            "it": [
+              "entrate e aspettate",
+              "entrate e ordinate"
+            ],
+            "nl": [
+              "komt u binnen en wacht u even",
+              "komt u binnen en bestelt u maar"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Bienvenidos! Pasen y siéntense, por favor.",
+          "translation": {
+            "en": "Welcome! Come in and sit down, please.",
+            "it": "Benvenuti! Entrate e sedetevi, prego.",
+            "nl": "Welkom! Komt u binnen en gaat u zitten."
+          },
+          "distractors": {
+            "en": [
+              "Welcome! Come in and wait, please.",
+              "Welcome! Come in and order, please."
+            ],
+            "it": [
+              "Benvenuti! Entrate e aspettate, prego.",
+              "Benvenuti! Entrate e ordinate, prego."
+            ],
+            "nl": [
+              "Welkom! Komt u binnen en wacht u even.",
+              "Welkom! Komt u binnen en bestelt u maar."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-restaurante-2",
+      "title": "El menú",
+      "grammarFocus": {
+        "en": [
+          "¿Me trae...? = Could you bring me...? (polite ordering)",
+          "recomendar (e>ie): ¿Qué me recomienda? / Le recomiendo el pollo",
+          "le = to you (usted), to him, to her",
+          "para mí = for me; algún before a masculine noun: ¿Tienen algún plato vegetariano?"
+        ],
+        "it": [
+          "¿Me trae...? = Mi porta...? (per ordinare)",
+          "recomendar (e>ie) = consigliare: ¿Qué me recomienda? / Le recomiendo el pollo",
+          "le = Le, gli, le (complemento indiretto)",
+          "para mí = per me; algún davanti a un nome maschile: ¿Tienen algún plato vegetariano?"
+        ],
+        "nl": [
+          "¿Me trae...? = Kunt u me ... brengen? (beleefd bestellen)",
+          "recomendar (e>ie) = aanraden: ¿Qué me recomienda? / Le recomiendo el pollo",
+          "le = (aan) u, hem, haar",
+          "para mí = voor mij; algún vóór een mannelijk zelfstandig naamwoord: ¿Tienen algún plato vegetariano?"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "menú",
+          "translation": {
+            "en": "menu",
+            "it": "menù",
+            "nl": "menukaart"
+          },
+          "distractors": {
+            "en": [
+              "bill",
+              "plate"
+            ],
+            "it": [
+              "conto",
+              "piatto"
+            ],
+            "nl": [
+              "rekening",
+              "bord"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me trae el menú",
+          "translation": {
+            "en": "could you bring me the menu",
+            "it": "mi porta il menù",
+            "nl": "kunt u me de menukaart brengen"
+          },
+          "distractors": {
+            "en": [
+              "could you bring me the bill",
+              "could you show me the table"
+            ],
+            "it": [
+              "mi porta il conto",
+              "mi mostra il tavolo"
+            ],
+            "nl": [
+              "kunt u me de rekening brengen",
+              "kunt u me de tafel wijzen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Disculpe, ¿me trae el menú, por favor?",
+          "translation": {
+            "en": "Excuse me, could you bring me the menu, please?",
+            "it": "Scusi, mi porta il menù, per favore?",
+            "nl": "Pardon, kunt u me de menukaart brengen?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, could you bring me the bill, please?",
+              "Excuse me, could you bring me some bread, please?"
+            ],
+            "it": [
+              "Scusi, mi porta il conto, per favore?",
+              "Scusi, mi porta del pane, per favore?"
+            ],
+            "nl": [
+              "Pardon, kunt u me de rekening brengen?",
+              "Pardon, kunt u me wat brood brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "desear",
+          "translation": {
+            "en": "to wish, to want",
+            "it": "desiderare",
+            "nl": "wensen, willen"
+          },
+          "distractors": {
+            "en": [
+              "to need",
+              "to try"
+            ],
+            "it": [
+              "avere bisogno",
+              "assaggiare"
+            ],
+            "nl": [
+              "nodig hebben",
+              "proeven"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "algo de beber",
+          "translation": {
+            "en": "something to drink",
+            "it": "qualcosa da bere",
+            "nl": "iets te drinken"
+          },
+          "distractors": {
+            "en": [
+              "something to eat",
+              "something hot"
+            ],
+            "it": [
+              "qualcosa da mangiare",
+              "qualcosa di caldo"
+            ],
+            "nl": [
+              "iets te eten",
+              "iets warms"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Buenas noches, ¿desean algo de beber?",
+          "translation": {
+            "en": "Good evening, would you like something to drink?",
+            "it": "Buonasera, desiderate qualcosa da bere?",
+            "nl": "Goedenavond, wilt u iets drinken?"
+          },
+          "distractors": {
+            "en": [
+              "Good evening, would you like something to eat?",
+              "Good evening, would you like the menu?"
+            ],
+            "it": [
+              "Buonasera, desiderate qualcosa da mangiare?",
+              "Buonasera, desiderate il menù?"
+            ],
+            "nl": [
+              "Goedenavond, wilt u iets eten?",
+              "Goedenavond, wilt u de menukaart?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "para mí",
+          "translation": {
+            "en": "for me",
+            "it": "per me",
+            "nl": "voor mij"
+          },
+          "distractors": {
+            "en": [
+              "for her",
+              "for them"
+            ],
+            "it": [
+              "per lei",
+              "per loro"
+            ],
+            "nl": [
+              "voor haar",
+              "voor hen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Para mí, una cerveza, y para ella, un agua con gas.",
+          "translation": {
+            "en": "A beer for me, and a sparkling water for her.",
+            "it": "Per me una birra, e per lei un'acqua frizzante.",
+            "nl": "Voor mij een biertje, en voor haar een bruisend water."
+          },
+          "distractors": {
+            "en": [
+              "A beer for her, and a sparkling water for me.",
+              "A coffee for me, and a sparkling water for her."
+            ],
+            "it": [
+              "Per lei una birra, e per me un'acqua frizzante.",
+              "Per me un caffè, e per lei un'acqua frizzante."
+            ],
+            "nl": [
+              "Voor haar een biertje, en voor mij een bruisend water.",
+              "Voor mij een koffie, en voor haar een bruisend water."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "recomendar",
+          "translation": {
+            "en": "to recommend",
+            "it": "consigliare",
+            "nl": "aanraden"
+          },
+          "distractors": {
+            "en": [
+              "to order",
+              "to prefer"
+            ],
+            "it": [
+              "ordinare",
+              "preferire"
+            ],
+            "nl": [
+              "bestellen",
+              "liever hebben"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "qué me recomienda",
+          "translation": {
+            "en": "what do you recommend",
+            "it": "cosa mi consiglia",
+            "nl": "wat raadt u aan"
+          },
+          "distractors": {
+            "en": [
+              "what do you prefer",
+              "what are you ordering"
+            ],
+            "it": [
+              "cosa preferisce",
+              "cosa ordina"
+            ],
+            "nl": [
+              "wat heeft u liever",
+              "wat bestelt u"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Es mi primera vez aquí, ¿qué me recomienda?",
+          "translation": {
+            "en": "It's my first time here, what do you recommend?",
+            "it": "È la mia prima volta qui, cosa mi consiglia?",
+            "nl": "Ik ben hier voor het eerst, wat raadt u aan?"
+          },
+          "distractors": {
+            "en": [
+              "It's my first time here, what do you prefer?",
+              "It's my second time here, what do you recommend?"
+            ],
+            "it": [
+              "È la mia prima volta qui, cosa preferisce?",
+              "È la mia seconda volta qui, cosa mi consiglia?"
+            ],
+            "nl": [
+              "Ik ben hier voor het eerst, wat heeft u liever?",
+              "Ik ben hier voor de tweede keer, wat raadt u aan?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "pollo",
+          "translation": {
+            "en": "chicken",
+            "it": "pollo",
+            "nl": "kip"
+          },
+          "distractors": {
+            "en": [
+              "fish",
+              "rice"
+            ],
+            "it": [
+              "pesce",
+              "riso"
+            ],
+            "nl": [
+              "vis",
+              "rijst"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le recomiendo el pollo",
+          "translation": {
+            "en": "I recommend the chicken",
+            "it": "Le consiglio il pollo",
+            "nl": "ik raad u de kip aan"
+          },
+          "distractors": {
+            "en": [
+              "I prefer the chicken",
+              "I recommend the fish"
+            ],
+            "it": [
+              "preferisco il pollo",
+              "Le consiglio il pesce"
+            ],
+            "nl": [
+              "ik heb liever de kip",
+              "ik raad u de vis aan"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le recomiendo el pollo, está delicioso.",
+          "translation": {
+            "en": "I recommend the chicken, it's delicious.",
+            "it": "Le consiglio il pollo, è buonissimo.",
+            "nl": "Ik raad u de kip aan, die is heerlijk."
+          },
+          "distractors": {
+            "en": [
+              "I recommend the fish, it's delicious.",
+              "I recommend the chicken, it's very spicy."
+            ],
+            "it": [
+              "Le consiglio il pesce, è buonissimo.",
+              "Le consiglio il pollo, è molto piccante."
+            ],
+            "nl": [
+              "Ik raad u de vis aan, die is heerlijk.",
+              "Ik raad u de kip aan, die is erg pittig."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "algún plato vegetariano",
+          "translation": {
+            "en": "any vegetarian dish",
+            "it": "qualche piatto vegetariano",
+            "nl": "een vegetarisch gerecht"
+          },
+          "distractors": {
+            "en": [
+              "any fish dish",
+              "any spicy dish"
+            ],
+            "it": [
+              "qualche piatto di pesce",
+              "qualche piatto piccante"
+            ],
+            "nl": [
+              "een visgerecht",
+              "een pittig gerecht"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Tienen algún plato vegetariano?",
+          "translation": {
+            "en": "Do you have any vegetarian dishes?",
+            "it": "Avete qualche piatto vegetariano?",
+            "nl": "Hebben jullie een vegetarisch gerecht?"
+          },
+          "distractors": {
+            "en": [
+              "Do you have any fish dishes?",
+              "Do you have any spicy dishes?"
+            ],
+            "it": [
+              "Avete qualche piatto di pesce?",
+              "Avete qualche piatto piccante?"
+            ],
+            "nl": [
+              "Hebben jullie een visgerecht?",
+              "Hebben jullie een pittig gerecht?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-restaurante-3",
+      "title": "De entrada y de plato fuerte",
+      "grammarFocus": {
+        "en": [
+          "de entrada / de plato fuerte = as a starter / for the main course",
+          "pedir (e>i) = order: pido, pides, pide; ¿Están listos para pedir?",
+          "voy a pedir... = I'm going to have..."
+        ],
+        "it": [
+          "de entrada / de plato fuerte = come antipasto / come secondo",
+          "pedir (e>i) = ordinare: pido, pides, pide; ¿Están listos para pedir?",
+          "voy a pedir... = prendo..."
+        ],
+        "nl": [
+          "de entrada / de plato fuerte = als voorgerecht / als hoofdgerecht",
+          "pedir (e>i) = bestellen: pido, pides, pide; ¿Están listos para pedir?",
+          "voy a pedir... = ik neem..."
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "pedir",
+          "translation": {
+            "en": "to order, to ask for",
+            "it": "ordinare, chiedere",
+            "nl": "bestellen, vragen om"
+          },
+          "distractors": {
+            "en": [
+              "to pay",
+              "to book"
+            ],
+            "it": [
+              "pagare",
+              "prenotare"
+            ],
+            "nl": [
+              "betalen",
+              "reserveren"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "listos para pedir",
+          "translation": {
+            "en": "ready to order",
+            "it": "pronti per ordinare",
+            "nl": "klaar om te bestellen"
+          },
+          "distractors": {
+            "en": [
+              "ready to pay",
+              "ready to leave"
+            ],
+            "it": [
+              "pronti per pagare",
+              "pronti per uscire"
+            ],
+            "nl": [
+              "klaar om te betalen",
+              "klaar om te vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Están listos para pedir?",
+          "translation": {
+            "en": "Are you ready to order?",
+            "it": "Siete pronti per ordinare?",
+            "nl": "Bent u klaar om te bestellen?"
+          },
+          "distractors": {
+            "en": [
+              "Are you ready to pay?",
+              "Are you ready to leave?"
+            ],
+            "it": [
+              "Siete pronti per pagare?",
+              "Siete pronti per uscire?"
+            ],
+            "nl": [
+              "Bent u klaar om te betalen?",
+              "Bent u klaar om te vertrekken?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "entrada",
+          "translation": {
+            "en": "starter, appetizer",
+            "it": "antipasto",
+            "nl": "voorgerecht"
+          },
+          "distractors": {
+            "en": [
+              "dessert",
+              "drink"
+            ],
+            "it": [
+              "dolce",
+              "bevanda"
+            ],
+            "nl": [
+              "nagerecht",
+              "drankje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de entrada",
+          "translation": {
+            "en": "as a starter",
+            "it": "come antipasto",
+            "nl": "als voorgerecht"
+          },
+          "distractors": {
+            "en": [
+              "as a dessert",
+              "as a drink"
+            ],
+            "it": [
+              "come dolce",
+              "da bere"
+            ],
+            "nl": [
+              "als nagerecht",
+              "als drankje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "De entrada, una sopa de tomate, por favor.",
+          "translation": {
+            "en": "As a starter, a tomato soup, please.",
+            "it": "Come antipasto, una zuppa di pomodoro, per favore.",
+            "nl": "Als voorgerecht een tomatensoep, graag."
+          },
+          "distractors": {
+            "en": [
+              "As a starter, a tomato salad, please.",
+              "As a starter, a chicken soup, please."
+            ],
+            "it": [
+              "Come antipasto, un'insalata di pomodori, per favore.",
+              "Come antipasto, una zuppa di pollo, per favore."
+            ],
+            "nl": [
+              "Als voorgerecht een tomatensalade, graag.",
+              "Als voorgerecht een kippensoep, graag."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "plato fuerte",
+          "translation": {
+            "en": "main course",
+            "it": "secondo, piatto principale",
+            "nl": "hoofdgerecht"
+          },
+          "distractors": {
+            "en": [
+              "side dish",
+              "first course"
+            ],
+            "it": [
+              "contorno",
+              "antipasto"
+            ],
+            "nl": [
+              "bijgerecht",
+              "voorgerecht"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Y de plato fuerte, el pescado con arroz.",
+          "translation": {
+            "en": "And for the main course, the fish with rice.",
+            "it": "E come secondo, il pesce con il riso.",
+            "nl": "En als hoofdgerecht de vis met rijst."
+          },
+          "distractors": {
+            "en": [
+              "And for the main course, the chicken with rice.",
+              "And as a starter, the fish with rice."
+            ],
+            "it": [
+              "E come secondo, il pollo con il riso.",
+              "E come antipasto, il pesce con il riso."
+            ],
+            "nl": [
+              "En als hoofdgerecht de kip met rijst.",
+              "En als voorgerecht de vis met rijst."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "voy a pedir",
+          "translation": {
+            "en": "I'm going to order",
+            "it": "prenderò",
+            "nl": "ik ga bestellen"
+          },
+          "distractors": {
+            "en": [
+              "I'm going to pay",
+              "I'm going to cook"
+            ],
+            "it": [
+              "pagherò",
+              "cucinerò"
+            ],
+            "nl": [
+              "ik ga betalen",
+              "ik ga koken"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Yo voy a pedir la carne con papas.",
+          "translation": {
+            "en": "I'm going to have the meat with potatoes.",
+            "it": "Io prendo la carne con le patate.",
+            "nl": "Ik neem het vlees met aardappels."
+          },
+          "distractors": {
+            "en": [
+              "I'm going to have the fish with potatoes.",
+              "I'm going to have the meat with rice."
+            ],
+            "it": [
+              "Io prendo il pesce con le patate.",
+              "Io prendo la carne con il riso."
+            ],
+            "nl": [
+              "Ik neem de vis met aardappels.",
+              "Ik neem het vlees met rijst."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "ensalada",
+          "translation": {
+            "en": "salad",
+            "it": "insalata",
+            "nl": "salade"
+          },
+          "distractors": {
+            "en": [
+              "soup",
+              "sauce"
+            ],
+            "it": [
+              "zuppa",
+              "salsa"
+            ],
+            "nl": [
+              "soep",
+              "saus"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "con aceite y limón",
+          "translation": {
+            "en": "with oil and lemon",
+            "it": "con olio e limone",
+            "nl": "met olie en citroen"
+          },
+          "distractors": {
+            "en": [
+              "with salt and lemon",
+              "with oil and vinegar"
+            ],
+            "it": [
+              "con sale e limone",
+              "con olio e aceto"
+            ],
+            "nl": [
+              "met zout en citroen",
+              "met olie en azijn"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Me trae una ensalada con aceite y limón?",
+          "translation": {
+            "en": "Could you bring me a salad with oil and lemon?",
+            "it": "Mi porta un'insalata con olio e limone?",
+            "nl": "Kunt u me een salade met olie en citroen brengen?"
+          },
+          "distractors": {
+            "en": [
+              "Could you bring me a salad with salt and lemon?",
+              "Could you bring me a soup with oil and lemon?"
+            ],
+            "it": [
+              "Mi porta un'insalata con sale e limone?",
+              "Mi porta una zuppa con olio e limone?"
+            ],
+            "nl": [
+              "Kunt u me een salade met zout en citroen brengen?",
+              "Kunt u me een soep met olie en citroen brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ella pide la sopa",
+          "translation": {
+            "en": "she orders the soup",
+            "it": "lei prende la zuppa",
+            "nl": "zij neemt de soep"
+          },
+          "distractors": {
+            "en": [
+              "she orders the salad",
+              "she makes the soup"
+            ],
+            "it": [
+              "lei prende l'insalata",
+              "lei prepara la zuppa"
+            ],
+            "nl": [
+              "zij neemt de salade",
+              "zij maakt de soep"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Yo pido el pollo y ella pide la sopa.",
+          "translation": {
+            "en": "I'm having the chicken and she's having the soup.",
+            "it": "Io prendo il pollo e lei prende la zuppa.",
+            "nl": "Ik neem de kip en zij neemt de soep."
+          },
+          "distractors": {
+            "en": [
+              "I'm having the soup and she's having the chicken.",
+              "I'm having the chicken and she's having the salad."
+            ],
+            "it": [
+              "Io prendo la zuppa e lei prende il pollo.",
+              "Io prendo il pollo e lei prende l'insalata."
+            ],
+            "nl": [
+              "Ik neem de soep en zij neemt de kip.",
+              "Ik neem de kip en zij neemt de salade."
+            ]
+          },
+          "commas": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-a1-restaurante-4",
+      "title": "¿Te gusta?",
+      "grammarFocus": {
+        "en": [
+          "gustar: me gusta + a singular noun, me gustan + a plural noun (the thing you like is the subject)",
+          "me gusta, te gusta, le gusta; a mí, a ti, a mi papá for emphasis or contrast",
+          "encantar = love (food, things): me encanta, me encantan"
+        ],
+        "it": [
+          "gustar come piacere: me gusta el pescado = mi piace il pesce; me gustan las papas = mi piacciono le patate",
+          "me gusta, te gusta, le gusta; a mí, a ti, a mi papá per dare enfasi",
+          "encantar = adorare, piacere tantissimo: me encanta, me encantan (non ha un gemello italiano)"
+        ],
+        "nl": [
+          "gustar: me gusta + enkelvoud, me gustan + meervoud (wat je lekker vindt is het onderwerp)",
+          "me gusta, te gusta, le gusta; a mí, a ti, a mi papá voor nadruk",
+          "encantar = dol zijn op: me encanta, me encantan"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "gustar",
+          "translation": {
+            "en": "to like",
+            "it": "piacere",
+            "nl": "lekker vinden, bevallen"
+          },
+          "distractors": {
+            "en": [
+              "to try",
+              "to prefer"
+            ],
+            "it": [
+              "assaggiare",
+              "preferire"
+            ],
+            "nl": [
+              "proeven",
+              "liever hebben"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me gusta",
+          "translation": {
+            "en": "I like it",
+            "it": "mi piace",
+            "nl": "ik vind het lekker"
+          },
+          "distractors": {
+            "en": [
+              "I want it",
+              "I have it"
+            ],
+            "it": [
+              "lo voglio",
+              "ce l'ho"
+            ],
+            "nl": [
+              "ik wil het",
+              "ik heb het"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me gusta mucho el pescado.",
+          "translation": {
+            "en": "I really like fish.",
+            "it": "Mi piace molto il pesce.",
+            "nl": "Ik vind vis heel lekker."
+          },
+          "distractors": {
+            "en": [
+              "I really like chicken.",
+              "I don't like fish much."
+            ],
+            "it": [
+              "Mi piace molto il pollo.",
+              "Non mi piace molto il pesce."
+            ],
+            "nl": [
+              "Ik vind kip heel lekker.",
+              "Ik vind vis niet zo lekker."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me gustan",
+          "translation": {
+            "en": "I like them",
+            "it": "mi piacciono",
+            "nl": "ik vind ze lekker"
+          },
+          "distractors": {
+            "en": [
+              "I want them",
+              "I have them"
+            ],
+            "it": [
+              "li voglio",
+              "ce li ho"
+            ],
+            "nl": [
+              "ik wil ze",
+              "ik heb ze"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Me gustan los tacos de pollo.",
+          "translation": {
+            "en": "I like chicken tacos.",
+            "it": "Mi piacciono i tacos di pollo.",
+            "nl": "Ik hou van taco's met kip."
+          },
+          "distractors": {
+            "en": [
+              "I like fish tacos.",
+              "I like chicken soup."
+            ],
+            "it": [
+              "Mi piacciono i tacos di pesce.",
+              "Mi piace la zuppa di pollo."
+            ],
+            "nl": [
+              "Ik hou van taco's met vis.",
+              "Ik hou van kippensoep."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "te gusta",
+          "translation": {
+            "en": "do you like",
+            "it": "ti piace",
+            "nl": "hou je van"
+          },
+          "distractors": {
+            "en": [
+              "do you want",
+              "do you have"
+            ],
+            "it": [
+              "vuoi",
+              "hai"
+            ],
+            "nl": [
+              "wil je",
+              "heb je"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Te gusta la comida picante?",
+          "translation": {
+            "en": "Do you like spicy food?",
+            "it": "Ti piace il cibo piccante?",
+            "nl": "Hou je van pittig eten?"
+          },
+          "distractors": {
+            "en": [
+              "Do you like sweet food?",
+              "Do you want spicy food?"
+            ],
+            "it": [
+              "Ti piace il cibo dolce?",
+              "Vuoi del cibo piccante?"
+            ],
+            "nl": [
+              "Hou je van zoet eten?",
+              "Wil je pittig eten?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "a mí",
+          "translation": {
+            "en": "to me",
+            "it": "a me",
+            "nl": "mij"
+          },
+          "distractors": {
+            "en": [
+              "to you",
+              "to her"
+            ],
+            "it": [
+              "a te",
+              "a lei"
+            ],
+            "nl": [
+              "jou",
+              "haar"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A mí no me gusta la salsa picante.",
+          "translation": {
+            "en": "I don't like hot sauce.",
+            "it": "A me non piace la salsa piccante.",
+            "nl": "Ik hou niet van pittige saus."
+          },
+          "distractors": {
+            "en": [
+              "I really like hot sauce.",
+              "I don't like spicy soup."
+            ],
+            "it": [
+              "A me piace molto la salsa piccante.",
+              "A me non piace la zuppa piccante."
+            ],
+            "nl": [
+              "Ik hou erg van pittige saus.",
+              "Ik hou niet van pittige soep."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "encantar",
+          "translation": {
+            "en": "to love",
+            "it": "adorare",
+            "nl": "dol zijn op"
+          },
+          "distractors": {
+            "en": [
+              "to taste",
+              "to share"
+            ],
+            "it": [
+              "assaggiare",
+              "dividere"
+            ],
+            "nl": [
+              "proeven",
+              "delen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me encanta",
+          "translation": {
+            "en": "I love it",
+            "it": "lo adoro",
+            "nl": "ik ben er dol op"
+          },
+          "distractors": {
+            "en": [
+              "I hate it",
+              "I need it"
+            ],
+            "it": [
+              "lo odio",
+              "mi serve"
+            ],
+            "nl": [
+              "ik heb er een hekel aan",
+              "ik heb het nodig"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¡Me encanta la comida mexicana!",
+          "translation": {
+            "en": "I love Mexican food!",
+            "it": "Adoro la cucina messicana!",
+            "nl": "Ik ben dol op Mexicaans eten!"
+          },
+          "distractors": {
+            "en": [
+              "I love Italian food!",
+              "I love Mexican music!"
+            ],
+            "it": [
+              "Adoro la cucina italiana!",
+              "Adoro la musica messicana!"
+            ],
+            "nl": [
+              "Ik ben dol op Italiaans eten!",
+              "Ik ben dol op Mexicaanse muziek!"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "y a ti",
+          "translation": {
+            "en": "and you",
+            "it": "e a te",
+            "nl": "en jij"
+          },
+          "distractors": {
+            "en": [
+              "and her",
+              "and them"
+            ],
+            "it": [
+              "e a lei",
+              "e a loro"
+            ],
+            "nl": [
+              "en zij",
+              "en hij"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A mí me encantan las verduras, ¿y a ti?",
+          "translation": {
+            "en": "I love vegetables, what about you?",
+            "it": "A me piacciono tantissimo le verdure, e a te?",
+            "nl": "Ik ben dol op groente, en jij?"
+          },
+          "distractors": {
+            "en": [
+              "I love fruit, what about you?",
+              "I don't like vegetables, what about you?"
+            ],
+            "it": [
+              "A me piace tantissimo la frutta, e a te?",
+              "A me non piacciono le verdure, e a te?"
+            ],
+            "nl": [
+              "Ik ben dol op fruit, en jij?",
+              "Ik hou niet van groente, en jij?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "a mi papá le gusta",
+          "translation": {
+            "en": "my dad likes",
+            "it": "a mio papà piace",
+            "nl": "mijn vader houdt van"
+          },
+          "distractors": {
+            "en": [
+              "my dad wants",
+              "my mom likes"
+            ],
+            "it": [
+              "mio papà vuole",
+              "a mia mamma piace"
+            ],
+            "nl": [
+              "mijn vader wil",
+              "mijn moeder houdt van"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "A mi papá no le gusta el aguacate.",
+          "translation": {
+            "en": "My dad doesn't like avocado.",
+            "it": "A mio papà non piace l'avocado.",
+            "nl": "Mijn vader houdt niet van avocado."
+          },
+          "distractors": {
+            "en": [
+              "My mom doesn't like avocado.",
+              "My dad doesn't like tomatoes."
+            ],
+            "it": [
+              "A mia mamma non piace l'avocado.",
+              "A mio papà non piacciono i pomodori."
+            ],
+            "nl": [
+              "Mijn moeder houdt niet van avocado.",
+              "Mijn vader houdt niet van tomaten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-restaurante-5",
+      "title": "Tengo hambre",
+      "grammarFocus": {
+        "en": [
+          "tener hambre / tener sed = be hungry / be thirsty (Spanish uses have)",
+          "preferir (e>ie): prefiero, prefieres, prefiere",
+          "tener que + infinitive = have to: Tienes que probar..."
+        ],
+        "it": [
+          "tener hambre / tener sed = avere fame / avere sete",
+          "preferir (e>ie): prefiero, prefieres, prefiere",
+          "tener que + infinito = dovere: Tienes que probar..."
+        ],
+        "nl": [
+          "tener hambre / tener sed = honger / dorst hebben",
+          "preferir (e>ie): prefiero, prefieres, prefiere",
+          "tener que + infinitief = moeten: Tienes que probar..."
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "hambre",
+          "translation": {
+            "en": "hunger",
+            "it": "fame",
+            "nl": "honger"
+          },
+          "distractors": {
+            "en": [
+              "thirst",
+              "sleep"
+            ],
+            "it": [
+              "sete",
+              "sonno"
+            ],
+            "nl": [
+              "dorst",
+              "slaap"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tengo hambre",
+          "translation": {
+            "en": "I'm hungry",
+            "it": "ho fame",
+            "nl": "ik heb honger"
+          },
+          "distractors": {
+            "en": [
+              "I'm thirsty",
+              "I'm tired"
+            ],
+            "it": [
+              "ho sete",
+              "ho sonno"
+            ],
+            "nl": [
+              "ik heb dorst",
+              "ik ben moe"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tengo mucha hambre, ¿comemos algo?",
+          "translation": {
+            "en": "I'm really hungry, shall we eat something?",
+            "it": "Ho tanta fame, mangiamo qualcosa?",
+            "nl": "Ik heb erge honger, zullen we iets eten?"
+          },
+          "distractors": {
+            "en": [
+              "I'm really thirsty, shall we eat something?",
+              "I'm really hungry, shall we cook something?"
+            ],
+            "it": [
+              "Ho tanta sete, mangiamo qualcosa?",
+              "Ho tanta fame, cuciniamo qualcosa?"
+            ],
+            "nl": [
+              "Ik heb erge dorst, zullen we iets eten?",
+              "Ik heb erge honger, zullen we iets koken?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "sed",
+          "translation": {
+            "en": "thirst",
+            "it": "sete",
+            "nl": "dorst"
+          },
+          "distractors": {
+            "en": [
+              "hunger",
+              "heat"
+            ],
+            "it": [
+              "fame",
+              "caldo"
+            ],
+            "nl": [
+              "honger",
+              "hitte"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tengo sed, ¿me trae un vaso de agua?",
+          "translation": {
+            "en": "I'm thirsty, could you bring me a glass of water?",
+            "it": "Ho sete, mi porta un bicchiere d'acqua?",
+            "nl": "Ik heb dorst, kunt u me een glas water brengen?"
+          },
+          "distractors": {
+            "en": [
+              "I'm hungry, could you bring me a glass of water?",
+              "I'm thirsty, could you bring me a bottle of wine?"
+            ],
+            "it": [
+              "Ho fame, mi porta un bicchiere d'acqua?",
+              "Ho sete, mi porta una bottiglia di vino?"
+            ],
+            "nl": [
+              "Ik heb honger, kunt u me een glas water brengen?",
+              "Ik heb dorst, kunt u me een fles wijn brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "preferir",
+          "translation": {
+            "en": "to prefer",
+            "it": "preferire",
+            "nl": "liever hebben"
+          },
+          "distractors": {
+            "en": [
+              "to order",
+              "to recommend"
+            ],
+            "it": [
+              "ordinare",
+              "consigliare"
+            ],
+            "nl": [
+              "bestellen",
+              "aanraden"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "pizza o pasta",
+          "translation": {
+            "en": "pizza or pasta",
+            "it": "pizza o pasta",
+            "nl": "pizza of pasta"
+          },
+          "distractors": {
+            "en": [
+              "pizza and pasta",
+              "pizza or soup"
+            ],
+            "it": [
+              "pizza e pasta",
+              "pizza o zuppa"
+            ],
+            "nl": [
+              "pizza en pasta",
+              "pizza of soep"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Prefieres pizza o pasta?",
+          "translation": {
+            "en": "Would you rather have pizza or pasta?",
+            "it": "Preferisci pizza o pasta?",
+            "nl": "Heb je liever pizza of pasta?"
+          },
+          "distractors": {
+            "en": [
+              "Would you rather have pizza or salad?",
+              "Do you want pizza and pasta?"
+            ],
+            "it": [
+              "Preferisci pizza o insalata?",
+              "Vuoi pizza e pasta?"
+            ],
+            "nl": [
+              "Heb je liever pizza of salade?",
+              "Wil je pizza en pasta?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "bastante mala",
+          "translation": {
+            "en": "pretty bad",
+            "it": "piuttosto cattiva",
+            "nl": "vrij slecht"
+          },
+          "distractors": {
+            "en": [
+              "pretty good",
+              "very spicy"
+            ],
+            "it": [
+              "piuttosto buona",
+              "molto piccante"
+            ],
+            "nl": [
+              "vrij goed",
+              "erg pittig"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Prefiero la pasta, la pizza de este restaurante es bastante mala.",
+          "translation": {
+            "en": "I'd rather have the pasta, the pizza at this restaurant is pretty bad.",
+            "it": "Preferisco la pasta, la pizza di questo ristorante è piuttosto cattiva.",
+            "nl": "Ik heb liever de pasta, de pizza van dit restaurant is vrij slecht."
+          },
+          "distractors": {
+            "en": [
+              "I'd rather have the pizza, the pasta at this restaurant is pretty bad.",
+              "I'd rather have the pasta, the pizza at this restaurant is pretty good."
+            ],
+            "it": [
+              "Preferisco la pizza, la pasta di questo ristorante è piuttosto cattiva.",
+              "Preferisco la pasta, la pizza di questo ristorante è piuttosto buona."
+            ],
+            "nl": [
+              "Ik heb liever de pizza, de pasta van dit restaurant is vrij slecht.",
+              "Ik heb liever de pasta, de pizza van dit restaurant is vrij goed."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "probar",
+          "translation": {
+            "en": "to try, to taste",
+            "it": "assaggiare, provare",
+            "nl": "proeven"
+          },
+          "distractors": {
+            "en": [
+              "to order",
+              "to cook"
+            ],
+            "it": [
+              "ordinare",
+              "cucinare"
+            ],
+            "nl": [
+              "bestellen",
+              "koken"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "frijol",
+          "translation": {
+            "en": "bean",
+            "it": "fagiolo",
+            "nl": "boon"
+          },
+          "distractors": {
+            "en": [
+              "potato",
+              "rice"
+            ],
+            "it": [
+              "patata",
+              "riso"
+            ],
+            "nl": [
+              "aardappel",
+              "rijst"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tienes que probar",
+          "translation": {
+            "en": "you have to try",
+            "it": "devi assaggiare",
+            "nl": "je moet proeven"
+          },
+          "distractors": {
+            "en": [
+              "you have to order",
+              "you want to try"
+            ],
+            "it": [
+              "devi ordinare",
+              "vuoi assaggiare"
+            ],
+            "nl": [
+              "je moet bestellen",
+              "je wilt proeven"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tienes que probar los frijoles con tortillas.",
+          "translation": {
+            "en": "You have to try the beans with tortillas.",
+            "it": "Devi assaggiare i fagioli con le tortillas.",
+            "nl": "Je moet de bonen met tortilla's proeven."
+          },
+          "distractors": {
+            "en": [
+              "You have to try the rice with tortillas.",
+              "You have to order the beans with rice."
+            ],
+            "it": [
+              "Devi assaggiare il riso con le tortillas.",
+              "Devi ordinare i fagioli con il riso."
+            ],
+            "nl": [
+              "Je moet de rijst met tortilla's proeven.",
+              "Je moet de bonen met rijst bestellen."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "me pasas la sal",
+          "translation": {
+            "en": "could you pass me the salt",
+            "it": "mi passi il sale",
+            "nl": "kun je me het zout aangeven"
+          },
+          "distractors": {
+            "en": [
+              "could you pass me the sauce",
+              "could you bring me the bill"
+            ],
+            "it": [
+              "mi passi la salsa",
+              "mi porti il conto"
+            ],
+            "nl": [
+              "kun je me de saus aangeven",
+              "kun je me de rekening brengen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Perdón, ¿me pasas la sal y la pimienta?",
+          "translation": {
+            "en": "Sorry, could you pass me the salt and pepper?",
+            "it": "Scusa, mi passi il sale e il pepe?",
+            "nl": "Sorry, kun je me het zout en de peper aangeven?"
+          },
+          "distractors": {
+            "en": [
+              "Sorry, could you pass me the salt and the oil?",
+              "Sorry, could you pass me the bread and pepper?"
+            ],
+            "it": [
+              "Scusa, mi passi il sale e l'olio?",
+              "Scusa, mi passi il pane e il pepe?"
+            ],
+            "nl": [
+              "Sorry, kun je me het zout en de olie aangeven?",
+              "Sorry, kun je me het brood en de peper aangeven?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-a1-restaurante-6",
+      "title": "El postre y la cuenta",
+      "grammarFocus": {
+        "en": [
+          "de postre = for dessert",
+          "¿Nos trae la cuenta? / cuentas separadas = separate checks",
+          "le traigo = I'll bring you (usted); enseguida = right away"
+        ],
+        "it": [
+          "de postre = come dolce",
+          "¿Nos trae la cuenta? = Ci porta il conto? / cuentas separadas = conti separati",
+          "le traigo = Le porto; enseguida = subito"
+        ],
+        "nl": [
+          "de postre = als toetje",
+          "¿Nos trae la cuenta? / cuentas separadas = aparte rekeningen",
+          "le traigo = ik breng u; enseguida = meteen"
+        ]
+      },
+      "units": [
+        {
+          "id": "es-a1-restaurante-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "postre",
+          "translation": {
+            "en": "dessert",
+            "it": "dolce, dessert",
+            "nl": "nagerecht, toetje"
+          },
+          "distractors": {
+            "en": [
+              "starter",
+              "drink"
+            ],
+            "it": [
+              "antipasto",
+              "bevanda"
+            ],
+            "nl": [
+              "voorgerecht",
+              "drankje"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "helado",
+          "translation": {
+            "en": "ice cream",
+            "it": "gelato",
+            "nl": "ijsje"
+          },
+          "distractors": {
+            "en": [
+              "cake",
+              "fruit"
+            ],
+            "it": [
+              "torta",
+              "frutta"
+            ],
+            "nl": [
+              "taart",
+              "fruit"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "De postre, un helado de chocolate, por favor.",
+          "translation": {
+            "en": "For dessert, a chocolate ice cream, please.",
+            "it": "Come dolce, un gelato al cioccolato, per favore.",
+            "nl": "Als toetje een chocolade-ijs, graag."
+          },
+          "distractors": {
+            "en": [
+              "For dessert, a chocolate cake, please.",
+              "For dessert, a vanilla ice cream, please."
+            ],
+            "it": [
+              "Come dolce, una torta al cioccolato, per favore.",
+              "Come dolce, un gelato alla vaniglia, per favore."
+            ],
+            "nl": [
+              "Als toetje een chocoladetaart, graag.",
+              "Als toetje een vanille-ijs, graag."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Yo no quiero postre, solo un poco de fruta.",
+          "translation": {
+            "en": "I don't want dessert, just a little fruit.",
+            "it": "Io non voglio il dolce, solo un po' di frutta.",
+            "nl": "Ik wil geen toetje, alleen wat fruit."
+          },
+          "distractors": {
+            "en": [
+              "I don't want dessert, just a coffee.",
+              "I'd like dessert and a little fruit."
+            ],
+            "it": [
+              "Io non voglio il dolce, solo un caffè.",
+              "Io voglio il dolce e un po' di frutta."
+            ],
+            "nl": [
+              "Ik wil geen toetje, alleen een koffie.",
+              "Ik wil een toetje en wat fruit."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuenta",
+          "translation": {
+            "en": "bill, check",
+            "it": "conto",
+            "nl": "rekening"
+          },
+          "distractors": {
+            "en": [
+              "tip",
+              "menu"
+            ],
+            "it": [
+              "mancia",
+              "menù"
+            ],
+            "nl": [
+              "fooi",
+              "menukaart"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nos trae la cuenta",
+          "translation": {
+            "en": "could you bring us the check",
+            "it": "ci porta il conto",
+            "nl": "kunt u ons de rekening brengen"
+          },
+          "distractors": {
+            "en": [
+              "could you bring us the menu",
+              "could you bring us dessert"
+            ],
+            "it": [
+              "ci porta il menù",
+              "ci porta il dolce"
+            ],
+            "nl": [
+              "kunt u ons de menukaart brengen",
+              "kunt u ons een toetje brengen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Disculpe, ¿nos trae la cuenta, por favor?",
+          "translation": {
+            "en": "Excuse me, could you bring us the check, please?",
+            "it": "Scusi, ci porta il conto, per favore?",
+            "nl": "Pardon, kunt u ons de rekening brengen?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, could you bring us the menu, please?",
+              "Excuse me, could you bring us some water, please?"
+            ],
+            "it": [
+              "Scusi, ci porta il menù, per favore?",
+              "Scusi, ci porta dell'acqua, per favore?"
+            ],
+            "nl": [
+              "Pardon, kunt u ons de menukaart brengen?",
+              "Pardon, kunt u ons wat water brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "enseguida",
+          "translation": {
+            "en": "right away",
+            "it": "subito",
+            "nl": "meteen"
+          },
+          "distractors": {
+            "en": [
+              "later",
+              "tomorrow"
+            ],
+            "it": [
+              "più tardi",
+              "domani"
+            ],
+            "nl": [
+              "straks",
+              "morgen"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Claro, enseguida le traigo la cuenta.",
+          "translation": {
+            "en": "Sure, I'll bring you the check right away.",
+            "it": "Certo, Le porto subito il conto.",
+            "nl": "Natuurlijk, ik breng u meteen de rekening."
+          },
+          "distractors": {
+            "en": [
+              "Sure, I'll bring you the check later.",
+              "Sure, I'll bring you the menu right away."
+            ],
+            "it": [
+              "Certo, Le porto il conto più tardi.",
+              "Certo, Le porto subito il menù."
+            ],
+            "nl": [
+              "Natuurlijk, ik breng u straks de rekening.",
+              "Natuurlijk, ik breng u meteen de menukaart."
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "separado",
+          "translation": {
+            "en": "separate",
+            "it": "separato",
+            "nl": "apart"
+          },
+          "distractors": {
+            "en": [
+              "together",
+              "full"
+            ],
+            "it": [
+              "insieme",
+              "pieno"
+            ],
+            "nl": [
+              "samen",
+              "vol"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "cuentas separadas",
+          "translation": {
+            "en": "separate checks",
+            "it": "conti separati",
+            "nl": "aparte rekeningen"
+          },
+          "distractors": {
+            "en": [
+              "one check",
+              "separate tables"
+            ],
+            "it": [
+              "un conto unico",
+              "tavoli separati"
+            ],
+            "nl": [
+              "één rekening",
+              "aparte tafels"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿Nos puede traer cuentas separadas, por favor?",
+          "translation": {
+            "en": "Could you bring us separate checks, please?",
+            "it": "Ci può portare conti separati, per favore?",
+            "nl": "Kunt u ons aparte rekeningen brengen?"
+          },
+          "distractors": {
+            "en": [
+              "Could you bring us one check, please?",
+              "Could you bring us separate plates, please?"
+            ],
+            "it": [
+              "Ci può portare un conto unico, per favore?",
+              "Ci può portare piatti separati, per favore?"
+            ],
+            "nl": [
+              "Kunt u ons één rekening brengen?",
+              "Kunt u ons aparte borden brengen?"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "propina",
+          "translation": {
+            "en": "tip",
+            "it": "mancia",
+            "nl": "fooi"
+          },
+          "distractors": {
+            "en": [
+              "bill",
+              "price"
+            ],
+            "it": [
+              "conto",
+              "prezzo"
+            ],
+            "nl": [
+              "rekening",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "está incluida",
+          "translation": {
+            "en": "it's included",
+            "it": "è inclusa",
+            "nl": "is inbegrepen"
+          },
+          "distractors": {
+            "en": [
+              "it's expensive",
+              "it's separate"
+            ],
+            "it": [
+              "è cara",
+              "è a parte"
+            ],
+            "nl": [
+              "is duur",
+              "is apart"
+            ]
+          }
+        },
+        {
+          "id": "es-a1-restaurante-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "¿La propina está incluida en la cuenta?",
+          "translation": {
+            "en": "Is the tip included in the check?",
+            "it": "La mancia è inclusa nel conto?",
+            "nl": "Is de fooi bij de rekening inbegrepen?"
+          },
+          "distractors": {
+            "en": [
+              "Is the tip included in the price?",
+              "Is the water included in the check?"
+            ],
+            "it": [
+              "La mancia è inclusa nel prezzo?",
+              "L'acqua è inclusa nel conto?"
+            ],
+            "nl": [
+              "Is de fooi bij de prijs inbegrepen?",
+              "Is het water bij de rekening inbegrepen?"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

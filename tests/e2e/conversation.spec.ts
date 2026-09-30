@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { signIn } from "./helpers.ts";
+import { signIn, signOut } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
 test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"] } });
@@ -58,7 +58,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry-play-target")).toBeVisible();
   await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");
   await expect(page.locator(".qa-retry-fix")).toContainText("per favore");
-  await expect(page.locator(".qa-retry-play-own")).toBeVisible();
+  // The learner's own recording replays from the browser; the server never stored it.
+  await page.locator(".qa-retry-play-own").click();
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/^blob:/);
   await expect(page.locator(".qa-move-on")).toHaveCount(0);
 
   await page.locator(".qa-retry-report-open").click();
@@ -84,6 +86,17 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry")).toHaveCount(0);
   await expect(page.locator(".qa-replies")).toContainText("1");
   await expect(page.locator(".qa-hints")).toContainText("1");
+
+  // A passed reply stays replayable from this browser after a reload, and sign-out forgets it.
+  await page.reload();
+  await page.locator(".qa-turn-learner .qa-turn-play-own").click();
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/^blob:/);
+  const conversationUrl = page.url();
+  await signOut(page);
+  await signIn(page, "speaker@example.com");
+  await page.goto(conversationUrl);
+  await expect(page.locator(".qa-turn-learner .qa-chunk").first()).toBeVisible();
+  await expect(page.locator(".qa-turn-play-own")).toHaveCount(0);
 
   await page.locator(".qa-conversation-hard").check();
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);

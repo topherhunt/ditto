@@ -26,7 +26,10 @@
 
 ### For after launch
 
+- Set up a throwaway gmail inbox for ditto
 - Support learning Spanish
+- Support self-service account deletion (but preserve anonymous activity metrics & API call ledger)
+- Support self-service full data download/export
 - Cache / store glossed / tooltipped audio so it plays faster & avoids extra GPT-4o calls?
 - Support direct messaging friends. (but only in the language you're learning!! to force you to really practice. It can be translated for them if need be.) With some prompting/recoms of what to send them.
 - Social & leaderboard rethink:
@@ -38,7 +41,7 @@
   - [ ] Score a general proxy for activity across Type, Talk and Quiz, not just typed lessons.
   - [ ] Empty state: when you have no friends yet, prompt you to invite some.
   - [x] "Make new friends" board: opt in with a one-line blurb, see everyone else on it in random order, 3 friend requests a day.
-  - [ ] Let learners report a board blurb, and let the operator hide it.
+  - [x] Block or report anyone from their profile; the operator takes down board posts or clears usernames at `/admin/user-reports`.
   - [ ] Send friends words of encouragement.
 - Support slowing down audio as a user setting. Only up to A2.
 - Stream on-demand audio to reduce wait times, rather than waiting until the full clip is returned?
