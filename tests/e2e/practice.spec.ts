@@ -37,6 +37,8 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-answer")).toHaveCount(0);
   await slot(page, 0).fill("vorrei");
   await slot(page, 0).press("Enter");
+  // "Why?" waits for the meaning check, whose answer records the attempt the explanation is saved onto.
+  await expect(page.locator(".qa-why")).toHaveCount(0);
   await pickMeaning(page, "I would like");
   await expect(page.locator(".qa-outcome")).toContainText("Corrected");
   // No OPENAI_API_KEY in E2E: the explainer reports it is not configured.

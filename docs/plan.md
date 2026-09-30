@@ -24,7 +24,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss), optionally with a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh push` closes on production every report approved or closed in the dev DB, then `pull` brings the closures back.
 - Admins watch usage and abuse at `/admin/users` (account menu > Users): every account with registration, last seen (`users.last_seen_at`, stamped by signed-in requests at most every 5 minutes), last practice, items, active days, friends, pending requests, blocks received, reports filed and AI spend, searchable, filterable and sortable in the browser. A user's page adds practice per language, daily activity, friends, blocks, reports and a link to their public profile. `/admin/metrics` (account menu > Metrics) shows daily learners, engaged time per activity, traffic, errors and latency ([metrics.md](metrics.md)).
 - Scheduled review (FSRS).
-- AI explainer: a "Why?" button on any mistake that explains and categorizes it. Results are cached and attached to the notebook entry.
+- AI explainer: a "Why?" button on any mistake that explains and categorizes it. The explanation is saved on the learner's own notebook entry.
 - Friends, found on the Friends page by exact username (a leading `@` is ignored) or exact email, or added from a profile. A search shows only the username and how you stand, so people can connect without sharing an email. A learner can send 3 new requests in any 24 hours (declined ones count; accepting someone else's doesn't). The other person can accept or decline (the request is deleted). Either side can unfriend.
 - Blocking and reporting, from the "⋯" menu on any profile but your own (and Block on an incoming request). Blocking is silent and ends any friendship, request and race: the blocked account's later requests look pending to them and never reach the blocker, and the board hides each from the other. "Report and block" also files a report (offensive username, board post, unwanted requests, or other, with an optional note) that copies their username and board post as they were. Admins handle reports at `/admin/user-reports` (account menu > People reports): take down the board post, clear the username (the app then makes them pick a new one), or dismiss.
 - Usernames: picked on a blocking screen right after first sign-in, changeable under Account settings (`/account`). ASCII `[A-Za-z0-9_.-]{3,20}`, unique regardless of capitals. Lists, races, notifications and leaderboards show only the username.
@@ -59,7 +59,7 @@ One Node process (a monolith) serves the SPA, the JSON API and audio files. Cadd
 | Frontend | Vite + SolidJS + TypeScript, `@solidjs/router` | Fine-grained reactivity, small bundle. Trap: never destructure props (it breaks reactivity) |
 | CSS | Bootstrap 5 (CSS only) utilities, plus one component stylesheet for the dictation widget | Utility-first |
 | SRS | `ts-fsrs` | FSRS schedules more efficiently than SM-2 and the library is maintained |
-| AI | `openai` SDK, Responses API with a strict JSON-schema output, model `gpt-6-luna` (`EXPLAIN_MODEL` in `server/explain.ts`) | About $0.0004 per uncached explanation ($0.10 / $0.50 per 1M in/out tokens) |
+| AI | `openai` SDK, Responses API with a strict JSON-schema output, model `gpt-6-luna` (`EXPLAIN_MODEL` in `server/explain.ts`) | About $0.0004 per explanation ($0.10 / $0.50 per 1M in/out tokens) |
 | Tests | Vitest (unit + API), Playwright (E2E) | |
 
 ### Repo layout
@@ -136,7 +136,7 @@ Voices, one per gender in each language:
 - `commas[]`: word indices after which a comma or semicolon is accepted although the text has none.
 - `distractors`: two wrong translations for the meaning check. Required exactly when there is a `translation`.
 - `speaker`: `F` or `M` when the text gives the speaker's gender away ("sono stanca", "I'm Maria"); only voices of that gender read the unit. Its words keep every voice.
-- Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which invalidates cached explanations.
+- Unit `id`s are permanent and never reused. Bump `rev` when the text changes, which hides saved explanations of the old text.
 - **Localized fields** (`description`, `grammarFocus`, `gloss`, `translation`, `distractors`) are locale maps with exactly the course language's `SUPPORT_LOCALES`; a missing or extra locale is a load error. The loader builds one served copy of the content per UI locale. Every unit needs a `translation`.
 - New support languages are added as one patch per course and locale, checked and merged by `scripts/merge-locale.ts` (`--check` validates without writing).
 
@@ -187,7 +187,7 @@ Voices, one per gender in each language:
 
 - `POST /api/explain {unitId, rev, answer}`. The server loads the unit (text, words with lemma/POS, grammarFocus, language) and computes the grader diff.
 - It asks the model for structured output: `{ categories: [...], summary: string, details: string }`. Categories come from a fixed taxonomy: `spelling`, `mishearing`, `homophone`, `agreement`, `conjugation`, `article`, `preposition`, `elision_contraction`, `word_order`, `missing_word`, `extra_word`, `vocabulary`, `other`. It writes in the learner's UI locale.
-- **Cache:** the `explanations` table, keyed by `(unit_id, rev, answer key, model, locale)`. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. It is shared across users, so a repeated mistake is free.
+- **Saved per learner:** in `mistakes.explanation`, when it explains that entry's `last_answer`, and shown (and reused instead of a new call) only while the unit `rev`, help locale and answer key still match. The answer key is lowercased and whitespace-collapsed, and it keeps punctuation. Explanations are never shared between learners. In a lesson, "Why?" appears after the meaning check, once the attempt that creates the notebook entry is saved.
 - **Spend guards:**
   - The endpoint only runs when a user clicks "Why?".
   - Each uncached explanation is charged to the learner in `api_usage` and counts toward the daily spend cap (docs/conversation.md, Spend).
@@ -209,11 +209,9 @@ attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn
          submissions JSON, meaning_correct, duration_ms, created_at)
 lesson_progress(user_id, lesson_id, path, next_index, completed_at, PK(user_id, lesson_id, path))
 mistakes(user_id, unit_id, first_wrong_at, last_wrong_at, wrong_count, last_answer,
-         categories JSON, clean_streak, removed_at, PK(user_id, unit_id))
+         categories JSON, clean_streak, removed_at, explanation JSON, PK(user_id, unit_id))
 review_cards(user_id, unit_id, language, due, card JSON  -- ts-fsrs Card; `due` duplicated for the index
              , PK(user_id, unit_id))
-explanations(id PK, unit_id, unit_rev, answer_key, model, locale, categories JSON, summary, details, created_at,
-             UNIQUE(unit_id, unit_rev, answer_key, model, locale))
 explain_usage(user_id, day, count, PK(user_id, day))  -- unused since the dollar cap replaced the count cap
 reports(id PK, user_id, unit_id, unit_rev, language, text, voice  -- e.g. openai:marin
         , audio_file, kind  -- audio|text|translation|accept|other
@@ -255,7 +253,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress, plus review-due and notebook counts |
 | POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction |
 | GET | `/api/review?lang=` | Due units with full payloads |
-| GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and cached explanations |
+| GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and saved explanations |
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |
 | POST | `/api/reports` | `{unitId, rev, voice, kind, answer?, note}` (`answer` only and always for `accept`), where `voice` is the index into the unit's `audio` |
@@ -298,7 +296,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 
   Also tokenizer/`words` alignment, FSRS rating mapping, unlocks, and the content loader: its rules on small in-test courses, plus one load of the real content.
 - API and E2E tests run against the frozen fixture content in `tests/fixtures/content` (`CONTENT_DIR`), so curriculum edits don't break them.
-- **API:** `app.request()` against a temp DB. Covers auth gating, recording attempts that update notebook and cards, the review due list after the clock moves, explainer caching and the daily cap (fake model client).
+- **API:** `app.request()` against a temp DB. Covers auth gating, recording attempts that update notebook and cards, the review due list after the clock moves, saved explanations and the daily cap (fake model client).
 - **E2E (Playwright):** dev login -> Italian -> lesson -> type a wrong answer -> assert `qa-letter-delete` / `qa-letter-insert` -> fix -> type a word with a missing accent -> assert `qa-letter-accent` -> the notebook lists the entry.
 
 Every selector used in tests is a `qa-*` class.

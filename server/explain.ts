@@ -56,7 +56,6 @@ export function buildPrompt({ unit, grammarFocus, answer, grade, locale }: Expla
   return { instructions: INSTRUCTIONS.replace("{language}", LANGUAGE_NAMES[unit.language]).replace("{locale}", LOCALE_NAMES[locale]), input };
 }
 
-/** Cached explanations are keyed by it, so changing it drops the cache. */
 export const EXPLAIN_MODEL = "gpt-6-luna";
 
 export function openAIExplainer(apiKey: string): Explainer {

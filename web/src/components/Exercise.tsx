@@ -54,6 +54,8 @@ export function Exercise(props: {
   const [explanation, setExplanation] = createSignal<ExplanationOut | null>(null);
   const [explainState, setExplainState] = createSignal<"idle" | "loading" | string>("idle");
   const submissions: string[] = [];
+  /** The attempt's save, which creates the notebook entry an explanation is saved onto. */
+  let saved: Promise<unknown> | null = null;
   /** Word index -> letter positions whose accent was fixed, kept orange in the finished answer. */
   const accentWords = new Map<number, number[]>();
   /** Word index -> punctuation typed after it that doesn't belong, shown struck through in the finished answer. */
@@ -197,10 +199,11 @@ export function Exercise(props: {
   function record(meaningCorrect: boolean | null) {
     const d = dictation!;
     const mode = props.mode;
-    const saved = mode === "test" ? Promise.resolve() : api.post("/api/attempts", { ...d, mode, meaningCorrect } satisfies AttemptBody);
-    saved.catch((e: Error) => setSaveError(e.message));
+    const save = mode === "test" ? Promise.resolve() : api.post("/api/attempts", { ...d, mode, meaningCorrect } satisfies AttemptBody);
+    saved = save;
+    save.catch((e: Error) => setSaveError(e.message));
     const missed = meaningCorrect === false;
-    props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, saved);
+    props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, save);
   }
 
   /** Next is available once nothing is left to answer. */
@@ -209,6 +212,8 @@ export function Exercise(props: {
   async function explain() {
     setExplainState("loading");
     try {
+      // A failed save is already shown; the explanation then just isn't kept in the notebook.
+      await saved!.catch(() => {});
       setExplanation(await api.post<ExplanationOut>("/api/explain", { unitId: unit.id, answer: submissions[0] }));
       setExplainState("idle");
     } catch (e) {
@@ -368,7 +373,7 @@ export function Exercise(props: {
 
         <Show when={done()}>
           <Show when={saveError()}>{(err) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: err() })}</div>}</Show>
-          <Show when={submissions.length > 0 && (wrongSubmissions() > 0 || revealed())}>
+          <Show when={settled() && submissions.length > 0 && (wrongSubmissions() > 0 || revealed())}>
             <div class="qa-explain">
               <Show when={explanation()} fallback={
                 <button type="button" class="qa-why btn btn-sm btn-outline-info" disabled={explainState() === "loading"} onClick={explain}>

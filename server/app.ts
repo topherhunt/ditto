@@ -20,7 +20,7 @@ import {
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { registerConversation, type ConversationDeps } from "./conversation.ts";
 import { transaction, type DB } from "./db.ts";
-import { EXPLAIN_MODEL, type Explainer } from "./explain.ts";
+import type { Explainer } from "./explain.ts";
 import { levelTestUnits } from "./level-test.ts";
 import { registerMetrics, trafficCounter } from "./metrics.ts";
 import { registerPoc } from "./poc.ts";
@@ -59,6 +59,8 @@ const LAST_SEEN_EVERY_MS = 5 * 60_000;
 const LangQuery = z.enum(LANGUAGES);
 /** Punctuation can make an answer wrong, so it is part of the key; case and spacing are not. */
 const answerKey = (answer: string) => exactKey(answer).replace(/\s+/g, " ").trim();
+/** mistakes.explanation: the unit rev, help language and answer it explains, so it is shown only while they still match. */
+type SavedExplanation = ExplanationOut & { rev: number; locale: Locale; answerKey: string };
 
 export function createApp(deps: AppDeps) {
   const { db, content } = deps;
@@ -397,20 +399,21 @@ export function createApp(deps: AppDeps) {
     return c.json<ReviewOut>({ units: rows.map((r) => unitOr404(support, r.unit_id)), dueCount: counts(userId, language).dueCount });
   });
 
-  const cachedExplanation = (unit: ServedUnit, answer: string, locale: Locale): ExplanationOut | null => {
-    const row = db.prepare(
-      "SELECT categories, summary, details FROM explanations WHERE unit_id = ? AND unit_rev = ? AND answer_key = ? AND model = ? AND locale = ?",
-    ).get(unit.id, unit.rev, answerKey(answer), EXPLAIN_MODEL, locale) as { categories: string; summary: string; details: string } | undefined;
-    return row ? { categories: JSON.parse(row.categories), summary: row.summary, details: row.details } : null;
+  /** A notebook entry's saved explanation, if it explains `answer` to the unit's current text in `locale`. */
+  const savedExplanation = (json: string | null, unit: ServedUnit, answer: string, locale: Locale): ExplanationOut | null => {
+    if (!json) return null;
+    const { rev, locale: savedLocale, answerKey: key, ...ex } = JSON.parse(json) as SavedExplanation;
+    return rev === unit.rev && savedLocale === locale && key === answerKey(answer) ? ex : null;
   };
 
   app.get("/api/mistakes", (c) => {
     const language = lang(c);
     const rows = db.prepare(
-      `SELECT unit_id, wrong_count, last_wrong_at, last_answer, categories, clean_streak FROM mistakes
+      `SELECT unit_id, wrong_count, last_wrong_at, last_answer, categories, clean_streak, explanation FROM mistakes
        WHERE user_id = ? AND language = ? AND removed_at IS NULL ORDER BY last_wrong_at DESC`,
     ).all(c.get("user").id, language) as {
       unit_id: string; wrong_count: number; last_wrong_at: string; last_answer: string | null; categories: string; clean_streak: number;
+      explanation: string | null;
     }[];
     const user = c.get("user");
     const support = supportLocale(language, user.locale);
@@ -420,7 +423,7 @@ export function createApp(deps: AppDeps) {
       return {
         unit, wrongCount: r.wrong_count, lastWrongAt: r.last_wrong_at, lastAnswer: r.last_answer,
         categories: JSON.parse(r.categories), cleanStreak: r.clean_streak,
-        explanation: r.last_answer ? cachedExplanation(unit, r.last_answer, help) : null,
+        explanation: r.last_answer ? savedExplanation(r.explanation, unit, r.last_answer, help) : null,
       };
     }));
   });
@@ -443,8 +446,11 @@ export function createApp(deps: AppDeps) {
     const result = grade({ mode: "free", text: answer }, unit);
     if (result.passed) throw new HTTPException(400, { message: "That answer is correct" });
 
-    const cached = cachedExplanation(unit, answer, locale);
-    if (cached) return c.json({ ...cached, cached: true });
+    // Saved on the learner's notebook entry when it explains that entry's last answer, so the notebook shows it.
+    const mistake = db.prepare("SELECT last_answer, explanation FROM mistakes WHERE user_id = ? AND unit_id = ?")
+      .get(userId, unit.id) as { last_answer: string | null; explanation: string | null } | undefined;
+    const saved = mistake ? savedExplanation(mistake.explanation, unit, answer, locale) : null;
+    if (saved) return c.json<ExplanationOut>(saved);
     if (!deps.explainer) throw new HTTPException(503, { message: "The explainer is not configured (OPENAI_API_KEY)" });
     underCapOr429(db, userId, deps.dailySpendCap, deps.now());
 
@@ -453,12 +459,12 @@ export function createApp(deps: AppDeps) {
     const { result: ex, usage } = await deps.explainer.explain({ unit, grammarFocus: lesson.grammarFocus, answer, grade: result, locale });
     transaction(db, () => {
       recordUsage(db, userId, null, "explain", usage, deps.now());
-      db.prepare(
-        `INSERT INTO explanations (unit_id, unit_rev, answer_key, model, locale, categories, summary, details, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING`,
-      ).run(unit.id, unit.rev, answerKey(answer), EXPLAIN_MODEL, locale, JSON.stringify(ex.categories), ex.summary, ex.details, deps.now().toISOString());
+      if (mistake?.last_answer && answerKey(mistake.last_answer) === answerKey(answer)) {
+        const json: SavedExplanation = { rev: unit.rev, locale, answerKey: answerKey(answer), ...ex };
+        db.prepare("UPDATE mistakes SET explanation = ? WHERE user_id = ? AND unit_id = ?").run(JSON.stringify(json), userId, unit.id);
+      }
     });
-    return c.json({ ...ex, cached: false });
+    return c.json<ExplanationOut>(ex);
   });
 
   registerSocial(app, deps);

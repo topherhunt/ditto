@@ -7,7 +7,7 @@ import { HTTPException } from "hono/http-exception";
 import { stream } from "hono/streaming";
 import { z } from "zod";
 import {
-  HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SpeakAttemptSchema, SpeakReportSchema,
+  HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SPEAK_LANGUAGES, SpeakAttemptSchema, SpeakReportSchema,
   type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
   type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
@@ -175,7 +175,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   };
 
   app.get("/api/conversations", (c) => {
-    const language = z.enum(["it", "nl", "en"]).parse(c.req.query("lang"));
+    const language = z.enum(SPEAK_LANGUAGES).parse(c.req.query("lang"));
     const userId = c.get("user").id;
     const rows = db.prepare("SELECT * FROM conversations WHERE user_id = ? AND language = ? ORDER BY updated_at DESC").all(userId, language) as ConversationRow[];
     const conversations = rows.map((r): ConversationSummary => ({

@@ -332,6 +332,7 @@ describe("conversation mode", () => {
     await t.req("PUT", "/api/prefs", { language: "es", prefs });
     await t.req("PUT", "/api/locale", { locale: "es-419" });
     expect(row(await startEs())).toEqual({ locale: "en", help_locale: "en", ui_locale: "en" });
+    expect((await t.req("GET", "/api/conversations?lang=es")).json.conversations).toHaveLength(2);
   });
 
   it("keeps hard mode per conversation", async () => {

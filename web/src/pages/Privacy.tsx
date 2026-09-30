@@ -20,7 +20,7 @@ export function Privacy() {
       <ul class="d-flex flex-column gap-2">
         <li><strong>Your Google account ID and email</strong>, to sign you in. We don't store your Google name or photo.</li>
         <li><strong>Your username, interface language, the languages you study, your practice settings and profile visibility</strong>, to run the app the way you set it up.</li>
-        <li><strong>Your practice:</strong> the answers you type, your results, mistakes, review schedule, lessons completed, level tests and quizzes. This is the learning record your notebook, reviews and progress are built from.</li>
+        <li><strong>Your practice:</strong> the answers you type, your results, mistakes and the "Why?" explanations you ask for, review schedule, lessons completed, level tests and quizzes. This is the learning record your notebook, reviews and progress are built from.</li>
         <li><strong>Your conversations:</strong> the text of both sides, the transcripts of what you said and the feedback you got. We don't keep your voice: each recording is sent for transcription and then discarded. A copy stays in your browser for 30 days so you can replay it, and signing out deletes it.</li>
         <li><strong>Social features:</strong> friends and friend requests, races, notifications, people you block, and your post on the make-new-friends board if you make one.</li>
         <li><strong>Reports:</strong> problems you report with course content, and reports you make about another learner (we keep a copy of the username and board post you reported, since both can change).</li>
@@ -52,7 +52,7 @@ export function Privacy() {
       <p>If you're in the European Economic Area, the UK or Switzerland, this means your data goes to the United States. OpenAI processes it under a data processing agreement and is certified under the EU-U.S. Data Privacy Framework.</p>
 
       <h2 class="h5 mt-4">How long we keep it</h2>
-      <p>Your account, practice and conversations are kept while your account exists. Per-person usage metrics are kept for 90 days. Nightly backups are kept for 14 days, so data you delete is gone from them within two weeks. Explanations the AI writes are cached by exercise and answer, not by who asked, so they stay after your account is deleted without any link to you.</p>
+      <p>Your account, practice and conversations are kept while your account exists. Per-person usage metrics are kept for 90 days. Nightly backups are kept for 14 days, so data you delete is gone from them within two weeks.</p>
 
       <h2 class="h5 mt-4">Your rights</h2>
       <p>You can change your username, profile visibility and settings any time in Settings. By emailing {mail()}, you can also:</p>

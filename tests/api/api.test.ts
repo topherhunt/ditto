@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { LANGUAGES } from "../../shared/content.ts";
 import { setup } from "./helpers.ts";
 
 describe("health", () => {
@@ -75,6 +76,13 @@ describe("learning languages", () => {
     expect((await t.req("PUT", "/api/learning", { languages: ["it", "it"] })).status).toBe(400);
     expect((await t.req("PUT", "/api/learning", { languages: ["ga"] })).status).toBe(200);
     expect((await t.req("GET", "/api/me")).json.learning).toEqual(["ga"]);
+  });
+
+  it("accepts every app language, so the DB's language check keeps up with LANGUAGES", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.req("PUT", "/api/learning", { languages: [...LANGUAGES] })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.learning).toEqual([...LANGUAGES]);
   });
 });
 
@@ -321,23 +329,23 @@ describe("scheduled review", () => {
 });
 
 describe("explainer", () => {
-  it("explains a wrong answer using the server's copy of the unit, and caches it across users", async () => {
+  it("explains a wrong answer using the server's copy of the unit, and reuses it for the same answer however it is spaced", async () => {
     const t = setup();
     const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;
     await t.login("a@example.com");
+    await t.attempt("it-a1-bar-1-u06", { outcome: "revealed", submissions: ["Vorrei un caffe per favor"] });
     const first = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u06", answer: "Vorrei un caffe per favor" });
     expect(first.status).toBe(200);
-    expect(first.json).toMatchObject({ summary: "fake summary for Vorrei un caffe per favor", cached: false });
+    expect(first.json.summary).toBe("fake summary for Vorrei un caffe per favor");
     expect(explainer.calls[0].unit.text).toBe("Vorrei un caffè, per favore.");
     expect(explainer.calls[0].grammarFocus).toContain("vorrei + noun");
 
-    await t.login("b@example.com");
     const again = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u06", answer: "vorrei  un caffe per favor " });
-    expect(again.json.cached).toBe(true);
+    expect(again.json.summary).toBe("fake summary for Vorrei un caffe per favor");
     expect(explainer.calls).toHaveLength(1);
   });
 
-  it("shows the cached explanation in the notebook", async () => {
+  it("shows the saved explanation in the notebook", async () => {
     const t = setup();
     await t.login();
     await t.attempt("it-a1-bar-1-u01", { outcome: "revealed", submissions: ["cafe latte"] });
@@ -346,16 +354,15 @@ describe("explainer", () => {
     expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation.summary).toBe("fake summary for cafe latte");
   });
 
-  it("charges each fresh explanation to the learner's ledger, and cached ones nothing", async () => {
+  it("charges each fresh explanation to the learner's ledger, and saved ones nothing", async () => {
     const t = setup();
     await t.login("a@example.com");
     const body = { unitId: "it-a1-bar-1-u01", answer: "cafe latte" };
+    await t.attempt(body.unitId, { outcome: "revealed", submissions: [body.answer] });
     const first = await t.req("POST", "/api/explain", body);
     expect(Number(first.headers.get("X-Spend-Today"))).toBeCloseTo(0.0002);
-    await t.login("b@example.com");
-    const cached = await t.req("POST", "/api/explain", body);
-    expect(cached.json.cached).toBe(true);
-    expect(Number(cached.headers.get("X-Spend-Today"))).toBe(0);
+    const saved = await t.req("POST", "/api/explain", body);
+    expect(saved.json.summary).toBe("fake summary for cafe latte");
     expect(t.deps.db.prepare("SELECT purpose, model, cost_usd AS cost FROM api_usage").all())
       .toEqual([{ purpose: "explain", model: "gpt-6-luna", cost: expect.closeTo(0.0002) }]);
   });
@@ -376,6 +383,7 @@ describe("daily spend cap", () => {
     // Each fake explanation costs $0.0002, so the third reaches the cap.
     const t = setup({ dailySpendCap: 0.0005 });
     await t.login("a@example.com");
+    await t.attempt("it-a1-bar-1-u01", { outcome: "revealed", submissions: ["x1"] });
     for (const answer of ["x1", "x2", "x3"]) expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer })).status).toBe(200);
 
     const capped = await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x4" });
@@ -383,7 +391,7 @@ describe("daily spend cap", () => {
     expect(capped.json.error).toBe("Daily AI budget ($0.00) reached; it resets at midnight UTC");
     expect(Number(capped.headers.get("X-Spend-Today"))).toBeCloseTo(0.0006);
     expect(capped.headers.get("X-Spend-Cap")).toBe("0.00");
-    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x1" })).json.cached).toBe(true);
+    expect((await t.req("POST", "/api/explain", { unitId: "it-a1-bar-1-u01", answer: "x1" })).json.summary).toBe("fake summary for x1");
     expect((await t.attempt("it-a1-bar-1-u01")).status).toBe(200);
 
     await t.login("b@example.com");
@@ -440,10 +448,10 @@ describe("locale", () => {
     const prefs = (await t.req("GET", "/api/me")).json.prefs.it;
     await t.req("PUT", "/api/prefs", { language: "it", prefs: { ...prefs, immerseHelp: true } });
 
+    await t.attempt("it-a1-bar-1-u06", { outcome: "revealed", submissions: [body.answer] });
     await t.req("POST", "/api/explain", body);
     expect(explainer.calls[0].locale).toBe("it");
     expect(explainer.calls[0].unit.translation).toBe("Quisiera un café, por favor.");
-    await t.attempt("it-a1-bar-1-u06", { outcome: "revealed", submissions: [body.answer] });
     const [entry] = (await t.req("GET", "/api/mistakes?lang=it")).json;
     expect(entry.unit.translation).toBe("Quisiera un café, por favor.");
     expect(entry.explanation.summary).toBe(`fake summary for ${body.answer}`);
@@ -460,21 +468,27 @@ describe("locale", () => {
     expect(explainer.calls[0].locale).toBe("en");
   });
 
-  it("asks for and caches explanations per interface language", async () => {
+  it("saves an explanation on the learner's own notebook entry, for its last answer only, and never shares it", async () => {
     const t = setup();
     const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;
     const body = { unitId: "it-a1-bar-1-u06", answer: "Vorrei un caffe per favor" };
     await t.login("a@example.com", "nl");
-    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(false);
+    await t.attempt(body.unitId, { outcome: "revealed", submissions: [body.answer] });
+    expect((await t.req("POST", "/api/explain", body)).json.summary).toBe(`fake summary for ${body.answer}`);
     expect(explainer.calls[0]).toMatchObject({ locale: "nl", grammarFocus: ["onbepaalde lidwoorden un / un'", "vorrei + zelfstandig naamwoord"] });
     expect(explainer.calls[0].unit.translation).toBe("Ik wil graag een koffie, alsjeblieft.");
+    await t.req("POST", "/api/explain", body);
+    expect(explainer.calls).toHaveLength(1);
+    expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation.summary).toBe(`fake summary for ${body.answer}`);
 
-    await t.login("b@example.com", "en");
-    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(false);
-    expect(explainer.calls[1].locale).toBe("en");
-
-    await t.login("c@example.com", "nl");
-    expect((await t.req("POST", "/api/explain", body)).json.cached).toBe(true);
+    await t.login("b@example.com", "nl");
+    await t.attempt(body.unitId, { outcome: "revealed", submissions: [body.answer] });
+    expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation).toBeNull();
+    await t.req("POST", "/api/explain", body);
     expect(explainer.calls).toHaveLength(2);
+
+    await t.login("a@example.com", "nl");
+    await t.attempt(body.unitId, { outcome: "revealed", submissions: ["Vorrei un te"] });
+    expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation).toBeNull();
   });
 });
