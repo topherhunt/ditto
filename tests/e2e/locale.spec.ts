@@ -43,10 +43,10 @@ test("interface immersion shows every page in the course's language, signed out 
   await page.locator(".qa-settings-hints").selectOption("none");
   await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
   await page.goto("/settings");
-  await expect(page.locator("label[for=immerseUi-it]")).toHaveText("Show the app in Italian");
+  await expect(page.locator(".qa-settings-immerseUi-it")).toHaveAttribute("aria-label", "Show the app in Italian");
   await page.locator(".qa-settings-immerseUi-it").check();
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
-  await expect(page.locator("label[for=immerseUi-it]")).toHaveText("Mostra l'app in italiano");
+  await expect(page.locator(".qa-settings-immerseUi-it")).toHaveAttribute("aria-label", "Mostra l'app in italiano");
 
   await page.goto("/it/lesson/it-a1-bar-1");
   await expect(page.locator("html")).toHaveAttribute("lang", "it");

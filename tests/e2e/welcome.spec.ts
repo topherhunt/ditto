@@ -120,11 +120,11 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await expect(page.locator(".qa-settings-learn-it")).toBeChecked();
   await expect(page.locator(".qa-settings-learn-it")).toBeDisabled();
 
-  await page.locator(".qa-settings-learn-nl").check();
+  await page.locator("label[for=learn-nl]").click();
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
   await expect(page.locator(".qa-settings-learn-it")).toBeEnabled();
 
-  await page.locator(".qa-settings-learn-it").uncheck();
+  await page.locator("label[for=learn-it]").click();
   await expect(page.locator(".qa-settings-learn-nl")).toBeDisabled();
   await page.reload();
   await expect(page.locator(".qa-settings-learn-it")).not.toBeChecked();

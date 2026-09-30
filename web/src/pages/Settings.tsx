@@ -2,7 +2,7 @@ import { createSignal, For, onCleanup, Show } from "solid-js";
 import { immersible } from "../../../shared/api.ts";
 import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
-import { createSaver, ImmersionPrefs } from "../components/LanguagePrefs.tsx";
+import { createSaver, ImmersionTable } from "../components/LanguagePrefs.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
@@ -53,45 +53,35 @@ function LearningPicker(props: { save: (request: () => Promise<unknown>) => Prom
   return (
     <fieldset>
       <legend class="fs-6 mb-1">{t("settings.learning")}</legend>
-      <table class="w-auto align-middle mb-1">
-        <tbody>
-          <For each={offered()}>
-            {(l) => (
-              <tr>
-                <td class="py-1 pe-2">
-                  <div class="form-check form-switch mb-0">
-                    <input class={`qa-settings-learn-${l} form-check-input`} type="checkbox" role="switch" id={`learn-${l}`}
-                      aria-label={languageName(l)}
-                      checked={learning().includes(l)} disabled={learning().length === 1 && learning()[0] === l}
-                      onChange={(e) => toggle(l, e.currentTarget.checked)} />
-                  </div>
-                </td>
-                <td class="py-1 pe-4"><label for={`learn-${l}`}>{LANGUAGE_FLAGS[l]} {languageName(l)}</label></td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
+      <div class="d-flex flex-wrap gap-2 mb-1">
+        <For each={offered()}>
+          {(l) => (
+            <>
+              <input class={`qa-settings-learn-${l} btn-check`} type="checkbox" id={`learn-${l}`} autocomplete="off"
+                checked={learning().includes(l)} disabled={learning().length === 1 && learning()[0] === l}
+                onChange={(e) => toggle(l, e.currentTarget.checked)} />
+              <label class="btn btn-outline-primary" for={`learn-${l}`}>
+                <i class={`bi ${learning().includes(l) ? "bi-check-square-fill" : "bi-square"} me-1`} aria-hidden="true" />{LANGUAGE_FLAGS[l]} {languageName(l)}
+              </label>
+            </>
+          )}
+        </For>
+      </div>
       <div class="form-text">{t("settings.learningHint")}</div>
     </fieldset>
   );
 }
 
-/** Immersion is stored per course, so each studied course that has it gets its own pair of switches. */
+/** Immersion is stored per course, so each studied course that has it gets a row of switches. */
 function ImmersionPicker(props: { save: (request: () => Promise<unknown>) => Promise<void> }) {
   const courses = () => me()!.learning.filter(immersible);
   return (
     <Show when={courses().length > 0}>
       <fieldset class="qa-settings-immersion">
         <legend class="fs-6 mb-1">{t("settings.immersion")}</legend>
-        <For each={courses()}>
-          {(l) => (
-            <div class="mb-2">
-              <div class="fw-medium mb-1">{LANGUAGE_FLAGS[l]} {languageName(l)}</div>
-              <ImmersionPrefs lang={l} save={props.save} />
-            </div>
-          )}
-        </For>
+        <div class="form-text mt-0 mb-2">{t("settings.immersionIntro")}</div>
+        <ImmersionTable courses={courses()} save={props.save} />
+        <div class="form-text">{t("settings.immerseHint")}</div>
       </fieldset>
     </Show>
   );
