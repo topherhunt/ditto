@@ -1,0 +1,4865 @@
+{
+  "id": "fr-a2-logement",
+  "language": "fr",
+  "level": "A2",
+  "order": 17,
+  "title": "Le nouvel appartement",
+  "description": {
+    "en": "Look for an apartment, rent it, move in and get to know the neighbors",
+    "es-419": "Busca un departamento, alquílalo, múdate y conoce a los vecinos",
+    "it": "Cerca un appartamento, affittalo, trasferisciti e conosci i vicini",
+    "nl": "Zoek een appartement, huur het, verhuis en leer de buren kennen"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a2-sante"
+  ],
+  "introduces": [
+    "poser",
+    "accrocher",
+    "louer",
+    "emménager",
+    "appartement",
+    "loyer",
+    "propriétaire",
+    "déménagement",
+    "cuisine",
+    "salon",
+    "bain",
+    "balcon",
+    "fenêtre",
+    "escalier",
+    "mur",
+    "placard",
+    "chaise",
+    "canapé",
+    "lampe",
+    "miroir",
+    "réfrigérateur",
+    "four",
+    "chauffage",
+    "meuble",
+    "voisin",
+    "quartier",
+    "pièce",
+    "dessus",
+    "dessous",
+    "dedans",
+    "haut",
+    "bas",
+    "milieu",
+    "meublé",
+    "lumière",
+    "bruyant",
+    "moderne",
+    "propre",
+    "sale"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "a = has (avoir: ai, as, a, avons, avez, ont); il y a = there is, there are",
+        "es-419": "a = tiene (avoir: ai, as, a, avons, avez, ont); il y a = hay",
+        "it": "a = ha (avoir: ai, as, a, avons, avez, ont); il y a = c'è, ci sono",
+        "nl": "a = heeft (avoir: ai, as, a, avons, avez, ont); il y a = er is, er zijn"
+      }
+    },
+    "accrocher": {
+      "lemma": "accrocher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hang up, to hang",
+        "es-419": "colgar",
+        "it": "appendere",
+        "nl": "ophangen"
+      }
+    },
+    "ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ai = (I) have (avoir)",
+        "es-419": "ai = tengo, he (avoir)",
+        "it": "ai = ho (avoir)",
+        "nl": "ai = heb (avoir)"
+      }
+    },
+    "aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "aime = (I) like, love (aimer)",
+        "es-419": "aime = (me) cae bien, quiero (aimer)",
+        "it": "aime = mi piace, amo (aimer)",
+        "nl": "aime = mag, hou van (aimer)"
+      }
+    },
+    "amis": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friends (m pl; des amis is pronounced with a z)",
+        "es-419": "amigos (m pl; des amis se pronuncia con z)",
+        "it": "amici (m pl; des amis si pronuncia con la z)",
+        "nl": "vrienden (m pl; des amis wordt met een z uitgesproken)"
+      }
+    },
+    "ans": {
+      "lemma": "an",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (m, plural of an); avoir ... ans = be ... years old",
+        "es-419": "años (m, plural de an); avoir ... ans = tener ... años",
+        "it": "anni (m, plurale di an); avoir ... ans = avere ... anni",
+        "nl": "jaren (m, meervoud van an); avoir ... ans = ... jaar zijn"
+      }
+    },
+    "appartement": {
+      "lemma": "appartement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "appartement (m): apartment",
+        "es-419": "appartement (m): departamento, apartamento",
+        "it": "appartement (m): appartamento",
+        "nl": "appartement (m): appartement, flat"
+      }
+    },
+    "après-midi": {
+      "lemma": "après-midi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "après-midi (m): afternoon",
+        "es-419": "après-midi (m): tarde",
+        "it": "après-midi (m): pomeriggio",
+        "nl": "après-midi (m): middag"
+      }
+    },
+    "as": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (avoir, tu); tu as vingt ans = you're twenty",
+        "es-419": "tienes (avoir, tu); tu as vingt ans = tienes veinte años",
+        "it": "hai (avoir, tu); tu as vingt ans = hai vent'anni",
+        "nl": "je hebt (avoir, tu); tu as vingt ans = je bent twintig"
+      }
+    },
+    "ascenseur": {
+      "lemma": "ascenseur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "elevator (m)",
+        "es-419": "elevador, ascensor (m)",
+        "it": "ascensore (m)",
+        "nl": "lift (m)"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + le: al, allo",
+        "nl": "au = à + le: naar de, bij de, op de"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "bains": {
+      "lemma": "bain",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bains (m pl, of bain): baths; salle de bains = bathroom",
+        "es-419": "bains (m pl, de bain): baños; salle de bains = baño",
+        "it": "bains (m pl, di bain): bagni; salle de bains = bagno",
+        "nl": "bains (m pl, van bain): baden; salle de bains = badkamer"
+      }
+    },
+    "balcon": {
+      "lemma": "balcon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "balcon (m): balcony",
+        "es-419": "balcon (m): balcón",
+        "it": "balcon (m): balcone",
+        "nl": "balcon (m): balkon"
+      }
+    },
+    "bas": {
+      "lemma": "bas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "bas = low, down; en bas = downstairs, at the bottom",
+        "es-419": "bas = bajo, abajo; en bas = abajo",
+        "it": "bas = basso, giù; en bas = di sotto, in basso",
+        "nl": "bas = laag, onder; en bas = beneden"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "beaucoup = a lot, very much; merci beaucoup = thank you very much",
+        "es-419": "beaucoup = mucho; merci beaucoup = muchas gracias",
+        "it": "beaucoup = molto; merci beaucoup = grazie mille",
+        "nl": "beaucoup = veel, heel erg; merci beaucoup = heel erg bedankt"
+      }
+    },
+    "bibliothèque": {
+      "lemma": "bibliothèque",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bibliothèque (f): library",
+        "es-419": "bibliothèque (f): biblioteca",
+        "it": "bibliothèque (f): biblioteca",
+        "nl": "bibliothèque (f): bibliotheek"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "bien: well, good (ça me va bien = it fits me well)",
+        "es-419": "bien: bien (ça me va bien = me queda bien)",
+        "it": "bien: bene (ça me va bien = mi sta bene)",
+        "nl": "bien: goed (ça me va bien = het past me goed)"
+      }
+    },
+    "bruit": {
+      "lemma": "bruit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bruit (m): noise",
+        "es-419": "bruit (m): ruido",
+        "it": "bruit (m): rumore",
+        "nl": "bruit (m): lawaai"
+      }
+    },
+    "bruyant": {
+      "lemma": "bruyant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bruyant = noisy",
+        "es-419": "bruyant = ruidoso",
+        "it": "bruyant = rumoroso",
+        "nl": "bruyant = lawaaiig"
+      }
+    },
+    "bruyants": {
+      "lemma": "bruyant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bruyants = noisy (plural of bruyant)",
+        "es-419": "bruyants = ruidosos (plural de bruyant)",
+        "it": "bruyants = rumorosi (plurale di bruyant)",
+        "nl": "bruyants = lawaaiig (meervoud van bruyant)"
+      }
+    },
+    "canapé": {
+      "lemma": "canapé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "canapé (m): sofa, couch",
+        "es-419": "canapé (m): sofá",
+        "it": "canapé (m): divano",
+        "nl": "canapé (m): bank"
+      }
+    },
+    "cent": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cent = a hundred; sounds like sans (without); cent euros is said with a liaison",
+        "es-419": "cent = cien; suena igual que sans (sin); cent euros se pronuncia con enlace",
+        "it": "cent = cento; suona come sans (senza); cent euros si pronuncia con legamento",
+        "nl": "cent = honderd; klinkt als sans (zonder)"
+      }
+    },
+    "centre": {
+      "lemma": "centre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "centre (m): center; dans le centre = downtown, in the center",
+        "es-419": "centre (m): centro; dans le centre = en el centro",
+        "it": "centre (m): centro; dans le centre = in centro",
+        "nl": "centre (m): centrum; dans le centre = in het centrum"
+      }
+    },
+    "cents": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cents = hundreds; -s only when no number follows: trois cents, but trois cent vingt",
+        "es-419": "cents = centenas; la -s solo si no sigue otro número: trois cents, pero trois cent vingt",
+        "it": "cents = centinaia; la -s solo se non segue un altro numero: trois cents, ma trois cent vingt",
+        "nl": "cents = honderdtallen; de -s alleen als er geen getal op volgt: trois cents, maar trois cent vingt"
+      }
+    },
+    "chaise": {
+      "lemma": "chaise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chaise (f): chair",
+        "es-419": "chaise (f): silla",
+        "it": "chaise (f): sedia",
+        "nl": "chaise (f): stoel"
+      }
+    },
+    "chaises": {
+      "lemma": "chaise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chaises (f pl): chairs",
+        "es-419": "chaises (f pl): sillas",
+        "it": "chaises (f pl): sedie",
+        "nl": "chaises (f pl): stoelen"
+      }
+    },
+    "chambre": {
+      "lemma": "chambre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "room, bedroom (f)",
+        "es-419": "habitación, dormitorio (f)",
+        "it": "camera, camera da letto (f)",
+        "nl": "kamer, slaapkamer (f)"
+      }
+    },
+    "chaque": {
+      "lemma": "chaque",
+      "pos": "DET",
+      "gloss": {
+        "en": "each, every (chaque jour = every day)",
+        "es-419": "cada (chaque jour = cada día)",
+        "it": "ogni (chaque jour = ogni giorno)",
+        "nl": "elk, elke (chaque jour = elke dag)"
+      }
+    },
+    "chauffage": {
+      "lemma": "chauffage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chauffage (m): heating",
+        "es-419": "chauffage (m): calefacción",
+        "it": "chauffage (m): riscaldamento",
+        "nl": "chauffage (m): verwarming"
+      }
+    },
+    "cher": {
+      "lemma": "cher",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cher = expensive (masculine); also dear",
+        "es-419": "cher = caro (masculino); también querido",
+        "it": "cher = caro (maschile); anche caro nel senso di amato",
+        "nl": "cher = duur (mannelijk); ook lief"
+      }
+    },
+    "cherche": {
+      "lemma": "chercher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cherche = look for (chercher: je cherche = I'm looking for)",
+        "es-419": "cherche = busco, busca (chercher: je cherche = busco)",
+        "it": "cherche = cerco, cerca (chercher: je cherche = cerco)",
+        "nl": "cherche = zoek, zoekt (chercher: je cherche = ik zoek)"
+      }
+    },
+    "cinq": {
+      "lemma": "cinq",
+      "pos": "NUM",
+      "gloss": {
+        "en": "five",
+        "es-419": "cinco",
+        "it": "cinque",
+        "nl": "vijf"
+      }
+    },
+    "cinquante": {
+      "lemma": "cinquante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty",
+        "es-419": "cincuenta",
+        "it": "cinquanta",
+        "nl": "vijftig"
+      }
+    },
+    "compris": {
+      "lemma": "comprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "included (service compris = service included)",
+        "es-419": "incluido (service compris = servicio incluido)",
+        "it": "incluso (service compris = servizio incluso)",
+        "nl": "inbegrepen (service compris = inclusief bediening)"
+      }
+    },
+    "cuisine": {
+      "lemma": "cuisine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cuisine (f): kitchen; also cooking, cuisine",
+        "es-419": "cuisine (f): cocina",
+        "it": "cuisine (f): cucina",
+        "nl": "cuisine (f): keuken"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, inside; dans un bureau = in an office",
+        "es-419": "en, dentro de; dans un bureau = en una oficina",
+        "it": "in, dentro; dans un bureau = in un ufficio",
+        "nl": "in, binnen; dans un bureau = op een kantoor"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; after an amount: un verre de vin; de l'eau = some water",
+        "es-419": "de = de; después de una cantidad: un verre de vin; de l'eau = agua, un poco de agua",
+        "it": "de = di, da; dopo una quantità: un verre de vin; de l'eau = dell'acqua",
+        "nl": "de = van; na een hoeveelheid: un verre de vin; de l'eau = water"
+      }
+    },
+    "dedans": {
+      "lemma": "dedans",
+      "pos": "ADV",
+      "gloss": {
+        "en": "dedans = inside, in it",
+        "es-419": "dedans = adentro, dentro",
+        "it": "dedans = dentro",
+        "nl": "dedans = erin, binnenin"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "depuis": {
+      "lemma": "depuis",
+      "pos": "ADP",
+      "gloss": {
+        "en": "since, for",
+        "es-419": "desde; je suis ici depuis lundi = estoy aquí desde el lunes",
+        "it": "da; je suis ici depuis lundi = sono qui da lunedì",
+        "nl": "sinds, al; je suis ici depuis lundi = ik ben hier sinds maandag"
+      }
+    },
+    "des": {
+      "lemma": "des",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, of the (plural of un/une); des pommes = apples",
+        "es-419": "unos, unas, de los (plural de un/une); des pommes = manzanas",
+        "it": "dei, delle (plurale di un/une); des pommes = mele",
+        "nl": "enkele, van de (meervoud van un/une); des pommes = appels"
+      }
+    },
+    "dessous": {
+      "lemma": "dessous",
+      "pos": "ADV",
+      "gloss": {
+        "en": "dessous = underneath, below; du dessous = downstairs",
+        "es-419": "dessous = debajo; du dessous = de abajo",
+        "it": "dessous = sotto; du dessous = di sotto",
+        "nl": "dessous = eronder; du dessous = beneden"
+      }
+    },
+    "dessus": {
+      "lemma": "dessus",
+      "pos": "ADV",
+      "gloss": {
+        "en": "dessus = on top, on it",
+        "es-419": "dessus = encima, arriba",
+        "it": "dessus = sopra",
+        "nl": "dessus = erop, bovenop"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "deuxième": {
+      "lemma": "deuxième",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "deuxième = second (ordinal)",
+        "es-419": "deuxième = segundo (ordinal)",
+        "it": "deuxième = secondo (ordinale)",
+        "nl": "deuxième = tweede (rangtelwoord)"
+      }
+    },
+    "devant": {
+      "lemma": "devant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "devant: in front of",
+        "es-419": "devant: frente a, delante de",
+        "it": "devant: davanti a",
+        "nl": "devant: voor"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = some (before a masculine noun): du lait, du sucre; also de + le",
+        "es-419": "du = algo de, un poco de (delante de un nombre masculino): du lait, du sucre; también de + le",
+        "it": "du = del, un po' di (davanti a un nome maschile): du lait, du sucre; anche de + le",
+        "nl": "du = wat, een beetje (vóór een mannelijk woord): du lait, du sucre; ook de + le"
+      }
+    },
+    "déménagement": {
+      "lemma": "déménagement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "déménagement (m): move, moving",
+        "es-419": "déménagement (m): mudanza",
+        "it": "déménagement (m): trasloco",
+        "nl": "déménagement (m): verhuizing"
+      }
+    },
+    "emménage": {
+      "lemma": "emménager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "emménage = (I, he, we) move in (emménager)",
+        "es-419": "emménage = (yo, él, nosotros) me(nos) mudo a una casa nueva (emménager)",
+        "it": "emménage = (io, lui, noi) mi trasferisco in una nuova casa (emménager)",
+        "nl": "emménage = trek(ken) in (emménager)"
+      }
+    },
+    "emménager": {
+      "lemma": "emménager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "emménager = to move in",
+        "es-419": "emménager = mudarse a una casa nueva",
+        "it": "emménager = trasferirsi in una nuova casa",
+        "nl": "emménager = intrekken"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "en: in; vous l'avez en bleu = do you have it in blue?",
+        "es-419": "en: en; vous l'avez en bleu = ¿lo tiene en azul?",
+        "it": "en: in; vous l'avez en bleu = ce l'ha in blu?",
+        "nl": "en: in; vous l'avez en bleu = heeft u het in blauw?"
+      }
+    },
+    "escalier": {
+      "lemma": "escalier",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "escalier (m): stairs, staircase",
+        "es-419": "escalier (m): escalera",
+        "it": "escalier (m): scala, scale",
+        "nl": "escalier (m): trap, trappenhuis"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce: in est-ce que, a question form (no meaning of its own)",
+        "es-419": "est-ce: en est-ce que, forma de pregunta (sin significado propio)",
+        "it": "est-ce: in est-ce que, forma di domanda (senza significato proprio)",
+        "nl": "est-ce: in est-ce que, vraagvorm (heeft zelf geen betekenis)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; sounds like est (is)",
+        "es-419": "y; suena igual que est (es)",
+        "it": "e; suona come est (è)",
+        "nl": "en; klinkt als est (is)"
+      }
+    },
+    "euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euro (m): euros; two euros fifty = deux euros cinquante",
+        "es-419": "euro (m): euros; dos euros cincuenta = deux euros cinquante",
+        "it": "euro (m): euro; due euro e cinquanta = deux euros cinquante",
+        "nl": "euro (m): euro; twee euro vijftig = deux euros cinquante"
+      }
+    },
+    "fatigué": {
+      "lemma": "fatigué",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tired (m)",
+        "es-419": "cansado (m)",
+        "it": "stanco (m)",
+        "nl": "moe (m)"
+      }
+    },
+    "fenêtre": {
+      "lemma": "fenêtre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fenêtre (f): window",
+        "es-419": "fenêtre (f): ventana",
+        "it": "fenêtre (f): finestra",
+        "nl": "fenêtre (f): raam"
+      }
+    },
+    "fenêtres": {
+      "lemma": "fenêtre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fenêtres (f pl): windows",
+        "es-419": "fenêtres (f pl): ventanas",
+        "it": "fenêtres (f pl): finestre",
+        "nl": "fenêtres (f pl): ramen"
+      }
+    },
+    "four": {
+      "lemma": "four",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "four (m): oven; watch out: not the number four (= quatre)",
+        "es-419": "four (m): horno",
+        "it": "four (m): forno",
+        "nl": "four (m): oven"
+      }
+    },
+    "gentils": {
+      "lemma": "gentil",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "kind, nice (plural of gentil)",
+        "es-419": "amables (plural de gentil)",
+        "it": "gentili (plurale di gentil)",
+        "nl": "aardige (meervoud van gentil)"
+      }
+    },
+    "grand": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "grand = big, large, tall",
+        "es-419": "grand = grande, alto",
+        "it": "grand = grande, alto",
+        "nl": "grand = groot, lang"
+      }
+    },
+    "grandes": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "grandes = big (feminine plural of grand)",
+        "es-419": "grandes = grandes (femenino plural de grand)",
+        "it": "grandes = grandi (femminile plurale di grand)",
+        "nl": "grandes = groot (vrouwelijk meervoud van grand)"
+      }
+    },
+    "habite": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "live (habiter: habite, habites, habitons, habitez, habitent); the h is silent",
+        "es-419": "vivir, habitar (habiter: habite, habites, habitons, habitez, habitent); la h es muda",
+        "it": "abitare (habiter: habite, habites, habitons, habitez, habitent); la h è muta",
+        "nl": "wonen (habiter: habite, habites, habitons, habitez, habitent); de h is stom"
+      }
+    },
+    "haut": {
+      "lemma": "haut",
+      "pos": "ADV",
+      "gloss": {
+        "en": "haut = high, up; en haut = upstairs, at the top",
+        "es-419": "haut = alto, arriba; en haut = arriba",
+        "it": "haut = alto, in alto; en haut = di sopra",
+        "nl": "haut = hoog, boven; en haut = boven"
+      }
+    },
+    "huit": {
+      "lemma": "huit",
+      "pos": "NUM",
+      "gloss": {
+        "en": "eight",
+        "es-419": "ocho",
+        "it": "otto",
+        "nl": "acht"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ici = here",
+        "es-419": "ici = aquí",
+        "it": "ici = qui, qua",
+        "nl": "ici = hier"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "il: he, it; il y a = there is, there are",
+        "es-419": "il: él, ello; il y a = hay",
+        "it": "il: lui, esso; il y a = c'è, ci sono",
+        "nl": "il: hij, het; il y a = er is, er zijn"
+      }
+    },
+    "ils": {
+      "lemma": "ils",
+      "pos": "PRON",
+      "gloss": {
+        "en": "they (men or a mixed group); elles = they (women only)",
+        "es-419": "ellos (hombres o grupo mixto); elles = ellas",
+        "it": "loro (uomini o gruppo misto); elles = loro (solo donne)",
+        "nl": "zij (mannen of gemengde groep); elles = zij (alleen vrouwen)"
+      }
+    },
+    "j'en": {
+      "lemma": "en",
+      "pos": "PRON",
+      "gloss": {
+        "en": "j'en = je + en: I ... of it, of them (en replaces a quantity)",
+        "es-419": "j'en = je + en: yo ... de eso, de ellos (en sustituye una cantidad)",
+        "it": "j'en = je + en: io ne ... (en sostituisce una quantità)",
+        "nl": "j'en = je + en: ik ... ervan, er (en vervangt een hoeveelheid)"
+      }
+    },
+    "j'habite": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'habite = je + habite: I live",
+        "es-419": "j'habite = je + habite: vivo",
+        "it": "j'habite = je + habite: abito",
+        "nl": "j'habite = je + habite: ik woon"
+      }
+    },
+    "j'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "j'y = je + y: I ... there; j'y habite = I live there",
+        "es-419": "j'y = je + y: yo ... allí; j'y habite = vivo allí",
+        "it": "j'y = je + y: io ci ...; j'y habite = ci abito",
+        "nl": "j'y = je + y: ik ... er; j'y habite = ik woon er"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "l'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "l'ai = l' + ai: (I) have it; je l'ai mis = I put it",
+        "es-419": "l'ai = l' + ai: lo he; je l'ai mis = lo puse",
+        "it": "l'ai = l' + ai: l'ho; je l'ai mis = l'ho messo",
+        "nl": "l'ai = l' + ai: heb het; je l'ai mis = ik heb het gezet"
+      }
+    },
+    "l'appartement": {
+      "lemma": "appartement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'appartement = le + appartement: the apartment (m)",
+        "es-419": "l'appartement = le + appartement: el departamento (m)",
+        "it": "l'appartement = le + appartement: l'appartamento (m)",
+        "nl": "l'appartement = le + appartement: het appartement (m)"
+      }
+    },
+    "l'appeler": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "l'appeler = le + appeler: to call him, her",
+        "es-419": "l'appeler = le + appeler: llamarlo, llamarla",
+        "it": "l'appeler = le + appeler: chiamarlo, chiamarla",
+        "nl": "l'appeler = le + appeler: hem, haar bellen"
+      }
+    },
+    "l'eau": {
+      "lemma": "eau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'eau = le + eau: the water (f)",
+        "es-419": "l'eau = le + eau: el agua (f)",
+        "it": "l'eau = le + eau: l'acqua (f)",
+        "nl": "l'eau = le + eau: het water (f)"
+      }
+    },
+    "l'escalier": {
+      "lemma": "escalier",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'escalier = le + escalier: the stairs (m)",
+        "es-419": "l'escalier = le + escalier: la escalera (m)",
+        "it": "l'escalier = le + escalier: le scale (m)",
+        "nl": "l'escalier = le + escalier: de trap (m)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "lampe": {
+      "lemma": "lampe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lampe (f): lamp",
+        "es-419": "lampe (f): lámpara",
+        "it": "lampe (f): lampada",
+        "nl": "lampe (f): lamp"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "le#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "le = it, him (before the verb): je le prends = I take it",
+        "es-419": "le = lo (antes del verbo): je le prends = me lo llevo",
+        "it": "le = lo (prima del verbo): je le prends = lo prendo",
+        "nl": "le = hem (voor het werkwoord): je le prends = ik neem hem"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural of le, la)",
+        "es-419": "los, las (plural de le, la)",
+        "it": "i, le, gli (plurale di le, la)",
+        "nl": "de (meervoud van le, la)"
+      }
+    },
+    "les#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "les = them (before the verb): je ne les prends pas = I'm not taking them",
+        "es-419": "les = los, las (antes del verbo): je ne les prends pas = no me los llevo",
+        "it": "les = li, le (prima del verbo): je ne les prends pas = non li prendo",
+        "nl": "les = ze (voor het werkwoord): je ne les prends pas = ik neem ze niet"
+      }
+    },
+    "loue": {
+      "lemma": "louer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "loue = (I, he) rent (louer)",
+        "es-419": "loue = (yo, él) alquilo, alquila (louer)",
+        "it": "loue = (io, lui) affitto, affitta (louer)",
+        "nl": "loue = huur(t) (louer)"
+      }
+    },
+    "louer": {
+      "lemma": "louer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "louer = to rent",
+        "es-419": "louer = alquilar",
+        "it": "louer = affittare",
+        "nl": "louer = huren"
+      }
+    },
+    "loyer": {
+      "lemma": "loyer",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "loyer (m): rent",
+        "es-419": "loyer (m): alquiler",
+        "it": "loyer (m): affitto",
+        "nl": "loyer (m): huur"
+      }
+    },
+    "lumière": {
+      "lemma": "lumière",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lumière (f): light",
+        "es-419": "lumière (f): luz",
+        "it": "lumière (f): luce",
+        "nl": "lumière (f): licht"
+      }
+    },
+    "là": {
+      "lemma": "là",
+      "pos": "ADV",
+      "gloss": {
+        "en": "là = there (with an accent; la = the)",
+        "es-419": "là = ahí, allí (con acento; la = la)",
+        "it": "là = lì, là (con accento; la = la)",
+        "nl": "là = daar (met accent; la = de)"
+      }
+    },
+    "m'aider": {
+      "lemma": "aider",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'aider = me + aider: to help me",
+        "es-419": "m'aider = me + aider: ayudarme",
+        "it": "m'aider = me + aider: aiutarmi",
+        "nl": "m'aider = me + aider: me helpen"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "mais: but",
+        "es-419": "mais: pero",
+        "it": "mais: ma",
+        "nl": "mais: maar"
+      }
+    },
+    "mes": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural: mes parents)",
+        "es-419": "mis (plural: mes parents)",
+        "it": "miei, mie (plurale: mes parents)",
+        "nl": "mijn (meervoud: mes parents)"
+      }
+    },
+    "mets": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "mets = (I) put; (you) put, imperative (mettre)",
+        "es-419": "mets = pongo; pon, imperativo (mettre)",
+        "it": "mets = metto; metti, imperativo (mettre)",
+        "nl": "mets = zet, leg; zet, gebiedende wijs (mettre)"
+      }
+    },
+    "mets-le": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "mets-le = put it (mettre + le)",
+        "es-419": "mets-le = ponlo (mettre + le)",
+        "it": "mets-le = mettilo (mettre + le)",
+        "nl": "mets-le = zet het neer (mettre + le)"
+      }
+    },
+    "meuble": {
+      "lemma": "meuble",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meuble (m): piece of furniture",
+        "es-419": "meuble (m): mueble",
+        "it": "meuble (m): mobile",
+        "nl": "meuble (m): meubel"
+      }
+    },
+    "meubles": {
+      "lemma": "meuble",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "meubles (m pl): furniture",
+        "es-419": "meubles (m pl): muebles",
+        "it": "meubles (m pl): mobili",
+        "nl": "meubles (m pl): meubels"
+      }
+    },
+    "meublé": {
+      "lemma": "meublé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "meublé = furnished",
+        "es-419": "meublé = amueblado",
+        "it": "meublé = arredato",
+        "nl": "meublé = gemeubileerd"
+      }
+    },
+    "milieu": {
+      "lemma": "milieu",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "milieu (m): middle; au milieu de = in the middle of",
+        "es-419": "milieu (m): medio; au milieu de = en medio de",
+        "it": "milieu (m): mezzo; au milieu de = in mezzo a",
+        "nl": "milieu (m): midden; au milieu de = midden in"
+      }
+    },
+    "minutes": {
+      "lemma": "minute",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minutes (minute, f)",
+        "es-419": "minutos (minute, f)",
+        "it": "minuti (minute, f)",
+        "nl": "minuten (minute, f)"
+      }
+    },
+    "miroir": {
+      "lemma": "miroir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "miroir (m): mirror",
+        "es-419": "miroir (m): espejo",
+        "it": "miroir (m): specchio",
+        "nl": "miroir (m): spiegel"
+      }
+    },
+    "mis": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "mis = put (past participle of mettre, masculine)",
+        "es-419": "mis = puse, puesto (participio de mettre, masculino)",
+        "it": "mis = messo (participio di mettre, maschile)",
+        "nl": "mis = gezet (voltooid deelwoord van mettre, mannelijk)"
+      }
+    },
+    "mise": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "mise = put (past participle of mettre, feminine)",
+        "es-419": "mise = puesta (participio de mettre, femenino)",
+        "it": "mise = messa (participio di mettre, femminile)",
+        "nl": "mise = gezet (voltooid deelwoord van mettre, vrouwelijk)"
+      }
+    },
+    "moderne": {
+      "lemma": "moderne",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "moderne = modern",
+        "es-419": "moderne = moderno",
+        "it": "moderne = moderno",
+        "nl": "moderne = modern"
+      }
+    },
+    "mois": {
+      "lemma": "mois",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "month (m)",
+        "es-419": "mes (m)",
+        "it": "mese (m)",
+        "nl": "maand (m)"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (before a masculine noun: mon père)",
+        "es-419": "mi (delante de un sustantivo masculino: mon père)",
+        "it": "mio (davanti a un nome maschile: mon père)",
+        "nl": "mijn (voor een mannelijk woord: mon père)"
+      }
+    },
+    "mur": {
+      "lemma": "mur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mur (m): wall",
+        "es-419": "mur (m): pared, muro",
+        "it": "mur (m): muro, parete",
+        "nl": "mur (m): muur"
+      }
+    },
+    "métro": {
+      "lemma": "métro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "métro (m): subway, metro",
+        "es-419": "métro (m): metro",
+        "it": "métro (m): metropolitana",
+        "nl": "métro (m): metro"
+      }
+    },
+    "n'en": {
+      "lemma": "en",
+      "pos": "PRON",
+      "gloss": {
+        "en": "n'en = ne + en: not ... any of it; je n'en ai pas = I don't have any",
+        "es-419": "n'en = ne + en: no ... nada de eso; je n'en ai pas = no tengo",
+        "it": "n'en = ne + en: non ... ne; je n'en ai pas = non ne ho",
+        "nl": "n'en = ne + en: geen ... ervan; je n'en ai pas = ik heb er geen"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: is not (ne ... pas)",
+        "es-419": "n'est = ne + est: no es (ne ... pas)",
+        "it": "n'est = ne + est: non è (ne ... pas)",
+        "nl": "n'est = ne + est: is niet (ne ... pas)"
+      }
+    },
+    "n'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "n'y = ne + y: not ... there; il n'y a pas = there isn't",
+        "es-419": "n'y = ne + y: no ... allí; il n'y a pas = no hay",
+        "it": "n'y = ne + y: non ... ci; il n'y a pas = non c'è",
+        "nl": "n'y = ne + y: niet ... er; il n'y a pas = er is geen"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: not, with pas (ne ... pas)",
+        "es-419": "ne: no, con pas (ne ... pas)",
+        "it": "ne: non, con pas (ne ... pas)",
+        "nl": "ne: niet, met pas (ne ... pas)"
+      }
+    },
+    "non": {
+      "lemma": "non",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "no",
+        "es-419": "no",
+        "it": "no",
+        "nl": "nee"
+      }
+    },
+    "nouvel": {
+      "lemma": "nouveau",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new (form of nouveau before a vowel: un nouvel ordinateur)",
+        "es-419": "nuevo (forma de nouveau ante vocal: un nouvel ordinateur)",
+        "it": "nuovo (forma di nouveau davanti a vocale: un nouvel ordinateur)",
+        "nl": "nieuw (vorm van nouveau voor een klinker: un nouvel ordinateur)"
+      }
+    },
+    "numéro": {
+      "lemma": "numéro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "number (m), for phones, houses, rooms; nombre = a quantity",
+        "es-419": "número (m), de teléfono, casa, habitación; nombre = una cantidad",
+        "it": "numero (m), di telefono, casa, camera; nombre = una quantità",
+        "nl": "nummer (m), van telefoon, huis, kamer; nombre = een hoeveelheid"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we (everyday French; the verb is like il/elle: on habite); on is not ont",
+        "es-419": "nosotros (francés cotidiano; el verbo va como il/elle: on habite); on no es ont",
+        "it": "noi (francese di tutti i giorni; il verbo è come il/elle: on habite); on non è ont",
+        "nl": "we (alledaags Frans; het werkwoord is als bij il/elle: on habite); on is niet ont"
+      }
+    },
+    "ou": {
+      "lemma": "ou",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or; où (with an accent) = where",
+        "es-419": "o; où (con acento) = dónde",
+        "it": "o; où (con accento) = dove",
+        "nl": "of; où (met accent) = waar"
+      }
+    },
+    "oui": {
+      "lemma": "oui",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "yes",
+        "es-419": "sí",
+        "it": "sì",
+        "nl": "ja"
+      }
+    },
+    "ouvre": {
+      "lemma": "ouvrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "opens (ouvrir: ouvre, ouvrez)",
+        "es-419": "abre (ouvrir: ouvre, ouvrez)",
+        "it": "apre (ouvrir: ouvre, ouvrez)",
+        "nl": "gaat open, opent (ouvrir: ouvre, ouvrez)"
+      }
+    },
+    "où": {
+      "lemma": "où",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where",
+        "es-419": "dónde",
+        "it": "dove",
+        "nl": "waar"
+      }
+    },
+    "paie": {
+      "lemma": "payer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "paie = (I, he) pay (payer)",
+        "es-419": "paie = pago, paga (payer)",
+        "it": "paie = pago, paga (payer)",
+        "nl": "paie = betaal(t) (payer)"
+      }
+    },
+    "par": {
+      "lemma": "par",
+      "pos": "ADP",
+      "gloss": {
+        "en": "par = by, through; par carte = by card",
+        "es-419": "par = por, con; par carte = con tarjeta",
+        "it": "par = per, con; par carte = con la carta",
+        "nl": "par = door, met; par carte = met de kaart"
+      }
+    },
+    "parc": {
+      "lemma": "parc",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parc (m): park",
+        "es-419": "parc (m): parque",
+        "it": "parc (m): parco",
+        "nl": "parc (m): park"
+      }
+    },
+    "parce": {
+      "lemma": "parce",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "parce: in parce que = because",
+        "es-419": "parce: en parce que = porque",
+        "it": "parce: in parce que = perché",
+        "nl": "parce: in parce que = omdat, want"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas: not (ne ... pas)",
+        "es-419": "pas: no (ne ... pas)",
+        "it": "pas: non (ne ... pas)",
+        "nl": "pas: niet (ne ... pas)"
+      }
+    },
+    "petit": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "petit = small, little",
+        "es-419": "petit = pequeño",
+        "it": "petit = piccolo",
+        "nl": "petit = klein"
+      }
+    },
+    "pied": {
+      "lemma": "pied",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pied (m): foot; à pied = on foot",
+        "es-419": "pied (m): pie; à pied = a pie",
+        "it": "pied (m): piede; à pied = a piedi",
+        "nl": "pied (m): voet; à pied = te voet"
+      }
+    },
+    "pièce": {
+      "lemma": "pièce",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pièce (f): room; also coin, piece",
+        "es-419": "pièce (f): habitación, cuarto",
+        "it": "pièce (f): stanza, locale",
+        "nl": "pièce (f): kamer"
+      }
+    },
+    "pièces": {
+      "lemma": "pièce",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pièces (f pl): rooms",
+        "es-419": "pièces (f pl): habitaciones, cuartos",
+        "it": "pièces (f pl): stanze, locali",
+        "nl": "pièces (f pl): kamers"
+      }
+    },
+    "placard": {
+      "lemma": "placard",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "placard (m): closet, cupboard",
+        "es-419": "placard (m): clóset, armario",
+        "it": "placard (m): armadio a muro",
+        "nl": "placard (m): kast, inbouwkast"
+      }
+    },
+    "plaît": {
+      "lemma": "plaire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "plaît = pleases (plaire); s'il vous plaît = please (literally: if it pleases you)",
+        "es-419": "plaît = agrada (plaire); s'il vous plaît = por favor (literalmente: si le agrada)",
+        "it": "plaît = piace (plaire); s'il vous plaît = per favore (letteralmente: se le piace)",
+        "nl": "plaît = bevalt (plaire); s'il vous plaît = alstublieft (letterlijk: als het u bevalt)"
+      }
+    },
+    "pose": {
+      "lemma": "poser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pose = put (down), place; imperative (poser)",
+        "es-419": "pose = pon, coloca; imperativo (poser)",
+        "it": "pose = metti, posa; imperativo (poser)",
+        "nl": "pose = zet, leg; gebiedende wijs (poser)"
+      }
+    },
+    "poser": {
+      "lemma": "poser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "poser = to put down, to place",
+        "es-419": "poser = poner, colocar",
+        "it": "poser = mettere, posare",
+        "nl": "poser = neerzetten, leggen"
+      }
+    },
+    "premier": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (m)",
+        "es-419": "primero (m)",
+        "it": "primo (m)",
+        "nl": "eerste (m)"
+      }
+    },
+    "propre": {
+      "lemma": "propre",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "propre = clean",
+        "es-419": "propre = limpio",
+        "it": "propre = pulito",
+        "nl": "propre = schoon"
+      }
+    },
+    "propriétaire": {
+      "lemma": "propriétaire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "propriétaire (m or f): landlord, owner",
+        "es-419": "propriétaire (m or f): propietario, dueño",
+        "it": "propriétaire (m or f): proprietario",
+        "nl": "propriétaire (m or f): eigenaar, huisbaas"
+      }
+    },
+    "près": {
+      "lemma": "près",
+      "pos": "ADV",
+      "gloss": {
+        "en": "près = near, close (près de = near; sounds like prêt); près d'ici = near here",
+        "es-419": "près = cerca (près de = cerca de); près d'ici = cerca de aquí",
+        "it": "près = vicino (près de = vicino a); près d'ici = vicino a qui",
+        "nl": "près = dichtbij (près de = dicht bij); près d'ici = hier dichtbij"
+      }
+    },
+    "quartier": {
+      "lemma": "quartier",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "quartier (m): neighborhood",
+        "es-419": "quartier (m): barrio",
+        "it": "quartier (m): quartiere",
+        "nl": "quartier (m): wijk"
+      }
+    },
+    "quatre": {
+      "lemma": "quatre",
+      "pos": "NUM",
+      "gloss": {
+        "en": "four",
+        "es-419": "cuatro",
+        "it": "quattro",
+        "nl": "vier"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, what (qu'est-ce que vous désirez? = what would you like?)",
+        "es-419": "que = que, lo que (qu'est-ce que vous désirez? = ¿qué desea?)",
+        "it": "que = che, ciò che (qu'est-ce que vous désirez? = cosa desidera?)",
+        "nl": "que = dat, wat (qu'est-ce que vous désirez? = wat wilt u?)"
+      }
+    },
+    "réfrigérateur": {
+      "lemma": "réfrigérateur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "réfrigérateur (m): refrigerator",
+        "es-419": "réfrigérateur (m): refrigerador",
+        "it": "réfrigérateur (m): frigorifero",
+        "nl": "réfrigérateur (m): koelkast"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if it; s'il vous plaît = please",
+        "es-419": "s'il = si + il: si; s'il vous plaît = por favor",
+        "it": "s'il = si + il: se; s'il vous plaît = per favore",
+        "nl": "s'il = si + il: als; s'il vous plaît = alstublieft"
+      }
+    },
+    "sale": {
+      "lemma": "sale",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sale = dirty; watch out: not \"sale\" (= vente, soldes)",
+        "es-419": "sale = sucio; ojo: no es \"sale\" del verbo salir",
+        "it": "sale = sporco; attenzione: non è \"sale\" (= sel)",
+        "nl": "sale = vies"
+      }
+    },
+    "salle": {
+      "lemma": "salle",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salle (f): hall, large room",
+        "es-419": "salle (f): sala",
+        "it": "salle (f): sala",
+        "nl": "salle (f): zaal"
+      }
+    },
+    "salon": {
+      "lemma": "salon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salon (m): living room",
+        "es-419": "salon (m): sala",
+        "it": "salon (m): soggiorno",
+        "nl": "salon (m): woonkamer"
+      }
+    },
+    "samedi": {
+      "lemma": "samedi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m)",
+        "es-419": "sábado (m)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m)"
+      }
+    },
+    "sept": {
+      "lemma": "sept",
+      "pos": "NUM",
+      "gloss": {
+        "en": "seven (the p is silent)",
+        "es-419": "siete (la p es muda)",
+        "it": "sette (la p è muta)",
+        "nl": "zeven (de p is stom)"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); le soir = in the evening",
+        "es-419": "noche, atardecer (m); le soir = por la noche",
+        "it": "sera (m); le soir = di sera",
+        "nl": "avond (m); le soir = 's avonds"
+      }
+    },
+    "sont": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "sont = are (ils sont, elles sont)",
+        "es-419": "sont = son, están (ils sont, elles sont)",
+        "it": "sont = sono (ils sont, elles sont)",
+        "nl": "sont = zijn (ils sont, elles sont)"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (être: suis, es, est, sommes, êtes, sont); je suis = I am",
+        "es-419": "soy, estoy (être: suis, es, est, sommes, êtes, sont); je suis = yo soy",
+        "it": "sono (être: suis, es, est, sommes, êtes, sont); je suis = io sono",
+        "nl": "ben (être: suis, es, est, sommes, êtes, sont); je suis = ik ben"
+      }
+    },
+    "sur": {
+      "lemma": "sur",
+      "pos": "ADP",
+      "gloss": {
+        "en": "sur = on; sur place = on the spot, here",
+        "es-419": "sur = sobre; sur place = en el lugar, aquí",
+        "it": "sur = su; sur place = sul posto, qui",
+        "nl": "sur = op; sur place = ter plaatse, hier"
+      }
+    },
+    "table": {
+      "lemma": "table",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "table (f)",
+        "es-419": "mesa (f)",
+        "it": "tavolo (f)",
+        "nl": "tafel (f)"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal), to you; je te présente = I introduce you to",
+        "es-419": "te; je te présente = te presento a",
+        "it": "ti; je te présente = ti presento",
+        "nl": "je, aan je; je te présente = ik stel je voor aan"
+      }
+    },
+    "terminé": {
+      "lemma": "terminer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "terminé = finished, over (past participle of terminer)",
+        "es-419": "terminé = terminado (participio de terminer)",
+        "it": "terminé = finito (participio di terminer)",
+        "nl": "terminé = klaar, afgelopen (voltooid deelwoord van terminer)"
+      }
+    },
+    "tranquille": {
+      "lemma": "tranquille",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "quiet, calm, peaceful",
+        "es-419": "tranquilo, tranquila",
+        "it": "tranquillo, tranquilla",
+        "nl": "rustig, kalm"
+      }
+    },
+    "trois": {
+      "lemma": "trois",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "es-419": "tres",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "trouve": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "trouve = find (trouver); je ne trouve pas = I can't find",
+        "es-419": "trouve = encuentro (trouver); je ne trouve pas = no encuentro",
+        "it": "trouve = trovo (trouver); je ne trouve pas = non trovo",
+        "nl": "trouve = vind (trouver); je ne trouve pas = ik kan niet vinden"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "très: very",
+        "es-419": "très: muy",
+        "it": "très: molto",
+        "nl": "très: heel, erg"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (one person you know well)",
+        "es-419": "tú",
+        "it": "tu",
+        "nl": "jij, je"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "vais": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller); je vais = I go",
+        "es-419": "voy (aller); je vais",
+        "it": "vado (aller); je vais",
+        "nl": "ga (aller); je vais"
+      }
+    },
+    "visiter": {
+      "lemma": "visiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to visit (a place)",
+        "es-419": "visitar (un lugar)",
+        "it": "visitare (un luogo)",
+        "nl": "bezoeken (een plaats)"
+      }
+    },
+    "voilà": {
+      "lemma": "voilà",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "voilà = here is, here you are, there you go",
+        "es-419": "voilà = aquí tiene, aquí está, ahí está",
+        "it": "voilà = ecco",
+        "nl": "voilà = alstublieft, daar is"
+      }
+    },
+    "voisin": {
+      "lemma": "voisin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "voisin (m): neighbor",
+        "es-419": "voisin (m): vecino",
+        "it": "voisin (m): vicino di casa",
+        "nl": "voisin (m): buurman"
+      }
+    },
+    "voisins": {
+      "lemma": "voisin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "voisins (m pl): neighbors",
+        "es-419": "voisins (m pl): vecinos",
+        "it": "voisins (m pl): vicini di casa",
+        "nl": "voisins (m pl): buren"
+      }
+    },
+    "voit": {
+      "lemma": "voir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voit = sees; on voit = you can see (voir)",
+        "es-419": "voit = ve; on voit = se ve (voir)",
+        "it": "voit = vede; on voit = si vede (voir)",
+        "nl": "voit = ziet; on voit = je ziet (voir)"
+      }
+    },
+    "vont": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller); ils vont = they go",
+        "es-419": "van (aller); ils vont",
+        "it": "vanno (aller); ils vont",
+        "nl": "gaan (aller); ils vont"
+      }
+    },
+    "voudrais": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voudrais = would like (vouloir); je voudrais = I'd like, a polite way to order",
+        "es-419": "voudrais = quisiera (vouloir); je voudrais = quisiera, la forma cortés para pedir",
+        "it": "voudrais = vorrei (vouloir); je voudrais = vorrei, la forma cortese per ordinare",
+        "nl": "voudrais = zou willen (vouloir); je voudrais = ik wil graag, de beleefde manier om te bestellen"
+      }
+    },
+    "vêtements": {
+      "lemma": "vêtement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vêtements (m pl): clothes",
+        "es-419": "vêtements (m pl): ropa",
+        "it": "vêtements (m pl): vestiti",
+        "nl": "vêtements (m pl): kleren"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "y: there; il y a = there is, there are",
+        "es-419": "y: allí; il y a = hay",
+        "it": "y: lì; il y a = c'è, ci sono",
+        "nl": "y: daar; il y a = er is, er zijn"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to; à emporter = to go, take-away",
+        "es-419": "à = a, en; à emporter = para llevar",
+        "it": "à = a, in; à emporter = da portare via",
+        "nl": "à = naar, te, om; à emporter = om mee te nemen"
+      }
+    },
+    "étage": {
+      "lemma": "étage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "floor, story (m)",
+        "es-419": "piso (m)",
+        "it": "piano (m)",
+        "nl": "verdieping (m)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a2-logement-1",
+      "title": "Je cherche un appartement",
+      "grammarFocus": {
+        "en": [
+          "il y a (there is) vs. être (is located): il y a un parc / l'appartement est près du métro",
+          "aller + infinitive with a pronoun: je vais l'appeler"
+        ],
+        "es-419": [
+          "il y a (hay) o être (está): il y a un parc / l'appartement est près du métro",
+          "aller + infinitivo con un pronombre: je vais l'appeler"
+        ],
+        "it": [
+          "il y a (c'è) o être (si trova): il y a un parc / l'appartement est près du métro",
+          "aller + infinito con un pronome: je vais l'appeler"
+        ],
+        "nl": [
+          "il y a (er is) of être (ligt): il y a un parc / l'appartement est près du métro",
+          "aller + infinitief met een voornaamwoord: je vais l'appeler"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "appartement",
+          "translation": {
+            "en": "apartment",
+            "es-419": "departamento",
+            "it": "appartamento",
+            "nl": "appartement"
+          },
+          "distractors": {
+            "en": [
+              "house",
+              "room"
+            ],
+            "es-419": [
+              "casa",
+              "habitación"
+            ],
+            "it": [
+              "casa",
+              "camera"
+            ],
+            "nl": [
+              "huis",
+              "kamer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "moderne",
+          "translation": {
+            "en": "modern",
+            "es-419": "moderno",
+            "it": "moderno",
+            "nl": "modern"
+          },
+          "distractors": {
+            "en": [
+              "old",
+              "clean"
+            ],
+            "es-419": [
+              "viejo",
+              "limpio"
+            ],
+            "it": [
+              "vecchio",
+              "pulito"
+            ],
+            "nl": [
+              "oud",
+              "schoon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un appartement moderne",
+          "translation": {
+            "en": "a modern apartment",
+            "es-419": "un departamento moderno",
+            "it": "un appartamento moderno",
+            "nl": "een modern appartement"
+          },
+          "distractors": {
+            "en": [
+              "a modern house",
+              "an old apartment"
+            ],
+            "es-419": [
+              "una casa moderna",
+              "un departamento viejo"
+            ],
+            "it": [
+              "una casa moderna",
+              "un appartamento vecchio"
+            ],
+            "nl": [
+              "een modern huis",
+              "een oud appartement"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je cherche un appartement dans le centre.",
+          "translation": {
+            "en": "I'm looking for an apartment in the center.",
+            "es-419": "Busco un departamento en el centro.",
+            "it": "Cerco un appartamento in centro.",
+            "nl": "Ik zoek een appartement in het centrum."
+          },
+          "distractors": {
+            "en": [
+              "I'm looking for a house in the center.",
+              "I'm looking for an apartment near the station."
+            ],
+            "es-419": [
+              "Busco una casa en el centro.",
+              "Busco un departamento cerca de la estación."
+            ],
+            "it": [
+              "Cerco una casa in centro.",
+              "Cerco un appartamento vicino alla stazione."
+            ],
+            "nl": [
+              "Ik zoek een huis in het centrum.",
+              "Ik zoek een appartement bij het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "quartier",
+          "translation": {
+            "en": "neighborhood",
+            "es-419": "barrio",
+            "it": "quartiere",
+            "nl": "wijk"
+          },
+          "distractors": {
+            "en": [
+              "street",
+              "city"
+            ],
+            "es-419": [
+              "calle",
+              "ciudad"
+            ],
+            "it": [
+              "via",
+              "città"
+            ],
+            "nl": [
+              "straat",
+              "stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un quartier tranquille",
+          "translation": {
+            "en": "a quiet neighborhood",
+            "es-419": "un barrio tranquilo",
+            "it": "un quartiere tranquillo",
+            "nl": "een rustige wijk"
+          },
+          "distractors": {
+            "en": [
+              "a quiet street",
+              "a noisy neighborhood"
+            ],
+            "es-419": [
+              "una calle tranquila",
+              "un barrio ruidoso"
+            ],
+            "it": [
+              "una via tranquilla",
+              "un quartiere rumoroso"
+            ],
+            "nl": [
+              "een rustige straat",
+              "een lawaaiige wijk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il y a un parc",
+          "translation": {
+            "en": "there's a park",
+            "es-419": "hay un parque",
+            "it": "c'è un parco",
+            "nl": "er is een park"
+          },
+          "distractors": {
+            "en": [
+              "there's a museum",
+              "there's a garden"
+            ],
+            "es-419": [
+              "hay un museo",
+              "hay un jardín"
+            ],
+            "it": [
+              "c'è un museo",
+              "c'è un giardino"
+            ],
+            "nl": [
+              "er is een museum",
+              "er is een tuin"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dans mon quartier, il y a un parc et une bibliothèque.",
+          "translation": {
+            "en": "In my neighborhood, there's a park and a library.",
+            "es-419": "En mi barrio hay un parque y una biblioteca.",
+            "it": "Nel mio quartiere ci sono un parco e una biblioteca.",
+            "nl": "In mijn wijk is er een park en een bibliotheek."
+          },
+          "distractors": {
+            "en": [
+              "In my neighborhood, there's a park and a hospital.",
+              "In my neighborhood, there's a school and a library."
+            ],
+            "es-419": [
+              "En mi barrio hay un parque y un hospital.",
+              "En mi barrio hay una escuela y una biblioteca."
+            ],
+            "it": [
+              "Nel mio quartiere ci sono un parco e un ospedale.",
+              "Nel mio quartiere ci sono una scuola e una biblioteca."
+            ],
+            "nl": [
+              "In mijn wijk is er een park en een ziekenhuis.",
+              "In mijn wijk is er een school en een bibliotheek."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "près du métro",
+          "translation": {
+            "en": "near the subway",
+            "es-419": "cerca del metro",
+            "it": "vicino alla metro",
+            "nl": "dicht bij de metro"
+          },
+          "distractors": {
+            "en": [
+              "far from the subway",
+              "near the park"
+            ],
+            "es-419": [
+              "lejos del metro",
+              "cerca del parque"
+            ],
+            "it": [
+              "lontano dalla metro",
+              "vicino al parco"
+            ],
+            "nl": [
+              "ver van de metro",
+              "dicht bij het park"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'appartement est près du métro, à cinq minutes à pied.",
+          "translation": {
+            "en": "The apartment is near the subway, five minutes away on foot.",
+            "es-419": "El departamento está cerca del metro, a cinco minutos a pie.",
+            "it": "L'appartamento è vicino alla metro, a cinque minuti a piedi.",
+            "nl": "Het appartement ligt dicht bij de metro, op vijf minuten lopen."
+          },
+          "distractors": {
+            "en": [
+              "The apartment is near the park, five minutes away on foot.",
+              "The apartment is near the subway, ten minutes away on foot."
+            ],
+            "es-419": [
+              "El departamento está cerca del parque, a cinco minutos a pie.",
+              "El departamento está cerca del metro, a diez minutos a pie."
+            ],
+            "it": [
+              "L'appartamento è vicino al parco, a cinque minuti a piedi.",
+              "L'appartamento è vicino alla metro, a dieci minuti a piedi."
+            ],
+            "nl": [
+              "Het appartement ligt dicht bij het park, op vijf minuten lopen.",
+              "Het appartement ligt dicht bij de metro, op tien minuten lopen."
+            ]
+          },
+          "variants": [
+            "L'appartement est près du métro, à 5 minutes à pied."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "propriétaire",
+          "translation": {
+            "en": "landlord, owner",
+            "es-419": "propietario, dueño",
+            "it": "proprietario",
+            "nl": "eigenaar, huisbaas"
+          },
+          "distractors": {
+            "en": [
+              "neighbor",
+              "tenant"
+            ],
+            "es-419": [
+              "vecino",
+              "inquilino"
+            ],
+            "it": [
+              "vicino",
+              "inquilino"
+            ],
+            "nl": [
+              "buurman",
+              "huurder"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voilà le numéro du propriétaire. Je vais l'appeler demain.",
+          "translation": {
+            "en": "Here's the landlord's number. I'm going to call him tomorrow.",
+            "es-419": "Aquí está el número del propietario. Voy a llamarlo mañana.",
+            "it": "Ecco il numero del proprietario. Lo chiamo domani.",
+            "nl": "Hier is het nummer van de huisbaas. Ik ga hem morgen bellen."
+          },
+          "distractors": {
+            "en": [
+              "Here's the landlord's number. I'm going to call him tonight.",
+              "Here's the neighbor's number. I'm going to call him tomorrow."
+            ],
+            "es-419": [
+              "Aquí está el número del propietario. Voy a llamarlo esta noche.",
+              "Aquí está el número del vecino. Voy a llamarlo mañana."
+            ],
+            "it": [
+              "Ecco il numero del proprietario. Lo chiamo stasera.",
+              "Ecco il numero del vicino. Lo chiamo domani."
+            ],
+            "nl": [
+              "Hier is het nummer van de huisbaas. Ik ga hem vanavond bellen.",
+              "Hier is het nummer van de buurman. Ik ga hem morgen bellen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "au deuxième étage",
+          "translation": {
+            "en": "on the third floor",
+            "es-419": "en el segundo piso",
+            "it": "al secondo piano",
+            "nl": "op de tweede verdieping"
+          },
+          "distractors": {
+            "en": [
+              "on the fifth floor",
+              "on the first floor"
+            ],
+            "es-419": [
+              "en el quinto piso",
+              "en el primer piso"
+            ],
+            "it": [
+              "al quinto piano",
+              "al primo piano"
+            ],
+            "nl": [
+              "op de vijfde verdieping",
+              "op de eerste verdieping"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je voudrais visiter",
+          "translation": {
+            "en": "I'd like to visit",
+            "es-419": "quisiera visitar",
+            "it": "vorrei visitare",
+            "nl": "ik wil graag bezichtigen"
+          },
+          "distractors": {
+            "en": [
+              "I'd like to rent",
+              "I'd like to buy"
+            ],
+            "es-419": [
+              "quisiera alquilar",
+              "quisiera comprar"
+            ],
+            "it": [
+              "vorrei affittare",
+              "vorrei comprare"
+            ],
+            "nl": [
+              "ik wil graag huren",
+              "ik wil graag kopen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais visiter l'appartement demain après-midi.",
+          "translation": {
+            "en": "I'd like to see the apartment tomorrow afternoon.",
+            "es-419": "Quisiera visitar el departamento mañana por la tarde.",
+            "it": "Vorrei visitare l'appartamento domani pomeriggio.",
+            "nl": "Ik wil graag het appartement morgenmiddag bezichtigen."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to see the apartment tomorrow morning.",
+              "I'd like to see the house tomorrow afternoon."
+            ],
+            "es-419": [
+              "Quisiera visitar el departamento mañana por la mañana.",
+              "Quisiera visitar la casa mañana por la tarde."
+            ],
+            "it": [
+              "Vorrei visitare l'appartamento domani mattina.",
+              "Vorrei visitare la casa domani pomeriggio."
+            ],
+            "nl": [
+              "Ik wil graag het appartement morgenochtend bezichtigen.",
+              "Ik wil graag het huis morgenmiddag bezichtigen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'appartement est au deuxième étage, et il y a un ascenseur.",
+          "translation": {
+            "en": "The apartment is on the third floor, and there's an elevator.",
+            "es-419": "El departamento está en el segundo piso y hay ascensor.",
+            "it": "L'appartamento è al secondo piano e c'è l'ascensore.",
+            "nl": "Het appartement ligt op de tweede verdieping en er is een lift."
+          },
+          "distractors": {
+            "en": [
+              "The apartment is on the fifth floor, and there's an elevator.",
+              "The apartment is on the third floor, and there's a balcony."
+            ],
+            "es-419": [
+              "El departamento está en el quinto piso y hay ascensor.",
+              "El departamento está en el segundo piso y hay balcón."
+            ],
+            "it": [
+              "L'appartamento è al quinto piano e c'è l'ascensore.",
+              "L'appartamento è al secondo piano e c'è un balcone."
+            ],
+            "nl": [
+              "Het appartement ligt op de vijfde verdieping en er is een lift.",
+              "Het appartement ligt op de tweede verdieping en er is een balkon."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-logement-2",
+      "title": "Les pièces",
+      "grammarFocus": {
+        "en": [
+          "Rooms and adjectives: la cuisine est propre, la salle de bains est sale",
+          "il y a with a place: dans la cuisine, il y a un four; il n'y a pas de balcon"
+        ],
+        "es-419": [
+          "Habitaciones y adjetivos: la cuisine est propre, la salle de bains est sale",
+          "il y a con un lugar: dans la cuisine, il y a un four; il n'y a pas de balcon"
+        ],
+        "it": [
+          "Stanze e aggettivi: la cuisine est propre, la salle de bains est sale",
+          "il y a con un luogo: dans la cuisine, il y a un four; il n'y a pas de balcon"
+        ],
+        "nl": [
+          "Kamers en bijvoeglijke naamwoorden: la cuisine est propre, la salle de bains est sale",
+          "il y a met een plaats: dans la cuisine, il y a un four; il n'y a pas de balcon"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "cuisine",
+          "translation": {
+            "en": "kitchen",
+            "es-419": "cocina",
+            "it": "cucina",
+            "nl": "keuken"
+          },
+          "distractors": {
+            "en": [
+              "living room",
+              "bathroom"
+            ],
+            "es-419": [
+              "sala",
+              "baño"
+            ],
+            "it": [
+              "soggiorno",
+              "bagno"
+            ],
+            "nl": [
+              "woonkamer",
+              "badkamer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "salon",
+          "translation": {
+            "en": "living room",
+            "es-419": "sala",
+            "it": "soggiorno",
+            "nl": "woonkamer"
+          },
+          "distractors": {
+            "en": [
+              "bedroom",
+              "balcony"
+            ],
+            "es-419": [
+              "habitación",
+              "balcón"
+            ],
+            "it": [
+              "camera da letto",
+              "balcone"
+            ],
+            "nl": [
+              "slaapkamer",
+              "balkon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "pièce",
+          "translation": {
+            "en": "room",
+            "es-419": "habitación, cuarto",
+            "it": "stanza",
+            "nl": "kamer"
+          },
+          "distractors": {
+            "en": [
+              "floor",
+              "window"
+            ],
+            "es-419": [
+              "piso",
+              "ventana"
+            ],
+            "it": [
+              "piano",
+              "finestra"
+            ],
+            "nl": [
+              "verdieping",
+              "raam"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un grand salon",
+          "translation": {
+            "en": "a big living room",
+            "es-419": "una sala grande",
+            "it": "un soggiorno grande",
+            "nl": "een grote woonkamer"
+          },
+          "distractors": {
+            "en": [
+              "a small living room",
+              "a big kitchen"
+            ],
+            "es-419": [
+              "una sala pequeña",
+              "una cocina grande"
+            ],
+            "it": [
+              "un soggiorno piccolo",
+              "una cucina grande"
+            ],
+            "nl": [
+              "een kleine woonkamer",
+              "een grote keuken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la salle de bains",
+          "translation": {
+            "en": "the bathroom",
+            "es-419": "el baño",
+            "it": "il bagno",
+            "nl": "de badkamer"
+          },
+          "distractors": {
+            "en": [
+              "the bedroom",
+              "the kitchen"
+            ],
+            "es-419": [
+              "la habitación",
+              "la cocina"
+            ],
+            "it": [
+              "la camera",
+              "la cucina"
+            ],
+            "nl": [
+              "de slaapkamer",
+              "de keuken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'appartement a trois pièces, une cuisine et une salle de bains.",
+          "translation": {
+            "en": "The apartment has three rooms, a kitchen and a bathroom.",
+            "es-419": "El departamento tiene tres habitaciones, una cocina y un baño.",
+            "it": "L'appartamento ha tre stanze, una cucina e un bagno.",
+            "nl": "Het appartement heeft drie kamers, een keuken en een badkamer."
+          },
+          "distractors": {
+            "en": [
+              "The apartment has four rooms, a kitchen and a bathroom.",
+              "The apartment has three rooms, a kitchen and two bathrooms."
+            ],
+            "es-419": [
+              "El departamento tiene cuatro habitaciones, una cocina y un baño.",
+              "El departamento tiene tres habitaciones, una cocina y dos baños."
+            ],
+            "it": [
+              "L'appartamento ha quattro stanze, una cucina e un bagno.",
+              "L'appartamento ha tre stanze, una cucina e due bagni."
+            ],
+            "nl": [
+              "Het appartement heeft vier kamers, een keuken en een badkamer.",
+              "Het appartement heeft drie kamers, een keuken en twee badkamers."
+            ]
+          },
+          "variants": [
+            "L'appartement a 3 pièces, une cuisine et une salle de bains."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "fenêtre",
+          "translation": {
+            "en": "window",
+            "es-419": "ventana",
+            "it": "finestra",
+            "nl": "raam"
+          },
+          "distractors": {
+            "en": [
+              "door",
+              "balcony"
+            ],
+            "es-419": [
+              "puerta",
+              "balcón"
+            ],
+            "it": [
+              "porta",
+              "balcone"
+            ],
+            "nl": [
+              "deur",
+              "balkon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le salon a deux grandes fenêtres et beaucoup de lumière.",
+          "translation": {
+            "en": "The living room has two big windows and lots of light.",
+            "es-419": "La sala tiene dos ventanas grandes y mucha luz.",
+            "it": "Il soggiorno ha due grandi finestre e tanta luce.",
+            "nl": "De woonkamer heeft twee grote ramen en veel licht."
+          },
+          "distractors": {
+            "en": [
+              "The living room has two small windows and lots of light.",
+              "The living room has two big windows and little light."
+            ],
+            "es-419": [
+              "La sala tiene dos ventanas pequeñas y mucha luz.",
+              "La sala tiene dos ventanas grandes y poca luz."
+            ],
+            "it": [
+              "Il soggiorno ha due finestre piccole e tanta luce.",
+              "Il soggiorno ha due grandi finestre e poca luce."
+            ],
+            "nl": [
+              "De woonkamer heeft twee kleine ramen en veel licht.",
+              "De woonkamer heeft twee grote ramen en weinig licht."
+            ]
+          },
+          "variants": [
+            "Le salon a 2 grandes fenêtres et beaucoup de lumière."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "balcon",
+          "translation": {
+            "en": "balcony",
+            "es-419": "balcón",
+            "it": "balcone",
+            "nl": "balkon"
+          },
+          "distractors": {
+            "en": [
+              "window",
+              "garden"
+            ],
+            "es-419": [
+              "ventana",
+              "jardín"
+            ],
+            "it": [
+              "finestra",
+              "giardino"
+            ],
+            "nl": [
+              "raam",
+              "tuin"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Du balcon, on voit le parc.",
+          "translation": {
+            "en": "You can see the park from the balcony.",
+            "es-419": "Desde el balcón se ve el parque.",
+            "it": "Dal balcone si vede il parco.",
+            "nl": "Vanaf het balkon zie je het park."
+          },
+          "distractors": {
+            "en": [
+              "You can see the sea from the balcony.",
+              "You can see the park from the kitchen."
+            ],
+            "es-419": [
+              "Desde el balcón se ve el mar.",
+              "Desde la cocina se ve el parque."
+            ],
+            "it": [
+              "Dal balcone si vede il mare.",
+              "Dalla cucina si vede il parco."
+            ],
+            "nl": [
+              "Vanaf het balkon zie je de zee.",
+              "Vanuit de keuken zie je het park."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "propre",
+          "translation": {
+            "en": "clean",
+            "es-419": "limpio",
+            "it": "pulito",
+            "nl": "schoon"
+          },
+          "distractors": {
+            "en": [
+              "dirty",
+              "new"
+            ],
+            "es-419": [
+              "sucio",
+              "nuevo"
+            ],
+            "it": [
+              "sporco",
+              "nuovo"
+            ],
+            "nl": [
+              "vies",
+              "nieuw"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une cuisine sale",
+          "translation": {
+            "en": "a dirty kitchen",
+            "es-419": "una cocina sucia",
+            "it": "una cucina sporca",
+            "nl": "een vieze keuken"
+          },
+          "distractors": {
+            "en": [
+              "a clean kitchen",
+              "a dirty bathroom"
+            ],
+            "es-419": [
+              "una cocina limpia",
+              "un baño sucio"
+            ],
+            "it": [
+              "una cucina pulita",
+              "un bagno sporco"
+            ],
+            "nl": [
+              "een schone keuken",
+              "een vieze badkamer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La cuisine est propre, mais la salle de bains est sale.",
+          "translation": {
+            "en": "The kitchen is clean, but the bathroom is dirty.",
+            "es-419": "La cocina está limpia, pero el baño está sucio.",
+            "it": "La cucina è pulita, ma il bagno è sporco.",
+            "nl": "De keuken is schoon, maar de badkamer is vies."
+          },
+          "distractors": {
+            "en": [
+              "The kitchen is dirty, but the bathroom is clean.",
+              "The kitchen is clean, but the bedroom is dirty."
+            ],
+            "es-419": [
+              "La cocina está sucia, pero el baño está limpio.",
+              "La cocina está limpia, pero la habitación está sucia."
+            ],
+            "it": [
+              "La cucina è sporca, ma il bagno è pulito.",
+              "La cucina è pulita, ma la camera è sporca."
+            ],
+            "nl": [
+              "De keuken is vies, maar de badkamer is schoon.",
+              "De keuken is schoon, maar de slaapkamer is vies."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un réfrigérateur et un four",
+          "translation": {
+            "en": "a refrigerator and an oven",
+            "es-419": "un refrigerador y un horno",
+            "it": "un frigorifero e un forno",
+            "nl": "een koelkast en een oven"
+          },
+          "distractors": {
+            "en": [
+              "a refrigerator and a sink",
+              "a table and an oven"
+            ],
+            "es-419": [
+              "un refrigerador y un fregadero",
+              "una mesa y un horno"
+            ],
+            "it": [
+              "un frigorifero e un lavandino",
+              "un tavolo e un forno"
+            ],
+            "nl": [
+              "een koelkast en een gootsteen",
+              "een tafel en een oven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dans la cuisine, il y a un réfrigérateur et un four.",
+          "translation": {
+            "en": "In the kitchen, there's a refrigerator and an oven.",
+            "es-419": "En la cocina hay un refrigerador y un horno.",
+            "it": "In cucina ci sono un frigorifero e un forno.",
+            "nl": "In de keuken staan een koelkast en een oven."
+          },
+          "distractors": {
+            "en": [
+              "In the kitchen, there's a refrigerator and a table.",
+              "In the living room, there's a refrigerator and an oven."
+            ],
+            "es-419": [
+              "En la cocina hay un refrigerador y una mesa.",
+              "En la sala hay un refrigerador y un horno."
+            ],
+            "it": [
+              "In cucina ci sono un frigorifero e un tavolo.",
+              "In soggiorno ci sono un frigorifero e un forno."
+            ],
+            "nl": [
+              "In de keuken staan een koelkast en een tafel.",
+              "In de woonkamer staan een koelkast en een oven."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dans la chambre, il y a une fenêtre, mais il n'y a pas de balcon.",
+          "translation": {
+            "en": "In the bedroom, there's a window, but there's no balcony.",
+            "es-419": "En la habitación hay una ventana, pero no hay balcón.",
+            "it": "In camera c'è una finestra, ma non c'è il balcone.",
+            "nl": "In de slaapkamer is er een raam, maar er is geen balkon."
+          },
+          "distractors": {
+            "en": [
+              "In the bedroom, there's a window, and there's a balcony.",
+              "In the bedroom, there's a balcony, but there's no window."
+            ],
+            "es-419": [
+              "En la habitación hay una ventana y hay balcón.",
+              "En la habitación hay un balcón, pero no hay ventana."
+            ],
+            "it": [
+              "In camera c'è una finestra e c'è il balcone.",
+              "In camera c'è un balcone, ma non c'è la finestra."
+            ],
+            "nl": [
+              "In de slaapkamer is er een raam en er is een balkon.",
+              "In de slaapkamer is er een balkon, maar er is geen raam."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-logement-3",
+      "title": "Le loyer",
+      "grammarFocus": {
+        "en": [
+          "Object pronouns le, la before the verb: je le loue, je le trouve",
+          "compris after a noun: chauffage compris"
+        ],
+        "es-419": [
+          "Pronombres de objeto le, la antes del verbo: je le loue, je le trouve",
+          "compris después de un nombre: chauffage compris"
+        ],
+        "it": [
+          "Pronomi oggetto le, la prima del verbo: je le loue, je le trouve",
+          "compris dopo un nome: chauffage compris"
+        ],
+        "nl": [
+          "Lijdend voorwerp le, la vóór het werkwoord: je le loue, je le trouve",
+          "compris na een zelfstandig naamwoord: chauffage compris"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "loyer",
+          "translation": {
+            "en": "rent",
+            "es-419": "alquiler",
+            "it": "affitto",
+            "nl": "huur"
+          },
+          "distractors": {
+            "en": [
+              "price",
+              "salary"
+            ],
+            "es-419": [
+              "precio",
+              "sueldo"
+            ],
+            "it": [
+              "prezzo",
+              "stipendio"
+            ],
+            "nl": [
+              "prijs",
+              "salaris"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le loyer est cher",
+          "translation": {
+            "en": "the rent is expensive",
+            "es-419": "el alquiler es caro",
+            "it": "l'affitto è caro",
+            "nl": "de huur is hoog"
+          },
+          "distractors": {
+            "en": [
+              "the rent is cheap",
+              "the food is expensive"
+            ],
+            "es-419": [
+              "el alquiler es barato",
+              "la comida es cara"
+            ],
+            "it": [
+              "l'affitto è basso",
+              "il cibo è caro"
+            ],
+            "nl": [
+              "de huur is laag",
+              "het eten is duur"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "huit cents euros par mois",
+          "translation": {
+            "en": "eight hundred euros a month",
+            "es-419": "ochocientos euros al mes",
+            "it": "ottocento euro al mese",
+            "nl": "achthonderd euro per maand"
+          },
+          "distractors": {
+            "en": [
+              "six hundred euros a month",
+              "eight hundred euros a week"
+            ],
+            "es-419": [
+              "seiscientos euros al mes",
+              "ochocientos euros a la semana"
+            ],
+            "it": [
+              "seicento euro al mese",
+              "ottocento euro alla settimana"
+            ],
+            "nl": [
+              "zeshonderd euro per maand",
+              "achthonderd euro per week"
+            ]
+          },
+          "variants": [
+            "800 euros par mois"
+          ]
+        },
+        {
+          "id": "fr-a2-logement-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le loyer est de huit cents euros par mois.",
+          "translation": {
+            "en": "The rent is eight hundred euros a month.",
+            "es-419": "El alquiler es de ochocientos euros al mes.",
+            "it": "L'affitto è di ottocento euro al mese.",
+            "nl": "De huur is achthonderd euro per maand."
+          },
+          "distractors": {
+            "en": [
+              "The rent is nine hundred euros a month.",
+              "The rent is eight hundred euros a week."
+            ],
+            "es-419": [
+              "El alquiler es de novecientos euros al mes.",
+              "El alquiler es de ochocientos euros a la semana."
+            ],
+            "it": [
+              "L'affitto è di novecento euro al mese.",
+              "L'affitto è di ottocento euro alla settimana."
+            ],
+            "nl": [
+              "De huur is negenhonderd euro per maand.",
+              "De huur is achthonderd euro per week."
+            ]
+          },
+          "variants": [
+            "Le loyer est de 800 euros par mois."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-3-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "chauffage",
+          "translation": {
+            "en": "heating",
+            "es-419": "calefacción",
+            "it": "riscaldamento",
+            "nl": "verwarming"
+          },
+          "distractors": {
+            "en": [
+              "electricity",
+              "water"
+            ],
+            "es-419": [
+              "electricidad",
+              "agua"
+            ],
+            "it": [
+              "elettricità",
+              "acqua"
+            ],
+            "nl": [
+              "elektriciteit",
+              "water"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "chauffage compris",
+          "translation": {
+            "en": "heating included",
+            "es-419": "calefacción incluida",
+            "it": "riscaldamento incluso",
+            "nl": "verwarming inbegrepen"
+          },
+          "distractors": {
+            "en": [
+              "water included",
+              "heating not included"
+            ],
+            "es-419": [
+              "agua incluida",
+              "calefacción no incluida"
+            ],
+            "it": [
+              "acqua inclusa",
+              "riscaldamento non incluso"
+            ],
+            "nl": [
+              "water inbegrepen",
+              "verwarming niet inbegrepen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le chauffage est compris, mais pas l'eau.",
+          "translation": {
+            "en": "The heating is included, but not the water.",
+            "es-419": "La calefacción está incluida, pero el agua no.",
+            "it": "Il riscaldamento è compreso, ma l'acqua no.",
+            "nl": "De verwarming is inbegrepen, maar het water niet."
+          },
+          "distractors": {
+            "en": [
+              "The heating is included, and the water too.",
+              "The water is included, but not the heating."
+            ],
+            "es-419": [
+              "La calefacción está incluida y el agua también.",
+              "El agua está incluida, pero la calefacción no."
+            ],
+            "it": [
+              "Il riscaldamento è compreso e anche l'acqua.",
+              "L'acqua è compresa, ma il riscaldamento no."
+            ],
+            "nl": [
+              "De verwarming is inbegrepen en het water ook.",
+              "Het water is inbegrepen, maar de verwarming niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "meublé",
+          "translation": {
+            "en": "furnished",
+            "es-419": "amueblado",
+            "it": "arredato",
+            "nl": "gemeubileerd"
+          },
+          "distractors": {
+            "en": [
+              "empty",
+              "new"
+            ],
+            "es-419": [
+              "vacío",
+              "nuevo"
+            ],
+            "it": [
+              "vuoto",
+              "nuovo"
+            ],
+            "nl": [
+              "leeg",
+              "nieuw"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un appartement meublé",
+          "translation": {
+            "en": "a furnished apartment",
+            "es-419": "un departamento amueblado",
+            "it": "un appartamento arredato",
+            "nl": "een gemeubileerd appartement"
+          },
+          "distractors": {
+            "en": [
+              "a furnished room",
+              "a new apartment"
+            ],
+            "es-419": [
+              "una habitación amueblada",
+              "un departamento nuevo"
+            ],
+            "it": [
+              "una camera arredata",
+              "un appartamento nuovo"
+            ],
+            "nl": [
+              "een gemeubileerde kamer",
+              "een nieuw appartement"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "louer",
+          "translation": {
+            "en": "to rent",
+            "es-419": "alquilar",
+            "it": "affittare",
+            "nl": "huren"
+          },
+          "distractors": {
+            "en": [
+              "to buy",
+              "to sell"
+            ],
+            "es-419": [
+              "comprar",
+              "vender"
+            ],
+            "it": [
+              "comprare",
+              "vendere"
+            ],
+            "nl": [
+              "kopen",
+              "verkopen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais louer un appartement meublé près du centre.",
+          "translation": {
+            "en": "I'd like to rent a furnished apartment near the center.",
+            "es-419": "Quisiera alquilar un departamento amueblado cerca del centro.",
+            "it": "Vorrei affittare un appartamento arredato vicino al centro.",
+            "nl": "Ik wil graag een gemeubileerd appartement huren dicht bij het centrum."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to buy a furnished apartment near the center.",
+              "I'd like to rent a furnished apartment near the station."
+            ],
+            "es-419": [
+              "Quisiera comprar un departamento amueblado cerca del centro.",
+              "Quisiera alquilar un departamento amueblado cerca de la estación."
+            ],
+            "it": [
+              "Vorrei comprare un appartamento arredato vicino al centro.",
+              "Vorrei affittare un appartamento arredato vicino alla stazione."
+            ],
+            "nl": [
+              "Ik wil graag een gemeubileerd appartement kopen dicht bij het centrum.",
+              "Ik wil graag een gemeubileerd appartement huren dicht bij het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je le loue",
+          "translation": {
+            "en": "I'm renting it",
+            "es-419": "lo alquilo",
+            "it": "lo affitto",
+            "nl": "ik huur het"
+          },
+          "distractors": {
+            "en": [
+              "I'm buying it",
+              "I'm selling it"
+            ],
+            "es-419": [
+              "lo compro",
+              "lo vendo"
+            ],
+            "it": [
+              "lo compro",
+              "lo vendo"
+            ],
+            "nl": [
+              "ik koop het",
+              "ik verkoop het"
+            ]
+          },
+          "senses": {
+            "1": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'appartement est petit, mais je le trouve très bien.",
+          "translation": {
+            "en": "The apartment is small, but I think it's very nice.",
+            "es-419": "El departamento es pequeño, pero me parece muy bien.",
+            "it": "L'appartamento è piccolo, ma lo trovo molto carino.",
+            "nl": "Het appartement is klein, maar ik vind het erg goed."
+          },
+          "distractors": {
+            "en": [
+              "The apartment is small, but I find it too expensive.",
+              "The apartment is big, but I think it's very nice."
+            ],
+            "es-419": [
+              "El departamento es pequeño, pero me parece demasiado caro.",
+              "El departamento es grande, pero me parece muy bien."
+            ],
+            "it": [
+              "L'appartamento è piccolo, ma lo trovo troppo caro.",
+              "L'appartamento è grande, ma lo trovo molto carino."
+            ],
+            "nl": [
+              "Het appartement is klein, maar ik vind het te duur.",
+              "Het appartement is groot, maar ik vind het erg goed."
+            ]
+          },
+          "senses": {
+            "5": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le loyer? Je le paie le premier de chaque mois.",
+          "translation": {
+            "en": "The rent? I pay it on the first of every month.",
+            "es-419": "¿El alquiler? Lo pago el primero de cada mes.",
+            "it": "L'affitto? Lo pago il primo di ogni mese.",
+            "nl": "De huur? Die betaal ik op de eerste van elke maand."
+          },
+          "distractors": {
+            "en": [
+              "The rent? I pay it on the fifth of every month.",
+              "The rent? I pay it at the end of every month."
+            ],
+            "es-419": [
+              "¿El alquiler? Lo pago el cinco de cada mes.",
+              "¿El alquiler? Lo pago a fin de cada mes."
+            ],
+            "it": [
+              "L'affitto? Lo pago il cinque di ogni mese.",
+              "L'affitto? Lo pago alla fine di ogni mese."
+            ],
+            "nl": [
+              "De huur? Die betaal ik op de vijfde van elke maand.",
+              "De huur? Die betaal ik aan het einde van elke maand."
+            ]
+          },
+          "senses": {
+            "3": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le loyer est de sept cent cinquante euros, chauffage compris.",
+          "translation": {
+            "en": "The rent is seven hundred fifty euros, heating included.",
+            "es-419": "El alquiler es de setecientos cincuenta euros, con calefacción incluida.",
+            "it": "L'affitto è di settecentocinquanta euro, riscaldamento incluso.",
+            "nl": "De huur is zevenhonderdvijftig euro, inclusief verwarming."
+          },
+          "distractors": {
+            "en": [
+              "The rent is six hundred fifty euros, heating included.",
+              "The rent is seven hundred fifty euros, heating not included."
+            ],
+            "es-419": [
+              "El alquiler es de seiscientos cincuenta euros, con calefacción incluida.",
+              "El alquiler es de setecientos cincuenta euros, sin calefacción."
+            ],
+            "it": [
+              "L'affitto è di seicentocinquanta euro, riscaldamento incluso.",
+              "L'affitto è di settecentocinquanta euro, riscaldamento escluso."
+            ],
+            "nl": [
+              "De huur is zeshonderdvijftig euro, inclusief verwarming.",
+              "De huur is zevenhonderdvijftig euro, exclusief verwarming."
+            ]
+          },
+          "variants": [
+            "Le loyer est de 750 euros, chauffage compris."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je vais louer l'appartement, parce que le loyer n'est pas cher.",
+          "translation": {
+            "en": "I'm going to rent the apartment because the rent isn't expensive.",
+            "es-419": "Voy a alquilar el departamento porque el alquiler no es caro.",
+            "it": "Prendo in affitto l'appartamento perché l'affitto non è caro.",
+            "nl": "Ik ga het appartement huren, want de huur is niet duur."
+          },
+          "distractors": {
+            "en": [
+              "I'm not going to rent the apartment because the rent is expensive.",
+              "I'm going to rent the apartment because the neighborhood isn't noisy."
+            ],
+            "es-419": [
+              "No voy a alquilar el departamento porque el alquiler es caro.",
+              "Voy a alquilar el departamento porque el barrio no es ruidoso."
+            ],
+            "it": [
+              "Non prendo in affitto l'appartamento perché l'affitto è caro.",
+              "Prendo in affitto l'appartamento perché il quartiere non è rumoroso."
+            ],
+            "nl": [
+              "Ik ga het appartement niet huren, want de huur is duur.",
+              "Ik ga het appartement huren, want de wijk is niet lawaaiig."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-logement-4",
+      "title": "Le déménagement",
+      "grammarFocus": {
+        "en": [
+          "Pronoun before an infinitive: je vais le poser",
+          "je l'ai mis, je l'ai mise: mis (masculine) and mise (feminine) sound different"
+        ],
+        "es-419": [
+          "Pronombre antes de un infinitivo: je vais le poser",
+          "je l'ai mis, je l'ai mise: mis (masculino) y mise (femenino) suenan distinto"
+        ],
+        "it": [
+          "Pronome prima di un infinito: je vais le poser",
+          "je l'ai mis, je l'ai mise: mis (maschile) e mise (femminile) suonano diversi"
+        ],
+        "nl": [
+          "Voornaamwoord vóór een infinitief: je vais le poser",
+          "je l'ai mis, je l'ai mise: mis (mannelijk) en mise (vrouwelijk) klinken anders"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "déménagement",
+          "translation": {
+            "en": "move, moving",
+            "es-419": "mudanza",
+            "it": "trasloco",
+            "nl": "verhuizing"
+          },
+          "distractors": {
+            "en": [
+              "trip",
+              "wedding"
+            ],
+            "es-419": [
+              "viaje",
+              "boda"
+            ],
+            "it": [
+              "viaggio",
+              "matrimonio"
+            ],
+            "nl": [
+              "reis",
+              "bruiloft"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "emménager",
+          "translation": {
+            "en": "to move in",
+            "es-419": "mudarse a una casa nueva",
+            "it": "trasferirsi in una nuova casa",
+            "nl": "intrekken"
+          },
+          "distractors": {
+            "en": [
+              "to rent",
+              "to buy"
+            ],
+            "es-419": [
+              "alquilar",
+              "comprar"
+            ],
+            "it": [
+              "affittare",
+              "comprare"
+            ],
+            "nl": [
+              "huren",
+              "kopen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "on emménage samedi",
+          "translation": {
+            "en": "we're moving in on Saturday",
+            "es-419": "nos mudamos el sábado",
+            "it": "ci trasferiamo sabato",
+            "nl": "we trekken zaterdag in"
+          },
+          "distractors": {
+            "en": [
+              "we're moving out on Saturday",
+              "we're moving in on Sunday"
+            ],
+            "es-419": [
+              "dejamos la casa el sábado",
+              "nos mudamos el domingo"
+            ],
+            "it": [
+              "lasciamo la casa sabato",
+              "ci trasferiamo domenica"
+            ],
+            "nl": [
+              "we verlaten het huis zaterdag",
+              "we trekken zondag in"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Samedi, on emménage dans le nouvel appartement.",
+          "translation": {
+            "en": "On Saturday, we're moving into the new apartment.",
+            "es-419": "El sábado nos mudamos al nuevo departamento.",
+            "it": "Sabato ci trasferiamo nel nuovo appartamento.",
+            "nl": "Zaterdag verhuizen we naar het nieuwe appartement."
+          },
+          "distractors": {
+            "en": [
+              "On Sunday, we're moving into the new apartment.",
+              "On Saturday, we're moving into the new house."
+            ],
+            "es-419": [
+              "El domingo nos mudamos al nuevo departamento.",
+              "El sábado nos mudamos a la nueva casa."
+            ],
+            "it": [
+              "Domenica ci trasferiamo nel nuovo appartamento.",
+              "Sabato ci trasferiamo nella nuova casa."
+            ],
+            "nl": [
+              "Zondag verhuizen we naar het nieuwe appartement.",
+              "Zaterdag verhuizen we naar het nieuwe huis."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "meuble",
+          "translation": {
+            "en": "piece of furniture",
+            "es-419": "mueble",
+            "it": "mobile",
+            "nl": "meubel"
+          },
+          "distractors": {
+            "en": [
+              "curtain",
+              "box"
+            ],
+            "es-419": [
+              "cortina",
+              "caja"
+            ],
+            "it": [
+              "tenda",
+              "scatola"
+            ],
+            "nl": [
+              "gordijn",
+              "doos"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes amis vont m'aider avec les meubles.",
+          "translation": {
+            "en": "My friends are going to help me with the furniture.",
+            "es-419": "Mis amigos me van a ayudar con los muebles.",
+            "it": "I miei amici mi aiuteranno con i mobili.",
+            "nl": "Mijn vrienden gaan me helpen met de meubels."
+          },
+          "distractors": {
+            "en": [
+              "My friends are going to help me with the boxes.",
+              "My parents are going to help me with the furniture."
+            ],
+            "es-419": [
+              "Mis amigos me van a ayudar con las cajas.",
+              "Mis padres me van a ayudar con los muebles."
+            ],
+            "it": [
+              "I miei amici mi aiuteranno con le scatole.",
+              "I miei genitori mi aiuteranno con i mobili."
+            ],
+            "nl": [
+              "Mijn vrienden gaan me helpen met de dozen.",
+              "Mijn ouders gaan me helpen met de meubels."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "poser",
+          "translation": {
+            "en": "to put down, to place",
+            "es-419": "poner, colocar",
+            "it": "mettere, posare",
+            "nl": "neerzetten, leggen"
+          },
+          "distractors": {
+            "en": [
+              "to take",
+              "to open"
+            ],
+            "es-419": [
+              "llevar",
+              "abrir"
+            ],
+            "it": [
+              "prendere",
+              "aprire"
+            ],
+            "nl": [
+              "nemen",
+              "openen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vais le poser",
+          "translation": {
+            "en": "I'm going to put it down",
+            "es-419": "lo voy a poner",
+            "it": "lo metto giù",
+            "nl": "ik ga het neerzetten"
+          },
+          "distractors": {
+            "en": [
+              "I'm going to take it",
+              "I'm going to open it"
+            ],
+            "es-419": [
+              "lo voy a llevar",
+              "lo voy a abrir"
+            ],
+            "it": [
+              "lo prendo",
+              "lo apro"
+            ],
+            "nl": [
+              "ik ga het nemen",
+              "ik ga het openen"
+            ]
+          },
+          "senses": {
+            "2": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "miroir",
+          "translation": {
+            "en": "mirror",
+            "es-419": "espejo",
+            "it": "specchio",
+            "nl": "spiegel"
+          },
+          "distractors": {
+            "en": [
+              "window",
+              "lamp"
+            ],
+            "es-419": [
+              "ventana",
+              "lámpara"
+            ],
+            "it": [
+              "finestra",
+              "lampada"
+            ],
+            "nl": [
+              "raam",
+              "lamp"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le miroir? Je vais le poser ici.",
+          "translation": {
+            "en": "The mirror? I'm going to put it here.",
+            "es-419": "¿El espejo? Lo voy a poner aquí.",
+            "it": "Lo specchio? Lo metto qui.",
+            "nl": "De spiegel? Ik ga hem hier neerzetten."
+          },
+          "distractors": {
+            "en": [
+              "The mirror? I'm going to put it there.",
+              "The lamp? I'm going to put it here."
+            ],
+            "es-419": [
+              "¿El espejo? Lo voy a poner allí.",
+              "¿La lámpara? La voy a poner aquí."
+            ],
+            "it": [
+              "Lo specchio? Lo metto lì.",
+              "La lampada? La metto qui."
+            ],
+            "nl": [
+              "De spiegel? Ik ga hem daar neerzetten.",
+              "De lamp? Ik ga hem hier neerzetten."
+            ]
+          },
+          "senses": {
+            "4": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "accrocher",
+          "translation": {
+            "en": "to hang up",
+            "es-419": "colgar",
+            "it": "appendere",
+            "nl": "ophangen"
+          },
+          "distractors": {
+            "en": [
+              "to break",
+              "to clean"
+            ],
+            "es-419": [
+              "romper",
+              "limpiar"
+            ],
+            "it": [
+              "rompere",
+              "pulire"
+            ],
+            "nl": [
+              "breken",
+              "schoonmaken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "sur le mur",
+          "translation": {
+            "en": "on the wall",
+            "es-419": "en la pared",
+            "it": "sul muro",
+            "nl": "aan de muur"
+          },
+          "distractors": {
+            "en": [
+              "on the floor",
+              "on the table"
+            ],
+            "es-419": [
+              "en el piso",
+              "en la mesa"
+            ],
+            "it": [
+              "sul pavimento",
+              "sul tavolo"
+            ],
+            "nl": [
+              "op de vloer",
+              "op de tafel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je vais accrocher le miroir au mur.",
+          "translation": {
+            "en": "I'm going to hang the mirror on the wall.",
+            "es-419": "Voy a colgar el espejo en la pared.",
+            "it": "Appendo lo specchio al muro.",
+            "nl": "Ik ga de spiegel aan de muur hangen."
+          },
+          "distractors": {
+            "en": [
+              "I'm going to hang the lamp on the wall.",
+              "I'm going to put the mirror on the table."
+            ],
+            "es-419": [
+              "Voy a colgar la lámpara en la pared.",
+              "Voy a poner el espejo en la mesa."
+            ],
+            "it": [
+              "Appendo la lampada al muro.",
+              "Metto lo specchio sul tavolo."
+            ],
+            "nl": [
+              "Ik ga de lamp aan de muur hangen.",
+              "Ik ga de spiegel op de tafel zetten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je l'ai mis ici",
+          "translation": {
+            "en": "I put it here",
+            "es-419": "lo puse aquí",
+            "it": "l'ho messo qui",
+            "nl": "ik heb het hier neergezet"
+          },
+          "distractors": {
+            "en": [
+              "I took it there",
+              "I'm going to put it here"
+            ],
+            "es-419": [
+              "lo llevé allí",
+              "lo voy a poner aquí"
+            ],
+            "it": [
+              "l'ho portato lì",
+              "lo metto qui"
+            ],
+            "nl": [
+              "ik heb het daarheen gebracht",
+              "ik ga het hier neerzetten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Où est la lampe? Je l'ai mise dans le salon.",
+          "translation": {
+            "en": "Where's the lamp? I put it in the living room.",
+            "es-419": "¿Dónde está la lámpara? La puse en la sala.",
+            "it": "Dov'è la lampada? L'ho messa in soggiorno.",
+            "nl": "Waar is de lamp? Ik heb hem in de woonkamer gezet."
+          },
+          "distractors": {
+            "en": [
+              "Where's the lamp? I put it in the bedroom.",
+              "Where's the mirror? I put it in the living room."
+            ],
+            "es-419": [
+              "¿Dónde está la lámpara? La puse en la habitación.",
+              "¿Dónde está el espejo? Lo puse en la sala."
+            ],
+            "it": [
+              "Dov'è la lampada? L'ho messa in camera.",
+              "Dov'è lo specchio? L'ho messo in soggiorno."
+            ],
+            "nl": [
+              "Waar is de lamp? Ik heb hem in de slaapkamer gezet.",
+              "Waar is de spiegel? Ik heb hem in de woonkamer gezet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le déménagement est terminé, et je suis très fatigué.",
+          "translation": {
+            "en": "The move is over, and I'm very tired.",
+            "es-419": "La mudanza terminó y estoy muy cansado.",
+            "it": "Il trasloco è finito e sono molto stanco.",
+            "nl": "De verhuizing is klaar en ik ben erg moe."
+          },
+          "distractors": {
+            "en": [
+              "The move is over, and I'm very hungry.",
+              "The move isn't over, and I'm very tired."
+            ],
+            "es-419": [
+              "La mudanza terminó y tengo mucha hambre.",
+              "La mudanza no ha terminado y estoy muy cansado."
+            ],
+            "it": [
+              "Il trasloco è finito e ho molta fame.",
+              "Il trasloco non è finito e sono molto stanco."
+            ],
+            "nl": [
+              "De verhuizing is klaar en ik heb grote honger.",
+              "De verhuizing is nog niet klaar en ik ben erg moe."
+            ]
+          },
+          "speaker": "M"
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-logement-5",
+      "title": "Où est-ce que je le mets?",
+      "grammarFocus": {
+        "en": [
+          "Imperative + pronoun: mets-le, mets-les",
+          "Place words: dessus, dessous, dedans, en haut, en bas, au milieu de"
+        ],
+        "es-419": [
+          "Imperativo + pronombre: mets-le, mets-les",
+          "Palabras de lugar: dessus, dessous, dedans, en haut, en bas, au milieu de"
+        ],
+        "it": [
+          "Imperativo + pronome: mets-le, mets-les",
+          "Parole di luogo: dessus, dessous, dedans, en haut, en bas, au milieu de"
+        ],
+        "nl": [
+          "Gebiedende wijs + voornaamwoord: mets-le, mets-les",
+          "Plaatswoorden: dessus, dessous, dedans, en haut, en bas, au milieu de"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "canapé",
+          "translation": {
+            "en": "sofa, couch",
+            "es-419": "sofá",
+            "it": "divano",
+            "nl": "bank"
+          },
+          "distractors": {
+            "en": [
+              "chair",
+              "table"
+            ],
+            "es-419": [
+              "silla",
+              "mesa"
+            ],
+            "it": [
+              "sedia",
+              "tavolo"
+            ],
+            "nl": [
+              "stoel",
+              "tafel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "chaise",
+          "translation": {
+            "en": "chair",
+            "es-419": "silla",
+            "it": "sedia",
+            "nl": "stoel"
+          },
+          "distractors": {
+            "en": [
+              "table",
+              "sofa"
+            ],
+            "es-419": [
+              "mesa",
+              "sofá"
+            ],
+            "it": [
+              "tavolo",
+              "divano"
+            ],
+            "nl": [
+              "tafel",
+              "bank"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "où est-ce que je le mets",
+          "translation": {
+            "en": "where should I put it",
+            "es-419": "dónde lo pongo",
+            "it": "dove lo metto",
+            "nl": "waar zet ik het neer"
+          },
+          "distractors": {
+            "en": [
+              "where is it",
+              "when do I put it"
+            ],
+            "es-419": [
+              "dónde está",
+              "cuándo lo pongo"
+            ],
+            "it": [
+              "dov'è",
+              "quando lo metto"
+            ],
+            "nl": [
+              "waar is het",
+              "wanneer zet ik het neer"
+            ]
+          },
+          "senses": {
+            "4": "pron"
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Où est-ce que je mets le canapé?",
+          "translation": {
+            "en": "Where should I put the couch?",
+            "es-419": "¿Dónde pongo el sofá?",
+            "it": "Dove metto il divano?",
+            "nl": "Waar zet ik de bank neer?"
+          },
+          "distractors": {
+            "en": [
+              "Where should I put the chair?",
+              "Where should I buy the couch?"
+            ],
+            "es-419": [
+              "¿Dónde pongo la silla?",
+              "¿Dónde compro el sofá?"
+            ],
+            "it": [
+              "Dove metto la sedia?",
+              "Dove compro il divano?"
+            ],
+            "nl": [
+              "Waar zet ik de stoel neer?",
+              "Waar koop ik de bank?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "mets-le ici",
+          "translation": {
+            "en": "put it here",
+            "es-419": "ponlo aquí",
+            "it": "mettilo qui",
+            "nl": "zet het hier neer"
+          },
+          "distractors": {
+            "en": [
+              "take it there",
+              "put it there"
+            ],
+            "es-419": [
+              "llévalo allí",
+              "ponlo allí"
+            ],
+            "it": [
+              "portalo lì",
+              "mettilo lì"
+            ],
+            "nl": [
+              "breng het daarheen",
+              "zet het daar neer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mets-le devant la fenêtre, s'il te plaît.",
+          "translation": {
+            "en": "Put it in front of the window, please.",
+            "es-419": "Ponlo frente a la ventana, por favor.",
+            "it": "Mettilo davanti alla finestra, per favore.",
+            "nl": "Zet het voor het raam, alsjeblieft."
+          },
+          "distractors": {
+            "en": [
+              "Put it in front of the door, please.",
+              "Take it to the window, please."
+            ],
+            "es-419": [
+              "Ponlo frente a la puerta, por favor.",
+              "Llévalo a la ventana, por favor."
+            ],
+            "it": [
+              "Mettilo davanti alla porta, per favore.",
+              "Portalo alla finestra, per favore."
+            ],
+            "nl": [
+              "Zet het voor de deur, alsjeblieft.",
+              "Breng het naar het raam, alsjeblieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "lampe",
+          "translation": {
+            "en": "lamp",
+            "es-419": "lámpara",
+            "it": "lampada",
+            "nl": "lamp"
+          },
+          "distractors": {
+            "en": [
+              "mirror",
+              "table"
+            ],
+            "es-419": [
+              "espejo",
+              "mesa"
+            ],
+            "it": [
+              "specchio",
+              "tavolo"
+            ],
+            "nl": [
+              "spiegel",
+              "tafel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dessus ou dessous",
+          "translation": {
+            "en": "on top or underneath",
+            "es-419": "encima o debajo",
+            "it": "sopra o sotto",
+            "nl": "erop of eronder"
+          },
+          "distractors": {
+            "en": [
+              "left or right",
+              "near or far"
+            ],
+            "es-419": [
+              "izquierda o derecha",
+              "cerca o lejos"
+            ],
+            "it": [
+              "a sinistra o a destra",
+              "vicino o lontano"
+            ],
+            "nl": [
+              "links of rechts",
+              "dichtbij of ver"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La table est là. Pose la lampe dessus.",
+          "translation": {
+            "en": "The table is there. Put the lamp on it.",
+            "es-419": "La mesa está allí. Pon la lámpara encima.",
+            "it": "Il tavolo è lì. Metti la lampada sopra.",
+            "nl": "De tafel staat daar. Zet de lamp erop."
+          },
+          "distractors": {
+            "en": [
+              "The table is there. Put the lamp under it.",
+              "The table is there. Put the chair on it."
+            ],
+            "es-419": [
+              "La mesa está allí. Pon la lámpara debajo.",
+              "La mesa está allí. Pon la silla encima."
+            ],
+            "it": [
+              "Il tavolo è lì. Metti la lampada sotto.",
+              "Il tavolo è lì. Metti la sedia sopra."
+            ],
+            "nl": [
+              "De tafel staat daar. Zet de lamp eronder.",
+              "De tafel staat daar. Zet de stoel erop."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "placard",
+          "translation": {
+            "en": "closet, cupboard",
+            "es-419": "clóset, armario",
+            "it": "armadio a muro",
+            "nl": "kast, inbouwkast"
+          },
+          "distractors": {
+            "en": [
+              "window",
+              "door"
+            ],
+            "es-419": [
+              "ventana",
+              "puerta"
+            ],
+            "it": [
+              "finestra",
+              "porta"
+            ],
+            "nl": [
+              "raam",
+              "deur"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "dedans",
+          "translation": {
+            "en": "inside",
+            "es-419": "adentro",
+            "it": "dentro",
+            "nl": "erin"
+          },
+          "distractors": {
+            "en": [
+              "outside",
+              "on top"
+            ],
+            "es-419": [
+              "afuera",
+              "encima"
+            ],
+            "it": [
+              "fuori",
+              "sopra"
+            ],
+            "nl": [
+              "buiten",
+              "bovenop"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ouvre le placard. Mets les vêtements dedans.",
+          "translation": {
+            "en": "Open the closet. Put the clothes inside.",
+            "es-419": "Abre el clóset. Pon la ropa adentro.",
+            "it": "Apri l'armadio. Metti i vestiti dentro.",
+            "nl": "Doe de kast open. Leg de kleren erin."
+          },
+          "distractors": {
+            "en": [
+              "Open the closet. Put the clothes on top.",
+              "Open the window. Put the clothes inside."
+            ],
+            "es-419": [
+              "Abre el clóset. Pon la ropa encima.",
+              "Abre la ventana. Pon la ropa adentro."
+            ],
+            "it": [
+              "Apri l'armadio. Metti i vestiti sopra.",
+              "Apri la finestra. Metti i vestiti dentro."
+            ],
+            "nl": [
+              "Doe de kast open. Leg de kleren erbovenop.",
+              "Doe het raam open. Leg de kleren erin."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en haut ou en bas",
+          "translation": {
+            "en": "upstairs or downstairs",
+            "es-419": "arriba o abajo",
+            "it": "di sopra o di sotto",
+            "nl": "boven of beneden"
+          },
+          "distractors": {
+            "en": [
+              "inside or outside",
+              "in front or behind"
+            ],
+            "es-419": [
+              "adentro o afuera",
+              "adelante o atrás"
+            ],
+            "it": [
+              "dentro o fuori",
+              "davanti o dietro"
+            ],
+            "nl": [
+              "binnen of buiten",
+              "voor of achter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "au milieu de la pièce",
+          "translation": {
+            "en": "in the middle of the room",
+            "es-419": "en medio de la habitación",
+            "it": "in mezzo alla stanza",
+            "nl": "midden in de kamer"
+          },
+          "distractors": {
+            "en": [
+              "in the corner of the room",
+              "in the middle of the street"
+            ],
+            "es-419": [
+              "en un rincón de la habitación",
+              "en medio de la calle"
+            ],
+            "it": [
+              "in un angolo della stanza",
+              "in mezzo alla strada"
+            ],
+            "nl": [
+              "in de hoek van de kamer",
+              "midden op straat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Non, ne mets pas la table au milieu de la pièce.",
+          "translation": {
+            "en": "No, don't put the table in the middle of the room.",
+            "es-419": "No, no pongas la mesa en medio de la habitación.",
+            "it": "No, non mettere il tavolo in mezzo alla stanza.",
+            "nl": "Nee, zet de tafel niet midden in de kamer."
+          },
+          "distractors": {
+            "en": [
+              "No, don't put the table in the corner of the room.",
+              "No, don't put the chair in the middle of the room."
+            ],
+            "es-419": [
+              "No, no pongas la mesa en un rincón de la habitación.",
+              "No, no pongas la silla en medio de la habitación."
+            ],
+            "it": [
+              "No, non mettere il tavolo in un angolo della stanza.",
+              "No, non mettere la sedia in mezzo alla stanza."
+            ],
+            "nl": [
+              "Nee, zet de tafel niet in de hoek van de kamer.",
+              "Nee, zet de stoel niet midden in de kamer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le canapé? Mets-le en bas, et mets les chaises en haut.",
+          "translation": {
+            "en": "The couch? Put it downstairs, and put the chairs upstairs.",
+            "es-419": "¿El sofá? Ponlo abajo y pon las sillas arriba.",
+            "it": "Il divano? Mettilo di sotto e metti le sedie di sopra.",
+            "nl": "De bank? Zet hem beneden en zet de stoelen boven."
+          },
+          "distractors": {
+            "en": [
+              "The couch? Put it upstairs, and put the chairs downstairs.",
+              "The couch? Put it downstairs, and put the table upstairs."
+            ],
+            "es-419": [
+              "¿El sofá? Ponlo arriba y pon las sillas abajo.",
+              "¿El sofá? Ponlo abajo y pon la mesa arriba."
+            ],
+            "it": [
+              "Il divano? Mettilo di sopra e metti le sedie di sotto.",
+              "Il divano? Mettilo di sotto e metti il tavolo di sopra."
+            ],
+            "nl": [
+              "De bank? Zet hem boven en zet de stoelen beneden.",
+              "De bank? Zet hem beneden en zet de tafel boven."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-logement-6",
+      "title": "Les voisins",
+      "grammarFocus": {
+        "en": [
+          "y and en: j'y habite, il y en a deux, je n'en ai pas",
+          "où as a relative: le quartier où j'habite"
+        ],
+        "es-419": [
+          "y y en: j'y habite, il y en a deux, je n'en ai pas",
+          "où como relativo: le quartier où j'habite"
+        ],
+        "it": [
+          "y ed en: j'y habite, il y en a deux, je n'en ai pas",
+          "où come relativo: le quartier où j'habite"
+        ],
+        "nl": [
+          "y en en: j'y habite, il y en a deux, je n'en ai pas",
+          "où als betrekkelijk voornaamwoord: le quartier où j'habite"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-logement-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "voisin",
+          "translation": {
+            "en": "neighbor",
+            "es-419": "vecino",
+            "it": "vicino di casa",
+            "nl": "buurman"
+          },
+          "distractors": {
+            "en": [
+              "friend",
+              "landlord"
+            ],
+            "es-419": [
+              "amigo",
+              "propietario"
+            ],
+            "it": [
+              "amico",
+              "proprietario"
+            ],
+            "nl": [
+              "vriend",
+              "huisbaas"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mes voisins",
+          "translation": {
+            "en": "my neighbors",
+            "es-419": "mis vecinos",
+            "it": "i miei vicini",
+            "nl": "mijn buren"
+          },
+          "distractors": {
+            "en": [
+              "my friends",
+              "my parents"
+            ],
+            "es-419": [
+              "mis amigos",
+              "mis padres"
+            ],
+            "it": [
+              "i miei amici",
+              "i miei genitori"
+            ],
+            "nl": [
+              "mijn vrienden",
+              "mijn ouders"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes voisins sont très gentils.",
+          "translation": {
+            "en": "My neighbors are very nice.",
+            "es-419": "Mis vecinos son muy amables.",
+            "it": "I miei vicini sono molto gentili.",
+            "nl": "Mijn buren zijn erg aardig."
+          },
+          "distractors": {
+            "en": [
+              "My neighbors are very noisy.",
+              "My friends are very nice."
+            ],
+            "es-419": [
+              "Mis vecinos son muy ruidosos.",
+              "Mis amigos son muy amables."
+            ],
+            "it": [
+              "I miei vicini sono molto rumorosi.",
+              "I miei amici sono molto gentili."
+            ],
+            "nl": [
+              "Mijn buren zijn erg lawaaiig.",
+              "Mijn vrienden zijn erg aardig."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "bruyant",
+          "translation": {
+            "en": "noisy",
+            "es-419": "ruidoso",
+            "it": "rumoroso",
+            "nl": "lawaaiig"
+          },
+          "distractors": {
+            "en": [
+              "quiet",
+              "dirty"
+            ],
+            "es-419": [
+              "tranquilo",
+              "sucio"
+            ],
+            "it": [
+              "tranquillo",
+              "sporco"
+            ],
+            "nl": [
+              "rustig",
+              "vies"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le voisin du dessous est très bruyant.",
+          "translation": {
+            "en": "The neighbor downstairs is very noisy.",
+            "es-419": "El vecino de abajo es muy ruidoso.",
+            "it": "Il vicino di sotto è molto rumoroso.",
+            "nl": "De buurman beneden is erg lawaaiig."
+          },
+          "distractors": {
+            "en": [
+              "The neighbor upstairs is very noisy.",
+              "The neighbor downstairs is very quiet."
+            ],
+            "es-419": [
+              "El vecino de arriba es muy ruidoso.",
+              "El vecino de abajo es muy tranquilo."
+            ],
+            "it": [
+              "Il vicino di sopra è molto rumoroso.",
+              "Il vicino di sotto è molto tranquillo."
+            ],
+            "nl": [
+              "De buurman boven is erg lawaaiig.",
+              "De buurman beneden is erg rustig."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "escalier",
+          "translation": {
+            "en": "stairs, staircase",
+            "es-419": "escalera",
+            "it": "scala",
+            "nl": "trap"
+          },
+          "distractors": {
+            "en": [
+              "elevator",
+              "door"
+            ],
+            "es-419": [
+              "ascensor",
+              "puerta"
+            ],
+            "it": [
+              "ascensore",
+              "porta"
+            ],
+            "nl": [
+              "lift",
+              "deur"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir, il y a du bruit dans l'escalier.",
+          "translation": {
+            "en": "In the evening, there's noise in the stairwell.",
+            "es-419": "Por la noche hay ruido en la escalera.",
+            "it": "La sera c'è rumore sulle scale.",
+            "nl": "'s Avonds is er lawaai in het trappenhuis."
+          },
+          "distractors": {
+            "en": [
+              "In the morning, there's noise in the stairwell.",
+              "In the evening, there's noise in the elevator."
+            ],
+            "es-419": [
+              "Por la mañana hay ruido en la escalera.",
+              "Por la noche hay ruido en el ascensor."
+            ],
+            "it": [
+              "La mattina c'è rumore sulle scale.",
+              "La sera c'è rumore nell'ascensore."
+            ],
+            "nl": [
+              "'s Ochtends is er lawaai in het trappenhuis.",
+              "'s Avonds is er lawaai in de lift."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'y habite",
+          "translation": {
+            "en": "I live there",
+            "es-419": "vivo allí",
+            "it": "ci abito",
+            "nl": "ik woon er"
+          },
+          "distractors": {
+            "en": [
+              "I work there",
+              "I'm going there"
+            ],
+            "es-419": [
+              "trabajo allí",
+              "voy allí"
+            ],
+            "it": [
+              "ci lavoro",
+              "ci vado"
+            ],
+            "nl": [
+              "ik werk er",
+              "ik ga er naartoe"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le quartier? J'y habite depuis deux ans.",
+          "translation": {
+            "en": "The neighborhood? I've lived there for two years.",
+            "es-419": "¿El barrio? Vivo allí desde hace dos años.",
+            "it": "Il quartiere? Ci abito da due anni.",
+            "nl": "De wijk? Ik woon er al twee jaar."
+          },
+          "distractors": {
+            "en": [
+              "The neighborhood? I've lived there for three years.",
+              "The neighborhood? I've worked there for two years."
+            ],
+            "es-419": [
+              "¿El barrio? Vivo allí desde hace tres años.",
+              "¿El barrio? Trabajo allí desde hace dos años."
+            ],
+            "it": [
+              "Il quartiere? Ci abito da tre anni.",
+              "Il quartiere? Ci lavoro da due anni."
+            ],
+            "nl": [
+              "De wijk? Ik woon er al drie jaar.",
+              "De wijk? Ik werk er al twee jaar."
+            ]
+          },
+          "variants": [
+            "Le quartier? J'y habite depuis 2 ans."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il y en a deux",
+          "translation": {
+            "en": "there are two of them",
+            "es-419": "hay dos",
+            "it": "ce ne sono due",
+            "nl": "er zijn er twee"
+          },
+          "distractors": {
+            "en": [
+              "there are three of them",
+              "there's only one"
+            ],
+            "es-419": [
+              "hay tres",
+              "solo hay uno"
+            ],
+            "it": [
+              "ce ne sono tre",
+              "ce n'è solo uno"
+            ],
+            "nl": [
+              "er zijn er drie",
+              "er is er maar één"
+            ]
+          },
+          "variants": [
+            "il y en a 2"
+          ]
+        },
+        {
+          "id": "fr-a2-logement-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu as des chaises? Oui, j'en ai quatre.",
+          "translation": {
+            "en": "Do you have any chairs? Yes, I have four.",
+            "es-419": "¿Tienes sillas? Sí, tengo cuatro.",
+            "it": "Hai delle sedie? Sì, ne ho quattro.",
+            "nl": "Heb je stoelen? Ja, ik heb er vier."
+          },
+          "distractors": {
+            "en": [
+              "Do you have any chairs? Yes, I have six.",
+              "Do you have any tables? Yes, I have four."
+            ],
+            "es-419": [
+              "¿Tienes sillas? Sí, tengo seis.",
+              "¿Tienes mesas? Sí, tengo cuatro."
+            ],
+            "it": [
+              "Hai delle sedie? Sì, ne ho sei.",
+              "Hai dei tavoli? Sì, ne ho quattro."
+            ],
+            "nl": [
+              "Heb je stoelen? Ja, ik heb er zes.",
+              "Heb je tafels? Ja, ik heb er vier."
+            ]
+          },
+          "variants": [
+            "Tu as des chaises? Oui, j'en ai 4."
+          ]
+        },
+        {
+          "id": "fr-a2-logement-6-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je n'en ai pas",
+          "translation": {
+            "en": "I don't have any",
+            "es-419": "no tengo",
+            "it": "non ne ho",
+            "nl": "ik heb er geen"
+          },
+          "distractors": {
+            "en": [
+              "I have some",
+              "I don't want any"
+            ],
+            "es-419": [
+              "tengo algunos",
+              "no quiero"
+            ],
+            "it": [
+              "ne ho alcuni",
+              "non ne voglio"
+            ],
+            "nl": [
+              "ik heb er een paar",
+              "ik wil er geen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a un ascenseur? Non, il n'y en a pas.",
+          "translation": {
+            "en": "Is there an elevator? No, there isn't one.",
+            "es-419": "¿Hay ascensor? No, no hay.",
+            "it": "C'è un ascensore? No, non ce n'è.",
+            "nl": "Is er een lift? Nee, er is er geen."
+          },
+          "distractors": {
+            "en": [
+              "Is there an elevator? Yes, there are two.",
+              "Is there a balcony? No, there isn't one."
+            ],
+            "es-419": [
+              "¿Hay ascensor? Sí, hay dos.",
+              "¿Hay balcón? No, no hay."
+            ],
+            "it": [
+              "C'è un ascensore? Sì, ce ne sono due.",
+              "C'è un balcone? No, non ce n'è."
+            ],
+            "nl": [
+              "Is er een lift? Ja, er zijn er twee.",
+              "Is er een balkon? Nee, er is er geen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le quartier où j'habite",
+          "translation": {
+            "en": "the neighborhood where I live",
+            "es-419": "el barrio donde vivo",
+            "it": "il quartiere dove abito",
+            "nl": "de wijk waar ik woon"
+          },
+          "distractors": {
+            "en": [
+              "the neighborhood where I work",
+              "the street where I live"
+            ],
+            "es-419": [
+              "el barrio donde trabajo",
+              "la calle donde vivo"
+            ],
+            "it": [
+              "il quartiere dove lavoro",
+              "la strada dove abito"
+            ],
+            "nl": [
+              "de wijk waar ik werk",
+              "de straat waar ik woon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le quartier où j'habite est tranquille, mais les voisins sont bruyants.",
+          "translation": {
+            "en": "The neighborhood where I live is quiet, but the neighbors are noisy.",
+            "es-419": "El barrio donde vivo es tranquilo, pero los vecinos son ruidosos.",
+            "it": "Il quartiere dove abito è tranquillo, ma i vicini sono rumorosi.",
+            "nl": "De wijk waar ik woon is rustig, maar de buren zijn lawaaiig."
+          },
+          "distractors": {
+            "en": [
+              "The neighborhood where I live is noisy, but the neighbors are quiet.",
+              "The neighborhood where I work is quiet, but the neighbors are noisy."
+            ],
+            "es-419": [
+              "El barrio donde vivo es ruidoso, pero los vecinos son tranquilos.",
+              "El barrio donde trabajo es tranquilo, pero los vecinos son ruidosos."
+            ],
+            "it": [
+              "Il quartiere dove abito è rumoroso, ma i vicini sono tranquilli.",
+              "Il quartiere dove lavoro è tranquillo, ma i vicini sono rumorosi."
+            ],
+            "nl": [
+              "De wijk waar ik woon is lawaaiig, maar de buren zijn rustig.",
+              "De wijk waar ik werk is rustig, maar de buren zijn lawaaiig."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-logement-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes voisins? Je les aime bien, mais ils sont bruyants.",
+          "translation": {
+            "en": "My neighbors? I like them, but they're noisy.",
+            "es-419": "¿Mis vecinos? Me caen bien, pero son ruidosos.",
+            "it": "I miei vicini? Mi stanno simpatici, ma sono rumorosi.",
+            "nl": "Mijn buren? Ik mag ze wel, maar ze zijn lawaaiig."
+          },
+          "distractors": {
+            "en": [
+              "My neighbors? I like them, and they're very quiet.",
+              "My neighbors? I don't like them, and they're noisy."
+            ],
+            "es-419": [
+              "¿Mis vecinos? Me caen bien y son muy tranquilos.",
+              "¿Mis vecinos? No me caen bien y son ruidosos."
+            ],
+            "it": [
+              "I miei vicini? Mi stanno simpatici e sono molto tranquilli.",
+              "I miei vicini? Non mi stanno simpatici e sono rumorosi."
+            ],
+            "nl": [
+              "Mijn buren? Ik mag ze wel en ze zijn erg rustig.",
+              "Mijn buren? Ik mag ze niet en ze zijn lawaaiig."
+            ]
+          },
+          "senses": {
+            "3": "pron"
+          }
+        }
+      ]
+    }
+  ]
+}

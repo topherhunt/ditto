@@ -1,0 +1,3816 @@
+{
+  "id": "fr-a2-sante",
+  "language": "fr",
+  "level": "A2",
+  "order": 16,
+  "title": "Chez le médecin",
+  "description": {
+    "en": "Say what hurts, understand a doctor's advice and buy medicine at the pharmacy",
+    "es-419": "Decir qué te duele, entender los consejos del médico y comprar medicamentos en la farmacia",
+    "it": "Dire cosa ti fa male, capire i consigli del medico e comprare medicine in farmacia",
+    "nl": "Zeggen wat pijn doet, het advies van de dokter begrijpen en medicijnen kopen bij de apotheek"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a2-incident"
+  ],
+  "introduces": [
+    "santé",
+    "malade",
+    "sentir",
+    "douleur",
+    "fièvre",
+    "toux",
+    "rhume",
+    "grippe",
+    "tête",
+    "visage",
+    "gorge",
+    "ventre",
+    "dos",
+    "bras",
+    "jambe",
+    "main",
+    "oreille",
+    "nez",
+    "bouche",
+    "corps",
+    "cœur",
+    "genou",
+    "médicament",
+    "comprimé",
+    "ordonnance",
+    "cabinet",
+    "docteur",
+    "respirer",
+    "allergique",
+    "température",
+    "grave",
+    "urgence",
+    "nécessaire",
+    "guérir",
+    "mieux",
+    "pharmacien",
+    "tousser",
+    "repos",
+    "vite",
+    "sirop"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "has (avoir: il/elle a); il/elle a mal à = his/her ... hurts",
+        "es-419": "tiene (avoir: il/elle a); il/elle a mal à = le duele",
+        "it": "ha (avoir: il/elle a); il/elle a mal à = ha mal di",
+        "nl": "heeft (avoir: il/elle a); il/elle a mal à = heeft pijn aan"
+      }
+    },
+    "allergique": {
+      "lemma": "allergique",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "allergic",
+        "es-419": "alérgico",
+        "it": "allergico",
+        "nl": "allergisch"
+      }
+    },
+    "allés": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gone, went (aller: participle, nous sommes allés)",
+        "es-419": "fuimos, ido (aller: participio, nous sommes allés)",
+        "it": "andati (aller: participio, nous sommes allés)",
+        "nl": "gegaan (aller: voltooid deelwoord, nous sommes allés)"
+      }
+    },
+    "avait": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (avoir, imperfect: il avait)",
+        "es-419": "tenía (avoir, imperfecto: il avait)",
+        "it": "aveva (avoir, imperfetto: il avait)",
+        "nl": "had (avoir, onvoltooid verleden tijd: il avait)"
+      }
+    },
+    "bouche": {
+      "lemma": "bouche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mouth (f)",
+        "es-419": "boca (f)",
+        "it": "bocca (f)",
+        "nl": "mond (f)"
+      }
+    },
+    "bras": {
+      "lemma": "bras",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "arm (m); watch out: \"bras\" is an arm, not a bra (a bra is un soutien-gorge)",
+        "es-419": "brazo (m)",
+        "it": "braccio (m); attenzione: \"bras\" è il braccio, non il reggiseno (che si dice soutien-gorge)",
+        "nl": "arm (m)"
+      }
+    },
+    "cabinet": {
+      "lemma": "cabinet",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor's office (m)",
+        "es-419": "consultorio (m); ojo: \"cabinet\" es un consultorio, no un gabinete",
+        "it": "studio medico (m)",
+        "nl": "praktijk (m)"
+      }
+    },
+    "comprimé": {
+      "lemma": "comprimé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tablet, pill (m)",
+        "es-419": "pastilla (m)",
+        "it": "compressa (m)",
+        "nl": "tablet (m)"
+      }
+    },
+    "comprimés": {
+      "lemma": "comprimé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "tablets, pills (comprimé, m)",
+        "es-419": "pastillas (comprimé, m)",
+        "it": "compresse (comprimé, m)",
+        "nl": "tabletten (comprimé, m)"
+      }
+    },
+    "corps": {
+      "lemma": "corps",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "body (m)",
+        "es-419": "cuerpo (m)",
+        "it": "corpo (m)",
+        "nl": "lichaam (m)"
+      }
+    },
+    "cœur": {
+      "lemma": "cœur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "heart (m)",
+        "es-419": "corazón (m)",
+        "it": "cuore (m)",
+        "nl": "hart (m)"
+      }
+    },
+    "docteur": {
+      "lemma": "docteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor (m)",
+        "es-419": "doctor (m)",
+        "it": "dottore (m)",
+        "nl": "dokter (m)"
+      }
+    },
+    "dormi": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "slept (dormir: participle of avoir + dormi)",
+        "es-419": "dormí, dormido (dormir: participio, avoir + dormi)",
+        "it": "dormito (dormir: participio, avoir + dormi)",
+        "nl": "geslapen (dormir: voltooid deelwoord, avoir + dormi)"
+      }
+    },
+    "dos": {
+      "lemma": "dos",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "back (of the body) (m)",
+        "es-419": "espalda (m)",
+        "it": "schiena (m)",
+        "nl": "rug (m)"
+      }
+    },
+    "douleur": {
+      "lemma": "douleur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pain, ache (f)",
+        "es-419": "dolor (f)",
+        "it": "dolore (f)",
+        "nl": "pijn (f)"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être: il/elle est)",
+        "es-419": "es, está (être: il/elle est)",
+        "it": "è (être: il/elle est)",
+        "nl": "is (être: il/elle est)"
+      }
+    },
+    "fièvre": {
+      "lemma": "fièvre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fever (f)",
+        "es-419": "fiebre (f)",
+        "it": "febbre (f)",
+        "nl": "koorts (f)"
+      }
+    },
+    "genou": {
+      "lemma": "genou",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "knee (m)",
+        "es-419": "rodilla (m)",
+        "it": "ginocchio (m)",
+        "nl": "knie (m)"
+      }
+    },
+    "gorge": {
+      "lemma": "gorge",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "throat (f)",
+        "es-419": "garganta (f)",
+        "it": "gola (f)",
+        "nl": "keel (f)"
+      }
+    },
+    "grave": {
+      "lemma": "grave",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "serious",
+        "es-419": "grave",
+        "it": "grave",
+        "nl": "ernstig"
+      }
+    },
+    "grippe": {
+      "lemma": "grippe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "flu (f)",
+        "es-419": "gripe (f)",
+        "it": "influenza (f)",
+        "nl": "griep (f)"
+      }
+    },
+    "guérir": {
+      "lemma": "guérir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to get well, to recover",
+        "es-419": "curarse, sanar",
+        "it": "guarire",
+        "nl": "genezen"
+      }
+    },
+    "guérissez": {
+      "lemma": "guérir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "get well (guérir: vous guérissez, command)",
+        "es-419": "que se mejore (guérir: vous guérissez, orden)",
+        "it": "guarisca (guérir: vous guérissez, imperativo)",
+        "nl": "word beter (guérir: vous guérissez, gebiedende wijs)"
+      }
+    },
+    "hier": {
+      "lemma": "hier",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "es-419": "ayer",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j' + ai: I have (avoir); also the helper in j'ai dormi = I slept; j'ai mal à = my ... hurts",
+        "es-419": "j' + ai: tengo (avoir); también auxiliar en j'ai dormi = dormí; j'ai mal à = me duele",
+        "it": "j' + ai: ho (avoir); anche ausiliare in j'ai dormi = ho dormito; j'ai mal à = ho mal di",
+        "nl": "j' + ai: ik heb (avoir); ook hulpwerkwoord in j'ai dormi = ik heb geslapen; j'ai mal à = ik heb pijn aan"
+      }
+    },
+    "j'étais": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "I was (être, imperfect: j'étais)",
+        "es-419": "yo estaba, era (être, imperfecto: j'étais)",
+        "it": "io ero (être, imperfetto: j'étais)",
+        "nl": "ik was (être, onvoltooid verleden tijd: j'étais)"
+      }
+    },
+    "jambe": {
+      "lemma": "jambe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "leg (f)",
+        "es-419": "pierna (f)",
+        "it": "gamba (f)",
+        "nl": "been (f)"
+      }
+    },
+    "l'ordinateur": {
+      "lemma": "ordinateur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l' + ordinateur: the computer (m)",
+        "es-419": "l' + ordinateur: la computadora (m)",
+        "it": "l' + ordinateur: il computer (m)",
+        "nl": "l' + ordinateur: de computer (m)"
+      }
+    },
+    "l'ordonnance": {
+      "lemma": "ordonnance",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l' + ordonnance: the prescription (f)",
+        "es-419": "l' + ordonnance: la receta médica (f)",
+        "it": "l' + ordonnance: la ricetta medica (f)",
+        "nl": "l' + ordonnance: het recept van de dokter (f)"
+      }
+    },
+    "l'oreille": {
+      "lemma": "oreille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l' + oreille: the ear (f)",
+        "es-419": "l' + oreille: la oreja, el oído (f)",
+        "it": "l' + oreille: l'orecchio (f)",
+        "nl": "l' + oreille: het oor (f)"
+      }
+    },
+    "main": {
+      "lemma": "main",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hand (f); watch out: \"main\" means hand, not the English \"main\"",
+        "es-419": "mano (f)",
+        "it": "mano (f)",
+        "nl": "hand (f); let op: \"main\" betekent hand, niet \"main\""
+      }
+    },
+    "malade": {
+      "lemma": "malade",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sick, ill",
+        "es-419": "enfermo",
+        "it": "malato",
+        "nl": "ziek"
+      }
+    },
+    "marcher": {
+      "lemma": "marcher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to walk",
+        "es-419": "caminar",
+        "it": "camminare",
+        "nl": "lopen"
+      }
+    },
+    "martin": {
+      "lemma": "Martin",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Martin (a family name)",
+        "es-419": "Martin (un apellido)",
+        "it": "Martin (un cognome)",
+        "nl": "Martin (een achternaam)"
+      }
+    },
+    "mieux": {
+      "lemma": "mieux",
+      "pos": "ADV",
+      "gloss": {
+        "en": "better",
+        "es-419": "mejor",
+        "it": "meglio",
+        "nl": "beter"
+      }
+    },
+    "médicament": {
+      "lemma": "médicament",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "medicine, drug (m)",
+        "es-419": "medicamento (m)",
+        "it": "medicinale, farmaco (m)",
+        "nl": "medicijn (m)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: not, with pas (ne ... pas)",
+        "es-419": "ne: no, con pas (ne ... pas)",
+        "it": "ne: non, con pas (ne ... pas)",
+        "nl": "ne: niet, met pas (ne ... pas)"
+      }
+    },
+    "nez": {
+      "lemma": "nez",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "nose (m)",
+        "es-419": "nariz (m)",
+        "it": "naso (m)",
+        "nl": "neus (m)"
+      }
+    },
+    "nécessaire": {
+      "lemma": "nécessaire",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "necessary",
+        "es-419": "necesario",
+        "it": "necessario",
+        "nl": "nodig, noodzakelijk"
+      }
+    },
+    "ordonnance": {
+      "lemma": "ordonnance",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prescription (f)",
+        "es-419": "receta médica (f)",
+        "it": "ricetta medica (f)",
+        "nl": "recept van de dokter (f)"
+      }
+    },
+    "oreille": {
+      "lemma": "oreille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ear (f)",
+        "es-419": "oreja, oído (f)",
+        "it": "orecchio (f)",
+        "nl": "oor (f)"
+      }
+    },
+    "parler": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to speak, to talk",
+        "es-419": "hablar",
+        "it": "parlare",
+        "nl": "praten, spreken"
+      }
+    },
+    "pharmacien": {
+      "lemma": "pharmacien",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pharmacist (m)",
+        "es-419": "farmacéutico (m)",
+        "it": "farmacista (m)",
+        "nl": "apotheker (m)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that (dit que = says that)",
+        "es-419": "que (dit que = dice que)",
+        "it": "che (dit que = dice che)",
+        "nl": "dat (dit que = zegt dat)"
+      }
+    },
+    "repos": {
+      "lemma": "repos",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rest (m)",
+        "es-419": "descanso, reposo (m)",
+        "it": "riposo (m)",
+        "nl": "rust (m)"
+      }
+    },
+    "reposer": {
+      "lemma": "reposer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to rest (se reposer; vous devez vous reposer = you need to rest)",
+        "es-419": "descansar (se reposer; vous devez vous reposer = debe descansar)",
+        "it": "riposare (se reposer; vous devez vous reposer = deve riposare)",
+        "nl": "rusten (se reposer; vous devez vous reposer = u moet rusten)"
+      }
+    },
+    "respirer": {
+      "lemma": "respirer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to breathe",
+        "es-419": "respirar",
+        "it": "respirare",
+        "nl": "ademen"
+      }
+    },
+    "respirez": {
+      "lemma": "respirer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "breathe (respirer: vous respirez, command)",
+        "es-419": "respire (respirer: vous respirez, orden)",
+        "it": "respiri (respirer: vous respirez, imperativo)",
+        "nl": "adem (respirer: vous respirez, gebiedende wijs)"
+      }
+    },
+    "rhume": {
+      "lemma": "rhume",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cold (illness) (m)",
+        "es-419": "resfriado (m)",
+        "it": "raffreddore (m)",
+        "nl": "verkoudheid (m)"
+      }
+    },
+    "santé": {
+      "lemma": "santé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "health (f)",
+        "es-419": "salud (f)",
+        "it": "salute (f)",
+        "nl": "gezondheid (f)"
+      }
+    },
+    "sens": {
+      "lemma": "sentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "feel (se sentir: je me sens = I feel)",
+        "es-419": "me siento (se sentir: je me sens)",
+        "it": "mi sento (se sentir: je me sens)",
+        "nl": "voel me (se sentir: je me sens)"
+      }
+    },
+    "sirop": {
+      "lemma": "sirop",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "syrup, cough syrup (m)",
+        "es-419": "jarabe (m)",
+        "it": "sciroppo (m)",
+        "nl": "siroop (m)"
+      }
+    },
+    "température": {
+      "lemma": "température",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "temperature (f)",
+        "es-419": "temperatura (f)",
+        "it": "temperatura (f)",
+        "nl": "temperatuur (f)"
+      }
+    },
+    "tombé": {
+      "lemma": "tomber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fell, fallen (tomber: participle, il est tombé)",
+        "es-419": "se cayó, caído (tomber: participio, il est tombé)",
+        "it": "caduto (tomber: participio, il est tombé)",
+        "nl": "gevallen (tomber: voltooid deelwoord, il est tombé)"
+      }
+    },
+    "tousse": {
+      "lemma": "tousser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "coughs (tousser: il tousse)",
+        "es-419": "tose (tousser: il tousse)",
+        "it": "tossisce (tousser: il tousse)",
+        "nl": "hoest (tousser: il tousse)"
+      }
+    },
+    "tousser": {
+      "lemma": "tousser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to cough",
+        "es-419": "toser",
+        "it": "tossire",
+        "nl": "hoesten"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "all, everything (tout va bien = everything is fine)",
+        "es-419": "todo (tout va bien = todo está bien)",
+        "it": "tutto (tout va bien = va tutto bene)",
+        "nl": "alles (tout va bien = alles is goed)"
+      }
+    },
+    "toute": {
+      "lemma": "tout",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, whole (tout, toute: toute la journée = the whole day)",
+        "es-419": "todo, toda (tout, toute: toute la journée = todo el día)",
+        "it": "tutto, tutta (tout, toute: toute la journée = tutto il giorno)",
+        "nl": "hele, heel (tout, toute: toute la journée = de hele dag)"
+      }
+    },
+    "toux": {
+      "lemma": "toux",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cough (f)",
+        "es-419": "tos (f)",
+        "it": "tosse (f)",
+        "nl": "hoest (f)"
+      }
+    },
+    "travaillé": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "worked (travailler: participle)",
+        "es-419": "trabajé, trabajado (travailler: participio)",
+        "it": "lavorato (travailler: participio)",
+        "nl": "gewerkt (travailler: voltooid deelwoord)"
+      }
+    },
+    "trente-trois": {
+      "lemma": "trente",
+      "pos": "NUM",
+      "gloss": {
+        "en": "thirty-three (trente + trois)",
+        "es-419": "treinta y tres (trente + trois)",
+        "it": "trentatré (trente + trois)",
+        "nl": "drieëndertig (trente + trois)"
+      }
+    },
+    "tête": {
+      "lemma": "tête",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "head (f)",
+        "es-419": "cabeza (f)",
+        "it": "testa (f)",
+        "nl": "hoofd (f)"
+      }
+    },
+    "urgence": {
+      "lemma": "urgence",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "emergency (f)",
+        "es-419": "urgencia, emergencia (f)",
+        "it": "urgenza, emergenza (f)",
+        "nl": "noodgeval (f)"
+      }
+    },
+    "urgences": {
+      "lemma": "urgence",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the emergency room (aux urgences) (f)",
+        "es-419": "urgencias (aux urgences) (f)",
+        "it": "il pronto soccorso (aux urgences) (f)",
+        "nl": "de spoedeisende hulp (aux urgences) (f)"
+      }
+    },
+    "ventre": {
+      "lemma": "ventre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "belly, stomach (m)",
+        "es-419": "vientre, barriga (m)",
+        "it": "pancia (m)",
+        "nl": "buik (m)"
+      }
+    },
+    "visage": {
+      "lemma": "visage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "face (m)",
+        "es-419": "cara, rostro (m)",
+        "it": "viso (m)",
+        "nl": "gezicht (m)"
+      }
+    },
+    "vite": {
+      "lemma": "vite",
+      "pos": "ADV",
+      "gloss": {
+        "en": "quickly, fast",
+        "es-419": "rápido, pronto",
+        "it": "in fretta, presto",
+        "nl": "snel"
+      }
+    },
+    "écoute": {
+      "lemma": "écouter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "listens (écouter: il écoute)",
+        "es-419": "escucha (écouter: il écoute)",
+        "it": "ascolta (écouter: il écoute)",
+        "nl": "luistert (écouter: il écoute)"
+      }
+    },
+    "as": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (avoir, tu); tu as vingt ans = you're twenty",
+        "es-419": "tienes (avoir, tu); tu as vingt ans = tienes veinte años",
+        "it": "hai (avoir, tu); tu as vingt ans = hai vent'anni",
+        "nl": "je hebt (avoir, tu); tu as vingt ans = je bent twintig"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'ai = ne + ai: I have not",
+        "es-419": "n'ai = ne + ai: no he, no tengo",
+        "it": "n'ai = ne + ai: non ho",
+        "nl": "n'ai = ne + ai: ik heb niet"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a2-sante-1",
+      "title": "Je ne me sens pas bien",
+      "grammarFocus": {
+        "en": [
+          "se sentir: je me sens mal / bien",
+          "depuis + present: depuis trois jours",
+          "ne ... pas with the passé composé: je n'ai pas dormi"
+        ],
+        "es-419": [
+          "se sentir: me siento mal / bien",
+          "depuis + presente: desde hace tres días",
+          "ne ... pas con el passé composé: je n'ai pas dormi"
+        ],
+        "it": [
+          "se sentir: mi sento male / bene",
+          "depuis + presente: da tre giorni",
+          "ne ... pas con il passé composé: je n'ai pas dormi"
+        ],
+        "nl": [
+          "se sentir: ik voel me niet goed",
+          "depuis + tegenwoordige tijd: al drie dagen",
+          "ne ... pas met de passé composé: je n'ai pas dormi"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "malade",
+          "translation": {
+            "en": "sick, ill",
+            "es-419": "enfermo",
+            "it": "malato",
+            "nl": "ziek"
+          },
+          "distractors": {
+            "en": [
+              "tired",
+              "hungry"
+            ],
+            "es-419": [
+              "cansado",
+              "hambriento"
+            ],
+            "it": [
+              "stanco",
+              "affamato"
+            ],
+            "nl": [
+              "moe",
+              "hongerig"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je me sens mal",
+          "translation": {
+            "en": "I feel bad",
+            "es-419": "me siento mal",
+            "it": "mi sento male",
+            "nl": "ik voel me niet goed"
+          },
+          "distractors": {
+            "en": [
+              "I feel great",
+              "I feel calm"
+            ],
+            "es-419": [
+              "me siento genial",
+              "me siento tranquilo"
+            ],
+            "it": [
+              "mi sento benissimo",
+              "mi sento tranquillo"
+            ],
+            "nl": [
+              "ik voel me prima",
+              "ik voel me rustig"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, je ne me sens pas bien.",
+          "translation": {
+            "en": "Today I don't feel well.",
+            "es-419": "Hoy no me siento bien.",
+            "it": "Oggi non mi sento bene.",
+            "nl": "Vandaag voel ik me niet goed."
+          },
+          "distractors": {
+            "en": [
+              "Today I feel very well.",
+              "Yesterday I didn't feel well."
+            ],
+            "es-419": [
+              "Hoy me siento muy bien.",
+              "Ayer no me sentía bien."
+            ],
+            "it": [
+              "Oggi mi sento benissimo.",
+              "Ieri non mi sentivo bene."
+            ],
+            "nl": [
+              "Vandaag voel ik me erg goed.",
+              "Gisteren voelde ik me niet goed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "santé",
+          "translation": {
+            "en": "health",
+            "es-419": "salud",
+            "it": "salute",
+            "nl": "gezondheid"
+          },
+          "distractors": {
+            "en": [
+              "hospital",
+              "sport"
+            ],
+            "es-419": [
+              "hospital",
+              "deporte"
+            ],
+            "it": [
+              "ospedale",
+              "sport"
+            ],
+            "nl": [
+              "ziekenhuis",
+              "sport"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "en bonne santé",
+          "translation": {
+            "en": "in good health",
+            "es-419": "en buena salud",
+            "it": "in buona salute",
+            "nl": "in goede gezondheid"
+          },
+          "distractors": {
+            "en": [
+              "in a good mood",
+              "in bad health"
+            ],
+            "es-419": [
+              "de buen humor",
+              "con mala salud"
+            ],
+            "it": [
+              "di buon umore",
+              "in cattiva salute"
+            ],
+            "nl": [
+              "in een goed humeur",
+              "in slechte gezondheid"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma grand-mère a quatre-vingts ans et elle est en bonne santé.",
+          "translation": {
+            "en": "My grandmother is eighty and in good health.",
+            "es-419": "Mi abuela tiene ochenta años y está en buena salud.",
+            "it": "Mia nonna ha ottant'anni ed è in buona salute.",
+            "nl": "Mijn oma is tachtig en in goede gezondheid."
+          },
+          "distractors": {
+            "en": [
+              "My grandmother is eighty and often sick.",
+              "My grandmother is sixty and in good health."
+            ],
+            "es-419": [
+              "Mi abuela tiene ochenta años y se enferma seguido.",
+              "Mi abuela tiene sesenta años y está en buena salud."
+            ],
+            "it": [
+              "Mia nonna ha ottant'anni ed è spesso malata.",
+              "Mia nonna ha sessant'anni ed è in buona salute."
+            ],
+            "nl": [
+              "Mijn oma is tachtig en vaak ziek.",
+              "Mijn oma is zestig en in goede gezondheid."
+            ]
+          },
+          "variants": [
+            "Ma grand-mère a 80 ans et elle est en bonne santé."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-1-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "qu'est-ce qui ne va pas",
+          "translation": {
+            "en": "what's wrong",
+            "es-419": "qué anda mal",
+            "it": "cosa non va",
+            "nl": "wat is er aan de hand"
+          },
+          "distractors": {
+            "en": [
+              "what does it cost",
+              "what time is it"
+            ],
+            "es-419": [
+              "cuánto cuesta",
+              "qué hora es"
+            ],
+            "it": [
+              "quanto costa",
+              "che ore sono"
+            ],
+            "nl": [
+              "hoeveel kost het",
+              "hoe laat is het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Qu'est-ce qui ne va pas, madame?",
+          "translation": {
+            "en": "What's wrong, ma'am?",
+            "es-419": "¿Qué le pasa, señora?",
+            "it": "Che cos'ha, signora?",
+            "nl": "Wat scheelt er, mevrouw?"
+          },
+          "distractors": {
+            "en": [
+              "What would you like, ma'am?",
+              "Where does it hurt, ma'am?"
+            ],
+            "es-419": [
+              "¿Qué desea, señora?",
+              "¿Dónde le duele, señora?"
+            ],
+            "it": [
+              "Che cosa desidera, signora?",
+              "Dove le fa male, signora?"
+            ],
+            "nl": [
+              "Wat wilt u, mevrouw?",
+              "Waar doet het pijn, mevrouw?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un peu malade",
+          "translation": {
+            "en": "a little sick",
+            "es-419": "un poco enfermo",
+            "it": "un po' malato",
+            "nl": "een beetje ziek"
+          },
+          "distractors": {
+            "en": [
+              "a little tired",
+              "very sick"
+            ],
+            "es-419": [
+              "un poco cansado",
+              "muy enfermo"
+            ],
+            "it": [
+              "un po' stanco",
+              "molto malato"
+            ],
+            "nl": [
+              "een beetje moe",
+              "erg ziek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "depuis trois jours",
+          "translation": {
+            "en": "for three days",
+            "es-419": "desde hace tres días",
+            "it": "da tre giorni",
+            "nl": "al drie dagen"
+          },
+          "distractors": {
+            "en": [
+              "for two days",
+              "for three weeks"
+            ],
+            "es-419": [
+              "desde hace dos días",
+              "desde hace tres semanas"
+            ],
+            "it": [
+              "da due giorni",
+              "da tre settimane"
+            ],
+            "nl": [
+              "al twee dagen",
+              "al drie weken"
+            ]
+          },
+          "variants": [
+            "depuis 3 jours"
+          ]
+        },
+        {
+          "id": "fr-a2-sante-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils est malade depuis trois jours et il ne mange rien.",
+          "translation": {
+            "en": "My son has been sick for three days and he isn't eating anything.",
+            "es-419": "Mi hijo está enfermo desde hace tres días y no come nada.",
+            "it": "Mio figlio è malato da tre giorni e non mangia niente.",
+            "nl": "Mijn zoon is al drie dagen ziek en hij eet niets."
+          },
+          "distractors": {
+            "en": [
+              "My son has been sick for three days and he isn't drinking anything.",
+              "My daughter has been sick for two days and she isn't eating anything."
+            ],
+            "es-419": [
+              "Mi hijo está enfermo desde hace tres días y no toma nada.",
+              "Mi hija está enferma desde hace dos días y no come nada."
+            ],
+            "it": [
+              "Mio figlio è malato da tre giorni e non beve niente.",
+              "Mia figlia è malata da due giorni e non mangia niente."
+            ],
+            "nl": [
+              "Mijn zoon is al drie dagen ziek en hij drinkt niets.",
+              "Mijn dochter is al twee dagen ziek en ze eet niets."
+            ]
+          },
+          "variants": [
+            "Mon fils est malade depuis 3 jours et il ne mange rien."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je me sens très fatigué depuis lundi.",
+          "translation": {
+            "en": "I've been feeling very tired since Monday.",
+            "es-419": "Me siento muy cansado desde el lunes.",
+            "it": "Mi sento molto stanco da lunedì.",
+            "nl": "Ik voel me sinds maandag erg moe."
+          },
+          "distractors": {
+            "en": [
+              "I've been feeling very tired since Sunday.",
+              "I've been feeling very well since Monday."
+            ],
+            "es-419": [
+              "Me siento muy cansado desde el domingo.",
+              "Me siento muy bien desde el lunes."
+            ],
+            "it": [
+              "Mi sento molto stanco da domenica.",
+              "Mi sento molto bene da lunedì."
+            ],
+            "nl": [
+              "Ik voel me sinds zondag erg moe.",
+              "Ik voel me sinds maandag erg goed."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-a2-sante-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Comment est-ce que tu te sens ce matin?",
+          "translation": {
+            "en": "How are you feeling this morning?",
+            "es-419": "¿Cómo te sientes esta mañana?",
+            "it": "Come ti senti stamattina?",
+            "nl": "Hoe voel je je vanochtend?"
+          },
+          "distractors": {
+            "en": [
+              "How are you feeling this evening?",
+              "Where are you going this morning?"
+            ],
+            "es-419": [
+              "¿Cómo te sientes esta noche?",
+              "¿Adónde vas esta mañana?"
+            ],
+            "it": [
+              "Come ti senti stasera?",
+              "Dove vai stamattina?"
+            ],
+            "nl": [
+              "Hoe voel je je vanavond?",
+              "Waar ga je vanochtend heen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je n'ai pas dormi",
+          "translation": {
+            "en": "I didn't sleep",
+            "es-419": "no dormí",
+            "it": "non ho dormito",
+            "nl": "ik heb niet geslapen"
+          },
+          "distractors": {
+            "en": [
+              "I didn't eat",
+              "I didn't work"
+            ],
+            "es-419": [
+              "no comí",
+              "no trabajé"
+            ],
+            "it": [
+              "non ho mangiato",
+              "non ho lavorato"
+            ],
+            "nl": [
+              "ik heb niet gegeten",
+              "ik heb niet gewerkt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai mal dormi cette nuit et je ne me sens pas bien.",
+          "translation": {
+            "en": "I slept badly last night and I don't feel well.",
+            "es-419": "Anoche dormí mal y no me siento bien.",
+            "it": "Stanotte ho dormito male e non mi sento bene.",
+            "nl": "Ik heb vannacht slecht geslapen en ik voel me niet goed."
+          },
+          "distractors": {
+            "en": [
+              "I slept very well last night and I feel great.",
+              "I didn't eat last night and I don't feel well."
+            ],
+            "es-419": [
+              "Anoche dormí muy bien y me siento genial.",
+              "Anoche no comí y no me siento bien."
+            ],
+            "it": [
+              "Stanotte ho dormito benissimo e mi sento benissimo.",
+              "Stanotte non ho mangiato e non mi sento bene."
+            ],
+            "nl": [
+              "Ik heb vannacht heel goed geslapen en ik voel me geweldig.",
+              "Ik heb vannacht niet gegeten en ik voel me niet goed."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hier, je n'ai pas travaillé parce que j'étais malade.",
+          "translation": {
+            "en": "Yesterday I didn't work because I was sick.",
+            "es-419": "Ayer no trabajé porque estaba enfermo.",
+            "it": "Ieri non ho lavorato perché ero malato.",
+            "nl": "Gisteren heb ik niet gewerkt omdat ik ziek was."
+          },
+          "distractors": {
+            "en": [
+              "Yesterday I didn't work because I was tired.",
+              "Yesterday I didn't work because I was busy."
+            ],
+            "es-419": [
+              "Ayer no trabajé porque estaba cansado.",
+              "Ayer no trabajé porque estaba ocupado."
+            ],
+            "it": [
+              "Ieri non ho lavorato perché ero stanco.",
+              "Ieri non ho lavorato perché ero occupato."
+            ],
+            "nl": [
+              "Gisteren heb ik niet gewerkt omdat ik moe was.",
+              "Gisteren heb ik niet gewerkt omdat ik het druk had."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-sante-2",
+      "title": "J'ai mal à la tête",
+      "grammarFocus": {
+        "en": [
+          "avoir mal à + body part: j'ai mal à la tête",
+          "à + le = au, à + les = aux: mal au dos, mal au ventre",
+          "faire mal: ça me fait mal"
+        ],
+        "es-419": [
+          "avoir mal à + parte del cuerpo: j'ai mal à la tête",
+          "à + le = au, à + les = aux: mal au dos, mal au ventre",
+          "faire mal: ça me fait mal"
+        ],
+        "it": [
+          "avoir mal à + parte del corpo: j'ai mal à la tête",
+          "à + le = au, à + les = aux: mal au dos, mal au ventre",
+          "faire mal: ça me fait mal"
+        ],
+        "nl": [
+          "avoir mal à + lichaamsdeel: j'ai mal à la tête",
+          "à + le = au, à + les = aux: mal au dos, mal au ventre",
+          "faire mal: ça me fait mal"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "tête",
+          "translation": {
+            "en": "head",
+            "es-419": "cabeza",
+            "it": "testa",
+            "nl": "hoofd"
+          },
+          "distractors": {
+            "en": [
+              "foot",
+              "back"
+            ],
+            "es-419": [
+              "pie",
+              "espalda"
+            ],
+            "it": [
+              "piede",
+              "schiena"
+            ],
+            "nl": [
+              "voet",
+              "rug"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai mal à la tête",
+          "translation": {
+            "en": "I have a headache",
+            "es-419": "me duele la cabeza",
+            "it": "ho mal di testa",
+            "nl": "ik heb hoofdpijn"
+          },
+          "distractors": {
+            "en": [
+              "I have a stomachache",
+              "I have a toothache"
+            ],
+            "es-419": [
+              "me duele el estómago",
+              "me duele la muela"
+            ],
+            "it": [
+              "ho mal di pancia",
+              "ho mal di denti"
+            ],
+            "nl": [
+              "ik heb buikpijn",
+              "ik heb kiespijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai mal à la tête depuis ce matin.",
+          "translation": {
+            "en": "I've had a headache since this morning.",
+            "es-419": "Me duele la cabeza desde esta mañana.",
+            "it": "Ho mal di testa da stamattina.",
+            "nl": "Ik heb sinds vanochtend hoofdpijn."
+          },
+          "distractors": {
+            "en": [
+              "I've had a headache since yesterday.",
+              "I've had a stomachache since this morning."
+            ],
+            "es-419": [
+              "Me duele la cabeza desde ayer.",
+              "Me duele el estómago desde esta mañana."
+            ],
+            "it": [
+              "Ho mal di testa da ieri.",
+              "Ho mal di pancia da stamattina."
+            ],
+            "nl": [
+              "Ik heb sinds gisteren hoofdpijn.",
+              "Ik heb sinds vanochtend buikpijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "dos",
+          "translation": {
+            "en": "back",
+            "es-419": "espalda",
+            "it": "schiena",
+            "nl": "rug"
+          },
+          "distractors": {
+            "en": [
+              "arm",
+              "chest"
+            ],
+            "es-419": [
+              "brazo",
+              "pecho"
+            ],
+            "it": [
+              "braccio",
+              "petto"
+            ],
+            "nl": [
+              "arm",
+              "borst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai mal au dos",
+          "translation": {
+            "en": "my back hurts",
+            "es-419": "me duele la espalda",
+            "it": "ho mal alla schiena",
+            "nl": "ik heb rugpijn"
+          },
+          "distractors": {
+            "en": [
+              "my neck hurts",
+              "my back is fine"
+            ],
+            "es-419": [
+              "me duele el cuello",
+              "mi espalda está bien"
+            ],
+            "it": [
+              "ho mal al collo",
+              "la schiena sta bene"
+            ],
+            "nl": [
+              "mijn nek doet pijn",
+              "mijn rug is in orde"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je travaille toute la journée à l'ordinateur et j'ai mal au dos.",
+          "translation": {
+            "en": "I work at the computer all day and my back hurts.",
+            "es-419": "Trabajo todo el día en la computadora y me duele la espalda.",
+            "it": "Lavoro tutto il giorno al computer e ho mal di schiena.",
+            "nl": "Ik werk de hele dag achter de computer en ik heb rugpijn."
+          },
+          "distractors": {
+            "en": [
+              "I work at the computer all day and my eyes hurt.",
+              "I work at the computer all day and I'm very tired."
+            ],
+            "es-419": [
+              "Trabajo todo el día en la computadora y me duelen los ojos.",
+              "Trabajo todo el día en la computadora y estoy muy cansado."
+            ],
+            "it": [
+              "Lavoro tutto il giorno al computer e mi fanno male gli occhi.",
+              "Lavoro tutto il giorno al computer e sono molto stanco."
+            ],
+            "nl": [
+              "Ik werk de hele dag achter de computer en mijn ogen doen pijn.",
+              "Ik werk de hele dag achter de computer en ik ben erg moe."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "ventre",
+          "translation": {
+            "en": "belly, stomach",
+            "es-419": "vientre, barriga",
+            "it": "pancia",
+            "nl": "buik"
+          },
+          "distractors": {
+            "en": [
+              "throat",
+              "knee"
+            ],
+            "es-419": [
+              "garganta",
+              "rodilla"
+            ],
+            "it": [
+              "gola",
+              "ginocchio"
+            ],
+            "nl": [
+              "keel",
+              "knie"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mal au ventre",
+          "translation": {
+            "en": "a stomachache",
+            "es-419": "dolor de estómago",
+            "it": "mal di pancia",
+            "nl": "buikpijn"
+          },
+          "distractors": {
+            "en": [
+              "a backache",
+              "a toothache"
+            ],
+            "es-419": [
+              "dolor de espalda",
+              "dolor de muela"
+            ],
+            "it": [
+              "mal di schiena",
+              "mal di denti"
+            ],
+            "nl": [
+              "rugpijn",
+              "kiespijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils a mal au ventre et il ne veut pas manger.",
+          "translation": {
+            "en": "My son has a stomachache and doesn't want to eat.",
+            "es-419": "Mi hijo tiene dolor de estómago y no quiere comer.",
+            "it": "Mio figlio ha mal di pancia e non vuole mangiare.",
+            "nl": "Mijn zoon heeft buikpijn en wil niet eten."
+          },
+          "distractors": {
+            "en": [
+              "My son has a headache and doesn't want to eat.",
+              "My son has a stomachache and doesn't want to sleep."
+            ],
+            "es-419": [
+              "Mi hijo tiene dolor de cabeza y no quiere comer.",
+              "Mi hijo tiene dolor de estómago y no quiere dormir."
+            ],
+            "it": [
+              "Mio figlio ha mal di testa e non vuole mangiare.",
+              "Mio figlio ha mal di pancia e non vuole dormire."
+            ],
+            "nl": [
+              "Mijn zoon heeft hoofdpijn en wil niet eten.",
+              "Mijn zoon heeft buikpijn en wil niet slapen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "gorge",
+          "translation": {
+            "en": "throat",
+            "es-419": "garganta",
+            "it": "gola",
+            "nl": "keel"
+          },
+          "distractors": {
+            "en": [
+              "neck",
+              "nose"
+            ],
+            "es-419": [
+              "cuello",
+              "nariz"
+            ],
+            "it": [
+              "collo",
+              "naso"
+            ],
+            "nl": [
+              "nek",
+              "neus"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mal à la gorge",
+          "translation": {
+            "en": "a sore throat",
+            "es-419": "dolor de garganta",
+            "it": "mal di gola",
+            "nl": "keelpijn"
+          },
+          "distractors": {
+            "en": [
+              "a headache",
+              "an earache"
+            ],
+            "es-419": [
+              "dolor de cabeza",
+              "dolor de oído"
+            ],
+            "it": [
+              "mal di testa",
+              "mal d'orecchio"
+            ],
+            "nl": [
+              "hoofdpijn",
+              "oorpijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle a mal à la gorge et elle ne peut pas parler.",
+          "translation": {
+            "en": "She has a sore throat and can't talk.",
+            "es-419": "Ella tiene dolor de garganta y no puede hablar.",
+            "it": "Ha mal di gola e non riesce a parlare.",
+            "nl": "Ze heeft keelpijn en kan niet praten."
+          },
+          "distractors": {
+            "en": [
+              "She has a sore throat and can't sleep.",
+              "She has a headache and can't talk."
+            ],
+            "es-419": [
+              "Ella tiene dolor de garganta y no puede dormir.",
+              "Ella tiene dolor de cabeza y no puede hablar."
+            ],
+            "it": [
+              "Ha mal di gola e non riesce a dormire.",
+              "Ha mal di testa e non riesce a parlare."
+            ],
+            "nl": [
+              "Ze heeft keelpijn en kan niet slapen.",
+              "Ze heeft hoofdpijn en kan niet praten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le bras et la jambe",
+          "translation": {
+            "en": "the arm and the leg",
+            "es-419": "el brazo y la pierna",
+            "it": "il braccio e la gamba",
+            "nl": "de arm en het been"
+          },
+          "distractors": {
+            "en": [
+              "the arm and the head",
+              "the hand and the leg"
+            ],
+            "es-419": [
+              "el brazo y la cabeza",
+              "la mano y la pierna"
+            ],
+            "it": [
+              "il braccio e la testa",
+              "la mano e la gamba"
+            ],
+            "nl": [
+              "de arm en het hoofd",
+              "de hand en het been"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon frère est tombé de vélo et il a mal au bras et à la jambe.",
+          "translation": {
+            "en": "My brother fell off his bike and his arm and leg hurt.",
+            "es-419": "Mi hermano se cayó de la bicicleta y le duelen el brazo y la pierna.",
+            "it": "Mio fratello è caduto dalla bici e gli fanno male il braccio e la gamba.",
+            "nl": "Mijn broer is van zijn fiets gevallen en zijn arm en been doen pijn."
+          },
+          "distractors": {
+            "en": [
+              "My brother fell off his bike and his back and neck hurt.",
+              "My brother fell off his bike and his arm and leg are fine."
+            ],
+            "es-419": [
+              "Mi hermano se cayó de la bicicleta y le duelen la espalda y el cuello.",
+              "Mi hermano se cayó de la bicicleta y el brazo y la pierna están bien."
+            ],
+            "it": [
+              "Mio fratello è caduto dalla bici e gli fanno male la schiena e il collo.",
+              "Mio fratello è caduto dalla bici e il braccio e la gamba stanno bene."
+            ],
+            "nl": [
+              "Mijn broer is van zijn fiets gevallen en zijn rug en nek doen pijn.",
+              "Mijn broer is van zijn fiets gevallen en zijn arm en been zijn in orde."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça me fait mal",
+          "translation": {
+            "en": "it hurts",
+            "es-419": "me duele",
+            "it": "mi fa male",
+            "nl": "het doet pijn"
+          },
+          "distractors": {
+            "en": [
+              "it doesn't hurt",
+              "my hand hurts"
+            ],
+            "es-419": [
+              "no me duele",
+              "me duele la mano"
+            ],
+            "it": [
+              "non mi fa male",
+              "mi fa male la mano"
+            ],
+            "nl": [
+              "het doet geen pijn",
+              "mijn hand doet pijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon dos me fait mal quand je marche.",
+          "translation": {
+            "en": "My back hurts when I walk.",
+            "es-419": "Me duele la espalda cuando camino.",
+            "it": "Mi fa male la schiena quando cammino.",
+            "nl": "Mijn rug doet pijn als ik loop."
+          },
+          "distractors": {
+            "en": [
+              "My back hurts when I sit down.",
+              "My leg hurts when I walk."
+            ],
+            "es-419": [
+              "Me duele la espalda cuando me siento.",
+              "Me duele la pierna cuando camino."
+            ],
+            "it": [
+              "Mi fa male la schiena quando mi siedo.",
+              "Mi fa male la gamba quando cammino."
+            ],
+            "nl": [
+              "Mijn rug doet pijn als ik ga zitten.",
+              "Mijn been doet pijn als ik loop."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-sante-3",
+      "title": "Au cabinet",
+      "grammarFocus": {
+        "en": [
+          "avoir mal à l'oreille: à l' stays apart before a vowel",
+          "asking where it hurts: où avez-vous mal",
+          "vous commands: ouvrez, respirez"
+        ],
+        "es-419": [
+          "avoir mal à l'oreille: à l' no se contrae ante vocal",
+          "preguntar dónde duele: où avez-vous mal",
+          "órdenes con vous: ouvrez, respirez"
+        ],
+        "it": [
+          "avoir mal à l'oreille: à l' non si contrae davanti a vocale",
+          "chiedere dove fa male: où avez-vous mal",
+          "comandi con vous: ouvrez, respirez"
+        ],
+        "nl": [
+          "avoir mal à l'oreille: à l' blijft los voor een klinker",
+          "vragen waar het pijn doet: où avez-vous mal",
+          "bevelen met vous: ouvrez, respirez"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "docteur",
+          "translation": {
+            "en": "doctor",
+            "es-419": "doctor",
+            "it": "dottore",
+            "nl": "dokter"
+          },
+          "distractors": {
+            "en": [
+              "nurse",
+              "teacher"
+            ],
+            "es-419": [
+              "enfermera",
+              "profesor"
+            ],
+            "it": [
+              "infermiera",
+              "professore"
+            ],
+            "nl": [
+              "verpleegster",
+              "leraar"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "cabinet",
+          "translation": {
+            "en": "doctor's office",
+            "es-419": "consultorio",
+            "it": "studio medico",
+            "nl": "praktijk"
+          },
+          "distractors": {
+            "en": [
+              "pharmacy",
+              "hospital"
+            ],
+            "es-419": [
+              "farmacia",
+              "hospital"
+            ],
+            "it": [
+              "farmacia",
+              "ospedale"
+            ],
+            "nl": [
+              "apotheek",
+              "ziekenhuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, je voudrais prendre rendez-vous avec le docteur Martin.",
+          "translation": {
+            "en": "Hello, I'd like to make an appointment with Dr. Martin.",
+            "es-419": "Hola, quisiera pedir una cita con el doctor Martin.",
+            "it": "Buongiorno, vorrei prendere un appuntamento con il dottor Martin.",
+            "nl": "Goedendag, ik wil graag een afspraak maken met dokter Martin."
+          },
+          "distractors": {
+            "en": [
+              "Hello, I'd like to make an appointment with Dr. Bernard.",
+              "Hello, I'd like to make an appointment for tomorrow."
+            ],
+            "es-419": [
+              "Hola, quisiera pedir una cita con el doctor Bernard.",
+              "Hola, quisiera pedir una cita para mañana."
+            ],
+            "it": [
+              "Buongiorno, vorrei prendere un appuntamento con il dottor Bernard.",
+              "Buongiorno, vorrei prendere un appuntamento per domani."
+            ],
+            "nl": [
+              "Goedendag, ik wil graag een afspraak maken met dokter Bernard.",
+              "Goedendag, ik wil graag een afspraak maken voor morgen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "où avez-vous mal",
+          "translation": {
+            "en": "where does it hurt",
+            "es-419": "dónde le duele",
+            "it": "dove ha male",
+            "nl": "waar heeft u pijn"
+          },
+          "distractors": {
+            "en": [
+              "when did it start",
+              "what is your name"
+            ],
+            "es-419": [
+              "cuándo empezó",
+              "cómo se llama"
+            ],
+            "it": [
+              "quando è cominciato",
+              "come si chiama"
+            ],
+            "nl": [
+              "wanneer is het begonnen",
+              "hoe heet u"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "oreille",
+          "translation": {
+            "en": "ear",
+            "es-419": "oreja",
+            "it": "orecchio",
+            "nl": "oor"
+          },
+          "distractors": {
+            "en": [
+              "eye",
+              "mouth"
+            ],
+            "es-419": [
+              "ojo",
+              "boca"
+            ],
+            "it": [
+              "occhio",
+              "bocca"
+            ],
+            "nl": [
+              "oog",
+              "mond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Docteur, j'ai mal à l'oreille depuis deux jours.",
+          "translation": {
+            "en": "Doctor, my ear has hurt for two days.",
+            "es-419": "Doctor, me duele el oído desde hace dos días.",
+            "it": "Dottore, ho mal d'orecchio da due giorni.",
+            "nl": "Dokter, mijn oor doet al twee dagen pijn."
+          },
+          "distractors": {
+            "en": [
+              "Doctor, my ear has hurt since Monday.",
+              "Doctor, my throat has hurt for two days."
+            ],
+            "es-419": [
+              "Doctor, me duele el oído desde el lunes.",
+              "Doctor, me duele la garganta desde hace dos días."
+            ],
+            "it": [
+              "Dottore, ho mal d'orecchio da lunedì.",
+              "Dottore, ho mal di gola da due giorni."
+            ],
+            "nl": [
+              "Dokter, mijn oor doet sinds maandag pijn.",
+              "Dokter, mijn keel doet al twee dagen pijn."
+            ]
+          },
+          "variants": [
+            "Docteur, j'ai mal à l'oreille depuis 2 jours."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-3-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le nez et la bouche",
+          "translation": {
+            "en": "the nose and the mouth",
+            "es-419": "la nariz y la boca",
+            "it": "il naso e la bocca",
+            "nl": "de neus en de mond"
+          },
+          "distractors": {
+            "en": [
+              "the nose and the eyes",
+              "the hands and the mouth"
+            ],
+            "es-419": [
+              "la nariz y los ojos",
+              "las manos y la boca"
+            ],
+            "it": [
+              "il naso e gli occhi",
+              "le mani e la bocca"
+            ],
+            "nl": [
+              "de neus en de ogen",
+              "de handen en de mond"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ouvrez la bouche, s'il vous plaît.",
+          "translation": {
+            "en": "Open your mouth, please.",
+            "es-419": "Abra la boca, por favor.",
+            "it": "Apra la bocca, per favore.",
+            "nl": "Doe uw mond open, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Close your mouth, please.",
+              "Open the window, please."
+            ],
+            "es-419": [
+              "Cierre la boca, por favor.",
+              "Abra la ventana, por favor."
+            ],
+            "it": [
+              "Chiuda la bocca, per favore.",
+              "Apra la finestra, per favore."
+            ],
+            "nl": [
+              "Doe uw mond dicht, alstublieft.",
+              "Doe het raam open, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "respirer",
+          "translation": {
+            "en": "to breathe",
+            "es-419": "respirar",
+            "it": "respirare",
+            "nl": "ademen"
+          },
+          "distractors": {
+            "en": [
+              "to sleep",
+              "to walk"
+            ],
+            "es-419": [
+              "dormir",
+              "caminar"
+            ],
+            "it": [
+              "dormire",
+              "camminare"
+            ],
+            "nl": [
+              "slapen",
+              "lopen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "respirez lentement",
+          "translation": {
+            "en": "breathe slowly",
+            "es-419": "respire despacio",
+            "it": "respiri lentamente",
+            "nl": "adem langzaam"
+          },
+          "distractors": {
+            "en": [
+              "breathe quickly",
+              "speak slowly"
+            ],
+            "es-419": [
+              "respire rápido",
+              "hable despacio"
+            ],
+            "it": [
+              "respiri in fretta",
+              "parli lentamente"
+            ],
+            "nl": [
+              "adem snel",
+              "praat langzaam"
+            ]
+          },
+          "variants": [
+            "respirer lentement"
+          ]
+        },
+        {
+          "id": "fr-a2-sante-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Respirez lentement, puis dites trente-trois.",
+          "translation": {
+            "en": "Breathe slowly, then say thirty-three.",
+            "es-419": "Respire despacio y luego diga treinta y tres.",
+            "it": "Respiri lentamente, poi dica trentatré.",
+            "nl": "Adem langzaam en zeg dan drieëndertig."
+          },
+          "distractors": {
+            "en": [
+              "Breathe quickly, then say thirty-three.",
+              "Breathe slowly, then say twenty-two."
+            ],
+            "es-419": [
+              "Respire rápido y luego diga treinta y tres.",
+              "Respire despacio y luego diga veintidós."
+            ],
+            "it": [
+              "Respiri in fretta, poi dica trentatré.",
+              "Respiri lentamente, poi dica ventidue."
+            ],
+            "nl": [
+              "Adem snel en zeg dan drieëndertig.",
+              "Adem langzaam en zeg dan tweeëntwintig."
+            ]
+          },
+          "variants": [
+            "Respirez lentement, puis dites 33."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "genou",
+          "translation": {
+            "en": "knee",
+            "es-419": "rodilla",
+            "it": "ginocchio",
+            "nl": "knie"
+          },
+          "distractors": {
+            "en": [
+              "elbow",
+              "foot"
+            ],
+            "es-419": [
+              "codo",
+              "pie"
+            ],
+            "it": [
+              "gomito",
+              "piede"
+            ],
+            "nl": [
+              "elleboog",
+              "voet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils est tombé hier et il a très mal au genou.",
+          "translation": {
+            "en": "My son fell yesterday and his knee really hurts.",
+            "es-419": "Mi hijo se cayó ayer y le duele mucho la rodilla.",
+            "it": "Mio figlio è caduto ieri e ha molto male al ginocchio.",
+            "nl": "Mijn zoon is gisteren gevallen en zijn knie doet erg veel pijn."
+          },
+          "distractors": {
+            "en": [
+              "My son fell yesterday and his ankle really hurts.",
+              "My son fell yesterday and his knee doesn't hurt."
+            ],
+            "es-419": [
+              "Mi hijo se cayó ayer y le duele mucho el tobillo.",
+              "Mi hijo se cayó ayer y no le duele la rodilla."
+            ],
+            "it": [
+              "Mio figlio è caduto ieri e ha molto male alla caviglia.",
+              "Mio figlio è caduto ieri e non ha male al ginocchio."
+            ],
+            "nl": [
+              "Mijn zoon is gisteren gevallen en zijn enkel doet erg veel pijn.",
+              "Mijn zoon is gisteren gevallen en zijn knie doet geen pijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "main",
+          "translation": {
+            "en": "hand",
+            "es-419": "mano",
+            "it": "mano",
+            "nl": "hand"
+          },
+          "distractors": {
+            "en": [
+              "foot",
+              "arm"
+            ],
+            "es-419": [
+              "pie",
+              "brazo"
+            ],
+            "it": [
+              "piede",
+              "braccio"
+            ],
+            "nl": [
+              "voet",
+              "arm"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Docteur, j'ai mal à la main droite depuis samedi.",
+          "translation": {
+            "en": "Doctor, my right hand has hurt since Saturday.",
+            "es-419": "Doctor, me duele la mano derecha desde el sábado.",
+            "it": "Dottore, ho mal alla mano destra da sabato.",
+            "nl": "Dokter, mijn rechterhand doet sinds zaterdag pijn."
+          },
+          "distractors": {
+            "en": [
+              "Doctor, my left hand has hurt since Saturday.",
+              "Doctor, my right hand has hurt since Sunday."
+            ],
+            "es-419": [
+              "Doctor, me duele la mano izquierda desde el sábado.",
+              "Doctor, me duele la mano derecha desde el domingo."
+            ],
+            "it": [
+              "Dottore, ho mal alla mano sinistra da sabato.",
+              "Dottore, ho mal alla mano destra da domenica."
+            ],
+            "nl": [
+              "Dokter, mijn linkerhand doet sinds zaterdag pijn.",
+              "Dokter, mijn rechterhand doet sinds zondag pijn."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-sante-4",
+      "title": "J'ai de la fièvre",
+      "grammarFocus": {
+        "en": [
+          "avoir de la fièvre, avoir un rhume, avoir la grippe",
+          "the article, not the possessive, with body parts: le visage, le corps",
+          "depuis + present: depuis hier soir"
+        ],
+        "es-419": [
+          "avoir de la fièvre, avoir un rhume, avoir la grippe",
+          "el artículo, no el posesivo, con partes del cuerpo: le visage, le corps",
+          "depuis + presente: depuis hier soir"
+        ],
+        "it": [
+          "avoir de la fièvre, avoir un rhume, avoir la grippe",
+          "l'articolo, non il possessivo, con le parti del corpo: le visage, le corps",
+          "depuis + presente: depuis hier soir"
+        ],
+        "nl": [
+          "avoir de la fièvre, avoir un rhume, avoir la grippe",
+          "het lidwoord, niet het bezittelijk voornaamwoord, bij lichaamsdelen: le visage, le corps",
+          "depuis + tegenwoordige tijd: depuis hier soir"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "fièvre",
+          "translation": {
+            "en": "fever",
+            "es-419": "fiebre",
+            "it": "febbre",
+            "nl": "koorts"
+          },
+          "distractors": {
+            "en": [
+              "cough",
+              "cold"
+            ],
+            "es-419": [
+              "tos",
+              "resfriado"
+            ],
+            "it": [
+              "tosse",
+              "raffreddore"
+            ],
+            "nl": [
+              "hoest",
+              "verkoudheid"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai de la fièvre",
+          "translation": {
+            "en": "I have a fever",
+            "es-419": "tengo fiebre",
+            "it": "ho la febbre",
+            "nl": "ik heb koorts"
+          },
+          "distractors": {
+            "en": [
+              "I have a cough",
+              "I have a cold"
+            ],
+            "es-419": [
+              "tengo tos",
+              "tengo un resfriado"
+            ],
+            "it": [
+              "ho la tosse",
+              "ho il raffreddore"
+            ],
+            "nl": [
+              "ik heb hoest",
+              "ik ben verkouden"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "visage",
+          "translation": {
+            "en": "face",
+            "es-419": "cara, rostro",
+            "it": "viso",
+            "nl": "gezicht"
+          },
+          "distractors": {
+            "en": [
+              "head",
+              "hand"
+            ],
+            "es-419": [
+              "cabeza",
+              "mano"
+            ],
+            "it": [
+              "testa",
+              "mano"
+            ],
+            "nl": [
+              "hoofd",
+              "hand"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu as le visage rouge. Est-ce que tu as de la fièvre?",
+          "translation": {
+            "en": "Your face is red. Do you have a fever?",
+            "es-419": "Tienes la cara roja. ¿Tienes fiebre?",
+            "it": "Hai il viso rosso. Hai la febbre?",
+            "nl": "Je gezicht is rood. Heb je koorts?"
+          },
+          "distractors": {
+            "en": [
+              "Your nose is red. Do you have a fever?",
+              "Your face is red. Do you have a cold?"
+            ],
+            "es-419": [
+              "Tienes la nariz roja. ¿Tienes fiebre?",
+              "Tienes la cara roja. ¿Tienes un resfriado?"
+            ],
+            "it": [
+              "Hai il naso rosso. Hai la febbre?",
+              "Hai il viso rosso. Hai il raffreddore?"
+            ],
+            "nl": [
+              "Je neus is rood. Heb je koorts?",
+              "Je gezicht is rood. Ben je verkouden?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "température",
+          "translation": {
+            "en": "temperature",
+            "es-419": "temperatura",
+            "it": "temperatura",
+            "nl": "temperatuur"
+          },
+          "distractors": {
+            "en": [
+              "weight",
+              "height"
+            ],
+            "es-419": [
+              "peso",
+              "estatura"
+            ],
+            "it": [
+              "peso",
+              "altezza"
+            ],
+            "nl": [
+              "gewicht",
+              "lengte"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je vais prendre ta température.",
+          "translation": {
+            "en": "I'm going to take your temperature.",
+            "es-419": "Voy a tomarte la temperatura.",
+            "it": "Ti misuro la temperatura.",
+            "nl": "Ik ga je temperatuur opnemen."
+          },
+          "distractors": {
+            "en": [
+              "I'm going to take your bag.",
+              "I'm going to check your ears."
+            ],
+            "es-419": [
+              "Voy a llevarme tu bolso.",
+              "Voy a revisarte los oídos."
+            ],
+            "it": [
+              "Prendo la tua borsa.",
+              "Ti controllo le orecchie."
+            ],
+            "nl": [
+              "Ik ga je tas meenemen.",
+              "Ik ga je oren controleren."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "depuis hier soir",
+          "translation": {
+            "en": "since last night",
+            "es-419": "desde anoche",
+            "it": "da ieri sera",
+            "nl": "sinds gisteravond"
+          },
+          "distractors": {
+            "en": [
+              "since yesterday morning",
+              "since this morning"
+            ],
+            "es-419": [
+              "desde ayer por la mañana",
+              "desde esta mañana"
+            ],
+            "it": [
+              "da ieri mattina",
+              "da stamattina"
+            ],
+            "nl": [
+              "sinds gistermorgen",
+              "sinds vanochtend"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "corps",
+          "translation": {
+            "en": "body",
+            "es-419": "cuerpo",
+            "it": "corpo",
+            "nl": "lichaam"
+          },
+          "distractors": {
+            "en": [
+              "face",
+              "hand"
+            ],
+            "es-419": [
+              "cara",
+              "mano"
+            ],
+            "it": [
+              "viso",
+              "mano"
+            ],
+            "nl": [
+              "gezicht",
+              "hand"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a de la fièvre depuis hier soir et tout le corps lui fait mal.",
+          "translation": {
+            "en": "He's had a fever since last night and his whole body aches.",
+            "es-419": "Tiene fiebre desde anoche y le duele todo el cuerpo.",
+            "it": "Ha la febbre da ieri sera e gli fa male tutto il corpo.",
+            "nl": "Hij heeft sinds gisteravond koorts en zijn hele lichaam doet pijn."
+          },
+          "distractors": {
+            "en": [
+              "He's had a fever since last night and his whole body is cold.",
+              "He's had a cough since last night and his whole body aches."
+            ],
+            "es-419": [
+              "Tiene fiebre desde anoche y todo el cuerpo está frío.",
+              "Tiene tos desde anoche y le duele todo el cuerpo."
+            ],
+            "it": [
+              "Ha la febbre da ieri sera e ha tutto il corpo freddo.",
+              "Ha la tosse da ieri sera e gli fa male tutto il corpo."
+            ],
+            "nl": [
+              "Hij heeft sinds gisteravond koorts en zijn hele lichaam is koud.",
+              "Hij hoest sinds gisteravond en zijn hele lichaam doet pijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "tousser",
+          "translation": {
+            "en": "to cough",
+            "es-419": "toser",
+            "it": "tossire",
+            "nl": "hoesten"
+          },
+          "distractors": {
+            "en": [
+              "to sneeze",
+              "to breathe"
+            ],
+            "es-419": [
+              "estornudar",
+              "respirar"
+            ],
+            "it": [
+              "starnutire",
+              "respirare"
+            ],
+            "nl": [
+              "niezen",
+              "ademen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la toux et la fièvre",
+          "translation": {
+            "en": "the cough and the fever",
+            "es-419": "la tos y la fiebre",
+            "it": "la tosse e la febbre",
+            "nl": "de hoest en de koorts"
+          },
+          "distractors": {
+            "en": [
+              "the cold and the fever",
+              "the cough and the flu"
+            ],
+            "es-419": [
+              "el resfriado y la fiebre",
+              "la tos y la gripe"
+            ],
+            "it": [
+              "il raffreddore e la febbre",
+              "la tosse e l'influenza"
+            ],
+            "nl": [
+              "de verkoudheid en de koorts",
+              "de hoest en de griep"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils tousse beaucoup la nuit et il dort mal.",
+          "translation": {
+            "en": "My son coughs a lot at night and sleeps badly.",
+            "es-419": "Mi hijo tose mucho por la noche y duerme mal.",
+            "it": "Mio figlio tossisce molto di notte e dorme male.",
+            "nl": "Mijn zoon hoest 's nachts veel en slaapt slecht."
+          },
+          "distractors": {
+            "en": [
+              "My son coughs a lot at night and sleeps very well.",
+              "My son coughs a lot in the morning and sleeps badly."
+            ],
+            "es-419": [
+              "Mi hijo tose mucho por la noche y duerme muy bien.",
+              "Mi hijo tose mucho por la mañana y duerme mal."
+            ],
+            "it": [
+              "Mio figlio tossisce molto di notte e dorme benissimo.",
+              "Mio figlio tossisce molto la mattina e dorme male."
+            ],
+            "nl": [
+              "Mijn zoon hoest 's nachts veel en slaapt heel goed.",
+              "Mijn zoon hoest 's ochtends veel en slaapt slecht."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un petit rhume",
+          "translation": {
+            "en": "a slight cold",
+            "es-419": "un resfriado leve",
+            "it": "un raffreddore leggero",
+            "nl": "een lichte verkoudheid"
+          },
+          "distractors": {
+            "en": [
+              "a slight cough",
+              "a bad cold"
+            ],
+            "es-419": [
+              "una tos leve",
+              "un resfriado fuerte"
+            ],
+            "it": [
+              "una tosse leggera",
+              "un brutto raffreddore"
+            ],
+            "nl": [
+              "een lichte hoest",
+              "een zware verkoudheid"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce n'est pas la grippe, c'est seulement un petit rhume.",
+          "translation": {
+            "en": "It's not the flu, it's just a slight cold.",
+            "es-419": "No es la gripe, es solo un resfriado leve.",
+            "it": "Non è l'influenza, è solo un leggero raffreddore.",
+            "nl": "Het is geen griep, het is maar een lichte verkoudheid."
+          },
+          "distractors": {
+            "en": [
+              "It's not a cold, it's just the flu.",
+              "It's not the flu, it's just a slight fever."
+            ],
+            "es-419": [
+              "No es un resfriado, es solo la gripe.",
+              "No es la gripe, es solo un poco de fiebre."
+            ],
+            "it": [
+              "Non è un raffreddore, è solo l'influenza.",
+              "Non è l'influenza, è solo un po' di febbre."
+            ],
+            "nl": [
+              "Het is geen verkoudheid, het is maar griep.",
+              "Het is geen griep, het is maar een beetje koorts."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u15",
+          "rev": 1,
+          "stage": "word",
+          "text": "grave",
+          "translation": {
+            "en": "serious",
+            "es-419": "grave",
+            "it": "grave",
+            "nl": "ernstig"
+          },
+          "distractors": {
+            "en": [
+              "mild",
+              "easy"
+            ],
+            "es-419": [
+              "leve",
+              "fácil"
+            ],
+            "it": [
+              "lieve",
+              "facile"
+            ],
+            "nl": [
+              "licht",
+              "makkelijk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce n'est pas grave, mais il faut rester au lit.",
+          "translation": {
+            "en": "It's not serious, but you have to stay in bed.",
+            "es-419": "No es grave, pero hay que quedarse en cama.",
+            "it": "Non è grave, ma bisogna restare a letto.",
+            "nl": "Het is niet ernstig, maar je moet in bed blijven."
+          },
+          "distractors": {
+            "en": [
+              "It's not serious, but you have to stay home.",
+              "It's serious, but you don't have to stay in bed."
+            ],
+            "es-419": [
+              "No es grave, pero hay que quedarse en casa.",
+              "Es grave, pero no hay que quedarse en cama."
+            ],
+            "it": [
+              "Non è grave, ma bisogna restare a casa.",
+              "È grave, ma non bisogna restare a letto."
+            ],
+            "nl": [
+              "Het is niet ernstig, maar je moet thuisblijven.",
+              "Het is ernstig, maar je hoeft niet in bed te blijven."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-sante-5",
+      "title": "À la pharmacie",
+      "grammarFocus": {
+        "en": [
+          "il faut / il ne faut pas + infinitive",
+          "dosage chunks: trois fois par jour, avant les repas",
+          "the imperative with vous: prenez un comprimé"
+        ],
+        "es-419": [
+          "il faut / il ne faut pas + infinitivo",
+          "fórmulas de dosis: trois fois par jour, avant les repas",
+          "el imperativo con vous: prenez un comprimé"
+        ],
+        "it": [
+          "il faut / il ne faut pas + infinito",
+          "formule di dosaggio: trois fois par jour, avant les repas",
+          "l'imperativo con vous: prenez un comprimé"
+        ],
+        "nl": [
+          "il faut / il ne faut pas + infinitief",
+          "doseringsformules: trois fois par jour, avant les repas",
+          "de gebiedende wijs met vous: prenez un comprimé"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "pharmacien",
+          "translation": {
+            "en": "pharmacist",
+            "es-419": "farmacéutico",
+            "it": "farmacista",
+            "nl": "apotheker"
+          },
+          "distractors": {
+            "en": [
+              "doctor",
+              "baker"
+            ],
+            "es-419": [
+              "médico",
+              "panadero"
+            ],
+            "it": [
+              "medico",
+              "panettiere"
+            ],
+            "nl": [
+              "dokter",
+              "bakker"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, monsieur, je cherche quelque chose pour la toux.",
+          "translation": {
+            "en": "Hello, sir, I'm looking for something for a cough.",
+            "es-419": "Hola, señor, busco algo para la tos.",
+            "it": "Buongiorno, signore, cerco qualcosa per la tosse.",
+            "nl": "Goedendag, meneer, ik zoek iets tegen hoest."
+          },
+          "distractors": {
+            "en": [
+              "Hello, sir, I'm looking for something for a fever.",
+              "Hello, sir, I'm looking for something for a sore throat."
+            ],
+            "es-419": [
+              "Hola, señor, busco algo para la fiebre.",
+              "Hola, señor, busco algo para el dolor de garganta."
+            ],
+            "it": [
+              "Buongiorno, signore, cerco qualcosa per la febbre.",
+              "Buongiorno, signore, cerco qualcosa per il mal di gola."
+            ],
+            "nl": [
+              "Goedendag, meneer, ik zoek iets tegen koorts.",
+              "Goedendag, meneer, ik zoek iets tegen keelpijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "médicament",
+          "translation": {
+            "en": "medicine, drug",
+            "es-419": "medicamento",
+            "it": "medicinale, farmaco",
+            "nl": "medicijn"
+          },
+          "distractors": {
+            "en": [
+              "prescription",
+              "pharmacy"
+            ],
+            "es-419": [
+              "receta",
+              "farmacia"
+            ],
+            "it": [
+              "ricetta",
+              "farmacia"
+            ],
+            "nl": [
+              "recept",
+              "apotheek"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "ordonnance",
+          "translation": {
+            "en": "prescription",
+            "es-419": "receta",
+            "it": "ricetta",
+            "nl": "recept"
+          },
+          "distractors": {
+            "en": [
+              "invoice",
+              "appointment"
+            ],
+            "es-419": [
+              "factura",
+              "cita"
+            ],
+            "it": [
+              "fattura",
+              "appuntamento"
+            ],
+            "nl": [
+              "factuur",
+              "afspraak"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour ce médicament, il faut une ordonnance.",
+          "translation": {
+            "en": "You need a prescription for this medicine.",
+            "es-419": "Se necesita receta para este medicamento.",
+            "it": "Per questo medicinale serve la ricetta.",
+            "nl": "Voor dit medicijn heb je een recept nodig."
+          },
+          "distractors": {
+            "en": [
+              "You need an appointment for this medicine.",
+              "You don't need a prescription for this medicine."
+            ],
+            "es-419": [
+              "Se necesita cita para este medicamento.",
+              "No se necesita receta para este medicamento."
+            ],
+            "it": [
+              "Per questo medicinale serve un appuntamento.",
+              "Per questo medicinale non serve la ricetta."
+            ],
+            "nl": [
+              "Voor dit medicijn heb je een afspraak nodig.",
+              "Voor dit medicijn heb je geen recept nodig."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "sirop",
+          "translation": {
+            "en": "syrup",
+            "es-419": "jarabe",
+            "it": "sciroppo",
+            "nl": "siroop"
+          },
+          "distractors": {
+            "en": [
+              "tablet",
+              "cream"
+            ],
+            "es-419": [
+              "pastilla",
+              "crema"
+            ],
+            "it": [
+              "compressa",
+              "crema"
+            ],
+            "nl": [
+              "tablet",
+              "crème"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "nécessaire",
+          "translation": {
+            "en": "necessary",
+            "es-419": "necesario",
+            "it": "necessario",
+            "nl": "noodzakelijk"
+          },
+          "distractors": {
+            "en": [
+              "possible",
+              "difficult"
+            ],
+            "es-419": [
+              "posible",
+              "difícil"
+            ],
+            "it": [
+              "possibile",
+              "difficile"
+            ],
+            "nl": [
+              "mogelijk",
+              "moeilijk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Non, l'ordonnance n'est pas nécessaire pour ce sirop.",
+          "translation": {
+            "en": "No, the prescription isn't necessary for this syrup.",
+            "es-419": "No, la receta no es necesaria para este jarabe.",
+            "it": "No, la ricetta non è necessaria per questo sciroppo.",
+            "nl": "Nee, het recept is niet nodig voor deze siroop."
+          },
+          "distractors": {
+            "en": [
+              "Yes, the prescription is necessary for this syrup.",
+              "No, the prescription isn't necessary for this tablet."
+            ],
+            "es-419": [
+              "Sí, la receta es necesaria para este jarabe.",
+              "No, la receta no es necesaria para esta pastilla."
+            ],
+            "it": [
+              "Sì, la ricetta è necessaria per questo sciroppo.",
+              "No, la ricetta non è necessaria per questa compressa."
+            ],
+            "nl": [
+              "Ja, het recept is nodig voor deze siroop.",
+              "Nee, het recept is niet nodig voor deze tablet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "des comprimés",
+          "translation": {
+            "en": "some tablets",
+            "es-419": "unas pastillas",
+            "it": "delle compresse",
+            "nl": "tabletten"
+          },
+          "distractors": {
+            "en": [
+              "some syrups",
+              "some boxes"
+            ],
+            "es-419": [
+              "unos jarabes",
+              "unas cajas"
+            ],
+            "it": [
+              "degli sciroppi",
+              "delle scatole"
+            ],
+            "nl": [
+              "siropen",
+              "dozen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce sirop est pour la toux et ce comprimé est pour la fièvre.",
+          "translation": {
+            "en": "This syrup is for the cough and this tablet is for the fever.",
+            "es-419": "Este jarabe es para la tos y esta pastilla es para la fiebre.",
+            "it": "Questo sciroppo è per la tosse e questa compressa è per la febbre.",
+            "nl": "Deze siroop is voor de hoest en deze tablet is voor de koorts."
+          },
+          "distractors": {
+            "en": [
+              "This syrup is for the fever and this tablet is for the cough.",
+              "This syrup is for the cough and this tablet is for the headache."
+            ],
+            "es-419": [
+              "Este jarabe es para la fiebre y esta pastilla es para la tos.",
+              "Este jarabe es para la tos y esta pastilla es para el dolor de cabeza."
+            ],
+            "it": [
+              "Questo sciroppo è per la febbre e questa compressa è per la tosse.",
+              "Questo sciroppo è per la tosse e questa compressa è per il mal di testa."
+            ],
+            "nl": [
+              "Deze siroop is voor de koorts en deze tablet is voor de hoest.",
+              "Deze siroop is voor de hoest en deze tablet is voor de hoofdpijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "trois fois par jour",
+          "translation": {
+            "en": "three times a day",
+            "es-419": "tres veces al día",
+            "it": "tre volte al giorno",
+            "nl": "drie keer per dag"
+          },
+          "distractors": {
+            "en": [
+              "twice a day",
+              "three times a week"
+            ],
+            "es-419": [
+              "dos veces al día",
+              "tres veces a la semana"
+            ],
+            "it": [
+              "due volte al giorno",
+              "tre volte alla settimana"
+            ],
+            "nl": [
+              "twee keer per dag",
+              "drie keer per week"
+            ]
+          },
+          "variants": [
+            "3 fois par jour"
+          ]
+        },
+        {
+          "id": "fr-a2-sante-5-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "avant les repas",
+          "translation": {
+            "en": "before meals",
+            "es-419": "antes de las comidas",
+            "it": "prima dei pasti",
+            "nl": "voor de maaltijd"
+          },
+          "distractors": {
+            "en": [
+              "after meals",
+              "during meals"
+            ],
+            "es-419": [
+              "después de las comidas",
+              "durante las comidas"
+            ],
+            "it": [
+              "dopo i pasti",
+              "durante i pasti"
+            ],
+            "nl": [
+              "na de maaltijd",
+              "tijdens de maaltijd"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Prenez un comprimé trois fois par jour, après le repas.",
+          "translation": {
+            "en": "Take one tablet three times a day, after eating.",
+            "es-419": "Tome una pastilla tres veces al día, después de comer.",
+            "it": "Prenda una compressa tre volte al giorno, dopo mangiato.",
+            "nl": "Neem driemaal per dag een tablet, na het eten."
+          },
+          "distractors": {
+            "en": [
+              "Take one tablet twice a day, after eating.",
+              "Take one tablet three times a day, before eating."
+            ],
+            "es-419": [
+              "Tome una pastilla dos veces al día, después de comer.",
+              "Tome una pastilla tres veces al día, antes de comer."
+            ],
+            "it": [
+              "Prenda una compressa due volte al giorno, dopo mangiato.",
+              "Prenda una compressa tre volte al giorno, prima di mangiare."
+            ],
+            "nl": [
+              "Neem tweemaal per dag een tablet, na het eten.",
+              "Neem driemaal per dag een tablet, voor het eten."
+            ]
+          },
+          "variants": [
+            "Prenez un comprimé 3 fois par jour, après le repas."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-5-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "allergique",
+          "translation": {
+            "en": "allergic",
+            "es-419": "alérgico",
+            "it": "allergico",
+            "nl": "allergisch"
+          },
+          "distractors": {
+            "en": [
+              "sick",
+              "serious"
+            ],
+            "es-419": [
+              "enfermo",
+              "grave"
+            ],
+            "it": [
+              "malato",
+              "grave"
+            ],
+            "nl": [
+              "ziek",
+              "ernstig"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Est-ce que vous êtes allergique à un médicament?",
+          "translation": {
+            "en": "Are you allergic to any medicine?",
+            "es-419": "¿Es alérgico a algún medicamento?",
+            "it": "È allergico a qualche medicinale?",
+            "nl": "Bent u allergisch voor een medicijn?"
+          },
+          "distractors": {
+            "en": [
+              "Are you allergic to any food?",
+              "Do you take any medicine?"
+            ],
+            "es-419": [
+              "¿Es alérgico a algún alimento?",
+              "¿Toma algún medicamento?"
+            ],
+            "it": [
+              "È allergico a qualche cibo?",
+              "Prende qualche medicinale?"
+            ],
+            "nl": [
+              "Bent u allergisch voor een voedingsmiddel?",
+              "Neemt u een medicijn?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il ne faut pas prendre ce médicament avec du lait.",
+          "translation": {
+            "en": "You shouldn't take this medicine with milk.",
+            "es-419": "No hay que tomar este medicamento con leche.",
+            "it": "Non bisogna prendere questo medicinale con il latte.",
+            "nl": "Je mag dit medicijn niet met melk innemen."
+          },
+          "distractors": {
+            "en": [
+              "You shouldn't take this medicine with coffee.",
+              "You should take this medicine with milk."
+            ],
+            "es-419": [
+              "No hay que tomar este medicamento con café.",
+              "Hay que tomar este medicamento con leche."
+            ],
+            "it": [
+              "Non bisogna prendere questo medicinale con il caffè.",
+              "Bisogna prendere questo medicinale con il latte."
+            ],
+            "nl": [
+              "Je mag dit medicijn niet met koffie innemen.",
+              "Je moet dit medicijn met melk innemen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-sante-6",
+      "title": "Ça va mieux",
+      "grammarFocus": {
+        "en": [
+          "aller mieux: ça va mieux, je me sens mieux",
+          "devoir + infinitive: vous devez vous reposer",
+          "fixed wish: guérissez vite!"
+        ],
+        "es-419": [
+          "aller mieux: ça va mieux, je me sens mieux",
+          "devoir + infinitivo: vous devez vous reposer",
+          "fórmula fija: guérissez vite!"
+        ],
+        "it": [
+          "aller mieux: ça va mieux, je me sens mieux",
+          "devoir + infinito: vous devez vous reposer",
+          "formula fissa: guérissez vite!"
+        ],
+        "nl": [
+          "aller mieux: ça va mieux, je me sens mieux",
+          "devoir + infinitief: vous devez vous reposer",
+          "vaste wens: guérissez vite!"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-sante-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "mieux",
+          "translation": {
+            "en": "better",
+            "es-419": "mejor",
+            "it": "meglio",
+            "nl": "beter"
+          },
+          "distractors": {
+            "en": [
+              "worse",
+              "less"
+            ],
+            "es-419": [
+              "peor",
+              "menos"
+            ],
+            "it": [
+              "peggio",
+              "meno"
+            ],
+            "nl": [
+              "slechter",
+              "minder"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça va mieux",
+          "translation": {
+            "en": "it's going better",
+            "es-419": "va mejor",
+            "it": "va meglio",
+            "nl": "het gaat beter"
+          },
+          "distractors": {
+            "en": [
+              "it's going worse",
+              "it's going well"
+            ],
+            "es-419": [
+              "va peor",
+              "va bien"
+            ],
+            "it": [
+              "va peggio",
+              "va bene"
+            ],
+            "nl": [
+              "het gaat slechter",
+              "het gaat goed"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci, docteur, je me sens beaucoup mieux.",
+          "translation": {
+            "en": "Thank you, doctor, I feel much better.",
+            "es-419": "Gracias, doctor, me siento mucho mejor.",
+            "it": "Grazie, dottore, mi sento molto meglio.",
+            "nl": "Dank u, dokter, ik voel me veel beter."
+          },
+          "distractors": {
+            "en": [
+              "Thank you, doctor, I feel much worse.",
+              "Thank you, doctor, I don't feel any better."
+            ],
+            "es-419": [
+              "Gracias, doctor, me siento mucho peor.",
+              "Gracias, doctor, no me siento mejor."
+            ],
+            "it": [
+              "Grazie, dottore, mi sento molto peggio.",
+              "Grazie, dottore, non mi sento meglio."
+            ],
+            "nl": [
+              "Dank u, dokter, ik voel me veel slechter.",
+              "Dank u, dokter, ik voel me niet beter."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "repos",
+          "translation": {
+            "en": "rest",
+            "es-419": "descanso",
+            "it": "riposo",
+            "nl": "rust"
+          },
+          "distractors": {
+            "en": [
+              "work",
+              "trip"
+            ],
+            "es-419": [
+              "trabajo",
+              "viaje"
+            ],
+            "it": [
+              "lavoro",
+              "viaggio"
+            ],
+            "nl": [
+              "werk",
+              "reis"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous devez vous reposer",
+          "translation": {
+            "en": "you need to rest",
+            "es-419": "debe descansar",
+            "it": "deve riposare",
+            "nl": "u moet rusten"
+          },
+          "distractors": {
+            "en": [
+              "you need to work",
+              "you need to eat"
+            ],
+            "es-419": [
+              "debe trabajar",
+              "debe comer"
+            ],
+            "it": [
+              "deve lavorare",
+              "deve mangiare"
+            ],
+            "nl": [
+              "u moet werken",
+              "u moet eten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça va mieux, mais vous devez vous reposer encore trois jours.",
+          "translation": {
+            "en": "You're doing better, but you still need to rest for three more days.",
+            "es-419": "Va mejor, pero todavía debe descansar tres días más.",
+            "it": "Va meglio, ma deve riposare ancora tre giorni.",
+            "nl": "Het gaat beter, maar u moet nog drie dagen rusten."
+          },
+          "distractors": {
+            "en": [
+              "You're doing better, but you still need to work for three more days.",
+              "You're doing better, but you need to rest for a week."
+            ],
+            "es-419": [
+              "Va mejor, pero todavía debe trabajar tres días más.",
+              "Va mejor, pero debe descansar una semana."
+            ],
+            "it": [
+              "Va meglio, ma deve lavorare ancora tre giorni.",
+              "Va meglio, ma deve riposare una settimana."
+            ],
+            "nl": [
+              "Het gaat beter, maar u moet nog drie dagen werken.",
+              "Het gaat beter, maar u moet een week rusten."
+            ]
+          },
+          "variants": [
+            "Ça va mieux, mais vous devez vous reposer encore 3 jours."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "cœur",
+          "translation": {
+            "en": "heart",
+            "es-419": "corazón",
+            "it": "cuore",
+            "nl": "hart"
+          },
+          "distractors": {
+            "en": [
+              "lung",
+              "brain"
+            ],
+            "es-419": [
+              "pulmón",
+              "cerebro"
+            ],
+            "it": [
+              "polmone",
+              "cervello"
+            ],
+            "nl": [
+              "long",
+              "hersenen"
+            ]
+          },
+          "variants": [
+            "coeur"
+          ]
+        },
+        {
+          "id": "fr-a2-sante-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le docteur écoute mon cœur et dit que tout va bien.",
+          "translation": {
+            "en": "The doctor listens to my heart and says everything is fine.",
+            "es-419": "El doctor escucha mi corazón y dice que todo está bien.",
+            "it": "Il dottore ascolta il mio cuore e dice che va tutto bene.",
+            "nl": "De dokter luistert naar mijn hart en zegt dat alles goed is."
+          },
+          "distractors": {
+            "en": [
+              "The doctor looks at my ear and says everything is fine.",
+              "The doctor listens to my heart and says I'm very sick."
+            ],
+            "es-419": [
+              "El doctor revisa mi oído y dice que todo está bien.",
+              "El doctor escucha mi corazón y dice que estoy muy enfermo."
+            ],
+            "it": [
+              "Il dottore guarda il mio orecchio e dice che va tutto bene.",
+              "Il dottore ascolta il mio cuore e dice che sono molto malato."
+            ],
+            "nl": [
+              "De dokter kijkt naar mijn oor en zegt dat alles goed is.",
+              "De dokter luistert naar mijn hart en zegt dat ik erg ziek ben."
+            ]
+          },
+          "variants": [
+            "Le docteur écoute mon coeur et dit que tout va bien."
+          ]
+        },
+        {
+          "id": "fr-a2-sante-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "urgence",
+          "translation": {
+            "en": "emergency",
+            "es-419": "urgencia",
+            "it": "urgenza",
+            "nl": "noodgeval"
+          },
+          "distractors": {
+            "en": [
+              "accident",
+              "arrival"
+            ],
+            "es-419": [
+              "accidente",
+              "llegada"
+            ],
+            "it": [
+              "incidente",
+              "arrivo"
+            ],
+            "nl": [
+              "ongeluk",
+              "aankomst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Samedi soir, mon fils avait très mal au ventre et nous sommes allés aux urgences.",
+          "translation": {
+            "en": "On Saturday night my son had a terrible stomachache and we went to the emergency room.",
+            "es-419": "El sábado por la noche mi hijo tenía mucho dolor de estómago y fuimos a urgencias.",
+            "it": "Sabato sera mio figlio aveva molto mal di pancia e siamo andati al pronto soccorso.",
+            "nl": "Zaterdagavond had mijn zoon erge buikpijn en zijn we naar de spoedeisende hulp gegaan."
+          },
+          "distractors": {
+            "en": [
+              "On Saturday night my son had a very high fever and we went to the pharmacy.",
+              "On Saturday night my son had a terrible stomachache and we stayed home."
+            ],
+            "es-419": [
+              "El sábado por la noche mi hijo tenía mucha fiebre y fuimos a la farmacia.",
+              "El sábado por la noche mi hijo tenía mucho dolor de estómago y nos quedamos en casa."
+            ],
+            "it": [
+              "Sabato sera mio figlio aveva la febbre alta e siamo andati in farmacia.",
+              "Sabato sera mio figlio aveva molto mal di pancia e siamo rimasti a casa."
+            ],
+            "nl": [
+              "Zaterdagavond had mijn zoon hoge koorts en zijn we naar de apotheek gegaan.",
+              "Zaterdagavond had mijn zoon erge buikpijn en zijn we thuisgebleven."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-a2-sante-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "douleur",
+          "translation": {
+            "en": "pain, ache",
+            "es-419": "dolor",
+            "it": "dolore",
+            "nl": "pijn"
+          },
+          "distractors": {
+            "en": [
+              "fever",
+              "cough"
+            ],
+            "es-419": [
+              "fiebre",
+              "tos"
+            ],
+            "it": [
+              "febbre",
+              "tosse"
+            ],
+            "nl": [
+              "koorts",
+              "hoest"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai encore une douleur dans le dos, mais je peux marcher.",
+          "translation": {
+            "en": "I still have a pain in my back, but I can walk.",
+            "es-419": "Todavía tengo un dolor en la espalda, pero puedo caminar.",
+            "it": "Ho ancora un dolore alla schiena, ma riesco a camminare.",
+            "nl": "Ik heb nog een pijn in mijn rug, maar ik kan lopen."
+          },
+          "distractors": {
+            "en": [
+              "I still have a pain in my back, but I can't walk.",
+              "I still have a pain in my leg, but I can walk."
+            ],
+            "es-419": [
+              "Todavía tengo un dolor en la espalda, pero no puedo caminar.",
+              "Todavía tengo un dolor en la pierna, pero puedo caminar."
+            ],
+            "it": [
+              "Ho ancora un dolore alla schiena, ma non riesco a camminare.",
+              "Ho ancora un dolore alla gamba, ma riesco a camminare."
+            ],
+            "nl": [
+              "Ik heb nog een pijn in mijn rug, maar ik kan niet lopen.",
+              "Ik heb nog een pijn in mijn been, maar ik kan lopen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "guérir",
+          "translation": {
+            "en": "to get well, to recover",
+            "es-419": "curarse, sanar",
+            "it": "guarire",
+            "nl": "genezen"
+          },
+          "distractors": {
+            "en": [
+              "to get sick",
+              "to rest"
+            ],
+            "es-419": [
+              "enfermarse",
+              "descansar"
+            ],
+            "it": [
+              "ammalarsi",
+              "riposare"
+            ],
+            "nl": [
+              "ziek worden",
+              "rusten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "vite",
+          "translation": {
+            "en": "quickly, fast",
+            "es-419": "rápido, pronto",
+            "it": "in fretta, presto",
+            "nl": "snel"
+          },
+          "distractors": {
+            "en": [
+              "slowly",
+              "late"
+            ],
+            "es-419": [
+              "despacio",
+              "tarde"
+            ],
+            "it": [
+              "lentamente",
+              "tardi"
+            ],
+            "nl": [
+              "langzaam",
+              "laat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "guérissez vite",
+          "translation": {
+            "en": "get well soon",
+            "es-419": "que se mejore pronto",
+            "it": "guarisca presto",
+            "nl": "beterschap"
+          },
+          "distractors": {
+            "en": [
+              "sleep well",
+              "see you soon"
+            ],
+            "es-419": [
+              "que descanse bien",
+              "hasta pronto"
+            ],
+            "it": [
+              "dorma bene",
+              "a presto"
+            ],
+            "nl": [
+              "slaap lekker",
+              "tot snel"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-sante-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Au revoir, madame, et guérissez vite!",
+          "translation": {
+            "en": "Goodbye, ma'am, and get well soon!",
+            "es-419": "¡Adiós, señora, y que se mejore pronto!",
+            "it": "Arrivederci, signora, e guarisca presto!",
+            "nl": "Tot ziens, mevrouw, en beterschap!"
+          },
+          "distractors": {
+            "en": [
+              "Goodbye, ma'am, and sleep well!",
+              "Goodbye, ma'am, and see you tomorrow!"
+            ],
+            "es-419": [
+              "¡Adiós, señora, y que descanse bien!",
+              "¡Adiós, señora, y hasta mañana!"
+            ],
+            "it": [
+              "Arrivederci, signora, e dorma bene!",
+              "Arrivederci, signora, e a domani!"
+            ],
+            "nl": [
+              "Tot ziens, mevrouw, en slaap lekker!",
+              "Tot ziens, mevrouw, en tot morgen!"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

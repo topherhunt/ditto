@@ -1,0 +1,4758 @@
+{
+  "id": "fr-a2-comparer",
+  "language": "fr",
+  "level": "A2",
+  "order": 20,
+  "title": "Mieux ou pire",
+  "description": {
+    "en": "Comparing places, people and things: bigger, cheaper, the best, just as good, and whether it's worth it",
+    "es-419": "Comparar lugares, personas y cosas: más grande, más barato, el mejor, igual de bueno, y si vale la pena",
+    "it": "Confrontare luoghi, persone e cose: più grande, più economico, il migliore, altrettanto buono, e se ne vale la pena",
+    "nl": "Plaatsen, mensen en dingen vergelijken: groter, goedkoper, de beste, net zo goed, en of het de moeite waard is"
+  },
+  "track": "main",
+  "requires": [
+    "fr-a2-projets"
+  ],
+  "introduces": [
+    "autant",
+    "meilleur",
+    "pire",
+    "même",
+    "pareil",
+    "différent",
+    "différence",
+    "ressembler",
+    "sembler",
+    "presque",
+    "manière",
+    "exemple",
+    "normal",
+    "circulation",
+    "air",
+    "espace",
+    "rapide",
+    "lent",
+    "pratique",
+    "lourd",
+    "paresseux",
+    "juste",
+    "vide",
+    "valoir",
+    "peine",
+    "habitant"
+  ],
+  "lexicon": {
+    "plus": {
+      "lemma": "plus",
+      "pos": "ADV",
+      "gloss": {
+        "en": "more (plus grand que = bigger than; de plus en plus = more and more)",
+        "es-419": "más (plus grand que = más grande que; de plus en plus = cada vez más)",
+        "it": "più (plus grand que = più grande di; de plus en plus = sempre più)",
+        "nl": "meer (plus grand que = groter dan; de plus en plus = steeds meer)"
+      }
+    },
+    "grand": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "tall, big",
+        "es-419": "alto, grande",
+        "it": "alto, grande",
+        "nl": "lang, groot"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "than (plus grand que moi = taller than me); that (il dit que = he says that)",
+        "es-419": "que (plus grand que moi = más alto que yo; il dit que = dice que)",
+        "it": "di, che (plus grand que moi = più alto di me; il dit que = dice che)",
+        "nl": "dan (plus grand que moi = groter dan ik); dat (il dit que = hij zegt dat)"
+      }
+    },
+    "moi": {
+      "lemma": "moi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me, myself; chez moi = at my place",
+        "es-419": "yo, mí; chez moi = en mi casa",
+        "it": "me, io; chez moi = a casa mia",
+        "nl": "mij, ik; chez moi = bij mij thuis"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (masculine: mon passeport)",
+        "es-419": "mi (masculino: mon passeport)",
+        "it": "mio (maschile: mon passeport)",
+        "nl": "mijn (mannelijk: mon passeport)"
+      }
+    },
+    "frère": {
+      "lemma": "frère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "frère (m): brother",
+        "es-419": "frère (m): hermano",
+        "it": "frère (m): fratello",
+        "nl": "frère (m): broer"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être: suis, es, est, sommes, êtes, sont)",
+        "es-419": "es, está (être: suis, es, est, sommes, êtes, sont)",
+        "it": "è (être: suis, es, est, sommes, êtes, sont)",
+        "nl": "is (être: suis, es, est, sommes, êtes, sont)"
+      }
+    },
+    "rapide": {
+      "lemma": "rapide",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fast, quick",
+        "es-419": "rápido",
+        "it": "veloce",
+        "nl": "snel"
+      }
+    },
+    "lent": {
+      "lemma": "lent",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "slow",
+        "es-419": "lento",
+        "it": "lento",
+        "nl": "langzaam"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (masculine)",
+        "es-419": "el (masculino)",
+        "it": "il, lo (maschile)",
+        "nl": "de, het (mannelijk)"
+      }
+    },
+    "métro": {
+      "lemma": "métro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "métro (m): subway, metro",
+        "es-419": "métro (m): metro",
+        "it": "métro (m): metropolitana",
+        "nl": "métro (m): metro"
+      }
+    },
+    "bus": {
+      "lemma": "bus",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bus (m): bus",
+        "es-419": "bus (m): autobús",
+        "it": "bus (m): autobus",
+        "nl": "bus (m): bus"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "mais = but",
+        "es-419": "mais = pero",
+        "it": "mais = ma, però",
+        "nl": "mais = maar"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "he, it (il pleut = it's raining)",
+        "es-419": "él, ello (il pleut = llueve)",
+        "it": "lui, esso (il pleut = piove)",
+        "nl": "hij, het (il pleut = het regent)"
+      }
+    },
+    "moins": {
+      "lemma": "moins",
+      "pos": "ADV",
+      "gloss": {
+        "en": "less (moins cher que = cheaper than; de moins en moins = less and less)",
+        "es-419": "menos (moins cher que = más barato que; de moins en moins = cada vez menos)",
+        "it": "meno (moins cher que = meno caro di; de moins en moins = sempre meno)",
+        "nl": "minder (moins cher que = goedkoper dan; de moins en moins = steeds minder)"
+      }
+    },
+    "cher": {
+      "lemma": "cher",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "cher = expensive (masculine); also dear",
+        "es-419": "cher = caro (masculino); también querido",
+        "it": "cher = caro (maschile); anche caro nel senso di amato",
+        "nl": "cher = duur (mannelijk); ook lief"
+      }
+    },
+    "lourd": {
+      "lemma": "lourd",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "heavy",
+        "es-419": "pesado",
+        "it": "pesante",
+        "nl": "zwaar"
+      }
+    },
+    "l'autre": {
+      "lemma": "autre",
+      "pos": "PRON",
+      "gloss": {
+        "en": "l'autre = le + autre: the other, the other one",
+        "es-419": "l'autre = le + autre: el otro, la otra",
+        "it": "l'autre = le + autre: l'altro, l'altra",
+        "nl": "l'autre = le + autre: de andere, het andere"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "very",
+        "es-419": "muy",
+        "it": "molto",
+        "nl": "erg, heel"
+      }
+    },
+    "pratique#adj": {
+      "lemma": "pratique",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "practical, handy (the verb pratique is a form of pratiquer)",
+        "es-419": "práctico (el verbo pratique es una forma de pratiquer)",
+        "it": "pratico (il verbo pratique è una forma di pratiquer)",
+        "nl": "praktisch (het werkwoord pratique is een vorm van pratiquer)"
+      }
+    },
+    "cette": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cette = this, that (before a feminine noun)",
+        "es-419": "cette = esta, esa (ante sustantivo femenino)",
+        "it": "cette = questa, quella (davanti a nome femminile)",
+        "nl": "cette = deze, die (voor een vrouwelijk zelfstandig naamwoord)"
+      }
+    },
+    "valise": {
+      "lemma": "valise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "suitcase (f)",
+        "es-419": "maleta (f)",
+        "it": "valigia (f)",
+        "nl": "koffer (f)"
+      }
+    },
+    "lourde": {
+      "lemma": "lourd",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "heavy (lourd, f)",
+        "es-419": "pesada (lourd, f)",
+        "it": "pesante (lourd, f)",
+        "nl": "zwaar (lourd, f)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e, ed",
+        "nl": "en"
+      }
+    },
+    "aussi": {
+      "lemma": "aussi",
+      "pos": "ADV",
+      "gloss": {
+        "en": "also, as; aussi rapide que = as fast as",
+        "es-419": "también, tan; aussi rapide que = tan rápido como",
+        "it": "anche, tanto; aussi rapide que = veloce quanto",
+        "nl": "ook, even; aussi rapide que = even snel als"
+      }
+    },
+    "lui": {
+      "lemma": "lui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "him, after a preposition: pour lui",
+        "es-419": "él, después de preposición: pour lui = para él",
+        "it": "lui, dopo preposizione: pour lui = per lui",
+        "nl": "hem, na een voorzetsel: pour lui = voor hem"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (feminine: ma famille, ma valise)",
+        "es-419": "mi (femenino: ma famille, ma valise)",
+        "it": "mia (femminile: ma famille, ma valise)",
+        "nl": "mijn (vrouwelijk: ma famille, ma valise)"
+      }
+    },
+    "sœur": {
+      "lemma": "sœur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sister (f)",
+        "es-419": "hermana (f)",
+        "it": "sorella (f)",
+        "nl": "zus, zuster (f)"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce = est + ce: is it; est-ce que = a marker that turns a statement into a question",
+        "es-419": "est-ce = est + ce: es esto; est-ce que = marca que convierte una afirmación en pregunta",
+        "it": "est-ce = est + ce: è questo; est-ce que = formula che trasforma una frase in domanda",
+        "nl": "est-ce = est + ce: is het; est-ce que = woordje dat van een zin een vraag maakt"
+      }
+    },
+    "vélo": {
+      "lemma": "vélo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bike (m); à vélo = by bike",
+        "es-419": "bicicleta (m); à vélo = en bicicleta",
+        "it": "bici (m); à vélo = in bici",
+        "nl": "fiets (m); à vélo = met de fiets"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (feminine)",
+        "es-419": "la (femenino)",
+        "it": "la (femminile)",
+        "nl": "de (vrouwelijk)"
+      }
+    },
+    "voiture": {
+      "lemma": "voiture",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "voiture (f): car",
+        "es-419": "voiture (f): carro, coche",
+        "it": "voiture (f): macchina, auto",
+        "nl": "voiture (f): auto"
+      }
+    },
+    "mère": {
+      "lemma": "mère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mother (f)",
+        "es-419": "madre, mamá (f)",
+        "it": "madre (f)",
+        "nl": "moeder (f)"
+      }
+    },
+    "petite": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "small, short (f of petit)",
+        "es-419": "pequeña, baja (f de petit)",
+        "it": "piccola, bassa (f di petit)",
+        "nl": "klein (f van petit)"
+      }
+    },
+    "père": {
+      "lemma": "père",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "father (m)",
+        "es-419": "padre, papá (m)",
+        "it": "padre (m)",
+        "nl": "vader (m)"
+      }
+    },
+    "elle": {
+      "lemma": "elle",
+      "pos": "PRON",
+      "gloss": {
+        "en": "she, her",
+        "es-419": "ella",
+        "it": "lei",
+        "nl": "zij, ze"
+      }
+    },
+    "circulation": {
+      "lemma": "circulation",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "traffic (f)",
+        "es-419": "tráfico (f)",
+        "it": "traffico (f)",
+        "nl": "verkeer (f)"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; near, far from (près de, loin de)",
+        "es-419": "de = de; près de = cerca de, loin de = lejos de",
+        "it": "de = di, da; près de = vicino a, loin de = lontano da",
+        "nl": "de = van; près de = dicht bij, loin de = ver van"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "there; il y a = there is, there are",
+        "es-419": "allí; il y a = hay",
+        "it": "ci; il y a = c'è, ci sono",
+        "nl": "er; il y a = er is, er zijn"
+      }
+    },
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "has, have (il/elle a)",
+        "es-419": "tiene (il/elle a)",
+        "it": "ha (il/elle a)",
+        "nl": "heeft (il/elle a)"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at, in",
+        "es-419": "a, en",
+        "it": "a, in",
+        "nl": "naar, in, om"
+      }
+    },
+    "campagne": {
+      "lemma": "campagne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "countryside (f); à la campagne = in the country",
+        "es-419": "campo (f); à la campagne = en el campo",
+        "it": "campagna (f); à la campagne = in campagna",
+        "nl": "platteland (f); à la campagne = op het platteland"
+      }
+    },
+    "habitant": {
+      "lemma": "habitant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "inhabitant, resident (m or f)",
+        "es-419": "habitante (m or f)",
+        "it": "abitante (m or f)",
+        "nl": "inwoner (m or f)"
+      }
+    },
+    "paris": {
+      "lemma": "Paris",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Paris, the capital of France",
+        "es-419": "París, capital de Francia",
+        "it": "Parigi, capitale della Francia",
+        "nl": "Parijs, hoofdstad van Frankrijk"
+      }
+    },
+    "d'habitants": {
+      "lemma": "habitant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'habitants = de + habitants: of inhabitants; plus d'habitants = more inhabitants",
+        "es-419": "d'habitants = de + habitants: de habitantes; plus d'habitants = más habitantes",
+        "it": "d'habitants = de + habitants: di abitanti; plus d'habitants = più abitanti",
+        "nl": "d'habitants = de + habitants: van inwoners; plus d'habitants = meer inwoners"
+      }
+    },
+    "lyon": {
+      "lemma": "Lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon, a city in France",
+        "es-419": "Lyon, ciudad de Francia",
+        "it": "Lione, città della Francia",
+        "nl": "Lyon, stad in Frankrijk"
+      }
+    },
+    "espace": {
+      "lemma": "espace",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "space, room (m)",
+        "es-419": "espacio (m)",
+        "it": "spazio (m)",
+        "nl": "ruimte (m)"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, much (beaucoup de = a lot of; beaucoup trop = way too)",
+        "es-419": "mucho (beaucoup de = mucho; beaucoup trop = muchísimo, demasiado)",
+        "it": "molto (beaucoup de = tanto; beaucoup trop = decisamente troppo)",
+        "nl": "veel (beaucoup de = veel; beaucoup trop = veel te)"
+      }
+    },
+    "d'espace": {
+      "lemma": "espace",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'espace = de + espace: of space; assez d'espace = enough space",
+        "es-419": "d'espace = de + espace: de espacio; assez d'espace = suficiente espacio",
+        "it": "d'espace = de + espace: di spazio; assez d'espace = abbastanza spazio",
+        "nl": "d'espace = de + espace: van ruimte; assez d'espace = genoeg ruimte"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we (everyday French)",
+        "es-419": "nosotros (francés cotidiano)",
+        "it": "noi (francese quotidiano)",
+        "nl": "we (alledaags Frans)"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in; dans deux heures = in two hours",
+        "es-419": "en, dentro de; dans deux heures = en dos horas",
+        "it": "in, tra; dans deux heures = tra due ore",
+        "nl": "in, over; dans deux heures = over twee uur"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (masculine)",
+        "es-419": "un, uno (masculino)",
+        "it": "un, uno (maschile)",
+        "nl": "een; één (mannelijk)"
+      }
+    },
+    "appartement": {
+      "lemma": "appartement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "apartment (m)",
+        "es-419": "apartamento (m)",
+        "it": "appartamento (m)",
+        "nl": "appartement (m)"
+      }
+    },
+    "l'air": {
+      "lemma": "air",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'air = le + air: the air (m)",
+        "es-419": "l'air = le + air: el aire (m)",
+        "it": "l'air = le + air: l'aria (m); attenzione: in francese air è maschile, in italiano aria è femminile",
+        "nl": "l'air = le + air: de lucht (m)"
+      }
+    },
+    "autant": {
+      "lemma": "autant",
+      "pos": "ADV",
+      "gloss": {
+        "en": "as much, as many; autant de bruit que = as much noise as",
+        "es-419": "tanto, tantos; autant de bruit que = tanto ruido como",
+        "it": "altrettanto, tanto; autant de bruit que = tanto rumore quanto",
+        "nl": "evenveel; autant de bruit que = evenveel lawaai als"
+      }
+    },
+    "bruit": {
+      "lemma": "bruit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "noise (m)",
+        "es-419": "ruido (m)",
+        "it": "rumore (m)",
+        "nl": "lawaai (m)"
+      }
+    },
+    "qu'en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "qu'en = que + en: than in (autant qu'en ville = as much as in the city)",
+        "es-419": "qu'en = que + en: que en (autant qu'en ville = tanto como en la ciudad)",
+        "it": "qu'en = que + en: che in (autant qu'en ville = quanto in città)",
+        "nl": "qu'en = que + en: als in (autant qu'en ville = evenveel als in de stad)"
+      }
+    },
+    "ville": {
+      "lemma": "ville",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city, town (f)",
+        "es-419": "ciudad (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ici = here",
+        "es-419": "ici = aquí",
+        "it": "ici = qui, qua",
+        "nl": "ici = hier"
+      }
+    },
+    "n'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "n'y = ne + y: il n'y a pas = there is not, there are not",
+        "es-419": "n'y = ne + y: il n'y a pas = no hay",
+        "it": "n'y = ne + y: il n'y a pas = non c'è, non ci sono",
+        "nl": "n'y = ne + y: il n'y a pas = er is geen, er zijn geen"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas = not (ne ... pas); pas derrière = not behind",
+        "es-419": "pas = no (ne ... pas); pas derrière = no detrás",
+        "it": "pas = non (ne ... pas); pas derrière = non dietro",
+        "nl": "pas = niet (ne ... pas); pas derrière = niet erachter"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in (en été, en mai, en France)",
+        "es-419": "en (en été, en mai, en France)",
+        "it": "in (en été, en mai, en France)",
+        "nl": "in (en été, en mai, en France)"
+      }
+    },
+    "bruyante": {
+      "lemma": "bruyant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "noisy (bruyant, f)",
+        "es-419": "ruidosa (bruyant, f)",
+        "it": "rumorosa (bruyant, f)",
+        "nl": "lawaaierig (bruyant, f)"
+      }
+    },
+    "dimanche": {
+      "lemma": "dimanche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m)",
+        "es-419": "domingo (m)",
+        "it": "domenica (m)",
+        "nl": "zondag (m)"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "es-419": "yo",
+        "it": "io",
+        "nl": "ik"
+      }
+    },
+    "travaille": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "work, works (travailler: travaille, travailles, travaille, travaillons, travaillez, travaillent)",
+        "es-419": "trabajo, trabaja (travailler: travaille, travailles, travaille, travaillons, travaillez, travaillent)",
+        "it": "lavoro, lavora (travailler: travaille, travailles, travaille, travaillons, travaillez, travaillent)",
+        "nl": "werk, werkt (travailler: travaille, travailles, travaille, travaillons, travaillez, travaillent)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "les = the (plural, masculine and feminine)",
+        "es-419": "les = los, las (plural)",
+        "it": "les = i, gli, le (plurale)",
+        "nl": "les = de (meervoud)"
+      }
+    },
+    "gens": {
+      "lemma": "gens",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (m, plural only: des gens)",
+        "es-419": "gente, personas (m, solo plural: des gens)",
+        "it": "gente, persone (m, solo plurale: des gens)",
+        "nl": "mensen (m, alleen meervoud: des gens)"
+      }
+    },
+    "travaillent": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(they) work (the -ent is silent; mes parents travaillent = my parents work)",
+        "es-419": "(ellos) trabajan (la -ent no se pronuncia; mes parents travaillent = mis papás trabajan)",
+        "it": "(loro) lavorano (la -ent non si pronuncia; mes parents travaillent = i miei genitori lavorano)",
+        "nl": "(zij) werken (de -ent hoor je niet; mes parents travaillent = mijn ouders werken)"
+      }
+    },
+    "ils": {
+      "lemma": "ils",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ils: they (masculine or mixed group)",
+        "es-419": "ils: ellos (masculino o grupo mixto)",
+        "it": "ils: loro (maschile o gruppo misto)",
+        "nl": "ils: zij, ze (mannelijk of gemengde groep)"
+      }
+    },
+    "ont": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "they have (avoir: ai, as, a, avons, avez, ont); ont is not on",
+        "es-419": "tienen (avoir: ai, as, a, avons, avez, ont); ont no es on",
+        "it": "hanno (avoir: ai, as, a, avons, avez, ont); ont non è on",
+        "nl": "hebben (avoir: ai, as, a, avons, avez, ont); ont is niet on"
+      }
+    },
+    "meilleur": {
+      "lemma": "meilleur",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "better, best (bon: meilleur); watch out: meilleur is better, never plus bon",
+        "es-419": "mejor (bon: meilleur)",
+        "it": "migliore (bon: meilleur)",
+        "nl": "beter, best (bon: meilleur)"
+      }
+    },
+    "pire": {
+      "lemma": "pire",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "worse, worst (mauvais: pire)",
+        "es-419": "peor (mauvais: pire)",
+        "it": "peggiore (mauvais: pire)",
+        "nl": "slechter, slechtst (mauvais: pire)"
+      }
+    },
+    "café": {
+      "lemma": "café",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "café (m): coffee, and also the place",
+        "es-419": "café (m): café, y también el lugar",
+        "it": "caffè (m): caffè, e anche il locale",
+        "nl": "café (m): koffie, en ook het café"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = de + le: some, of the (du soleil = sunshine, du vent = wind)",
+        "es-419": "du = de + le: algo de, del (du soleil = sol, du vent = viento)",
+        "it": "du = di + il: del, un po' di (du soleil = sole, du vent = vento)",
+        "nl": "du = de + le: wat, van de (du soleil = zon, du vent = wind)"
+      }
+    },
+    "monde": {
+      "lemma": "monde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "world, people (m); tout le monde = everyone; trop de monde = too many people",
+        "es-419": "mundo, gente (m); tout le monde = todos; trop de monde = demasiada gente",
+        "it": "mondo, gente (m); tout le monde = tutti; trop de monde = troppa gente",
+        "nl": "wereld, mensen (m); tout le monde = iedereen; trop de monde = te veel mensen"
+      }
+    },
+    "grand-mère": {
+      "lemma": "grand-mère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "grandmother (f)",
+        "es-419": "abuela (f)",
+        "it": "nonna (f)",
+        "nl": "oma, grootmoeder (f)"
+      }
+    },
+    "dit": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dit: says (dire: dis, dit, disons, dites, disent)",
+        "es-419": "dit: dice (dire: dis, dit, disons, dites, disent)",
+        "it": "dit: dice (dire: dis, dit, disons, dites, disent)",
+        "nl": "dit: zegt (dire: dis, dit, disons, dites, disent)"
+      }
+    },
+    "son": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its (masculine; sa = feminine, ses = plural)",
+        "es-419": "su (de él o de ella; masculino; sa = femenino, ses = plural)",
+        "it": "suo (di lui o di lei; maschile; sa = femminile, ses = plurale)",
+        "nl": "zijn of haar (mannelijk; sa = vrouwelijk, ses = meervoud)"
+      }
+    },
+    "grande": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large, tall (grand, grande)",
+        "es-419": "grande (grand, grande)",
+        "it": "grande (grand, grande)",
+        "nl": "groot (grand, grande)"
+      }
+    },
+    "france": {
+      "lemma": "france",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "France",
+        "es-419": "Francia",
+        "it": "Francia",
+        "nl": "Frankrijk"
+      }
+    },
+    "belle": {
+      "lemma": "beau",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "beautiful, pretty (f of beau)",
+        "es-419": "hermosa, bonita (f de beau)",
+        "it": "bella (f di beau)",
+        "nl": "mooi (f van beau)"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, to (un billet pour Lyon = a ticket to Lyon)",
+        "es-419": "para, a (un billet pour Lyon = un boleto a Lyon)",
+        "it": "per (un billet pour Lyon = un biglietto per Lione)",
+        "nl": "voor, naar (un billet pour Lyon = een kaartje naar Lyon)"
+      }
+    },
+    "québec": {
+      "lemma": "Québec",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Quebec, a city and a province in Canada",
+        "es-419": "Quebec, ciudad y provincia de Canadá",
+        "it": "Québec, città e provincia del Canada",
+        "nl": "Québec, stad en provincie in Canada"
+      }
+    },
+    "canada": {
+      "lemma": "Canada",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Canada (au Canada = in Canada)",
+        "es-419": "Canadá (au Canada = en Canadá)",
+        "it": "Canada (au Canada = in Canada)",
+        "nl": "Canada (au Canada = in Canada)"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, that is",
+        "es-419": "c'est = ce + est: es, esto es",
+        "it": "c'est = ce + est: è, questo è",
+        "nl": "c'est = ce + est: het is, dit is"
+      }
+    },
+    "restaurant": {
+      "lemma": "restaurant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "restaurant (m)",
+        "es-419": "restaurante (m)",
+        "it": "ristorante (m)",
+        "nl": "restaurant (m)"
+      }
+    },
+    "quartier": {
+      "lemma": "quartier",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighborhood, district (m)",
+        "es-419": "barrio (m)",
+        "it": "quartiere (m)",
+        "nl": "buurt, wijk (m)"
+      }
+    },
+    "mieux": {
+      "lemma": "mieux",
+      "pos": "ADV",
+      "gloss": {
+        "en": "better (bien: mieux); il vaut mieux = it's better to",
+        "es-419": "mejor (bien: mieux); il vaut mieux = es mejor",
+        "it": "meglio (bien: mieux); il vaut mieux = è meglio",
+        "nl": "beter (bien: mieux); il vaut mieux = het is beter"
+      }
+    },
+    "ce": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "this, that (ce soir = tonight); ce, cet, cette, ces",
+        "es-419": "este, ese (ce soir = esta noche); ce, cet, cette, ces",
+        "it": "questo, quello (ce soir = stasera); ce, cet, cette, ces",
+        "nl": "deze, die (ce soir = vanavond); ce, cet, cette, ces"
+      }
+    },
+    "bon": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "good; bon voyage = have a good trip",
+        "es-419": "bueno; bon voyage = buen viaje",
+        "it": "buono; bon voyage = buon viaggio",
+        "nl": "goed; bon voyage = goede reis"
+      }
+    },
+    "joue": {
+      "lemma": "jouer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "joue = play (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "es-419": "joue = juego, juega (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "it": "joue = gioco, gioca (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "nl": "joue = speel, speelt (jouer: joue, joues, joue, jouons, jouez, jouent)"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "bien = well, very well",
+        "es-419": "bien = bien",
+        "it": "bien = bene",
+        "nl": "bien = goed"
+      }
+    },
+    "aujourd'hui": {
+      "lemma": "aujourd'hui",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "jour": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day, as a unit of time (m)",
+        "es-419": "día, como unidad de tiempo (m)",
+        "it": "giorno, come unità di tempo (m)",
+        "nl": "dag, als tijdseenheid (m)"
+      }
+    },
+    "semaine": {
+      "lemma": "semaine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f)",
+        "es-419": "semana (f)",
+        "it": "settimana (f)",
+        "nl": "week (f)"
+      }
+    },
+    "service": {
+      "lemma": "service",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "service (m); service compris = service included (in the bill)",
+        "es-419": "servicio (m); service compris = servicio incluido (en la cuenta)",
+        "it": "servizio (m); service compris = servizio incluso (nel conto)",
+        "nl": "bediening (m); service compris = inclusief bediening"
+      }
+    },
+    "cuisine": {
+      "lemma": "cuisine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "kitchen, cooking, food (f)",
+        "es-419": "cocina, comida (f)",
+        "it": "cucina (f)",
+        "nl": "keuken, eten (f)"
+      }
+    },
+    "meilleure": {
+      "lemma": "meilleur",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "better, best (meilleur, f)",
+        "es-419": "mejor (meilleur, f)",
+        "it": "migliore (meilleur, f)",
+        "nl": "beter, best (meilleur, f)"
+      }
+    },
+    "trop": {
+      "lemma": "trop",
+      "pos": "ADV",
+      "gloss": {
+        "en": "too, too much, too many (trop cher = too expensive; trop de monde = too many people)",
+        "es-419": "demasiado (trop cher = demasiado caro; trop de monde = demasiada gente)",
+        "it": "troppo (trop cher = troppo caro; trop de monde = troppa gente)",
+        "nl": "te, te veel (trop cher = te duur; trop de monde = te veel mensen)"
+      }
+    },
+    "sac": {
+      "lemma": "sac",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sac (m): bag",
+        "es-419": "sac (m): bolsa",
+        "it": "sac (m): borsa, sacchetto",
+        "nl": "sac (m): tas, zak"
+      }
+    },
+    "matin": {
+      "lemma": "matin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "morning (m); le matin = in the morning",
+        "es-419": "mañana, la parte del día (m); le matin = por la mañana",
+        "it": "mattina (m); le matin = di mattina",
+        "nl": "ochtend (m); le matin = 's ochtends"
+      }
+    },
+    "assez": {
+      "lemma": "assez",
+      "pos": "ADV",
+      "gloss": {
+        "en": "enough (assez de place = enough room)",
+        "es-419": "suficiente, bastante (assez de place = suficiente lugar)",
+        "it": "abbastanza (assez de place = abbastanza posto)",
+        "nl": "genoeg (assez de place = genoeg plaats)"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we, us",
+        "es-419": "nosotros, nos",
+        "it": "noi, ci",
+        "nl": "wij, we, ons"
+      }
+    },
+    "n'avons": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'avons = ne + avons: we do not have (avoir)",
+        "es-419": "n'avons = ne + avons: no tenemos (avoir)",
+        "it": "n'avons = ne + avons: non abbiamo (avoir)",
+        "nl": "n'avons = ne + avons: we hebben geen (avoir)"
+      }
+    },
+    "notre": {
+      "lemma": "notre",
+      "pos": "DET",
+      "gloss": {
+        "en": "our (notre, nos)",
+        "es-419": "nuestro, nuestra (notre, nos)",
+        "it": "nostro, nostra (notre, nos)",
+        "nl": "onze (notre, nos)"
+      }
+    },
+    "vide": {
+      "lemma": "vide",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "empty",
+        "es-419": "vacío",
+        "it": "vuoto",
+        "nl": "leeg"
+      }
+    },
+    "verre": {
+      "lemma": "verre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "verre (m): glass (for drinking)",
+        "es-419": "verre (m): vaso, copa",
+        "it": "verre (m): bicchiere",
+        "nl": "verre (m): glas"
+      }
+    },
+    "train": {
+      "lemma": "train",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "train (m)",
+        "es-419": "tren (m)",
+        "it": "treno (m)",
+        "nl": "trein (m)"
+      }
+    },
+    "plein": {
+      "lemma": "plein",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "full; à temps plein = full time",
+        "es-419": "lleno; à temps plein = tiempo completo",
+        "it": "pieno; à temps plein = a tempo pieno",
+        "nl": "vol; à temps plein = fulltime"
+      }
+    },
+    "lundi": {
+      "lemma": "lundi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Monday (m); no capital letter",
+        "es-419": "lunes (m); sin mayúscula",
+        "it": "lunedì (m); senza maiuscola",
+        "nl": "maandag (m); met een kleine letter"
+      }
+    },
+    "prix": {
+      "lemma": "prix",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prix (m): price, prize; the x is silent",
+        "es-419": "prix (m): precio, premio; la x es muda",
+        "it": "prix (m): prezzo, premio; la x è muta",
+        "nl": "prix (m): prijs; de x is stom"
+      }
+    },
+    "juste": {
+      "lemma": "juste",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "fair, right; just, right (un prix juste = a fair price; juste à côté = right next door)",
+        "es-419": "justo (un prix juste = un precio justo; juste à côté = justo al lado)",
+        "it": "giusto; proprio (un prix juste = un prezzo giusto; juste à côté = proprio accanto)",
+        "nl": "eerlijk; net, vlak (un prix juste = een eerlijke prijs; juste à côté = vlak naast)"
+      }
+    },
+    "cinquante": {
+      "lemma": "cinquante",
+      "pos": "NUM",
+      "gloss": {
+        "en": "fifty",
+        "es-419": "cincuenta",
+        "it": "cinquanta",
+        "nl": "vijftig"
+      }
+    },
+    "euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "euros (plural of euro, m)",
+        "es-419": "euros (plural de euro, m)",
+        "it": "euro (plurale di euro, m)",
+        "nl": "euro (meervoud van euro, m)"
+      }
+    },
+    "pull": {
+      "lemma": "pull",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pull (m): sweater, pullover",
+        "es-419": "pull (m): suéter, jersey",
+        "it": "pull (m): maglione",
+        "nl": "pull (m): trui"
+      }
+    },
+    "côté": {
+      "lemma": "côté",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "côté (m): side; à côté de = next to",
+        "es-419": "côté (m): lado; à côté de = al lado de",
+        "it": "côté (m): lato; à côté de = accanto a",
+        "nl": "côté (m): kant; à côté de = naast"
+      }
+    },
+    "pharmacie": {
+      "lemma": "pharmacie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pharmacie (f): pharmacy, drugstore",
+        "es-419": "pharmacie (f): farmacia",
+        "it": "pharmacie (f): farmacia",
+        "nl": "pharmacie (f): apotheek"
+      }
+    },
+    "gare": {
+      "lemma": "gare",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gare (f): train station",
+        "es-419": "gare (f): estación de tren",
+        "it": "gare (f): stazione ferroviaria",
+        "nl": "gare (f): treinstation"
+      }
+    },
+    "qu'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qu'il = que + il: that he, that it",
+        "es-419": "qu'il = que + il: que él, que",
+        "it": "qu'il = che + il: che lui, che",
+        "nl": "qu'il = que + il: dat hij, dat het"
+      }
+    },
+    "place": {
+      "lemma": "place",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "place (f): place, seat, square; sur place = here (to eat in)",
+        "es-419": "place (f): lugar, asiento, plaza; sur place = aquí (para tomar allí)",
+        "it": "place (f): posto, piazza; sur place = qui (da consumare)",
+        "nl": "place (f): plaats, zitplaats, plein; sur place = hier (opeten)"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "tout = all; tout droit = straight ahead",
+        "es-419": "tout = todo; tout droit = derecho",
+        "it": "tout = tutto; tout droit = dritto",
+        "nl": "tout = alles; tout droit = rechtdoor"
+      }
+    },
+    "cet": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cet = this, that (before a masculine noun starting with a vowel): cet ordinateur",
+        "es-419": "cet = este, ese (ante sustantivo masculino que empieza por vocal): cet ordinateur",
+        "it": "cet = questo, quel (davanti a nome maschile che inizia per vocale): cet ordinateur",
+        "nl": "cet = deze, dit (voor een mannelijk woord dat met een klinker begint): cet ordinateur"
+      }
+    },
+    "petit": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "small, short, little",
+        "es-419": "pequeño, bajo",
+        "it": "piccolo, basso",
+        "nl": "klein"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: is not (il n'est pas)",
+        "es-419": "n'est = ne + est: no es (il n'est pas)",
+        "it": "n'est = ne + est: non è (il n'est pas)",
+        "nl": "n'est = ne + est: is niet (il n'est pas)"
+      }
+    },
+    "différent": {
+      "lemma": "différent",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "different (différent de = different from)",
+        "es-419": "diferente (différent de = diferente a)",
+        "it": "diverso (différent de = diverso da)",
+        "nl": "anders (différent de = anders dan)"
+      }
+    },
+    "différente": {
+      "lemma": "différent",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "different (différent, f)",
+        "es-419": "diferente (différent, f)",
+        "it": "diverso (différent, f)",
+        "nl": "anders (différent, f)"
+      }
+    },
+    "même": {
+      "lemma": "même",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "same (le même prix = the same price; la même chose = the same thing)",
+        "es-419": "mismo (le même prix = el mismo precio; la même chose = lo mismo)",
+        "it": "stesso (le même prix = lo stesso prezzo; la même chose = la stessa cosa)",
+        "nl": "zelfde (le même prix = dezelfde prijs; la même chose = hetzelfde)"
+      }
+    },
+    "chose": {
+      "lemma": "chose",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "thing (f); quelque chose = something",
+        "es-419": "cosa (f); quelque chose = algo",
+        "it": "cosa (f); quelque chose = qualcosa",
+        "nl": "ding (f); quelque chose = iets"
+      }
+    },
+    "mes": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "mes = my (plural of mon, ma)",
+        "es-419": "mes = mis (plural de mon, ma)",
+        "it": "mes = miei, mie (plurale di mon, ma)",
+        "nl": "mes = mijn (meervoud van mon, ma)"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "pulls": {
+      "lemma": "pull",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pulls = sweaters (plural of pull)",
+        "es-419": "pulls = suéteres (plural de pull)",
+        "it": "pulls = maglioni (plurale di pull)",
+        "nl": "pulls = truien (meervoud van pull)"
+      }
+    },
+    "n'ont": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ont = ne + ont: they do not have",
+        "es-419": "n'ont = ne + ont: no tienen",
+        "it": "n'ont = ne + ont: non hanno",
+        "nl": "n'ont = ne + ont: ze hebben geen"
+      }
+    },
+    "couleur": {
+      "lemma": "couleur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "couleur (f): color",
+        "es-419": "couleur (f): color",
+        "it": "couleur (f): colore",
+        "nl": "couleur (f): kleur"
+      }
+    },
+    "pareil": {
+      "lemma": "pareil",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "the same, alike (c'est pareil = it's all the same)",
+        "es-419": "igual (c'est pareil = es lo mismo)",
+        "it": "uguale (c'est pareil = è lo stesso)",
+        "nl": "gelijk, hetzelfde (c'est pareil = het is hetzelfde)"
+      }
+    },
+    "thé": {
+      "lemma": "thé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "thé (m): tea",
+        "es-419": "thé (m): té",
+        "it": "thé (m): tè",
+        "nl": "thé (m): thee"
+      }
+    },
+    "ou": {
+      "lemma": "ou",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "or",
+        "es-419": "o",
+        "it": "o",
+        "nl": "of"
+      }
+    },
+    "presque": {
+      "lemma": "presque",
+      "pos": "ADV",
+      "gloss": {
+        "en": "almost, nearly",
+        "es-419": "casi",
+        "it": "quasi",
+        "nl": "bijna"
+      }
+    },
+    "pizza": {
+      "lemma": "pizza",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "pizza (f)",
+        "es-419": "pizza (f)",
+        "it": "pizza (f)",
+        "nl": "pizza (f)"
+      }
+    },
+    "bonne": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bonne = good (feminine); bonne journée = have a good day",
+        "es-419": "bonne = buena (femenino); bonne journée = que tengas un buen día",
+        "it": "bonne = buona (femminile); bonne journée = buona giornata",
+        "nl": "bonne = goed (vrouwelijk); bonne journée = een fijne dag"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an; one (feminine)",
+        "es-419": "una, uno (femenino)",
+        "it": "una, un (femminile)",
+        "nl": "een; één (vrouwelijk)"
+      }
+    },
+    "différence": {
+      "lemma": "différence",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "difference (f)",
+        "es-419": "diferencia (f)",
+        "it": "differenza (f)",
+        "nl": "verschil (f)"
+      }
+    },
+    "entre": {
+      "lemma": "entre",
+      "pos": "ADP",
+      "gloss": {
+        "en": "entre = between",
+        "es-419": "entre = entre",
+        "it": "entre = tra, fra",
+        "nl": "entre = tussen"
+      }
+    },
+    "ressembler": {
+      "lemma": "ressembler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to look like, to resemble (ressembler à)",
+        "es-419": "parecerse (ressembler à); ojo: en francés no es reflexivo (il ressemble à, no il se ressemble)",
+        "it": "assomigliare (ressembler à)",
+        "nl": "lijken op (ressembler à)"
+      }
+    },
+    "fils": {
+      "lemma": "fils",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "son (m); the s is pronounced",
+        "es-419": "hijo (m); la s se pronuncia",
+        "it": "figlio (m); la s si pronuncia",
+        "nl": "zoon (m); de s wordt uitgesproken"
+      }
+    },
+    "ressemble": {
+      "lemma": "ressembler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "looks like (ressembler à: il ressemble à son père)",
+        "es-419": "se parece (ressembler à: il ressemble à son père)",
+        "it": "assomiglia (ressembler à: il ressemble à son père)",
+        "nl": "lijkt op (ressembler à: il ressemble à son père)"
+      }
+    },
+    "manière": {
+      "lemma": "manière",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "way, manner (f); une manière de voyager = a way to travel",
+        "es-419": "manera, modo (f); une manière de voyager = una manera de viajar",
+        "it": "modo, maniera (f); une manière de voyager = un modo di viaggiare",
+        "nl": "manier (f); une manière de voyager = een manier om te reizen"
+      }
+    },
+    "voyager": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to travel",
+        "es-419": "viajar",
+        "it": "viaggiare",
+        "nl": "reizen"
+      }
+    },
+    "manières": {
+      "lemma": "manière",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "ways, manners (plural of manière, f)",
+        "es-419": "maneras, modos (plural de manière, f)",
+        "it": "modi, maniere (plurale di manière, f)",
+        "nl": "manieren (meervoud van manière, f)"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, it (ça dure = it lasts)",
+        "es-419": "eso, esto (ça dure = dura)",
+        "it": "questo, ciò (ça dure = dura)",
+        "nl": "dat, het (ça dure = het duurt)"
+      }
+    },
+    "vaut": {
+      "lemma": "valoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is worth (valoir: ça vaut la peine = it's worth it; il vaut mieux = it's better to)",
+        "es-419": "vale (valoir: ça vaut la peine = vale la pena; il vaut mieux = es mejor)",
+        "it": "vale (valoir: ça vaut la peine = vale la pena; il vaut mieux = è meglio)",
+        "nl": "is waard (valoir: ça vaut la peine = het is de moeite waard; il vaut mieux = het is beter)"
+      }
+    },
+    "peine": {
+      "lemma": "peine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trouble, effort (f); ça vaut la peine = it's worth it; watch out: peine is effort or sorrow, not physical pain (douleur)",
+        "es-419": "esfuerzo, molestia (f); ça vaut la peine = vale la pena",
+        "it": "fatica, pena (f); ça vaut la peine = vale la pena",
+        "nl": "moeite (f); ça vaut la peine = het is de moeite waard"
+      }
+    },
+    "visiter": {
+      "lemma": "visiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to visit (a place)",
+        "es-419": "visitar (un lugar)",
+        "it": "visitare (un luogo)",
+        "nl": "bezoeken (een plaats)"
+      }
+    },
+    "partir": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave, to depart",
+        "es-419": "salir, irse",
+        "it": "partire",
+        "nl": "vertrekken"
+      }
+    },
+    "tôt": {
+      "lemma": "tôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "early",
+        "es-419": "temprano",
+        "it": "presto",
+        "nl": "vroeg"
+      }
+    },
+    "exemple": {
+      "lemma": "exemple",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "example (m); par exemple = for example",
+        "es-419": "ejemplo (m); par exemple = por ejemplo",
+        "it": "esempio (m); par exemple = per esempio",
+        "nl": "voorbeeld (m); par exemple = bijvoorbeeld"
+      }
+    },
+    "par": {
+      "lemma": "par",
+      "pos": "ADP",
+      "gloss": {
+        "en": "par = by, through; par carte bancaire = by bank card",
+        "es-419": "par = por, con; par carte bancaire = con tarjeta bancaria",
+        "it": "par = per, con; par carte bancaire = con carta bancaria",
+        "nl": "par = door, met; par carte bancaire = met de bankpas"
+      }
+    },
+    "j'aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'aime = je + aime: I like (aimer + thing); with a person it means love",
+        "es-419": "j'aime = je + aime: me gusta",
+        "it": "j'aime = je + aime: mi piace",
+        "nl": "j'aime = je + aime: ik hou van, ik vind lekker"
+      }
+    },
+    "fruits": {
+      "lemma": "fruit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fruit (fruit, m)",
+        "es-419": "fruta (fruit, m)",
+        "it": "frutta (fruit, m)",
+        "nl": "fruit (fruit, m)"
+      }
+    },
+    "fraises": {
+      "lemma": "fraise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fraises = strawberries (plural of fraise)",
+        "es-419": "fraises = fresas (plural de fraise)",
+        "it": "fraises = fragole (plurale di fraise)",
+        "nl": "fraises = aardbeien (meervoud van fraise)"
+      }
+    },
+    "bananes": {
+      "lemma": "banane",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bananes = bananas (plural of banane)",
+        "es-419": "bananes = plátanos (plural de banane)",
+        "it": "bananes = banane (plurale di banane)",
+        "nl": "bananes = bananen (meervoud van banane)"
+      }
+    },
+    "normal": {
+      "lemma": "normal",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "normal",
+        "es-419": "normal",
+        "it": "normale",
+        "nl": "normaal"
+      }
+    },
+    "encore": {
+      "lemma": "encore",
+      "pos": "ADV",
+      "gloss": {
+        "en": "again, still, more; encore une fois = one more time",
+        "es-419": "otra vez, todavía; encore une fois = otra vez",
+        "it": "ancora; encore une fois = ancora una volta",
+        "nl": "nog, opnieuw; encore une fois = nog een keer"
+      }
+    },
+    "retard": {
+      "lemma": "retard",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "delay (m); avoir du retard = be late",
+        "es-419": "retraso (m); avoir du retard = tener retraso",
+        "it": "ritardo (m); avoir du retard = essere in ritardo",
+        "nl": "vertraging (m); avoir du retard = vertraging hebben"
+      }
+    },
+    "paresseux": {
+      "lemma": "paresseux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "lazy",
+        "es-419": "perezoso",
+        "it": "pigro",
+        "nl": "lui"
+      }
+    },
+    "chat": {
+      "lemma": "chat",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cat (m)",
+        "es-419": "gato (m)",
+        "it": "gatto (m)",
+        "nl": "kat (m)"
+      }
+    },
+    "famille": {
+      "lemma": "famille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "es-419": "familia (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "semble": {
+      "lemma": "sembler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "seems (sembler: ça semble facile = it seems easy)",
+        "es-419": "parece (sembler: ça semble facile = parece fácil)",
+        "it": "sembra (sembler: ça semble facile = sembra facile)",
+        "nl": "lijkt (sembler: ça semble facile = het lijkt makkelijk)"
+      }
+    },
+    "prendre": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prendre = to take (prends, prend, prenons, prenez, prennent)",
+        "es-419": "prendre = tomar (prends, prend, prenons, prenez, prennent)",
+        "it": "prendre = prendere (prends, prend, prenons, prenez, prennent)",
+        "nl": "prendre = nemen (prends, prend, prenons, prenez, prennent)"
+      }
+    },
+    "hôtel": {
+      "lemma": "hôtel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hotel (m)",
+        "es-419": "hotel (m)",
+        "it": "albergo, hotel (m)",
+        "nl": "hotel (m)"
+      }
+    },
+    "peu": {
+      "lemma": "peu",
+      "pos": "ADV",
+      "gloss": {
+        "en": "little, few; un peu de = a little",
+        "es-419": "poco; un peu de = un poco de",
+        "it": "poco; un peu de = un po' di",
+        "nl": "weinig; un peu de = een beetje"
+      }
+    },
+    "parce": {
+      "lemma": "parce",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "parce: in parce que = because",
+        "es-419": "parce: en parce que = porque",
+        "it": "parce: in parce que = perché",
+        "nl": "parce: in parce que = omdat, want"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a2-comparer-1",
+      "title": "Plus, moins, aussi",
+      "grammarFocus": {
+        "en": [
+          "plus / moins / aussi + adjective + que: plus grand que, aussi rapide que",
+          "que + stressed pronoun: plus grand que moi, moins lourd que lui"
+        ],
+        "es-419": [
+          "plus / moins / aussi + adjetivo + que: plus grand que, aussi rapide que",
+          "que + pronombre tónico: plus grand que moi, moins lourd que lui"
+        ],
+        "it": [
+          "plus / moins / aussi + aggettivo + que: plus grand que, aussi rapide que",
+          "que + pronome tonico: plus grand que moi, moins lourd que lui"
+        ],
+        "nl": [
+          "plus / moins / aussi + bijvoeglijk naamwoord + que: plus grand que, aussi rapide que",
+          "que + beklemtoond voornaamwoord: plus grand que moi, moins lourd que lui"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-1-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "plus grand",
+          "translation": {
+            "en": "bigger, taller",
+            "es-419": "más grande",
+            "it": "più grande",
+            "nl": "groter"
+          },
+          "distractors": {
+            "en": [
+              "smaller",
+              "very big"
+            ],
+            "es-419": [
+              "más pequeño",
+              "muy grande"
+            ],
+            "it": [
+              "più piccolo",
+              "molto grande"
+            ],
+            "nl": [
+              "kleiner",
+              "heel groot"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "plus grand que moi",
+          "translation": {
+            "en": "taller than me",
+            "es-419": "más alto que yo",
+            "it": "più alto di me",
+            "nl": "groter dan ik"
+          },
+          "distractors": {
+            "en": [
+              "shorter than me",
+              "taller than you"
+            ],
+            "es-419": [
+              "más bajo que yo",
+              "más alto que tú"
+            ],
+            "it": [
+              "più basso di me",
+              "più alto di te"
+            ],
+            "nl": [
+              "kleiner dan ik",
+              "groter dan jij"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon frère est plus grand que moi.",
+          "translation": {
+            "en": "My brother is taller than me.",
+            "es-419": "Mi hermano es más alto que yo.",
+            "it": "Mio fratello è più alto di me.",
+            "nl": "Mijn broer is groter dan ik."
+          },
+          "distractors": {
+            "en": [
+              "My sister is taller than me.",
+              "My brother is shorter than me."
+            ],
+            "es-419": [
+              "Mi hermana es más alta que yo.",
+              "Mi hermano es más bajo que yo."
+            ],
+            "it": [
+              "Mia sorella è più alta di me.",
+              "Mio fratello è più basso di me."
+            ],
+            "nl": [
+              "Mijn zus is groter dan ik.",
+              "Mijn broer is kleiner dan ik."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "rapide",
+          "translation": {
+            "en": "fast",
+            "es-419": "rápido",
+            "it": "veloce",
+            "nl": "snel"
+          },
+          "distractors": {
+            "en": [
+              "slow",
+              "cheap"
+            ],
+            "es-419": [
+              "lento",
+              "barato"
+            ],
+            "it": [
+              "lento",
+              "economico"
+            ],
+            "nl": [
+              "langzaam",
+              "goedkoop"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "lent",
+          "translation": {
+            "en": "slow",
+            "es-419": "lento",
+            "it": "lento",
+            "nl": "langzaam"
+          },
+          "distractors": {
+            "en": [
+              "fast",
+              "heavy"
+            ],
+            "es-419": [
+              "rápido",
+              "pesado"
+            ],
+            "it": [
+              "veloce",
+              "pesante"
+            ],
+            "nl": [
+              "snel",
+              "zwaar"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "plus lent que le métro",
+          "translation": {
+            "en": "slower than the subway",
+            "es-419": "más lento que el metro",
+            "it": "più lento della metro",
+            "nl": "langzamer dan de metro"
+          },
+          "distractors": {
+            "en": [
+              "faster than the subway",
+              "slower than the train"
+            ],
+            "es-419": [
+              "más rápido que el metro",
+              "más lento que el tren"
+            ],
+            "it": [
+              "più veloce della metro",
+              "più lento del treno"
+            ],
+            "nl": [
+              "sneller dan de metro",
+              "langzamer dan de trein"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le bus est plus lent que le métro, mais il est moins cher.",
+          "translation": {
+            "en": "The bus is slower than the subway, but it's cheaper.",
+            "es-419": "El autobús es más lento que el metro, pero es más barato.",
+            "it": "L'autobus è più lento della metro, ma costa meno.",
+            "nl": "De bus is langzamer dan de metro, maar hij is goedkoper."
+          },
+          "distractors": {
+            "en": [
+              "The bus is faster than the subway, but it's cheaper.",
+              "The bus is slower than the subway, but it's more expensive."
+            ],
+            "es-419": [
+              "El autobús es más rápido que el metro, pero es más barato.",
+              "El autobús es más lento que el metro, pero es más caro."
+            ],
+            "it": [
+              "L'autobus è più veloce della metro, ma costa meno.",
+              "L'autobus è più lento della metro, ma costa di più."
+            ],
+            "nl": [
+              "De bus is sneller dan de metro, maar hij is goedkoper.",
+              "De bus is langzamer dan de metro, maar hij is duurder."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "lourd",
+          "translation": {
+            "en": "heavy",
+            "es-419": "pesado",
+            "it": "pesante",
+            "nl": "zwaar"
+          },
+          "distractors": {
+            "en": [
+              "light",
+              "empty"
+            ],
+            "es-419": [
+              "ligero",
+              "vacío"
+            ],
+            "it": [
+              "leggero",
+              "vuoto"
+            ],
+            "nl": [
+              "licht",
+              "leeg"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "moins lourd que l'autre",
+          "translation": {
+            "en": "lighter than the other one",
+            "es-419": "menos pesado que el otro",
+            "it": "meno pesante dell'altro",
+            "nl": "lichter dan de andere"
+          },
+          "distractors": {
+            "en": [
+              "heavier than the other one",
+              "cheaper than the other one"
+            ],
+            "es-419": [
+              "más pesado que el otro",
+              "más barato que el otro"
+            ],
+            "it": [
+              "più pesante dell'altro",
+              "più economico dell'altro"
+            ],
+            "nl": [
+              "zwaarder dan de andere",
+              "goedkoper dan de andere"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "très pratique",
+          "translation": {
+            "en": "very practical",
+            "es-419": "muy práctico",
+            "it": "molto pratico",
+            "nl": "heel praktisch"
+          },
+          "distractors": {
+            "en": [
+              "very expensive",
+              "very comfortable"
+            ],
+            "es-419": [
+              "muy caro",
+              "muy cómodo"
+            ],
+            "it": [
+              "molto caro",
+              "molto comodo"
+            ],
+            "nl": [
+              "heel duur",
+              "heel comfortabel"
+            ]
+          },
+          "senses": {
+            "1": "adj"
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cette valise est moins lourde et plus pratique que l'autre.",
+          "translation": {
+            "en": "This suitcase is lighter and more practical than the other one.",
+            "es-419": "Esta maleta es menos pesada y más práctica que la otra.",
+            "it": "Questa valigia è meno pesante e più pratica dell'altra.",
+            "nl": "Deze koffer is lichter en praktischer dan de andere."
+          },
+          "distractors": {
+            "en": [
+              "This suitcase is heavier and more practical than the other one.",
+              "This suitcase is lighter and cheaper than the other one."
+            ],
+            "es-419": [
+              "Esta maleta es más pesada y más práctica que la otra.",
+              "Esta maleta es menos pesada y más barata que la otra."
+            ],
+            "it": [
+              "Questa valigia è più pesante e più pratica dell'altra.",
+              "Questa valigia è meno pesante e più economica dell'altra."
+            ],
+            "nl": [
+              "Deze koffer is zwaarder en praktischer dan de andere.",
+              "Deze koffer is lichter en goedkoper dan de andere."
+            ]
+          },
+          "senses": {
+            "7": "adj"
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "aussi rapide que lui",
+          "translation": {
+            "en": "as fast as him",
+            "es-419": "tan rápido como él",
+            "it": "veloce quanto lui",
+            "nl": "even snel als hij"
+          },
+          "distractors": {
+            "en": [
+              "faster than him",
+              "as slow as him"
+            ],
+            "es-419": [
+              "más rápido que él",
+              "tan lento como él"
+            ],
+            "it": [
+              "più veloce di lui",
+              "lento quanto lui"
+            ],
+            "nl": [
+              "sneller dan hij",
+              "even langzaam als hij"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur est aussi rapide que moi.",
+          "translation": {
+            "en": "My sister is as fast as me.",
+            "es-419": "Mi hermana es tan rápida como yo.",
+            "it": "Mia sorella è veloce quanto me.",
+            "nl": "Mijn zus is even snel als ik."
+          },
+          "distractors": {
+            "en": [
+              "My sister is faster than me.",
+              "My brother is as fast as me."
+            ],
+            "es-419": [
+              "Mi hermana es más rápida que yo.",
+              "Mi hermano es tan rápido como yo."
+            ],
+            "it": [
+              "Mia sorella è più veloce di me.",
+              "Mio fratello è veloce quanto me."
+            ],
+            "nl": [
+              "Mijn zus is sneller dan ik.",
+              "Mijn broer is even snel als ik."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Est-ce que le vélo est plus rapide que la voiture?",
+          "translation": {
+            "en": "Is the bike faster than the car?",
+            "es-419": "¿La bicicleta es más rápida que el carro?",
+            "it": "La bicicletta è più veloce dell'auto?",
+            "nl": "Is de fiets sneller dan de auto?"
+          },
+          "distractors": {
+            "en": [
+              "Is the car faster than the bike?",
+              "Is the bike cheaper than the car?"
+            ],
+            "es-419": [
+              "¿El carro es más rápido que la bicicleta?",
+              "¿La bicicleta es más barata que el carro?"
+            ],
+            "it": [
+              "L'auto è più veloce della bicicletta?",
+              "La bicicletta costa meno dell'auto?"
+            ],
+            "nl": [
+              "Is de auto sneller dan de fiets?",
+              "Is de fiets goedkoper dan de auto?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma mère est plus petite que mon père, mais elle est plus rapide que lui.",
+          "translation": {
+            "en": "My mother is shorter than my father, but she's faster than him.",
+            "es-419": "Mi mamá es más baja que mi papá, pero es más rápida que él.",
+            "it": "Mia madre è più bassa di mio padre, ma è più veloce di lui.",
+            "nl": "Mijn moeder is kleiner dan mijn vader, maar ze is sneller dan hij."
+          },
+          "distractors": {
+            "en": [
+              "My mother is taller than my father, but she's faster than him.",
+              "My mother is shorter than my father, but she's slower than him."
+            ],
+            "es-419": [
+              "Mi mamá es más alta que mi papá, pero es más rápida que él.",
+              "Mi mamá es más baja que mi papá, pero es más lenta que él."
+            ],
+            "it": [
+              "Mia madre è più alta di mio padre, ma è più veloce di lui.",
+              "Mia madre è più bassa di mio padre, ma è più lenta di lui."
+            ],
+            "nl": [
+              "Mijn moeder is groter dan mijn vader, maar ze is sneller dan hij.",
+              "Mijn moeder is kleiner dan mijn vader, maar ze is langzamer dan hij."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-comparer-2",
+      "title": "Ville et campagne",
+      "grammarFocus": {
+        "en": [
+          "plus de / moins de / autant de + noun (+ que): plus de circulation, autant de bruit qu'en ville",
+          "verb + plus que: je travaille plus que mon frère",
+          "de plus en plus, de moins en moins: more and more, less and less"
+        ],
+        "es-419": [
+          "plus de / moins de / autant de + nombre (+ que): plus de circulation, autant de bruit qu'en ville",
+          "verbo + plus que: je travaille plus que mon frère",
+          "de plus en plus, de moins en moins: cada vez más, cada vez menos"
+        ],
+        "it": [
+          "plus de / moins de / autant de + nome (+ que): plus de circulation, autant de bruit qu'en ville",
+          "verbo + plus que: je travaille plus que mon frère",
+          "de plus en plus, de moins en moins: sempre più, sempre meno"
+        ],
+        "nl": [
+          "plus de / moins de / autant de + zelfstandig naamwoord (+ que): plus de circulation, autant de bruit qu'en ville",
+          "werkwoord + plus que: je travaille plus que mon frère",
+          "de plus en plus, de moins en moins: steeds meer, steeds minder"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "circulation",
+          "translation": {
+            "en": "traffic",
+            "es-419": "tráfico",
+            "it": "traffico",
+            "nl": "verkeer"
+          },
+          "distractors": {
+            "en": [
+              "noise",
+              "road"
+            ],
+            "es-419": [
+              "ruido",
+              "calle"
+            ],
+            "it": [
+              "rumore",
+              "strada"
+            ],
+            "nl": [
+              "lawaai",
+              "weg"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "moins de circulation",
+          "translation": {
+            "en": "less traffic",
+            "es-419": "menos tráfico",
+            "it": "meno traffico",
+            "nl": "minder verkeer"
+          },
+          "distractors": {
+            "en": [
+              "more traffic",
+              "less noise"
+            ],
+            "es-419": [
+              "más tráfico",
+              "menos ruido"
+            ],
+            "it": [
+              "più traffico",
+              "meno rumore"
+            ],
+            "nl": [
+              "meer verkeer",
+              "minder lawaai"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a moins de circulation à la campagne.",
+          "translation": {
+            "en": "There's less traffic in the countryside.",
+            "es-419": "Hay menos tráfico en el campo.",
+            "it": "C'è meno traffico in campagna.",
+            "nl": "Er is minder verkeer op het platteland."
+          },
+          "distractors": {
+            "en": [
+              "There's more traffic in the countryside.",
+              "There's less traffic in the city."
+            ],
+            "es-419": [
+              "Hay más tráfico en el campo.",
+              "Hay menos tráfico en la ciudad."
+            ],
+            "it": [
+              "C'è più traffico in campagna.",
+              "C'è meno traffico in città."
+            ],
+            "nl": [
+              "Er is meer verkeer op het platteland.",
+              "Er is minder verkeer in de stad."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "habitant",
+          "translation": {
+            "en": "inhabitant",
+            "es-419": "habitante",
+            "it": "abitante",
+            "nl": "inwoner"
+          },
+          "distractors": {
+            "en": [
+              "neighbor",
+              "tourist"
+            ],
+            "es-419": [
+              "vecino",
+              "turista"
+            ],
+            "it": [
+              "vicino",
+              "turista"
+            ],
+            "nl": [
+              "buurman",
+              "toerist"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Paris a plus d'habitants que Lyon.",
+          "translation": {
+            "en": "Paris has more inhabitants than Lyon.",
+            "es-419": "París tiene más habitantes que Lyon.",
+            "it": "Parigi ha più abitanti di Lione.",
+            "nl": "Parijs heeft meer inwoners dan Lyon."
+          },
+          "distractors": {
+            "en": [
+              "Paris has fewer inhabitants than Lyon.",
+              "Lyon has more inhabitants than Paris."
+            ],
+            "es-419": [
+              "París tiene menos habitantes que Lyon.",
+              "Lyon tiene más habitantes que París."
+            ],
+            "it": [
+              "Parigi ha meno abitanti di Lione.",
+              "Lione ha più abitanti di Parigi."
+            ],
+            "nl": [
+              "Parijs heeft minder inwoners dan Lyon.",
+              "Lyon heeft meer inwoners dan Parijs."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "espace",
+          "translation": {
+            "en": "space, room",
+            "es-419": "espacio",
+            "it": "spazio",
+            "nl": "ruimte"
+          },
+          "distractors": {
+            "en": [
+              "time",
+              "place"
+            ],
+            "es-419": [
+              "tiempo",
+              "lugar"
+            ],
+            "it": [
+              "tempo",
+              "posto"
+            ],
+            "nl": [
+              "tijd",
+              "plaats"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u07",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "beaucoup d'espace",
+          "translation": {
+            "en": "a lot of space",
+            "es-419": "mucho espacio",
+            "it": "tanto spazio",
+            "nl": "veel ruimte"
+          },
+          "distractors": {
+            "en": [
+              "a little space",
+              "a lot of noise"
+            ],
+            "es-419": [
+              "poco espacio",
+              "mucho ruido"
+            ],
+            "it": [
+              "poco spazio",
+              "tanto rumore"
+            ],
+            "nl": [
+              "weinig ruimte",
+              "veel lawaai"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "À la campagne, on a plus d'espace que dans un appartement.",
+          "translation": {
+            "en": "In the countryside, you have more space than in an apartment.",
+            "es-419": "En el campo se tiene más espacio que en un apartamento.",
+            "it": "In campagna si ha più spazio che in un appartamento.",
+            "nl": "Op het platteland heb je meer ruimte dan in een appartement."
+          },
+          "distractors": {
+            "en": [
+              "In the countryside, you have less space than in an apartment.",
+              "In the countryside, you have more space than in a house."
+            ],
+            "es-419": [
+              "En el campo se tiene menos espacio que en un apartamento.",
+              "En el campo se tiene más espacio que en una casa."
+            ],
+            "it": [
+              "In campagna si ha meno spazio che in un appartamento.",
+              "In campagna si ha più spazio che in una casa."
+            ],
+            "nl": [
+              "Op het platteland heb je minder ruimte dan in een appartement.",
+              "Op het platteland heb je meer ruimte dan in een huis."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "l'air de la campagne",
+          "translation": {
+            "en": "the country air",
+            "es-419": "el aire del campo",
+            "it": "l'aria di campagna",
+            "nl": "de lucht van het platteland"
+          },
+          "distractors": {
+            "en": [
+              "the city air",
+              "the noise of the countryside"
+            ],
+            "es-419": [
+              "el aire de la ciudad",
+              "el ruido del campo"
+            ],
+            "it": [
+              "l'aria di città",
+              "il rumore della campagna"
+            ],
+            "nl": [
+              "de lucht van de stad",
+              "het lawaai van het platteland"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "autant de bruit qu'en ville",
+          "translation": {
+            "en": "as much noise as in the city",
+            "es-419": "tanto ruido como en la ciudad",
+            "it": "tanto rumore quanto in città",
+            "nl": "evenveel lawaai als in de stad"
+          },
+          "distractors": {
+            "en": [
+              "more noise than in the city",
+              "as much traffic as in the city"
+            ],
+            "es-419": [
+              "más ruido que en la ciudad",
+              "tanto tráfico como en la ciudad"
+            ],
+            "it": [
+              "più rumore che in città",
+              "tanto traffico quanto in città"
+            ],
+            "nl": [
+              "meer lawaai dan in de stad",
+              "evenveel verkeer als in de stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ici, il n'y a pas autant de bruit qu'en ville.",
+          "translation": {
+            "en": "Here there isn't as much noise as in the city.",
+            "es-419": "Aquí no hay tanto ruido como en la ciudad.",
+            "it": "Qui non c'è tanto rumore quanto in città.",
+            "nl": "Hier is niet zoveel lawaai als in de stad."
+          },
+          "distractors": {
+            "en": [
+              "Here there's more noise than in the city.",
+              "Here there isn't as much traffic as in the city."
+            ],
+            "es-419": [
+              "Aquí hay más ruido que en la ciudad.",
+              "Aquí no hay tanto tráfico como en la ciudad."
+            ],
+            "it": [
+              "Qui c'è più rumore che in città.",
+              "Qui non c'è tanto traffico quanto in città."
+            ],
+            "nl": [
+              "Hier is meer lawaai dan in de stad.",
+              "Hier is niet zoveel verkeer als in de stad."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "de plus en plus",
+          "translation": {
+            "en": "more and more",
+            "es-419": "cada vez más",
+            "it": "sempre più",
+            "nl": "steeds meer"
+          },
+          "distractors": {
+            "en": [
+              "less and less",
+              "more or less"
+            ],
+            "es-419": [
+              "cada vez menos",
+              "más o menos"
+            ],
+            "it": [
+              "sempre meno",
+              "più o meno"
+            ],
+            "nl": [
+              "steeds minder",
+              "min of meer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La ville est de plus en plus bruyante.",
+          "translation": {
+            "en": "The city is getting noisier and noisier.",
+            "es-419": "La ciudad es cada vez más ruidosa.",
+            "it": "La città è sempre più rumorosa.",
+            "nl": "De stad wordt steeds lawaaieriger."
+          },
+          "distractors": {
+            "en": [
+              "The city is getting quieter and quieter.",
+              "The countryside is getting noisier and noisier."
+            ],
+            "es-419": [
+              "La ciudad es cada vez más tranquila.",
+              "El campo es cada vez más ruidoso."
+            ],
+            "it": [
+              "La città è sempre più tranquilla.",
+              "La campagna è sempre più rumorosa."
+            ],
+            "nl": [
+              "De stad wordt steeds rustiger.",
+              "Het platteland wordt steeds lawaaieriger."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a de moins en moins de circulation le dimanche.",
+          "translation": {
+            "en": "There's less and less traffic on Sundays.",
+            "es-419": "Hay cada vez menos tráfico los domingos.",
+            "it": "La domenica c'è sempre meno traffico.",
+            "nl": "Er is op zondag steeds minder verkeer."
+          },
+          "distractors": {
+            "en": [
+              "There's more and more traffic on Sundays.",
+              "There's less and less traffic on Saturdays."
+            ],
+            "es-419": [
+              "Hay cada vez más tráfico los domingos.",
+              "Hay cada vez menos tráfico los sábados."
+            ],
+            "it": [
+              "La domenica c'è sempre più traffico.",
+              "Il sabato c'è sempre meno traffico."
+            ],
+            "nl": [
+              "Er is op zondag steeds meer verkeer.",
+              "Er is op zaterdag steeds minder verkeer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je travaille plus que mon frère.",
+          "translation": {
+            "en": "I work more than my brother.",
+            "es-419": "Yo trabajo más que mi hermano.",
+            "it": "Io lavoro più di mio fratello.",
+            "nl": "Ik werk meer dan mijn broer."
+          },
+          "distractors": {
+            "en": [
+              "I work less than my brother.",
+              "I work more than my sister."
+            ],
+            "es-419": [
+              "Yo trabajo menos que mi hermano.",
+              "Yo trabajo más que mi hermana."
+            ],
+            "it": [
+              "Io lavoro meno di mio fratello.",
+              "Io lavoro più di mia sorella."
+            ],
+            "nl": [
+              "Ik werk minder dan mijn broer.",
+              "Ik werk meer dan mijn zus."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En ville, les gens travaillent plus, mais à la campagne ils ont plus d'espace.",
+          "translation": {
+            "en": "In the city, people work more, but in the countryside they have more space.",
+            "es-419": "En la ciudad la gente trabaja más, pero en el campo tiene más espacio.",
+            "it": "In città la gente lavora di più, ma in campagna ha più spazio.",
+            "nl": "In de stad werken mensen meer, maar op het platteland hebben ze meer ruimte."
+          },
+          "distractors": {
+            "en": [
+              "In the city, people work less, but in the countryside they have more space.",
+              "In the city, people work more, but in the countryside they have more time."
+            ],
+            "es-419": [
+              "En la ciudad la gente trabaja menos, pero en el campo tiene más espacio.",
+              "En la ciudad la gente trabaja más, pero en el campo tiene más tiempo."
+            ],
+            "it": [
+              "In città la gente lavora meno, ma in campagna ha più spazio.",
+              "In città la gente lavora di più, ma in campagna ha più tempo."
+            ],
+            "nl": [
+              "In de stad werken mensen minder, maar op het platteland hebben ze meer ruimte.",
+              "In de stad werken mensen meer, maar op het platteland hebben ze meer tijd."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-comparer-3",
+      "title": "Le meilleur, le pire",
+      "grammarFocus": {
+        "en": [
+          "le / la plus / moins + adjective + de: la plus grande ville de France",
+          "bon -> meilleur, bien -> mieux, mauvais -> pire"
+        ],
+        "es-419": [
+          "le / la plus / moins + adjetivo + de: la plus grande ville de France",
+          "bon -> meilleur, bien -> mieux, mauvais -> pire"
+        ],
+        "it": [
+          "le / la plus / moins + aggettivo + de: la plus grande ville de France",
+          "bon -> meilleur, bien -> mieux, mauvais -> pire"
+        ],
+        "nl": [
+          "le / la plus / moins + bijvoeglijk naamwoord + de: la plus grande ville de France",
+          "bon -> meilleur, bien -> mieux, mauvais -> pire"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "meilleur",
+          "translation": {
+            "en": "better, best",
+            "es-419": "mejor",
+            "it": "migliore",
+            "nl": "beter"
+          },
+          "distractors": {
+            "en": [
+              "worse",
+              "bigger"
+            ],
+            "es-419": [
+              "peor",
+              "más grande"
+            ],
+            "it": [
+              "peggiore",
+              "più grande"
+            ],
+            "nl": [
+              "slechter",
+              "groter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "pire",
+          "translation": {
+            "en": "worse, worst",
+            "es-419": "peor",
+            "it": "peggiore",
+            "nl": "slechter"
+          },
+          "distractors": {
+            "en": [
+              "better",
+              "bigger"
+            ],
+            "es-419": [
+              "mejor",
+              "más grande"
+            ],
+            "it": [
+              "migliore",
+              "più grande"
+            ],
+            "nl": [
+              "beter",
+              "groter"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le meilleur café",
+          "translation": {
+            "en": "the best coffee",
+            "es-419": "el mejor café",
+            "it": "il miglior caffè",
+            "nl": "de beste koffie"
+          },
+          "distractors": {
+            "en": [
+              "the worst coffee",
+              "the best tea"
+            ],
+            "es-419": [
+              "el peor café",
+              "el mejor té"
+            ],
+            "it": [
+              "il peggior caffè",
+              "il miglior tè"
+            ],
+            "nl": [
+              "de slechtste koffie",
+              "de beste thee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le meilleur du monde",
+          "translation": {
+            "en": "the best in the world",
+            "es-419": "el mejor del mundo",
+            "it": "il migliore del mondo",
+            "nl": "de beste ter wereld"
+          },
+          "distractors": {
+            "en": [
+              "the worst in the world",
+              "the best in the city"
+            ],
+            "es-419": [
+              "el peor del mundo",
+              "el mejor de la ciudad"
+            ],
+            "it": [
+              "il peggiore del mondo",
+              "il migliore della città"
+            ],
+            "nl": [
+              "de slechtste ter wereld",
+              "de beste van de stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma grand-mère dit que son café est le meilleur du monde.",
+          "translation": {
+            "en": "My grandma says her coffee is the best in the world.",
+            "es-419": "Mi abuela dice que su café es el mejor del mundo.",
+            "it": "Mia nonna dice che il suo caffè è il migliore del mondo.",
+            "nl": "Mijn oma zegt dat haar koffie de beste ter wereld is."
+          },
+          "distractors": {
+            "en": [
+              "My grandma says her coffee is the worst in the world.",
+              "My grandma says her tea is the best in the world."
+            ],
+            "es-419": [
+              "Mi abuela dice que su café es el peor del mundo.",
+              "Mi abuela dice que su té es el mejor del mundo."
+            ],
+            "it": [
+              "Mia nonna dice che il suo caffè è il peggiore del mondo.",
+              "Mia nonna dice che il suo tè è il migliore del mondo."
+            ],
+            "nl": [
+              "Mijn oma zegt dat haar koffie de slechtste ter wereld is.",
+              "Mijn oma zegt dat haar thee de beste ter wereld is."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la plus grande ville",
+          "translation": {
+            "en": "the biggest city",
+            "es-419": "la ciudad más grande",
+            "it": "la città più grande",
+            "nl": "de grootste stad"
+          },
+          "distractors": {
+            "en": [
+              "the smallest city",
+              "the most beautiful city"
+            ],
+            "es-419": [
+              "la ciudad más pequeña",
+              "la ciudad más bonita"
+            ],
+            "it": [
+              "la città più piccola",
+              "la città più bella"
+            ],
+            "nl": [
+              "de kleinste stad",
+              "de mooiste stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Paris est la plus grande ville de France.",
+          "translation": {
+            "en": "Paris is the biggest city in France.",
+            "es-419": "París es la ciudad más grande de Francia.",
+            "it": "Parigi è la città più grande della Francia.",
+            "nl": "Parijs is de grootste stad van Frankrijk."
+          },
+          "distractors": {
+            "en": [
+              "Paris is the smallest city in France.",
+              "Paris is the most expensive city in France."
+            ],
+            "es-419": [
+              "París es la ciudad más pequeña de Francia.",
+              "París es la ciudad más cara de Francia."
+            ],
+            "it": [
+              "Parigi è la città più piccola della Francia.",
+              "Parigi è la città più cara della Francia."
+            ],
+            "nl": [
+              "Parijs is de kleinste stad van Frankrijk.",
+              "Parijs is de duurste stad van Frankrijk."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la plus belle ville",
+          "translation": {
+            "en": "the most beautiful city",
+            "es-419": "la ciudad más bonita",
+            "it": "la città più bella",
+            "nl": "de mooiste stad"
+          },
+          "distractors": {
+            "en": [
+              "the ugliest city",
+              "the biggest city"
+            ],
+            "es-419": [
+              "la ciudad más fea",
+              "la ciudad más grande"
+            ],
+            "it": [
+              "la città più brutta",
+              "la città più grande"
+            ],
+            "nl": [
+              "de lelijkste stad",
+              "de grootste stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour moi, Québec est la plus belle ville du Canada.",
+          "translation": {
+            "en": "For me, Quebec City is the most beautiful city in Canada.",
+            "es-419": "Para mí, Quebec es la ciudad más bonita de Canadá.",
+            "it": "Per me, Québec è la città più bella del Canada.",
+            "nl": "Voor mij is Québec de mooiste stad van Canada."
+          },
+          "distractors": {
+            "en": [
+              "For me, Quebec City is the biggest city in Canada.",
+              "For me, Montreal is the most beautiful city in Canada."
+            ],
+            "es-419": [
+              "Para mí, Quebec es la ciudad más grande de Canadá.",
+              "Para mí, Montreal es la ciudad más bonita de Canadá."
+            ],
+            "it": [
+              "Per me, Québec è la città più grande del Canada.",
+              "Per me, Montréal è la città più bella del Canada."
+            ],
+            "nl": [
+              "Voor mij is Québec de grootste stad van Canada.",
+              "Voor mij is Montréal de mooiste stad van Canada."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le moins cher",
+          "translation": {
+            "en": "the cheapest",
+            "es-419": "el más barato",
+            "it": "il più economico",
+            "nl": "de goedkoopste"
+          },
+          "distractors": {
+            "en": [
+              "the most expensive",
+              "the fastest"
+            ],
+            "es-419": [
+              "el más caro",
+              "el más rápido"
+            ],
+            "it": [
+              "il più caro",
+              "il più veloce"
+            ],
+            "nl": [
+              "de duurste",
+              "de snelste"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est le restaurant le moins cher du quartier, et c'est aussi le meilleur.",
+          "translation": {
+            "en": "It's the cheapest restaurant in the neighborhood, and it's also the best.",
+            "es-419": "Es el restaurante más barato del barrio, y también es el mejor.",
+            "it": "È il ristorante più economico del quartiere, ed è anche il migliore.",
+            "nl": "Het is het goedkoopste restaurant van de buurt, en het is ook het beste."
+          },
+          "distractors": {
+            "en": [
+              "It's the most expensive restaurant in the neighborhood, and it's also the best.",
+              "It's the cheapest restaurant in the neighborhood, and it's also the worst."
+            ],
+            "es-419": [
+              "Es el restaurante más caro del barrio, y también es el mejor.",
+              "Es el restaurante más barato del barrio, y también es el peor."
+            ],
+            "it": [
+              "È il ristorante più caro del quartiere, ed è anche il migliore.",
+              "È il ristorante più economico del quartiere, ed è anche il peggiore."
+            ],
+            "nl": [
+              "Het is het duurste restaurant van de buurt, en het is ook het beste.",
+              "Het is het goedkoopste restaurant van de buurt, en het is ook het slechtste."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "mieux",
+          "translation": {
+            "en": "better",
+            "es-419": "mejor",
+            "it": "meglio",
+            "nl": "beter"
+          },
+          "distractors": {
+            "en": [
+              "worse",
+              "more"
+            ],
+            "es-419": [
+              "peor",
+              "más"
+            ],
+            "it": [
+              "peggio",
+              "di più"
+            ],
+            "nl": [
+              "slechter",
+              "meer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce restaurant est bon, mais l'autre restaurant est meilleur.",
+          "translation": {
+            "en": "This restaurant is good, but the other restaurant is better.",
+            "es-419": "Este restaurante es bueno, pero el otro restaurante es mejor.",
+            "it": "Questo ristorante è buono, ma l'altro ristorante è migliore.",
+            "nl": "Dit restaurant is goed, maar het andere restaurant is beter."
+          },
+          "distractors": {
+            "en": [
+              "This restaurant is good, but the other restaurant is worse.",
+              "This restaurant is good, but the other restaurant is bigger."
+            ],
+            "es-419": [
+              "Este restaurante es bueno, pero el otro restaurante es peor.",
+              "Este restaurante es bueno, pero el otro restaurante es más grande."
+            ],
+            "it": [
+              "Questo ristorante è buono, ma l'altro ristorante è peggiore.",
+              "Questo ristorante è buono, ma l'altro ristorante è più grande."
+            ],
+            "nl": [
+              "Dit restaurant is goed, maar het andere restaurant is slechter.",
+              "Dit restaurant is goed, maar het andere restaurant is groter."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je joue bien, mais mon frère joue mieux que moi.",
+          "translation": {
+            "en": "I play well, but my brother plays better than me.",
+            "es-419": "Yo juego bien, pero mi hermano juega mejor que yo.",
+            "it": "Io gioco bene, ma mio fratello gioca meglio di me.",
+            "nl": "Ik speel goed, maar mijn broer speelt beter dan ik."
+          },
+          "distractors": {
+            "en": [
+              "I play well, but my brother plays worse than me.",
+              "I play well, but my sister plays better than me."
+            ],
+            "es-419": [
+              "Yo juego bien, pero mi hermano juega peor que yo.",
+              "Yo juego bien, pero mi hermana juega mejor que yo."
+            ],
+            "it": [
+              "Io gioco bene, ma mio fratello gioca peggio di me.",
+              "Io gioco bene, ma mia sorella gioca meglio di me."
+            ],
+            "nl": [
+              "Ik speel goed, maar mijn broer speelt slechter dan ik.",
+              "Ik speel goed, maar mijn zus speelt beter dan ik."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, c'est le pire jour de la semaine.",
+          "translation": {
+            "en": "Today is the worst day of the week.",
+            "es-419": "Hoy es el peor día de la semana.",
+            "it": "Oggi è il giorno peggiore della settimana.",
+            "nl": "Vandaag is de slechtste dag van de week."
+          },
+          "distractors": {
+            "en": [
+              "Today is the best day of the week.",
+              "Today is the worst day of the year."
+            ],
+            "es-419": [
+              "Hoy es el mejor día de la semana.",
+              "Hoy es el peor día del año."
+            ],
+            "it": [
+              "Oggi è il giorno migliore della settimana.",
+              "Oggi è il giorno peggiore dell'anno."
+            ],
+            "nl": [
+              "Vandaag is de beste dag van de week.",
+              "Vandaag is de slechtste dag van het jaar."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le service est le pire de la ville, mais la cuisine est la meilleure.",
+          "translation": {
+            "en": "The service is the worst in the city, but the food is the best.",
+            "es-419": "El servicio es el peor de la ciudad, pero la comida es la mejor.",
+            "it": "Il servizio è il peggiore della città, ma la cucina è la migliore.",
+            "nl": "De bediening is de slechtste van de stad, maar het eten is het beste."
+          },
+          "distractors": {
+            "en": [
+              "The service is the best in the city, but the food is the worst.",
+              "The service is the worst in the city, but the prices are the best."
+            ],
+            "es-419": [
+              "El servicio es el mejor de la ciudad, pero la comida es la peor.",
+              "El servicio es el peor de la ciudad, pero los precios son los mejores."
+            ],
+            "it": [
+              "Il servizio è il migliore della città, ma la cucina è la peggiore.",
+              "Il servizio è il peggiore della città, ma i prezzi sono i migliori."
+            ],
+            "nl": [
+              "De bediening is de beste van de stad, maar het eten is het slechtste.",
+              "De bediening is de slechtste van de stad, maar de prijzen zijn de beste."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-comparer-4",
+      "title": "Trop ou assez",
+      "grammarFocus": {
+        "en": [
+          "trop de / assez de + noun: trop de monde, assez d'espace",
+          "trop / assez + adjective: trop cher, assez grand",
+          "juste: fair, or just: un prix juste, juste à côté"
+        ],
+        "es-419": [
+          "trop de / assez de + nombre: trop de monde, assez d'espace",
+          "trop / assez + adjetivo: trop cher, assez grand",
+          "juste: justo, o solo: un prix juste, juste à côté"
+        ],
+        "it": [
+          "trop de / assez de + nome: trop de monde, assez d'espace",
+          "trop / assez + aggettivo: trop cher, assez grand",
+          "juste: giusto, o proprio: un prix juste, juste à côté"
+        ],
+        "nl": [
+          "trop de / assez de + zelfstandig naamwoord: trop de monde, assez d'espace",
+          "trop / assez + bijvoeglijk naamwoord: trop cher, assez grand",
+          "juste: eerlijk, of net: un prix juste, juste à côté"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-4-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "trop cher",
+          "translation": {
+            "en": "too expensive",
+            "es-419": "demasiado caro",
+            "it": "troppo caro",
+            "nl": "te duur"
+          },
+          "distractors": {
+            "en": [
+              "too big",
+              "cheap enough"
+            ],
+            "es-419": [
+              "demasiado grande",
+              "bastante barato"
+            ],
+            "it": [
+              "troppo grande",
+              "abbastanza economico"
+            ],
+            "nl": [
+              "te groot",
+              "goedkoop genoeg"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce sac est beaucoup trop cher!",
+          "translation": {
+            "en": "This bag is way too expensive!",
+            "es-419": "¡Esta bolsa es demasiado cara!",
+            "it": "Questa borsa è decisamente troppo cara!",
+            "nl": "Deze tas is veel te duur!"
+          },
+          "distractors": {
+            "en": [
+              "This bag is way too big!",
+              "This bag is way too heavy!"
+            ],
+            "es-419": [
+              "¡Esta bolsa es demasiado grande!",
+              "¡Esta bolsa es demasiado pesada!"
+            ],
+            "it": [
+              "Questa borsa è decisamente troppo grande!",
+              "Questa borsa è decisamente troppo pesante!"
+            ],
+            "nl": [
+              "Deze tas is veel te groot!",
+              "Deze tas is veel te zwaar!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "trop de monde",
+          "translation": {
+            "en": "too many people",
+            "es-419": "demasiada gente",
+            "it": "troppa gente",
+            "nl": "te veel mensen"
+          },
+          "distractors": {
+            "en": [
+              "not enough people",
+              "too much noise"
+            ],
+            "es-419": [
+              "poca gente",
+              "demasiado ruido"
+            ],
+            "it": [
+              "poca gente",
+              "troppo rumore"
+            ],
+            "nl": [
+              "te weinig mensen",
+              "te veel lawaai"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a trop de monde dans le métro le matin.",
+          "translation": {
+            "en": "There are too many people on the subway in the morning.",
+            "es-419": "Hay demasiada gente en el metro por la mañana.",
+            "it": "C'è troppa gente in metro la mattina.",
+            "nl": "Er zijn te veel mensen in de metro 's ochtends."
+          },
+          "distractors": {
+            "en": [
+              "There are too many people on the train in the morning.",
+              "There are too many people on the subway in the evening."
+            ],
+            "es-419": [
+              "Hay demasiada gente en el tren por la mañana.",
+              "Hay demasiada gente en el metro por la noche."
+            ],
+            "it": [
+              "C'è troppa gente in treno la mattina.",
+              "C'è troppa gente in metro la sera."
+            ],
+            "nl": [
+              "Er zijn te veel mensen in de trein 's ochtends.",
+              "Er zijn te veel mensen in de metro 's avonds."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "assez d'espace",
+          "translation": {
+            "en": "enough space",
+            "es-419": "suficiente espacio",
+            "it": "abbastanza spazio",
+            "nl": "genoeg ruimte"
+          },
+          "distractors": {
+            "en": [
+              "too much space",
+              "a little space"
+            ],
+            "es-419": [
+              "demasiado espacio",
+              "poco espacio"
+            ],
+            "it": [
+              "troppo spazio",
+              "poco spazio"
+            ],
+            "nl": [
+              "te veel ruimte",
+              "een beetje ruimte"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous n'avons pas assez d'espace dans notre appartement.",
+          "translation": {
+            "en": "We don't have enough space in our apartment.",
+            "es-419": "No tenemos suficiente espacio en nuestro apartamento.",
+            "it": "Non abbiamo abbastanza spazio nel nostro appartamento.",
+            "nl": "We hebben niet genoeg ruimte in ons appartement."
+          },
+          "distractors": {
+            "en": [
+              "We don't have enough space in our house.",
+              "We have too much space in our apartment."
+            ],
+            "es-419": [
+              "No tenemos suficiente espacio en nuestra casa.",
+              "Tenemos demasiado espacio en nuestro apartamento."
+            ],
+            "it": [
+              "Non abbiamo abbastanza spazio nella nostra casa.",
+              "Abbiamo troppo spazio nel nostro appartamento."
+            ],
+            "nl": [
+              "We hebben niet genoeg ruimte in ons huis.",
+              "We hebben te veel ruimte in ons appartement."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "vide",
+          "translation": {
+            "en": "empty",
+            "es-419": "vacío",
+            "it": "vuoto",
+            "nl": "leeg"
+          },
+          "distractors": {
+            "en": [
+              "full",
+              "open"
+            ],
+            "es-419": [
+              "lleno",
+              "abierto"
+            ],
+            "it": [
+              "pieno",
+              "aperto"
+            ],
+            "nl": [
+              "vol",
+              "open"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un verre vide",
+          "translation": {
+            "en": "an empty glass",
+            "es-419": "un vaso vacío",
+            "it": "un bicchiere vuoto",
+            "nl": "een leeg glas"
+          },
+          "distractors": {
+            "en": [
+              "a full glass",
+              "an empty bottle"
+            ],
+            "es-419": [
+              "un vaso lleno",
+              "una botella vacía"
+            ],
+            "it": [
+              "un bicchiere pieno",
+              "una bottiglia vuota"
+            ],
+            "nl": [
+              "een vol glas",
+              "een lege fles"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le train est vide le dimanche, mais il est plein le lundi matin.",
+          "translation": {
+            "en": "The train is empty on Sundays, but it's full on Monday mornings.",
+            "es-419": "El tren está vacío los domingos, pero está lleno los lunes por la mañana.",
+            "it": "La domenica il treno è vuoto, ma il lunedì mattina è pieno.",
+            "nl": "De trein is op zondag leeg, maar op maandagochtend is hij vol."
+          },
+          "distractors": {
+            "en": [
+              "The train is full on Sundays, but it's empty on Monday mornings.",
+              "The train is empty on Sundays, but it's full on Friday mornings."
+            ],
+            "es-419": [
+              "El tren está lleno los domingos, pero está vacío los lunes por la mañana.",
+              "El tren está vacío los domingos, pero está lleno los viernes por la mañana."
+            ],
+            "it": [
+              "La domenica il treno è pieno, ma il lunedì mattina è vuoto.",
+              "La domenica il treno è vuoto, ma il venerdì mattina è pieno."
+            ],
+            "nl": [
+              "De trein is op zondag vol, maar op maandagochtend is hij leeg.",
+              "De trein is op zondag leeg, maar op vrijdagochtend is hij vol."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un prix juste",
+          "translation": {
+            "en": "a fair price",
+            "es-419": "un precio justo",
+            "it": "un prezzo giusto",
+            "nl": "een eerlijke prijs"
+          },
+          "distractors": {
+            "en": [
+              "a high price",
+              "a low price"
+            ],
+            "es-419": [
+              "un precio alto",
+              "un precio bajo"
+            ],
+            "it": [
+              "un prezzo alto",
+              "un prezzo basso"
+            ],
+            "nl": [
+              "een hoge prijs",
+              "een lage prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cinquante euros pour ce pull, c'est un prix juste.",
+          "translation": {
+            "en": "Fifty euros for this sweater, that's a fair price.",
+            "es-419": "Cincuenta euros por este suéter, es un precio justo.",
+            "it": "Cinquanta euro per questo maglione, è un prezzo giusto.",
+            "nl": "Vijftig euro voor deze trui, dat is een eerlijke prijs."
+          },
+          "distractors": {
+            "en": [
+              "Fifty euros for this sweater, that's too expensive.",
+              "Fifty euros for this jacket, that's a fair price."
+            ],
+            "es-419": [
+              "Cincuenta euros por este suéter, es demasiado caro.",
+              "Cincuenta euros por esta chaqueta, es un precio justo."
+            ],
+            "it": [
+              "Cinquanta euro per questo maglione, è troppo caro.",
+              "Cinquanta euro per questa giacca, è un prezzo giusto."
+            ],
+            "nl": [
+              "Vijftig euro voor deze trui, dat is te duur.",
+              "Vijftig euro voor dit jasje, dat is een eerlijke prijs."
+            ]
+          },
+          "variants": [
+            "50 euros pour ce pull, c'est un prix juste."
+          ]
+        },
+        {
+          "id": "fr-a2-comparer-4-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "juste à côté",
+          "translation": {
+            "en": "right next door",
+            "es-419": "justo al lado",
+            "it": "proprio accanto",
+            "nl": "vlak ernaast"
+          },
+          "distractors": {
+            "en": [
+              "far away",
+              "right in front"
+            ],
+            "es-419": [
+              "muy lejos",
+              "justo enfrente"
+            ],
+            "it": [
+              "molto lontano",
+              "proprio di fronte"
+            ],
+            "nl": [
+              "ver weg",
+              "vlak ertegenover"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La pharmacie est juste à côté de la gare.",
+          "translation": {
+            "en": "The pharmacy is right next to the train station.",
+            "es-419": "La farmacia está justo al lado de la estación.",
+            "it": "La farmacia è proprio accanto alla stazione.",
+            "nl": "De apotheek is vlak naast het station."
+          },
+          "distractors": {
+            "en": [
+              "The pharmacy is far from the train station.",
+              "The pharmacy is right in front of the train station."
+            ],
+            "es-419": [
+              "La farmacia está lejos de la estación.",
+              "La farmacia está justo enfrente de la estación."
+            ],
+            "it": [
+              "La farmacia è lontana dalla stazione.",
+              "La farmacia è proprio di fronte alla stazione."
+            ],
+            "nl": [
+              "De apotheek is ver van het station.",
+              "De apotheek is vlak tegenover het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Est-ce qu'il y a assez de place pour tout le monde?",
+          "translation": {
+            "en": "Is there enough room for everyone?",
+            "es-419": "¿Hay suficiente lugar para todos?",
+            "it": "C'è abbastanza posto per tutti?",
+            "nl": "Is er genoeg plaats voor iedereen?"
+          },
+          "distractors": {
+            "en": [
+              "Is there too much room for everyone?",
+              "Is there enough room for the children?"
+            ],
+            "es-419": [
+              "¿Hay demasiado lugar para todos?",
+              "¿Hay suficiente lugar para los niños?"
+            ],
+            "it": [
+              "C'è troppo posto per tutti?",
+              "C'è abbastanza posto per i bambini?"
+            ],
+            "nl": [
+              "Is er te veel plaats voor iedereen?",
+              "Is er genoeg plaats voor de kinderen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cet appartement est trop petit pour nous, mais il n'est pas trop cher.",
+          "translation": {
+            "en": "This apartment is too small for us, but it's not too expensive.",
+            "es-419": "Este apartamento es demasiado pequeño para nosotros, pero no es demasiado caro.",
+            "it": "Questo appartamento è troppo piccolo per noi, ma non è troppo caro.",
+            "nl": "Dit appartement is te klein voor ons, maar het is niet te duur."
+          },
+          "distractors": {
+            "en": [
+              "This apartment is too big for us, but it's not too expensive.",
+              "This apartment is too small for us, and it's too expensive."
+            ],
+            "es-419": [
+              "Este apartamento es demasiado grande para nosotros, pero no es demasiado caro.",
+              "Este apartamento es demasiado pequeño para nosotros, y es demasiado caro."
+            ],
+            "it": [
+              "Questo appartamento è troppo grande per noi, ma non è troppo caro.",
+              "Questo appartamento è troppo piccolo per noi, ed è troppo caro."
+            ],
+            "nl": [
+              "Dit appartement is te groot voor ons, maar het is niet te duur.",
+              "Dit appartement is te klein voor ons, en het is te duur."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-comparer-5",
+      "title": "Pareil ou différent",
+      "grammarFocus": {
+        "en": [
+          "le même, pareil, différent (de): the same, alike, different (from)",
+          "ressembler à: to look like",
+          "presque: almost"
+        ],
+        "es-419": [
+          "le même, pareil, différent (de): el mismo, igual, diferente (a)",
+          "ressembler à: parecerse a",
+          "presque: casi"
+        ],
+        "it": [
+          "le même, pareil, différent (de): lo stesso, uguale, diverso (da)",
+          "ressembler à: assomigliare a",
+          "presque: quasi"
+        ],
+        "nl": [
+          "le même, pareil, différent (de): dezelfde, gelijk, anders (dan)",
+          "ressembler à: lijken op",
+          "presque: bijna"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "différent",
+          "translation": {
+            "en": "different",
+            "es-419": "diferente",
+            "it": "diverso",
+            "nl": "anders"
+          },
+          "distractors": {
+            "en": [
+              "same",
+              "new"
+            ],
+            "es-419": [
+              "igual",
+              "nuevo"
+            ],
+            "it": [
+              "uguale",
+              "nuovo"
+            ],
+            "nl": [
+              "hetzelfde",
+              "nieuw"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "différent de mon frère",
+          "translation": {
+            "en": "different from my brother",
+            "es-419": "diferente a mi hermano",
+            "it": "diverso da mio fratello",
+            "nl": "anders dan mijn broer"
+          },
+          "distractors": {
+            "en": [
+              "the same as my brother",
+              "older than my brother"
+            ],
+            "es-419": [
+              "igual a mi hermano",
+              "mayor que mi hermano"
+            ],
+            "it": [
+              "uguale a mio fratello",
+              "più grande di mio fratello"
+            ],
+            "nl": [
+              "hetzelfde als mijn broer",
+              "ouder dan mijn broer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur est très différente de moi.",
+          "translation": {
+            "en": "My sister is very different from me.",
+            "es-419": "Mi hermana es muy diferente a mí.",
+            "it": "Mia sorella è molto diversa da me.",
+            "nl": "Mijn zus is heel anders dan ik."
+          },
+          "distractors": {
+            "en": [
+              "My sister is very similar to me.",
+              "My brother is very different from me."
+            ],
+            "es-419": [
+              "Mi hermana es muy parecida a mí.",
+              "Mi hermano es muy diferente a mí."
+            ],
+            "it": [
+              "Mia sorella è molto simile a me.",
+              "Mio fratello è molto diverso da me."
+            ],
+            "nl": [
+              "Mijn zus lijkt veel op mij.",
+              "Mijn broer is heel anders dan ik."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la même chose",
+          "translation": {
+            "en": "the same thing",
+            "es-419": "lo mismo",
+            "it": "la stessa cosa",
+            "nl": "hetzelfde"
+          },
+          "distractors": {
+            "en": [
+              "another thing",
+              "the same place"
+            ],
+            "es-419": [
+              "otra cosa",
+              "el mismo lugar"
+            ],
+            "it": [
+              "un'altra cosa",
+              "lo stesso posto"
+            ],
+            "nl": [
+              "iets anders",
+              "dezelfde plaats"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le même prix",
+          "translation": {
+            "en": "the same price",
+            "es-419": "el mismo precio",
+            "it": "lo stesso prezzo",
+            "nl": "dezelfde prijs"
+          },
+          "distractors": {
+            "en": [
+              "a different price",
+              "the same size"
+            ],
+            "es-419": [
+              "un precio diferente",
+              "la misma talla"
+            ],
+            "it": [
+              "un prezzo diverso",
+              "la stessa taglia"
+            ],
+            "nl": [
+              "een andere prijs",
+              "dezelfde maat"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes deux pulls ont le même prix, mais ils n'ont pas la même couleur.",
+          "translation": {
+            "en": "My two sweaters cost the same, but they aren't the same color.",
+            "es-419": "Mis dos suéteres cuestan lo mismo, pero no son del mismo color.",
+            "it": "I miei due maglioni costano uguale, ma non hanno lo stesso colore.",
+            "nl": "Mijn twee truien kosten evenveel, maar ze hebben niet dezelfde kleur."
+          },
+          "distractors": {
+            "en": [
+              "My two sweaters cost the same, but they're the same color.",
+              "My two sweaters are the same color, but they don't cost the same."
+            ],
+            "es-419": [
+              "Mis dos suéteres cuestan lo mismo, pero son del mismo color.",
+              "Mis dos suéteres son del mismo color, pero no cuestan lo mismo."
+            ],
+            "it": [
+              "I miei due maglioni costano uguale, ma hanno lo stesso colore.",
+              "I miei due maglioni hanno lo stesso colore, ma non costano uguale."
+            ],
+            "nl": [
+              "Mijn twee truien kosten evenveel, maar ze hebben dezelfde kleur.",
+              "Mijn twee truien hebben dezelfde kleur, maar ze kosten niet evenveel."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "pareil",
+          "translation": {
+            "en": "the same, alike",
+            "es-419": "igual",
+            "it": "uguale",
+            "nl": "gelijk"
+          },
+          "distractors": {
+            "en": [
+              "different",
+              "new"
+            ],
+            "es-419": [
+              "diferente",
+              "nuevo"
+            ],
+            "it": [
+              "diverso",
+              "nuovo"
+            ],
+            "nl": [
+              "anders",
+              "nieuw"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour moi, le thé ou le café, c'est pareil.",
+          "translation": {
+            "en": "For me, tea or coffee, it's all the same.",
+            "es-419": "Para mí, el té o el café, es lo mismo.",
+            "it": "Per me, il tè o il caffè, è lo stesso.",
+            "nl": "Voor mij maakt thee of koffie niet uit, het is hetzelfde."
+          },
+          "distractors": {
+            "en": [
+              "For me, tea or coffee, it's very different.",
+              "For me, tea or water, it's all the same."
+            ],
+            "es-419": [
+              "Para mí, el té o el café, es muy diferente.",
+              "Para mí, el té o el agua, es lo mismo."
+            ],
+            "it": [
+              "Per me, il tè o il caffè, è molto diverso.",
+              "Per me, il tè o l'acqua, è lo stesso."
+            ],
+            "nl": [
+              "Voor mij is thee of koffie heel verschillend.",
+              "Voor mij maakt thee of water niet uit, het is hetzelfde."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "presque",
+          "translation": {
+            "en": "almost",
+            "es-419": "casi",
+            "it": "quasi",
+            "nl": "bijna"
+          },
+          "distractors": {
+            "en": [
+              "never",
+              "already"
+            ],
+            "es-419": [
+              "nunca",
+              "ya"
+            ],
+            "it": [
+              "mai",
+              "già"
+            ],
+            "nl": [
+              "nooit",
+              "al"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cette pizza est presque aussi bonne que l'autre.",
+          "translation": {
+            "en": "This pizza is almost as good as the other one.",
+            "es-419": "Esta pizza es casi tan buena como la otra.",
+            "it": "Questa pizza è quasi buona come l'altra.",
+            "nl": "Deze pizza is bijna net zo lekker als de andere."
+          },
+          "distractors": {
+            "en": [
+              "This pizza is not as good as the other one.",
+              "This pizza is almost as expensive as the other one."
+            ],
+            "es-419": [
+              "Esta pizza no es tan buena como la otra.",
+              "Esta pizza es casi tan cara como la otra."
+            ],
+            "it": [
+              "Questa pizza non è buona come l'altra.",
+              "Questa pizza è quasi cara come l'altra."
+            ],
+            "nl": [
+              "Deze pizza is niet zo lekker als de andere.",
+              "Deze pizza is bijna net zo duur als de andere."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une grande différence",
+          "translation": {
+            "en": "a big difference",
+            "es-419": "una gran diferencia",
+            "it": "una grande differenza",
+            "nl": "een groot verschil"
+          },
+          "distractors": {
+            "en": [
+              "a small difference",
+              "a big problem"
+            ],
+            "es-419": [
+              "una pequeña diferencia",
+              "un gran problema"
+            ],
+            "it": [
+              "una piccola differenza",
+              "un grande problema"
+            ],
+            "nl": [
+              "een klein verschil",
+              "een groot probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a une grande différence entre les deux.",
+          "translation": {
+            "en": "There's a big difference between the two.",
+            "es-419": "Hay una gran diferencia entre los dos.",
+            "it": "C'è una grande differenza tra i due.",
+            "nl": "Er is een groot verschil tussen de twee."
+          },
+          "distractors": {
+            "en": [
+              "There's a small difference between the two.",
+              "There's a big difference between the three."
+            ],
+            "es-419": [
+              "Hay una pequeña diferencia entre los dos.",
+              "Hay una gran diferencia entre los tres."
+            ],
+            "it": [
+              "C'è una piccola differenza tra i due.",
+              "C'è una grande differenza tra i tre."
+            ],
+            "nl": [
+              "Er is een klein verschil tussen de twee.",
+              "Er is een groot verschil tussen de drie."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "ressembler",
+          "translation": {
+            "en": "to look like, to resemble",
+            "es-419": "parecerse",
+            "it": "assomigliare",
+            "nl": "lijken op"
+          },
+          "distractors": {
+            "en": [
+              "to remember",
+              "to meet"
+            ],
+            "es-419": [
+              "recordar",
+              "encontrarse"
+            ],
+            "it": [
+              "ricordare",
+              "incontrare"
+            ],
+            "nl": [
+              "onthouden",
+              "ontmoeten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon fils ressemble à son père.",
+          "translation": {
+            "en": "My son looks like his father.",
+            "es-419": "Mi hijo se parece a su papá.",
+            "it": "Mio figlio assomiglia a suo padre.",
+            "nl": "Mijn zoon lijkt op zijn vader."
+          },
+          "distractors": {
+            "en": [
+              "My son looks like his mother.",
+              "My daughter looks like her father."
+            ],
+            "es-419": [
+              "Mi hijo se parece a su mamá.",
+              "Mi hija se parece a su papá."
+            ],
+            "it": [
+              "Mio figlio assomiglia a sua madre.",
+              "Mia figlia assomiglia a suo padre."
+            ],
+            "nl": [
+              "Mijn zoon lijkt op zijn moeder.",
+              "Mijn dochter lijkt op haar vader."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "une manière de voyager",
+          "translation": {
+            "en": "a way to travel",
+            "es-419": "una manera de viajar",
+            "it": "un modo di viaggiare",
+            "nl": "een manier om te reizen"
+          },
+          "distractors": {
+            "en": [
+              "a reason to travel",
+              "a way to work"
+            ],
+            "es-419": [
+              "una razón para viajar",
+              "una manera de trabajar"
+            ],
+            "it": [
+              "un motivo per viaggiare",
+              "un modo di lavorare"
+            ],
+            "nl": [
+              "een reden om te reizen",
+              "een manier om te werken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a deux manières de voyager, mais le prix est le même.",
+          "translation": {
+            "en": "There are two ways to travel, but the price is the same.",
+            "es-419": "Hay dos maneras de viajar, pero el precio es el mismo.",
+            "it": "Ci sono due modi di viaggiare, ma il prezzo è lo stesso.",
+            "nl": "Er zijn twee manieren om te reizen, maar de prijs is dezelfde."
+          },
+          "distractors": {
+            "en": [
+              "There are three ways to travel, but the price is the same.",
+              "There are two ways to travel, but the price is different."
+            ],
+            "es-419": [
+              "Hay tres maneras de viajar, pero el precio es el mismo.",
+              "Hay dos maneras de viajar, pero el precio es diferente."
+            ],
+            "it": [
+              "Ci sono tre modi di viaggiare, ma il prezzo è lo stesso.",
+              "Ci sono due modi di viaggiare, ma il prezzo è diverso."
+            ],
+            "nl": [
+              "Er zijn drie manieren om te reizen, maar de prijs is dezelfde.",
+              "Er zijn twee manieren om te reizen, maar de prijs is anders."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-comparer-6",
+      "title": "Ça vaut la peine",
+      "grammarFocus": {
+        "en": [
+          "ça vaut la peine (de + infinitive): it's worth it",
+          "il vaut mieux + infinitive: it's better to",
+          "sembler + adjective, and par exemple: it seems, for example"
+        ],
+        "es-419": [
+          "ça vaut la peine (de + infinitivo): vale la pena",
+          "il vaut mieux + infinitivo: es mejor",
+          "sembler + adjetivo, y par exemple: parece, por ejemplo"
+        ],
+        "it": [
+          "ça vaut la peine (de + infinito): vale la pena",
+          "il vaut mieux + infinito: è meglio",
+          "sembler + aggettivo, e par exemple: sembra, per esempio"
+        ],
+        "nl": [
+          "ça vaut la peine (de + infinitief): het is de moeite waard",
+          "il vaut mieux + infinitief: het is beter",
+          "sembler + bijvoeglijk naamwoord, en par exemple: het lijkt, bijvoorbeeld"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-comparer-6-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça vaut la peine",
+          "translation": {
+            "en": "it's worth it",
+            "es-419": "vale la pena",
+            "it": "vale la pena",
+            "nl": "het is de moeite waard"
+          },
+          "distractors": {
+            "en": [
+              "it's not worth it",
+              "it's not expensive"
+            ],
+            "es-419": [
+              "no vale la pena",
+              "no es caro"
+            ],
+            "it": [
+              "non vale la pena",
+              "non è caro"
+            ],
+            "nl": [
+              "het is de moeite niet waard",
+              "het is niet duur"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça vaut la peine de visiter Québec.",
+          "translation": {
+            "en": "It's worth visiting Quebec City.",
+            "es-419": "Vale la pena visitar Quebec.",
+            "it": "Vale la pena visitare Québec.",
+            "nl": "Het is de moeite waard om Québec te bezoeken."
+          },
+          "distractors": {
+            "en": [
+              "It's not worth visiting Quebec City.",
+              "It's worth visiting Montreal."
+            ],
+            "es-419": [
+              "No vale la pena visitar Quebec.",
+              "Vale la pena visitar Montreal."
+            ],
+            "it": [
+              "Non vale la pena visitare Québec.",
+              "Vale la pena visitare Montréal."
+            ],
+            "nl": [
+              "Het is de moeite niet waard om Québec te bezoeken.",
+              "Het is de moeite waard om Montréal te bezoeken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il vaut mieux",
+          "translation": {
+            "en": "it's better to",
+            "es-419": "es mejor",
+            "it": "è meglio",
+            "nl": "het is beter om"
+          },
+          "distractors": {
+            "en": [
+              "you have to",
+              "you can"
+            ],
+            "es-419": [
+              "hay que",
+              "se puede"
+            ],
+            "it": [
+              "bisogna",
+              "si può"
+            ],
+            "nl": [
+              "je moet",
+              "je kunt"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il vaut mieux partir tôt le matin.",
+          "translation": {
+            "en": "It's better to leave early in the morning.",
+            "es-419": "Es mejor salir temprano por la mañana.",
+            "it": "È meglio partire presto la mattina.",
+            "nl": "Het is beter om 's ochtends vroeg te vertrekken."
+          },
+          "distractors": {
+            "en": [
+              "It's better to leave late in the morning.",
+              "It's better to arrive early in the morning."
+            ],
+            "es-419": [
+              "Es mejor salir tarde por la mañana.",
+              "Es mejor llegar temprano por la mañana."
+            ],
+            "it": [
+              "È meglio partire tardi la mattina.",
+              "È meglio arrivare presto la mattina."
+            ],
+            "nl": [
+              "Het is beter om 's ochtends laat te vertrekken.",
+              "Het is beter om 's ochtends vroeg aan te komen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "exemple",
+          "translation": {
+            "en": "example",
+            "es-419": "ejemplo",
+            "it": "esempio",
+            "nl": "voorbeeld"
+          },
+          "distractors": {
+            "en": [
+              "answer",
+              "idea"
+            ],
+            "es-419": [
+              "respuesta",
+              "idea"
+            ],
+            "it": [
+              "risposta",
+              "idea"
+            ],
+            "nl": [
+              "antwoord",
+              "idee"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "par exemple",
+          "translation": {
+            "en": "for example",
+            "es-419": "por ejemplo",
+            "it": "per esempio",
+            "nl": "bijvoorbeeld"
+          },
+          "distractors": {
+            "en": [
+              "for now",
+              "of course"
+            ],
+            "es-419": [
+              "por ahora",
+              "por supuesto"
+            ],
+            "it": [
+              "per ora",
+              "certo"
+            ],
+            "nl": [
+              "voorlopig",
+              "natuurlijk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'aime beaucoup les fruits, par exemple les fraises et les bananes.",
+          "translation": {
+            "en": "I really like fruit, for example strawberries and bananas.",
+            "es-419": "Me gusta mucho la fruta, por ejemplo las fresas y los plátanos.",
+            "it": "Mi piace molto la frutta, per esempio le fragole e le banane.",
+            "nl": "Ik hou veel van fruit, bijvoorbeeld van aardbeien en bananen."
+          },
+          "distractors": {
+            "en": [
+              "I don't like fruit, for example strawberries and bananas.",
+              "I really like fruit, for example apples and bananas."
+            ],
+            "es-419": [
+              "No me gusta la fruta, por ejemplo las fresas y los plátanos.",
+              "Me gusta mucho la fruta, por ejemplo las manzanas y los plátanos."
+            ],
+            "it": [
+              "Non mi piace la frutta, per esempio le fragole e le banane.",
+              "Mi piace molto la frutta, per esempio le mele e le banane."
+            ],
+            "nl": [
+              "Ik hou niet van fruit, bijvoorbeeld van aardbeien en bananen.",
+              "Ik hou veel van fruit, bijvoorbeeld van appels en bananen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "normal",
+          "translation": {
+            "en": "normal",
+            "es-419": "normal",
+            "it": "normale",
+            "nl": "normaal"
+          },
+          "distractors": {
+            "en": [
+              "strange",
+              "special"
+            ],
+            "es-419": [
+              "raro",
+              "especial"
+            ],
+            "it": [
+              "strano",
+              "speciale"
+            ],
+            "nl": [
+              "vreemd",
+              "speciaal"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un prix normal",
+          "translation": {
+            "en": "a normal price",
+            "es-419": "un precio normal",
+            "it": "un prezzo normale",
+            "nl": "een normale prijs"
+          },
+          "distractors": {
+            "en": [
+              "a high price",
+              "a special price"
+            ],
+            "es-419": [
+              "un precio alto",
+              "un precio especial"
+            ],
+            "it": [
+              "un prezzo alto",
+              "un prezzo speciale"
+            ],
+            "nl": [
+              "een hoge prijs",
+              "een speciale prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce n'est pas normal, le train est encore en retard!",
+          "translation": {
+            "en": "This isn't normal, the train is late again!",
+            "es-419": "¡Esto no es normal, el tren llega tarde otra vez!",
+            "it": "Non è normale, il treno è di nuovo in ritardo!",
+            "nl": "Dit is niet normaal, de trein heeft weer vertraging!"
+          },
+          "distractors": {
+            "en": [
+              "This is normal, the train is late again!",
+              "This isn't normal, the bus is late again!"
+            ],
+            "es-419": [
+              "¡Esto es normal, el tren llega tarde otra vez!",
+              "¡Esto no es normal, el autobús llega tarde otra vez!"
+            ],
+            "it": [
+              "È normale, il treno è di nuovo in ritardo!",
+              "Non è normale, l'autobus è di nuovo in ritardo!"
+            ],
+            "nl": [
+              "Dit is normaal, de trein heeft weer vertraging!",
+              "Dit is niet normaal, de bus heeft weer vertraging!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "paresseux",
+          "translation": {
+            "en": "lazy",
+            "es-419": "perezoso",
+            "it": "pigro",
+            "nl": "lui"
+          },
+          "distractors": {
+            "en": [
+              "tired",
+              "shy"
+            ],
+            "es-419": [
+              "cansado",
+              "tímido"
+            ],
+            "it": [
+              "stanco",
+              "timido"
+            ],
+            "nl": [
+              "moe",
+              "verlegen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon chat est le plus paresseux de la famille.",
+          "translation": {
+            "en": "My cat is the laziest in the family.",
+            "es-419": "Mi gato es el más perezoso de la familia.",
+            "it": "Il mio gatto è il più pigro della famiglia.",
+            "nl": "Mijn kat is de luiste van de familie."
+          },
+          "distractors": {
+            "en": [
+              "My dog is the laziest in the family.",
+              "My cat is the biggest in the family."
+            ],
+            "es-419": [
+              "Mi perro es el más perezoso de la familia.",
+              "Mi gato es el más grande de la familia."
+            ],
+            "it": [
+              "Il mio cane è il più pigro della famiglia.",
+              "Il mio gatto è il più grande della famiglia."
+            ],
+            "nl": [
+              "Mijn hond is de luiste van de familie.",
+              "Mijn kat is de grootste van de familie."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça semble cher, mais ça vaut la peine.",
+          "translation": {
+            "en": "It seems expensive, but it's worth it.",
+            "es-419": "Parece caro, pero vale la pena.",
+            "it": "Sembra caro, ma vale la pena.",
+            "nl": "Het lijkt duur, maar het is de moeite waard."
+          },
+          "distractors": {
+            "en": [
+              "It seems cheap, but it's worth it.",
+              "It seems expensive, but it's not worth it."
+            ],
+            "es-419": [
+              "Parece barato, pero vale la pena.",
+              "Parece caro, pero no vale la pena."
+            ],
+            "it": [
+              "Sembra economico, ma vale la pena.",
+              "Sembra caro, ma non vale la pena."
+            ],
+            "nl": [
+              "Het lijkt goedkoop, maar het is de moeite waard.",
+              "Het lijkt duur, maar het is de moeite niet waard."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il vaut mieux prendre le train que la voiture.",
+          "translation": {
+            "en": "It's better to take the train than the car.",
+            "es-419": "Es mejor tomar el tren que el carro.",
+            "it": "È meglio prendere il treno che l'auto.",
+            "nl": "Het is beter om de trein te nemen dan de auto."
+          },
+          "distractors": {
+            "en": [
+              "It's better to take the car than the train.",
+              "It's better to take the train than the bus."
+            ],
+            "es-419": [
+              "Es mejor tomar el carro que el tren.",
+              "Es mejor tomar el tren que el autobús."
+            ],
+            "it": [
+              "È meglio prendere l'auto che il treno.",
+              "È meglio prendere il treno che l'autobus."
+            ],
+            "nl": [
+              "Het is beter om de auto te nemen dan de trein.",
+              "Het is beter om de trein te nemen dan de bus."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cet hôtel est un peu plus cher, mais ça vaut la peine, parce que le service est meilleur.",
+          "translation": {
+            "en": "This hotel is a little more expensive, but it's worth it, because the service is better.",
+            "es-419": "Este hotel es un poco más caro, pero vale la pena, porque el servicio es mejor.",
+            "it": "Questo hotel è un po' più caro, ma vale la pena, perché il servizio è migliore.",
+            "nl": "Dit hotel is wat duurder, maar het is de moeite waard, omdat de bediening beter is."
+          },
+          "distractors": {
+            "en": [
+              "This hotel is a little cheaper, but it's worth it, because the service is better.",
+              "This hotel is a little more expensive, but it's worth it, because the service is worse."
+            ],
+            "es-419": [
+              "Este hotel es un poco más barato, pero vale la pena, porque el servicio es mejor.",
+              "Este hotel es un poco más caro, pero vale la pena, porque el servicio es peor."
+            ],
+            "it": [
+              "Questo hotel è un po' più economico, ma vale la pena, perché il servizio è migliore.",
+              "Questo hotel è un po' più caro, ma vale la pena, perché il servizio è peggiore."
+            ],
+            "nl": [
+              "Dit hotel is wat goedkoper, maar het is de moeite waard, omdat de bediening beter is.",
+              "Dit hotel is wat duurder, maar het is de moeite waard, omdat de bediening slechter is."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-comparer-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a moins de bruit à la campagne, et pour moi, ça vaut la peine.",
+          "translation": {
+            "en": "There's less noise in the countryside, and for me, it's worth it.",
+            "es-419": "Hay menos ruido en el campo, y para mí vale la pena.",
+            "it": "C'è meno rumore in campagna, e per me vale la pena.",
+            "nl": "Er is minder lawaai op het platteland, en voor mij is het de moeite waard."
+          },
+          "distractors": {
+            "en": [
+              "There's more noise in the countryside, and for me, it's worth it.",
+              "There's less noise in the countryside, and for me, it's not worth it."
+            ],
+            "es-419": [
+              "Hay más ruido en el campo, y para mí vale la pena.",
+              "Hay menos ruido en el campo, y para mí no vale la pena."
+            ],
+            "it": [
+              "C'è più rumore in campagna, e per me vale la pena.",
+              "C'è meno rumore in campagna, e per me non vale la pena."
+            ],
+            "nl": [
+              "Er is meer lawaai op het platteland, en voor mij is het de moeite waard.",
+              "Er is minder lawaai op het platteland, en voor mij is het de moeite niet waard."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

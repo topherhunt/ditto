@@ -1,0 +1,5509 @@
+{
+  "id": "fr-b1-sentiments",
+  "language": "fr",
+  "level": "B1",
+  "order": 26,
+  "title": "Sentiments",
+  "description": {
+    "en": "Talking about feelings and relationships: wishing, worrying, arguing and making up",
+    "es-419": "Hablar de sentimientos y relaciones: deseos, preocupaciones, peleas y reconciliaciones",
+    "it": "Parlare di sentimenti e relazioni: desideri, preoccupazioni, litigi e riconciliazioni",
+    "nl": "Praten over gevoelens en relaties: wensen, zorgen, ruzies en het goedmaken"
+  },
+  "track": "main",
+  "requires": [
+    "fr-b1-opinions"
+  ],
+  "introduces": [
+    "sentiment",
+    "émotion",
+    "fâché",
+    "énerver",
+    "jaloux",
+    "déçu",
+    "fier",
+    "nerveux",
+    "inquiet",
+    "soulagé",
+    "stressé",
+    "ému",
+    "honte",
+    "colère",
+    "calme",
+    "humeur",
+    "amour",
+    "relation",
+    "dispute",
+    "disputer",
+    "réconcilier",
+    "pardonner",
+    "mentir",
+    "mensonge",
+    "manquer",
+    "détester",
+    "surprendre",
+    "confiance",
+    "ennuyer"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "a = has (avoir: ai, as, a, avons, avez, ont); il y a = there is, there are",
+        "es-419": "a = tiene (avoir: ai, as, a, avons, avez, ont); il y a = hay",
+        "it": "a = ha (avoir: ai, as, a, avons, avez, ont); il y a = c'è, ci sono",
+        "nl": "a = heeft (avoir: ai, as, a, avons, avez, ont); il y a = er is, er zijn"
+      }
+    },
+    "aies": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "have (avoir, subjunctive: que tu aies)",
+        "es-419": "hayas (avoir, subjuntivo: que tu aies)",
+        "it": "abbia (avoir, congiuntivo: que tu aies)",
+        "nl": "hebt (avoir, subjonctif: que tu aies)"
+      }
+    },
+    "aimeras": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "will like (aimer, future: tu aimeras)",
+        "es-419": "te va a gustar (aimer, futuro: tu aimeras)",
+        "it": "ti piacerà (aimer, futuro: tu aimeras)",
+        "nl": "zult lekker vinden (aimer, futur: tu aimeras)"
+      }
+    },
+    "alors": {
+      "lemma": "alors",
+      "pos": "ADV",
+      "gloss": {
+        "en": "so, then",
+        "es-419": "entonces, así que",
+        "it": "quindi, allora",
+        "nl": "dus, dan"
+      }
+    },
+    "amie": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "female friend (f)",
+        "es-419": "amiga (f)",
+        "it": "amica (f)",
+        "nl": "vriendin (f)"
+      }
+    },
+    "amour": {
+      "lemma": "amour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "love (m)",
+        "es-419": "amor (m)",
+        "it": "amore (m)",
+        "nl": "liefde (m)"
+      }
+    },
+    "arrives": {
+      "lemma": "arriver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrive (arriver: tu arrives)",
+        "es-419": "llegas (arriver: tu arrives)",
+        "it": "arrivi (arriver: tu arrives)",
+        "nl": "komt aan (arriver: tu arrives)"
+      }
+    },
+    "as": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "you have (avoir, tu); tu as vingt ans = you're twenty",
+        "es-419": "tienes (avoir, tu); tu as vingt ans = tienes veinte años",
+        "it": "hai (avoir, tu); tu as vingt ans = hai vent'anni",
+        "nl": "je hebt (avoir, tu); tu as vingt ans = je bent twintig"
+      }
+    },
+    "attendre": {
+      "lemma": "attendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "attendre = to wait (for) (attends, attend, attendons, attendez, attendent); watch out: not to attend",
+        "es-419": "attendre = esperar (attends, attend, attendons, attendez, attendent)",
+        "it": "attendre = aspettare (attends, attend, attendons, attendez, attendent)",
+        "nl": "attendre = wachten (op) (attends, attend, attendons, attendez, attendent)"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + le: al, allo",
+        "nl": "au = à + le: naar de, bij de, op de"
+      }
+    },
+    "aujourd'hui": {
+      "lemma": "aujourd'hui",
+      "pos": "ADV",
+      "gloss": {
+        "en": "today",
+        "es-419": "hoy",
+        "it": "oggi",
+        "nl": "vandaag"
+      }
+    },
+    "autre": {
+      "lemma": "autre",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "autre = other, another; autre chose? = anything else?",
+        "es-419": "autre = otro; autre chose? = ¿algo más?",
+        "it": "autre = altro; autre chose? = altro?",
+        "nl": "autre = ander; autre chose? = nog iets anders?"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "avion": {
+      "lemma": "avion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plane, airplane (m)",
+        "es-419": "avión (m)",
+        "it": "aereo, aeroplano (m)",
+        "nl": "vliegtuig (m)"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "beaucoup = a lot, very much; merci beaucoup = thank you very much",
+        "es-419": "beaucoup = mucho; merci beaucoup = muchas gracias",
+        "it": "beaucoup = molto; merci beaucoup = grazie mille",
+        "nl": "beaucoup = veel, heel erg; merci beaucoup = heel erg bedankt"
+      }
+    },
+    "bien": {
+      "lemma": "bien",
+      "pos": "ADV",
+      "gloss": {
+        "en": "bien: well, good (ça me va bien = it fits me well)",
+        "es-419": "bien: bien (ça me va bien = me queda bien)",
+        "it": "bien: bene (ça me va bien = mi sta bene)",
+        "nl": "bien: goed (ça me va bien = het past me goed)"
+      }
+    },
+    "bientôt": {
+      "lemma": "bientôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "soon; à bientôt = see you soon",
+        "es-419": "pronto; à bientôt = hasta pronto",
+        "it": "presto; à bientôt = a presto",
+        "nl": "binnenkort, gauw; à bientôt = tot snel"
+      }
+    },
+    "bon": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bon = good, tasty",
+        "es-419": "bon = bueno, rico",
+        "it": "bon = buono",
+        "nl": "bon = goed, lekker"
+      }
+    },
+    "bonne": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bonne = feminine of bon: good; bonne journée = have a good day",
+        "es-419": "bonne = femenino de bon: buena; bonne journée = que tenga un buen día",
+        "it": "bonne = femminile di bon: buona; bonne journée = buona giornata",
+        "nl": "bonne = vrouwelijk van bon: goed; bonne journée = een fijne dag"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, that is",
+        "es-419": "c'est = ce + est: es, esto es, eso es",
+        "it": "c'est = ce + est: è, questo è, quello è",
+        "nl": "c'est = ce + est: het is, dit is, dat is"
+      }
+    },
+    "calme": {
+      "lemma": "calme",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "calm",
+        "es-419": "calmado, tranquilo",
+        "it": "calmo, tranquillo",
+        "nl": "kalm, rustig"
+      }
+    },
+    "ce": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "ce = this, that (before a masculine noun); ce, cet, cette, ces; sounds like se",
+        "es-419": "ce = este, ese (antes de un sustantivo masculino); ce, cet, cette, ces",
+        "it": "ce = questo, quel (davanti a un nome maschile); ce, cet, cette, ces",
+        "nl": "ce = deze, dit, die (voor een mannelijk zelfstandig naamwoord); ce, cet, cette, ces"
+      }
+    },
+    "cette": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cette = this, that (before a feminine noun)",
+        "es-419": "cette = esta, esa (ante sustantivo femenino)",
+        "it": "cette = questa, quella (davanti a nome femminile)",
+        "nl": "cette = deze, die (voor een vrouwelijk zelfstandig naamwoord)"
+      }
+    },
+    "chef": {
+      "lemma": "chef",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boss, head (m or f); watch out: also the head cook, but here any boss",
+        "es-419": "jefe, jefa (m o f)",
+        "it": "capo (m o f); attenzione: chef è il capo in generale, non solo il cuoco",
+        "nl": "baas, chef (m of f); let op: chef is in het Frans elke leidinggevende, niet alleen de chef-kok"
+      }
+    },
+    "colère": {
+      "lemma": "colère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "anger (f); en colère = angry",
+        "es-419": "enojo (f); en colère = enojado; ojo: no es \"cólera\" (la enfermedad)",
+        "it": "rabbia (f); en colère = arrabbiato; attenzione: non è \"colera\" (la malattia)",
+        "nl": "woede (f); en colère = boos"
+      }
+    },
+    "comment": {
+      "lemma": "comment",
+      "pos": "ADV",
+      "gloss": {
+        "en": "how; comment est-elle? = what is she like?",
+        "es-419": "cómo; comment est-elle? = ¿cómo es ella?",
+        "it": "come; comment est-elle? = com'è lei?",
+        "nl": "hoe; comment est-elle? = hoe is ze?"
+      }
+    },
+    "comptes": {
+      "lemma": "compter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "count, matter (compter: tu comptes; tu comptes pour moi = you mean a lot to me)",
+        "es-419": "cuentas, importas (compter: tu comptes; tu comptes pour moi = significas para mí)",
+        "it": "conti (compter: tu comptes; tu comptes pour moi = conti per me)",
+        "nl": "telt, betekent (compter: tu comptes; tu comptes pour moi = je betekent iets voor me)"
+      }
+    },
+    "conduises": {
+      "lemma": "conduire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "drive (conduire, subjunctive: que tu conduises)",
+        "es-419": "manejes (conduire, subjuntivo: que tu conduises)",
+        "it": "guidi (conduire, congiuntivo: que tu conduises)",
+        "nl": "rijdt (conduire, subjonctif: que tu conduises)"
+      }
+    },
+    "confiance": {
+      "lemma": "confiance",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trust, confidence (f); avoir confiance en = to trust",
+        "es-419": "confianza (f); avoir confiance en = confiar en",
+        "it": "fiducia (f); avoir confiance en = fidarsi di",
+        "nl": "vertrouwen (f); avoir confiance en = vertrouwen"
+      }
+    },
+    "content": {
+      "lemma": "content",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "happy, glad, pleased (content de = happy with)",
+        "es-419": "contento (content de = contento con)",
+        "it": "contento (content de = contento di)",
+        "nl": "blij, tevreden (content de = blij met)"
+      }
+    },
+    "contre": {
+      "lemma": "contre",
+      "pos": "ADP",
+      "gloss": {
+        "en": "against, with (fâché contre moi = angry with me)",
+        "es-419": "contra, con (fâché contre moi = enojado conmigo)",
+        "it": "contro, con (fâché contre moi = arrabbiato con me)",
+        "nl": "tegen, op (fâché contre moi = boos op mij)"
+      }
+    },
+    "d'amour": {
+      "lemma": "amour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'amour = de + amour: of love (m)",
+        "es-419": "d'amour = de + amour: de amor (m)",
+        "it": "d'amour = de + amour: d'amore (m)",
+        "nl": "d'amour = de + amour: van liefde (m)"
+      }
+    },
+    "d'émotion": {
+      "lemma": "émotion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'émotion = de + émotion: with emotion (f)",
+        "es-419": "d'émotion = de + émotion: de emoción (f)",
+        "it": "d'émotion = de + émotion: di emozione (f)",
+        "nl": "d'émotion = de + émotion: van ontroering (f)"
+      }
+    },
+    "dangereux": {
+      "lemma": "dangereux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "dangerous",
+        "es-419": "peligroso",
+        "it": "pericoloso",
+        "nl": "gevaarlijk"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; after an amount: un verre de vin; de l'eau = some water",
+        "es-419": "de = de; después de una cantidad: un verre de vin; de l'eau = agua, un poco de agua",
+        "it": "de = di, da; dopo una quantità: un verre de vin; de l'eau = dell'acqua",
+        "nl": "de = van; na een hoeveelheid: un verre de vin; de l'eau = water; let op: de is geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "dispute": {
+      "lemma": "dispute",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fight, argument (f); watch out: also a formal \"dispute\", but far more everyday",
+        "es-419": "pelea, discusión (f)",
+        "it": "lite (f)",
+        "nl": "ruzie (f)"
+      }
+    },
+    "disputer": {
+      "lemma": "disputer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to argue; se disputer = to have a fight",
+        "es-419": "pelear; se disputer = pelearse",
+        "it": "litigare; se disputer = litigare",
+        "nl": "ruzie maken; se disputer = ruzie maken"
+      }
+    },
+    "disputée": {
+      "lemma": "disputer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "argued (disputer; je me suis disputée = I had a fight, said by a woman)",
+        "es-419": "peleé (disputer; je me suis disputée = me peleé, dicho por una mujer)",
+        "it": "litigato (disputer; je me suis disputée = ho litigato, detto da una donna)",
+        "nl": "ruzie gemaakt (disputer; je me suis disputée = ik heb ruzie gehad, gezegd door een vrouw)"
+      }
+    },
+    "dormir": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to sleep",
+        "es-419": "dormir",
+        "it": "dormire",
+        "nl": "slapen"
+      }
+    },
+    "déjà": {
+      "lemma": "déjà",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already",
+        "es-419": "ya",
+        "it": "già",
+        "nl": "al"
+      }
+    },
+    "déranger": {
+      "lemma": "déranger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to bother, disturb",
+        "es-419": "molestar, interrumpir",
+        "it": "disturbare",
+        "nl": "storen"
+      }
+    },
+    "déteste": {
+      "lemma": "détester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "hate (détester: je déteste)",
+        "es-419": "odio (détester: je déteste)",
+        "it": "detesto (détester: je déteste)",
+        "nl": "haat (détester: je déteste)"
+      }
+    },
+    "déçu": {
+      "lemma": "déçu",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "disappointed; watch out: not \"deceived\"",
+        "es-419": "decepcionado",
+        "it": "deluso",
+        "nl": "teleurgesteld"
+      }
+    },
+    "elle": {
+      "lemma": "elle",
+      "pos": "PRON",
+      "gloss": {
+        "en": "elle: she, her, it (a feminine thing)",
+        "es-419": "elle: ella, ello (una cosa femenina)",
+        "it": "elle: lei, essa (una cosa femminile)",
+        "nl": "elle: zij, het (een vrouwelijk ding)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "en: in; vous l'avez en bleu = do you have it in blue?",
+        "es-419": "en: en; vous l'avez en bleu = ¿lo tiene en azul?",
+        "it": "en: in; vous l'avez en bleu = ce l'ha in blu?",
+        "nl": "en: in; vous l'avez en bleu = heeft u het in blauw?"
+      }
+    },
+    "encore": {
+      "lemma": "encore",
+      "pos": "ADV",
+      "gloss": {
+        "en": "encore = again, still, more; encore un café = another coffee",
+        "es-419": "encore = otra vez, todavía, más; encore un café = otro café",
+        "it": "encore = ancora; encore un café = un altro caffè",
+        "nl": "encore = weer, nog; encore un café = nog een koffie"
+      }
+    },
+    "entendons": {
+      "lemma": "entendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "hear (entendre: nous nous entendons = we get along)",
+        "es-419": "oímos (entendre: nous nous entendons = nos llevamos)",
+        "it": "sentiamo (entendre: nous nous entendons = andiamo d'accordo)",
+        "nl": "horen (entendre: nous nous entendons = we kunnen met elkaar overweg)"
+      }
+    },
+    "entretien": {
+      "lemma": "entretien",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "interview (m)",
+        "es-419": "entrevista (m)",
+        "it": "colloquio (m)",
+        "nl": "sollicitatiegesprek (m)"
+      }
+    },
+    "espérer": {
+      "lemma": "espérer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hope",
+        "es-419": "esperar",
+        "it": "sperare",
+        "nl": "hopen"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; sounds like est (is)",
+        "es-419": "y; suena igual que est (es)",
+        "it": "e; suona come est (è)",
+        "nl": "en; klinkt als est (is)"
+      }
+    },
+    "examen": {
+      "lemma": "examen",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "exam, test (m)",
+        "es-419": "examen (m)",
+        "it": "esame (m)",
+        "nl": "examen (m)"
+      }
+    },
+    "facile": {
+      "lemma": "facile",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "easy",
+        "es-419": "fácil",
+        "it": "facile",
+        "nl": "makkelijk, gemakkelijk"
+      }
+    },
+    "faire": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do, to make",
+        "es-419": "hacer",
+        "it": "fare",
+        "nl": "doen, maken"
+      }
+    },
+    "faisais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "did, made (faire, imperfect: tu faisais; tu me faisais confiance = you trusted me)",
+        "es-419": "hacías (faire, imperfecto: tu faisais; tu me faisais confiance = confiabas en mí)",
+        "it": "facevi (faire, imperfetto: tu faisais; tu me faisais confiance = ti fidavi di me)",
+        "nl": "deed (faire, imparfait: tu faisais; tu me faisais confiance = je vertrouwde me)"
+      }
+    },
+    "fait": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fait = does, makes (faire); ça fait dix euros = that comes to ten euros",
+        "es-419": "fait = hace (faire); ça fait dix euros = son diez euros",
+        "it": "fait = fa (faire); ça fait dix euros = fanno dieci euro",
+        "nl": "fait = doet, maakt (faire); ça fait dix euros = dat is tien euro"
+      }
+    },
+    "famille": {
+      "lemma": "famille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "es-419": "familia (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "faut": {
+      "lemma": "falloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "faut = is necessary (falloir, only il faut); il faut prendre = you have to take",
+        "es-419": "faut = hace falta (falloir, solo il faut); il faut prendre = hay que tomar",
+        "it": "faut = bisogna (falloir, solo il faut); il faut prendre = bisogna prendere",
+        "nl": "faut = het is nodig (falloir, alleen il faut); il faut prendre = je moet nemen"
+      }
+    },
+    "fier": {
+      "lemma": "fier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "proud; watch out: not \"fierce\"",
+        "es-419": "orgulloso",
+        "it": "fiero",
+        "nl": "trots"
+      }
+    },
+    "fille": {
+      "lemma": "fille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "girl, daughter (f)",
+        "es-419": "hija, niña, chica (f)",
+        "it": "figlia, ragazza (f); attenzione: fille significa sia figlia sia ragazza",
+        "nl": "dochter, meisje (f)"
+      }
+    },
+    "film": {
+      "lemma": "film",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "film (m): movie, film",
+        "es-419": "film (m): película; ojo: film es masculino",
+        "it": "film (m): film",
+        "nl": "film (m): film"
+      }
+    },
+    "fini": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finished (finir; l'examen est fini = the exam is over)",
+        "es-419": "terminado (finir; l'examen est fini = el examen terminó)",
+        "it": "finito (finir; l'examen est fini = l'esame è finito)",
+        "nl": "voorbij (finir; l'examen est fini = het examen is voorbij)"
+      }
+    },
+    "fière": {
+      "lemma": "fier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "proud (f of fier); watch out: not \"fierce\"",
+        "es-419": "orgullosa (f de fier)",
+        "it": "fiera (f di fier)",
+        "nl": "trots (f van fier)"
+      }
+    },
+    "fois": {
+      "lemma": "fois",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time, occasion (f); une fois = once; encore une fois = one more time",
+        "es-419": "vez (f); encore une fois = otra vez",
+        "it": "volta (f); encore une fois = ancora una volta",
+        "nl": "keer (f); encore une fois = nog een keer"
+      }
+    },
+    "frère": {
+      "lemma": "frère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "brother (m)",
+        "es-419": "hermano (m)",
+        "it": "fratello (m)",
+        "nl": "broer (m)"
+      }
+    },
+    "fâché": {
+      "lemma": "fâché",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "angry, upset",
+        "es-419": "enojado",
+        "it": "arrabbiato",
+        "nl": "boos"
+      }
+    },
+    "fâchée": {
+      "lemma": "fâché",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "angry, upset (f of fâché)",
+        "es-419": "enojada (f de fâché)",
+        "it": "arrabbiata (f di fâché)",
+        "nl": "boos (f van fâché)"
+      }
+    },
+    "fête": {
+      "lemma": "fête",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fête (f): party, celebration, holiday",
+        "es-419": "fête (f): fiesta",
+        "it": "fête (f): festa",
+        "nl": "fête (f): feest"
+      }
+    },
+    "garçon": {
+      "lemma": "garçon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boy (m)",
+        "es-419": "niño, chico (m); también mesero",
+        "it": "ragazzo (m); anche cameriere",
+        "nl": "jongen (m)"
+      }
+    },
+    "gâteau": {
+      "lemma": "gâteau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "gâteau (m): cake, pastry",
+        "es-419": "gâteau (m): pastel, torta",
+        "it": "gâteau (m): torta, dolce; attenzione: in italiano torta è femminile",
+        "nl": "gâteau (m): taart, gebak"
+      }
+    },
+    "génial": {
+      "lemma": "génial",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "génial: great, brilliant; watch out: not genial (= sympathique)",
+        "es-419": "génial: genial, fantástico",
+        "it": "génial: fantastico, geniale",
+        "nl": "génial: geweldig, super"
+      }
+    },
+    "heureux": {
+      "lemma": "heureux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "happy",
+        "es-419": "feliz",
+        "it": "felice",
+        "nl": "gelukkig"
+      }
+    },
+    "hier": {
+      "lemma": "hier",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "es-419": "ayer",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "honte": {
+      "lemma": "honte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "shame (f); j'ai honte = I'm ashamed; watch out: avoir honte, not \"to be\"",
+        "es-419": "vergüenza (f); j'ai honte = me da vergüenza",
+        "it": "vergogna (f); j'ai honte = mi vergogno",
+        "nl": "schaamte (f); j'ai honte = ik schaam me; let op: avoir honte, niet \"être\""
+      }
+    },
+    "humeur": {
+      "lemma": "humeur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mood (f); watch out: not \"humor\"",
+        "es-419": "humor, estado de ánimo (f)",
+        "it": "umore (f)",
+        "nl": "humeur, stemming (f)"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "il: he, it; il y a = there is, there are",
+        "es-419": "il: él, ello; il y a = hay",
+        "it": "il: lui, esso; il y a = c'è, ci sono",
+        "nl": "il: hij, het; il y a = er is, er zijn"
+      }
+    },
+    "importants": {
+      "lemma": "important",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "important (pl. of important)",
+        "es-419": "importantes (pl. de important)",
+        "it": "importanti (pl. di important)",
+        "nl": "belangrijk (mv. van important)"
+      }
+    },
+    "inquiet": {
+      "lemma": "inquiet",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "worried",
+        "es-419": "preocupado",
+        "it": "preoccupato",
+        "nl": "ongerust"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'ai = je + ai: I have",
+        "es-419": "j'ai = je + ai: tengo",
+        "it": "j'ai = je + ai: ho",
+        "nl": "j'ai = je + ai: ik heb"
+      }
+    },
+    "j'espère": {
+      "lemma": "espérer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'espère = je + espère: I hope",
+        "es-419": "j'espère = je + espère: espero",
+        "it": "j'espère = je + espère: spero",
+        "nl": "j'espère = je + espère: ik hoop"
+      }
+    },
+    "jaloux": {
+      "lemma": "jaloux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "jealous",
+        "es-419": "celoso",
+        "it": "geloso",
+        "nl": "jaloers"
+      }
+    },
+    "jamais": {
+      "lemma": "jamais",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never; always with ne: je ne mange jamais",
+        "es-419": "nunca; siempre con ne: je ne mange jamais",
+        "it": "mai; sempre con ne: je ne mange jamais",
+        "nl": "nooit; altijd met ne: je ne mange jamais"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "julie": {
+      "lemma": "Julie",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Julie (a first name)",
+        "es-419": "Julie (un nombre de mujer)",
+        "it": "Julie (un nome di donna)",
+        "nl": "Julie (een meisjesnaam)"
+      }
+    },
+    "l'appelle": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "l'appelle = la/le + appelle: call her/him (elle ne l'appelle pas = she doesn't call him)",
+        "es-419": "l'appelle = la/le + appelle: la/lo llama (elle ne l'appelle pas = no lo llama)",
+        "it": "l'appelle = la/le + appelle: la/lo chiama (elle ne l'appelle pas = non lo chiama)",
+        "nl": "l'appelle = la/le + appelle: belt haar/hem (elle ne l'appelle pas = ze belt hem niet)"
+      }
+    },
+    "l'examen": {
+      "lemma": "examen",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'examen = le + examen: the exam (m)",
+        "es-419": "l'examen = le + examen: el examen (m)",
+        "it": "l'examen = le + examen: l'esame (m)",
+        "nl": "l'examen = le + examen: het examen (m)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "le#pron": {
+      "lemma": "la",
+      "pos": "PRON",
+      "gloss": {
+        "en": "it, him (before the verb: je veux que tu le saches = I want you to know it)",
+        "es-419": "lo (antes del verbo: je veux que tu le saches = quiero que lo sepas)",
+        "it": "lo (prima del verbo: je veux que tu le saches = voglio che tu lo sappia)",
+        "nl": "het, hem (voor het werkwoord: je veux que tu le saches = ik wil dat je het weet)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural of le, la)",
+        "es-419": "los, las (plural de le, la)",
+        "it": "i, le, gli (plurale di le, la)",
+        "nl": "de (meervoud van le, la)"
+      }
+    },
+    "lettre": {
+      "lemma": "lettre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "letter (f)",
+        "es-419": "carta (f)",
+        "it": "lettera (f)",
+        "nl": "brief (f)"
+      }
+    },
+    "lui": {
+      "lemma": "lui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "him, after a preposition: pour lui",
+        "es-419": "él, después de preposición: pour lui = para él",
+        "it": "lui, dopo preposizione: pour lui = per lui",
+        "nl": "hem, na een voorzetsel: pour lui = voor hem"
+      }
+    },
+    "là": {
+      "lemma": "là",
+      "pos": "ADV",
+      "gloss": {
+        "en": "là = there (with an accent; la = the)",
+        "es-419": "là = ahí, allí (con acento; la = la)",
+        "it": "là = lì, là (con accento; la = la)",
+        "nl": "là = daar (met accent; la = de)"
+      }
+    },
+    "m'a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "m'a = me + a: has (to me) (il m'a menti = he lied to me)",
+        "es-419": "m'a = me + a: me ha (il m'a menti = me mintió)",
+        "it": "m'a = me + a: mi ha (il m'a menti = mi ha mentito)",
+        "nl": "m'a = me + a: heeft me (il m'a menti = hij heeft tegen me gelogen)"
+      }
+    },
+    "m'as": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "m'as = me + as: have (to me) (tu m'as menti = you lied to me)",
+        "es-419": "m'as = me + as: me has (tu m'as menti = me mentiste)",
+        "it": "m'as = me + as: mi hai (tu m'as menti = mi hai mentito)",
+        "nl": "m'as = me + as: hebt me (tu m'as menti = je hebt tegen me gelogen)"
+      }
+    },
+    "m'ennuie": {
+      "lemma": "ennuyer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'ennuie = me + ennuie: bores me; ça m'ennuie de = I'm sorry to",
+        "es-419": "m'ennuie = me + ennuie: me aburre; ça m'ennuie de = me da pena",
+        "it": "m'ennuie = me + ennuie: mi annoia; ça m'ennuie de = mi dispiace",
+        "nl": "m'ennuie = me + ennuie: verveelt me; ça m'ennuie de = het spijt me"
+      }
+    },
+    "m'inquiète": {
+      "lemma": "inquiéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'inquiète = me + inquiète: worries me (ça m'inquiète = it worries me)",
+        "es-419": "m'inquiète = me + inquiète: me preocupa (ça m'inquiète = me preocupa)",
+        "it": "m'inquiète = me + inquiète: mi preoccupa (ça m'inquiète = mi preoccupa)",
+        "nl": "m'inquiète = me + inquiète: maakt me ongerust (ça m'inquiète = het maakt me ongerust)"
+      }
+    },
+    "m'écriras": {
+      "lemma": "écrire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'écriras = me + écriras: will write to me",
+        "es-419": "m'écriras = me + écriras: me escribirás",
+        "it": "m'écriras = me + écriras: mi scriverai",
+        "nl": "m'écriras = me + écriras: zult me schrijven"
+      }
+    },
+    "m'énerve": {
+      "lemma": "énerver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'énerve = me + énerve: annoys me (ça m'énerve = it annoys me); watch out: not \"enervates\"",
+        "es-419": "m'énerve = me + énerve: me molesta (ça m'énerve = me molesta)",
+        "it": "m'énerve = me + énerve: mi dà fastidio (ça m'énerve = mi dà fastidio)",
+        "nl": "m'énerve = me + énerve: ergert me (ça m'énerve = het ergert me)"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "ma = feminine of mon: my",
+        "es-419": "ma = femenino de mon: mi",
+        "it": "ma = femminile di mon: mia",
+        "nl": "ma = vrouwelijk van mon: mijn"
+      }
+    },
+    "maintenant": {
+      "lemma": "maintenant",
+      "pos": "ADV",
+      "gloss": {
+        "en": "maintenant: now",
+        "es-419": "maintenant: ahora",
+        "it": "maintenant: adesso, ora",
+        "nl": "maintenant: nu"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "mais: but",
+        "es-419": "mais: pero",
+        "it": "mais: ma",
+        "nl": "mais: maar"
+      }
+    },
+    "malade": {
+      "lemma": "malade",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sick, ill",
+        "es-419": "enfermo",
+        "it": "malato",
+        "nl": "ziek"
+      }
+    },
+    "manquer": {
+      "lemma": "manquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to miss; watch out: the person missed is the subject (tu me manques = I miss you)",
+        "es-419": "extrañar; ojo: quien falta es el sujeto (tu me manques = te extraño)",
+        "it": "mancare; come in italiano, chi manca è il soggetto (tu me manques = mi manchi)",
+        "nl": "missen; let op: degene die je mist is het onderwerp (tu me manques = ik mis je)"
+      }
+    },
+    "manques": {
+      "lemma": "manquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "are missed (tu me manques = I miss you)",
+        "es-419": "faltas (tu me manques = te extraño)",
+        "it": "manchi (tu me manques = mi manchi)",
+        "nl": "wordt gemist (tu me manques = ik mis je)"
+      }
+    },
+    "mariage": {
+      "lemma": "mariage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wedding, marriage (m)",
+        "es-419": "boda, matrimonio (m)",
+        "it": "matrimonio (m)",
+        "nl": "bruiloft, huwelijk (m)"
+      }
+    },
+    "mauvaise": {
+      "lemma": "mauvais",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bad (mauvais, f)",
+        "es-419": "mala (mauvais, f)",
+        "it": "cattiva, scadente (mauvais, f)",
+        "nl": "slecht (mauvais, f)"
+      }
+    },
+    "me": {
+      "lemma": "me",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me = me, to me (before the verb): vous pouvez me montrer...? = can you show me...?",
+        "es-419": "me = me, a mí (antes del verbo): vous pouvez me montrer...? = ¿puede mostrarme...?",
+        "it": "me = mi, a me (prima del verbo): vous pouvez me montrer...? = può farmi vedere...?",
+        "nl": "me = mij, me (voor het werkwoord): vous pouvez me montrer...? = kunt u mij laten zien...?"
+      }
+    },
+    "mens": {
+      "lemma": "mentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lie (ne me mens plus = don't lie to me anymore)",
+        "es-419": "miento (ne me mens plus = no me mientas más)",
+        "it": "mento (ne me mens plus = non mentirmi più)",
+        "nl": "lieg (ne me mens plus = lieg niet meer tegen me)"
+      }
+    },
+    "mensonge": {
+      "lemma": "mensonge",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lie (m)",
+        "es-419": "mentira (m)",
+        "it": "bugia (m)",
+        "nl": "leugen (m)"
+      }
+    },
+    "mensonges": {
+      "lemma": "mensonge",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lies (mensonge, m)",
+        "es-419": "mentiras (mensonge, m)",
+        "it": "bugie (mensonge, m)",
+        "nl": "leugens (mensonge, m)"
+      }
+    },
+    "menti": {
+      "lemma": "mentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lied (mentir; j'ai menti = I lied, tu m'as menti = you lied to me)",
+        "es-419": "mintió, mentí (mentir; j'ai menti = mentí, tu m'as menti = me mentiste)",
+        "it": "mentito (mentir; j'ai menti = ho mentito, tu m'as menti = mi hai mentito)",
+        "nl": "gelogen (mentir; j'ai menti = ik heb gelogen, tu m'as menti = je hebt tegen me gelogen)"
+      }
+    },
+    "mentir": {
+      "lemma": "mentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lie (tell a lie)",
+        "es-419": "mentir",
+        "it": "mentire",
+        "nl": "liegen"
+      }
+    },
+    "merci": {
+      "lemma": "merci",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "thanks, thank you",
+        "es-419": "gracias",
+        "it": "grazie",
+        "nl": "bedankt, dank u"
+      }
+    },
+    "mes": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (plural: mes parents)",
+        "es-419": "mis (plural: mes parents)",
+        "it": "miei, mie (plurale: mes parents)",
+        "nl": "mijn (meervoud: mes parents)"
+      }
+    },
+    "mets": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "put (mettre: tu te mets, ne te mets pas)",
+        "es-419": "pones (mettre: tu te mets, ne te mets pas)",
+        "it": "metti (mettre: tu te mets, ne te mets pas)",
+        "nl": "zet (mettre: tu te mets, ne te mets pas)"
+      }
+    },
+    "mettre": {
+      "lemma": "mettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to put; se mettre en colère = to get angry",
+        "es-419": "poner; se mettre en colère = enojarse",
+        "it": "mettere; se mettre en colère = arrabbiarsi",
+        "nl": "zetten; se mettre en colère = boos worden"
+      }
+    },
+    "moi": {
+      "lemma": "moi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "moi = me (after a preposition or on its own); pour moi, moi aussi",
+        "es-419": "moi = yo, mí (después de preposición o solo); pour moi, moi aussi",
+        "it": "moi = io, me (dopo una preposizione o da solo); pour moi, moi aussi",
+        "nl": "moi = ik, mij (na een voorzetsel of alleen); pour moi, moi aussi"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (before a masculine noun: mon père)",
+        "es-419": "mi (delante de un sustantivo masculino: mon père)",
+        "it": "mio (davanti a un nome maschile: mon père)",
+        "nl": "mijn (voor een mannelijk woord: mon père)"
+      }
+    },
+    "monde": {
+      "lemma": "monde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "world; people (m); tout le monde = everybody",
+        "es-419": "mundo; gente (m); tout le monde = todo el mundo",
+        "it": "mondo; gente (m); tout le monde = tutti",
+        "nl": "wereld; mensen (m); tout le monde = iedereen"
+      }
+    },
+    "musique": {
+      "lemma": "musique",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "musique (f): music",
+        "es-419": "musique (f): música",
+        "it": "musique (f): musica",
+        "nl": "musique (f): muziek"
+      }
+    },
+    "mère": {
+      "lemma": "mère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mother (f)",
+        "es-419": "madre (f)",
+        "it": "madre (f)",
+        "nl": "moeder (f)"
+      }
+    },
+    "médecin": {
+      "lemma": "médecin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "doctor (m or f)",
+        "es-419": "médico (m o f)",
+        "it": "medico (m o f)",
+        "nl": "arts, dokter (m of f)"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ai = ne + ai: (I) don't have; je n'ai pas = I don't have",
+        "es-419": "n'ai = ne + ai: no tengo; je n'ai pas = no tengo",
+        "it": "n'ai = ne + ai: non ho; je n'ai pas = non ho",
+        "nl": "n'ai = ne + ai: heb niet; je n'ai pas = ik heb niet"
+      }
+    },
+    "n'aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'aime = ne + aime: doesn't like",
+        "es-419": "n'aime = ne + aime: no le gusta",
+        "it": "n'aime = ne + aime: non piace",
+        "nl": "n'aime = ne + aime: houdt niet van"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: is not (ne ... pas)",
+        "es-419": "n'est = ne + est: no es (ne ... pas)",
+        "it": "n'est = ne + est: non è (ne ... pas)",
+        "nl": "n'est = ne + est: is niet (ne ... pas)"
+      }
+    },
+    "n'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "n'y = ne + y: not there (il n'y a pas = there is no)",
+        "es-419": "n'y = ne + y: no ahí (il n'y a pas = no hay)",
+        "it": "n'y = ne + y: non ci (il n'y a pas = non c'è)",
+        "nl": "n'y = ne + y: er niet (il n'y a pas = er is geen)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: not, with pas (ne ... pas)",
+        "es-419": "ne: no, con pas (ne ... pas)",
+        "it": "ne: non, con pas (ne ... pas)",
+        "nl": "ne: niet, met pas (ne ... pas)"
+      }
+    },
+    "nerveux": {
+      "lemma": "nerveux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "nervous",
+        "es-419": "nervioso",
+        "it": "nervoso",
+        "nl": "nerveus"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we, us (formal or written; everyday speech uses on)",
+        "es-419": "nosotros (formal o escrito; en el habla diaria se usa on)",
+        "it": "noi (formale o scritto; nel parlato si usa on)",
+        "nl": "wij, we (formeel of geschreven; in spreektaal gebruikt men on)"
+      }
+    },
+    "nuit": {
+      "lemma": "nuit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "night (f); bonne nuit = good night",
+        "es-419": "noche (f); bonne nuit = buenas noches (al despedirse)",
+        "it": "notte (f); bonne nuit = buonanotte",
+        "nl": "nacht (f); bonne nuit = welterusten"
+      }
+    },
+    "née": {
+      "lemma": "naître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "born (naître; ma fille est née = my daughter was born)",
+        "es-419": "nacida (naître; ma fille est née = mi hija nació)",
+        "it": "nata (naître; ma fille est née = mia figlia è nata)",
+        "nl": "geboren (naître; ma fille est née = mijn dochter is geboren)"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we (everyday French; the verb is like il/elle: on habite); on is not ont",
+        "es-419": "nosotros (francés cotidiano; el verbo va como il/elle: on habite); on no es ont",
+        "it": "noi (francese di tutti i giorni; il verbo è come il/elle: on habite); on non è ont",
+        "nl": "we (alledaags Frans; het werkwoord is als bij il/elle: on habite); on is niet ont"
+      }
+    },
+    "par": {
+      "lemma": "par",
+      "pos": "ADP",
+      "gloss": {
+        "en": "par = by, through; par carte = by card",
+        "es-419": "par = por, con; par carte = con tarjeta",
+        "it": "par = per, con; par carte = con la carta",
+        "nl": "par = door, met; par carte = met de kaart"
+      }
+    },
+    "parce": {
+      "lemma": "parce",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "parce: in parce que = because",
+        "es-419": "parce: en parce que = porque",
+        "it": "parce: in parce que = perché",
+        "nl": "parce: in parce que = omdat, want"
+      }
+    },
+    "pardon": {
+      "lemma": "pardon",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "excuse me, sorry",
+        "es-419": "perdón, disculpe",
+        "it": "scusi, scusa",
+        "nl": "pardon, sorry"
+      }
+    },
+    "pardonne": {
+      "lemma": "pardonner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "forgive (je te pardonne = I forgive you)",
+        "es-419": "perdono (je te pardonne = te perdono)",
+        "it": "perdono (je te pardonne = ti perdono)",
+        "nl": "vergeef (je te pardonne = ik vergeef het je)"
+      }
+    },
+    "pardonne-moi": {
+      "lemma": "pardonner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pardonne-moi = pardonne + moi: forgive me",
+        "es-419": "pardonne-moi = pardonne + moi: perdóname",
+        "it": "pardonne-moi = pardonne + moi: perdonami",
+        "nl": "pardonne-moi = pardonne + moi: vergeef me"
+      }
+    },
+    "parents": {
+      "lemma": "parent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parents (m, plural of parent); watch out: un parent is a relative, not one parent",
+        "es-419": "padres (m, plural de parent); ojo: un parent es un pariente, no un padre",
+        "it": "genitori (m, plurale di parent); attenzione: un parent è un parente, non un genitore",
+        "nl": "ouders (m, meervoud van parent); let op: un parent is een familielid, geen ouder"
+      }
+    },
+    "parle": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "parle = speak (je parle, il/elle parle)",
+        "es-419": "parle = hablo, habla (je parle, il/elle parle)",
+        "it": "parle = parlo, parla (je parle, il/elle parle)",
+        "nl": "parle = spreek, spreekt (je parle, il/elle parle)"
+      }
+    },
+    "parlions": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "speak (parler, subjunctive: que nous parlions)",
+        "es-419": "hablemos (parler, subjuntivo: que nous parlions)",
+        "it": "parliamo (parler, congiuntivo: que nous parlions)",
+        "nl": "praten (parler, subjonctif: que nous parlions)"
+      }
+    },
+    "part": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leaves (partir); il part = he leaves",
+        "es-419": "se va, sale (partir); il part",
+        "it": "parte, va via (partir); il part",
+        "nl": "vertrekt (partir); il part"
+      }
+    },
+    "parte": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leave (partir, subjunctive: que je parte)",
+        "es-419": "me vaya (partir, subjuntivo: que je parte)",
+        "it": "parta (partir, congiuntivo: que je parte)",
+        "nl": "wegga (partir, subjonctif: que je parte)"
+      }
+    },
+    "partes": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leave (partir, subjunctive: que tu partes)",
+        "es-419": "te vayas (partir, subjuntivo: que tu partes)",
+        "it": "parta (partir, congiuntivo: que tu partes)",
+        "nl": "weggaat (partir, subjonctif: que tu partes)"
+      }
+    },
+    "partir": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave, to go away",
+        "es-419": "irse, salir",
+        "it": "partire, andare via",
+        "nl": "vertrekken, weggaan"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas: not (ne ... pas)",
+        "es-419": "pas: no (ne ... pas)",
+        "it": "pas: non (ne ... pas)",
+        "nl": "pas: niet (ne ... pas)"
+      }
+    },
+    "passer": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to pass, happen (se passer = to happen; tout va bien se passer = everything will go well)",
+        "es-419": "pasar, ocurrir (se passer = ocurrir; tout va bien se passer = todo va a salir bien)",
+        "it": "passare, succedere (se passer = succedere; tout va bien se passer = andrà tutto bene)",
+        "nl": "gaan, gebeuren (se passer = gebeuren; tout va bien se passer = alles komt goed)"
+      }
+    },
+    "paul": {
+      "lemma": "paul",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Paul, a first name",
+        "es-419": "Paul, un nombre de pila",
+        "it": "Paul, un nome proprio",
+        "nl": "Paul, een voornaam"
+      }
+    },
+    "pensais": {
+      "lemma": "penser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "thought (penser, imperfect: je pensais)",
+        "es-419": "pensaba (penser, imperfecto: je pensais)",
+        "it": "pensavo (penser, imperfetto: je pensais)",
+        "nl": "dacht (penser, imparfait: je pensais)"
+      }
+    },
+    "petite": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "petite = feminine of petit: small, little",
+        "es-419": "petite = femenino de petit: pequeña",
+        "it": "petite = femminile di petit: piccola",
+        "nl": "petite = vrouwelijk van petit: klein"
+      }
+    },
+    "peu": {
+      "lemma": "peu",
+      "pos": "ADV",
+      "gloss": {
+        "en": "little, few; un peu = a little, a bit",
+        "es-419": "poco; un peu = un poco",
+        "it": "poco; un peu = un po'",
+        "nl": "weinig; un peu = een beetje"
+      }
+    },
+    "peur": {
+      "lemma": "peur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fear (f); j'ai peur que = I'm afraid that",
+        "es-419": "miedo (f); j'ai peur que = tengo miedo de que",
+        "it": "paura (f); j'ai peur que = ho paura che",
+        "nl": "angst (f); j'ai peur que = ik ben bang dat"
+      }
+    },
+    "peut": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can (pouvoir: il/elle/on peut)",
+        "es-419": "puede (pouvoir: il/elle/on peut)",
+        "it": "può (pouvoir: il/elle/on peut)",
+        "nl": "kan (pouvoir: il/elle/on peut)"
+      }
+    },
+    "peut-être": {
+      "lemma": "peut-être",
+      "pos": "ADV",
+      "gloss": {
+        "en": "peut-être: maybe, perhaps",
+        "es-419": "peut-être: quizás, tal vez",
+        "it": "peut-être: forse, magari",
+        "nl": "peut-être: misschien"
+      }
+    },
+    "peux": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "peux = can (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = can I...?",
+        "es-419": "peux = puedo (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = ¿puedo...?",
+        "it": "peux = posso (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = posso...?",
+        "nl": "peux = kan (pouvoir: peux, peut, pouvons, pouvez, peuvent); je peux...? = mag ik...? / kan ik...?"
+      }
+    },
+    "pleure": {
+      "lemma": "pleurer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cry (pleurer: elle pleure)",
+        "es-419": "llora (pleurer: elle pleure)",
+        "it": "piange (pleurer: elle pleure)",
+        "nl": "huilt (pleurer: elle pleure)"
+      }
+    },
+    "pleuré": {
+      "lemma": "pleurer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cried (pleurer; j'ai pleuré = I cried)",
+        "es-419": "lloré (pleurer; j'ai pleuré = lloré)",
+        "it": "pianto (pleurer; j'ai pleuré = ho pianto)",
+        "nl": "gehuild (pleurer; j'ai pleuré = ik huilde)"
+      }
+    },
+    "plus#neg": {
+      "lemma": "plus",
+      "pos": "ADV",
+      "gloss": {
+        "en": "plus = no more, not any more (with ne: ne ... plus)",
+        "es-419": "plus = ya no (con ne: ne ... plus)",
+        "it": "plus = non più (con ne: ne ... plus)",
+        "nl": "plus = niet meer (met ne: ne ... plus)"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "pour = for; pour moi = for me",
+        "es-419": "pour = para; pour moi = para mí",
+        "it": "pour = per; pour moi = per me",
+        "nl": "pour = voor; pour moi = voor mij"
+      }
+    },
+    "presque": {
+      "lemma": "presque",
+      "pos": "ADV",
+      "gloss": {
+        "en": "almost",
+        "es-419": "casi",
+        "it": "quasi",
+        "nl": "bijna"
+      }
+    },
+    "père": {
+      "lemma": "père",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "father (m)",
+        "es-419": "padre (m)",
+        "it": "padre (m)",
+        "nl": "vader (m)"
+      }
+    },
+    "qu'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qu'il = que + il: that he, that it",
+        "es-419": "qu'il = que + il: que él, que",
+        "it": "qu'il = che + il: che lui, che",
+        "nl": "qu'il = que + il: dat hij, dat het"
+      }
+    },
+    "quand": {
+      "lemma": "quand",
+      "pos": "ADV",
+      "gloss": {
+        "en": "quand: when",
+        "es-419": "quand: cuándo",
+        "it": "quand: quando",
+        "nl": "quand: wanneer"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, what (qu'est-ce que vous désirez? = what would you like?)",
+        "es-419": "que = que, lo que (qu'est-ce que vous désirez? = ¿qué desea?)",
+        "it": "que = che, ciò che (qu'est-ce que vous désirez? = cosa desidera?)",
+        "nl": "que = dat, wat (qu'est-ce que vous désirez? = wat wilt u?)"
+      }
+    },
+    "quelqu'un": {
+      "lemma": "quelqu'un",
+      "pos": "PRON",
+      "gloss": {
+        "en": "quelqu'un = someone",
+        "es-419": "quelqu'un = alguien",
+        "it": "quelqu'un = qualcuno",
+        "nl": "quelqu'un = iemand"
+      }
+    },
+    "relation": {
+      "lemma": "relation",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "relationship (f)",
+        "es-419": "relación (f)",
+        "it": "relazione, rapporto (f)",
+        "nl": "relatie (f)"
+      }
+    },
+    "reste": {
+      "lemma": "rester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "stay, stays (rester); je reste = I stay",
+        "es-419": "me quedo, se queda (rester); je reste",
+        "it": "resto, resta (rester); je reste",
+        "nl": "blijf, blijft (rester); je reste"
+      }
+    },
+    "retard": {
+      "lemma": "retard",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "delay (m); avoir du retard = be late",
+        "es-419": "retraso (m); avoir du retard = tener retraso",
+        "it": "ritardo (m); avoir du retard = essere in ritardo",
+        "nl": "vertraging (m); avoir du retard = vertraging hebben"
+      }
+    },
+    "rien": {
+      "lemma": "rien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "rien = nothing; de rien = you're welcome",
+        "es-419": "rien = nada; de rien = de nada",
+        "it": "rien = niente; de rien = prego",
+        "nl": "rien = niets; de rien = graag gedaan"
+      }
+    },
+    "réconcilier": {
+      "lemma": "réconcilier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to reconcile; se réconcilier = to make up",
+        "es-419": "reconciliar; se réconcilier = reconciliarse",
+        "it": "riconciliare; se réconcilier = fare pace",
+        "nl": "verzoenen; se réconcilier = het goedmaken"
+      }
+    },
+    "réconciliés": {
+      "lemma": "réconcilier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "made up (réconcilier; nous nous sommes réconciliés = we made up)",
+        "es-419": "reconciliados (réconcilier; nous nous sommes réconciliés = nos reconciliamos)",
+        "it": "riconciliati (réconcilier; nous nous sommes réconciliés = abbiamo fatto pace)",
+        "nl": "verzoend (réconcilier; nous nous sommes réconciliés = we hebben het goedgemaakt)"
+      }
+    },
+    "répond": {
+      "lemma": "répondre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "answers (répondre: il/elle répond)",
+        "es-419": "contesta (répondre: il/elle répond)",
+        "it": "risponde (répondre: il/elle répond)",
+        "nl": "antwoordt, neemt op (répondre: il/elle répond)"
+      }
+    },
+    "réussi": {
+      "lemma": "réussir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "succeeded, passed (réussir; tu as réussi = you passed)",
+        "es-419": "logrado, aprobado (réussir; tu as réussi = lo lograste)",
+        "it": "riuscito, superato (réussir; tu as réussi = ce l'hai fatta)",
+        "nl": "gehaald, geslaagd (réussir; tu as réussi = je hebt het gehaald)"
+      }
+    },
+    "sa": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her (before a feminine noun: sa compagne)",
+        "es-419": "su (delante de un sustantivo femenino: sa compagne)",
+        "it": "suo, sua (davanti a un nome femminile: sa compagne)",
+        "nl": "zijn, haar (voor een vrouwelijk woord: sa compagne)"
+      }
+    },
+    "saches": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "know (savoir, subjunctive: que tu saches)",
+        "es-419": "sepas (savoir, subjuntivo: que tu saches)",
+        "it": "sappia (savoir, congiuntivo: que tu saches)",
+        "nl": "weet (savoir, subjonctif: que tu saches)"
+      }
+    },
+    "salut": {
+      "lemma": "salut",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hi, bye (informal, with friends)",
+        "es-419": "hola, chao (informal, con amigos)",
+        "it": "ciao (informale, tra amici)",
+        "nl": "hoi, doei (informeel, onder vrienden)"
+      }
+    },
+    "samedi": {
+      "lemma": "samedi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Saturday (m)",
+        "es-419": "sábado (m)",
+        "it": "sabato (m)",
+        "nl": "zaterdag (m)"
+      }
+    },
+    "sans": {
+      "lemma": "sans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "without: sans sucre; sounds like cent (100)",
+        "es-419": "sin: sans sucre; suena igual que cent (100)",
+        "it": "senza: sans sucre; suona come cent (100)",
+        "nl": "zonder: sans sucre; klinkt als cent (100)"
+      }
+    },
+    "savais": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "knew (savoir, imperfect: je savais)",
+        "es-419": "sabía (savoir, imperfecto: je savais)",
+        "it": "sapevo (savoir, imperfetto: je savais)",
+        "nl": "wist (savoir, imparfait: je savais)"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "se: himself, herself, itself; ça se dit = it is said",
+        "es-419": "se: se; ça se dit = se dice",
+        "it": "se: si; ça se dit = si dice",
+        "nl": "se: zich; ça se dit = het wordt gezegd"
+      }
+    },
+    "semaine": {
+      "lemma": "semaine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f)",
+        "es-419": "semana (f)",
+        "it": "settimana (f)",
+        "nl": "week (f)"
+      }
+    },
+    "sentiment": {
+      "lemma": "sentiment",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "feeling (m)",
+        "es-419": "sentimiento (m)",
+        "it": "sentimento (m)",
+        "nl": "gevoel (m)"
+      }
+    },
+    "sentiments": {
+      "lemma": "sentiment",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "feelings (sentiment, m)",
+        "es-419": "sentimientos (sentiment, m)",
+        "it": "sentimenti (sentiment, m)",
+        "nl": "gevoelens (sentiment, m)"
+      }
+    },
+    "sera": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "will be (être, future: il sera, ce sera)",
+        "es-419": "será (être, futuro: il sera, ce sera)",
+        "it": "sarà (être, futuro: il sera, ce sera)",
+        "nl": "zal zijn (être, futur: il sera, ce sera)"
+      }
+    },
+    "soient": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are (être, subjunctive: qu'ils soient)",
+        "es-419": "sean (être, subjuntivo: qu'ils soient)",
+        "it": "siano (être, congiuntivo: qu'ils soient)",
+        "nl": "zijn (être, subjonctif: qu'ils soient)"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); le soir = in the evening",
+        "es-419": "noche, atardecer (m); le soir = por la noche",
+        "it": "sera (m); le soir = di sera",
+        "nl": "avond (m); le soir = 's avonds"
+      }
+    },
+    "sois": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "are, be (être, subjunctive: que tu sois, que je sois)",
+        "es-419": "seas, sea (être, subjuntivo: que tu sois, que je sois)",
+        "it": "sia, sii (être, congiuntivo: que tu sois, que je sois)",
+        "nl": "bent, ben (être, subjonctif: que tu sois, que je sois)"
+      }
+    },
+    "soit": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être, subjunctive: qu'il soit, que l'examen soit fini)",
+        "es-419": "sea, esté (être, subjuntivo: qu'il soit)",
+        "it": "sia (être, congiuntivo: qu'il soit)",
+        "nl": "is (être, subjonctif: qu'il soit)"
+      }
+    },
+    "sommes": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "we are (être: suis, es, est, sommes, êtes, sont)",
+        "es-419": "somos (être: suis, es, est, sommes, êtes, sont)",
+        "it": "siamo (être: suis, es, est, sommes, êtes, sont)",
+        "nl": "wij zijn (être: suis, es, est, sommes, êtes, sont)"
+      }
+    },
+    "son": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its (masculine; sa = feminine, ses = plural)",
+        "es-419": "su (de él o de ella; masculino; sa = femenino, ses = plural)",
+        "it": "suo (di lui o di lei; maschile; sa = femminile, ses = plurale)",
+        "nl": "zijn of haar (mannelijk; sa = vrouwelijk, ses = meervoud)"
+      }
+    },
+    "sont": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "sont = are (ils sont, elles sont)",
+        "es-419": "sont = son, están (ils sont, elles sont)",
+        "it": "sont = sono (ils sont, elles sont)",
+        "nl": "sont = zijn (ils sont, elles sont)"
+      }
+    },
+    "souhaite": {
+      "lemma": "souhaiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wish (souhaiter: je souhaite; je te souhaite = I wish you)",
+        "es-419": "deseo (souhaiter: je souhaite; je te souhaite = te deseo)",
+        "it": "auguro, desidero (souhaiter: je souhaite; je te souhaite = ti auguro)",
+        "nl": "wens (souhaiter: je souhaite; je te souhaite = ik wens je)"
+      }
+    },
+    "soulagé": {
+      "lemma": "soulagé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "relieved",
+        "es-419": "aliviado",
+        "it": "sollevato",
+        "nl": "opgelucht"
+      }
+    },
+    "stressé": {
+      "lemma": "stressé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "stressed",
+        "es-419": "estresado",
+        "it": "stressato",
+        "nl": "gestrest"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (être: suis, es, est, sommes, êtes, sont); je suis = I am",
+        "es-419": "soy, estoy (être: suis, es, est, sommes, êtes, sont); je suis = yo soy",
+        "it": "sono (être: suis, es, est, sommes, êtes, sont); je suis = io sono",
+        "nl": "ben (être: suis, es, est, sommes, êtes, sont); je suis = ik ben"
+      }
+    },
+    "surprend": {
+      "lemma": "surprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "surprises (ça me surprend = it surprises me)",
+        "es-419": "sorprende (ça me surprend = me sorprende)",
+        "it": "sorprende (ça me surprend = mi sorprende)",
+        "nl": "verrast (ça me surprend = het verrast me)"
+      }
+    },
+    "surprendre": {
+      "lemma": "surprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to surprise",
+        "es-419": "sorprender",
+        "it": "sorprendere",
+        "nl": "verrassen"
+      }
+    },
+    "surpris": {
+      "lemma": "surprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "surprised (surprendre; je suis surpris = I'm surprised)",
+        "es-419": "sorprendido (surprendre; je suis surpris = me sorprende)",
+        "it": "sorpreso (surprendre; je suis surpris = mi sorprende)",
+        "nl": "verrast (surprendre; je suis surpris = het verbaast me)"
+      }
+    },
+    "sœur": {
+      "lemma": "sœur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sister (f)",
+        "es-419": "hermana (f)",
+        "it": "sorella (f)",
+        "nl": "zus, zuster (f)"
+      }
+    },
+    "t'aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'aime = te + aime: love you (je t'aime = I love you)",
+        "es-419": "t'aime = te + aime: te quiero, te amo (je t'aime = te quiero)",
+        "it": "t'aime = te + aime: ti amo (je t'aime = ti amo)",
+        "nl": "t'aime = te + aime: hou van je (je t'aime = ik hou van je)"
+      }
+    },
+    "t'appelle": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'appelle = te + appelle: call you (je t'appelle = I'll call you)",
+        "es-419": "t'appelle = te + appelle: te llamo (je t'appelle = te llamo)",
+        "it": "t'appelle = te + appelle: ti chiamo (je t'appelle = ti chiamo)",
+        "nl": "t'appelle = te + appelle: bel je (je t'appelle = ik bel je)"
+      }
+    },
+    "t'écris": {
+      "lemma": "écrire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'écris = te + écris: write to you (je t'écris = I'm writing to you)",
+        "es-419": "t'écris = te + écris: te escribo (je t'écris = te escribo)",
+        "it": "t'écris = te + écris: ti scrivo (je t'écris = ti scrivo)",
+        "nl": "t'écris = te + écris: schrijf je (je t'écris = ik schrijf je)"
+      }
+    },
+    "ta": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "ta = feminine of ton: your (to one person you know well)",
+        "es-419": "ta = femenino de ton: tu",
+        "it": "ta = femminile di ton: tua",
+        "nl": "ta = vrouwelijk van ton: jouw"
+      }
+    },
+    "te": {
+      "lemma": "te",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal), to you; je te présente = I introduce you to",
+        "es-419": "te; je te présente = te presento a",
+        "it": "ti; je te présente = ti presento",
+        "nl": "je, aan je; je te présente = ik stel je voor aan"
+      }
+    },
+    "tes": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "your (plural, one person you know well: tes parents)",
+        "es-419": "tus (plural: tes parents)",
+        "it": "tuoi, tue (plurale: tes parents)",
+        "nl": "jouw (meervoud: tes parents)"
+      }
+    },
+    "toi": {
+      "lemma": "toi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "toi: you (stressed, to one person you know well); et toi? = and you?",
+        "es-419": "toi: tú (con énfasis); et toi? = ¿y tú?",
+        "it": "toi: tu (enfatico); et toi? = e tu?",
+        "nl": "toi: jij (nadruk); et toi? = en jij?"
+      }
+    },
+    "ton": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "ton: your (masculine, to one person you know well)",
+        "es-419": "ton: tu (masculino)",
+        "it": "ton: tuo (maschile)",
+        "nl": "ton: jouw (mannelijk)"
+      }
+    },
+    "toujours": {
+      "lemma": "toujours",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always; also: still",
+        "es-419": "siempre; también: todavía",
+        "it": "sempre; anche: ancora",
+        "nl": "altijd; ook: nog steeds"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "tout = all, everything; c'est tout = that's all",
+        "es-419": "tout = todo; c'est tout = eso es todo",
+        "it": "tout = tutto; c'est tout = è tutto",
+        "nl": "tout = alles; c'est tout = dat is alles"
+      }
+    },
+    "travail": {
+      "lemma": "travail",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (m); un nouveau travail = a new job",
+        "es-419": "trabajo (m); un nouveau travail = un trabajo nuevo",
+        "it": "lavoro (m); un nouveau travail = un nuovo lavoro",
+        "nl": "werk, baan (m); un nouveau travail = een nieuwe baan"
+      }
+    },
+    "trop": {
+      "lemma": "trop",
+      "pos": "ADV",
+      "gloss": {
+        "en": "too, too much; trop cher = too expensive",
+        "es-419": "demasiado; trop cher = demasiado caro",
+        "it": "troppo; trop cher = troppo caro",
+        "nl": "te, te veel; trop cher = te duur"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "très: very",
+        "es-419": "très: muy",
+        "it": "très: molto",
+        "nl": "très: heel, erg"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (one person you know well)",
+        "es-419": "tú",
+        "it": "tu",
+        "nl": "jij, je"
+      }
+    },
+    "téléphone": {
+      "lemma": "téléphone",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "phone, telephone (m)",
+        "es-419": "teléfono (m)",
+        "it": "telefono (m)",
+        "nl": "telefoon (m)"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "va": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "va = goes; ça me va = it fits me, ça vous va bien = it looks good on you",
+        "es-419": "va = va; ça me va = me queda bien, ça vous va bien = le queda bien",
+        "it": "va = va; ça me va = mi sta bene, ça vous va bien = le sta bene",
+        "nl": "va = gaat; ça me va = het past me, ça vous va bien = het staat u goed"
+      }
+    },
+    "vas": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller: tu vas; comment vas-tu? = how are you?)",
+        "es-419": "vas (aller: tu vas; comment vas-tu? = ¿cómo estás?)",
+        "it": "vai (aller: tu vas; comment vas-tu? = come stai?)",
+        "nl": "ga (aller: tu vas; comment vas-tu? = hoe gaat het?)"
+      }
+    },
+    "vas-tu": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "vas-tu = vas + tu: are you (going); comment vas-tu? = how are you? (informal)",
+        "es-419": "vas-tu = vas + tu: ¿cómo estás? (informal; comment vas-tu?)",
+        "it": "vas-tu = vas + tu: come stai? (comment vas-tu?)",
+        "nl": "vas-tu = vas + tu: hoe gaat het met je? (comment vas-tu?)"
+      }
+    },
+    "venu": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come (venir; il est venu = he came)",
+        "es-419": "venido (venir; il est venu = ha venido)",
+        "it": "venuto (venir; il est venu = è venuto)",
+        "nl": "gekomen (venir; il est venu = hij is gekomen)"
+      }
+    },
+    "venus": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come (venir; ils sont venus = they came)",
+        "es-419": "venidos (venir; ils sont venus = han venido)",
+        "it": "venuti (venir; ils sont venus = sono venuti)",
+        "nl": "gekomen (venir; ils sont venus = ze zijn gekomen)"
+      }
+    },
+    "veulent": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "want (vouloir: ils/elles veulent)",
+        "es-419": "quieren (vouloir: ils/elles veulent)",
+        "it": "vogliono (vouloir: ils/elles veulent)",
+        "nl": "willen (vouloir: ils/elles veulent)"
+      }
+    },
+    "veux": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "veux = want (vouloir: veux, veux, veut, voulons, voulez, veulent); je ne veux pas = I don't want",
+        "es-419": "veux = quiero (vouloir: veux, veux, veut, voulons, voulez, veulent); je ne veux pas = no quiero",
+        "it": "veux = voglio (vouloir: veux, veux, veut, voulons, voulez, veulent); je ne veux pas = non voglio",
+        "nl": "veux = wil (vouloir: veux, veux, veut, voulons, voulez, veulent); je ne veux pas = ik wil niet"
+      }
+    },
+    "viendras": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "will come (venir, future: tu viendras)",
+        "es-419": "vendrás (venir, futuro: tu viendras)",
+        "it": "verrai (venir, futuro: tu viendras)",
+        "nl": "zult komen (venir, futur: tu viendras)"
+      }
+    },
+    "viennes": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come (venir, subjunctive: que tu viennes)",
+        "es-419": "vengas (venir, subjuntivo: que tu viennes)",
+        "it": "venga (venir, congiuntivo: que tu viennes)",
+        "nl": "komt (venir, subjonctif: que tu viennes)"
+      }
+    },
+    "voir": {
+      "lemma": "voir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to see",
+        "es-419": "ver",
+        "it": "vedere",
+        "nl": "zien"
+      }
+    },
+    "voudrais": {
+      "lemma": "vouloir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voudrais = would like (vouloir); je voudrais = I'd like, a polite way to order",
+        "es-419": "voudrais = quisiera (vouloir); je voudrais = quisiera, la forma cortés para pedir",
+        "it": "voudrais = vorrei (vouloir); je voudrais = vorrei, la forma cortese per ordinare",
+        "nl": "voudrais = zou willen (vouloir); je voudrais = ik wil graag, de beleefde manier om te bestellen"
+      }
+    },
+    "voyage": {
+      "lemma": "voyage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "trip, journey (m); watch out: voyage is any trip, not just a sea voyage",
+        "es-419": "viaje (m)",
+        "it": "viaggio (m)",
+        "nl": "reis (m)"
+      }
+    },
+    "vrais": {
+      "lemma": "vrai",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "true, real (pl. of vrai)",
+        "es-419": "verdaderos (pl. de vrai)",
+        "it": "veri (pl. di vrai)",
+        "nl": "echt (mv. van vrai)"
+      }
+    },
+    "week-end": {
+      "lemma": "week-end",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weekend (m); also written weekend",
+        "es-419": "fin de semana (m); también se escribe weekend",
+        "it": "fine settimana (m); si scrive anche weekend",
+        "nl": "weekend (m); ook geschreven weekend"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to; à emporter = to go, take-away",
+        "es-419": "à = a, en; à emporter = para llevar",
+        "it": "à = a, in; à emporter = da portare via",
+        "nl": "à = naar, te, om; à emporter = om mee te nemen"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ça = that, it (informal): combien ça coûte? = how much is it?",
+        "es-419": "ça = eso, esto: combien ça coûte? = ¿cuánto cuesta?",
+        "it": "ça = ciò, questo: combien ça coûte? = quanto costa?",
+        "nl": "ça = dat, het: combien ça coûte? = hoeveel kost het?"
+      }
+    },
+    "émotion": {
+      "lemma": "émotion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "emotion (f)",
+        "es-419": "emoción (f)",
+        "it": "emozione (f)",
+        "nl": "emotie (f)"
+      }
+    },
+    "émue": {
+      "lemma": "ému",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "moved, touched (f of ému)",
+        "es-419": "emocionada, conmovida (f de ému)",
+        "it": "commossa (f di ému)",
+        "nl": "ontroerd (f van ému)"
+      }
+    },
+    "énerver": {
+      "lemma": "énerver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to annoy, irritate; watch out: not \"to enervate\"",
+        "es-419": "fastidiar, molestar",
+        "it": "infastidire, irritare",
+        "nl": "irriteren, ergeren"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-b1-sentiments-1",
+      "title": "J'espère que tu vas bien",
+      "grammarFocus": {
+        "en": [
+          "espérer que + indicative: J'espère que tu viendras / J'espère te voir bientôt",
+          "vouloir que + subjunctive: Je veux que tu viennes; il faut que + subjunctive: Il faut que je parte",
+          "same subject, infinitive: Je veux partir / different subject, subjunctive: Je veux que tu partes"
+        ],
+        "es-419": [
+          "espérer que + indicativo: J'espère que tu viendras = espero que vengas",
+          "vouloir que + subjuntivo: Je veux que tu viennes = quiero que vengas; il faut que + subjuntivo: Il faut que je parte",
+          "mismo sujeto, infinitivo: Je veux partir / sujeto distinto, subjuntivo: Je veux que tu partes"
+        ],
+        "it": [
+          "espérer que + indicativo: J'espère que tu viendras = spero che tu venga (in italiano il congiuntivo)",
+          "vouloir que + congiuntivo: Je veux que tu viennes = voglio che tu venga; il faut que + congiuntivo: Il faut que je parte",
+          "stesso soggetto, infinito: Je veux partir / soggetto diverso, congiuntivo: Je veux que tu partes"
+        ],
+        "nl": [
+          "espérer que + indicatief: J'espère que tu viendras = ik hoop dat je komt",
+          "vouloir que + subjonctif: Je veux que tu viennes = ik wil dat je komt; il faut que + subjonctif: Il faut que je parte",
+          "zelfde onderwerp, infinitief: Je veux partir / ander onderwerp, subjonctif: Je veux que tu partes"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "espérer",
+          "translation": {
+            "en": "to hope",
+            "es-419": "esperar",
+            "it": "sperare",
+            "nl": "hopen"
+          },
+          "distractors": {
+            "en": [
+              "to fear",
+              "to doubt"
+            ],
+            "es-419": [
+              "temer",
+              "dudar"
+            ],
+            "it": [
+              "temere",
+              "dubitare"
+            ],
+            "nl": [
+              "vrezen",
+              "twijfelen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'espère que tu vas bien",
+          "translation": {
+            "en": "I hope you're doing well",
+            "es-419": "espero que estés bien",
+            "it": "spero che tu stia bene",
+            "nl": "ik hoop dat het goed met je gaat"
+          },
+          "distractors": {
+            "en": [
+              "I know you're doing well",
+              "I hope he's doing well"
+            ],
+            "es-419": [
+              "sé que estás bien",
+              "espero que él esté bien"
+            ],
+            "it": [
+              "so che stai bene",
+              "spero che lui stia bene"
+            ],
+            "nl": [
+              "ik weet dat het goed met je gaat",
+              "ik hoop dat het goed met hem gaat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Salut Julie, j'espère que tu vas bien et que ta famille va bien.",
+          "translation": {
+            "en": "Hi Julie, I hope you're well and your family is well.",
+            "es-419": "Hola, Julie, espero que estés bien y que tu familia esté bien.",
+            "it": "Ciao Julie, spero che tu stia bene e che la tua famiglia stia bene.",
+            "nl": "Hoi Julie, ik hoop dat het goed met je gaat en met je familie."
+          },
+          "distractors": {
+            "en": [
+              "Hi Julie, I know you're well and your family is well.",
+              "Hi Julie, I hope you're well and your parents are well."
+            ],
+            "es-419": [
+              "Hola, Julie, sé que estás bien y que tu familia está bien.",
+              "Hola, Julie, espero que estés bien y que tus papás estén bien."
+            ],
+            "it": [
+              "Ciao Julie, so che stai bene e che la tua famiglia sta bene.",
+              "Ciao Julie, spero che tu stia bene e che i tuoi genitori stiano bene."
+            ],
+            "nl": [
+              "Hoi Julie, ik weet dat het goed met je gaat en met je familie.",
+              "Hoi Julie, ik hoop dat het goed met je gaat en met je ouders."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'espère te voir bientôt",
+          "translation": {
+            "en": "I hope to see you soon",
+            "es-419": "espero verte pronto",
+            "it": "spero di vederti presto",
+            "nl": "ik hoop je snel te zien"
+          },
+          "distractors": {
+            "en": [
+              "I want to see you soon",
+              "I hope to call you soon"
+            ],
+            "es-419": [
+              "quiero verte pronto",
+              "espero llamarte pronto"
+            ],
+            "it": [
+              "voglio vederti presto",
+              "spero di chiamarti presto"
+            ],
+            "nl": [
+              "ik wil je snel zien",
+              "ik hoop je snel te bellen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'espère te voir bientôt, peut-être ce week-end.",
+          "translation": {
+            "en": "I hope to see you soon, maybe this weekend.",
+            "es-419": "Espero verte pronto, tal vez este fin de semana.",
+            "it": "Spero di vederti presto, magari questo fine settimana.",
+            "nl": "Ik hoop je snel te zien, misschien dit weekend."
+          },
+          "distractors": {
+            "en": [
+              "I hope to see you soon, maybe next weekend.",
+              "I hope to call you soon, maybe this weekend."
+            ],
+            "es-419": [
+              "Espero verte pronto, tal vez el próximo fin de semana.",
+              "Espero llamarte pronto, tal vez este fin de semana."
+            ],
+            "it": [
+              "Spero di vederti presto, magari il prossimo fine settimana.",
+              "Spero di chiamarti presto, magari questo fine settimana."
+            ],
+            "nl": [
+              "Ik hoop je snel te zien, misschien volgend weekend.",
+              "Ik hoop je snel te bellen, misschien dit weekend."
+            ]
+          },
+          "variants": [
+            "J'espère te voir bientôt, peut-être ce weekend."
+          ]
+        },
+        {
+          "id": "fr-b1-sentiments-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'espère que tu viendras",
+          "translation": {
+            "en": "I hope you'll come",
+            "es-419": "espero que vengas",
+            "it": "spero che tu venga",
+            "nl": "ik hoop dat je komt"
+          },
+          "distractors": {
+            "en": [
+              "I hope you came",
+              "I'm sure you'll come"
+            ],
+            "es-419": [
+              "espero que hayas venido",
+              "estoy seguro de que vendrás"
+            ],
+            "it": [
+              "spero che tu sia venuto",
+              "sono sicuro che verrai"
+            ],
+            "nl": [
+              "ik hoop dat je gekomen bent",
+              "ik weet zeker dat je komt"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'espère que tu viendras à ma fête samedi, ce sera génial.",
+          "translation": {
+            "en": "I hope you'll come to my party on Saturday, it'll be great.",
+            "es-419": "Espero que vengas a mi fiesta el sábado, va a ser genial.",
+            "it": "Spero che tu venga alla mia festa sabato, sarà fantastico.",
+            "nl": "Ik hoop dat je zaterdag naar mijn feest komt, het wordt geweldig."
+          },
+          "distractors": {
+            "en": [
+              "I hope you'll come to my party on Sunday, it'll be great.",
+              "I hope you'll come to my wedding on Saturday, it'll be great."
+            ],
+            "es-419": [
+              "Espero que vengas a mi fiesta el domingo, va a ser genial.",
+              "Espero que vengas a mi boda el sábado, va a ser genial."
+            ],
+            "it": [
+              "Spero che tu venga alla mia festa domenica, sarà fantastico.",
+              "Spero che tu venga al mio matrimonio sabato, sarà fantastico."
+            ],
+            "nl": [
+              "Ik hoop dat je zondag naar mijn feest komt, het wordt geweldig.",
+              "Ik hoop dat je zaterdag naar mijn bruiloft komt, het wordt geweldig."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je veux que tu viennes",
+          "translation": {
+            "en": "I want you to come",
+            "es-419": "quiero que vengas",
+            "it": "voglio che tu venga",
+            "nl": "ik wil dat je komt"
+          },
+          "distractors": {
+            "en": [
+              "I want to come",
+              "I know you're coming"
+            ],
+            "es-419": [
+              "quiero venir",
+              "sé que vienes"
+            ],
+            "it": [
+              "voglio venire",
+              "so che vieni"
+            ],
+            "nl": [
+              "ik wil komen",
+              "ik weet dat je komt"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne veux pas que tu partes, reste encore un peu.",
+          "translation": {
+            "en": "I don't want you to leave, stay a little longer.",
+            "es-419": "No quiero que te vayas, quédate un rato más.",
+            "it": "Non voglio che tu parta, resta ancora un po'.",
+            "nl": "Ik wil niet dat je weggaat, blijf nog even."
+          },
+          "distractors": {
+            "en": [
+              "I don't want you to work, stay a little longer.",
+              "I don't want to leave, stay a little longer."
+            ],
+            "es-419": [
+              "No quiero que trabajes, quédate un rato más.",
+              "No quiero irme, quédate un rato más."
+            ],
+            "it": [
+              "Non voglio che tu lavori, resta ancora un po'.",
+              "Non voglio partire, resta ancora un po'."
+            ],
+            "nl": [
+              "Ik wil niet dat je werkt, blijf nog even.",
+              "Ik wil niet weggaan, blijf nog even."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "amour",
+          "translation": {
+            "en": "love",
+            "es-419": "amor",
+            "it": "amore",
+            "nl": "liefde"
+          },
+          "distractors": {
+            "en": [
+              "friendship",
+              "pride"
+            ],
+            "es-419": [
+              "amistad",
+              "orgullo"
+            ],
+            "it": [
+              "amicizia",
+              "orgoglio"
+            ],
+            "nl": [
+              "vriendschap",
+              "trots"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mon amour",
+          "translation": {
+            "en": "my love",
+            "es-419": "mi amor",
+            "it": "amore mio",
+            "nl": "mijn lief"
+          },
+          "distractors": {
+            "en": [
+              "my friend",
+              "my son"
+            ],
+            "es-419": [
+              "mi amigo",
+              "mi hijo"
+            ],
+            "it": [
+              "amico mio",
+              "figlio mio"
+            ],
+            "nl": [
+              "mijn vriend",
+              "mijn zoon"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il faut que je parte",
+          "translation": {
+            "en": "I have to leave",
+            "es-419": "tengo que irme",
+            "it": "devo andare via",
+            "nl": "ik moet weg"
+          },
+          "distractors": {
+            "en": [
+              "I have to stay",
+              "I have to work"
+            ],
+            "es-419": [
+              "tengo que quedarme",
+              "tengo que trabajar"
+            ],
+            "it": [
+              "devo restare",
+              "devo lavorare"
+            ],
+            "nl": [
+              "ik moet blijven",
+              "ik moet werken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon amour, j'ai fait un gâteau pour toi et j'espère que tu aimeras ça.",
+          "translation": {
+            "en": "My love, I made a cake for you and I hope you'll like it.",
+            "es-419": "Mi amor, te hice un pastel y espero que te guste.",
+            "it": "Amore mio, ho fatto una torta per te e spero che ti piaccia.",
+            "nl": "Mijn lief, ik heb een taart voor je gemaakt en ik hoop dat je hem lekker vindt."
+          },
+          "distractors": {
+            "en": [
+              "My love, I made a cake for you and I know you'll like it.",
+              "My love, I bought a cake for you and I hope you'll like it."
+            ],
+            "es-419": [
+              "Mi amor, te hice un pastel y sé que te va a gustar.",
+              "Mi amor, te compré un pastel y espero que te guste."
+            ],
+            "it": [
+              "Amore mio, ho fatto una torta per te e so che ti piacerà.",
+              "Amore mio, ho comprato una torta per te e spero che ti piaccia."
+            ],
+            "nl": [
+              "Mijn lief, ik heb een taart voor je gemaakt en ik weet dat je hem lekker zult vinden.",
+              "Mijn lief, ik heb een taart voor je gekocht en ik hoop dat je hem lekker vindt."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes parents veulent que je sois médecin, mais moi, je veux faire de la musique.",
+          "translation": {
+            "en": "My parents want me to be a doctor, but I want to do music.",
+            "es-419": "Mis papás quieren que yo sea médico, pero yo quiero dedicarme a la música.",
+            "it": "I miei genitori vogliono che io faccia il medico, ma io voglio fare musica.",
+            "nl": "Mijn ouders willen dat ik dokter word, maar ik wil muziek maken."
+          },
+          "distractors": {
+            "en": [
+              "My parents want to be doctors, but I want to do music.",
+              "My parents want me to be a doctor, but I want to play sports."
+            ],
+            "es-419": [
+              "Mis papás quieren ser médicos, pero yo quiero dedicarme a la música.",
+              "Mis papás quieren que yo sea médico, pero yo quiero dedicarme al deporte."
+            ],
+            "it": [
+              "I miei genitori vogliono fare i medici, ma io voglio fare musica.",
+              "I miei genitori vogliono che io faccia il medico, ma io voglio fare sport."
+            ],
+            "nl": [
+              "Mijn ouders willen dokter worden, maar ik wil muziek maken.",
+              "Mijn ouders willen dat ik dokter word, maar ik wil sporten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il faut que je parte, mais je t'appelle ce soir.",
+          "translation": {
+            "en": "I have to go, but I'll call you tonight.",
+            "es-419": "Tengo que irme, pero te llamo esta noche.",
+            "it": "Devo andare, ma ti chiamo stasera.",
+            "nl": "Ik moet gaan, maar ik bel je vanavond."
+          },
+          "distractors": {
+            "en": [
+              "I have to go, but I'll call you tomorrow.",
+              "I have to go, but I'll write to you tonight."
+            ],
+            "es-419": [
+              "Tengo que irme, pero te llamo mañana.",
+              "Tengo que irme, pero te escribo esta noche."
+            ],
+            "it": [
+              "Devo andare, ma ti chiamo domani.",
+              "Devo andare, ma ti scrivo stasera."
+            ],
+            "nl": [
+              "Ik moet gaan, maar ik bel je morgen.",
+              "Ik moet gaan, maar ik schrijf je vanavond."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ton avion part demain, alors je te souhaite un bon voyage et j'espère que tu m'écriras.",
+          "translation": {
+            "en": "Your flight leaves tomorrow, so I wish you a good trip and I hope you'll write to me.",
+            "es-419": "Tu vuelo sale mañana, así que te deseo buen viaje y espero que me escribas.",
+            "it": "Il tuo volo parte domani, quindi ti auguro buon viaggio e spero che tu mi scriva.",
+            "nl": "Je vlucht vertrekt morgen, dus ik wens je een goede reis en ik hoop dat je me schrijft."
+          },
+          "distractors": {
+            "en": [
+              "Your flight leaves tomorrow, so I wish you a good trip and I hope you'll call me.",
+              "Your flight arrives tomorrow, so I wish you a good trip and I hope you'll write to me."
+            ],
+            "es-419": [
+              "Tu vuelo sale mañana, así que te deseo buen viaje y espero que me llames.",
+              "Tu vuelo llega mañana, así que te deseo buen viaje y espero que me escribas."
+            ],
+            "it": [
+              "Il tuo volo parte domani, quindi ti auguro buon viaggio e spero che tu mi chiami.",
+              "Il tuo volo arriva domani, quindi ti auguro buon viaggio e spero che tu mi scriva."
+            ],
+            "nl": [
+              "Je vlucht vertrekt morgen, dus ik wens je een goede reis en ik hoop dat je me belt.",
+              "Je vlucht komt morgen aan, dus ik wens je een goede reis en ik hoop dat je me schrijft."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-sentiments-2",
+      "title": "Je suis content que tu sois là",
+      "grammarFocus": {
+        "en": [
+          "subjunctive after emotions: Je suis content que tu sois là / Ça me surprend que tu ne saches pas",
+          "subjunctive perfect (être or avoir + participle): Je suis content que ton frère soit venu / que tu aies réussi",
+          "same subject, de + infinitive: Je suis content de te voir"
+        ],
+        "es-419": [
+          "subjuntivo después de emociones: Je suis content que tu sois là = me alegra que estés aquí",
+          "subjuntivo pasado (être o avoir + participio): Je suis content que ton frère soit venu = me alegra que tu hermano haya venido",
+          "mismo sujeto, de + infinitivo: Je suis content de te voir = me alegra verte"
+        ],
+        "it": [
+          "congiuntivo dopo le emozioni: Je suis content que tu sois là = sono contento che tu sia qui",
+          "congiuntivo passato (être o avoir + participio): Je suis content que ton frère soit venu = sono contento che tuo fratello sia venuto",
+          "stesso soggetto, de + infinito: Je suis content de te voir = sono contento di vederti"
+        ],
+        "nl": [
+          "subjonctif na gevoelens: Je suis content que tu sois là = ik ben blij dat je er bent",
+          "subjonctif passé (être of avoir + voltooid deelwoord): Je suis content que ton frère soit venu = ik ben blij dat je broer gekomen is",
+          "zelfde onderwerp, de + infinitief: Je suis content de te voir = ik ben blij je te zien"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "content",
+          "translation": {
+            "en": "glad, happy",
+            "es-419": "contento",
+            "it": "contento",
+            "nl": "blij"
+          },
+          "distractors": {
+            "en": [
+              "angry",
+              "tired"
+            ],
+            "es-419": [
+              "enojado",
+              "cansado"
+            ],
+            "it": [
+              "arrabbiato",
+              "stanco"
+            ],
+            "nl": [
+              "boos",
+              "moe"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis content que tu sois là",
+          "translation": {
+            "en": "I'm glad you're here",
+            "es-419": "me alegra que estés aquí",
+            "it": "sono contento che tu sia qui",
+            "nl": "ik ben blij dat je er bent"
+          },
+          "distractors": {
+            "en": [
+              "I'm sad you're here",
+              "I'm glad you're leaving"
+            ],
+            "es-419": [
+              "me entristece que estés aquí",
+              "me alegra que te vayas"
+            ],
+            "it": [
+              "mi dispiace che tu sia qui",
+              "sono contento che tu te ne vada"
+            ],
+            "nl": [
+              "ik ben verdrietig dat je er bent",
+              "ik ben blij dat je weggaat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis très content que tu sois là ce soir avec nous.",
+          "translation": {
+            "en": "I'm so glad you're here with us tonight.",
+            "es-419": "Me alegra mucho que estés aquí con nosotros esta noche.",
+            "it": "Sono molto contento che tu sia qui con noi stasera.",
+            "nl": "Ik ben erg blij dat je vanavond bij ons bent."
+          },
+          "distractors": {
+            "en": [
+              "I'm so glad you're here with us today.",
+              "I'm so glad you're here with them tonight."
+            ],
+            "es-419": [
+              "Me alegra mucho que estés aquí con nosotros hoy.",
+              "Me alegra mucho que estés aquí con ellos esta noche."
+            ],
+            "it": [
+              "Sono molto contento che tu sia qui con noi oggi.",
+              "Sono molto contento che tu sia qui con loro stasera."
+            ],
+            "nl": [
+              "Ik ben erg blij dat je vandaag bij ons bent.",
+              "Ik ben erg blij dat je vanavond bij hen bent."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis content de te voir",
+          "translation": {
+            "en": "I'm glad to see you",
+            "es-419": "me alegra verte",
+            "it": "sono contento di vederti",
+            "nl": "ik ben blij je te zien"
+          },
+          "distractors": {
+            "en": [
+              "I'm glad to meet you",
+              "I'm surprised to see you"
+            ],
+            "es-419": [
+              "me alegra conocerte",
+              "me sorprende verte"
+            ],
+            "it": [
+              "sono contento di conoscerti",
+              "mi sorprende vederti"
+            ],
+            "nl": [
+              "ik ben blij je te ontmoeten",
+              "het verbaast me je te zien"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Paul, je suis content de te voir, comment vas-tu?",
+          "translation": {
+            "en": "Paul, I'm glad to see you, how are you?",
+            "es-419": "Paul, me alegra verte, ¿cómo estás?",
+            "it": "Paul, sono contento di vederti, come stai?",
+            "nl": "Paul, ik ben blij je te zien, hoe gaat het met je?"
+          },
+          "distractors": {
+            "en": [
+              "Paul, I'm glad to meet you, how are you?",
+              "Paul, I'm surprised to see you, how are you?"
+            ],
+            "es-419": [
+              "Paul, me alegra conocerte, ¿cómo estás?",
+              "Paul, me sorprende verte, ¿cómo estás?"
+            ],
+            "it": [
+              "Paul, sono contento di conoscerti, come stai?",
+              "Paul, mi sorprende vederti, come stai?"
+            ],
+            "nl": [
+              "Paul, ik ben blij je te ontmoeten, hoe gaat het met je?",
+              "Paul, het verbaast me je te zien, hoe gaat het met je?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "surprendre",
+          "translation": {
+            "en": "to surprise",
+            "es-419": "sorprender",
+            "it": "sorprendere",
+            "nl": "verrassen"
+          },
+          "distractors": {
+            "en": [
+              "to scare",
+              "to bore"
+            ],
+            "es-419": [
+              "asustar",
+              "aburrir"
+            ],
+            "it": [
+              "spaventare",
+              "annoiare"
+            ],
+            "nl": [
+              "bang maken",
+              "vervelen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça me surprend que tu ne saches pas",
+          "translation": {
+            "en": "it surprises me that you don't know",
+            "es-419": "me sorprende que no lo sepas",
+            "it": "mi sorprende che tu non lo sappia",
+            "nl": "het verrast me dat je het niet weet"
+          },
+          "distractors": {
+            "en": [
+              "it surprises me that I don't know",
+              "I'm glad you don't know"
+            ],
+            "es-419": [
+              "me sorprende que yo no lo sepa",
+              "me alegra que no lo sepas"
+            ],
+            "it": [
+              "mi sorprende che io non lo sappia",
+              "mi fa piacere che tu non lo sappia"
+            ],
+            "nl": [
+              "het verrast me dat ik het niet weet",
+              "ik ben blij dat je het niet weet"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis surpris que tu ne saches pas, tout le monde en parle.",
+          "translation": {
+            "en": "I'm surprised you don't know, everybody's talking about it.",
+            "es-419": "Me sorprende que no lo sepas, todo el mundo habla de eso.",
+            "it": "Mi sorprende che tu non lo sappia, ne parlano tutti.",
+            "nl": "Het verbaast me dat je het niet weet, iedereen heeft het erover."
+          },
+          "distractors": {
+            "en": [
+              "I'm surprised you don't know, nobody's talking about it.",
+              "I'm glad you don't know, everybody's talking about it."
+            ],
+            "es-419": [
+              "Me sorprende que no lo sepas, nadie habla de eso.",
+              "Me alegra que no lo sepas, todo el mundo habla de eso."
+            ],
+            "it": [
+              "Mi sorprende che tu non lo sappia, non ne parla nessuno.",
+              "Mi fa piacere che tu non lo sappia, ne parlano tutti."
+            ],
+            "nl": [
+              "Het verbaast me dat je het niet weet, niemand heeft het erover.",
+              "Ik ben blij dat je het niet weet, iedereen heeft het erover."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis content que ton frère soit venu",
+          "translation": {
+            "en": "I'm glad your brother came",
+            "es-419": "me alegra que tu hermano haya venido",
+            "it": "sono contento che tuo fratello sia venuto",
+            "nl": "ik ben blij dat je broer gekomen is"
+          },
+          "distractors": {
+            "en": [
+              "I'm glad your brother is coming",
+              "I'm surprised your brother came"
+            ],
+            "es-419": [
+              "me alegra que tu hermano venga",
+              "me sorprende que tu hermano haya venido"
+            ],
+            "it": [
+              "sono contento che tuo fratello venga",
+              "mi sorprende che tuo fratello sia venuto"
+            ],
+            "nl": [
+              "ik ben blij dat je broer komt",
+              "het verbaast me dat je broer gekomen is"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci pour tout, je suis très content que mes parents soient venus à mon mariage.",
+          "translation": {
+            "en": "Thank you for everything, I'm so glad my parents came to my wedding.",
+            "es-419": "Gracias por todo, me alegra mucho que mis papás hayan venido a mi boda.",
+            "it": "Grazie di tutto, sono molto contento che i miei genitori siano venuti al mio matrimonio.",
+            "nl": "Bedankt voor alles, ik ben erg blij dat mijn ouders naar mijn bruiloft zijn gekomen."
+          },
+          "distractors": {
+            "en": [
+              "Thank you for everything, I'm so glad my parents came to my party.",
+              "Thank you for everything, I'm so glad my friends came to my wedding."
+            ],
+            "es-419": [
+              "Gracias por todo, me alegra mucho que mis papás hayan venido a mi fiesta.",
+              "Gracias por todo, me alegra mucho que mis amigos hayan venido a mi boda."
+            ],
+            "it": [
+              "Grazie di tutto, sono molto contento che i miei genitori siano venuti alla mia festa.",
+              "Grazie di tutto, sono molto contento che i miei amici siano venuti al mio matrimonio."
+            ],
+            "nl": [
+              "Bedankt voor alles, ik ben erg blij dat mijn ouders naar mijn feest zijn gekomen.",
+              "Bedankt voor alles, ik ben erg blij dat mijn vrienden naar mijn bruiloft zijn gekomen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis fier de toi",
+          "translation": {
+            "en": "I'm proud of you",
+            "es-419": "estoy orgulloso de ti",
+            "it": "sono fiero di te",
+            "nl": "ik ben trots op je"
+          },
+          "distractors": {
+            "en": [
+              "I'm proud of him",
+              "I'm angry with you"
+            ],
+            "es-419": [
+              "estoy orgulloso de él",
+              "estoy enojado contigo"
+            ],
+            "it": [
+              "sono fiero di lui",
+              "sono arrabbiato con te"
+            ],
+            "nl": [
+              "ik ben trots op hem",
+              "ik ben boos op je"
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma fille, je suis très fière de toi, tu as réussi ton examen!",
+          "translation": {
+            "en": "Sweetheart, I'm so proud of you, you passed your exam!",
+            "es-419": "Hija, estoy muy orgullosa de ti, ¡aprobaste el examen!",
+            "it": "Figlia mia, sono molto fiera di te, hai superato l'esame!",
+            "nl": "Meisje, ik ben zo trots op je, je bent geslaagd voor je examen!"
+          },
+          "distractors": {
+            "en": [
+              "Sweetheart, I'm so proud of you, you finished your studies!",
+              "Son, I'm so proud of you, you passed your exam!"
+            ],
+            "es-419": [
+              "Hija, estoy muy orgullosa de ti, ¡terminaste tus estudios!",
+              "Hijo, estoy muy orgullosa de ti, ¡aprobaste el examen!"
+            ],
+            "it": [
+              "Figlia mia, sono molto fiera di te, hai finito gli studi!",
+              "Figlio mio, sono molto fiera di te, hai superato l'esame!"
+            ],
+            "nl": [
+              "Meisje, ik ben zo trots op je, je bent klaar met je studie!",
+              "Jongen, ik ben zo trots op je, je bent geslaagd voor je examen!"
+            ]
+          },
+          "speaker": "F"
+        },
+        {
+          "id": "fr-b1-sentiments-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis content que tu aies réussi",
+          "translation": {
+            "en": "I'm glad you succeeded",
+            "es-419": "me alegra que lo hayas logrado",
+            "it": "sono contento che tu ce l'abbia fatta",
+            "nl": "ik ben blij dat je het gehaald hebt"
+          },
+          "distractors": {
+            "en": [
+              "I'm glad you failed",
+              "I'm surprised you succeeded"
+            ],
+            "es-419": [
+              "me alegra que no lo hayas logrado",
+              "me sorprende que lo hayas logrado"
+            ],
+            "it": [
+              "sono contento che tu non ce l'abbia fatta",
+              "mi sorprende che tu ce l'abbia fatta"
+            ],
+            "nl": [
+              "ik ben blij dat je het niet gehaald hebt",
+              "het verbaast me dat je het gehaald hebt"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-2-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis soulagé",
+          "translation": {
+            "en": "I'm relieved",
+            "es-419": "estoy aliviado",
+            "it": "sono sollevato",
+            "nl": "ik ben opgelucht"
+          },
+          "distractors": {
+            "en": [
+              "I'm worried",
+              "I'm proud"
+            ],
+            "es-419": [
+              "estoy preocupado",
+              "estoy orgulloso"
+            ],
+            "it": [
+              "sono preoccupato",
+              "sono fiero"
+            ],
+            "nl": [
+              "ik maak me zorgen",
+              "ik ben trots"
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis soulagé que l'examen soit fini, maintenant je peux dormir.",
+          "translation": {
+            "en": "I'm relieved the exam is over, now I can sleep.",
+            "es-419": "Me alivia que el examen haya terminado, ahora puedo dormir.",
+            "it": "Sono sollevato che l'esame sia finito, ora posso dormire.",
+            "nl": "Ik ben opgelucht dat het examen voorbij is, nu kan ik slapen."
+          },
+          "distractors": {
+            "en": [
+              "I'm relieved the exam is over, now I can eat.",
+              "I'm relieved the work is over, now I can sleep."
+            ],
+            "es-419": [
+              "Me alivia que el examen haya terminado, ahora puedo comer.",
+              "Me alivia que el trabajo haya terminado, ahora puedo dormir."
+            ],
+            "it": [
+              "Sono sollevato che l'esame sia finito, ora posso mangiare.",
+              "Sono sollevato che il lavoro sia finito, ora posso dormire."
+            ],
+            "nl": [
+              "Ik ben opgelucht dat het examen voorbij is, nu kan ik eten.",
+              "Ik ben opgelucht dat het werk voorbij is, nu kan ik slapen."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma mère est très émue, elle pleure un peu.",
+          "translation": {
+            "en": "My mother is very moved, she's crying a little.",
+            "es-419": "Mi mamá está muy emocionada, está llorando un poco.",
+            "it": "Mia madre è molto commossa, sta piangendo un po'.",
+            "nl": "Mijn moeder is erg ontroerd, ze huilt een beetje."
+          },
+          "distractors": {
+            "en": [
+              "My mother is very worried, she's crying a little.",
+              "My mother is very moved, she's laughing a little."
+            ],
+            "es-419": [
+              "Mi mamá está muy preocupada, está llorando un poco.",
+              "Mi mamá está muy emocionada, se está riendo un poco."
+            ],
+            "it": [
+              "Mia madre è molto preoccupata, sta piangendo un po'.",
+              "Mia madre è molto commossa, sta ridendo un po'."
+            ],
+            "nl": [
+              "Mijn moeder is erg ongerust, ze huilt een beetje.",
+              "Mijn moeder is erg ontroerd, ze lacht een beetje."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-sentiments-3",
+      "title": "Ça m'inquiète",
+      "grammarFocus": {
+        "en": [
+          "inquiet = worried: Je suis inquiet; Ça m'inquiète que + subjunctive",
+          "avoir peur que + subjunctive: J'ai peur qu'il soit malade",
+          "Ça m'énerve que..., Ça m'ennuie de...: the thing that annoys is the subject"
+        ],
+        "es-419": [
+          "inquiet = preocupado: Je suis inquiet; Ça m'inquiète que + subjuntivo = me preocupa que",
+          "avoir peur que + subjuntivo: J'ai peur qu'il soit malade = tengo miedo de que esté enfermo",
+          "Ça m'énerve que..., Ça m'ennuie de...: lo que molesta es el sujeto, como en me molesta que"
+        ],
+        "it": [
+          "inquiet = preoccupato: Je suis inquiet; Ça m'inquiète que + congiuntivo = mi preoccupa che",
+          "avoir peur que + congiuntivo: J'ai peur qu'il soit malade = ho paura che sia malato",
+          "Ça m'énerve que..., Ça m'ennuie de...: ciò che dà fastidio è il soggetto, come in mi dà fastidio che"
+        ],
+        "nl": [
+          "inquiet = ongerust: Je suis inquiet; Ça m'inquiète que + subjonctif = het maakt me ongerust dat",
+          "avoir peur que + subjonctif: J'ai peur qu'il soit malade = ik ben bang dat hij ziek is",
+          "Ça m'énerve que..., Ça m'ennuie de...: wat ergert is het onderwerp, net als in het ergert me dat"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "inquiet",
+          "translation": {
+            "en": "worried",
+            "es-419": "preocupado",
+            "it": "preoccupato",
+            "nl": "ongerust"
+          },
+          "distractors": {
+            "en": [
+              "angry",
+              "proud"
+            ],
+            "es-419": [
+              "enojado",
+              "orgulloso"
+            ],
+            "it": [
+              "arrabbiato",
+              "fiero"
+            ],
+            "nl": [
+              "boos",
+              "trots"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis inquiet",
+          "translation": {
+            "en": "I'm worried",
+            "es-419": "estoy preocupado",
+            "it": "sono preoccupato",
+            "nl": "ik ben ongerust"
+          },
+          "distractors": {
+            "en": [
+              "I'm angry",
+              "I'm tired"
+            ],
+            "es-419": [
+              "estoy enojado",
+              "estoy cansado"
+            ],
+            "it": [
+              "sono arrabbiato",
+              "sono stanco"
+            ],
+            "nl": [
+              "ik ben boos",
+              "ik ben moe"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça m'inquiète",
+          "translation": {
+            "en": "it worries me",
+            "es-419": "me preocupa",
+            "it": "mi preoccupa",
+            "nl": "het maakt me ongerust"
+          },
+          "distractors": {
+            "en": [
+              "it surprises me",
+              "it annoys me"
+            ],
+            "es-419": [
+              "me sorprende",
+              "me molesta"
+            ],
+            "it": [
+              "mi sorprende",
+              "mi dà fastidio"
+            ],
+            "nl": [
+              "het verrast me",
+              "het ergert me"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça m'inquiète que tu conduises la nuit, c'est dangereux.",
+          "translation": {
+            "en": "It worries me that you drive at night, it's dangerous.",
+            "es-419": "Me preocupa que manejes de noche, es peligroso.",
+            "it": "Mi preoccupa che tu guidi di notte, è pericoloso.",
+            "nl": "Het maakt me ongerust dat je 's nachts rijdt, het is gevaarlijk."
+          },
+          "distractors": {
+            "en": [
+              "It doesn't worry me that you drive at night, it isn't dangerous.",
+              "It worries me that you drive in the rain, it's dangerous."
+            ],
+            "es-419": [
+              "No me preocupa que manejes de noche, no es peligroso.",
+              "Me preocupa que manejes bajo la lluvia, es peligroso."
+            ],
+            "it": [
+              "Non mi preoccupa che tu guidi di notte, non è pericoloso.",
+              "Mi preoccupa che tu guidi sotto la pioggia, è pericoloso."
+            ],
+            "nl": [
+              "Het maakt me niet ongerust dat je 's nachts rijdt, het is niet gevaarlijk.",
+              "Het maakt me ongerust dat je in de regen rijdt, het is gevaarlijk."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai peur qu'il soit malade",
+          "translation": {
+            "en": "I'm afraid he's sick",
+            "es-419": "tengo miedo de que esté enfermo",
+            "it": "ho paura che sia malato",
+            "nl": "ik ben bang dat hij ziek is"
+          },
+          "distractors": {
+            "en": [
+              "I'm afraid she's sick",
+              "I know he's sick"
+            ],
+            "es-419": [
+              "tengo miedo de que ella esté enferma",
+              "sé que está enfermo"
+            ],
+            "it": [
+              "ho paura che sia malata",
+              "so che è malato"
+            ],
+            "nl": [
+              "ik ben bang dat zij ziek is",
+              "ik weet dat hij ziek is"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai peur que ma mère soit malade, elle ne répond pas au téléphone.",
+          "translation": {
+            "en": "I'm afraid my mother is sick, she isn't answering the phone.",
+            "es-419": "Tengo miedo de que mi mamá esté enferma, no contesta el teléfono.",
+            "it": "Ho paura che mia madre sia malata, non risponde al telefono.",
+            "nl": "Ik ben bang dat mijn moeder ziek is, ze neemt de telefoon niet op."
+          },
+          "distractors": {
+            "en": [
+              "I'm afraid my father is sick, he isn't answering the phone.",
+              "I'm afraid my mother is sick, she isn't answering my messages."
+            ],
+            "es-419": [
+              "Tengo miedo de que mi papá esté enfermo, no contesta el teléfono.",
+              "Tengo miedo de que mi mamá esté enferma, no contesta mis mensajes."
+            ],
+            "it": [
+              "Ho paura che mio padre sia malato, non risponde al telefono.",
+              "Ho paura che mia madre sia malata, non risponde ai miei messaggi."
+            ],
+            "nl": [
+              "Ik ben bang dat mijn vader ziek is, hij neemt de telefoon niet op.",
+              "Ik ben bang dat mijn moeder ziek is, ze antwoordt niet op mijn berichten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "nerveux",
+          "translation": {
+            "en": "nervous",
+            "es-419": "nervioso",
+            "it": "nervoso",
+            "nl": "nerveus"
+          },
+          "distractors": {
+            "en": [
+              "proud",
+              "calm"
+            ],
+            "es-419": [
+              "orgulloso",
+              "tranquilo"
+            ],
+            "it": [
+              "fiero",
+              "calmo"
+            ],
+            "nl": [
+              "trots",
+              "kalm"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un peu nerveux",
+          "translation": {
+            "en": "a little nervous",
+            "es-419": "un poco nervioso",
+            "it": "un po' nervoso",
+            "nl": "een beetje nerveus"
+          },
+          "distractors": {
+            "en": [
+              "very nervous",
+              "a little tired"
+            ],
+            "es-419": [
+              "muy nervioso",
+              "un poco cansado"
+            ],
+            "it": [
+              "molto nervoso",
+              "un po' stanco"
+            ],
+            "nl": [
+              "erg nerveus",
+              "een beetje moe"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Demain, j'ai un entretien et je suis très nerveux.",
+          "translation": {
+            "en": "Tomorrow I have an interview and I'm very nervous.",
+            "es-419": "Mañana tengo una entrevista y estoy muy nervioso.",
+            "it": "Domani ho un colloquio e sono molto nervoso.",
+            "nl": "Morgen heb ik een sollicitatiegesprek en ik ben erg nerveus."
+          },
+          "distractors": {
+            "en": [
+              "Tomorrow I have an exam and I'm very nervous.",
+              "Tomorrow I have an interview and I'm very tired."
+            ],
+            "es-419": [
+              "Mañana tengo un examen y estoy muy nervioso.",
+              "Mañana tengo una entrevista y estoy muy cansado."
+            ],
+            "it": [
+              "Domani ho un esame e sono molto nervoso.",
+              "Domani ho un colloquio e sono molto stanco."
+            ],
+            "nl": [
+              "Morgen heb ik een examen en ik ben erg nerveus.",
+              "Morgen heb ik een sollicitatiegesprek en ik ben erg moe."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis stressé",
+          "translation": {
+            "en": "I'm stressed",
+            "es-419": "estoy estresado",
+            "it": "sono stressato",
+            "nl": "ik ben gestrest"
+          },
+          "distractors": {
+            "en": [
+              "I'm worried",
+              "I'm tired"
+            ],
+            "es-419": [
+              "estoy preocupado",
+              "estoy cansado"
+            ],
+            "it": [
+              "sono preoccupato",
+              "sono stanco"
+            ],
+            "nl": [
+              "ik ben ongerust",
+              "ik ben moe"
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis stressé parce que j'ai trop de travail cette semaine.",
+          "translation": {
+            "en": "I'm stressed because I have too much work this week.",
+            "es-419": "Estoy estresado porque tengo demasiado trabajo esta semana.",
+            "it": "Sono stressato perché ho troppo lavoro questa settimana.",
+            "nl": "Ik ben gestrest omdat ik deze week te veel werk heb."
+          },
+          "distractors": {
+            "en": [
+              "I'm stressed because I have too many exams this week.",
+              "I'm stressed because I have too much work this month."
+            ],
+            "es-419": [
+              "Estoy estresado porque tengo demasiados exámenes esta semana.",
+              "Estoy estresado porque tengo demasiado trabajo este mes."
+            ],
+            "it": [
+              "Sono stressato perché ho troppi esami questa settimana.",
+              "Sono stressato perché ho troppo lavoro questo mese."
+            ],
+            "nl": [
+              "Ik ben gestrest omdat ik deze week te veel examens heb.",
+              "Ik ben gestrest omdat ik deze maand te veel werk heb."
+            ]
+          },
+          "commas": [
+            2
+          ],
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-3-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "énerver",
+          "translation": {
+            "en": "to annoy",
+            "es-419": "fastidiar",
+            "it": "infastidire",
+            "nl": "irriteren"
+          },
+          "distractors": {
+            "en": [
+              "to worry",
+              "to surprise"
+            ],
+            "es-419": [
+              "preocupar",
+              "sorprender"
+            ],
+            "it": [
+              "preoccupare",
+              "sorprendere"
+            ],
+            "nl": [
+              "ongerust maken",
+              "verrassen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça m'énerve",
+          "translation": {
+            "en": "it annoys me",
+            "es-419": "me molesta",
+            "it": "mi dà fastidio",
+            "nl": "het ergert me"
+          },
+          "distractors": {
+            "en": [
+              "it worries me",
+              "it bores me"
+            ],
+            "es-419": [
+              "me preocupa",
+              "me aburre"
+            ],
+            "it": [
+              "mi preoccupa",
+              "mi annoia"
+            ],
+            "nl": [
+              "het maakt me ongerust",
+              "het verveelt me"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça m'énerve que tu arrives toujours en retard.",
+          "translation": {
+            "en": "It annoys me that you're always late.",
+            "es-419": "Me molesta que siempre llegues tarde.",
+            "it": "Mi dà fastidio che tu arrivi sempre in ritardo.",
+            "nl": "Het ergert me dat je altijd te laat komt."
+          },
+          "distractors": {
+            "en": [
+              "It annoys me that you're never late.",
+              "It worries me that you're always late."
+            ],
+            "es-419": [
+              "Me molesta que nunca llegues tarde.",
+              "Me preocupa que siempre llegues tarde."
+            ],
+            "it": [
+              "Mi dà fastidio che tu non arrivi mai in ritardo.",
+              "Mi preoccupa che tu arrivi sempre in ritardo."
+            ],
+            "nl": [
+              "Het ergert me dat je nooit te laat komt.",
+              "Het maakt me ongerust dat je altijd te laat komt."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça m'ennuie de te déranger",
+          "translation": {
+            "en": "I'm sorry to bother you",
+            "es-419": "me da pena molestarte",
+            "it": "mi dispiace disturbarti",
+            "nl": "het spijt me je te storen"
+          },
+          "distractors": {
+            "en": [
+              "I'm sorry to wake you",
+              "I'm sorry to call you"
+            ],
+            "es-419": [
+              "me da pena despertarte",
+              "me da pena llamarte"
+            ],
+            "it": [
+              "mi dispiace svegliarti",
+              "mi dispiace chiamarti"
+            ],
+            "nl": [
+              "het spijt me je wakker te maken",
+              "het spijt me je te bellen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce film m'ennuie, on peut partir?",
+          "translation": {
+            "en": "This movie bores me, can we leave?",
+            "es-419": "Esta película me aburre, ¿podemos irnos?",
+            "it": "Questo film mi annoia, possiamo andare via?",
+            "nl": "Deze film verveelt me, kunnen we weggaan?"
+          },
+          "distractors": {
+            "en": [
+              "This movie bores me, can we stay?",
+              "This movie bores me, can I leave?"
+            ],
+            "es-419": [
+              "Esta película me aburre, ¿podemos quedarnos?",
+              "Esta película me aburre, ¿puedo irme?"
+            ],
+            "it": [
+              "Questo film mi annoia, possiamo restare?",
+              "Questo film mi annoia, posso andare via?"
+            ],
+            "nl": [
+              "Deze film verveelt me, kunnen we blijven?",
+              "Deze film verveelt me, kan ik weggaan?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-sentiments-4",
+      "title": "Disputes et réconciliations",
+      "grammarFocus": {
+        "en": [
+          "se disputer, se mettre en colère, se réconcilier: the reflexive pronoun is always there (Ne te mets pas en colère)",
+          "pardonner, mentir + plus: Je te pardonne, mais ne me mens plus (ne ... plus = not anymore)",
+          "il/elle est fâché(e) contre moi: the adjective agrees, but the ending is silent, so listen to il or elle"
+        ],
+        "es-419": [
+          "se disputer, se mettre en colère, se réconcilier: el pronombre reflexivo siempre va (Ne te mets pas en colère = no te enojes)",
+          "pardonner, mentir + plus: Je te pardonne, mais ne me mens plus (ne ... plus = ya no)",
+          "il/elle est fâché(e) contre moi: el adjetivo concuerda, pero la terminación no se oye; fíjate en il o elle"
+        ],
+        "it": [
+          "se disputer, se mettre en colère, se réconcilier: il pronome riflessivo c'è sempre (Ne te mets pas en colère = non ti arrabbiare)",
+          "pardonner, mentir + plus: Je te pardonne, mais ne me mens plus (ne ... plus = non più)",
+          "il/elle est fâché(e) contre moi: l'aggettivo concorda, ma la desinenza non si sente; conta il o elle"
+        ],
+        "nl": [
+          "se disputer, se mettre en colère, se réconcilier: het wederkerend voornaamwoord staat er altijd (Ne te mets pas en colère = word niet boos)",
+          "pardonner, mentir + plus: Je te pardonne, mais ne me mens plus (ne ... plus = niet meer)",
+          "il/elle est fâché(e) contre moi: het bijvoeglijk naamwoord congrueert, maar de uitgang is niet te horen; let op il of elle"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "dispute",
+          "translation": {
+            "en": "fight, argument",
+            "es-419": "pelea, discusión",
+            "it": "lite, litigio",
+            "nl": "ruzie"
+          },
+          "distractors": {
+            "en": [
+              "party",
+              "secret"
+            ],
+            "es-419": [
+              "fiesta",
+              "secreto"
+            ],
+            "it": [
+              "festa",
+              "segreto"
+            ],
+            "nl": [
+              "feest",
+              "geheim"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se disputer avec quelqu'un",
+          "translation": {
+            "en": "to argue with someone",
+            "es-419": "pelearse con alguien",
+            "it": "litigare con qualcuno",
+            "nl": "ruzie maken met iemand"
+          },
+          "distractors": {
+            "en": [
+              "to make up with someone",
+              "to talk to someone"
+            ],
+            "es-419": [
+              "reconciliarse con alguien",
+              "hablar con alguien"
+            ],
+            "it": [
+              "fare pace con qualcuno",
+              "parlare con qualcuno"
+            ],
+            "nl": [
+              "het goedmaken met iemand",
+              "met iemand praten"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hier soir, je me suis disputée avec ma sœur, et elle est encore fâchée.",
+          "translation": {
+            "en": "Last night I had a fight with my sister, and she's still angry.",
+            "es-419": "Anoche me peleé con mi hermana y todavía está enojada.",
+            "it": "Ieri sera ho litigato con mia sorella e lei è ancora arrabbiata.",
+            "nl": "Gisteravond heb ik ruzie gehad met mijn zus en ze is nog steeds boos."
+          },
+          "distractors": {
+            "en": [
+              "Last night I had a fight with my brother, and he's still angry.",
+              "Last night I had a fight with my sister, and she's still tired."
+            ],
+            "es-419": [
+              "Anoche me peleé con mi hermano y todavía está enojado.",
+              "Anoche me peleé con mi hermana y todavía está cansada."
+            ],
+            "it": [
+              "Ieri sera ho litigato con mio fratello e lui è ancora arrabbiato.",
+              "Ieri sera ho litigato con mia sorella e lei è ancora stanca."
+            ],
+            "nl": [
+              "Gisteravond heb ik ruzie gehad met mijn broer en hij is nog steeds boos.",
+              "Gisteravond heb ik ruzie gehad met mijn zus en ze is nog steeds moe."
+            ]
+          },
+          "variants": [
+            "Hier soir, je me suis disputée avec ma soeur, et elle est encore fâchée."
+          ],
+          "speaker": "F"
+        },
+        {
+          "id": "fr-b1-sentiments-4-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se mettre en colère",
+          "translation": {
+            "en": "to get angry",
+            "es-419": "enojarse",
+            "it": "arrabbiarsi",
+            "nl": "boos worden"
+          },
+          "distractors": {
+            "en": [
+              "to calm down",
+              "to get worried"
+            ],
+            "es-419": [
+              "calmarse",
+              "preocuparse"
+            ],
+            "it": [
+              "calmarsi",
+              "preoccuparsi"
+            ],
+            "nl": [
+              "kalmeren",
+              "zich zorgen maken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ne te mets pas en colère, pardon, je ne savais pas.",
+          "translation": {
+            "en": "Don't get angry, sorry, I didn't know.",
+            "es-419": "No te enojes, perdón, no sabía.",
+            "it": "Non ti arrabbiare, scusa, non lo sapevo.",
+            "nl": "Word niet boos, sorry, ik wist het niet."
+          },
+          "distractors": {
+            "en": [
+              "Don't worry, sorry, I didn't know.",
+              "Don't get angry, sorry, I don't know."
+            ],
+            "es-419": [
+              "No te preocupes, perdón, no sabía.",
+              "No te enojes, perdón, no sé."
+            ],
+            "it": [
+              "Non ti preoccupare, scusa, non lo sapevo.",
+              "Non ti arrabbiare, scusa, non lo so."
+            ],
+            "nl": [
+              "Maak je geen zorgen, sorry, ik wist het niet.",
+              "Word niet boos, sorry, ik weet het niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elle est fâchée contre moi",
+          "translation": {
+            "en": "she's angry with me",
+            "es-419": "ella está enojada conmigo",
+            "it": "lei è arrabbiata con me",
+            "nl": "ze is boos op mij"
+          },
+          "distractors": {
+            "en": [
+              "he's angry with me",
+              "she's angry with him"
+            ],
+            "es-419": [
+              "él está enojado conmigo",
+              "ella está enojada con él"
+            ],
+            "it": [
+              "lui è arrabbiato con me",
+              "lei è arrabbiata con lui"
+            ],
+            "nl": [
+              "hij is boos op mij",
+              "ze is boos op hem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il est fâché contre moi, mais je n'ai rien fait.",
+          "translation": {
+            "en": "He's angry with me, but I didn't do anything.",
+            "es-419": "Está enojado conmigo, pero yo no hice nada.",
+            "it": "È arrabbiato con me, ma io non ho fatto niente.",
+            "nl": "Hij is boos op mij, maar ik heb niets gedaan."
+          },
+          "distractors": {
+            "en": [
+              "He's angry with me, but I didn't say anything.",
+              "He's angry with her, but I didn't do anything."
+            ],
+            "es-419": [
+              "Está enojado conmigo, pero yo no dije nada.",
+              "Está enojado con ella, pero yo no hice nada."
+            ],
+            "it": [
+              "È arrabbiato con me, ma io non ho detto niente.",
+              "È arrabbiato con lei, ma io non ho fatto niente."
+            ],
+            "nl": [
+              "Hij is boos op mij, maar ik heb niets gezegd.",
+              "Hij is boos op haar, maar ik heb niets gedaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "mentir",
+          "translation": {
+            "en": "to lie",
+            "es-419": "mentir",
+            "it": "mentire",
+            "nl": "liegen"
+          },
+          "distractors": {
+            "en": [
+              "to forget",
+              "to help"
+            ],
+            "es-419": [
+              "olvidar",
+              "ayudar"
+            ],
+            "it": [
+              "dimenticare",
+              "aiutare"
+            ],
+            "nl": [
+              "vergeten",
+              "helpen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un mensonge",
+          "translation": {
+            "en": "a lie",
+            "es-419": "una mentira",
+            "it": "una bugia",
+            "nl": "een leugen"
+          },
+          "distractors": {
+            "en": [
+              "a secret",
+              "a mistake"
+            ],
+            "es-419": [
+              "un secreto",
+              "un error"
+            ],
+            "it": [
+              "un segreto",
+              "un errore"
+            ],
+            "nl": [
+              "een geheim",
+              "een fout"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu m'as menti, et je n'aime pas les mensonges.",
+          "translation": {
+            "en": "You lied to me, and I don't like lies.",
+            "es-419": "Me mentiste y no me gustan las mentiras.",
+            "it": "Mi hai mentito e non mi piacciono le bugie.",
+            "nl": "Je hebt tegen me gelogen en ik hou niet van leugens."
+          },
+          "distractors": {
+            "en": [
+              "You lied to me, and I don't like mistakes.",
+              "I lied to you, and I don't like lies."
+            ],
+            "es-419": [
+              "Me mentiste y no me gustan los errores.",
+              "Te mentí y no me gustan las mentiras."
+            ],
+            "it": [
+              "Mi hai mentito e non mi piacciono gli errori.",
+              "Ti ho mentito e non mi piacciono le bugie."
+            ],
+            "nl": [
+              "Je hebt tegen me gelogen en ik hou niet van fouten.",
+              "Ik heb tegen je gelogen en ik hou niet van leugens."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pardonne-moi",
+          "translation": {
+            "en": "forgive me",
+            "es-419": "perdóname",
+            "it": "perdonami",
+            "nl": "vergeef me"
+          },
+          "distractors": {
+            "en": [
+              "thank me",
+              "call me"
+            ],
+            "es-419": [
+              "agradéceme",
+              "llámame"
+            ],
+            "it": [
+              "ringraziami",
+              "chiamami"
+            ],
+            "nl": [
+              "bedank me",
+              "bel me"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je te pardonne, mais ne me mens plus.",
+          "translation": {
+            "en": "I forgive you, but don't lie to me anymore.",
+            "es-419": "Te perdono, pero no me mientas más.",
+            "it": "Ti perdono, ma non mentirmi più.",
+            "nl": "Ik vergeef het je, maar lieg niet meer tegen me."
+          },
+          "distractors": {
+            "en": [
+              "I forgive you, but don't lie to her anymore.",
+              "I don't forgive you, but don't lie to me anymore."
+            ],
+            "es-419": [
+              "Te perdono, pero no le mientas más.",
+              "No te perdono, pero no me mientas más."
+            ],
+            "it": [
+              "Ti perdono, ma non mentirle più.",
+              "Non ti perdono, ma non mentirmi più."
+            ],
+            "nl": [
+              "Ik vergeef het je, maar lieg niet meer tegen haar.",
+              "Ik vergeef het je niet, maar lieg niet meer tegen me."
+            ]
+          },
+          "senses": {
+            "7": "neg"
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se réconcilier avec lui",
+          "translation": {
+            "en": "to make up with him",
+            "es-419": "reconciliarse con él",
+            "it": "fare pace con lui",
+            "nl": "het goedmaken met hem"
+          },
+          "distractors": {
+            "en": [
+              "to argue with him",
+              "to talk to him"
+            ],
+            "es-419": [
+              "pelearse con él",
+              "hablar con él"
+            ],
+            "it": [
+              "litigare con lui",
+              "parlare con lui"
+            ],
+            "nl": [
+              "ruzie maken met hem",
+              "met hem praten"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "jaloux",
+          "translation": {
+            "en": "jealous",
+            "es-419": "celoso",
+            "it": "geloso",
+            "nl": "jaloers"
+          },
+          "distractors": {
+            "en": [
+              "proud",
+              "shy"
+            ],
+            "es-419": [
+              "orgulloso",
+              "tímido"
+            ],
+            "it": [
+              "fiero",
+              "timido"
+            ],
+            "nl": [
+              "trots",
+              "verlegen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sa petite amie parle avec un autre garçon et il est jaloux.",
+          "translation": {
+            "en": "His girlfriend is talking to another boy and he's jealous.",
+            "es-419": "Su novia habla con otro chico y él está celoso.",
+            "it": "La sua ragazza parla con un altro ragazzo e lui è geloso.",
+            "nl": "Zijn vriendin praat met een andere jongen en hij is jaloers."
+          },
+          "distractors": {
+            "en": [
+              "His girlfriend is talking to another boy and he's proud.",
+              "His girlfriend is talking to another boy and she's jealous."
+            ],
+            "es-419": [
+              "Su novia habla con otro chico y él está orgulloso.",
+              "Su novia habla con otro chico y ella está celosa."
+            ],
+            "it": [
+              "La sua ragazza parla con un altro ragazzo e lui è fiero.",
+              "La sua ragazza parla con un altro ragazzo e lei è gelosa."
+            ],
+            "nl": [
+              "Zijn vriendin praat met een andere jongen en hij is trots.",
+              "Zijn vriendin praat met een andere jongen en zij is jaloers."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon frère et moi, nous nous sommes réconciliés hier soir, et maintenant tout va bien.",
+          "translation": {
+            "en": "My brother and I made up last night, and now everything is fine.",
+            "es-419": "Mi hermano y yo nos reconciliamos anoche y ahora todo está bien.",
+            "it": "Io e mio fratello abbiamo fatto pace ieri sera e ora va tutto bene.",
+            "nl": "Mijn broer en ik hebben het gisteravond goedgemaakt en nu is alles goed."
+          },
+          "distractors": {
+            "en": [
+              "My brother and I had a fight last night, and now everything is fine.",
+              "My brother and I made up last week, and now everything is fine."
+            ],
+            "es-419": [
+              "Mi hermano y yo nos peleamos anoche y ahora todo está bien.",
+              "Mi hermano y yo nos reconciliamos la semana pasada y ahora todo está bien."
+            ],
+            "it": [
+              "Io e mio fratello abbiamo litigato ieri sera e ora va tutto bene.",
+              "Io e mio fratello abbiamo fatto pace la settimana scorsa e ora va tutto bene."
+            ],
+            "nl": [
+              "Mijn broer en ik hebben gisteravond ruzie gehad en nu is alles goed.",
+              "Mijn broer en ik hebben het vorige week goedgemaakt en nu is alles goed."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-sentiments-5",
+      "title": "J'ai confiance en toi",
+      "grammarFocus": {
+        "en": [
+          "avoir confiance en, faire confiance à: J'ai confiance en toi / Je te fais confiance = I trust you",
+          "manquer: Tu me manques = I miss you (the person missed is the subject)",
+          "avoir honte, s'entendre bien avec: J'ai honte = I'm ashamed; Nous nous entendons bien = we get along"
+        ],
+        "es-419": [
+          "avoir confiance en, faire confiance à: J'ai confiance en toi = confío en ti",
+          "manquer: Tu me manques = te extraño (quien falta es el sujeto)",
+          "avoir honte, s'entendre bien avec: J'ai honte = me da vergüenza; Nous nous entendons bien = nos llevamos bien"
+        ],
+        "it": [
+          "avoir confiance en, faire confiance à: J'ai confiance en toi = mi fido di te",
+          "manquer: Tu me manques = mi manchi (come in italiano, chi manca è il soggetto)",
+          "avoir honte, s'entendre bien avec: J'ai honte = mi vergogno; Nous nous entendons bien = andiamo d'accordo"
+        ],
+        "nl": [
+          "avoir confiance en, faire confiance à: J'ai confiance en toi = ik vertrouw je",
+          "manquer: Tu me manques = ik mis je (degene die je mist is het onderwerp)",
+          "avoir honte, s'entendre bien avec: J'ai honte = ik schaam me; Nous nous entendons bien = we kunnen goed met elkaar overweg"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-5-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "confiance",
+          "translation": {
+            "en": "trust, confidence",
+            "es-419": "confianza",
+            "it": "fiducia",
+            "nl": "vertrouwen"
+          },
+          "distractors": {
+            "en": [
+              "patience",
+              "fear"
+            ],
+            "es-419": [
+              "paciencia",
+              "miedo"
+            ],
+            "it": [
+              "pazienza",
+              "paura"
+            ],
+            "nl": [
+              "geduld",
+              "angst"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai confiance en toi",
+          "translation": {
+            "en": "I trust you",
+            "es-419": "confío en ti",
+            "it": "mi fido di te",
+            "nl": "ik vertrouw je"
+          },
+          "distractors": {
+            "en": [
+              "I trust him",
+              "I miss you"
+            ],
+            "es-419": [
+              "confío en él",
+              "te extraño"
+            ],
+            "it": [
+              "mi fido di lui",
+              "mi manchi"
+            ],
+            "nl": [
+              "ik vertrouw hem",
+              "ik mis je"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je n'ai pas confiance en lui, il m'a déjà menti deux fois.",
+          "translation": {
+            "en": "I don't trust him, he's already lied to me twice.",
+            "es-419": "No confío en él, ya me mintió dos veces.",
+            "it": "Non mi fido di lui, mi ha già mentito due volte.",
+            "nl": "Ik vertrouw hem niet, hij heeft al twee keer tegen me gelogen."
+          },
+          "distractors": {
+            "en": [
+              "I don't trust her, she's already lied to me twice.",
+              "I don't trust him, he's already lied to me three times."
+            ],
+            "es-419": [
+              "No confío en ella, ya me mintió dos veces.",
+              "No confío en él, ya me mintió tres veces."
+            ],
+            "it": [
+              "Non mi fido di lei, mi ha già mentito due volte.",
+              "Non mi fido di lui, mi ha già mentito tre volte."
+            ],
+            "nl": [
+              "Ik vertrouw haar niet, ze heeft al twee keer tegen me gelogen.",
+              "Ik vertrouw hem niet, hij heeft al drie keer tegen me gelogen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "honte",
+          "translation": {
+            "en": "shame",
+            "es-419": "vergüenza",
+            "it": "vergogna",
+            "nl": "schaamte"
+          },
+          "distractors": {
+            "en": [
+              "fear",
+              "anger"
+            ],
+            "es-419": [
+              "miedo",
+              "enojo"
+            ],
+            "it": [
+              "paura",
+              "rabbia"
+            ],
+            "nl": [
+              "angst",
+              "woede"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai honte de moi",
+          "translation": {
+            "en": "I'm ashamed of myself",
+            "es-419": "me avergüenzo de mí mismo",
+            "it": "mi vergogno di me stesso",
+            "nl": "ik schaam me voor mezelf"
+          },
+          "distractors": {
+            "en": [
+              "I'm proud of myself",
+              "I'm ashamed of you"
+            ],
+            "es-419": [
+              "estoy orgulloso de mí mismo",
+              "me avergüenzo de ti"
+            ],
+            "it": [
+              "sono fiero di me stesso",
+              "mi vergogno di te"
+            ],
+            "nl": [
+              "ik ben trots op mezelf",
+              "ik schaam me voor jou"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai honte parce que j'ai menti à ma mère.",
+          "translation": {
+            "en": "I'm ashamed because I lied to my mother.",
+            "es-419": "Me da vergüenza porque le mentí a mi mamá.",
+            "it": "Mi vergogno perché ho mentito a mia madre.",
+            "nl": "Ik schaam me omdat ik tegen mijn moeder heb gelogen."
+          },
+          "distractors": {
+            "en": [
+              "I'm ashamed because I lied to my father.",
+              "I'm ashamed because I didn't call my mother."
+            ],
+            "es-419": [
+              "Me da vergüenza porque le mentí a mi papá.",
+              "Me da vergüenza porque no llamé a mi mamá."
+            ],
+            "it": [
+              "Mi vergogno perché ho mentito a mio padre.",
+              "Mi vergogno perché non ho chiamato mia madre."
+            ],
+            "nl": [
+              "Ik schaam me omdat ik tegen mijn vader heb gelogen.",
+              "Ik schaam me omdat ik mijn moeder niet heb gebeld."
+            ]
+          },
+          "commas": [
+            1
+          ]
+        },
+        {
+          "id": "fr-b1-sentiments-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "relation",
+          "translation": {
+            "en": "relationship",
+            "es-419": "relación",
+            "it": "relazione",
+            "nl": "relatie"
+          },
+          "distractors": {
+            "en": [
+              "reason",
+              "situation"
+            ],
+            "es-419": [
+              "razón",
+              "situación"
+            ],
+            "it": [
+              "ragione",
+              "situazione"
+            ],
+            "nl": [
+              "reden",
+              "situatie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur et moi, nous nous entendons très bien.",
+          "translation": {
+            "en": "My sister and I get along very well.",
+            "es-419": "Mi hermana y yo nos llevamos muy bien.",
+            "it": "Io e mia sorella andiamo molto d'accordo.",
+            "nl": "Mijn zus en ik kunnen het heel goed met elkaar vinden."
+          },
+          "distractors": {
+            "en": [
+              "My brother and I get along very well.",
+              "My sister and I don't get along very well."
+            ],
+            "es-419": [
+              "Mi hermano y yo nos llevamos muy bien.",
+              "Mi hermana y yo no nos llevamos muy bien."
+            ],
+            "it": [
+              "Io e mio fratello andiamo molto d'accordo.",
+              "Io e mia sorella non andiamo molto d'accordo."
+            ],
+            "nl": [
+              "Mijn broer en ik kunnen het heel goed met elkaar vinden.",
+              "Mijn zus en ik kunnen het niet zo goed met elkaar vinden."
+            ]
+          },
+          "variants": [
+            "Ma soeur et moi, nous nous entendons très bien."
+          ]
+        },
+        {
+          "id": "fr-b1-sentiments-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle a une mauvaise relation avec son père, elle ne l'appelle presque jamais.",
+          "translation": {
+            "en": "She has a bad relationship with her father, she almost never calls him.",
+            "es-419": "Tiene una mala relación con su papá, casi nunca lo llama.",
+            "it": "Ha un cattivo rapporto con suo padre, non lo chiama quasi mai.",
+            "nl": "Ze heeft een slechte relatie met haar vader, ze belt hem bijna nooit."
+          },
+          "distractors": {
+            "en": [
+              "She has a bad relationship with her mother, she almost never calls her.",
+              "She has a bad relationship with her father, she almost always calls him."
+            ],
+            "es-419": [
+              "Tiene una mala relación con su mamá, casi nunca la llama.",
+              "Tiene una mala relación con su papá, casi siempre lo llama."
+            ],
+            "it": [
+              "Ha un cattivo rapporto con sua madre, non la chiama quasi mai.",
+              "Ha un cattivo rapporto con suo padre, lo chiama quasi sempre."
+            ],
+            "nl": [
+              "Ze heeft een slechte relatie met haar moeder, ze belt haar bijna nooit.",
+              "Ze heeft een slechte relatie met haar vader, ze belt hem bijna altijd."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "manquer",
+          "translation": {
+            "en": "to miss",
+            "es-419": "extrañar",
+            "it": "mancare",
+            "nl": "missen"
+          },
+          "distractors": {
+            "en": [
+              "to forget",
+              "to call"
+            ],
+            "es-419": [
+              "olvidar",
+              "llamar"
+            ],
+            "it": [
+              "dimenticare",
+              "chiamare"
+            ],
+            "nl": [
+              "vergeten",
+              "bellen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tu me manques",
+          "translation": {
+            "en": "I miss you",
+            "es-419": "te extraño",
+            "it": "mi manchi",
+            "nl": "ik mis je"
+          },
+          "distractors": {
+            "en": [
+              "you miss me",
+              "I love you"
+            ],
+            "es-419": [
+              "me extrañas",
+              "te quiero"
+            ],
+            "it": [
+              "ti manco",
+              "ti voglio bene"
+            ],
+            "nl": [
+              "jij mist mij",
+              "ik hou van je"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu me manques beaucoup, je voudrais te voir ce week-end.",
+          "translation": {
+            "en": "I miss you a lot, I'd like to see you this weekend.",
+            "es-419": "Te extraño mucho, quisiera verte este fin de semana.",
+            "it": "Mi manchi molto, vorrei vederti questo fine settimana.",
+            "nl": "Ik mis je erg, ik zou je dit weekend graag zien."
+          },
+          "distractors": {
+            "en": [
+              "I miss you a lot, I'd like to call you this weekend.",
+              "I miss you a lot, I'd like to see you next weekend."
+            ],
+            "es-419": [
+              "Te extraño mucho, quisiera llamarte este fin de semana.",
+              "Te extraño mucho, quisiera verte el próximo fin de semana."
+            ],
+            "it": [
+              "Mi manchi molto, vorrei chiamarti questo fine settimana.",
+              "Mi manchi molto, vorrei vederti il prossimo fine settimana."
+            ],
+            "nl": [
+              "Ik mis je erg, ik zou je dit weekend graag bellen.",
+              "Ik mis je erg, ik zou je volgend weekend graag zien."
+            ]
+          },
+          "variants": [
+            "Tu me manques beaucoup, je voudrais te voir ce weekend."
+          ]
+        },
+        {
+          "id": "fr-b1-sentiments-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis déçu",
+          "translation": {
+            "en": "I'm disappointed",
+            "es-419": "estoy decepcionado",
+            "it": "sono deluso",
+            "nl": "ik ben teleurgesteld"
+          },
+          "distractors": {
+            "en": [
+              "I'm surprised",
+              "I'm relieved"
+            ],
+            "es-419": [
+              "estoy sorprendido",
+              "estoy aliviado"
+            ],
+            "it": [
+              "sono sorpreso",
+              "sono sollevato"
+            ],
+            "nl": [
+              "ik ben verrast",
+              "ik ben opgelucht"
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis très déçu, je pensais que tu me faisais confiance.",
+          "translation": {
+            "en": "I'm very disappointed, I thought you trusted me.",
+            "es-419": "Estoy muy decepcionado, pensé que confiabas en mí.",
+            "it": "Sono molto deluso, pensavo che ti fidassi di me.",
+            "nl": "Ik ben erg teleurgesteld, ik dacht dat je me vertrouwde."
+          },
+          "distractors": {
+            "en": [
+              "I'm very disappointed, I thought you loved me.",
+              "I'm very surprised, I thought you trusted me."
+            ],
+            "es-419": [
+              "Estoy muy decepcionado, pensé que me querías.",
+              "Estoy muy sorprendido, pensé que confiabas en mí."
+            ],
+            "it": [
+              "Sono molto deluso, pensavo che mi volessi bene.",
+              "Sono molto sorpreso, pensavo che ti fidassi di me."
+            ],
+            "nl": [
+              "Ik ben erg teleurgesteld, ik dacht dat je van me hield.",
+              "Ik ben erg verrast, ik dacht dat je me vertrouwde."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-sentiments-5-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je déteste attendre",
+          "translation": {
+            "en": "I hate waiting",
+            "es-419": "odio esperar",
+            "it": "detesto aspettare",
+            "nl": "ik haat wachten"
+          },
+          "distractors": {
+            "en": [
+              "I love waiting",
+              "I hate working"
+            ],
+            "es-419": [
+              "me encanta esperar",
+              "odio trabajar"
+            ],
+            "it": [
+              "adoro aspettare",
+              "detesto lavorare"
+            ],
+            "nl": [
+              "ik hou van wachten",
+              "ik haat werken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sans confiance, il n'y a pas d'amour.",
+          "translation": {
+            "en": "Without trust, there is no love.",
+            "es-419": "Sin confianza no hay amor.",
+            "it": "Senza fiducia non c'è amore.",
+            "nl": "Zonder vertrouwen is er geen liefde."
+          },
+          "distractors": {
+            "en": [
+              "Without trust, there is no friendship.",
+              "Without love, there is no trust."
+            ],
+            "es-419": [
+              "Sin confianza no hay amistad.",
+              "Sin amor no hay confianza."
+            ],
+            "it": [
+              "Senza fiducia non c'è amicizia.",
+              "Senza amore non c'è fiducia."
+            ],
+            "nl": [
+              "Zonder vertrouwen is er geen vriendschap.",
+              "Zonder liefde is er geen vertrouwen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-sentiments-6",
+      "title": "Je veux que tu le saches",
+      "grammarFocus": {
+        "en": [
+          "vouloir/souhaiter que + subjunctive: Je veux que tu le saches, Je souhaite que tu sois heureux",
+          "irregular subjunctives: sois, saches; regular: nous parlions",
+          "feelings words: Tes sentiments sont importants pour moi; de bonne/mauvaise humeur = in a good/bad mood"
+        ],
+        "es-419": [
+          "vouloir/souhaiter que + subjuntivo: Je veux que tu le saches = quiero que lo sepas",
+          "subjuntivos irregulares: sois, saches; regular: nous parlions = hablemos",
+          "palabras de sentimientos: Tes sentiments sont importants pour moi; de bonne/mauvaise humeur = de buen/mal humor"
+        ],
+        "it": [
+          "vouloir/souhaiter que + congiuntivo: Je veux que tu le saches = voglio che tu lo sappia",
+          "congiuntivi irregolari: sois, saches; regolare: nous parlions = parliamo",
+          "parole dei sentimenti: Tes sentiments sont importants pour moi; de bonne/mauvaise humeur = di buon/cattivo umore"
+        ],
+        "nl": [
+          "vouloir/souhaiter que + subjonctif: Je veux que tu le saches = ik wil dat je het weet",
+          "onregelmatige subjonctifs: sois, saches; regelmatig: nous parlions = we praten",
+          "gevoelswoorden: Tes sentiments sont importants pour moi; de bonne/mauvaise humeur = in een goed/slecht humeur"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-sentiments-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "sentiment",
+          "translation": {
+            "en": "feeling",
+            "es-419": "sentimiento",
+            "it": "sentimento",
+            "nl": "gevoel"
+          },
+          "distractors": {
+            "en": [
+              "thought",
+              "opinion"
+            ],
+            "es-419": [
+              "pensamiento",
+              "opinión"
+            ],
+            "it": [
+              "pensiero",
+              "opinione"
+            ],
+            "nl": [
+              "gedachte",
+              "mening"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tes sentiments sont importants pour moi, et je veux que nous parlions.",
+          "translation": {
+            "en": "Your feelings matter to me and I want us to talk.",
+            "es-419": "Tus sentimientos me importan y quiero que hablemos.",
+            "it": "I tuoi sentimenti sono importanti per me e voglio che parliamo.",
+            "nl": "Jouw gevoelens zijn belangrijk voor me en ik wil dat we praten."
+          },
+          "distractors": {
+            "en": [
+              "Your opinions matter to me and I want us to talk.",
+              "Your feelings matter to me and I don't want us to talk."
+            ],
+            "es-419": [
+              "Tus opiniones me importan y quiero que hablemos.",
+              "Tus sentimientos me importan y no quiero que hablemos."
+            ],
+            "it": [
+              "Le tue opinioni sono importanti per me e voglio che parliamo.",
+              "I tuoi sentimenti sono importanti per me e non voglio che parliamo."
+            ],
+            "nl": [
+              "Jouw meningen zijn belangrijk voor me en ik wil dat we praten.",
+              "Jouw gevoelens zijn belangrijk voor me en ik wil niet dat we praten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "émotion",
+          "translation": {
+            "en": "emotion",
+            "es-419": "emoción",
+            "it": "emozione",
+            "nl": "emotie"
+          },
+          "distractors": {
+            "en": [
+              "reason",
+              "silence"
+            ],
+            "es-419": [
+              "razón",
+              "silencio"
+            ],
+            "it": [
+              "ragione",
+              "silenzio"
+            ],
+            "nl": [
+              "reden",
+              "stilte"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Quand ma fille est née, j'ai pleuré d'émotion.",
+          "translation": {
+            "en": "When my daughter was born, I was so moved I cried.",
+            "es-419": "Cuando nació mi hija, lloré de emoción.",
+            "it": "Quando è nata mia figlia, ho pianto di emozione.",
+            "nl": "Toen mijn dochter werd geboren, huilde ik van ontroering."
+          },
+          "distractors": {
+            "en": [
+              "When my son was born, I was so moved I cried.",
+              "When my daughter got married, I was so moved I cried."
+            ],
+            "es-419": [
+              "Cuando nació mi hijo, lloré de emoción.",
+              "Cuando se casó mi hija, lloré de emoción."
+            ],
+            "it": [
+              "Quando è nato mio figlio, ho pianto di emozione.",
+              "Quando si è sposata mia figlia, ho pianto di emozione."
+            ],
+            "nl": [
+              "Toen mijn zoon werd geboren, huilde ik van ontroering.",
+              "Toen mijn dochter trouwde, huilde ik van ontroering."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "calme",
+          "translation": {
+            "en": "calm",
+            "es-419": "calmado",
+            "it": "calmo",
+            "nl": "kalm"
+          },
+          "distractors": {
+            "en": [
+              "nervous",
+              "tired"
+            ],
+            "es-419": [
+              "nervioso",
+              "cansado"
+            ],
+            "it": [
+              "nervoso",
+              "stanco"
+            ],
+            "nl": [
+              "nerveus",
+              "moe"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "reste calme",
+          "translation": {
+            "en": "stay calm",
+            "es-419": "mantén la calma",
+            "it": "mantieni la calma",
+            "nl": "blijf kalm"
+          },
+          "distractors": {
+            "en": [
+              "get nervous",
+              "stay serious"
+            ],
+            "es-419": [
+              "ponte nervioso",
+              "mantente serio"
+            ],
+            "it": [
+              "innervosisciti",
+              "resta serio"
+            ],
+            "nl": [
+              "word nerveus",
+              "blijf serieus"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Reste calme, tout va bien se passer.",
+          "translation": {
+            "en": "Stay calm, everything's going to be fine.",
+            "es-419": "Mantén la calma, todo va a salir bien.",
+            "it": "Mantieni la calma, andrà tutto bene.",
+            "nl": "Blijf kalm, alles komt goed."
+          },
+          "distractors": {
+            "en": [
+              "Stay calm, nothing is going to happen.",
+              "Stay here, everything's going to be fine."
+            ],
+            "es-419": [
+              "Mantén la calma, no va a pasar nada.",
+              "Quédate aquí, todo va a salir bien."
+            ],
+            "it": [
+              "Mantieni la calma, non succederà niente.",
+              "Resta qui, andrà tutto bene."
+            ],
+            "nl": [
+              "Blijf kalm, er gebeurt niets.",
+              "Blijf hier, alles komt goed."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "humeur",
+          "translation": {
+            "en": "mood",
+            "es-419": "humor",
+            "it": "umore",
+            "nl": "humeur"
+          },
+          "distractors": {
+            "en": [
+              "patience",
+              "luck"
+            ],
+            "es-419": [
+              "paciencia",
+              "suerte"
+            ],
+            "it": [
+              "pazienza",
+              "fortuna"
+            ],
+            "nl": [
+              "geduld",
+              "geluk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "de bonne humeur",
+          "translation": {
+            "en": "in a good mood",
+            "es-419": "de buen humor",
+            "it": "di buon umore",
+            "nl": "in een goed humeur"
+          },
+          "distractors": {
+            "en": [
+              "in a bad mood",
+              "in a hurry"
+            ],
+            "es-419": [
+              "de mal humor",
+              "de prisa"
+            ],
+            "it": [
+              "di cattivo umore",
+              "di fretta"
+            ],
+            "nl": [
+              "in een slecht humeur",
+              "in haast"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, mon chef est de mauvaise humeur, alors je ne lui parle pas.",
+          "translation": {
+            "en": "My boss is in a bad mood today, so I'm not talking to him.",
+            "es-419": "Hoy mi jefe está de mal humor, así que no le hablo.",
+            "it": "Oggi il mio capo è di cattivo umore, quindi non gli parlo.",
+            "nl": "Mijn baas heeft vandaag een slecht humeur, dus ik praat niet met hem."
+          },
+          "distractors": {
+            "en": [
+              "My boss is in a good mood today, so I'm talking to him.",
+              "My boss is in a bad mood today, so I'm not working with him."
+            ],
+            "es-419": [
+              "Hoy mi jefe está de buen humor, así que le hablo.",
+              "Hoy mi jefe está de mal humor, así que no trabajo con él."
+            ],
+            "it": [
+              "Oggi il mio capo è di buon umore, quindi gli parlo.",
+              "Oggi il mio capo è di cattivo umore, quindi non lavoro con lui."
+            ],
+            "nl": [
+              "Mijn baas heeft vandaag een goed humeur, dus ik praat met hem.",
+              "Mijn baas heeft vandaag een slecht humeur, dus ik werk niet met hem."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je veux que tu le saches",
+          "translation": {
+            "en": "I want you to know it",
+            "es-419": "quiero que lo sepas",
+            "it": "voglio che tu lo sappia",
+            "nl": "ik wil dat je het weet"
+          },
+          "distractors": {
+            "en": [
+              "I want to know it",
+              "I don't want you to know it"
+            ],
+            "es-419": [
+              "quiero saberlo",
+              "no quiero que lo sepas"
+            ],
+            "it": [
+              "voglio saperlo",
+              "non voglio che tu lo sappia"
+            ],
+            "nl": [
+              "ik wil het weten",
+              "ik wil niet dat je het weet"
+            ]
+          },
+          "senses": {
+            "4": "pron"
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce n'est pas facile, mais je veux que tu le saches par moi.",
+          "translation": {
+            "en": "It isn't easy, but I want you to hear it from me.",
+            "es-419": "No es fácil, pero quiero que lo sepas por mí.",
+            "it": "Non è facile, ma voglio che tu lo sappia da me.",
+            "nl": "Het is niet makkelijk, maar ik wil dat je het van mij hoort."
+          },
+          "distractors": {
+            "en": [
+              "It isn't easy, but I want to hear it from you.",
+              "It isn't easy, but I want you to hear it from him."
+            ],
+            "es-419": [
+              "No es fácil, pero quiero saberlo por ti.",
+              "No es fácil, pero quiero que lo sepas por él."
+            ],
+            "it": [
+              "Non è facile, ma voglio saperlo da te.",
+              "Non è facile, ma voglio che tu lo sappia da lui."
+            ],
+            "nl": [
+              "Het is niet makkelijk, maar ik wil het van jou horen.",
+              "Het is niet makkelijk, maar ik wil dat je het van hem hoort."
+            ]
+          },
+          "senses": {
+            "9": "pron"
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je souhaite que tu sois heureux",
+          "translation": {
+            "en": "I wish you to be happy",
+            "es-419": "deseo que seas feliz",
+            "it": "desidero che tu sia felice",
+            "nl": "ik wens dat je gelukkig bent"
+          },
+          "distractors": {
+            "en": [
+              "I want to be happy",
+              "I know you're happy"
+            ],
+            "es-419": [
+              "deseo ser feliz",
+              "sé que eres feliz"
+            ],
+            "it": [
+              "desidero essere felice",
+              "so che sei felice"
+            ],
+            "nl": [
+              "ik wil gelukkig zijn",
+              "ik weet dat je gelukkig bent"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mes sentiments pour toi sont vrais et je t'aime.",
+          "translation": {
+            "en": "My feelings for you are real and I love you.",
+            "es-419": "Mis sentimientos por ti son verdaderos y te quiero.",
+            "it": "I miei sentimenti per te sono veri e ti amo.",
+            "nl": "Mijn gevoelens voor jou zijn echt en ik hou van je."
+          },
+          "distractors": {
+            "en": [
+              "My feelings for you are real and I miss you.",
+              "My feelings for him are real and I love him."
+            ],
+            "es-419": [
+              "Mis sentimientos por ti son verdaderos y te extraño.",
+              "Mis sentimientos por él son verdaderos y lo quiero."
+            ],
+            "it": [
+              "I miei sentimenti per te sono veri e mi manchi.",
+              "I miei sentimenti per lui sono veri e lo amo."
+            ],
+            "nl": [
+              "Mijn gevoelens voor jou zijn echt en ik mis je.",
+              "Mijn gevoelens voor hem zijn echt en ik hou van hem."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je déteste me disputer avec toi, tu comptes trop pour moi.",
+          "translation": {
+            "en": "I hate arguing with you, you mean too much to me.",
+            "es-419": "Odio pelearme contigo, significas demasiado para mí.",
+            "it": "Detesto litigare con te, per me conti troppo.",
+            "nl": "Ik haat het om ruzie met je te maken, je betekent te veel voor me."
+          },
+          "distractors": {
+            "en": [
+              "I love arguing with you, you mean too much to me.",
+              "I hate arguing with you, you mean nothing to me."
+            ],
+            "es-419": [
+              "Me encanta pelearme contigo, significas demasiado para mí.",
+              "Odio pelearme contigo, no significas nada para mí."
+            ],
+            "it": [
+              "Adoro litigare con te, per me conti troppo.",
+              "Detesto litigare con te, per me non conti niente."
+            ],
+            "nl": [
+              "Ik hou ervan om ruzie met je te maken, je betekent te veel voor me.",
+              "Ik haat het om ruzie met je te maken, je betekent niets voor me."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-sentiments-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je t'écris cette lettre parce que je veux que tu saches que tu me manques.",
+          "translation": {
+            "en": "I'm writing you this letter because I want you to know that I miss you.",
+            "es-419": "Te escribo esta carta porque quiero que sepas que te extraño.",
+            "it": "Ti scrivo questa lettera perché voglio che tu sappia che mi manchi.",
+            "nl": "Ik schrijf je deze brief omdat ik wil dat je weet dat ik je mis."
+          },
+          "distractors": {
+            "en": [
+              "I'm writing you this letter because I want to tell you that I miss you.",
+              "I'm writing you this letter because I want you to know that I love you."
+            ],
+            "es-419": [
+              "Te escribo esta carta porque quiero decirte que te extraño.",
+              "Te escribo esta carta porque quiero que sepas que te quiero."
+            ],
+            "it": [
+              "Ti scrivo questa lettera perché voglio dirti che mi manchi.",
+              "Ti scrivo questa lettera perché voglio che tu sappia che ti voglio bene."
+            ],
+            "nl": [
+              "Ik schrijf je deze brief omdat ik je wil vertellen dat ik je mis.",
+              "Ik schrijf je deze brief omdat ik wil dat je weet dat ik van je hou."
+            ]
+          },
+          "commas": [
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}

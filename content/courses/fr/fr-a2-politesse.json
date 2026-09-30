@@ -1,0 +1,3976 @@
+{
+  "id": "fr-a2-politesse",
+  "language": "fr",
+  "level": "A2",
+  "order": 21,
+  "title": "Pourriez-vous m'aider?",
+  "description": {
+    "en": "Make polite requests, give advice and handle a phone call, using the conditional and the imperative.",
+    "es-419": "Haz peticiones corteses, da consejos y maneja una llamada telefónica con el condicional y el imperativo.",
+    "it": "Fai richieste cortesi, dai consigli e gestisci una telefonata con il condizionale e l'imperativo.",
+    "nl": "Doe beleefde verzoeken, geef advies en voer een telefoongesprek met de voorwaardelijke wijs en de gebiedende wijs."
+  },
+  "track": "main",
+  "requires": [
+    "fr-a2-comparer"
+  ],
+  "introduces": [
+    "conseil",
+    "suggérer",
+    "problème",
+    "information",
+    "expliquer",
+    "déranger",
+    "inquiéter",
+    "attention",
+    "plainte",
+    "rembourser",
+    "réparer",
+    "permission",
+    "allô",
+    "instant",
+    "laisser",
+    "composer",
+    "tromper",
+    "éteindre",
+    "allumer",
+    "prier",
+    "appel",
+    "sonner",
+    "patienter",
+    "part"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "has (avoir); il y a = there is, there are",
+        "es-419": "tiene (avoir); il y a = hay",
+        "it": "ha (avoir); il y a = c'è, ci sono",
+        "nl": "heeft (avoir); il y a = er is, er zijn"
+      }
+    },
+    "aide": {
+      "lemma": "aide",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "help (f)",
+        "es-419": "ayuda (f)",
+        "it": "aiuto (f)",
+        "nl": "hulp (f)"
+      }
+    },
+    "aimerions": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would like (aimer: nous aimerions)",
+        "es-419": "nos gustaría (aimer: nous aimerions)",
+        "it": "ci piacerebbe (aimer: nous aimerions)",
+        "nl": "zouden graag willen (aimer: nous aimerions)"
+      }
+    },
+    "allume": {
+      "lemma": "allumer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "turn on (allumer: allume! tu, allumez! vous)",
+        "es-419": "enciende (allumer: allume! tú, allumez! usted)",
+        "it": "accendi (allumer: allume! tu, allumez! Lei)",
+        "nl": "zet aan (allumer: allume! je, allumez! u)"
+      }
+    },
+    "allumer": {
+      "lemma": "allumer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to turn on (lights, appliances)",
+        "es-419": "encender (luces, aparatos)",
+        "it": "accendere (luci, apparecchi)",
+        "nl": "aanzetten (licht, apparaten)"
+      }
+    },
+    "allô": {
+      "lemma": "allô",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "hello (on the phone)",
+        "es-419": "aló (al teléfono)",
+        "it": "pronto (al telefono)",
+        "nl": "hallo (aan de telefoon)"
+      }
+    },
+    "appel": {
+      "lemma": "appel",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "call (m); un appel = a call",
+        "es-419": "llamada (m); un appel = una llamada",
+        "it": "telefonata (m); un appel = una telefonata",
+        "nl": "telefoontje (m); un appel = een telefoontje"
+      }
+    },
+    "appeler": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to call (appeler: j'appelle, ils appellent)",
+        "es-419": "llamar (appeler: j'appelle, ils appellent)",
+        "it": "chiamare (appeler: j'appelle, ils appellent)",
+        "nl": "bellen, roepen (appeler: j'appelle, ils appellent)"
+      }
+    },
+    "assieds-toi": {
+      "lemma": "asseoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sit down (asseoir: assieds-toi! tu)",
+        "es-419": "siéntate (asseoir: assieds-toi! tú)",
+        "it": "siediti (asseoir: assieds-toi! tu)",
+        "nl": "ga zitten (asseoir: assieds-toi! je)"
+      }
+    },
+    "attention": {
+      "lemma": "attention",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "attention, care (f); faire attention = to be careful",
+        "es-419": "atención, cuidado (f); faire attention = tener cuidado",
+        "it": "attenzione (f); faire attention = fare attenzione",
+        "nl": "aandacht, voorzichtigheid (f); faire attention = opletten"
+      }
+    },
+    "balcon": {
+      "lemma": "balcon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "balcony (m)",
+        "es-419": "balcón (m)",
+        "it": "balcone (m)",
+        "nl": "balkon (m)"
+      }
+    },
+    "chauffage": {
+      "lemma": "chauffage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "heating (m)",
+        "es-419": "calefacción (m)",
+        "it": "riscaldamento (m)",
+        "nl": "verwarming (m)"
+      }
+    },
+    "circulation": {
+      "lemma": "circulation",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "traffic (f)",
+        "es-419": "tráfico (f)",
+        "it": "traffico (f)",
+        "nl": "verkeer (f)"
+      }
+    },
+    "composez": {
+      "lemma": "composer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dial (composer: composez! vous)",
+        "es-419": "marque (composer: composez! usted)",
+        "it": "componga (composer: composez! Lei)",
+        "nl": "kies (composer: composez! u)"
+      }
+    },
+    "conseil": {
+      "lemma": "conseil",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "advice, a piece of advice (m)",
+        "es-419": "consejo (m)",
+        "it": "consiglio (m)",
+        "nl": "advies (m)"
+      }
+    },
+    "d'éteindre": {
+      "lemma": "éteindre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "d'éteindre = de + éteindre: to turn off",
+        "es-419": "d'éteindre = de + éteindre: apagar",
+        "it": "d'éteindre = de + éteindre: spegnere",
+        "nl": "d'éteindre = de + éteindre: uitzetten"
+      }
+    },
+    "demander": {
+      "lemma": "demander",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask (for)",
+        "es-419": "preguntar, pedir",
+        "it": "chiedere",
+        "nl": "vragen"
+      }
+    },
+    "devoirs": {
+      "lemma": "devoirs",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "homework (m, plural: les devoirs)",
+        "es-419": "tarea (m, plural: les devoirs)",
+        "it": "compiti (m, plural: les devoirs)",
+        "nl": "huiswerk (m, plural: les devoirs)"
+      }
+    },
+    "devrais": {
+      "lemma": "devoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "should (devoir: tu devrais)",
+        "es-419": "deberías (devoir: tu devrais)",
+        "it": "dovresti (devoir: tu devrais)",
+        "nl": "zou moeten (devoir: tu devrais)"
+      }
+    },
+    "devriez": {
+      "lemma": "devoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "should (devoir: vous devriez)",
+        "es-419": "debería (devoir: vous devriez)",
+        "it": "dovrebbe (devoir: vous devriez)",
+        "nl": "zou moeten (devoir: vous devriez)"
+      }
+    },
+    "dis-moi": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tell me (dire: dis! tu)",
+        "es-419": "dime (dire: dis! tú)",
+        "it": "dimmi (dire: dis! tu)",
+        "nl": "zeg het me (dire: dis! je)"
+      }
+    },
+    "dormir": {
+      "lemma": "dormir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to sleep",
+        "es-419": "dormir",
+        "it": "dormire",
+        "nl": "slapen"
+      }
+    },
+    "déranger": {
+      "lemma": "déranger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to disturb, to bother",
+        "es-419": "molestar",
+        "it": "disturbare",
+        "nl": "storen"
+      }
+    },
+    "dérangerait": {
+      "lemma": "déranger",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would bother (déranger: ça dérangerait)",
+        "es-419": "molestaría (déranger: ça dérangerait)",
+        "it": "disturberebbe (déranger: ça dérangerait)",
+        "nl": "zou storen (déranger: ça dérangerait)"
+      }
+    },
+    "entre#entrer": {
+      "lemma": "entrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "come in (entrer: entre! tu, entrez! vous)",
+        "es-419": "pasa (entrer: entre! tú, entrez! usted)",
+        "it": "entra (entrer: entre! tu, entrez! Lei)",
+        "nl": "kom binnen (entrer: entre! je, entrez! u)"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "eu": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (avoir: participle eu; il y a eu = there was)",
+        "es-419": "hubo (avoir: participio eu; il y a eu = hubo)",
+        "it": "c'è stato (avoir: participio eu; il y a eu = c'è stato)",
+        "nl": "was (avoir: voltooid deelwoord eu; il y a eu = er was)"
+      }
+    },
+    "expliquer": {
+      "lemma": "expliquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to explain",
+        "es-419": "explicar",
+        "it": "spiegare",
+        "nl": "uitleggen"
+      }
+    },
+    "fenêtre": {
+      "lemma": "fenêtre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "window (f)",
+        "es-419": "ventana (f)",
+        "it": "finestra (f)",
+        "nl": "raam (f)"
+      }
+    },
+    "fermer": {
+      "lemma": "fermer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to close",
+        "es-419": "cerrar",
+        "it": "chiudere",
+        "nl": "sluiten, dichtdoen"
+      }
+    },
+    "hier": {
+      "lemma": "hier",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "es-419": "ayer",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "information": {
+      "lemma": "information",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "information (f)",
+        "es-419": "información (f)",
+        "it": "informazione (f)",
+        "nl": "informatie (f)"
+      }
+    },
+    "inquiéter": {
+      "lemma": "inquiéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to worry (s'inquiéter = to be worried)",
+        "es-419": "preocupar (s'inquiéter = preocuparse)",
+        "it": "preoccupare (s'inquiéter = preoccuparsi)",
+        "nl": "verontrusten (s'inquiéter = zich zorgen maken)"
+      }
+    },
+    "inquiétez": {
+      "lemma": "inquiéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "worry (s'inquiéter: ne vous inquiétez pas)",
+        "es-419": "preocupe (s'inquiéter: ne vous inquiétez pas)",
+        "it": "preoccupi (s'inquiéter: ne vous inquiétez pas)",
+        "nl": "maakt zich zorgen (s'inquiéter: ne vous inquiétez pas)"
+      }
+    },
+    "instant": {
+      "lemma": "instant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "moment (m)",
+        "es-419": "momento (m)",
+        "it": "attimo, momento (m)",
+        "nl": "ogenblik (m)"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'ai = je + ai: I have; j'ai faim = I'm hungry",
+        "es-419": "j'ai = je + ai: tengo; j'ai faim = tengo hambre",
+        "it": "j'ai = je + ai: ho; j'ai faim = ho fame",
+        "nl": "j'ai = je + ai: ik heb; j'ai faim = ik heb honger"
+      }
+    },
+    "j'aimerais": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'aimerais = je + aimerais: I would like",
+        "es-419": "j'aimerais = je + aimerais: me gustaría",
+        "it": "j'aimerais = je + aimerais: mi piacerebbe",
+        "nl": "j'aimerais = je + aimerais: ik zou graag willen"
+      }
+    },
+    "julie": {
+      "lemma": "Julie",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Julie (given name)",
+        "es-419": "Julie (nombre de pila)",
+        "it": "Julie (nome proprio)",
+        "nl": "Julie (voornaam)"
+      }
+    },
+    "laisser": {
+      "lemma": "laisser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave (behind), to let",
+        "es-419": "dejar",
+        "it": "lasciare",
+        "nl": "achterlaten, laten"
+      }
+    },
+    "lumière": {
+      "lemma": "lumière",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "light (f)",
+        "es-419": "luz (f)",
+        "it": "luce (f)",
+        "nl": "licht (f)"
+      }
+    },
+    "lyon": {
+      "lemma": "Lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon (a city in France)",
+        "es-419": "Lyon (una ciudad de Francia)",
+        "it": "Lione (una città della Francia)",
+        "nl": "Lyon (een stad in Frankrijk)"
+      }
+    },
+    "m'aider": {
+      "lemma": "aider",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'aider = me + aider: help me",
+        "es-419": "m'aider = me + aider: ayudarme",
+        "it": "m'aider = me + aider: aiutarmi",
+        "nl": "m'aider = me + aider: mij helpen"
+      }
+    },
+    "m'expliquer": {
+      "lemma": "expliquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'expliquer = me + expliquer: explain to me",
+        "es-419": "m'expliquer = me + expliquer: explicarme",
+        "it": "m'expliquer = me + expliquer: spiegarmi",
+        "nl": "m'expliquer = me + expliquer: aan mij uitleggen"
+      }
+    },
+    "martin": {
+      "lemma": "Martin",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Martin, a common French surname",
+        "es-419": "Martin, un apellido francés común",
+        "it": "Martin, un cognome francese comune",
+        "nl": "Martin, een veelvoorkomende Franse achternaam"
+      }
+    },
+    "message": {
+      "lemma": "message",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "message (m)",
+        "es-419": "mensaje (m)",
+        "it": "messaggio (m)",
+        "nl": "bericht (m)"
+      }
+    },
+    "mieux": {
+      "lemma": "mieux",
+      "pos": "ADV",
+      "gloss": {
+        "en": "better; il vaut mieux = it is better to",
+        "es-419": "mejor; il vaut mieux = es mejor",
+        "it": "meglio; il vaut mieux = è meglio",
+        "nl": "beter; il vaut mieux = het is beter om"
+      }
+    },
+    "n'oubliez": {
+      "lemma": "oublier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'oubliez = ne + oubliez: don't forget",
+        "es-419": "n'oubliez = ne + oubliez: no olvide",
+        "it": "n'oubliez = ne + oubliez: non dimentichi",
+        "nl": "n'oubliez = ne + oubliez: vergeet niet"
+      }
+    },
+    "n'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "n'y = ne + y: il n'y a plus = there is no more",
+        "es-419": "n'y = ne + y: il n'y a plus = ya no hay",
+        "it": "n'y = ne + y: il n'y a plus = non c'è più",
+        "nl": "n'y = ne + y: il n'y a plus = er is geen meer"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ne ... pas = not (ne goes before the verb)",
+        "es-419": "ne ... pas = no (ne va antes del verbo)",
+        "it": "ne ... pas = non (ne va prima del verbo)",
+        "nl": "ne ... pas = niet (ne staat voor het werkwoord)"
+      }
+    },
+    "ouvrir": {
+      "lemma": "ouvrir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to open",
+        "es-419": "abrir",
+        "it": "aprire",
+        "nl": "openen"
+      }
+    },
+    "parler": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to speak",
+        "es-419": "hablar",
+        "it": "parlare",
+        "nl": "spreken"
+      }
+    },
+    "part": {
+      "lemma": "part",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "part (f); de la part de = on behalf of",
+        "es-419": "parte (f); de la part de = de parte de",
+        "it": "parte (f); de la part de = da parte di",
+        "nl": "kant, deel (f); de la part de = namens"
+      }
+    },
+    "patienter": {
+      "lemma": "patienter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wait, to hold on",
+        "es-419": "esperar, aguardar",
+        "it": "attendere",
+        "nl": "wachten"
+      }
+    },
+    "permission": {
+      "lemma": "permission",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "permission (f)",
+        "es-419": "permiso (f)",
+        "it": "permesso (f)",
+        "nl": "toestemming (f)"
+      }
+    },
+    "personne": {
+      "lemma": "personne",
+      "pos": "PRON",
+      "gloss": {
+        "en": "nobody (ne ... personne)",
+        "es-419": "nadie (ne ... personne)",
+        "it": "nessuno (ne ... personne)",
+        "nl": "niemand (ne ... personne)"
+      }
+    },
+    "plainte": {
+      "lemma": "plainte",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "complaint (f)",
+        "es-419": "queja, reclamo (f)",
+        "it": "reclamo, lamentela (f)",
+        "nl": "klacht (f)"
+      }
+    },
+    "pourrais": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could (pouvoir: tu pourrais)",
+        "es-419": "podrías (pouvoir: tu pourrais)",
+        "it": "potresti (pouvoir: tu pourrais)",
+        "nl": "zou kunnen (pouvoir: tu pourrais)"
+      }
+    },
+    "pourrait": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could (pouvoir: on pourrait)",
+        "es-419": "podría (pouvoir: on pourrait)",
+        "it": "potrebbe (pouvoir: on pourrait)",
+        "nl": "zou kunnen (pouvoir: on pourrait)"
+      }
+    },
+    "pourriez-vous": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could you (pouvoir: vous pourriez)",
+        "es-419": "podría usted (pouvoir: vous pourriez)",
+        "it": "potrebbe (pouvoir: vous pourriez)",
+        "nl": "zou u kunnen (pouvoir: vous pourriez)"
+      }
+    },
+    "pourrions": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could (pouvoir: nous pourrions)",
+        "es-419": "podríamos (pouvoir: nous pourrions)",
+        "it": "potremmo (pouvoir: nous pourrions)",
+        "nl": "zouden kunnen (pouvoir: nous pourrions)"
+      }
+    },
+    "pouvez-vous": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "can you (pouvoir: vous pouvez)",
+        "es-419": "puede usted (pouvoir: vous pouvez)",
+        "it": "può (pouvoir: vous pouvez)",
+        "nl": "kunt u (pouvoir: vous pouvez)"
+      }
+    },
+    "prendrais": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would take (prendre: je prendrais)",
+        "es-419": "tomaría (prendre: je prendrais)",
+        "it": "prenderei (prendre: je prendrais)",
+        "nl": "zou nemen (prendre: je prendrais)"
+      }
+    },
+    "prie": {
+      "lemma": "prier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ask, beg (prier: je vous en prie = you're welcome)",
+        "es-419": "ruego (prier: je vous en prie = de nada)",
+        "it": "prego (prier: je vous en prie = prego)",
+        "nl": "verzoek (prier: je vous en prie = graag gedaan)"
+      }
+    },
+    "problème": {
+      "lemma": "problème",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "problem (m)",
+        "es-419": "problema (m)",
+        "it": "problema (m)",
+        "nl": "probleem (m)"
+      }
+    },
+    "préférerais": {
+      "lemma": "préférer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would prefer (préférer: je préférerais)",
+        "es-419": "preferiría (préférer: je préférerais)",
+        "it": "preferirei (préférer: je préférerais)",
+        "nl": "zou liever (préférer: je préférerais)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, what (qu'est-ce que vous désirez? = what would you like?)",
+        "es-419": "que = que, lo que (qu'est-ce que vous désirez? = ¿qué desea?)",
+        "it": "que = che, ciò che (qu'est-ce que vous désirez? = cosa desidera?)",
+        "nl": "que = dat, wat (qu'est-ce que vous désirez? = wat wilt u?)"
+      }
+    },
+    "quittez": {
+      "lemma": "quitter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leave (quitter: ne quittez pas = hold the line)",
+        "es-419": "deje (quitter: ne quittez pas = no cuelgue)",
+        "it": "lasci (quitter: ne quittez pas = non riattacchi)",
+        "nl": "verlaat (quitter: ne quittez pas = blijf aan de lijn)"
+      }
+    },
+    "rembourser": {
+      "lemma": "rembourser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to refund, to pay back",
+        "es-419": "reembolsar",
+        "it": "rimborsare",
+        "nl": "terugbetalen"
+      }
+    },
+    "rencontrer": {
+      "lemma": "rencontrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to meet (for the first time)",
+        "es-419": "conocer, encontrarse con",
+        "it": "incontrare, conoscere",
+        "nl": "ontmoeten"
+      }
+    },
+    "réparer": {
+      "lemma": "réparer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to repair, to fix",
+        "es-419": "reparar, arreglar",
+        "it": "riparare",
+        "nl": "repareren"
+      }
+    },
+    "répond": {
+      "lemma": "répondre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "answers (répondre: il répond)",
+        "es-419": "contesta (répondre: il répond)",
+        "it": "risponde (répondre: il répond)",
+        "nl": "antwoordt, neemt op (répondre: il répond)"
+      }
+    },
+    "serait": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "would be (être: ce serait)",
+        "es-419": "sería (être: ce serait)",
+        "it": "sarebbe (être: ce serait)",
+        "nl": "zou zijn (être: ce serait)"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if",
+        "es-419": "si",
+        "it": "se",
+        "nl": "als, indien"
+      }
+    },
+    "sonne": {
+      "lemma": "sonner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "rings (sonner: le téléphone sonne)",
+        "es-419": "suena (sonner: le téléphone sonne)",
+        "it": "squilla (sonner: le téléphone sonne)",
+        "nl": "gaat over (sonner: le téléphone sonne)"
+      }
+    },
+    "suggère": {
+      "lemma": "suggérer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "suggest (suggérer: je suggère)",
+        "es-419": "sugiero (suggérer: je suggère)",
+        "it": "suggerisco (suggérer: je suggère)",
+        "nl": "stel voor (suggérer: je suggère)"
+      }
+    },
+    "suggérer": {
+      "lemma": "suggérer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to suggest",
+        "es-419": "sugerir",
+        "it": "suggerire",
+        "nl": "voorstellen"
+      }
+    },
+    "t'inquiète": {
+      "lemma": "inquiéter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'inquiète = te + inquiète: worry (ne t'inquiète pas)",
+        "es-419": "t'inquiète = te + inquiète: preocupes (ne t'inquiète pas)",
+        "it": "t'inquiète = te + inquiète: preoccupi (ne t'inquiète pas)",
+        "nl": "t'inquiète = te + inquiète: maak je zorgen (ne t'inquiète pas)"
+      }
+    },
+    "tomber": {
+      "lemma": "tomber",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to fall",
+        "es-419": "caer(se)",
+        "it": "cadere",
+        "nl": "vallen"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tout de suite = right away",
+        "es-419": "tout de suite = enseguida",
+        "it": "tout de suite = subito",
+        "nl": "tout de suite = meteen"
+      }
+    },
+    "tromper": {
+      "lemma": "tromper",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to deceive; se tromper de = to get wrong, mix up",
+        "es-419": "engañar; se tromper de = equivocarse de",
+        "it": "ingannare; se tromper de = sbagliare",
+        "nl": "bedriegen; se tromper de = zich vergissen in"
+      }
+    },
+    "trompez": {
+      "lemma": "tromper",
+      "pos": "VERB",
+      "gloss": {
+        "en": "get wrong (se tromper: vous vous trompez)",
+        "es-419": "se equivoca (se tromper: vous vous trompez)",
+        "it": "sbaglia (se tromper: vous vous trompez)",
+        "nl": "vergist zich (se tromper: vous vous trompez)"
+      }
+    },
+    "trompé": {
+      "lemma": "tromper",
+      "pos": "VERB",
+      "gloss": {
+        "en": "got wrong (se tromper: je me suis trompé)",
+        "es-419": "equivoqué (se tromper: je me suis trompé)",
+        "it": "sbagliato (se tromper: je me suis trompé)",
+        "nl": "vergist (se tromper: je me suis trompé)"
+      }
+    },
+    "vas": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go (aller: tu vas)",
+        "es-419": "vas (aller: tu vas)",
+        "it": "vai (aller: tu vas)",
+        "nl": "ga (aller: tu vas)"
+      }
+    },
+    "vas-y": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "go ahead (aller: vas-y! tu)",
+        "es-419": "adelante (aller: vas-y! tú)",
+        "it": "vai pure (aller: vas-y! tu)",
+        "nl": "ga je gang (aller: vas-y! je)"
+      }
+    },
+    "vaut": {
+      "lemma": "valoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "is worth (valoir: il vaut mieux = it is better)",
+        "es-419": "vale (valoir: il vaut mieux = es mejor)",
+        "it": "vale (valoir: il vaut mieux = è meglio)",
+        "nl": "is waard (valoir: il vaut mieux = het is beter)"
+      }
+    },
+    "voir": {
+      "lemma": "voir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to see",
+        "es-419": "ver",
+        "it": "vedere",
+        "nl": "zien"
+      }
+    },
+    "voisins": {
+      "lemma": "voisin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "neighbors (voisin (m/f))",
+        "es-419": "vecinos (voisin (m/f))",
+        "it": "vicini (voisin (m/f))",
+        "nl": "buren (voisin (m/f))"
+      }
+    },
+    "éteignez": {
+      "lemma": "éteindre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "turn off (éteindre: éteignez! vous)",
+        "es-419": "apague (éteindre: éteignez! usted)",
+        "it": "spenga (éteindre: éteignez! Lei)",
+        "nl": "zet uit (éteindre: éteignez! u)"
+      }
+    },
+    "éteindre": {
+      "lemma": "éteindre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to turn off",
+        "es-419": "apagar",
+        "it": "spegnere",
+        "nl": "uitzetten"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ai = ne + ai: (I) don't have; je n'ai pas = I don't have",
+        "es-419": "n'ai = ne + ai: no tengo; je n'ai pas = no tengo",
+        "it": "n'ai = ne + ai: non ho; je n'ai pas = non ho",
+        "nl": "n'ai = ne + ai: heb niet; je n'ai pas = ik heb niet"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-a2-politesse-1",
+      "title": "Pourriez-vous m'aider?",
+      "grammarFocus": {
+        "en": [
+          "The conditional for polite requests: Pourriez-vous...? Est-ce que tu pourrais...?",
+          "Ça vous dérangerait de + infinitive? (would you mind...?)",
+          "Use vous with strangers and tu with friends."
+        ],
+        "es-419": [
+          "El condicional para pedir con cortesía: Pourriez-vous...? Est-ce que tu pourrais...?",
+          "Ça vous dérangerait de + infinitivo? (¿le molestaría...?)",
+          "Vous con desconocidos y tu con amigos."
+        ],
+        "it": [
+          "Il condizionale per chiedere con gentilezza: Pourriez-vous...? Est-ce que tu pourrais...?",
+          "Ça vous dérangerait de + infinito? (le dispiacerebbe...?)",
+          "Vous con gli sconosciuti, tu con gli amici."
+        ],
+        "nl": [
+          "De voorwaardelijke wijs voor beleefde verzoeken: Pourriez-vous...? Est-ce que tu pourrais...?",
+          "Ça vous dérangerait de + infinitief? (zou u het erg vinden...?)",
+          "Vous voor onbekenden, tu voor vrienden."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "information",
+          "translation": {
+            "en": "information",
+            "es-419": "información",
+            "it": "informazione",
+            "nl": "informatie"
+          },
+          "distractors": {
+            "en": [
+              "reservation",
+              "invitation"
+            ],
+            "es-419": [
+              "reserva",
+              "invitación"
+            ],
+            "it": [
+              "prenotazione",
+              "invito"
+            ],
+            "nl": [
+              "reservering",
+              "uitnodiging"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, je voudrais une information, s'il vous plaît.",
+          "translation": {
+            "en": "Hello, I'd like some information, please.",
+            "es-419": "Buenos días, quisiera información, por favor.",
+            "it": "Buongiorno, vorrei un'informazione, per favore.",
+            "nl": "Goedendag, ik wil graag wat informatie, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Hello, I'd like a reservation, please.",
+              "Hello, I'd like some coffee, please."
+            ],
+            "es-419": [
+              "Buenos días, quisiera una reserva, por favor.",
+              "Buenos días, quisiera un café, por favor."
+            ],
+            "it": [
+              "Buongiorno, vorrei una prenotazione, per favore.",
+              "Buongiorno, vorrei un caffè, per favore."
+            ],
+            "nl": [
+              "Goedendag, ik wil graag een reservering, alstublieft.",
+              "Goedendag, ik wil graag een koffie, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pourriez-vous m'aider",
+          "translation": {
+            "en": "could you help me",
+            "es-419": "podría ayudarme",
+            "it": "potrebbe aiutarmi",
+            "nl": "zou u me kunnen helpen"
+          },
+          "distractors": {
+            "en": [
+              "could you call me",
+              "could you wait for me"
+            ],
+            "es-419": [
+              "podría llamarme",
+              "podría esperarme"
+            ],
+            "it": [
+              "potrebbe chiamarmi",
+              "potrebbe aspettarmi"
+            ],
+            "nl": [
+              "zou u me kunnen bellen",
+              "zou u op me kunnen wachten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, pourriez-vous m'aider?",
+          "translation": {
+            "en": "Excuse me, could you help me?",
+            "es-419": "Disculpe, ¿podría ayudarme?",
+            "it": "Mi scusi, potrebbe aiutarmi?",
+            "nl": "Pardon, zou u me kunnen helpen?"
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, could you call me?",
+              "Excuse me, could you wait for me?"
+            ],
+            "es-419": [
+              "Disculpe, ¿podría llamarme?",
+              "Disculpe, ¿podría esperarme?"
+            ],
+            "it": [
+              "Mi scusi, potrebbe chiamarmi?",
+              "Mi scusi, potrebbe aspettarmi?"
+            ],
+            "nl": [
+              "Pardon, zou u me kunnen bellen?",
+              "Pardon, zou u op me kunnen wachten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "expliquer",
+          "translation": {
+            "en": "to explain",
+            "es-419": "explicar",
+            "it": "spiegare",
+            "nl": "uitleggen"
+          },
+          "distractors": {
+            "en": [
+              "to repeat",
+              "to translate"
+            ],
+            "es-419": [
+              "repetir",
+              "traducir"
+            ],
+            "it": [
+              "ripetere",
+              "tradurre"
+            ],
+            "nl": [
+              "herhalen",
+              "vertalen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pourriez-vous m'expliquer",
+          "translation": {
+            "en": "could you explain to me",
+            "es-419": "podría explicarme",
+            "it": "potrebbe spiegarmi",
+            "nl": "zou u me kunnen uitleggen"
+          },
+          "distractors": {
+            "en": [
+              "could you write to me",
+              "could you show me"
+            ],
+            "es-419": [
+              "podría escribirme",
+              "podría mostrarme"
+            ],
+            "it": [
+              "potrebbe scrivermi",
+              "potrebbe mostrarmi"
+            ],
+            "nl": [
+              "zou u me kunnen schrijven",
+              "zou u me kunnen laten zien"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pourriez-vous m'expliquer comment ça marche?",
+          "translation": {
+            "en": "Could you explain to me how it works?",
+            "es-419": "¿Podría explicarme cómo funciona?",
+            "it": "Potrebbe spiegarmi come funziona?",
+            "nl": "Zou u me kunnen uitleggen hoe het werkt?"
+          },
+          "distractors": {
+            "en": [
+              "Could you explain to me where it is?",
+              "Could you explain to me how much it costs?"
+            ],
+            "es-419": [
+              "¿Podría explicarme dónde está?",
+              "¿Podría explicarme cuánto cuesta?"
+            ],
+            "it": [
+              "Potrebbe spiegarmi dov'è?",
+              "Potrebbe spiegarmi quanto costa?"
+            ],
+            "nl": [
+              "Zou u me kunnen uitleggen waar het is?",
+              "Zou u me kunnen uitleggen hoeveel het kost?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "est-ce que tu pourrais",
+          "translation": {
+            "en": "could you",
+            "es-419": "podrías",
+            "it": "potresti",
+            "nl": "zou je kunnen"
+          },
+          "distractors": {
+            "en": [
+              "do you want to",
+              "do you have to"
+            ],
+            "es-419": [
+              "quieres",
+              "tienes que"
+            ],
+            "it": [
+              "vuoi",
+              "devi"
+            ],
+            "nl": [
+              "wil je",
+              "moet je"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Est-ce que tu pourrais m'aider avec mes devoirs?",
+          "translation": {
+            "en": "Could you help me with my homework?",
+            "es-419": "¿Podrías ayudarme con mi tarea?",
+            "it": "Potresti aiutarmi con i compiti?",
+            "nl": "Zou je me kunnen helpen met mijn huiswerk?"
+          },
+          "distractors": {
+            "en": [
+              "Could you help me with my suitcase?",
+              "Could you call me about my homework?"
+            ],
+            "es-419": [
+              "¿Podrías ayudarme con mi maleta?",
+              "¿Podrías llamarme por mi tarea?"
+            ],
+            "it": [
+              "Potresti aiutarmi con la mia valigia?",
+              "Potresti chiamarmi per i compiti?"
+            ],
+            "nl": [
+              "Zou je me kunnen helpen met mijn koffer?",
+              "Zou je me kunnen bellen over mijn huiswerk?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "déranger",
+          "translation": {
+            "en": "to disturb, to bother",
+            "es-419": "molestar",
+            "it": "disturbare",
+            "nl": "storen"
+          },
+          "distractors": {
+            "en": [
+              "to help",
+              "to wait"
+            ],
+            "es-419": [
+              "ayudar",
+              "esperar"
+            ],
+            "it": [
+              "aiutare",
+              "aspettare"
+            ],
+            "nl": [
+              "helpen",
+              "wachten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça vous dérangerait de",
+          "translation": {
+            "en": "would you mind",
+            "es-419": "le molestaría",
+            "it": "le dispiacerebbe",
+            "nl": "zou u het erg vinden om"
+          },
+          "distractors": {
+            "en": [
+              "would you like to",
+              "could you"
+            ],
+            "es-419": [
+              "le gustaría",
+              "podría"
+            ],
+            "it": [
+              "le piacerebbe",
+              "potrebbe"
+            ],
+            "nl": [
+              "zou u willen",
+              "zou u kunnen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça vous dérangerait de fermer la fenêtre?",
+          "translation": {
+            "en": "Would you mind closing the window?",
+            "es-419": "¿Le molestaría cerrar la ventana?",
+            "it": "Le dispiacerebbe chiudere la finestra?",
+            "nl": "Zou u het erg vinden om het raam dicht te doen?"
+          },
+          "distractors": {
+            "en": [
+              "Would you mind opening the window?",
+              "Would you mind closing the door?"
+            ],
+            "es-419": [
+              "¿Le molestaría abrir la ventana?",
+              "¿Le molestaría cerrar la puerta?"
+            ],
+            "it": [
+              "Le dispiacerebbe aprire la finestra?",
+              "Le dispiacerebbe chiudere la porta?"
+            ],
+            "nl": [
+              "Zou u het erg vinden om het raam open te doen?",
+              "Zou u het erg vinden om de deur dicht te doen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi de vous déranger, mais je cherche la gare.",
+          "translation": {
+            "en": "Sorry to bother you, but I'm looking for the station.",
+            "es-419": "Disculpe la molestia, pero estoy buscando la estación.",
+            "it": "Mi scusi se La disturbo, ma cerco la stazione.",
+            "nl": "Sorry dat ik u stoor, maar ik zoek het station."
+          },
+          "distractors": {
+            "en": [
+              "Sorry to bother you, but I'm looking for the hotel.",
+              "Sorry to bother you, but I'm at the station."
+            ],
+            "es-419": [
+              "Disculpe la molestia, pero estoy buscando el hotel.",
+              "Disculpe la molestia, pero estoy en la estación."
+            ],
+            "it": [
+              "Mi scusi se La disturbo, ma cerco l'albergo.",
+              "Mi scusi se La disturbo, ma sono alla stazione."
+            ],
+            "nl": [
+              "Sorry dat ik u stoor, maar ik zoek het hotel.",
+              "Sorry dat ik u stoor, maar ik ben op het station."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je peux vous demander quelque chose?",
+          "translation": {
+            "en": "Can I ask you something?",
+            "es-419": "¿Puedo preguntarle algo?",
+            "it": "Posso chiederle una cosa?",
+            "nl": "Mag ik u iets vragen?"
+          },
+          "distractors": {
+            "en": [
+              "Can I tell you something?",
+              "Can I give you something?"
+            ],
+            "es-419": [
+              "¿Puedo decirle algo?",
+              "¿Puedo darle algo?"
+            ],
+            "it": [
+              "Posso dirle una cosa?",
+              "Posso darle una cosa?"
+            ],
+            "nl": [
+              "Mag ik u iets vertellen?",
+              "Mag ik u iets geven?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci beaucoup, c'est très gentil.",
+          "translation": {
+            "en": "Thank you very much, that's very kind of you.",
+            "es-419": "Muchas gracias, es muy amable de su parte.",
+            "it": "Grazie mille, è molto gentile da parte Sua.",
+            "nl": "Hartelijk dank, dat is erg aardig van u."
+          },
+          "distractors": {
+            "en": [
+              "Thank you very much, that's very expensive.",
+              "Thank you very much, that's very late."
+            ],
+            "es-419": [
+              "Muchas gracias, es muy caro.",
+              "Muchas gracias, es muy tarde."
+            ],
+            "it": [
+              "Grazie mille, è molto caro.",
+              "Grazie mille, è molto tardi."
+            ],
+            "nl": [
+              "Hartelijk dank, dat is erg duur.",
+              "Hartelijk dank, dat is erg laat."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-politesse-2",
+      "title": "J'aimerais...",
+      "grammarFocus": {
+        "en": [
+          "J'aimerais + noun or infinitive: I would like...",
+          "Je voudrais, je préférerais, on pourrait, ce serait: the conditional for wishes and suggestions.",
+          "Je vous suggère de + infinitive."
+        ],
+        "es-419": [
+          "J'aimerais + sustantivo o infinitivo: me gustaría...",
+          "Je voudrais, je préférerais, on pourrait, ce serait: el condicional para deseos y sugerencias.",
+          "Je vous suggère de + infinitivo."
+        ],
+        "it": [
+          "J'aimerais + nome o infinito: mi piacerebbe...",
+          "Je voudrais, je préférerais, on pourrait, ce serait: il condizionale per desideri e proposte.",
+          "Je vous suggère de + infinito."
+        ],
+        "nl": [
+          "J'aimerais + zelfstandig naamwoord of infinitief: ik zou graag...",
+          "Je voudrais, je préférerais, on pourrait, ce serait: de voorwaardelijke wijs voor wensen en voorstellen.",
+          "Je vous suggère de + infinitief."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-2-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'aimerais",
+          "translation": {
+            "en": "I would like",
+            "es-419": "me gustaría",
+            "it": "mi piacerebbe",
+            "nl": "ik zou graag willen"
+          },
+          "distractors": {
+            "en": [
+              "I need",
+              "I liked"
+            ],
+            "es-419": [
+              "necesito",
+              "me gustó"
+            ],
+            "it": [
+              "ho bisogno di",
+              "mi è piaciuto"
+            ],
+            "nl": [
+              "ik heb nodig",
+              "ik vond leuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'aimerais visiter le Québec un jour.",
+          "translation": {
+            "en": "I'd like to visit Quebec one day.",
+            "es-419": "Me gustaría visitar Quebec algún día.",
+            "it": "Mi piacerebbe visitare il Québec un giorno.",
+            "nl": "Ik zou ooit graag Québec bezoeken."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to visit Paris one day.",
+              "I'd like to live in Quebec one day."
+            ],
+            "es-419": [
+              "Me gustaría visitar París algún día.",
+              "Me gustaría vivir en Quebec algún día."
+            ],
+            "it": [
+              "Mi piacerebbe visitare Parigi un giorno.",
+              "Mi piacerebbe vivere in Québec un giorno."
+            ],
+            "nl": [
+              "Ik zou ooit graag Parijs bezoeken.",
+              "Ik zou ooit graag in Québec wonen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nous aimerions",
+          "translation": {
+            "en": "we would like",
+            "es-419": "nos gustaría",
+            "it": "ci piacerebbe",
+            "nl": "we zouden graag willen"
+          },
+          "distractors": {
+            "en": [
+              "we would go",
+              "we would stay"
+            ],
+            "es-419": [
+              "iríamos",
+              "nos quedaríamos"
+            ],
+            "it": [
+              "andremmo",
+              "resteremmo"
+            ],
+            "nl": [
+              "we zouden gaan",
+              "we zouden blijven"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous aimerions une table près de la fenêtre.",
+          "translation": {
+            "en": "We'd like a table by the window.",
+            "es-419": "Nos gustaría una mesa junto a la ventana.",
+            "it": "Vorremmo un tavolo vicino alla finestra.",
+            "nl": "We willen graag een tafel bij het raam."
+          },
+          "distractors": {
+            "en": [
+              "We'd like a table on the terrace.",
+              "We'd like a room by the window."
+            ],
+            "es-419": [
+              "Nos gustaría una mesa en la terraza.",
+              "Nos gustaría una habitación junto a la ventana."
+            ],
+            "it": [
+              "Vorremmo un tavolo in terrazza.",
+              "Vorremmo una camera vicino alla finestra."
+            ],
+            "nl": [
+              "We willen graag een tafel op het terras.",
+              "We willen graag een kamer bij het raam."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "suggérer",
+          "translation": {
+            "en": "to suggest",
+            "es-419": "sugerir",
+            "it": "suggerire",
+            "nl": "voorstellen"
+          },
+          "distractors": {
+            "en": [
+              "to refuse",
+              "to forget"
+            ],
+            "es-419": [
+              "rechazar",
+              "olvidar"
+            ],
+            "it": [
+              "rifiutare",
+              "dimenticare"
+            ],
+            "nl": [
+              "weigeren",
+              "vergeten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vous suggère de",
+          "translation": {
+            "en": "I suggest that you",
+            "es-419": "le sugiero",
+            "it": "Le suggerisco di",
+            "nl": "ik stel u voor om"
+          },
+          "distractors": {
+            "en": [
+              "I thank you for",
+              "I ask you to"
+            ],
+            "es-419": [
+              "le agradezco por",
+              "le pido que"
+            ],
+            "it": [
+              "La ringrazio di",
+              "Le chiedo di"
+            ],
+            "nl": [
+              "ik dank u voor",
+              "ik vraag u om"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je vous suggère de prendre le train de huit heures.",
+          "translation": {
+            "en": "I suggest you take the eight o'clock train.",
+            "es-419": "Le sugiero tomar el tren de las ocho.",
+            "it": "Le suggerisco di prendere il treno delle otto.",
+            "nl": "Ik stel voor dat u de trein van acht uur neemt."
+          },
+          "distractors": {
+            "en": [
+              "I suggest you take the bus at eight.",
+              "I suggest you take the nine o'clock train."
+            ],
+            "es-419": [
+              "Le sugiero tomar el autobús de las ocho.",
+              "Le sugiero tomar el tren de las nueve."
+            ],
+            "it": [
+              "Le suggerisco di prendere l'autobus delle otto.",
+              "Le suggerisco di prendere il treno delle nove."
+            ],
+            "nl": [
+              "Ik stel voor dat u de bus van acht uur neemt.",
+              "Ik stel voor dat u de trein van negen uur neemt."
+            ]
+          },
+          "variants": [
+            "Je vous suggère de prendre le train de 8 heures."
+          ]
+        },
+        {
+          "id": "fr-a2-politesse-2-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ce serait",
+          "translation": {
+            "en": "it would be",
+            "es-419": "sería",
+            "it": "sarebbe",
+            "nl": "het zou zijn"
+          },
+          "distractors": {
+            "en": [
+              "it was",
+              "it will be"
+            ],
+            "es-419": [
+              "fue",
+              "será"
+            ],
+            "it": [
+              "era",
+              "sarà"
+            ],
+            "nl": [
+              "het was",
+              "het zal zijn"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce serait génial de visiter Lyon avec toi.",
+          "translation": {
+            "en": "It would be great to visit Lyon with you.",
+            "es-419": "Sería genial visitar Lyon contigo.",
+            "it": "Sarebbe fantastico visitare Lione con te.",
+            "nl": "Het zou geweldig zijn om Lyon met jou te bezoeken."
+          },
+          "distractors": {
+            "en": [
+              "It would be great to live in Lyon with you.",
+              "It would be hard to visit Lyon with you."
+            ],
+            "es-419": [
+              "Sería genial vivir en Lyon contigo.",
+              "Sería difícil visitar Lyon contigo."
+            ],
+            "it": [
+              "Sarebbe fantastico vivere a Lione con te.",
+              "Sarebbe difficile visitare Lione con te."
+            ],
+            "nl": [
+              "Het zou geweldig zijn om in Lyon met jou te wonen.",
+              "Het zou moeilijk zijn om Lyon met jou te bezoeken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je préférerais",
+          "translation": {
+            "en": "I would prefer",
+            "es-419": "preferiría",
+            "it": "preferirei",
+            "nl": "ik zou liever"
+          },
+          "distractors": {
+            "en": [
+              "I would choose",
+              "I would leave"
+            ],
+            "es-419": [
+              "elegiría",
+              "me iría"
+            ],
+            "it": [
+              "sceglierei",
+              "partirei"
+            ],
+            "nl": [
+              "ik zou kiezen",
+              "ik zou vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une chambre avec balcon",
+          "translation": {
+            "en": "a room with a balcony",
+            "es-419": "una habitación con balcón",
+            "it": "una camera con balcone",
+            "nl": "een kamer met balkon"
+          },
+          "distractors": {
+            "en": [
+              "a room with a shower",
+              "a room without a balcony"
+            ],
+            "es-419": [
+              "una habitación con ducha",
+              "una habitación sin balcón"
+            ],
+            "it": [
+              "una camera con doccia",
+              "una camera senza balcone"
+            ],
+            "nl": [
+              "een kamer met douche",
+              "een kamer zonder balkon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je préférerais une chambre avec un balcon.",
+          "translation": {
+            "en": "I'd prefer a room with a balcony.",
+            "es-419": "Preferiría una habitación con balcón.",
+            "it": "Preferirei una camera con balcone.",
+            "nl": "Ik zou liever een kamer met balkon hebben."
+          },
+          "distractors": {
+            "en": [
+              "I'd prefer a room with a shower.",
+              "I'd prefer a room without a balcony."
+            ],
+            "es-419": [
+              "Preferiría una habitación con ducha.",
+              "Preferiría una habitación sin balcón."
+            ],
+            "it": [
+              "Preferirei una camera con doccia.",
+              "Preferirei una camera senza balcone."
+            ],
+            "nl": [
+              "Ik zou liever een kamer met douche hebben.",
+              "Ik zou liever een kamer zonder balkon hebben."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "on pourrait",
+          "translation": {
+            "en": "we could",
+            "es-419": "podríamos",
+            "it": "potremmo",
+            "nl": "we zouden kunnen"
+          },
+          "distractors": {
+            "en": [
+              "we should",
+              "we can"
+            ],
+            "es-419": [
+              "deberíamos",
+              "podemos"
+            ],
+            "it": [
+              "dovremmo",
+              "possiamo"
+            ],
+            "nl": [
+              "we zouden moeten",
+              "we kunnen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "On pourrait dîner ensemble ce soir, si tu veux.",
+          "translation": {
+            "en": "We could have dinner together tonight, if you like.",
+            "es-419": "Podríamos cenar juntos esta noche, si quieres.",
+            "it": "Potremmo cenare insieme stasera, se vuoi.",
+            "nl": "We zouden vanavond samen kunnen eten, als je wilt."
+          },
+          "distractors": {
+            "en": [
+              "We could have dinner together tonight, if you can.",
+              "We could have dinner together tomorrow, if you like."
+            ],
+            "es-419": [
+              "Podríamos cenar juntos esta noche, si puedes.",
+              "Podríamos cenar juntos mañana, si quieres."
+            ],
+            "it": [
+              "Potremmo cenare insieme stasera, se puoi.",
+              "Potremmo cenare insieme domani, se vuoi."
+            ],
+            "nl": [
+              "We zouden vanavond samen kunnen eten, als je kunt.",
+              "We zouden morgen samen kunnen eten, als je wilt."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous pourrions aussi visiter le musée demain matin.",
+          "translation": {
+            "en": "We could also visit the museum tomorrow morning.",
+            "es-419": "También podríamos visitar el museo mañana por la mañana.",
+            "it": "Potremmo anche visitare il museo domani mattina.",
+            "nl": "We zouden ook morgenochtend het museum kunnen bezoeken."
+          },
+          "distractors": {
+            "en": [
+              "We could also visit the museum tomorrow evening.",
+              "We could also visit the market tomorrow morning."
+            ],
+            "es-419": [
+              "También podríamos visitar el museo mañana por la noche.",
+              "También podríamos visitar el mercado mañana por la mañana."
+            ],
+            "it": [
+              "Potremmo anche visitare il museo domani sera.",
+              "Potremmo anche visitare il mercato domani mattina."
+            ],
+            "nl": [
+              "We zouden ook morgenavond het museum kunnen bezoeken.",
+              "We zouden ook morgenochtend de markt kunnen bezoeken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce serait un plaisir de vous rencontrer.",
+          "translation": {
+            "en": "It would be a pleasure to meet you.",
+            "es-419": "Sería un placer conocerlo.",
+            "it": "Sarebbe un piacere conoscerla.",
+            "nl": "Het zou een genoegen zijn u te ontmoeten."
+          },
+          "distractors": {
+            "en": [
+              "It would be a pleasure to call you.",
+              "It would be difficult to meet you."
+            ],
+            "es-419": [
+              "Sería un placer llamarlo.",
+              "Sería difícil conocerlo."
+            ],
+            "it": [
+              "Sarebbe un piacere chiamarla.",
+              "Sarebbe difficile conoscerla."
+            ],
+            "nl": [
+              "Het zou een genoegen zijn u te bellen.",
+              "Het zou moeilijk zijn u te ontmoeten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-politesse-3",
+      "title": "Au téléphone",
+      "grammarFocus": {
+        "en": [
+          "Telephone chunks: Allô, C'est de la part de qui?, Un instant, Ne quittez pas.",
+          "Vous voulez laisser un message?",
+          "Se tromper de numéro: vous vous trompez de numéro, je me suis trompé de numéro."
+        ],
+        "es-419": [
+          "Frases del teléfono: Allô, C'est de la part de qui?, Un instant, Ne quittez pas.",
+          "Vous voulez laisser un message?",
+          "Se tromper de numéro: vous vous trompez de numéro, je me suis trompé de numéro."
+        ],
+        "it": [
+          "Frasi del telefono: Allô, C'est de la part de qui?, Un instant, Ne quittez pas.",
+          "Vous voulez laisser un message?",
+          "Se tromper de numéro: vous vous trompez de numéro, je me suis trompé de numéro."
+        ],
+        "nl": [
+          "Telefoonzinnen: Allô, C'est de la part de qui?, Un instant, Ne quittez pas.",
+          "Vous voulez laisser un message?",
+          "Se tromper de numéro: vous vous trompez de numéro, je me suis trompé de numéro."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-3-u01",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Allô, bonjour, c'est Sophie.",
+          "translation": {
+            "en": "Hello, this is Sophie.",
+            "es-419": "Aló, habla Sophie.",
+            "it": "Pronto, sono Sophie.",
+            "nl": "Hallo, met Sophie."
+          },
+          "distractors": {
+            "en": [
+              "Hello, this is Marc.",
+              "Hello, is this Sophie?"
+            ],
+            "es-419": [
+              "Aló, habla Marc.",
+              "Aló, habla Sophie?"
+            ],
+            "it": [
+              "Pronto, sono Marc.",
+              "Pronto, sei Sophie?"
+            ],
+            "nl": [
+              "Hallo, met Marc.",
+              "Hallo, spreek ik met Sophie?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "instant",
+          "translation": {
+            "en": "moment",
+            "es-419": "momento",
+            "it": "momento",
+            "nl": "ogenblik"
+          },
+          "distractors": {
+            "en": [
+              "hour",
+              "day"
+            ],
+            "es-419": [
+              "hora",
+              "día"
+            ],
+            "it": [
+              "ora",
+              "giorno"
+            ],
+            "nl": [
+              "uur",
+              "dag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "un instant, s'il vous plaît",
+          "translation": {
+            "en": "one moment, please",
+            "es-419": "un momento, por favor",
+            "it": "un momento, per favore",
+            "nl": "een ogenblik alstublieft"
+          },
+          "distractors": {
+            "en": [
+              "the bill, please",
+              "one ticket, please"
+            ],
+            "es-419": [
+              "la cuenta, por favor",
+              "un boleto, por favor"
+            ],
+            "it": [
+              "il conto, per favore",
+              "un biglietto, per favore"
+            ],
+            "nl": [
+              "de rekening, alstublieft",
+              "één kaartje, alstublieft"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Un instant, s'il vous plaît, je vous passe Monsieur Martin.",
+          "translation": {
+            "en": "One moment, please, I'll put you through to Mr. Martin.",
+            "es-419": "Un momento, por favor, le paso con el señor Martin.",
+            "it": "Un attimo, per favore, Le passo il signor Martin.",
+            "nl": "Een ogenblik alstublieft, ik verbind u door met meneer Martin."
+          },
+          "distractors": {
+            "en": [
+              "One moment, please, I'll put you through to Mrs. Martin.",
+              "One moment, please, Mr. Martin isn't here."
+            ],
+            "es-419": [
+              "Un momento, por favor, le paso con la señora Martin.",
+              "Un momento, por favor, el señor Martin no está."
+            ],
+            "it": [
+              "Un attimo, per favore, Le passo la signora Martin.",
+              "Un attimo, per favore, il signor Martin non c'è."
+            ],
+            "nl": [
+              "Een ogenblik alstublieft, ik verbind u door met mevrouw Martin.",
+              "Een ogenblik alstublieft, meneer Martin is er niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "c'est de la part de qui",
+          "translation": {
+            "en": "who's calling",
+            "es-419": "de parte de quién",
+            "it": "da parte di chi",
+            "nl": "namens wie"
+          },
+          "distractors": {
+            "en": [
+              "who is he",
+              "who is it for"
+            ],
+            "es-419": [
+              "quién es",
+              "para quién es"
+            ],
+            "it": [
+              "chi è",
+              "per chi è"
+            ],
+            "nl": [
+              "wie is hij",
+              "voor wie is het"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bien sûr, c'est de la part de qui?",
+          "translation": {
+            "en": "Of course, who shall I say is calling?",
+            "es-419": "Claro, ¿de parte de quién?",
+            "it": "Certo, da parte di chi?",
+            "nl": "Natuurlijk, namens wie?"
+          },
+          "distractors": {
+            "en": [
+              "Of course, who is it for?",
+              "Of course, where are you calling from?"
+            ],
+            "es-419": [
+              "Claro, ¿para quién es?",
+              "Claro, ¿desde dónde llama?"
+            ],
+            "it": [
+              "Certo, per chi è?",
+              "Certo, da dove chiama?"
+            ],
+            "nl": [
+              "Natuurlijk, voor wie is het?",
+              "Natuurlijk, van waaruit belt u?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "laisser",
+          "translation": {
+            "en": "to leave (behind)",
+            "es-419": "dejar",
+            "it": "lasciare",
+            "nl": "achterlaten"
+          },
+          "distractors": {
+            "en": [
+              "to take",
+              "to send"
+            ],
+            "es-419": [
+              "llevar",
+              "enviar"
+            ],
+            "it": [
+              "portare",
+              "mandare"
+            ],
+            "nl": [
+              "meenemen",
+              "sturen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "laisser un message",
+          "translation": {
+            "en": "leave a message",
+            "es-419": "dejar un mensaje",
+            "it": "lasciare un messaggio",
+            "nl": "een bericht achterlaten"
+          },
+          "distractors": {
+            "en": [
+              "read a message",
+              "send a message"
+            ],
+            "es-419": [
+              "leer un mensaje",
+              "enviar un mensaje"
+            ],
+            "it": [
+              "leggere un messaggio",
+              "mandare un messaggio"
+            ],
+            "nl": [
+              "een bericht lezen",
+              "een bericht sturen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il n'est pas là, vous voulez laisser un message?",
+          "translation": {
+            "en": "He's not here, would you like to leave a message?",
+            "es-419": "No está, ¿quiere dejar un mensaje?",
+            "it": "Non c'è, vuole lasciare un messaggio?",
+            "nl": "Hij is er niet, wilt u een bericht achterlaten?"
+          },
+          "distractors": {
+            "en": [
+              "He's not here, would you like to call back later?",
+              "He's here, would you like to leave a message?"
+            ],
+            "es-419": [
+              "No está, ¿quiere llamar más tarde?",
+              "Está aquí, ¿quiere dejar un mensaje?"
+            ],
+            "it": [
+              "Non c'è, vuole richiamare più tardi?",
+              "È qui, vuole lasciare un messaggio?"
+            ],
+            "nl": [
+              "Hij is er niet, wilt u later terugbellen?",
+              "Hij is er, wilt u een bericht achterlaten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un appel",
+          "translation": {
+            "en": "a call",
+            "es-419": "una llamada",
+            "it": "una telefonata",
+            "nl": "een telefoontje"
+          },
+          "distractors": {
+            "en": [
+              "a message",
+              "a number"
+            ],
+            "es-419": [
+              "un mensaje",
+              "un número"
+            ],
+            "it": [
+              "un messaggio",
+              "un numero"
+            ],
+            "nl": [
+              "een bericht",
+              "een nummer"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le téléphone sonne, mais personne ne répond.",
+          "translation": {
+            "en": "The phone is ringing, but nobody answers.",
+            "es-419": "El teléfono suena, pero nadie contesta.",
+            "it": "Il telefono squilla, ma nessuno risponde.",
+            "nl": "De telefoon gaat, maar niemand neemt op."
+          },
+          "distractors": {
+            "en": [
+              "The phone is ringing, but nobody is here.",
+              "The phone is ringing, and Marc answers."
+            ],
+            "es-419": [
+              "El teléfono suena, pero no hay nadie.",
+              "El teléfono suena y Marc contesta."
+            ],
+            "it": [
+              "Il telefono squilla, ma non c'è nessuno.",
+              "Il telefono squilla e Marc risponde."
+            ],
+            "nl": [
+              "De telefoon gaat, maar er is niemand.",
+              "De telefoon gaat en Marc neemt op."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour appeler l'hôtel, composez le zéro.",
+          "translation": {
+            "en": "To call the hotel, dial zero.",
+            "es-419": "Para llamar al hotel, marque el cero.",
+            "it": "Per chiamare l'albergo, componga lo zero.",
+            "nl": "Om het hotel te bellen, kiest u de nul."
+          },
+          "distractors": {
+            "en": [
+              "To call the hotel, dial one.",
+              "To call the station, dial zero."
+            ],
+            "es-419": [
+              "Para llamar al hotel, marque el uno.",
+              "Para llamar a la estación, marque el cero."
+            ],
+            "it": [
+              "Per chiamare l'albergo, componga l'uno.",
+              "Per chiamare la stazione, componga lo zero."
+            ],
+            "nl": [
+              "Om het hotel te bellen, kiest u de één.",
+              "Om het station te bellen, kiest u de nul."
+            ]
+          },
+          "variants": [
+            "Pour appeler l'hôtel, composez le 0."
+          ]
+        },
+        {
+          "id": "fr-a2-politesse-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous pouvez patienter un instant, il est en ligne.",
+          "translation": {
+            "en": "Can you hold for a moment? He's on the line.",
+            "es-419": "Puede esperar un momento? Está en línea.",
+            "it": "Può attendere un attimo? È in linea.",
+            "nl": "Kunt u even wachten? Hij is in gesprek."
+          },
+          "distractors": {
+            "en": [
+              "Can you hold for a moment? He's in a meeting.",
+              "Can you hold for a moment? He's on vacation."
+            ],
+            "es-419": [
+              "Puede esperar un momento? Está en una reunión.",
+              "Puede esperar un momento? Está de vacaciones."
+            ],
+            "it": [
+              "Può attendere un attimo? È in riunione.",
+              "Può attendere un attimo? È in vacanza."
+            ],
+            "nl": [
+              "Kunt u even wachten? Hij zit in een vergadering.",
+              "Kunt u even wachten? Hij is op vakantie."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "se tromper de numéro",
+          "translation": {
+            "en": "to have the wrong number",
+            "es-419": "equivocarse de número",
+            "it": "sbagliare numero",
+            "nl": "een verkeerd nummer bellen"
+          },
+          "distractors": {
+            "en": [
+              "to give the number",
+              "to lose the number"
+            ],
+            "es-419": [
+              "dar el número",
+              "perder el número"
+            ],
+            "it": [
+              "dare il numero",
+              "perdere il numero"
+            ],
+            "nl": [
+              "het nummer geven",
+              "het nummer kwijtraken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, vous vous trompez de numéro.",
+          "translation": {
+            "en": "Excuse me, you have the wrong number.",
+            "es-419": "Disculpe, se equivoca de número.",
+            "it": "Mi scusi, ha sbagliato numero.",
+            "nl": "Pardon, u hebt het verkeerde nummer."
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, you have the wrong address.",
+              "Excuse me, you have the right number."
+            ],
+            "es-419": [
+              "Disculpe, se equivoca de dirección.",
+              "Disculpe, tiene el número correcto."
+            ],
+            "it": [
+              "Mi scusi, ha sbagliato indirizzo.",
+              "Mi scusi, ha il numero giusto."
+            ],
+            "nl": [
+              "Pardon, u hebt het verkeerde adres.",
+              "Pardon, u hebt het juiste nummer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pardon, je me suis trompé de numéro.",
+          "translation": {
+            "en": "Sorry, I dialed the wrong number.",
+            "es-419": "Perdón, me equivoqué de número.",
+            "it": "Scusi, ho sbagliato numero.",
+            "nl": "Sorry, ik heb het verkeerde nummer gebeld."
+          },
+          "distractors": {
+            "en": [
+              "Sorry, I forgot your number.",
+              "Sorry, I changed the number."
+            ],
+            "es-419": [
+              "Perdón, olvidé su número.",
+              "Perdón, cambié el número."
+            ],
+            "it": [
+              "Scusi, ho dimenticato il Suo numero.",
+              "Scusi, ho cambiato numero."
+            ],
+            "nl": [
+              "Sorry, ik ben uw nummer vergeten.",
+              "Sorry, ik heb het nummer veranderd."
+            ]
+          },
+          "speaker": "M"
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-politesse-4",
+      "title": "Entrez, asseyez-vous",
+      "grammarFocus": {
+        "en": [
+          "The imperative with tu and vous: Entre, Viens, Dis-moi, Assieds-toi, Vas-y / Entrez, Dites-moi, Asseyez-vous.",
+          "Pronouns after the imperative: Donnez-moi, Dis-moi.",
+          "The negative imperative: Ne quittez pas, N'oubliez pas."
+        ],
+        "es-419": [
+          "El imperativo con tu y vous: Entre, Viens, Dis-moi, Assieds-toi, Vas-y / Entrez, Dites-moi, Asseyez-vous.",
+          "Pronombres después del imperativo: Donnez-moi, Dis-moi.",
+          "El imperativo negativo: Ne quittez pas, N'oubliez pas."
+        ],
+        "it": [
+          "L'imperativo con tu e vous: Entre, Viens, Dis-moi, Assieds-toi, Vas-y / Entrez, Dites-moi, Asseyez-vous.",
+          "I pronomi dopo l'imperativo: Donnez-moi, Dis-moi.",
+          "L'imperativo negativo: Ne quittez pas, N'oubliez pas."
+        ],
+        "nl": [
+          "De gebiedende wijs met tu en vous: Entre, Viens, Dis-moi, Assieds-toi, Vas-y / Entrez, Dites-moi, Asseyez-vous.",
+          "Voornaamwoorden na de gebiedende wijs: Donnez-moi, Dis-moi.",
+          "De ontkennende gebiedende wijs: Ne quittez pas, N'oubliez pas."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-4-u01",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Bonjour, entrez, je vous en prie.",
+          "translation": {
+            "en": "Hello, come in, please.",
+            "es-419": "Buenos días, pase, por favor.",
+            "it": "Buongiorno, entri, prego.",
+            "nl": "Goedendag, komt u binnen, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Hello, sit down, please.",
+              "Hello, wait here, please."
+            ],
+            "es-419": [
+              "Buenos días, siéntese, por favor.",
+              "Buenos días, espere aquí, por favor."
+            ],
+            "it": [
+              "Buongiorno, si sieda, prego.",
+              "Buongiorno, aspetti qui, prego."
+            ],
+            "nl": [
+              "Goedendag, gaat u zitten, alstublieft.",
+              "Goedendag, wacht u hier, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je vous en prie",
+          "translation": {
+            "en": "you're welcome",
+            "es-419": "de nada",
+            "it": "prego",
+            "nl": "graag gedaan"
+          },
+          "distractors": {
+            "en": [
+              "thank you very much",
+              "excuse me"
+            ],
+            "es-419": [
+              "muchas gracias",
+              "disculpe"
+            ],
+            "it": [
+              "grazie mille",
+              "mi scusi"
+            ],
+            "nl": [
+              "hartelijk dank",
+              "pardon"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Asseyez-vous, je vous prie.",
+          "translation": {
+            "en": "Please sit down.",
+            "es-419": "Siéntese, por favor.",
+            "it": "Si accomodi, prego.",
+            "nl": "Gaat u zitten, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Please come in.",
+              "Please wait."
+            ],
+            "es-419": [
+              "Pase, por favor.",
+              "Espere, por favor."
+            ],
+            "it": [
+              "Entri, prego.",
+              "Aspetti, prego."
+            ],
+            "nl": [
+              "Komt u binnen, alstublieft.",
+              "Wacht u even, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Salut Julie, viens, entre et assieds-toi!",
+          "translation": {
+            "en": "Hi Julie, come on in and sit down!",
+            "es-419": "Hola Julie, ven, pasa y siéntate.",
+            "it": "Ciao Julie, vieni, entra e siediti!",
+            "nl": "Hoi Julie, kom binnen en ga zitten!"
+          },
+          "distractors": {
+            "en": [
+              "Hi Julie, come on in and wait!",
+              "Hi Julie, wait here and sit down!"
+            ],
+            "es-419": [
+              "Hola Julie, ven, pasa y espera.",
+              "Hola Julie, espera aquí y siéntate."
+            ],
+            "it": [
+              "Ciao Julie, vieni, entra e aspetta!",
+              "Ciao Julie, aspetta qui e siediti!"
+            ],
+            "nl": [
+              "Hoi Julie, kom binnen en wacht!",
+              "Hoi Julie, wacht hier en ga zitten!"
+            ]
+          },
+          "senses": {
+            "3": "entrer"
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dis-moi",
+          "translation": {
+            "en": "tell me",
+            "es-419": "dime",
+            "it": "dimmi",
+            "nl": "zeg het me"
+          },
+          "distractors": {
+            "en": [
+              "give me",
+              "ask me"
+            ],
+            "es-419": [
+              "dame",
+              "pregúntame"
+            ],
+            "it": [
+              "dammi",
+              "chiedimi"
+            ],
+            "nl": [
+              "geef me",
+              "vraag me"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vas-y, dis-moi ce que tu veux.",
+          "translation": {
+            "en": "Go ahead, tell me what you want.",
+            "es-419": "Adelante, dime qué quieres.",
+            "it": "Vai pure, dimmi che cosa vuoi.",
+            "nl": "Ga je gang, zeg me wat je wilt."
+          },
+          "distractors": {
+            "en": [
+              "Go ahead, tell me what you think.",
+              "Go ahead, give me what you want."
+            ],
+            "es-419": [
+              "Adelante, dime qué piensas.",
+              "Adelante, dame lo que quieres."
+            ],
+            "it": [
+              "Vai pure, dimmi che cosa pensi.",
+              "Vai pure, dammi quello che vuoi."
+            ],
+            "nl": [
+              "Ga je gang, zeg me wat je denkt.",
+              "Ga je gang, geef me wat je wilt."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "donnez-moi",
+          "translation": {
+            "en": "give me",
+            "es-419": "deme",
+            "it": "mi dia",
+            "nl": "geef me"
+          },
+          "distractors": {
+            "en": [
+              "tell me",
+              "show me"
+            ],
+            "es-419": [
+              "dígame",
+              "muéstreme"
+            ],
+            "it": [
+              "mi dica",
+              "mi mostri"
+            ],
+            "nl": [
+              "zeg het me",
+              "laat het me zien"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Donnez-moi votre numéro, s'il vous plaît.",
+          "translation": {
+            "en": "Give me your number, please.",
+            "es-419": "Deme su número, por favor.",
+            "it": "Mi dia il Suo numero, per favore.",
+            "nl": "Geef me uw nummer, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Give me your address, please.",
+              "Give me your passport, please."
+            ],
+            "es-419": [
+              "Deme su dirección, por favor.",
+              "Deme su pasaporte, por favor."
+            ],
+            "it": [
+              "Mi dia il Suo indirizzo, per favore.",
+              "Mi dia il Suo passaporto, per favore."
+            ],
+            "nl": [
+              "Geef me uw adres, alstublieft.",
+              "Geef me uw paspoort, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "permission",
+          "translation": {
+            "en": "permission",
+            "es-419": "permiso",
+            "it": "permesso",
+            "nl": "toestemming"
+          },
+          "distractors": {
+            "en": [
+              "ticket",
+              "passport"
+            ],
+            "es-419": [
+              "boleto",
+              "pasaporte"
+            ],
+            "it": [
+              "biglietto",
+              "passaporto"
+            ],
+            "nl": [
+              "kaartje",
+              "paspoort"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Avec votre permission, je voudrais ouvrir la fenêtre.",
+          "translation": {
+            "en": "With your permission, I'd like to open the window.",
+            "es-419": "Con su permiso, quisiera abrir la ventana.",
+            "it": "Con il Suo permesso, vorrei aprire la finestra.",
+            "nl": "Met uw toestemming zou ik het raam willen openen."
+          },
+          "distractors": {
+            "en": [
+              "With your permission, I'd like to close the window.",
+              "With your permission, I'd like to open the door."
+            ],
+            "es-419": [
+              "Con su permiso, quisiera cerrar la ventana.",
+              "Con su permiso, quisiera abrir la puerta."
+            ],
+            "it": [
+              "Con il Suo permesso, vorrei chiudere la finestra.",
+              "Con il Suo permesso, vorrei aprire la porta."
+            ],
+            "nl": [
+              "Met uw toestemming zou ik het raam willen sluiten.",
+              "Met uw toestemming zou ik de deur willen openen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "allumer",
+          "translation": {
+            "en": "to turn on",
+            "es-419": "encender",
+            "it": "accendere",
+            "nl": "aanzetten"
+          },
+          "distractors": {
+            "en": [
+              "to turn off",
+              "to open"
+            ],
+            "es-419": [
+              "apagar",
+              "abrir"
+            ],
+            "it": [
+              "spegnere",
+              "aprire"
+            ],
+            "nl": [
+              "uitzetten",
+              "openen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Allume la lumière, s'il te plaît.",
+          "translation": {
+            "en": "Turn on the light, please.",
+            "es-419": "Enciende la luz, por favor.",
+            "it": "Accendi la luce, per favore.",
+            "nl": "Doe het licht aan, alsjeblieft."
+          },
+          "distractors": {
+            "en": [
+              "Turn off the light, please.",
+              "Turn on the heating, please."
+            ],
+            "es-419": [
+              "Apaga la luz, por favor.",
+              "Enciende la calefacción, por favor."
+            ],
+            "it": [
+              "Spegni la luce, per favore.",
+              "Accendi il riscaldamento, per favore."
+            ],
+            "nl": [
+              "Doe het licht uit, alsjeblieft.",
+              "Zet de verwarming aan, alsjeblieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "éteindre",
+          "translation": {
+            "en": "to turn off",
+            "es-419": "apagar",
+            "it": "spegnere",
+            "nl": "uitzetten"
+          },
+          "distractors": {
+            "en": [
+              "to turn on",
+              "to close"
+            ],
+            "es-419": [
+              "encender",
+              "cerrar"
+            ],
+            "it": [
+              "accendere",
+              "chiudere"
+            ],
+            "nl": [
+              "aanzetten",
+              "sluiten"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Éteignez la télévision, s'il vous plaît.",
+          "translation": {
+            "en": "Turn off the TV, please.",
+            "es-419": "Apague el televisor, por favor.",
+            "it": "Spenga la televisione, per favore.",
+            "nl": "Zet de televisie uit, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Turn on the TV, please.",
+              "Turn off the computer, please."
+            ],
+            "es-419": [
+              "Encienda el televisor, por favor.",
+              "Apague la computadora, por favor."
+            ],
+            "it": [
+              "Accenda la televisione, per favore.",
+              "Spenga il computer, per favore."
+            ],
+            "nl": [
+              "Zet de televisie aan, alstublieft.",
+              "Zet de computer uit, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ne quittez pas, s'il vous plaît.",
+          "translation": {
+            "en": "Please hold the line.",
+            "es-419": "No cuelgue, por favor.",
+            "it": "Non riattacchi, per favore.",
+            "nl": "Blijft u aan de lijn, alstublieft."
+          },
+          "distractors": {
+            "en": [
+              "Please call back later.",
+              "Please leave a message."
+            ],
+            "es-419": [
+              "Llame más tarde, por favor.",
+              "Deje un mensaje, por favor."
+            ],
+            "it": [
+              "Richiami più tardi, per favore.",
+              "Lasci un messaggio, per favore."
+            ],
+            "nl": [
+              "Belt u later terug, alstublieft.",
+              "Laat u een bericht achter, alstublieft."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "N'oubliez pas d'éteindre la lumière.",
+          "translation": {
+            "en": "Don't forget to turn off the light.",
+            "es-419": "No olvide apagar la luz.",
+            "it": "Non dimentichi di spegnere la luce.",
+            "nl": "Vergeet niet het licht uit te doen."
+          },
+          "distractors": {
+            "en": [
+              "Don't forget to turn on the light.",
+              "Don't forget to close the door."
+            ],
+            "es-419": [
+              "No olvide encender la luz.",
+              "No olvide cerrar la puerta."
+            ],
+            "it": [
+              "Non dimentichi di accendere la luce.",
+              "Non dimentichi di chiudere la porta."
+            ],
+            "nl": [
+              "Vergeet niet het licht aan te doen.",
+              "Vergeet niet de deur dicht te doen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-politesse-5",
+      "title": "Un conseil",
+      "grammarFocus": {
+        "en": [
+          "Advice with the conditional: Tu devrais..., Vous devriez..., À ta place, je...",
+          "Il vaut mieux + infinitive.",
+          "The negative imperative: Ne t'inquiète pas, Ne vous inquiétez pas."
+        ],
+        "es-419": [
+          "Consejos con el condicional: Tu devrais..., Vous devriez..., À ta place, je...",
+          "Il vaut mieux + infinitivo.",
+          "El imperativo negativo: Ne t'inquiète pas, Ne vous inquiétez pas."
+        ],
+        "it": [
+          "Consigli con il condizionale: Tu devrais..., Vous devriez..., À ta place, je...",
+          "Il vaut mieux + infinito.",
+          "L'imperativo negativo: Ne t'inquiète pas, Ne vous inquiétez pas."
+        ],
+        "nl": [
+          "Advies met de voorwaardelijke wijs: Tu devrais..., Vous devriez..., À ta place, je...",
+          "Il vaut mieux + infinitief.",
+          "De ontkennende gebiedende wijs: Ne t'inquiète pas, Ne vous inquiétez pas."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-5-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un conseil",
+          "translation": {
+            "en": "a piece of advice",
+            "es-419": "un consejo",
+            "it": "un consiglio",
+            "nl": "een advies"
+          },
+          "distractors": {
+            "en": [
+              "a piece of news",
+              "a favor"
+            ],
+            "es-419": [
+              "una noticia",
+              "un favor"
+            ],
+            "it": [
+              "una notizia",
+              "un favore"
+            ],
+            "nl": [
+              "een nieuwtje",
+              "een gunst"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je peux te demander un conseil?",
+          "translation": {
+            "en": "Can I ask you for some advice?",
+            "es-419": "¿Puedo pedirte un consejo?",
+            "it": "Posso chiederti un consiglio?",
+            "nl": "Mag ik je om advies vragen?"
+          },
+          "distractors": {
+            "en": [
+              "Can I ask you for a favor?",
+              "Can I give you some advice?"
+            ],
+            "es-419": [
+              "¿Puedo pedirte un favor?",
+              "¿Puedo darte un consejo?"
+            ],
+            "it": [
+              "Posso chiederti un favore?",
+              "Posso darti un consiglio?"
+            ],
+            "nl": [
+              "Mag ik je om een gunst vragen?",
+              "Mag ik je een advies geven?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "tu devrais",
+          "translation": {
+            "en": "you should",
+            "es-419": "deberías",
+            "it": "dovresti",
+            "nl": "je zou moeten"
+          },
+          "distractors": {
+            "en": [
+              "you have to",
+              "you could"
+            ],
+            "es-419": [
+              "tienes que",
+              "podrías"
+            ],
+            "it": [
+              "devi",
+              "potresti"
+            ],
+            "nl": [
+              "je moet",
+              "je zou kunnen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu devrais dormir un peu, il est déjà tard.",
+          "translation": {
+            "en": "You should sleep a little, it's already late.",
+            "es-419": "Deberías dormir un poco, ya es tarde.",
+            "it": "Dovresti dormire un po', è già tardi.",
+            "nl": "Je zou wat moeten slapen, het is al laat."
+          },
+          "distractors": {
+            "en": [
+              "You should sleep a little, it's still early.",
+              "You should eat a little, it's already late."
+            ],
+            "es-419": [
+              "Deberías dormir un poco, todavía es temprano.",
+              "Deberías comer un poco, ya es tarde."
+            ],
+            "it": [
+              "Dovresti dormire un po', è ancora presto.",
+              "Dovresti mangiare un po', è già tardi."
+            ],
+            "nl": [
+              "Je zou wat moeten slapen, het is nog vroeg.",
+              "Je zou wat moeten eten, het is al laat."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous devriez",
+          "translation": {
+            "en": "you should",
+            "es-419": "debería",
+            "it": "dovrebbe",
+            "nl": "u zou moeten"
+          },
+          "distractors": {
+            "en": [
+              "you must",
+              "you could"
+            ],
+            "es-419": [
+              "tiene que",
+              "podría"
+            ],
+            "it": [
+              "deve",
+              "potrebbe"
+            ],
+            "nl": [
+              "u moet",
+              "u zou kunnen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Vous devriez voir un médecin, madame.",
+          "translation": {
+            "en": "You should see a doctor, ma'am.",
+            "es-419": "Debería ver a un médico, señora.",
+            "it": "Dovrebbe vedere un medico, signora.",
+            "nl": "U zou een arts moeten raadplegen, mevrouw."
+          },
+          "distractors": {
+            "en": [
+              "You should see a lawyer, ma'am.",
+              "You should see a pharmacist, ma'am."
+            ],
+            "es-419": [
+              "Debería ver a un abogado, señora.",
+              "Debería ver a un farmacéutico, señora."
+            ],
+            "it": [
+              "Dovrebbe vedere un avvocato, signora.",
+              "Dovrebbe vedere un farmacista, signora."
+            ],
+            "nl": [
+              "U zou een advocaat moeten raadplegen, mevrouw.",
+              "U zou een apotheker moeten raadplegen, mevrouw."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "À ta place, je prendrais un taxi.",
+          "translation": {
+            "en": "If I were you, I'd take a taxi.",
+            "es-419": "En tu lugar, yo tomaría un taxi.",
+            "it": "Al posto tuo, prenderei un taxi.",
+            "nl": "Als ik jou was, zou ik een taxi nemen."
+          },
+          "distractors": {
+            "en": [
+              "If I were you, I'd take the bus.",
+              "If I were you, I'd wait for a taxi."
+            ],
+            "es-419": [
+              "En tu lugar, yo tomaría el autobús.",
+              "En tu lugar, yo esperaría un taxi."
+            ],
+            "it": [
+              "Al posto tuo, prenderei l'autobus.",
+              "Al posto tuo, aspetterei un taxi."
+            ],
+            "nl": [
+              "Als ik jou was, zou ik de bus nemen.",
+              "Als ik jou was, zou ik op een taxi wachten."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "inquiéter",
+          "translation": {
+            "en": "to worry",
+            "es-419": "preocupar",
+            "it": "preoccupare",
+            "nl": "verontrusten"
+          },
+          "distractors": {
+            "en": [
+              "to forget",
+              "to leave"
+            ],
+            "es-419": [
+              "olvidar",
+              "irse"
+            ],
+            "it": [
+              "dimenticare",
+              "partire"
+            ],
+            "nl": [
+              "vergeten",
+              "vertrekken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ne t'inquiète pas",
+          "translation": {
+            "en": "don't worry",
+            "es-419": "no te preocupes",
+            "it": "non ti preoccupare",
+            "nl": "maak je geen zorgen"
+          },
+          "distractors": {
+            "en": [
+              "don't wait",
+              "don't forget"
+            ],
+            "es-419": [
+              "no esperes",
+              "no olvides"
+            ],
+            "it": [
+              "non aspettare",
+              "non dimenticare"
+            ],
+            "nl": [
+              "wacht niet",
+              "vergeet niet"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ne t'inquiète pas, ça va aller.",
+          "translation": {
+            "en": "Don't worry, it'll be fine.",
+            "es-419": "No te preocupes, todo va a salir bien.",
+            "it": "Non ti preoccupare, andrà tutto bene.",
+            "nl": "Maak je geen zorgen, het komt goed."
+          },
+          "distractors": {
+            "en": [
+              "Don't worry, it's going to rain.",
+              "Don't worry, I'm going to call."
+            ],
+            "es-419": [
+              "No te preocupes, va a llover.",
+              "No te preocupes, voy a llamar."
+            ],
+            "it": [
+              "Non ti preoccupare, pioverà.",
+              "Non ti preoccupare, chiamo io."
+            ],
+            "nl": [
+              "Maak je geen zorgen, het gaat regenen.",
+              "Maak je geen zorgen, ik ga bellen."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ne vous inquiétez pas, madame, je vais vous aider.",
+          "translation": {
+            "en": "Don't worry, ma'am, I'll help you.",
+            "es-419": "No se preocupe, señora, yo la ayudo.",
+            "it": "Non si preoccupi, signora, la aiuto io.",
+            "nl": "Maakt u zich geen zorgen, mevrouw, ik help u."
+          },
+          "distractors": {
+            "en": [
+              "Don't worry, ma'am, I'll call you.",
+              "Don't worry, ma'am, I'll wait for you."
+            ],
+            "es-419": [
+              "No se preocupe, señora, yo la llamo.",
+              "No se preocupe, señora, yo la espero."
+            ],
+            "it": [
+              "Non si preoccupi, signora, la chiamo io.",
+              "Non si preoccupi, signora, l'aspetto io."
+            ],
+            "nl": [
+              "Maakt u zich geen zorgen, mevrouw, ik bel u.",
+              "Maakt u zich geen zorgen, mevrouw, ik wacht op u."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "attention",
+          "translation": {
+            "en": "attention",
+            "es-419": "atención",
+            "it": "attenzione",
+            "nl": "aandacht"
+          },
+          "distractors": {
+            "en": [
+              "direction",
+              "reservation"
+            ],
+            "es-419": [
+              "dirección",
+              "reserva"
+            ],
+            "it": [
+              "direzione",
+              "prenotazione"
+            ],
+            "nl": [
+              "richting",
+              "reservering"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "fais attention",
+          "translation": {
+            "en": "be careful",
+            "es-419": "ten cuidado",
+            "it": "fa' attenzione",
+            "nl": "pas op"
+          },
+          "distractors": {
+            "en": [
+              "be patient",
+              "be quiet"
+            ],
+            "es-419": [
+              "ten paciencia",
+              "cállate"
+            ],
+            "it": [
+              "abbi pazienza",
+              "stai zitto"
+            ],
+            "nl": [
+              "heb geduld",
+              "wees stil"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Fais attention, tu vas tomber!",
+          "translation": {
+            "en": "Be careful, you're going to fall!",
+            "es-419": "¡Ten cuidado, te vas a caer!",
+            "it": "Fa' attenzione, cadrai!",
+            "nl": "Pas op, je gaat vallen!"
+          },
+          "distractors": {
+            "en": [
+              "Be careful, you're going to be late!",
+              "Be careful, you're going to fall asleep!"
+            ],
+            "es-419": [
+              "¡Ten cuidado, vas a llegar tarde!",
+              "¡Ten cuidado, te vas a dormir!"
+            ],
+            "it": [
+              "Fa' attenzione, farai tardi!",
+              "Fa' attenzione, ti addormenterai!"
+            ],
+            "nl": [
+              "Pas op, je gaat te laat komen!",
+              "Pas op, je gaat in slaap vallen!"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il vaut mieux partir tôt, il y a beaucoup de circulation.",
+          "translation": {
+            "en": "It's better to leave early, there's a lot of traffic.",
+            "es-419": "Es mejor salir temprano, hay mucho tráfico.",
+            "it": "Meglio partire presto, c'è molto traffico.",
+            "nl": "Het is beter om vroeg te vertrekken, er is veel verkeer."
+          },
+          "distractors": {
+            "en": [
+              "It's better to leave late, there's a lot of traffic.",
+              "It's better to leave early, there's a lot of noise."
+            ],
+            "es-419": [
+              "Es mejor salir tarde, hay mucho tráfico.",
+              "Es mejor salir temprano, hay mucho ruido."
+            ],
+            "it": [
+              "Meglio partire tardi, c'è molto traffico.",
+              "Meglio partire presto, c'è molto rumore."
+            ],
+            "nl": [
+              "Het is beter om laat te vertrekken, er is veel verkeer.",
+              "Het is beter om vroeg te vertrekken, er is veel lawaai."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci pour ton conseil, c'est une très bonne idée.",
+          "translation": {
+            "en": "Thanks for your advice, that's a very good idea.",
+            "es-419": "Gracias por tu consejo, es muy buena idea.",
+            "it": "Grazie per il tuo consiglio, è un'ottima idea.",
+            "nl": "Bedankt voor je advies, dat is een heel goed idee."
+          },
+          "distractors": {
+            "en": [
+              "Thanks for your help, that's a very good idea.",
+              "Thanks for your advice, that's a very bad idea."
+            ],
+            "es-419": [
+              "Gracias por tu ayuda, es muy buena idea.",
+              "Gracias por tu consejo, es muy mala idea."
+            ],
+            "it": [
+              "Grazie per il tuo aiuto, è un'ottima idea.",
+              "Grazie per il tuo consiglio, è una pessima idea."
+            ],
+            "nl": [
+              "Bedankt voor je hulp, dat is een heel goed idee.",
+              "Bedankt voor je advies, dat is een heel slecht idee."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-a2-politesse-6",
+      "title": "Un problème",
+      "grammarFocus": {
+        "en": [
+          "Explaining a problem politely: Il y a un problème avec..., ne... plus.",
+          "Polite requests with pouvez-vous and pourriez-vous.",
+          "Apologizing and offering to help: Je suis désolé, on va réparer ça."
+        ],
+        "es-419": [
+          "Explicar un problema con cortesía: Il y a un problème avec..., ne... plus.",
+          "Peticiones corteses con pouvez-vous y pourriez-vous.",
+          "Disculparse y ofrecer ayuda: Je suis désolé, on va réparer ça."
+        ],
+        "it": [
+          "Spiegare un problema con cortesia: Il y a un problème avec..., ne... plus.",
+          "Richieste cortesi con pouvez-vous e pourriez-vous.",
+          "Scusarsi e offrire aiuto: Je suis désolé, on va réparer ça."
+        ],
+        "nl": [
+          "Een probleem beleefd uitleggen: Il y a un problème avec..., ne... plus.",
+          "Beleefde verzoeken met pouvez-vous en pourriez-vous.",
+          "Zich verontschuldigen en hulp aanbieden: Je suis désolé, on va réparer ça."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-a2-politesse-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "problème",
+          "translation": {
+            "en": "problem",
+            "es-419": "problema",
+            "it": "problema",
+            "nl": "probleem"
+          },
+          "distractors": {
+            "en": [
+              "question",
+              "solution"
+            ],
+            "es-419": [
+              "pregunta",
+              "solución"
+            ],
+            "it": [
+              "domanda",
+              "soluzione"
+            ],
+            "nl": [
+              "vraag",
+              "oplossing"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Excusez-moi, monsieur, j'ai un problème.",
+          "translation": {
+            "en": "Excuse me, sir, I have a problem.",
+            "es-419": "Disculpe, señor, tengo un problema.",
+            "it": "Mi scusi, signore, ho un problema.",
+            "nl": "Pardon, meneer, ik heb een probleem."
+          },
+          "distractors": {
+            "en": [
+              "Excuse me, sir, I have a question.",
+              "Excuse me, sir, I have a reservation."
+            ],
+            "es-419": [
+              "Disculpe, señor, tengo una pregunta.",
+              "Disculpe, señor, tengo una reserva."
+            ],
+            "it": [
+              "Mi scusi, signore, ho una domanda.",
+              "Mi scusi, signore, ho una prenotazione."
+            ],
+            "nl": [
+              "Pardon, meneer, ik heb een vraag.",
+              "Pardon, meneer, ik heb een reservering."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il y a un problème avec",
+          "translation": {
+            "en": "there's a problem with",
+            "es-419": "hay un problema con",
+            "it": "c'è un problema con",
+            "nl": "er is een probleem met"
+          },
+          "distractors": {
+            "en": [
+              "there's a table with",
+              "there's a room with"
+            ],
+            "es-419": [
+              "hay una mesa con",
+              "hay una habitación con"
+            ],
+            "it": [
+              "c'è un tavolo con",
+              "c'è una camera con"
+            ],
+            "nl": [
+              "er is een tafel met",
+              "er is een kamer met"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a un problème avec le chauffage dans ma chambre.",
+          "translation": {
+            "en": "There's a problem with the heating in my room.",
+            "es-419": "Hay un problema con la calefacción en mi habitación.",
+            "it": "C'è un problema con il riscaldamento nella mia camera.",
+            "nl": "Er is een probleem met de verwarming in mijn kamer."
+          },
+          "distractors": {
+            "en": [
+              "There's a problem with the shower in my room.",
+              "There's a problem with the heating in the kitchen."
+            ],
+            "es-419": [
+              "Hay un problema con la ducha en mi habitación.",
+              "Hay un problema con la calefacción en la cocina."
+            ],
+            "it": [
+              "C'è un problema con la doccia nella mia camera.",
+              "C'è un problema con il riscaldamento in cucina."
+            ],
+            "nl": [
+              "Er is een probleem met de douche in mijn kamer.",
+              "Er is een probleem met de verwarming in de keuken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "réparer",
+          "translation": {
+            "en": "to repair",
+            "es-419": "reparar",
+            "it": "riparare",
+            "nl": "repareren"
+          },
+          "distractors": {
+            "en": [
+              "to change",
+              "to clean"
+            ],
+            "es-419": [
+              "cambiar",
+              "limpiar"
+            ],
+            "it": [
+              "cambiare",
+              "pulire"
+            ],
+            "nl": [
+              "veranderen",
+              "schoonmaken"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pourriez-vous réparer le chauffage aujourd'hui?",
+          "translation": {
+            "en": "Could you fix the heating today?",
+            "es-419": "¿Podría reparar la calefacción hoy?",
+            "it": "Potrebbe riparare il riscaldamento oggi?",
+            "nl": "Zou u de verwarming vandaag kunnen repareren?"
+          },
+          "distractors": {
+            "en": [
+              "Could you fix the heating tomorrow?",
+              "Could you turn off the heating today?"
+            ],
+            "es-419": [
+              "¿Podría reparar la calefacción mañana?",
+              "¿Podría apagar la calefacción hoy?"
+            ],
+            "it": [
+              "Potrebbe riparare il riscaldamento domani?",
+              "Potrebbe spegnere il riscaldamento oggi?"
+            ],
+            "nl": [
+              "Zou u de verwarming morgen kunnen repareren?",
+              "Zou u de verwarming vandaag kunnen uitzetten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La télévision ne marche plus depuis hier.",
+          "translation": {
+            "en": "The TV hasn't worked since yesterday.",
+            "es-419": "El televisor ya no funciona desde ayer.",
+            "it": "La televisione non funziona più da ieri.",
+            "nl": "De televisie werkt sinds gisteren niet meer."
+          },
+          "distractors": {
+            "en": [
+              "The computer hasn't worked since yesterday.",
+              "The TV hasn't worked since Monday."
+            ],
+            "es-419": [
+              "La computadora ya no funciona desde ayer.",
+              "El televisor ya no funciona desde el lunes."
+            ],
+            "it": [
+              "Il computer non funziona più da ieri.",
+              "La televisione non funziona più da lunedì."
+            ],
+            "nl": [
+              "De computer werkt sinds gisteren niet meer.",
+              "De televisie werkt sinds maandag niet meer."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "plainte",
+          "translation": {
+            "en": "complaint",
+            "es-419": "queja",
+            "it": "reclamo",
+            "nl": "klacht"
+          },
+          "distractors": {
+            "en": [
+              "compliment",
+              "question"
+            ],
+            "es-419": [
+              "elogio",
+              "pregunta"
+            ],
+            "it": [
+              "complimento",
+              "domanda"
+            ],
+            "nl": [
+              "compliment",
+              "vraag"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a eu une plainte des voisins hier soir.",
+          "translation": {
+            "en": "There was a complaint from the neighbors last night.",
+            "es-419": "Hubo una queja de los vecinos anoche.",
+            "it": "C'è stato un reclamo dei vicini ieri sera.",
+            "nl": "Er was gisteravond een klacht van de buren."
+          },
+          "distractors": {
+            "en": [
+              "There was a complaint from the neighbors last week.",
+              "There was a party at the neighbors' last night."
+            ],
+            "es-419": [
+              "Hubo una queja de los vecinos la semana pasada.",
+              "Hubo una fiesta en casa de los vecinos anoche."
+            ],
+            "it": [
+              "C'è stato un reclamo dei vicini la settimana scorsa.",
+              "C'è stata una festa dai vicini ieri sera."
+            ],
+            "nl": [
+              "Er was vorige week een klacht van de buren.",
+              "Er was gisteravond een feest bij de buren."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "rembourser",
+          "translation": {
+            "en": "to refund",
+            "es-419": "reembolsar",
+            "it": "rimborsare",
+            "nl": "terugbetalen"
+          },
+          "distractors": {
+            "en": [
+              "to pay",
+              "to send"
+            ],
+            "es-419": [
+              "pagar",
+              "enviar"
+            ],
+            "it": [
+              "pagare",
+              "mandare"
+            ],
+            "nl": [
+              "betalen",
+              "sturen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "vous pouvez me rembourser",
+          "translation": {
+            "en": "can you refund me",
+            "es-419": "puede reembolsarme",
+            "it": "può rimborsarmi",
+            "nl": "kunt u me terugbetalen"
+          },
+          "distractors": {
+            "en": [
+              "can you call me",
+              "can you pay me"
+            ],
+            "es-419": [
+              "puede llamarme",
+              "puede pagarme"
+            ],
+            "it": [
+              "può chiamarmi",
+              "può pagarmi"
+            ],
+            "nl": [
+              "kunt u me bellen",
+              "kunt u me betalen"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le train est très en retard, pouvez-vous me rembourser mon billet?",
+          "translation": {
+            "en": "The train is very late, can you refund my ticket?",
+            "es-419": "El tren llega muy tarde, ¿puede reembolsarme mi boleto?",
+            "it": "Il treno è molto in ritardo, può rimborsarmi il biglietto?",
+            "nl": "De trein heeft veel vertraging, kunt u mijn kaartje terugbetalen?"
+          },
+          "distractors": {
+            "en": [
+              "The train is very late, can you change my ticket?",
+              "The train is very early, can you refund my ticket?"
+            ],
+            "es-419": [
+              "El tren llega muy tarde, ¿puede cambiar mi boleto?",
+              "El tren llega muy temprano, ¿puede reembolsarme mi boleto?"
+            ],
+            "it": [
+              "Il treno è molto in ritardo, può cambiarmi il biglietto?",
+              "Il treno è molto in anticipo, può rimborsarmi il biglietto?"
+            ],
+            "nl": [
+              "De trein heeft veel vertraging, kunt u mijn kaartje omruilen?",
+              "De trein is veel te vroeg, kunt u mijn kaartje terugbetalen?"
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis désolé, monsieur, on va réparer ça tout de suite.",
+          "translation": {
+            "en": "I'm sorry, sir, we'll fix that right away.",
+            "es-419": "Lo siento, señor, lo arreglamos enseguida.",
+            "it": "Mi dispiace, signore, lo ripariamo subito.",
+            "nl": "Het spijt me, meneer, we repareren dat meteen."
+          },
+          "distractors": {
+            "en": [
+              "I'm sorry, sir, we'll fix that tomorrow.",
+              "I'm sorry, sir, we can't fix that."
+            ],
+            "es-419": [
+              "Lo siento, señor, lo arreglamos mañana.",
+              "Lo siento, señor, no podemos arreglarlo."
+            ],
+            "it": [
+              "Mi dispiace, signore, lo ripariamo domani.",
+              "Mi dispiace, signore, non possiamo ripararlo."
+            ],
+            "nl": [
+              "Het spijt me, meneer, we repareren dat morgen.",
+              "Het spijt me, meneer, we kunnen dat niet repareren."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-a2-politesse-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il n'y a plus d'eau chaude dans la douche.",
+          "translation": {
+            "en": "There's no more hot water in the shower.",
+            "es-419": "Ya no hay agua caliente en la ducha.",
+            "it": "Non c'è più acqua calda nella doccia.",
+            "nl": "Er is geen warm water meer in de douche."
+          },
+          "distractors": {
+            "en": [
+              "There's no more hot water in the kitchen.",
+              "There's still hot water in the shower."
+            ],
+            "es-419": [
+              "Ya no hay agua caliente en la cocina.",
+              "Todavía hay agua caliente en la ducha."
+            ],
+            "it": [
+              "Non c'è più acqua calda in cucina.",
+              "C'è ancora acqua calda nella doccia."
+            ],
+            "nl": [
+              "Er is geen warm water meer in de keuken.",
+              "Er is nog steeds warm water in de douche."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je voudrais parler au chef, s'il vous plaît.",
+          "translation": {
+            "en": "I'd like to speak to the manager, please.",
+            "es-419": "Quisiera hablar con el gerente, por favor.",
+            "it": "Vorrei parlare con il responsabile, per favore.",
+            "nl": "Ik wil graag met de manager spreken."
+          },
+          "distractors": {
+            "en": [
+              "I'd like to speak to the doctor, please.",
+              "I'd like to speak to the owner, please."
+            ],
+            "es-419": [
+              "Quisiera hablar con el médico, por favor.",
+              "Quisiera hablar con el propietario, por favor."
+            ],
+            "it": [
+              "Vorrei parlare con il medico, per favore.",
+              "Vorrei parlare con il proprietario, per favore."
+            ],
+            "nl": [
+              "Ik wil graag met de dokter spreken.",
+              "Ik wil graag met de eigenaar spreken."
+            ]
+          }
+        },
+        {
+          "id": "fr-a2-politesse-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Merci pour votre aide, je n'ai plus de problème.",
+          "translation": {
+            "en": "Thank you for your help, I have no more problems.",
+            "es-419": "Gracias por su ayuda, ya no tengo problemas.",
+            "it": "Grazie per il Suo aiuto, non ho più problemi.",
+            "nl": "Bedankt voor uw hulp, ik heb geen problemen meer."
+          },
+          "distractors": {
+            "en": [
+              "Thank you for your help, I have a new problem.",
+              "Thank you for your advice, I have no more problems."
+            ],
+            "es-419": [
+              "Gracias por su ayuda, tengo un problema nuevo.",
+              "Gracias por su consejo, ya no tengo problemas."
+            ],
+            "it": [
+              "Grazie per il Suo aiuto, ho un problema nuovo.",
+              "Grazie per il Suo consiglio, non ho più problemi."
+            ],
+            "nl": [
+              "Bedankt voor uw hulp, ik heb een nieuw probleem.",
+              "Bedankt voor uw advies, ik heb geen problemen meer."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4060 @@
+{
+  "id": "fr-b1-emploi",
+  "language": "fr",
+  "level": "B1",
+  "order": 24,
+  "title": "Je cherche un emploi",
+  "description": {
+    "en": "Look for a job, talk about your CV and get through an interview.",
+    "es-419": "Busca empleo, habla de tu currículum y sal airoso de una entrevista.",
+    "it": "Cerca lavoro, parla del tuo curriculum e affronta un colloquio.",
+    "nl": "Zoek een baan, praat over je cv en kom door een sollicitatiegesprek."
+  },
+  "track": "main",
+  "requires": [
+    "fr-b1-services"
+  ],
+  "introduces": [
+    "emploi",
+    "offre",
+    "candidature",
+    "entretien",
+    "expérience",
+    "compétence",
+    "formation",
+    "stage",
+    "embaucher",
+    "contrat",
+    "salaire",
+    "gagner",
+    "chômage",
+    "secteur",
+    "employé",
+    "licencier",
+    "démissionner",
+    "promotion",
+    "ambition",
+    "flexible",
+    "défi",
+    "faible",
+    "responsable",
+    "équipe",
+    "lettre",
+    "arrêter",
+    "recommencer",
+    "point"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "has (avoir); il a trouvé = he found",
+        "es-419": "tiene, ha (avoir); il a trouvé = él encontró",
+        "it": "ha (avoir); il a trouvé = lui ha trovato",
+        "nl": "heeft (avoir); il a trouvé = hij heeft gevonden"
+      }
+    },
+    "accord": {
+      "lemma": "accord",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "agreement (m)",
+        "es-419": "acuerdo (m)",
+        "it": "accordo (m)",
+        "nl": "akkoord (m)"
+      }
+    },
+    "appris": {
+      "lemma": "apprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "learned (apprendre); j'ai appris = I learned",
+        "es-419": "aprendí, aprendido (apprendre); j'ai appris = aprendí",
+        "it": "imparato (apprendre); j'ai appris = ho imparato",
+        "nl": "geleerd (apprendre); j'ai appris = ik heb geleerd"
+      }
+    },
+    "arrives": {
+      "lemma": "arriver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "arrive (arriver); tu arrives = you arrive",
+        "es-419": "llegas (arriver); tu arrives",
+        "it": "arrivi (arriver); tu arrives",
+        "nl": "kom aan (arriver); tu arrives = je komt aan"
+      }
+    },
+    "arrêté": {
+      "lemma": "arrêter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "stopped (arrêter); j'ai arrêté de = I stopped",
+        "es-419": "dejado de (arrêter); j'ai arrêté de = dejé de",
+        "it": "smesso (arrêter); j'ai arrêté de = ho smesso di",
+        "nl": "gestopt (arrêter); j'ai arrêté de = ik ben gestopt met"
+      }
+    },
+    "attendant": {
+      "lemma": "attendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "waiting (attendre); en attendant = while waiting",
+        "es-419": "esperando (attendre); en attendant = mientras espera",
+        "it": "aspettando (attendre); en attendant = nell'attesa",
+        "nl": "wachtend (attendre); en attendant = terwijl je wacht"
+      }
+    },
+    "avons": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "have (avoir: nous avons); nous avons décidé = we decided",
+        "es-419": "tenemos, hemos (avoir: nous avons); nous avons décidé = decidimos",
+        "it": "abbiamo (avoir: nous avons); nous avons décidé = abbiamo deciso",
+        "nl": "hebben (avoir: nous avons); nous avons décidé = we hebben besloten"
+      }
+    },
+    "candidature": {
+      "lemma": "candidature",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "application (f)",
+        "es-419": "candidatura, solicitud (f)",
+        "it": "candidatura (f)",
+        "nl": "sollicitatie (f)"
+      }
+    },
+    "chante": {
+      "lemma": "chanter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sings (chanter)",
+        "es-419": "canta (chanter)",
+        "it": "canta (chanter)",
+        "nl": "zingt (chanter)"
+      }
+    },
+    "chercher": {
+      "lemma": "chercher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to look for",
+        "es-419": "buscar",
+        "it": "cercare",
+        "nl": "zoeken"
+      }
+    },
+    "cherches": {
+      "lemma": "chercher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "look for (chercher); tu cherches = you look for",
+        "es-419": "buscas (chercher); tu cherches",
+        "it": "cerchi (chercher); tu cherches",
+        "nl": "zoek (chercher); tu cherches = je zoekt"
+      }
+    },
+    "chômage": {
+      "lemma": "chômage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "unemployment (m); au chômage = unemployed",
+        "es-419": "desempleo (m); au chômage = sin empleo",
+        "it": "disoccupazione (m); au chômage = senza lavoro",
+        "nl": "werkloosheid (m); au chômage = werkloos"
+      }
+    },
+    "compétence": {
+      "lemma": "compétence",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "skill (f)",
+        "es-419": "habilidad, competencia (f)",
+        "it": "competenza (f)",
+        "nl": "vaardigheid (f)"
+      }
+    },
+    "compétences": {
+      "lemma": "compétence",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "skills (plural of compétence, f)",
+        "es-419": "habilidades (plural de compétence, f)",
+        "it": "competenze (plurale di compétence, f)",
+        "nl": "vaardigheden (meervoud van compétence, f)"
+      }
+    },
+    "continue": {
+      "lemma": "continuer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "keep going (continuer); je continue à = I keep",
+        "es-419": "sigo (continuer); je continue à = sigo",
+        "it": "continuo (continuer); je continue à = continuo a",
+        "nl": "ga door (continuer); je continue à = ik blijf"
+      }
+    },
+    "contrat": {
+      "lemma": "contrat",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "contract (m)",
+        "es-419": "contrato (m)",
+        "it": "contratto (m)",
+        "nl": "contract (m)"
+      }
+    },
+    "courte": {
+      "lemma": "court",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "short (courte = feminine)",
+        "es-419": "corta (courte = femenino)",
+        "it": "breve (courte = femminile)",
+        "nl": "kort (courte = vrouwelijk)"
+      }
+    },
+    "cuisine": {
+      "lemma": "cuisine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cooking, kitchen (f); faire la cuisine = to cook",
+        "es-419": "cocina (f); faire la cuisine = cocinar",
+        "it": "cucina (f); faire la cuisine = cucinare",
+        "nl": "keuken, koken (f); faire la cuisine = koken"
+      }
+    },
+    "d'ambition": {
+      "lemma": "ambition",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of ambition (d' = de; ambition, f)",
+        "es-419": "de ambición (d' = de; ambition, f)",
+        "it": "di ambizione (d' = de; ambition, f)",
+        "nl": "van ambitie (d' = de; ambition, f)"
+      }
+    },
+    "d'emploi": {
+      "lemma": "emploi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of employment (d' = de; emploi, m)",
+        "es-419": "de empleo (d' = de; emploi, m)",
+        "it": "di lavoro (d' = de; emploi, m)",
+        "nl": "van werk (d' = de; emploi, m)"
+      }
+    },
+    "d'envoyer": {
+      "lemma": "envoyer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to send (d' = de; venir d'envoyer = to have just sent)",
+        "es-419": "enviar (d' = de; venir d'envoyer = acabar de enviar)",
+        "it": "mandare (d' = de; venir d'envoyer = aver appena mandato)",
+        "nl": "sturen (d' = de; venir d'envoyer = net gestuurd hebben)"
+      }
+    },
+    "d'expérience": {
+      "lemma": "expérience",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of experience (d' = de; expérience, f)",
+        "es-419": "de experiencia (d' = de; expérience, f)",
+        "it": "di esperienza (d' = de; expérience, f)",
+        "nl": "van ervaring (d' = de; expérience, f)"
+      }
+    },
+    "demander": {
+      "lemma": "demander",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to ask",
+        "es-419": "preguntar, pedir",
+        "it": "chiedere",
+        "nl": "vragen"
+      }
+    },
+    "donnant": {
+      "lemma": "donner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "giving (donner); en donnant = by giving",
+        "es-419": "dando (donner); en donnant = dando",
+        "it": "dando (donner); en donnant = dando",
+        "nl": "gevend (donner); en donnant = door te geven"
+      }
+    },
+    "décidé": {
+      "lemma": "décider",
+      "pos": "VERB",
+      "gloss": {
+        "en": "decided (décider); nous avons décidé de = we decided to",
+        "es-419": "decidido (décider); nous avons décidé de = decidimos",
+        "it": "deciso (décider); nous avons décidé de = abbiamo deciso di",
+        "nl": "besloten (décider); nous avons décidé de = we hebben besloten om"
+      }
+    },
+    "défi": {
+      "lemma": "défi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "challenge (m)",
+        "es-419": "desafío, reto (m)",
+        "it": "sfida (m)",
+        "nl": "uitdaging (m)"
+      }
+    },
+    "déjà": {
+      "lemma": "déjà",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already",
+        "es-419": "ya",
+        "it": "già",
+        "nl": "al, reeds"
+      }
+    },
+    "démissionner": {
+      "lemma": "démissionner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to resign, to quit",
+        "es-419": "renunciar",
+        "it": "dimettersi",
+        "nl": "ontslag nemen"
+      }
+    },
+    "embaucher": {
+      "lemma": "embaucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hire",
+        "es-419": "contratar",
+        "it": "assumere",
+        "nl": "aannemen"
+      }
+    },
+    "emploi": {
+      "lemma": "emploi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "job, employment (m)",
+        "es-419": "empleo (m)",
+        "it": "impiego, lavoro (m)",
+        "nl": "baan, werk (m)"
+      }
+    },
+    "employé": {
+      "lemma": "employé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "employee (m)",
+        "es-419": "empleado (m)",
+        "it": "impiegato, dipendente (m)",
+        "nl": "werknemer (m)"
+      }
+    },
+    "employés": {
+      "lemma": "employé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "employees (plural of employé, m)",
+        "es-419": "empleados (plural de employé, m)",
+        "it": "impiegati, dipendenti (plurale di employé, m)",
+        "nl": "werknemers (meervoud van employé, m)"
+      }
+    },
+    "entretien": {
+      "lemma": "entretien",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "interview (m)",
+        "es-419": "entrevista (m)",
+        "it": "colloquio (m)",
+        "nl": "sollicitatiegesprek (m)"
+      }
+    },
+    "expérience": {
+      "lemma": "expérience",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "experience (f)",
+        "es-419": "experiencia (f)",
+        "it": "esperienza (f)",
+        "nl": "ervaring (f)"
+      }
+    },
+    "faible": {
+      "lemma": "faible",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "weak, low",
+        "es-419": "débil, bajo",
+        "it": "debole, basso",
+        "nl": "zwak, laag"
+      }
+    },
+    "faisant": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "doing, making (faire); en faisant la cuisine = while cooking",
+        "es-419": "haciendo (faire); en faisant la cuisine = mientras cocina",
+        "it": "facendo (faire); en faisant la cuisine = mentre cucina",
+        "nl": "doend (faire); en faisant la cuisine = terwijl ze kookt"
+      }
+    },
+    "fini": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finished (finir); j'ai fini par = I ended up",
+        "es-419": "terminado (finir); j'ai fini par = terminé",
+        "it": "finito (finir); j'ai fini par = alla fine ho",
+        "nl": "afgerond (finir); j'ai fini par = uiteindelijk heb ik"
+      }
+    },
+    "flexible": {
+      "lemma": "flexible",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "flexible",
+        "es-419": "flexible",
+        "it": "flessibile",
+        "nl": "flexibel"
+      }
+    },
+    "formation": {
+      "lemma": "formation",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "training, education (f)",
+        "es-419": "formación (f)",
+        "it": "formazione (f)",
+        "nl": "opleiding (f)"
+      }
+    },
+    "gagne": {
+      "lemma": "gagner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "earn, win (gagner); je gagne = I earn",
+        "es-419": "gano (gagner); je gagne",
+        "it": "guadagno, vince (gagner); je gagne = guadagno",
+        "nl": "verdien (gagner); je gagne = ik verdien"
+      }
+    },
+    "gagner": {
+      "lemma": "gagner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to earn, to win",
+        "es-419": "ganar",
+        "it": "guadagnare, vincere",
+        "nl": "verdienen, winnen"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'ai = je + ai: I have; j'ai trouvé = I found",
+        "es-419": "j'ai = je + ai: tengo, he; j'ai trouvé = encontré",
+        "it": "j'ai = je + ai: ho; j'ai trouvé = ho trovato",
+        "nl": "j'ai = je + ai: ik heb; j'ai trouvé = ik heb gevonden"
+      }
+    },
+    "j'arrive": {
+      "lemma": "arriver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I arrive (arriver)",
+        "es-419": "llego (arriver)",
+        "it": "arrivo (arriver)",
+        "nl": "ik kom aan (arriver)"
+      }
+    },
+    "j'envoie": {
+      "lemma": "envoyer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "I send (envoyer)",
+        "es-419": "envío (envoyer)",
+        "it": "mando (envoyer)",
+        "nl": "ik stuur (envoyer)"
+      }
+    },
+    "l'argent": {
+      "lemma": "argent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the money (argent, m)",
+        "es-419": "el dinero (argent, m)",
+        "it": "i soldi (argent, m)",
+        "nl": "het geld (argent, m)"
+      }
+    },
+    "l'entreprise": {
+      "lemma": "entreprise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the company (entreprise, f)",
+        "es-419": "la empresa (entreprise, f)",
+        "it": "l'azienda (entreprise, f)",
+        "nl": "het bedrijf (entreprise, f)"
+      }
+    },
+    "l'entretien": {
+      "lemma": "entretien",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the interview (entretien, m)",
+        "es-419": "la entrevista (entretien, m)",
+        "it": "il colloquio (entretien, m)",
+        "nl": "het sollicitatiegesprek (entretien, m)"
+      }
+    },
+    "l'équipe": {
+      "lemma": "équipe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the team (équipe, f)",
+        "es-419": "el equipo (équipe, f)",
+        "it": "la squadra (équipe, f)",
+        "nl": "het team (équipe, f)"
+      }
+    },
+    "lettre": {
+      "lemma": "lettre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "letter (f)",
+        "es-419": "carta (f)",
+        "it": "lettera (f)",
+        "nl": "brief (f)"
+      }
+    },
+    "licencier": {
+      "lemma": "licencier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to lay off, to fire",
+        "es-419": "despedir",
+        "it": "licenziare",
+        "nl": "ontslaan"
+      }
+    },
+    "lisant": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "reading (lire); en lisant = by reading",
+        "es-419": "leyendo (lire); en lisant = leyendo",
+        "it": "leggendo (lire); en lisant = leggendo",
+        "nl": "lezend (lire); en lisant = door te lezen"
+      }
+    },
+    "londres": {
+      "lemma": "Londres",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "London",
+        "es-419": "Londres",
+        "it": "Londra",
+        "nl": "Londen"
+      }
+    },
+    "m'attend": {
+      "lemma": "attendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "waits for me (attendre; m' = me)",
+        "es-419": "me espera (attendre; m' = me)",
+        "it": "mi aspetta (attendre; m' = me)",
+        "nl": "wacht op me (attendre; m' = me)"
+      }
+    },
+    "m'embaucher": {
+      "lemma": "embaucher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to hire me (embaucher; m' = me)",
+        "es-419": "contratarme (embaucher; m' = me)",
+        "it": "assumermi (embaucher; m' = me)",
+        "nl": "mij aannemen (embaucher; m' = me)"
+      }
+    },
+    "m'expliquer": {
+      "lemma": "expliquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to explain to me (expliquer; m' = me)",
+        "es-419": "explicarme (expliquer; m' = me)",
+        "it": "spiegarmi (expliquer; m' = me)",
+        "nl": "aan mij uitleggen (expliquer; m' = me)"
+      }
+    },
+    "m'écoute": {
+      "lemma": "écouter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "listens to me (écouter; m' = me)",
+        "es-419": "me escucha (écouter; m' = me)",
+        "it": "mi ascolta (écouter; m' = me)",
+        "nl": "luistert naar me (écouter; m' = me)"
+      }
+    },
+    "martin": {
+      "lemma": "martin",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Martin (family name)",
+        "es-419": "Martin (apellido)",
+        "it": "Martin (cognome)",
+        "nl": "Martin (achternaam)"
+      }
+    },
+    "matins": {
+      "lemma": "matin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mornings (plural of matin, m); tous les matins = every morning",
+        "es-419": "mañanas (plural de matin, m); tous les matins = todas las mañanas",
+        "it": "mattine (plurale di matin, m); tous les matins = ogni mattina",
+        "nl": "ochtenden (meervoud van matin, m); tous les matins = elke ochtend"
+      }
+    },
+    "n'arrête": {
+      "lemma": "arrêter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "doesn't stop (arrêter; n'arrête pas de = keeps on)",
+        "es-419": "no deja (arrêter; n'arrête pas de = no deja de)",
+        "it": "non smette (arrêter; n'arrête pas de = non smette di)",
+        "nl": "stopt niet (arrêter; n'arrête pas de = blijft)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: the first half of the negation ne ... pas; it goes before the verb",
+        "es-419": "ne: la primera parte de la negación ne ... pas; va antes del verbo",
+        "it": "ne: la prima metà della negazione ne ... pas; va prima del verbo",
+        "nl": "ne: eerste deel van de ontkenning ne ... pas; staat voor het werkwoord"
+      }
+    },
+    "nouveaux": {
+      "lemma": "nouveau",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new (nouveaux = plural)",
+        "es-419": "nuevos (nouveaux = plural)",
+        "it": "nuovi (nouveaux = plurale)",
+        "nl": "nieuwe (nouveaux = meervoud)"
+      }
+    },
+    "offre": {
+      "lemma": "offre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "offer, opening (f)",
+        "es-419": "oferta (f)",
+        "it": "offerta (f)",
+        "nl": "vacature, aanbod (f)"
+      }
+    },
+    "offres": {
+      "lemma": "offre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "offers, openings (plural of offre, f)",
+        "es-419": "ofertas (plural de offre, f)",
+        "it": "offerte (plurale di offre, f)",
+        "nl": "vacatures (meervoud van offre, f)"
+      }
+    },
+    "parlant": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "speaking (parler); en parlant = by talking",
+        "es-419": "hablando (parler); en parlant = hablando",
+        "it": "parlando (parler); en parlant = parlando",
+        "nl": "pratend (parler); en parlant = door te praten"
+      }
+    },
+    "point": {
+      "lemma": "point",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "point (m); être sur le point de = to be about to",
+        "es-419": "punto (m); être sur le point de = estar a punto de",
+        "it": "punto (m); être sur le point de = stare per",
+        "nl": "punt (m); être sur le point de = op het punt staan om"
+      }
+    },
+    "poste#job": {
+      "lemma": "poste",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "job, position (m)",
+        "es-419": "puesto (m)",
+        "it": "posto, impiego (m)",
+        "nl": "functie (m)"
+      }
+    },
+    "pourriez-vous": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could you (pouvoir, polite)",
+        "es-419": "podría usted (pouvoir, cortés)",
+        "it": "potrebbe (pouvoir, formale)",
+        "nl": "kunt u (pouvoir, beleefd)"
+      }
+    },
+    "première": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (première = feminine)",
+        "es-419": "primera (première = femenino)",
+        "it": "prima (première = femminile)",
+        "nl": "eerste (première = vrouwelijk)"
+      }
+    },
+    "prenant": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "taking (prendre); en prenant = by taking",
+        "es-419": "tomando (prendre); en prenant = tomando",
+        "it": "prendendo (prendre); en prenant = prendendo",
+        "nl": "nemend (prendre); en prenant = door te nemen"
+      }
+    },
+    "promotion": {
+      "lemma": "promotion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "promotion (f)",
+        "es-419": "ascenso (f)",
+        "it": "promozione (f)",
+        "nl": "promotie (f)"
+      }
+    },
+    "présenter": {
+      "lemma": "présenter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to introduce",
+        "es-419": "presentar",
+        "it": "presentare",
+        "nl": "voorstellen"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "that, what (qu'est-ce que = what)",
+        "es-419": "que, qué (qu'est-ce que = qué)",
+        "it": "che, cosa (qu'est-ce que = che cosa)",
+        "nl": "dat, wat (qu'est-ce que = wat)"
+      }
+    },
+    "raconte": {
+      "lemma": "raconter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "tell, recount (raconter); je raconte = I tell",
+        "es-419": "cuento (raconter); je raconte",
+        "it": "racconto (raconter); je raconte",
+        "nl": "vertel (raconter); je raconte = ik vertel"
+      }
+    },
+    "recommencé": {
+      "lemma": "recommencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "started again (recommencer); il a recommencé à = he started again",
+        "es-419": "vuelto a empezar (recommencer); il a recommencé à = volvió a",
+        "it": "ricominciato (recommencer); il a recommencé à = ha ricominciato a",
+        "nl": "opnieuw begonnen (recommencer); il a recommencé à = hij is opnieuw gaan"
+      }
+    },
+    "rentrant": {
+      "lemma": "rentrer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "going home (rentrer); en rentrant = on the way home",
+        "es-419": "volviendo a casa (rentrer); en rentrant = al volver a casa",
+        "it": "tornando a casa (rentrer); en rentrant = tornando a casa",
+        "nl": "naar huis gaand (rentrer); en rentrant = op weg naar huis"
+      }
+    },
+    "responsable": {
+      "lemma": "responsable",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "manager, person in charge (m or f)",
+        "es-419": "encargado, responsable (m o f)",
+        "it": "responsabile (m o f)",
+        "nl": "leidinggevende, verantwoordelijke (m of f)"
+      }
+    },
+    "restant": {
+      "lemma": "rester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "staying (rester); en restant = by staying",
+        "es-419": "quedándose (rester); en restant = siendo",
+        "it": "restando (rester); en restant = restando",
+        "nl": "blijvend (rester); en restant = door te blijven"
+      }
+    },
+    "répondre": {
+      "lemma": "répondre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to answer",
+        "es-419": "responder, contestar",
+        "it": "rispondere",
+        "nl": "antwoorden, opnemen"
+      }
+    },
+    "salaire": {
+      "lemma": "salaire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "salary, pay (m)",
+        "es-419": "sueldo, salario (m)",
+        "it": "stipendio (m)",
+        "nl": "salaris, loon (m)"
+      }
+    },
+    "secteur": {
+      "lemma": "secteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sector, field (m)",
+        "es-419": "sector (m)",
+        "it": "settore (m)",
+        "nl": "sector, branche (m)"
+      }
+    },
+    "semaines": {
+      "lemma": "semaine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weeks (plural of semaine, f)",
+        "es-419": "semanas (plural de semaine, f)",
+        "it": "settimane (plurale di semaine, f)",
+        "nl": "weken (meervoud van semaine, f)"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if, whether",
+        "es-419": "si",
+        "it": "se",
+        "nl": "of, als"
+      }
+    },
+    "sortant": {
+      "lemma": "sortir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "leaving (sortir); en sortant = when leaving",
+        "es-419": "saliendo (sortir); en sortant = al salir",
+        "it": "uscendo (sortir); en sortant = uscendo",
+        "nl": "weggaand (sortir); en sortant = bij het weggaan"
+      }
+    },
+    "stage": {
+      "lemma": "stage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "internship (m)",
+        "es-419": "pasantía, práctica (m)",
+        "it": "tirocinio, stage (m)",
+        "nl": "stage (m)"
+      }
+    },
+    "terminer": {
+      "lemma": "terminer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to finish",
+        "es-419": "terminar",
+        "it": "finire",
+        "nl": "afronden, beëindigen"
+      }
+    },
+    "tous": {
+      "lemma": "tout",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, every (tous les matins = every morning)",
+        "es-419": "todos (tous les matins = todas las mañanas)",
+        "it": "tutti (tous les matins = ogni mattina)",
+        "nl": "alle (tous les matins = elke ochtend)"
+      }
+    },
+    "travaillant": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "working (travailler); en travaillant = by working",
+        "es-419": "trabajando (travailler); en travaillant = trabajando",
+        "it": "lavorando (travailler); en travaillant = lavorando",
+        "nl": "werkend (travailler); en travaillant = door te werken"
+      }
+    },
+    "travaillez-vous": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "do you work (travailler, polite)",
+        "es-419": "trabaja usted (travailler, cortés)",
+        "it": "lavora (travailler, formale)",
+        "nl": "werkt u (travailler, beleefd)"
+      }
+    },
+    "trouver": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to find",
+        "es-419": "encontrar",
+        "it": "trovare",
+        "nl": "vinden"
+      }
+    },
+    "trouvé": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "found (trouver); j'ai trouvé = I found",
+        "es-419": "encontrado (trouver); j'ai trouvé = encontré",
+        "it": "trovato (trouver); j'ai trouvé = ho trovato",
+        "nl": "gevonden (trouver); j'ai trouvé = ik heb gevonden"
+      }
+    },
+    "téléphoné": {
+      "lemma": "téléphoner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "phoned (téléphoner); j'ai téléphoné à = I called",
+        "es-419": "llamado (téléphoner); j'ai téléphoné à = llamé a",
+        "it": "telefonato (téléphoner); j'ai téléphoné à = ho telefonato a",
+        "nl": "gebeld (téléphoner); j'ai téléphoné à = ik heb gebeld"
+      }
+    },
+    "utiliser": {
+      "lemma": "utiliser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to use",
+        "es-419": "usar",
+        "it": "usare",
+        "nl": "gebruiken"
+      }
+    },
+    "équipe": {
+      "lemma": "équipe",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "team (f)",
+        "es-419": "equipo (f)",
+        "it": "squadra (f)",
+        "nl": "team (f)"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'ai = ne + ai: I have not",
+        "es-419": "n'ai = ne + ai: no he, no tengo",
+        "it": "n'ai = ne + ai: non ho",
+        "nl": "n'ai = ne + ai: ik heb niet"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-b1-emploi-1",
+      "title": "Ça fait des mois que je cherche",
+      "grammarFocus": {
+        "en": [
+          "depuis + present: Je suis au chômage depuis six mois = I've been unemployed for six months (French uses the present)",
+          "ça fait ... que + present: Ça fait trois mois que je cherche = I've been looking for three months",
+          "continuer à + infinitive: Je continue à chercher = I keep looking"
+        ],
+        "es-419": [
+          "depuis + presente: Je suis au chômage depuis six mois = llevo seis meses sin empleo",
+          "ça fait ... que + presente: Ça fait trois mois que je cherche = llevo tres meses buscando",
+          "continuer à + infinitivo: Je continue à chercher = sigo buscando"
+        ],
+        "it": [
+          "depuis + presente: Je suis au chômage depuis six mois = sono senza lavoro da sei mesi",
+          "ça fait ... que + presente: Ça fait trois mois que je cherche = cerco da tre mesi",
+          "continuer à + infinito: Je continue à chercher = continuo a cercare"
+        ],
+        "nl": [
+          "depuis + tegenwoordige tijd: Je suis au chômage depuis six mois = ik ben al zes maanden werkloos",
+          "ça fait ... que + tegenwoordige tijd: Ça fait trois mois que je cherche = ik zoek al drie maanden",
+          "continuer à + infinitief: Je continue à chercher = ik blijf zoeken"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "chômage",
+          "translation": {
+            "en": "unemployment",
+            "es-419": "desempleo",
+            "it": "disoccupazione",
+            "nl": "werkloosheid"
+          },
+          "distractors": {
+            "en": [
+              "retirement",
+              "vacation"
+            ],
+            "es-419": [
+              "jubilación",
+              "vacaciones"
+            ],
+            "it": [
+              "pensione",
+              "ferie"
+            ],
+            "nl": [
+              "pensioen",
+              "vakantie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis au chômage",
+          "translation": {
+            "en": "I'm unemployed",
+            "es-419": "estoy sin empleo",
+            "it": "sono senza lavoro",
+            "nl": "ik ben werkloos"
+          },
+          "distractors": {
+            "en": [
+              "I'm retired",
+              "I'm on vacation"
+            ],
+            "es-419": [
+              "ya me jubilé",
+              "estoy de vacaciones"
+            ],
+            "it": [
+              "sono in pensione",
+              "sono in ferie"
+            ],
+            "nl": [
+              "ik ben met pensioen",
+              "ik ben op vakantie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis au chômage depuis six mois.",
+          "translation": {
+            "en": "I've been unemployed for six months.",
+            "es-419": "Llevo seis meses sin empleo.",
+            "it": "Sono senza lavoro da sei mesi.",
+            "nl": "Ik ben al zes maanden werkloos."
+          },
+          "distractors": {
+            "en": [
+              "I've been unemployed for six weeks.",
+              "I've been on vacation for six months."
+            ],
+            "es-419": [
+              "Llevo seis semanas sin empleo.",
+              "Llevo seis meses de vacaciones."
+            ],
+            "it": [
+              "Sono senza lavoro da sei settimane.",
+              "Sono in ferie da sei mesi."
+            ],
+            "nl": [
+              "Ik ben al zes weken werkloos.",
+              "Ik ben al zes maanden op vakantie."
+            ]
+          },
+          "variants": [
+            "Je suis au chômage depuis 6 mois."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "emploi",
+          "translation": {
+            "en": "job, employment",
+            "es-419": "empleo",
+            "it": "impiego, lavoro",
+            "nl": "baan, werk"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "contract"
+            ],
+            "es-419": [
+              "sueldo",
+              "contrato"
+            ],
+            "it": [
+              "stipendio",
+              "contratto"
+            ],
+            "nl": [
+              "salaris",
+              "contract"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une offre d'emploi",
+          "translation": {
+            "en": "a job offer",
+            "es-419": "una oferta de empleo",
+            "it": "un'offerta di lavoro",
+            "nl": "een vacature"
+          },
+          "distractors": {
+            "en": [
+              "a job interview",
+              "a work contract"
+            ],
+            "es-419": [
+              "una entrevista de trabajo",
+              "un contrato de trabajo"
+            ],
+            "it": [
+              "un colloquio di lavoro",
+              "un contratto di lavoro"
+            ],
+            "nl": [
+              "een sollicitatiegesprek",
+              "een arbeidscontract"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je lis les offres d'emploi tous les matins.",
+          "translation": {
+            "en": "I read the job offers every morning.",
+            "es-419": "Leo las ofertas de empleo todas las mañanas.",
+            "it": "Leggo le offerte di lavoro ogni mattina.",
+            "nl": "Elke ochtend lees ik de vacatures."
+          },
+          "distractors": {
+            "en": [
+              "I read the job offers every evening.",
+              "I read the newspaper every morning."
+            ],
+            "es-419": [
+              "Leo las ofertas de empleo todas las noches.",
+              "Leo el periódico todas las mañanas."
+            ],
+            "it": [
+              "Leggo le offerte di lavoro ogni sera.",
+              "Leggo il giornale ogni mattina."
+            ],
+            "nl": [
+              "Elke avond lees ik de vacatures.",
+              "Elke ochtend lees ik de krant."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "secteur",
+          "translation": {
+            "en": "sector, field",
+            "es-419": "sector",
+            "it": "settore",
+            "nl": "sector, branche"
+          },
+          "distractors": {
+            "en": [
+              "company",
+              "team"
+            ],
+            "es-419": [
+              "empresa",
+              "equipo"
+            ],
+            "it": [
+              "azienda",
+              "squadra"
+            ],
+            "nl": [
+              "bedrijf",
+              "team"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dans mon secteur, il y a seulement deux offres.",
+          "translation": {
+            "en": "In my field there are only two openings.",
+            "es-419": "En mi sector hay solo dos ofertas.",
+            "it": "Nel mio settore ci sono solo due offerte.",
+            "nl": "In mijn sector zijn er maar twee vacatures."
+          },
+          "distractors": {
+            "en": [
+              "In my field there are only three openings.",
+              "In my city there are only two openings."
+            ],
+            "es-419": [
+              "En mi sector hay solo tres ofertas.",
+              "En mi ciudad hay solo dos ofertas."
+            ],
+            "it": [
+              "Nel mio settore ci sono solo tre offerte.",
+              "Nella mia città ci sono solo due offerte."
+            ],
+            "nl": [
+              "In mijn sector zijn er maar drie vacatures.",
+              "In mijn stad zijn er maar twee vacatures."
+            ]
+          },
+          "variants": [
+            "Dans mon secteur, il y a seulement 2 offres."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ça fait trois mois que je cherche",
+          "translation": {
+            "en": "I've been looking for three months",
+            "es-419": "llevo tres meses buscando",
+            "it": "cerco da tre mesi",
+            "nl": "ik zoek al drie maanden"
+          },
+          "distractors": {
+            "en": [
+              "I looked for three months",
+              "I've been waiting for three months"
+            ],
+            "es-419": [
+              "busqué durante tres meses",
+              "llevo tres meses esperando"
+            ],
+            "it": [
+              "ho cercato per tre mesi",
+              "aspetto da tre mesi"
+            ],
+            "nl": [
+              "ik heb drie maanden gezocht",
+              "ik wacht al drie maanden"
+            ]
+          },
+          "variants": [
+            "ça fait 3 mois que je cherche"
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça fait trois mois que je cherche du travail.",
+          "translation": {
+            "en": "I've been looking for work for three months.",
+            "es-419": "Llevo tres meses buscando trabajo.",
+            "it": "Cerco lavoro da tre mesi.",
+            "nl": "Ik zoek al drie maanden werk."
+          },
+          "distractors": {
+            "en": [
+              "I've been looking for work for three years.",
+              "I found work three months ago."
+            ],
+            "es-419": [
+              "Llevo tres años buscando trabajo.",
+              "Encontré trabajo hace tres meses."
+            ],
+            "it": [
+              "Cerco lavoro da tre anni.",
+              "Ho trovato lavoro tre mesi fa."
+            ],
+            "nl": [
+              "Ik zoek al drie jaar werk.",
+              "Ik heb drie maanden geleden werk gevonden."
+            ]
+          },
+          "variants": [
+            "Ça fait 3 mois que je cherche du travail."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-1-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "candidature",
+          "translation": {
+            "en": "application",
+            "es-419": "candidatura, solicitud",
+            "it": "candidatura",
+            "nl": "sollicitatie"
+          },
+          "distractors": {
+            "en": [
+              "job offer",
+              "training"
+            ],
+            "es-419": [
+              "oferta",
+              "formación"
+            ],
+            "it": [
+              "offerta",
+              "formazione"
+            ],
+            "nl": [
+              "vacature",
+              "opleiding"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "depuis lundi",
+          "translation": {
+            "en": "since Monday",
+            "es-419": "desde el lunes",
+            "it": "da lunedì",
+            "nl": "sinds maandag"
+          },
+          "distractors": {
+            "en": [
+              "since Sunday",
+              "until Monday"
+            ],
+            "es-419": [
+              "desde el domingo",
+              "hasta el lunes"
+            ],
+            "it": [
+              "da domenica",
+              "fino a lunedì"
+            ],
+            "nl": [
+              "sinds zondag",
+              "tot maandag"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Depuis lundi, j'envoie une candidature par jour.",
+          "translation": {
+            "en": "Since Monday, I've been sending one application a day.",
+            "es-419": "Desde el lunes envío una solicitud por día.",
+            "it": "Da lunedì mando una candidatura al giorno.",
+            "nl": "Sinds maandag stuur ik één sollicitatie per dag."
+          },
+          "distractors": {
+            "en": [
+              "Since Friday, I've been sending one application a day.",
+              "Since Monday, I've been sending two applications a day."
+            ],
+            "es-419": [
+              "Desde el viernes envío una solicitud por día.",
+              "Desde el lunes envío dos solicitudes por día."
+            ],
+            "it": [
+              "Da venerdì mando una candidatura al giorno.",
+              "Da lunedì mando due candidature al giorno."
+            ],
+            "nl": [
+              "Sinds vrijdag stuur ik één sollicitatie per dag.",
+              "Sinds maandag stuur ik twee sollicitaties per dag."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Depuis combien de temps est-ce que tu cherches un emploi?",
+          "translation": {
+            "en": "How long have you been looking for a job?",
+            "es-419": "¿Cuánto tiempo llevas buscando empleo?",
+            "it": "Da quanto tempo cerchi lavoro?",
+            "nl": "Hoe lang zoek je al een baan?"
+          },
+          "distractors": {
+            "en": [
+              "How long have you had a job?",
+              "How long have you been looking for an apartment?"
+            ],
+            "es-419": [
+              "¿Cuánto tiempo llevas con un empleo?",
+              "¿Cuánto tiempo llevas buscando departamento?"
+            ],
+            "it": [
+              "Da quanto tempo hai un lavoro?",
+              "Da quanto tempo cerchi casa?"
+            ],
+            "nl": [
+              "Hoe lang heb je al een baan?",
+              "Hoe lang zoek je al een appartement?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je continue à chercher",
+          "translation": {
+            "en": "I keep looking",
+            "es-419": "sigo buscando",
+            "it": "continuo a cercare",
+            "nl": "ik blijf zoeken"
+          },
+          "distractors": {
+            "en": [
+              "I stop looking",
+              "I'm about to look"
+            ],
+            "es-419": [
+              "dejo de buscar",
+              "estoy por buscar"
+            ],
+            "it": [
+              "smetto di cercare",
+              "sto per cercare"
+            ],
+            "nl": [
+              "ik stop met zoeken",
+              "ik ga zo zoeken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je n'ai toujours rien trouvé, mais je continue à chercher.",
+          "translation": {
+            "en": "I still haven't found anything, but I keep looking.",
+            "es-419": "Todavía no he encontrado nada, pero sigo buscando.",
+            "it": "Non ho ancora trovato niente, ma continuo a cercare.",
+            "nl": "Ik heb nog steeds niets gevonden, maar ik blijf zoeken."
+          },
+          "distractors": {
+            "en": [
+              "I still haven't found anything, so I've stopped looking.",
+              "I've already found something, but I keep looking."
+            ],
+            "es-419": [
+              "Todavía no he encontrado nada, así que dejé de buscar.",
+              "Ya encontré algo, pero sigo buscando."
+            ],
+            "it": [
+              "Non ho ancora trovato niente, quindi ho smesso di cercare.",
+              "Ho già trovato qualcosa, ma continuo a cercare."
+            ],
+            "nl": [
+              "Ik heb nog steeds niets gevonden, dus ik ben gestopt met zoeken.",
+              "Ik heb al iets gevonden, maar ik blijf zoeken."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-emploi-2",
+      "title": "Mon CV",
+      "grammarFocus": {
+        "en": [
+          "venir de + infinitive = have just done something: Je viens d'envoyer ma candidature = I've just sent my application",
+          "venir de is about the recent past; it is not \"come from\" when an infinitive follows"
+        ],
+        "es-419": [
+          "venir de + infinitivo = acabar de hacer algo: Je viens d'envoyer ma candidature = acabo de enviar mi solicitud",
+          "venir de + infinitivo habla del pasado reciente; no significa \"venir de\" un lugar"
+        ],
+        "it": [
+          "venir de + infinito = aver appena fatto qualcosa: Je viens d'envoyer ma candidature = ho appena mandato la mia candidatura",
+          "venir de + infinito indica il passato recente; non significa \"venire da\" un luogo"
+        ],
+        "nl": [
+          "venir de + infinitief = net iets gedaan hebben: Je viens d'envoyer ma candidature = ik heb net mijn sollicitatie gestuurd",
+          "venir de + infinitief gaat over het recente verleden; het betekent niet \"komen van\" een plaats"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "expérience",
+          "translation": {
+            "en": "experience",
+            "es-419": "experiencia",
+            "it": "esperienza",
+            "nl": "ervaring"
+          },
+          "distractors": {
+            "en": [
+              "training",
+              "skill"
+            ],
+            "es-419": [
+              "formación",
+              "habilidad"
+            ],
+            "it": [
+              "formazione",
+              "competenza"
+            ],
+            "nl": [
+              "opleiding",
+              "vaardigheid"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "dix ans d'expérience",
+          "translation": {
+            "en": "ten years of experience",
+            "es-419": "diez años de experiencia",
+            "it": "dieci anni di esperienza",
+            "nl": "tien jaar ervaring"
+          },
+          "distractors": {
+            "en": [
+              "ten years of study",
+              "two years of experience"
+            ],
+            "es-419": [
+              "diez años de estudios",
+              "dos años de experiencia"
+            ],
+            "it": [
+              "dieci anni di studi",
+              "due anni di esperienza"
+            ],
+            "nl": [
+              "tien jaar studie",
+              "twee jaar ervaring"
+            ]
+          },
+          "variants": [
+            "10 ans d'expérience"
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-2-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai dix ans d'expérience comme vendeur dans un magasin.",
+          "translation": {
+            "en": "I have ten years of experience as a salesman in a store.",
+            "es-419": "Tengo diez años de experiencia como vendedor en una tienda.",
+            "it": "Ho dieci anni di esperienza come commesso in un negozio.",
+            "nl": "Ik heb tien jaar ervaring als verkoper in een winkel."
+          },
+          "distractors": {
+            "en": [
+              "I have ten years of experience as a cook in a restaurant.",
+              "I have two years of experience as a salesman in a store."
+            ],
+            "es-419": [
+              "Tengo diez años de experiencia como cocinero en un restaurante.",
+              "Tengo dos años de experiencia como vendedor en una tienda."
+            ],
+            "it": [
+              "Ho dieci anni di esperienza come cuoco in un ristorante.",
+              "Ho due anni di esperienza come commesso in un negozio."
+            ],
+            "nl": [
+              "Ik heb tien jaar ervaring als kok in een restaurant.",
+              "Ik heb twee jaar ervaring als verkoper in een winkel."
+            ]
+          },
+          "variants": [
+            "J'ai 10 ans d'expérience comme vendeur dans un magasin."
+          ],
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-emploi-2-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "compétence",
+          "translation": {
+            "en": "skill",
+            "es-419": "habilidad, competencia",
+            "it": "competenza, abilità",
+            "nl": "vaardigheid, competentie"
+          },
+          "distractors": {
+            "en": [
+              "job",
+              "ambition"
+            ],
+            "es-419": [
+              "trabajo",
+              "ambición"
+            ],
+            "it": [
+              "lavoro",
+              "ambizione"
+            ],
+            "nl": [
+              "werk",
+              "ambitie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mes compétences",
+          "translation": {
+            "en": "my skills",
+            "es-419": "mis habilidades",
+            "it": "le mie competenze",
+            "nl": "mijn vaardigheden"
+          },
+          "distractors": {
+            "en": [
+              "my studies",
+              "my contracts"
+            ],
+            "es-419": [
+              "mis estudios",
+              "mis contratos"
+            ],
+            "it": [
+              "i miei studi",
+              "i miei contratti"
+            ],
+            "nl": [
+              "mijn studie",
+              "mijn contracten"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je parle anglais et espagnol, et je sais utiliser un ordinateur.",
+          "translation": {
+            "en": "I speak English and Spanish, and I know how to use a computer.",
+            "es-419": "Hablo inglés y español, y sé usar una computadora.",
+            "it": "Parlo inglese e spagnolo e so usare un computer.",
+            "nl": "Ik spreek Engels en Spaans en ik kan met een computer werken."
+          },
+          "distractors": {
+            "en": [
+              "I speak English and German, and I know how to use a computer.",
+              "I speak English and Spanish, and I know how to drive a car."
+            ],
+            "es-419": [
+              "Hablo inglés y alemán, y sé usar una computadora.",
+              "Hablo inglés y español, y sé manejar un auto."
+            ],
+            "it": [
+              "Parlo inglese e tedesco e so usare un computer.",
+              "Parlo inglese e spagnolo e so guidare una macchina."
+            ],
+            "nl": [
+              "Ik spreek Engels en Duits en ik kan met een computer werken.",
+              "Ik spreek Engels en Spaans en ik kan autorijden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "formation",
+          "translation": {
+            "en": "training, education",
+            "es-419": "formación",
+            "it": "formazione",
+            "nl": "opleiding"
+          },
+          "distractors": {
+            "en": [
+              "experience",
+              "salary"
+            ],
+            "es-419": [
+              "experiencia",
+              "sueldo"
+            ],
+            "it": [
+              "esperienza",
+              "stipendio"
+            ],
+            "nl": [
+              "ervaring",
+              "salaris"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma formation est courte, mais j'ai beaucoup d'expérience.",
+          "translation": {
+            "en": "My training is short, but I have a lot of experience.",
+            "es-419": "Mi formación es corta, pero tengo mucha experiencia.",
+            "it": "La mia formazione è breve, ma ho molta esperienza.",
+            "nl": "Mijn opleiding is kort, maar ik heb veel ervaring."
+          },
+          "distractors": {
+            "en": [
+              "My training is long, but I have a lot of experience.",
+              "My training is short, and I have no experience."
+            ],
+            "es-419": [
+              "Mi formación es larga, pero tengo mucha experiencia.",
+              "Mi formación es corta y no tengo experiencia."
+            ],
+            "it": [
+              "La mia formazione è lunga, ma ho molta esperienza.",
+              "La mia formazione è breve e non ho esperienza."
+            ],
+            "nl": [
+              "Mijn opleiding is lang, maar ik heb veel ervaring.",
+              "Mijn opleiding is kort en ik heb geen ervaring."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "stage",
+          "translation": {
+            "en": "internship",
+            "es-419": "pasantía, práctica",
+            "it": "tirocinio, stage",
+            "nl": "stage"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "interview"
+            ],
+            "es-419": [
+              "contrato",
+              "entrevista"
+            ],
+            "it": [
+              "contratto",
+              "colloquio"
+            ],
+            "nl": [
+              "contract",
+              "sollicitatiegesprek"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un stage de six mois",
+          "translation": {
+            "en": "a six-month internship",
+            "es-419": "una pasantía de seis meses",
+            "it": "un tirocinio di sei mesi",
+            "nl": "een stage van zes maanden"
+          },
+          "distractors": {
+            "en": [
+              "a six-week internship",
+              "a six-month contract"
+            ],
+            "es-419": [
+              "una pasantía de seis semanas",
+              "un contrato de seis meses"
+            ],
+            "it": [
+              "un tirocinio di sei settimane",
+              "un contratto di sei mesi"
+            ],
+            "nl": [
+              "een stage van zes weken",
+              "een contract van zes maanden"
+            ]
+          },
+          "variants": [
+            "un stage de 6 mois"
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai fait un stage de six mois dans une banque.",
+          "translation": {
+            "en": "I did a six-month internship at a bank.",
+            "es-419": "Hice una pasantía de seis meses en un banco.",
+            "it": "Ho fatto un tirocinio di sei mesi in una banca.",
+            "nl": "Ik heb een stage van zes maanden bij een bank gedaan."
+          },
+          "distractors": {
+            "en": [
+              "I did a six-week internship at a bank.",
+              "I did a six-month internship at a hospital."
+            ],
+            "es-419": [
+              "Hice una pasantía de seis semanas en un banco.",
+              "Hice una pasantía de seis meses en un hospital."
+            ],
+            "it": [
+              "Ho fatto un tirocinio di sei settimane in una banca.",
+              "Ho fatto un tirocinio di sei mesi in un ospedale."
+            ],
+            "nl": [
+              "Ik heb een stage van zes weken bij een bank gedaan.",
+              "Ik heb een stage van zes maanden in een ziekenhuis gedaan."
+            ]
+          },
+          "variants": [
+            "J'ai fait un stage de 6 mois dans une banque."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-2-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "lettre",
+          "translation": {
+            "en": "letter",
+            "es-419": "carta",
+            "it": "lettera",
+            "nl": "brief"
+          },
+          "distractors": {
+            "en": [
+              "job offer",
+              "message"
+            ],
+            "es-419": [
+              "oferta",
+              "mensaje"
+            ],
+            "it": [
+              "offerta",
+              "messaggio"
+            ],
+            "nl": [
+              "vacature",
+              "bericht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je viens d'envoyer",
+          "translation": {
+            "en": "I've just sent",
+            "es-419": "acabo de enviar",
+            "it": "ho appena mandato",
+            "nl": "ik heb net gestuurd"
+          },
+          "distractors": {
+            "en": [
+              "I'm about to send",
+              "I forgot to send"
+            ],
+            "es-419": [
+              "estoy por enviar",
+              "olvidé enviar"
+            ],
+            "it": [
+              "sto per mandare",
+              "ho dimenticato di mandare"
+            ],
+            "nl": [
+              "ik sta op het punt te sturen",
+              "ik ben vergeten te sturen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je viens d'envoyer ma candidature avec une lettre.",
+          "translation": {
+            "en": "I've just sent my application with a letter.",
+            "es-419": "Acabo de enviar mi solicitud con una carta.",
+            "it": "Ho appena mandato la mia candidatura con una lettera.",
+            "nl": "Ik heb net mijn sollicitatie met een brief gestuurd."
+          },
+          "distractors": {
+            "en": [
+              "I'm about to send my application with a letter.",
+              "I've just sent my application without a letter."
+            ],
+            "es-419": [
+              "Estoy por enviar mi solicitud con una carta.",
+              "Acabo de enviar mi solicitud sin carta."
+            ],
+            "it": [
+              "Sto per mandare la mia candidatura con una lettera.",
+              "Ho appena mandato la mia candidatura senza lettera."
+            ],
+            "nl": [
+              "Ik sta op het punt mijn sollicitatie met een brief te sturen.",
+              "Ik heb net mijn sollicitatie zonder brief gestuurd."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur vient de finir sa formation, et elle cherche un stage.",
+          "translation": {
+            "en": "My sister has just finished her training, and she's looking for an internship.",
+            "es-419": "Mi hermana acaba de terminar su formación y busca una pasantía.",
+            "it": "Mia sorella ha appena finito la sua formazione e cerca un tirocinio.",
+            "nl": "Mijn zus heeft net haar opleiding afgerond en ze zoekt een stage."
+          },
+          "distractors": {
+            "en": [
+              "My sister is about to finish her training, and she's looking for an internship.",
+              "My brother has just finished his training, and he's looking for an internship."
+            ],
+            "es-419": [
+              "Mi hermana está por terminar su formación y busca una pasantía.",
+              "Mi hermano acaba de terminar su formación y busca una pasantía."
+            ],
+            "it": [
+              "Mia sorella sta per finire la sua formazione e cerca un tirocinio.",
+              "Mio fratello ha appena finito la sua formazione e cerca un tirocinio."
+            ],
+            "nl": [
+              "Mijn zus staat op het punt haar opleiding af te ronden en ze zoekt een stage.",
+              "Mijn broer heeft net zijn opleiding afgerond en hij zoekt een stage."
+            ]
+          },
+          "variants": [
+            "Ma soeur vient de finir sa formation, et elle cherche un stage."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu viens de terminer tes études?",
+          "translation": {
+            "en": "You've just finished your studies?",
+            "es-419": "¿Acabas de terminar tus estudios?",
+            "it": "Hai appena finito gli studi?",
+            "nl": "Ben je net klaar met je studie?"
+          },
+          "distractors": {
+            "en": [
+              "You're about to finish your studies?",
+              "You've just started your studies?"
+            ],
+            "es-419": [
+              "¿Estás por terminar tus estudios?",
+              "¿Acabas de empezar tus estudios?"
+            ],
+            "it": [
+              "Stai per finire gli studi?",
+              "Hai appena cominciato gli studi?"
+            ],
+            "nl": [
+              "Sta je op het punt je studie af te ronden?",
+              "Ben je net met je studie begonnen?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-emploi-3",
+      "title": "L'entretien",
+      "grammarFocus": {
+        "en": [
+          "interview questions with vous: Pourriez-vous vous présenter? Depuis quand travaillez-vous ici?",
+          "the futur proche and futur simple in the answers: Ils vont m'embaucher; Nous avons décidé de vous embaucher"
+        ],
+        "es-419": [
+          "preguntas de entrevista con vous: Pourriez-vous vous présenter? Depuis quand travaillez-vous ici?",
+          "el futuro próximo en las respuestas: Ils vont m'embaucher; Nous avons décidé de vous embaucher"
+        ],
+        "it": [
+          "domande di colloquio con vous: Pourriez-vous vous présenter? Depuis quand travaillez-vous ici?",
+          "il futuro prossimo nelle risposte: Ils vont m'embaucher; Nous avons décidé de vous embaucher"
+        ],
+        "nl": [
+          "sollicitatievragen met vous: Pourriez-vous vous présenter? Depuis quand travaillez-vous ici?",
+          "het futur proche in de antwoorden: Ils vont m'embaucher; Nous avons décidé de vous embaucher"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "entretien",
+          "translation": {
+            "en": "interview",
+            "es-419": "entrevista",
+            "it": "colloquio",
+            "nl": "sollicitatiegesprek"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "job offer"
+            ],
+            "es-419": [
+              "contrato",
+              "oferta"
+            ],
+            "it": [
+              "contratto",
+              "offerta"
+            ],
+            "nl": [
+              "contract",
+              "vacature"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai un entretien demain matin à neuf heures.",
+          "translation": {
+            "en": "I have an interview tomorrow morning at nine.",
+            "es-419": "Tengo una entrevista mañana por la mañana a las nueve.",
+            "it": "Ho un colloquio domani mattina alle nove.",
+            "nl": "Ik heb morgenochtend om negen uur een sollicitatiegesprek."
+          },
+          "distractors": {
+            "en": [
+              "I have an interview tomorrow morning at ten.",
+              "I have an interview tomorrow evening at nine."
+            ],
+            "es-419": [
+              "Tengo una entrevista mañana por la mañana a las diez.",
+              "Tengo una entrevista mañana por la noche a las nueve."
+            ],
+            "it": [
+              "Ho un colloquio domani mattina alle dieci.",
+              "Ho un colloquio domani sera alle nove."
+            ],
+            "nl": [
+              "Ik heb morgenochtend om tien uur een sollicitatiegesprek.",
+              "Ik heb morgenavond om negen uur een sollicitatiegesprek."
+            ]
+          },
+          "variants": [
+            "J'ai un entretien demain matin à 9 heures."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-3-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "responsable",
+          "translation": {
+            "en": "manager, person in charge",
+            "es-419": "encargado, responsable",
+            "it": "responsabile",
+            "nl": "leidinggevende, verantwoordelijke"
+          },
+          "distractors": {
+            "en": [
+              "employee",
+              "colleague"
+            ],
+            "es-419": [
+              "empleado",
+              "colega"
+            ],
+            "it": [
+              "impiegato",
+              "collega"
+            ],
+            "nl": [
+              "werknemer",
+              "collega"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "équipe",
+          "translation": {
+            "en": "team",
+            "es-419": "equipo",
+            "it": "squadra",
+            "nl": "team"
+          },
+          "distractors": {
+            "en": [
+              "company",
+              "office"
+            ],
+            "es-419": [
+              "empresa",
+              "oficina"
+            ],
+            "it": [
+              "azienda",
+              "ufficio"
+            ],
+            "nl": [
+              "bedrijf",
+              "kantoor"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La responsable de l'équipe s'appelle madame Martin.",
+          "translation": {
+            "en": "The team manager is called Mrs. Martin.",
+            "es-419": "La responsable del equipo se llama la señora Martin.",
+            "it": "La responsabile della squadra si chiama la signora Martin.",
+            "nl": "De teamleider heet mevrouw Martin."
+          },
+          "distractors": {
+            "en": [
+              "The team manager is called Mr. Martin.",
+              "The store manager is called Mrs. Martin."
+            ],
+            "es-419": [
+              "El responsable del equipo se llama el señor Martin.",
+              "La encargada de la tienda se llama la señora Martin."
+            ],
+            "it": [
+              "Il responsabile della squadra si chiama il signor Martin.",
+              "La responsabile del negozio si chiama la signora Martin."
+            ],
+            "nl": [
+              "De teamleider heet meneer Martin.",
+              "De winkelmanager heet mevrouw Martin."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pourriez-vous vous présenter",
+          "translation": {
+            "en": "could you introduce yourself",
+            "es-419": "podría presentarse",
+            "it": "potrebbe presentarsi",
+            "nl": "kunt u zich even voorstellen"
+          },
+          "distractors": {
+            "en": [
+              "could you call us back",
+              "could you help me"
+            ],
+            "es-419": [
+              "podría llamarnos",
+              "podría ayudarme"
+            ],
+            "it": [
+              "potrebbe richiamarci",
+              "potrebbe aiutarmi"
+            ],
+            "nl": [
+              "kunt u ons terugbellen",
+              "kunt u mij helpen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pourriez-vous vous présenter, s'il vous plaît?",
+          "translation": {
+            "en": "Could you introduce yourself, please?",
+            "es-419": "¿Podría presentarse, por favor?",
+            "it": "Potrebbe presentarsi, per favore?",
+            "nl": "Kunt u zich voorstellen, alstublieft?"
+          },
+          "distractors": {
+            "en": [
+              "Could you repeat that, please?",
+              "Could you wait here, please?"
+            ],
+            "es-419": [
+              "¿Podría repetir eso, por favor?",
+              "¿Podría esperar aquí, por favor?"
+            ],
+            "it": [
+              "Potrebbe ripetere, per favore?",
+              "Potrebbe aspettare qui, per favore?"
+            ],
+            "nl": [
+              "Kunt u dat herhalen, alstublieft?",
+              "Kunt u hier wachten, alstublieft?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "défi",
+          "translation": {
+            "en": "challenge",
+            "es-419": "desafío, reto",
+            "it": "sfida",
+            "nl": "uitdaging"
+          },
+          "distractors": {
+            "en": [
+              "problem",
+              "idea"
+            ],
+            "es-419": [
+              "problema",
+              "idea"
+            ],
+            "it": [
+              "problema",
+              "idea"
+            ],
+            "nl": [
+              "probleem",
+              "idee"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce poste est un vrai défi, et j'aime ça.",
+          "translation": {
+            "en": "This job is a real challenge, and I like that.",
+            "es-419": "Este puesto es un verdadero desafío, y me gusta.",
+            "it": "Questo posto è una vera sfida e mi piace.",
+            "nl": "Deze functie is een echte uitdaging en dat vind ik leuk."
+          },
+          "distractors": {
+            "en": [
+              "This job is a real problem, and I like that.",
+              "This job is a real challenge, and I don't like that."
+            ],
+            "es-419": [
+              "Este puesto es un verdadero problema, y me gusta.",
+              "Este puesto es un verdadero desafío, y no me gusta."
+            ],
+            "it": [
+              "Questo posto è un vero problema e mi piace.",
+              "Questo posto è una vera sfida e non mi piace."
+            ],
+            "nl": [
+              "Deze functie is een echt probleem en dat vind ik leuk.",
+              "Deze functie is een echte uitdaging en dat vind ik niet leuk."
+            ]
+          },
+          "senses": {
+            "1": "job"
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "mon point faible",
+          "translation": {
+            "en": "my weak point",
+            "es-419": "mi punto débil",
+            "it": "il mio punto debole",
+            "nl": "mijn zwakke punt"
+          },
+          "distractors": {
+            "en": [
+              "my strong point",
+              "my only problem"
+            ],
+            "es-419": [
+              "mi punto fuerte",
+              "mi único problema"
+            ],
+            "it": [
+              "il mio punto di forza",
+              "il mio unico problema"
+            ],
+            "nl": [
+              "mijn sterke punt",
+              "mijn enige probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon point faible, c'est que je suis parfois trop timide.",
+          "translation": {
+            "en": "My weak point is that I'm sometimes too shy.",
+            "es-419": "Mi punto débil es que a veces soy demasiado tímido.",
+            "it": "Il mio punto debole è che a volte sono troppo timido.",
+            "nl": "Mijn zwakke punt is dat ik soms te verlegen ben."
+          },
+          "distractors": {
+            "en": [
+              "My weak point is that I'm often too tired.",
+              "My weak point is that I'm sometimes too lazy."
+            ],
+            "es-419": [
+              "Mi punto débil es que a menudo estoy demasiado cansado.",
+              "Mi punto débil es que a veces soy demasiado perezoso."
+            ],
+            "it": [
+              "Il mio punto debole è che spesso sono troppo stanco.",
+              "Il mio punto debole è che a volte sono troppo pigro."
+            ],
+            "nl": [
+              "Mijn zwakke punt is dat ik vaak te moe ben.",
+              "Mijn zwakke punt is dat ik soms te lui ben."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-emploi-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Depuis quand travaillez-vous dans cette entreprise?",
+          "translation": {
+            "en": "How long have you worked at this company?",
+            "es-419": "¿Desde cuándo trabaja usted en esta empresa?",
+            "it": "Da quando lavora in questa azienda?",
+            "nl": "Sinds wanneer werkt u bij dit bedrijf?"
+          },
+          "distractors": {
+            "en": [
+              "How long did you work at this company?",
+              "Why do you work at this company?"
+            ],
+            "es-419": [
+              "¿Cuánto tiempo trabajó usted en esta empresa?",
+              "¿Por qué trabaja usted en esta empresa?"
+            ],
+            "it": [
+              "Per quanto tempo ha lavorato in questa azienda?",
+              "Perché lavora in questa azienda?"
+            ],
+            "nl": [
+              "Hoe lang heeft u bij dit bedrijf gewerkt?",
+              "Waarom werkt u bij dit bedrijf?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "embaucher",
+          "translation": {
+            "en": "to hire",
+            "es-419": "contratar",
+            "it": "assumere",
+            "nl": "aannemen"
+          },
+          "distractors": {
+            "en": [
+              "to fire",
+              "to train"
+            ],
+            "es-419": [
+              "despedir",
+              "capacitar"
+            ],
+            "it": [
+              "licenziare",
+              "formare"
+            ],
+            "nl": [
+              "ontslaan",
+              "opleiden"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ils vont m'embaucher",
+          "translation": {
+            "en": "they're going to hire me",
+            "es-419": "me van a contratar",
+            "it": "mi assumeranno",
+            "nl": "ze gaan me aannemen"
+          },
+          "distractors": {
+            "en": [
+              "they're going to fire me",
+              "they've hired me"
+            ],
+            "es-419": [
+              "me van a despedir",
+              "me contrataron"
+            ],
+            "it": [
+              "mi licenzieranno",
+              "mi hanno assunto"
+            ],
+            "nl": [
+              "ze gaan me ontslaan",
+              "ze hebben me aangenomen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous avons décidé de vous embaucher.",
+          "translation": {
+            "en": "We've decided to hire you.",
+            "es-419": "Decidimos contratarlo.",
+            "it": "Abbiamo deciso di assumerla.",
+            "nl": "We hebben besloten u aan te nemen."
+          },
+          "distractors": {
+            "en": [
+              "We've decided to fire you.",
+              "We've decided to call you."
+            ],
+            "es-419": [
+              "Decidimos despedirlo.",
+              "Decidimos llamarlo."
+            ],
+            "it": [
+              "Abbiamo deciso di licenziarla.",
+              "Abbiamo deciso di chiamarla."
+            ],
+            "nl": [
+              "We hebben besloten u te ontslaan.",
+              "We hebben besloten u te bellen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis très content, merci, je commence lundi prochain!",
+          "translation": {
+            "en": "I'm very happy, thank you, I start next Monday!",
+            "es-419": "¡Estoy muy contento, gracias, empiezo el lunes próximo!",
+            "it": "Sono molto contento, grazie, comincio lunedì prossimo!",
+            "nl": "Ik ben heel blij, dank u wel, ik begin volgende week maandag!"
+          },
+          "distractors": {
+            "en": [
+              "I'm very happy, thank you, I'm starting next month!",
+              "I'm very happy, thank you, I finish next Monday!"
+            ],
+            "es-419": [
+              "¡Estoy muy contento, gracias, empiezo el mes próximo!",
+              "¡Estoy muy contento, gracias, termino el lunes próximo!"
+            ],
+            "it": [
+              "Sono molto contento, grazie, comincio il mese prossimo!",
+              "Sono molto contento, grazie, finisco lunedì prossimo!"
+            ],
+            "nl": [
+              "Ik ben heel blij, dank u wel, ik begin volgende maand!",
+              "Ik ben heel blij, dank u wel, ik stop volgende week maandag!"
+            ]
+          },
+          "speaker": "M"
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-emploi-4",
+      "title": "Je suis sur le point de démissionner",
+      "grammarFocus": {
+        "en": [
+          "être sur le point de + infinitive = be about to: Je suis sur le point de démissionner",
+          "arrêter de and recommencer à + infinitive = stop, start again: J'ai arrêté de répondre; Il a recommencé à chercher"
+        ],
+        "es-419": [
+          "être sur le point de + infinitivo = estar a punto de: Je suis sur le point de démissionner",
+          "arrêter de y recommencer à + infinitivo = dejar de, volver a: J'ai arrêté de répondre; Il a recommencé à chercher"
+        ],
+        "it": [
+          "être sur le point de + infinito = stare per: Je suis sur le point de démissionner",
+          "arrêter de e recommencer à + infinito = smettere di, ricominciare a: J'ai arrêté de répondre; Il a recommencé à chercher"
+        ],
+        "nl": [
+          "être sur le point de + infinitief = op het punt staan om: Je suis sur le point de démissionner",
+          "arrêter de en recommencer à + infinitief = stoppen met, opnieuw beginnen te: J'ai arrêté de répondre; Il a recommencé à chercher"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "démissionner",
+          "translation": {
+            "en": "to resign, to quit",
+            "es-419": "renunciar",
+            "it": "dimettersi",
+            "nl": "ontslag nemen"
+          },
+          "distractors": {
+            "en": [
+              "to hire",
+              "to apply"
+            ],
+            "es-419": [
+              "contratar",
+              "postularse"
+            ],
+            "it": [
+              "assumere",
+              "candidarsi"
+            ],
+            "nl": [
+              "aannemen",
+              "solliciteren"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je suis sur le point de démissionner",
+          "translation": {
+            "en": "I'm about to resign",
+            "es-419": "estoy a punto de renunciar",
+            "it": "sto per dimettermi",
+            "nl": "ik sta op het punt ontslag te nemen"
+          },
+          "distractors": {
+            "en": [
+              "I've just resigned",
+              "I'd like to resign"
+            ],
+            "es-419": [
+              "acabo de renunciar",
+              "quisiera renunciar"
+            ],
+            "it": [
+              "ho appena dato le dimissioni",
+              "vorrei dimettermi"
+            ],
+            "nl": [
+              "ik heb net ontslag genomen",
+              "ik zou ontslag willen nemen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis sur le point de démissionner, parce que mon chef ne m'écoute jamais.",
+          "translation": {
+            "en": "I'm about to quit because my boss never listens to me.",
+            "es-419": "Estoy a punto de renunciar porque mi jefe nunca me escucha.",
+            "it": "Sto per dimettermi perché il mio capo non mi ascolta mai.",
+            "nl": "Ik sta op het punt ontslag te nemen, omdat mijn baas nooit naar me luistert."
+          },
+          "distractors": {
+            "en": [
+              "I've just quit because my boss never listens to me.",
+              "I'm about to quit because my colleagues never listen to me."
+            ],
+            "es-419": [
+              "Acabo de renunciar porque mi jefe nunca me escucha.",
+              "Estoy a punto de renunciar porque mis colegas nunca me escuchan."
+            ],
+            "it": [
+              "Ho appena dato le dimissioni perché il mio capo non mi ascolta mai.",
+              "Sto per dimettermi perché i miei colleghi non mi ascoltano mai."
+            ],
+            "nl": [
+              "Ik heb net ontslag genomen, omdat mijn baas nooit naar me luistert.",
+              "Ik sta op het punt ontslag te nemen, omdat mijn collega's nooit naar me luisteren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "salaire",
+          "translation": {
+            "en": "salary, pay",
+            "es-419": "sueldo, salario",
+            "it": "stipendio",
+            "nl": "salaris, loon"
+          },
+          "distractors": {
+            "en": [
+              "contract",
+              "price"
+            ],
+            "es-419": [
+              "contrato",
+              "precio"
+            ],
+            "it": [
+              "contratto",
+              "prezzo"
+            ],
+            "nl": [
+              "contract",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "gagner",
+          "translation": {
+            "en": "to earn, to win",
+            "es-419": "ganar",
+            "it": "guadagnare, vincere",
+            "nl": "verdienen, winnen"
+          },
+          "distractors": {
+            "en": [
+              "to spend",
+              "to lose"
+            ],
+            "es-419": [
+              "gastar",
+              "perder"
+            ],
+            "it": [
+              "spendere",
+              "perdere"
+            ],
+            "nl": [
+              "uitgeven",
+              "verliezen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je gagne mille euros par mois",
+          "translation": {
+            "en": "I earn a thousand euros a month",
+            "es-419": "gano mil euros al mes",
+            "it": "guadagno mille euro al mese",
+            "nl": "ik verdien duizend euro per maand"
+          },
+          "distractors": {
+            "en": [
+              "I earn two thousand euros a month",
+              "I spend a thousand euros a month"
+            ],
+            "es-419": [
+              "gano dos mil euros al mes",
+              "gasto mil euros al mes"
+            ],
+            "it": [
+              "guadagno duemila euro al mese",
+              "spendo mille euro al mese"
+            ],
+            "nl": [
+              "ik verdien tweeduizend euro per maand",
+              "ik geef duizend euro per maand uit"
+            ]
+          },
+          "variants": [
+            "je gagne 1000 euros par mois"
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon salaire est faible et je gagne seulement mille euros par mois.",
+          "translation": {
+            "en": "My salary is low and I only earn a thousand euros a month.",
+            "es-419": "Mi sueldo es bajo y solo gano mil euros al mes.",
+            "it": "Il mio stipendio è basso e guadagno solo mille euro al mese.",
+            "nl": "Mijn salaris is laag en ik verdien maar duizend euro per maand."
+          },
+          "distractors": {
+            "en": [
+              "My salary is high and I earn two thousand euros a month.",
+              "My salary is low and I only earn five hundred euros a month."
+            ],
+            "es-419": [
+              "Mi sueldo es alto y gano dos mil euros al mes.",
+              "Mi sueldo es bajo y solo gano quinientos euros al mes."
+            ],
+            "it": [
+              "Il mio stipendio è alto e guadagno duemila euro al mese.",
+              "Il mio stipendio è basso e guadagno solo cinquecento euro al mese."
+            ],
+            "nl": [
+              "Mijn salaris is hoog en ik verdien tweeduizend euro per maand.",
+              "Mijn salaris is laag en ik verdien maar vijfhonderd euro per maand."
+            ]
+          },
+          "variants": [
+            "Mon salaire est faible et je gagne seulement 1000 euros par mois."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "promotion",
+          "translation": {
+            "en": "promotion",
+            "es-419": "ascenso",
+            "it": "promozione",
+            "nl": "promotie"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "vacancy"
+            ],
+            "es-419": [
+              "sueldo",
+              "vacante"
+            ],
+            "it": [
+              "stipendio",
+              "posto vacante"
+            ],
+            "nl": [
+              "salaris",
+              "vacature"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai beaucoup d'ambition et je voudrais une promotion.",
+          "translation": {
+            "en": "I have a lot of ambition and I'd like a promotion.",
+            "es-419": "Tengo mucha ambición y quisiera un ascenso.",
+            "it": "Ho molta ambizione e vorrei una promozione.",
+            "nl": "Ik heb veel ambitie en ik zou graag promotie willen."
+          },
+          "distractors": {
+            "en": [
+              "I don't have much ambition, but I'd like a promotion.",
+              "I have a lot of ambition and I'd like a new contract."
+            ],
+            "es-419": [
+              "No tengo mucha ambición, pero quisiera un ascenso.",
+              "Tengo mucha ambición y quisiera un contrato nuevo."
+            ],
+            "it": [
+              "Non ho molta ambizione, ma vorrei una promozione.",
+              "Ho molta ambizione e vorrei un nuovo contratto."
+            ],
+            "nl": [
+              "Ik heb niet veel ambitie, maar ik zou graag promotie willen.",
+              "Ik heb veel ambitie en ik zou graag een nieuw contract willen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "employé",
+          "translation": {
+            "en": "employee",
+            "es-419": "empleado",
+            "it": "impiegato, dipendente",
+            "nl": "werknemer, bediende"
+          },
+          "distractors": {
+            "en": [
+              "boss",
+              "customer"
+            ],
+            "es-419": [
+              "jefe",
+              "cliente"
+            ],
+            "it": [
+              "capo",
+              "cliente"
+            ],
+            "nl": [
+              "baas",
+              "klant"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "licencier",
+          "translation": {
+            "en": "to lay off, to fire",
+            "es-419": "despedir",
+            "it": "licenziare",
+            "nl": "ontslaan"
+          },
+          "distractors": {
+            "en": [
+              "to hire",
+              "to promote"
+            ],
+            "es-419": [
+              "contratar",
+              "ascender"
+            ],
+            "it": [
+              "assumere",
+              "promuovere"
+            ],
+            "nl": [
+              "aannemen",
+              "bevorderen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'entreprise est sur le point de licencier vingt employés.",
+          "translation": {
+            "en": "The company is about to lay off twenty employees.",
+            "es-419": "La empresa está a punto de despedir a veinte empleados.",
+            "it": "L'azienda sta per licenziare venti dipendenti.",
+            "nl": "Het bedrijf staat op het punt twintig werknemers te ontslaan."
+          },
+          "distractors": {
+            "en": [
+              "The company has just laid off twenty employees.",
+              "The company is about to hire twenty employees."
+            ],
+            "es-419": [
+              "La empresa acaba de despedir a veinte empleados.",
+              "La empresa está a punto de contratar a veinte empleados."
+            ],
+            "it": [
+              "L'azienda ha appena licenziato venti dipendenti.",
+              "L'azienda sta per assumere venti dipendenti."
+            ],
+            "nl": [
+              "Het bedrijf heeft net twintig werknemers ontslagen.",
+              "Het bedrijf staat op het punt twintig werknemers aan te nemen."
+            ]
+          },
+          "variants": [
+            "L'entreprise est sur le point de licencier 20 employés."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-4-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai arrêté de répondre",
+          "translation": {
+            "en": "I stopped answering",
+            "es-419": "dejé de responder",
+            "it": "ho smesso di rispondere",
+            "nl": "ik ben gestopt met antwoorden"
+          },
+          "distractors": {
+            "en": [
+              "I started answering",
+              "I forgot to answer"
+            ],
+            "es-419": [
+              "empecé a responder",
+              "olvidé responder"
+            ],
+            "it": [
+              "ho cominciato a rispondere",
+              "ho dimenticato di rispondere"
+            ],
+            "nl": [
+              "ik ben begonnen met antwoorden",
+              "ik ben vergeten te antwoorden"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai arrêté de répondre au téléphone après huit heures.",
+          "translation": {
+            "en": "I stopped answering the phone after eight.",
+            "es-419": "Dejé de contestar el teléfono después de las ocho.",
+            "it": "Ho smesso di rispondere al telefono dopo le otto.",
+            "nl": "Na acht uur heb ik de telefoon niet meer opgenomen."
+          },
+          "distractors": {
+            "en": [
+              "I started answering the phone after eight.",
+              "I stopped answering the phone before eight."
+            ],
+            "es-419": [
+              "Empecé a contestar el teléfono después de las ocho.",
+              "Dejé de contestar el teléfono antes de las ocho."
+            ],
+            "it": [
+              "Ho cominciato a rispondere al telefono dopo le otto.",
+              "Ho smesso di rispondere al telefono prima delle otto."
+            ],
+            "nl": [
+              "Na acht uur heb ik de telefoon weer opgenomen.",
+              "Voor acht uur heb ik de telefoon niet meer opgenomen."
+            ]
+          },
+          "variants": [
+            "J'ai arrêté de répondre au téléphone après 8 heures."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-4-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a recommencé à chercher",
+          "translation": {
+            "en": "he started looking again",
+            "es-419": "volvió a buscar",
+            "it": "ha ricominciato a cercare",
+            "nl": "hij is opnieuw gaan zoeken"
+          },
+          "distractors": {
+            "en": [
+              "he stopped looking",
+              "he's still looking"
+            ],
+            "es-419": [
+              "dejó de buscar",
+              "sigue buscando"
+            ],
+            "it": [
+              "ha smesso di cercare",
+              "continua a cercare"
+            ],
+            "nl": [
+              "hij is gestopt met zoeken",
+              "hij zoekt nog steeds"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après six mois, j'ai recommencé à chercher un autre emploi.",
+          "translation": {
+            "en": "After six months, I started looking for another job again.",
+            "es-419": "Después de seis meses, volví a buscar otro empleo.",
+            "it": "Dopo sei mesi ho ricominciato a cercare un altro lavoro.",
+            "nl": "Na zes maanden ben ik opnieuw een andere baan gaan zoeken."
+          },
+          "distractors": {
+            "en": [
+              "After six months, I stopped looking for another job.",
+              "After six weeks, I started looking for another job again."
+            ],
+            "es-419": [
+              "Después de seis meses, dejé de buscar otro empleo.",
+              "Después de seis semanas, volví a buscar otro empleo."
+            ],
+            "it": [
+              "Dopo sei mesi ho smesso di cercare un altro lavoro.",
+              "Dopo sei settimane ho ricominciato a cercare un altro lavoro."
+            ],
+            "nl": [
+              "Na zes maanden ben ik gestopt met het zoeken naar een andere baan.",
+              "Na zes weken ben ik opnieuw een andere baan gaan zoeken."
+            ]
+          },
+          "variants": [
+            "Après 6 mois, j'ai recommencé à chercher un autre emploi."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-emploi-5",
+      "title": "J'ai appris en travaillant",
+      "grammarFocus": {
+        "en": [
+          "the gérondif en + -ant for manner and simultaneity: J'ai appris en travaillant = I learned by working",
+          "the subject of both verbs is the same: En sortant, j'ai téléphoné; -ant forms: travaillant, sortant, prenant, faisant"
+        ],
+        "es-419": [
+          "el gerundio en + -ant para modo y simultaneidad: J'ai appris en travaillant = aprendí trabajando",
+          "el sujeto de los dos verbos es el mismo: En sortant, j'ai téléphoné; formas -ant: travaillant, sortant, prenant, faisant"
+        ],
+        "it": [
+          "il gérondif en + -ant per modo e simultaneità: J'ai appris en travaillant = ho imparato lavorando",
+          "il soggetto dei due verbi è lo stesso: En sortant, j'ai téléphoné; forme -ant: travaillant, sortant, prenant, faisant"
+        ],
+        "nl": [
+          "de gérondif en + -ant voor manier en gelijktijdigheid: J'ai appris en travaillant = ik heb geleerd door te werken",
+          "het onderwerp van beide werkwoorden is hetzelfde: En sortant, j'ai téléphoné; -ant-vormen: travaillant, sortant, prenant, faisant"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en travaillant",
+          "translation": {
+            "en": "while working",
+            "es-419": "trabajando",
+            "it": "lavorando",
+            "nl": "door te werken"
+          },
+          "distractors": {
+            "en": [
+              "after working",
+              "before working"
+            ],
+            "es-419": [
+              "después de trabajar",
+              "antes de trabajar"
+            ],
+            "it": [
+              "dopo aver lavorato",
+              "prima di lavorare"
+            ],
+            "nl": [
+              "na het werken",
+              "voor het werken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai appris l'anglais en travaillant à Londres.",
+          "translation": {
+            "en": "I learned English by working in London.",
+            "es-419": "Aprendí inglés trabajando en Londres.",
+            "it": "Ho imparato l'inglese lavorando a Londra.",
+            "nl": "Ik heb Engels geleerd door in Londen te werken."
+          },
+          "distractors": {
+            "en": [
+              "I learned English by studying in London.",
+              "I learned Spanish by working in London."
+            ],
+            "es-419": [
+              "Aprendí inglés estudiando en Londres.",
+              "Aprendí español trabajando en Londres."
+            ],
+            "it": [
+              "Ho imparato l'inglese studiando a Londra.",
+              "Ho imparato lo spagnolo lavorando a Londra."
+            ],
+            "nl": [
+              "Ik heb Engels geleerd door in Londen te studeren.",
+              "Ik heb Spaans geleerd door in Londen te werken."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en sortant",
+          "translation": {
+            "en": "when leaving",
+            "es-419": "al salir",
+            "it": "uscendo",
+            "nl": "bij het weggaan"
+          },
+          "distractors": {
+            "en": [
+              "when arriving",
+              "when waiting"
+            ],
+            "es-419": [
+              "al llegar",
+              "al esperar"
+            ],
+            "it": [
+              "arrivando",
+              "aspettando"
+            ],
+            "nl": [
+              "bij het aankomen",
+              "tijdens het wachten"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En sortant de l'entretien, j'ai téléphoné à ma mère.",
+          "translation": {
+            "en": "When I left the interview, I called my mother.",
+            "es-419": "Al salir de la entrevista, llamé a mi mamá.",
+            "it": "Uscendo dal colloquio, ho telefonato a mia madre.",
+            "nl": "Toen ik uit het sollicitatiegesprek kwam, heb ik mijn moeder gebeld."
+          },
+          "distractors": {
+            "en": [
+              "When I went into the interview, I called my mother.",
+              "When I left the interview, I called my father."
+            ],
+            "es-419": [
+              "Al entrar en la entrevista, llamé a mi mamá.",
+              "Al salir de la entrevista, llamé a mi papá."
+            ],
+            "it": [
+              "Entrando al colloquio, ho telefonato a mia madre.",
+              "Uscendo dal colloquio, ho telefonato a mio padre."
+            ],
+            "nl": [
+              "Toen ik het sollicitatiegesprek inging, heb ik mijn moeder gebeld.",
+              "Toen ik uit het sollicitatiegesprek kwam, heb ik mijn vader gebeld."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "flexible",
+          "translation": {
+            "en": "flexible",
+            "es-419": "flexible",
+            "it": "flessibile",
+            "nl": "flexibel"
+          },
+          "distractors": {
+            "en": [
+              "patient",
+              "free"
+            ],
+            "es-419": [
+              "paciente",
+              "libre"
+            ],
+            "it": [
+              "paziente",
+              "libero"
+            ],
+            "nl": [
+              "geduldig",
+              "vrij"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a trouvé un emploi en restant flexible sur les horaires.",
+          "translation": {
+            "en": "He found a job by staying flexible about the hours.",
+            "es-419": "Él encontró un empleo siendo flexible con los horarios.",
+            "it": "Lui ha trovato un lavoro restando flessibile sugli orari.",
+            "nl": "Hij heeft een baan gevonden door flexibel te blijven met de uren."
+          },
+          "distractors": {
+            "en": [
+              "He found a job by staying flexible about the salary.",
+              "She found a job by staying flexible about the hours."
+            ],
+            "es-419": [
+              "Él encontró un empleo siendo flexible con el sueldo.",
+              "Ella encontró un empleo siendo flexible con los horarios."
+            ],
+            "it": [
+              "Lui ha trovato un lavoro restando flessibile sullo stipendio.",
+              "Lei ha trovato un lavoro restando flessibile sugli orari."
+            ],
+            "nl": [
+              "Hij heeft een baan gevonden door flexibel te blijven met het salaris.",
+              "Zij heeft een baan gevonden door flexibel te blijven met de uren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "On apprend beaucoup en parlant avec des collègues.",
+          "translation": {
+            "en": "You learn a lot by talking with colleagues.",
+            "es-419": "Se aprende mucho hablando con colegas.",
+            "it": "Si impara molto parlando con i colleghi.",
+            "nl": "Je leert veel door met collega's te praten."
+          },
+          "distractors": {
+            "en": [
+              "You learn a lot by working with colleagues.",
+              "You learn very little by talking with colleagues."
+            ],
+            "es-419": [
+              "Se aprende mucho trabajando con colegas.",
+              "Se aprende muy poco hablando con colegas."
+            ],
+            "it": [
+              "Si impara molto lavorando con i colleghi.",
+              "Si impara molto poco parlando con i colleghi."
+            ],
+            "nl": [
+              "Je leert veel door met collega's te werken.",
+              "Je leert heel weinig door met collega's te praten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en attendant",
+          "translation": {
+            "en": "while waiting",
+            "es-419": "esperando",
+            "it": "aspettando",
+            "nl": "terwijl je wacht"
+          },
+          "distractors": {
+            "en": [
+              "after waiting",
+              "while working"
+            ],
+            "es-419": [
+              "después de esperar",
+              "trabajando"
+            ],
+            "it": [
+              "dopo aver aspettato",
+              "lavorando"
+            ],
+            "nl": [
+              "na het wachten",
+              "terwijl je werkt"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En attendant mon entretien, je lis les offres d'emploi.",
+          "translation": {
+            "en": "While waiting for my interview, I read the job offers.",
+            "es-419": "Mientras espero mi entrevista, leo las ofertas de empleo.",
+            "it": "Aspettando il colloquio, leggo le offerte di lavoro.",
+            "nl": "Terwijl ik op mijn sollicitatiegesprek wacht, lees ik de vacatures."
+          },
+          "distractors": {
+            "en": [
+              "While waiting for my interview, I write my letter.",
+              "After my interview, I read the job offers."
+            ],
+            "es-419": [
+              "Mientras espero mi entrevista, escribo mi carta.",
+              "Después de mi entrevista, leo las ofertas de empleo."
+            ],
+            "it": [
+              "Aspettando il colloquio, scrivo la mia lettera.",
+              "Dopo il colloquio, leggo le offerte di lavoro."
+            ],
+            "nl": [
+              "Terwijl ik op mijn sollicitatiegesprek wacht, schrijf ik mijn brief.",
+              "Na mijn sollicitatiegesprek lees ik de vacatures."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il gagne de l'argent en donnant des cours le week-end.",
+          "translation": {
+            "en": "He earns money by giving lessons on weekends.",
+            "es-419": "Él gana dinero dando clases los fines de semana.",
+            "it": "Lui guadagna dei soldi dando lezioni nel fine settimana.",
+            "nl": "Hij verdient geld door in het weekend les te geven."
+          },
+          "distractors": {
+            "en": [
+              "He earns money by giving lessons in the evening.",
+              "She earns money by giving lessons on weekends."
+            ],
+            "es-419": [
+              "Él gana dinero dando clases por la noche.",
+              "Ella gana dinero dando clases los fines de semana."
+            ],
+            "it": [
+              "Lui guadagna dei soldi dando lezioni la sera.",
+              "Lei guadagna dei soldi dando lezioni nel fine settimana."
+            ],
+            "nl": [
+              "Hij verdient geld door 's avonds les te geven.",
+              "Zij verdient geld door in het weekend les te geven."
+            ]
+          },
+          "variants": [
+            "Il gagne de l'argent en donnant des cours le weekend."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en prenant le premier train",
+          "translation": {
+            "en": "by taking the first train",
+            "es-419": "tomando el primer tren",
+            "it": "prendendo il primo treno",
+            "nl": "door de eerste trein te nemen"
+          },
+          "distractors": {
+            "en": [
+              "by taking the last train",
+              "by taking the first bus"
+            ],
+            "es-419": [
+              "tomando el último tren",
+              "tomando el primer autobús"
+            ],
+            "it": [
+              "prendendo l'ultimo treno",
+              "prendendo il primo autobus"
+            ],
+            "nl": [
+              "door de laatste trein te nemen",
+              "door de eerste bus te nemen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "En prenant le premier train, tu arrives à neuf heures.",
+          "translation": {
+            "en": "By taking the first train, you get there at nine.",
+            "es-419": "Si tomas el primer tren, llegas a las nueve.",
+            "it": "Prendendo il primo treno, arrivi alle nove.",
+            "nl": "Als je de eerste trein neemt, ben je om negen uur daar."
+          },
+          "distractors": {
+            "en": [
+              "By taking the last train, you get there at nine.",
+              "By taking the first train, you get there at ten."
+            ],
+            "es-419": [
+              "Si tomas el último tren, llegas a las nueve.",
+              "Si tomas el primer tren, llegas a las diez."
+            ],
+            "it": [
+              "Prendendo l'ultimo treno, arrivi alle nove.",
+              "Prendendo il primo treno, arrivi alle dieci."
+            ],
+            "nl": [
+              "Als je de laatste trein neemt, ben je om negen uur daar.",
+              "Als je de eerste trein neemt, ben je om tien uur daar."
+            ]
+          },
+          "variants": [
+            "En prenant le premier train, tu arrives à 9 heures."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai trouvé mon emploi en lisant une offre à la gare.",
+          "translation": {
+            "en": "I found my job by reading a job ad at the station.",
+            "es-419": "Encontré mi empleo leyendo un anuncio en la estación.",
+            "it": "Ho trovato il mio lavoro leggendo un annuncio in stazione.",
+            "nl": "Ik heb mijn baan gevonden door een vacature op het station te lezen."
+          },
+          "distractors": {
+            "en": [
+              "I found my apartment by reading an ad at the station.",
+              "I found my job by reading a book at the station."
+            ],
+            "es-419": [
+              "Encontré mi departamento leyendo un anuncio en la estación.",
+              "Encontré mi empleo leyendo un libro en la estación."
+            ],
+            "it": [
+              "Ho trovato la mia casa leggendo un annuncio in stazione.",
+              "Ho trovato il mio lavoro leggendo un libro in stazione."
+            ],
+            "nl": [
+              "Ik heb mijn appartement gevonden door een advertentie op het station te lezen.",
+              "Ik heb mijn baan gevonden door een boek op het station te lezen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous avons trouvé un accord en parlant avec le responsable.",
+          "translation": {
+            "en": "We reached an agreement by talking to the manager.",
+            "es-419": "Llegamos a un acuerdo hablando con el encargado.",
+            "it": "Abbiamo trovato un accordo parlando con il responsabile.",
+            "nl": "We hebben een akkoord bereikt door met de leidinggevende te praten."
+          },
+          "distractors": {
+            "en": [
+              "We reached an agreement by writing to the manager.",
+              "We reached an agreement by talking to the employees."
+            ],
+            "es-419": [
+              "Llegamos a un acuerdo escribiéndole al encargado.",
+              "Llegamos a un acuerdo hablando con los empleados."
+            ],
+            "it": [
+              "Abbiamo trovato un accordo scrivendo al responsabile.",
+              "Abbiamo trovato un accordo parlando con i dipendenti."
+            ],
+            "nl": [
+              "We hebben een akkoord bereikt door de leidinggevende te schrijven.",
+              "We hebben een akkoord bereikt door met de werknemers te praten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma mère chante toujours en faisant la cuisine.",
+          "translation": {
+            "en": "My mother always sings while cooking.",
+            "es-419": "Mi mamá siempre canta mientras cocina.",
+            "it": "Mia madre canta sempre mentre cucina.",
+            "nl": "Mijn moeder zingt altijd terwijl ze kookt."
+          },
+          "distractors": {
+            "en": [
+              "My mother always dances while cooking.",
+              "My mother never sings while cooking."
+            ],
+            "es-419": [
+              "Mi mamá siempre baila mientras cocina.",
+              "Mi mamá nunca canta mientras cocina."
+            ],
+            "it": [
+              "Mia madre balla sempre mentre cucina.",
+              "Mia madre non canta mai mentre cucina."
+            ],
+            "nl": [
+              "Mijn moeder danst altijd terwijl ze kookt.",
+              "Mijn moeder zingt nooit terwijl ze kookt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-emploi-6",
+      "title": "Le premier jour",
+      "grammarFocus": {
+        "en": [
+          "review: depuis and ça fait ... que, venir de, être sur le point de, en + -ant",
+          "finir par + infinitive = end up doing: J'ai fini par trouver un emploi; ne pas arrêter de = keep on"
+        ],
+        "es-419": [
+          "repaso: depuis y ça fait ... que, venir de, être sur le point de, en + -ant",
+          "finir par + infinitivo = terminar haciendo: J'ai fini par trouver un emploi; ne pas arrêter de = no dejar de"
+        ],
+        "it": [
+          "ripasso: depuis e ça fait ... que, venir de, être sur le point de, en + -ant",
+          "finir par + infinito = finire per fare: J'ai fini par trouver un emploi; ne pas arrêter de = non smettere di"
+        ],
+        "nl": [
+          "herhaling: depuis en ça fait ... que, venir de, être sur le point de, en + -ant",
+          "finir par + infinitief = uiteindelijk doen: J'ai fini par trouver un emploi; ne pas arrêter de = blijven doen"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-emploi-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "contrat",
+          "translation": {
+            "en": "contract",
+            "es-419": "contrato",
+            "it": "contratto",
+            "nl": "contract"
+          },
+          "distractors": {
+            "en": [
+              "salary",
+              "job offer"
+            ],
+            "es-419": [
+              "sueldo",
+              "oferta"
+            ],
+            "it": [
+              "stipendio",
+              "offerta"
+            ],
+            "nl": [
+              "salaris",
+              "vacature"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon contrat commence lundi et dure six mois.",
+          "translation": {
+            "en": "My contract starts Monday and lasts six months.",
+            "es-419": "Mi contrato empieza el lunes y dura seis meses.",
+            "it": "Il mio contratto comincia lunedì e dura sei mesi.",
+            "nl": "Mijn contract begint maandag en duurt zes maanden."
+          },
+          "distractors": {
+            "en": [
+              "My contract starts Monday and lasts two years.",
+              "My contract starts next month and lasts six months."
+            ],
+            "es-419": [
+              "Mi contrato empieza el lunes y dura dos años.",
+              "Mi contrato empieza el mes próximo y dura seis meses."
+            ],
+            "it": [
+              "Il mio contratto comincia lunedì e dura due anni.",
+              "Il mio contratto comincia il mese prossimo e dura sei mesi."
+            ],
+            "nl": [
+              "Mijn contract begint maandag en duurt twee jaar.",
+              "Mijn contract begint volgende maand en duurt zes maanden."
+            ]
+          },
+          "variants": [
+            "Mon contrat commence lundi et dure 6 mois."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-6-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le premier jour",
+          "translation": {
+            "en": "the first day",
+            "es-419": "el primer día",
+            "it": "il primo giorno",
+            "nl": "de eerste dag"
+          },
+          "distractors": {
+            "en": [
+              "the last day",
+              "the first week"
+            ],
+            "es-419": [
+              "el último día",
+              "la primera semana"
+            ],
+            "it": [
+              "l'ultimo giorno",
+              "la prima settimana"
+            ],
+            "nl": [
+              "de laatste dag",
+              "de eerste week"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, c'est mon premier jour dans l'entreprise.",
+          "translation": {
+            "en": "Today is my first day at the company.",
+            "es-419": "Hoy es mi primer día en la empresa.",
+            "it": "Oggi è il mio primo giorno in azienda.",
+            "nl": "Vandaag is mijn eerste dag bij het bedrijf."
+          },
+          "distractors": {
+            "en": [
+              "Today is my last day at the company.",
+              "Today is my first day at school."
+            ],
+            "es-419": [
+              "Hoy es mi último día en la empresa.",
+              "Hoy es mi primer día en la escuela."
+            ],
+            "it": [
+              "Oggi è il mio ultimo giorno in azienda.",
+              "Oggi è il mio primo giorno a scuola."
+            ],
+            "nl": [
+              "Vandaag is mijn laatste dag bij het bedrijf.",
+              "Vandaag is mijn eerste dag op school."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis un peu fatigué, mais très content.",
+          "translation": {
+            "en": "I'm a little tired, but very happy.",
+            "es-419": "Estoy un poco cansado, pero muy contento.",
+            "it": "Sono un po' stanco, ma molto contento.",
+            "nl": "Ik ben een beetje moe, maar heel blij."
+          },
+          "distractors": {
+            "en": [
+              "I'm a little tired, but very sad.",
+              "I'm a little sick, but very happy."
+            ],
+            "es-419": [
+              "Estoy un poco cansado, pero muy triste.",
+              "Estoy un poco enfermo, pero muy contento."
+            ],
+            "it": [
+              "Sono un po' stanco, ma molto triste.",
+              "Sono un po' malato, ma molto contento."
+            ],
+            "nl": [
+              "Ik ben een beetje moe, maar heel verdrietig.",
+              "Ik ben een beetje ziek, maar heel blij."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-emploi-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'arrive tôt, parce que la responsable m'attend à huit heures.",
+          "translation": {
+            "en": "I'm arriving early because the manager is waiting for me at eight.",
+            "es-419": "Llego temprano porque la encargada me espera a las ocho.",
+            "it": "Arrivo presto perché la responsabile mi aspetta alle otto.",
+            "nl": "Ik kom vroeg aan, want de leidinggevende wacht op me om acht uur."
+          },
+          "distractors": {
+            "en": [
+              "I'm arriving late because the manager is waiting for me at eight.",
+              "I'm arriving early because the manager is waiting for me at nine."
+            ],
+            "es-419": [
+              "Llego tarde porque la encargada me espera a las ocho.",
+              "Llego temprano porque la encargada me espera a las nueve."
+            ],
+            "it": [
+              "Arrivo tardi perché la responsabile mi aspetta alle otto.",
+              "Arrivo presto perché la responsabile mi aspetta alle nove."
+            ],
+            "nl": [
+              "Ik kom laat aan, want de leidinggevende wacht op me om acht uur.",
+              "Ik kom vroeg aan, want de leidinggevende wacht op me om negen uur."
+            ]
+          },
+          "variants": [
+            "J'arrive tôt, parce que la responsable m'attend à 8 heures."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-6-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "on me présente l'équipe",
+          "translation": {
+            "en": "they introduce me to the team",
+            "es-419": "me presentan al equipo",
+            "it": "mi presentano la squadra",
+            "nl": "ze stellen me aan het team voor"
+          },
+          "distractors": {
+            "en": [
+              "I introduce the team",
+              "they call the team"
+            ],
+            "es-419": [
+              "presento al equipo",
+              "llaman al equipo"
+            ],
+            "it": [
+              "presento la squadra",
+              "chiamano la squadra"
+            ],
+            "nl": [
+              "ik stel het team voor",
+              "ze bellen het team"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La responsable me présente mes nouveaux collègues.",
+          "translation": {
+            "en": "The manager introduces me to my new colleagues.",
+            "es-419": "La encargada me presenta a mis nuevos colegas.",
+            "it": "La responsabile mi presenta i miei nuovi colleghi.",
+            "nl": "De leidinggevende stelt me voor aan mijn nieuwe collega's."
+          },
+          "distractors": {
+            "en": [
+              "The manager introduces me to my new neighbors.",
+              "The manager thanks my new colleagues."
+            ],
+            "es-419": [
+              "La encargada me presenta a mis nuevos vecinos.",
+              "La encargada agradece a mis nuevos colegas."
+            ],
+            "it": [
+              "La responsabile mi presenta i miei nuovi vicini.",
+              "La responsabile ringrazia i miei nuovi colleghi."
+            ],
+            "nl": [
+              "De leidinggevende stelt me voor aan mijn nieuwe buren.",
+              "De leidinggevende bedankt mijn nieuwe collega's."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'ai fini par trouver",
+          "translation": {
+            "en": "I ended up finding",
+            "es-419": "terminé encontrando",
+            "it": "alla fine ho trovato",
+            "nl": "ik heb uiteindelijk gevonden"
+          },
+          "distractors": {
+            "en": [
+              "I stopped looking",
+              "I started looking"
+            ],
+            "es-419": [
+              "dejé de buscar",
+              "empecé a buscar"
+            ],
+            "it": [
+              "ho smesso di cercare",
+              "ho cominciato a cercare"
+            ],
+            "nl": [
+              "ik ben gestopt met zoeken",
+              "ik ben begonnen met zoeken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après quatre mois, j'ai fini par trouver un emploi.",
+          "translation": {
+            "en": "After four months, I finally found a job.",
+            "es-419": "Después de cuatro meses, por fin encontré un empleo.",
+            "it": "Dopo quattro mesi ho finalmente trovato un lavoro.",
+            "nl": "Na vier maanden heb ik uiteindelijk een baan gevonden."
+          },
+          "distractors": {
+            "en": [
+              "After four months, I stopped looking for a job.",
+              "After four weeks, I finally found a job."
+            ],
+            "es-419": [
+              "Después de cuatro meses, dejé de buscar un empleo.",
+              "Después de cuatro semanas, por fin encontré un empleo."
+            ],
+            "it": [
+              "Dopo quattro mesi ho smesso di cercare un lavoro.",
+              "Dopo quattro settimane ho finalmente trovato un lavoro."
+            ],
+            "nl": [
+              "Na vier maanden ben ik gestopt met een baan zoeken.",
+              "Na vier weken heb ik uiteindelijk een baan gevonden."
+            ]
+          },
+          "variants": [
+            "Après 4 mois, j'ai fini par trouver un emploi."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça fait deux semaines que je travaille ici et j'aime déjà mon équipe.",
+          "translation": {
+            "en": "I've been working here for two weeks and I already like my team.",
+            "es-419": "Llevo dos semanas trabajando aquí y ya me gusta mi equipo.",
+            "it": "Lavoro qui da due settimane e mi piace già la mia squadra.",
+            "nl": "Ik werk hier al twee weken en ik vind mijn team nu al leuk."
+          },
+          "distractors": {
+            "en": [
+              "I've been working here for two months and I already like my team.",
+              "I've been working here for two weeks and I already like my boss."
+            ],
+            "es-419": [
+              "Llevo dos meses trabajando aquí y ya me gusta mi equipo.",
+              "Llevo dos semanas trabajando aquí y ya me cae bien mi jefe."
+            ],
+            "it": [
+              "Lavoro qui da due mesi e mi piace già la mia squadra.",
+              "Lavoro qui da due settimane e mi piace già il mio capo."
+            ],
+            "nl": [
+              "Ik werk hier al twee maanden en ik vind mijn team nu al leuk.",
+              "Ik werk hier al twee weken en ik vind mijn baas nu al leuk."
+            ]
+          },
+          "variants": [
+            "Ça fait 2 semaines que je travaille ici et j'aime déjà mon équipe."
+          ]
+        },
+        {
+          "id": "fr-b1-emploi-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon chef vient de m'expliquer mon travail.",
+          "translation": {
+            "en": "My boss has just explained my job to me.",
+            "es-419": "Mi jefe acaba de explicarme mi trabajo.",
+            "it": "Il mio capo mi ha appena spiegato il mio lavoro.",
+            "nl": "Mijn baas heeft me net mijn werk uitgelegd."
+          },
+          "distractors": {
+            "en": [
+              "My boss is about to explain my job to me.",
+              "My boss has just explained my job to my colleagues."
+            ],
+            "es-419": [
+              "Mi jefe está por explicarme mi trabajo.",
+              "Mi jefe acaba de explicarles mi trabajo a mis colegas."
+            ],
+            "it": [
+              "Il mio capo sta per spiegarmi il mio lavoro.",
+              "Il mio capo ha appena spiegato il mio lavoro ai miei colleghi."
+            ],
+            "nl": [
+              "Mijn baas staat op het punt mijn werk aan me uit te leggen.",
+              "Mijn baas heeft mijn werk net aan mijn collega's uitgelegd."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce soir, je vais dîner au restaurant avec mon équipe.",
+          "translation": {
+            "en": "Tonight I'm going to have dinner at a restaurant with my team.",
+            "es-419": "Esta noche voy a cenar en un restaurante con mi equipo.",
+            "it": "Stasera ceno al ristorante con la mia squadra.",
+            "nl": "Vanavond ga ik met mijn team in een restaurant eten."
+          },
+          "distractors": {
+            "en": [
+              "Tomorrow evening I'm going to have dinner at a restaurant with my team.",
+              "Tonight I'm going to have dinner at a restaurant with my family."
+            ],
+            "es-419": [
+              "Mañana por la noche voy a cenar en un restaurante con mi equipo.",
+              "Esta noche voy a cenar en un restaurante con mi familia."
+            ],
+            "it": [
+              "Domani sera ceno al ristorante con la mia squadra.",
+              "Stasera ceno al ristorante con la mia famiglia."
+            ],
+            "nl": [
+              "Morgenavond ga ik met mijn team in een restaurant eten.",
+              "Vanavond ga ik met mijn familie in een restaurant eten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis sur le point de finir ma première journée, et je suis très content.",
+          "translation": {
+            "en": "I'm about to finish my first day, and I'm very happy.",
+            "es-419": "Estoy a punto de terminar mi primer día, y estoy muy contento.",
+            "it": "Sto per finire il mio primo giorno e sono molto contento.",
+            "nl": "Ik sta op het punt mijn eerste dag af te ronden en ik ben heel blij."
+          },
+          "distractors": {
+            "en": [
+              "I've just finished my first day, and I'm very happy.",
+              "I'm about to finish my first week, and I'm very happy."
+            ],
+            "es-419": [
+              "Acabo de terminar mi primer día, y estoy muy contento.",
+              "Estoy a punto de terminar mi primera semana, y estoy muy contento."
+            ],
+            "it": [
+              "Ho appena finito il mio primo giorno e sono molto contento.",
+              "Sto per finire la mia prima settimana e sono molto contento."
+            ],
+            "nl": [
+              "Ik heb net mijn eerste dag afgerond en ik ben heel blij.",
+              "Ik sta op het punt mijn eerste week af te ronden en ik ben heel blij."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-emploi-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma mère n'arrête pas de me demander si j'aime mon nouveau travail.",
+          "translation": {
+            "en": "My mother keeps asking me if I like my new job.",
+            "es-419": "Mi mamá no deja de preguntarme si me gusta mi nuevo trabajo.",
+            "it": "Mia madre continua a chiedermi se mi piace il mio nuovo lavoro.",
+            "nl": "Mijn moeder blijft me vragen of ik mijn nieuwe baan leuk vind."
+          },
+          "distractors": {
+            "en": [
+              "My mother has stopped asking me if I like my new job.",
+              "My mother keeps asking me if I like my new boss."
+            ],
+            "es-419": [
+              "Mi mamá dejó de preguntarme si me gusta mi nuevo trabajo.",
+              "Mi mamá no deja de preguntarme si me cae bien mi nuevo jefe."
+            ],
+            "it": [
+              "Mia madre ha smesso di chiedermi se mi piace il mio nuovo lavoro.",
+              "Mia madre continua a chiedermi se mi piace il mio nuovo capo."
+            ],
+            "nl": [
+              "Mijn moeder is gestopt met me te vragen of ik mijn nieuwe baan leuk vind.",
+              "Mijn moeder blijft me vragen of ik mijn nieuwe baas leuk vind."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-emploi-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le soir, en rentrant, je raconte ma journée à ma famille.",
+          "translation": {
+            "en": "In the evening, on the way home, I tell my family about my day.",
+            "es-419": "Por la noche, al volver a casa, le cuento mi día a mi familia.",
+            "it": "La sera, tornando a casa, racconto la mia giornata alla mia famiglia.",
+            "nl": "'s Avonds vertel ik op weg naar huis mijn familie over mijn dag."
+          },
+          "distractors": {
+            "en": [
+              "In the morning, when I leave, I tell my family about my day.",
+              "In the evening, on the way home, I tell my friends about my day."
+            ],
+            "es-419": [
+              "Por la mañana, al salir, le cuento mi día a mi familia.",
+              "Por la noche, al volver a casa, les cuento mi día a mis amigos."
+            ],
+            "it": [
+              "La mattina, uscendo, racconto la mia giornata alla mia famiglia.",
+              "La sera, tornando a casa, racconto la mia giornata ai miei amici."
+            ],
+            "nl": [
+              "'s Ochtends vertel ik bij het weggaan mijn familie over mijn dag.",
+              "'s Avonds vertel ik op weg naar huis mijn vrienden over mijn dag."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

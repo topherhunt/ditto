@@ -1,0 +1,5075 @@
+{
+  "id": "fr-b1-hypotheses",
+  "language": "fr",
+  "level": "B1",
+  "order": 29,
+  "title": "Si j'avais le temps...",
+  "description": {
+    "en": "Imagining, dreaming and expressing regrets",
+    "es-419": "Imaginar, soñar y expresar arrepentimientos",
+    "it": "Immaginare, sognare ed esprimere rimpianti",
+    "nl": "Fantaseren, dromen en spijt uiten"
+  },
+  "track": "main",
+  "requires": [
+    "fr-b1-environnement"
+  ],
+  "introduces": [
+    "loterie",
+    "million",
+    "milliard",
+    "imaginer",
+    "regretter",
+    "occasion",
+    "valeur",
+    "risque",
+    "île",
+    "entier",
+    "décision",
+    "parfait",
+    "idéal",
+    "erreur",
+    "destin",
+    "liberté",
+    "bonheur",
+    "cas",
+    "hypothèse",
+    "ailleurs",
+    "riche"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "a = has (avoir: il a; il y a = there is)",
+        "es-419": "a = tiene, ha (avoir: il a; il y a = hay)",
+        "it": "a = ha (avoir: il a; il y a = c'è)",
+        "nl": "a = heeft (avoir: il a; il y a = er is)"
+      }
+    },
+    "acheter": {
+      "lemma": "acheter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "acheter = to buy (j'achète, vous achetez)",
+        "es-419": "acheter = comprar (j'achète, vous achetez)",
+        "it": "acheter = comprare (j'achète, vous achetez)",
+        "nl": "acheter = kopen (j'achète, vous achetez)"
+      }
+    },
+    "acheté": {
+      "lemma": "acheter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "acheté = bought (participle of acheter)",
+        "es-419": "acheté = comprado (participio de acheter)",
+        "it": "acheté = comprato (participio di acheter)",
+        "nl": "acheté = gekocht (voltooid deelwoord van acheter)"
+      }
+    },
+    "aider": {
+      "lemma": "aider",
+      "pos": "VERB",
+      "gloss": {
+        "en": "aider = to help",
+        "es-419": "aider = ayudar",
+        "it": "aider = aiutare",
+        "nl": "aider = helpen"
+      }
+    },
+    "ailleurs": {
+      "lemma": "ailleurs",
+      "pos": "ADV",
+      "gloss": {
+        "en": "elsewhere, somewhere else",
+        "es-419": "en otro lugar",
+        "it": "altrove",
+        "nl": "elders"
+      }
+    },
+    "aimé": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "aimé = liked (participle of aimer)",
+        "es-419": "aimé = gustado, querido (participio de aimer)",
+        "it": "aimé = piaciuto, amato (participio di aimer)",
+        "nl": "aimé = graag gewild, gehouden van (voltooid deelwoord van aimer)"
+      }
+    },
+    "allait": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "allait = went (imperfect of aller: on allait)",
+        "es-419": "allait = fuéramos (imperfecto de aller: on allait)",
+        "it": "allait = andassimo (imperfetto di aller: on allait)",
+        "nl": "allait = gingen (imperfectum van aller: on allait)"
+      }
+    },
+    "amis": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "amis = friends (plural of ami)",
+        "es-419": "amis = amigos (plural de ami)",
+        "it": "amis = amici (plurale di ami)",
+        "nl": "amis = vrienden (meervoud van ami)"
+      }
+    },
+    "an": {
+      "lemma": "an",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "year (m); un an = one year",
+        "es-419": "año (m); un an = un año",
+        "it": "anno (m); un an = un anno",
+        "nl": "jaar (m); un an = één jaar"
+      }
+    },
+    "apprendre": {
+      "lemma": "apprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to learn",
+        "es-419": "aprender",
+        "it": "imparare",
+        "nl": "leren"
+      }
+    },
+    "appris": {
+      "lemma": "apprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "appris = learned (participle of apprendre)",
+        "es-419": "appris = aprendido (participio de apprendre)",
+        "it": "appris = imparato (participio di apprendre)",
+        "nl": "appris = geleerd (voltooid deelwoord van apprendre)"
+      }
+    },
+    "argent": {
+      "lemma": "argent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "argent (m): money; also silver",
+        "es-419": "argent (m): dinero; también plata",
+        "it": "argent (m): soldi, denaro; anche argento",
+        "nl": "argent (m): geld; ook zilver"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + le: al, allo",
+        "nl": "au = à + le: naar de, bij de, op de"
+      }
+    },
+    "aura": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "aura = will have (avoir: on aura)",
+        "es-419": "aura = tendrá (avoir: on aura)",
+        "it": "aura = avrà (avoir: on aura)",
+        "nl": "aura = zal hebben (avoir: on aura)"
+      }
+    },
+    "aurais": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "aurais = would have (avoir: j'aurais, tu aurais)",
+        "es-419": "aurais = habría, habrías (avoir: j'aurais, tu aurais)",
+        "it": "aurais = avrei, avresti (avoir: j'aurais, tu aurais)",
+        "nl": "aurais = zou hebben (avoir: j'aurais, tu aurais)"
+      }
+    },
+    "aurait": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "aurait = would have (avoir: ça aurait)",
+        "es-419": "aurait = habría (avoir: ça aurait)",
+        "it": "aurait = avrebbe (avoir: ça aurait)",
+        "nl": "aurait = zou hebben (avoir: ça aurait)"
+      }
+    },
+    "aurions": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "aurions = we would have (avoir: nous aurions)",
+        "es-419": "aurions = habríamos (avoir: nous aurions)",
+        "it": "aurions = avremmo (avoir: nous aurions)",
+        "nl": "aurions = we zouden hebben (avoir: nous aurions)"
+      }
+    },
+    "avais": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avais = had (avoir: j'avais, tu avais)",
+        "es-419": "avais = tenía, tenías (avoir: j'avais, tu avais)",
+        "it": "avais = avevo, avevi (avoir: j'avais, tu avais)",
+        "nl": "avais = had (avoir: j'avais, tu avais)"
+      }
+    },
+    "avait": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avait = had (avoir: il avait)",
+        "es-419": "avait = tenía, había (avoir: il avait)",
+        "it": "avait = aveva (avoir: il avait)",
+        "nl": "avait = had (avoir: il avait)"
+      }
+    },
+    "avant": {
+      "lemma": "avant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "before; avant le dîner = before dinner",
+        "es-419": "antes de; avant le dîner = antes de la cena",
+        "it": "prima di; avant le dîner = prima di cena",
+        "nl": "voor; avant le dîner = voor het avondeten"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "avions": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avions = we had (avoir: nous avions)",
+        "es-419": "avions = teníamos, habíamos (avoir: nous avions)",
+        "it": "avions = avevamo (avoir: nous avions)",
+        "nl": "avions = we hadden (avoir: nous avions)"
+      }
+    },
+    "avoir": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "avoir: to have (ai, as, a, avons, avez, ont); avoir envie de = feel like",
+        "es-419": "avoir: tener (ai, as, a, avons, avez, ont); avoir envie de = tener ganas de",
+        "it": "avoir: avere (ai, as, a, avons, avez, ont); avoir envie de = avere voglia di",
+        "nl": "avoir: hebben (ai, as, a, avons, avez, ont); avoir envie de = zin hebben in"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "a lot, many (beaucoup de + noun)",
+        "es-419": "mucho, muchos (beaucoup de + nombre)",
+        "it": "molto, molti (beaucoup de + nome)",
+        "nl": "veel (beaucoup de + zelfstandig naamwoord)"
+      }
+    },
+    "besoin": {
+      "lemma": "besoin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "need (m); avoir besoin de = to need",
+        "es-419": "necesidad (m); avoir besoin de = necesitar",
+        "it": "bisogno (m); avoir besoin de = avere bisogno di",
+        "nl": "behoefte (m); avoir besoin de = nodig hebben"
+      }
+    },
+    "bonheur": {
+      "lemma": "bonheur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "happiness (m)",
+        "es-419": "felicidad (m)",
+        "it": "felicità (m)",
+        "nl": "geluk (m)"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is",
+        "es-419": "c'est = ce + est: es, esto es",
+        "it": "c'est = ce + est: è, questo è",
+        "nl": "c'est = ce + est: het is, dit is"
+      }
+    },
+    "c'était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'était = ce + était: it was",
+        "es-419": "c'était = ce + était: era, fue",
+        "it": "c'était = ce + était: era, è stato",
+        "nl": "c'était = ce + était: het was"
+      }
+    },
+    "campagne": {
+      "lemma": "campagne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "countryside (f)",
+        "es-419": "campo (f)",
+        "it": "campagna (f)",
+        "nl": "platteland (f)"
+      }
+    },
+    "cas": {
+      "lemma": "cas",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "case (m); au cas où = just in case",
+        "es-419": "caso (m); au cas où = por si acaso",
+        "it": "caso (m); au cas où = nel caso in cui",
+        "nl": "geval (m); au cas où = voor het geval dat"
+      }
+    },
+    "ce": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "this, that (ce soir = tonight); ce, cet, cette, ces",
+        "es-419": "este, ese (ce soir = esta noche); ce, cet, cette, ces",
+        "it": "questo, quello (ce soir = stasera); ce, cet, cette, ces",
+        "nl": "deze, die (ce soir = vanavond); ce, cet, cette, ces"
+      }
+    },
+    "cet": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cet = this, that (before a masculine noun starting with a vowel): cet ordinateur",
+        "es-419": "cet = este, ese (ante sustantivo masculino que empieza por vocal): cet ordinateur",
+        "it": "cet = questo, quel (davanti a nome maschile che inizia per vocale): cet ordinateur",
+        "nl": "cet = deze, dit (voor een mannelijk woord dat met een klinker begint): cet ordinateur"
+      }
+    },
+    "cette": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cette = this, that (before a feminine noun)",
+        "es-419": "cette = esta, esa (ante sustantivo femenino)",
+        "it": "cette = questa, quella (davanti a nome femminile)",
+        "nl": "cette = deze, die (voor een vrouwelijk zelfstandig naamwoord)"
+      }
+    },
+    "changer": {
+      "lemma": "changer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "changer = to change, to exchange (a purchase)",
+        "es-419": "changer = cambiar (una compra)",
+        "it": "changer = cambiare (un acquisto)",
+        "nl": "changer = veranderen, ruilen (een aankoop)"
+      }
+    },
+    "chez": {
+      "lemma": "chez",
+      "pos": "ADP",
+      "gloss": {
+        "en": "chez: at the home of, at; chez moi = at my place",
+        "es-419": "chez: en casa de; chez moi = en mi casa",
+        "it": "chez: da, a casa di; chez moi = a casa mia",
+        "nl": "chez: bij; chez moi = bij mij thuis"
+      }
+    },
+    "comme": {
+      "lemma": "comme",
+      "pos": "ADP",
+      "gloss": {
+        "en": "as, like; comme dessert = for dessert",
+        "es-419": "como; comme dessert = de postre",
+        "it": "come; comme dessert = come dolce",
+        "nl": "als, zoals; comme dessert = als toetje"
+      }
+    },
+    "commencé": {
+      "lemma": "commencer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "commencé = started (participle of commencer)",
+        "es-419": "commencé = empezado (participio de commencer)",
+        "it": "commencé = cominciato (participio di commencer)",
+        "nl": "commencé = begonnen (voltooid deelwoord van commencer)"
+      }
+    },
+    "cuisinait": {
+      "lemma": "cuisiner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cuisinait = cooked (imperfect of cuisiner: on cuisinait)",
+        "es-419": "cuisinait = cocináramos (imperfecto de cuisiner: on cuisinait)",
+        "it": "cuisinait = cucinassimo (imperfetto di cuisiner: on cuisinait)",
+        "nl": "cuisinait = kookten (imperfectum van cuisiner: on cuisinait)"
+      }
+    },
+    "d'argent": {
+      "lemma": "argent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'argent = de + argent: of money; assez d'argent = enough money",
+        "es-419": "d'argent = de + argent: de dinero; assez d'argent = suficiente dinero",
+        "it": "d'argent = de + argent: di soldi; assez d'argent = abbastanza soldi",
+        "nl": "d'argent = de + argent: van geld; assez d'argent = genoeg geld"
+      }
+    },
+    "d'avoir": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "d'avoir = de + avoir: of having; avoir + participle = have done",
+        "es-419": "d'avoir = de + avoir: de tener, de haber",
+        "it": "d'avoir = de + avoir: di avere, di aver",
+        "nl": "d'avoir = de + avoir: van hebben, te hebben"
+      }
+    },
+    "d'euros": {
+      "lemma": "euro",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "d'euros = de + euros: of euros (m)",
+        "es-419": "d'euros = de + euros: de euros (m)",
+        "it": "d'euros = de + euros: di euro (m)",
+        "nl": "d'euros = de + euros: aan euro (m)"
+      }
+    },
+    "d'y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "d'y = de + y: about it (penser à ça = y penser)",
+        "es-419": "d'y = de + y: en eso (penser à ça = y penser)",
+        "it": "d'y = de + y: a ciò (penser à ça = y penser)",
+        "nl": "d'y = de + y: eraan (penser à ça = y penser)"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, inside",
+        "es-419": "en, dentro de",
+        "it": "in, dentro",
+        "nl": "in, binnen in"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "of, from; a little of = un peu de",
+        "es-419": "de; un peu de = un poco de",
+        "it": "di, da; un peu de = un po' di",
+        "nl": "van, uit; un peu de = een beetje"
+      }
+    },
+    "demain": {
+      "lemma": "demain",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tomorrow",
+        "es-419": "mañana",
+        "it": "domani",
+        "nl": "morgen"
+      }
+    },
+    "des": {
+      "lemma": "des",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, any (plural); de + les: of the",
+        "es-419": "unos, algunos (plural); de + les: de los",
+        "it": "dei, delle (plurale); de + les: dei",
+        "nl": "enkele, wat (meervoud); de + les: van de"
+      }
+    },
+    "destin": {
+      "lemma": "destin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "fate, destiny (m)",
+        "es-419": "destino (m)",
+        "it": "destino (m)",
+        "nl": "lot, bestemming (m)"
+      }
+    },
+    "dimanche": {
+      "lemma": "dimanche",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "Sunday (m)",
+        "es-419": "domingo (m)",
+        "it": "domenica (m)",
+        "nl": "zondag (m)"
+      }
+    },
+    "dit": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dit = is said (ça se dit = one says it)",
+        "es-419": "dit = se dice (ça se dit)",
+        "it": "dit = si dice (ça se dit)",
+        "nl": "dit = wordt gezegd (ça se dit = zegt men)"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = de + le: of the, from the",
+        "es-419": "du = de + le: del",
+        "it": "du = de + le: del, dello",
+        "nl": "du = de + le: van het, van de"
+      }
+    },
+    "décision": {
+      "lemma": "décision",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "decision (f)",
+        "es-419": "decisión (f)",
+        "it": "decisione (f)",
+        "nl": "beslissing (f)"
+      }
+    },
+    "dû": {
+      "lemma": "devoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dû = had to, should (participle of devoir: j'aurais dû = I should have)",
+        "es-419": "dû = debido (participio de devoir: j'aurais dû = debería haber)",
+        "it": "dû = dovuto (participio di devoir: j'aurais dû = avrei dovuto)",
+        "nl": "dû = gemoeten (voltooid deelwoord van devoir: j'aurais dû = ik had moeten)"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in (en été, en mai, en France)",
+        "es-419": "en (en été, en mai, en France)",
+        "it": "in (en été, en mai, en France)",
+        "nl": "in (en été, en mai, en France)"
+      }
+    },
+    "ensemble": {
+      "lemma": "ensemble",
+      "pos": "ADV",
+      "gloss": {
+        "en": "together",
+        "es-419": "juntos",
+        "it": "insieme",
+        "nl": "samen"
+      }
+    },
+    "entier": {
+      "lemma": "entier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "whole, entire",
+        "es-419": "entero",
+        "it": "intero",
+        "nl": "heel"
+      }
+    },
+    "entière": {
+      "lemma": "entier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "entière = feminine of entier: whole, entire",
+        "es-419": "entière = femenino de entier: entera",
+        "it": "entière = femminile di entier: intera",
+        "nl": "entière = vrouwelijk van entier: hele"
+      }
+    },
+    "entreprise": {
+      "lemma": "entreprise",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "company, business (f)",
+        "es-419": "empresa (f)",
+        "it": "azienda (f)",
+        "nl": "bedrijf, onderneming (f)"
+      }
+    },
+    "erreur": {
+      "lemma": "erreur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mistake, error (f)",
+        "es-419": "error (f)",
+        "it": "errore (f)",
+        "nl": "fout (f)"
+      }
+    },
+    "essayer": {
+      "lemma": "essayer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to try",
+        "es-419": "intentar",
+        "it": "provare",
+        "nl": "proberen"
+      }
+    },
+    "est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est-ce = est + ce: is it; qui est-ce? = who is that?",
+        "es-419": "est-ce = est + ce: ¿es?; qui est-ce? = ¿quién es?",
+        "it": "est-ce = est + ce: è?; qui est-ce? = chi è?",
+        "nl": "est-ce = est + ce: is het; qui est-ce? = wie is dat?"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and",
+        "es-419": "y",
+        "it": "e",
+        "nl": "en"
+      }
+    },
+    "eu": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "eu = had (participle of avoir: j'avais eu)",
+        "es-419": "eu = tenido (participio de avoir: j'avais eu)",
+        "it": "eu = avuto (participio di avoir: j'avais eu)",
+        "nl": "eu = gehad (voltooid deelwoord van avoir: j'avais eu)"
+      }
+    },
+    "facile": {
+      "lemma": "facile",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "easy",
+        "es-419": "fácil",
+        "it": "facile",
+        "nl": "makkelijk, gemakkelijk"
+      }
+    },
+    "faire": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to do, to make",
+        "es-419": "hacer",
+        "it": "fare",
+        "nl": "doen, maken"
+      }
+    },
+    "fait": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fait: does, makes; il fait chaud = it's hot (weather)",
+        "es-419": "fait: hace; il fait chaud = hace calor (clima)",
+        "it": "fait: fa; il fait chaud = fa caldo (tempo)",
+        "nl": "fait: doet, maakt; il fait chaud = het is warm (weer)"
+      }
+    },
+    "famille": {
+      "lemma": "famille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "family (f)",
+        "es-419": "familia (f)",
+        "it": "famiglia (f)",
+        "nl": "familie, gezin (f)"
+      }
+    },
+    "ferais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "ferais = would do (faire: je/tu ferais)",
+        "es-419": "ferais = haría, harías (faire: je/tu ferais)",
+        "it": "ferais = farei, faresti (faire: je/tu ferais)",
+        "nl": "ferais = zou doen (faire: je/tu ferais)"
+      }
+    },
+    "fini": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fini = finished (participle of finir)",
+        "es-419": "fini = terminado (participio de finir)",
+        "it": "fini = finito (participio di finir)",
+        "nl": "fini = afgemaakt, klaar (voltooid deelwoord van finir)"
+      }
+    },
+    "gagnais": {
+      "lemma": "gagner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "gagnais = won, earned (gagner: je gagnais); si je gagnais = if I won",
+        "es-419": "gagnais = ganara, ganaba (gagner: je gagnais); si je gagnais = si me ganara",
+        "it": "gagnais = vincessi, guadagnavo (gagner: je gagnais); si je gagnais = se vincessi",
+        "nl": "gagnais = won, verdiende (gagner: je gagnais); si je gagnais = als ik won"
+      }
+    },
+    "gens": {
+      "lemma": "gens",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "people (m, plural only: des gens)",
+        "es-419": "gente, personas (m, solo plural: des gens)",
+        "it": "gente, persone (m, solo plurale: des gens)",
+        "nl": "mensen (m, alleen meervoud: des gens)"
+      }
+    },
+    "grande": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "big, large, tall (grand, grande)",
+        "es-419": "grande (grand, grande)",
+        "it": "grande (grand, grande)",
+        "nl": "groot (grand, grande)"
+      }
+    },
+    "génial": {
+      "lemma": "génial",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "génial: great, brilliant; watch out: not genial (= sympathique)",
+        "es-419": "génial: genial, fantástico",
+        "it": "génial: fantastico, geniale",
+        "nl": "génial: geweldig, super"
+      }
+    },
+    "habiter": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to live (in a place)",
+        "es-419": "vivir (en un lugar)",
+        "it": "abitare",
+        "nl": "wonen"
+      }
+    },
+    "hypothèse": {
+      "lemma": "hypothèse",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hypothesis (f)",
+        "es-419": "hipótesis (f)",
+        "it": "ipotesi (f)",
+        "nl": "hypothese (f)"
+      }
+    },
+    "ici": {
+      "lemma": "ici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here",
+        "es-419": "aquí",
+        "it": "qui",
+        "nl": "hier"
+      }
+    },
+    "idéal": {
+      "lemma": "idéal",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "ideal",
+        "es-419": "ideal",
+        "it": "ideale",
+        "nl": "ideaal"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "he, it",
+        "es-419": "él",
+        "it": "lui, egli",
+        "nl": "hij, het"
+      }
+    },
+    "imaginer": {
+      "lemma": "imaginer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to imagine",
+        "es-419": "imaginar",
+        "it": "immaginare",
+        "nl": "zich voorstellen"
+      }
+    },
+    "invitait": {
+      "lemma": "inviter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "invitait = invited (imperfect of inviter: on invitait)",
+        "es-419": "invitait = invitáramos (imperfecto de inviter: on invitait)",
+        "it": "invitait = invitassimo (imperfetto di inviter: on invitait)",
+        "nl": "invitait = uitnodigden (imperfectum van inviter: on invitait)"
+      }
+    },
+    "irais": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "irais = would go (aller: je/tu irais)",
+        "es-419": "irais = iría, irías (aller: je/tu irais)",
+        "it": "irais = andrei, andresti (aller: je/tu irais)",
+        "nl": "irais = zou gaan (aller: je/tu irais)"
+      }
+    },
+    "j'achèterais": {
+      "lemma": "acheter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'achèterais = je + achèterais: I would buy",
+        "es-419": "j'achèterais = je + achèterais: compraría",
+        "it": "j'achèterais = je + achèterais: comprerei",
+        "nl": "j'achèterais = je + achèterais: ik zou kopen"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'ai = je + ai: I have",
+        "es-419": "j'ai = je + ai: tengo",
+        "it": "j'ai = je + ai: ho",
+        "nl": "j'ai = je + ai: ik heb"
+      }
+    },
+    "j'aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'aime = je + aime: I like, I love",
+        "es-419": "j'aime = je + aime: me gusta, me encanta",
+        "it": "j'aime = je + aime: mi piace, amo",
+        "nl": "j'aime = je + aime: ik hou van, ik vind leuk"
+      }
+    },
+    "j'aurais": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'aurais = je + aurais: I would have",
+        "es-419": "j'aurais = je + aurais: yo habría",
+        "it": "j'aurais = je + aurais: avrei",
+        "nl": "j'aurais = je + aurais: ik zou hebben"
+      }
+    },
+    "j'avais": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'avais = je + avais: I had",
+        "es-419": "j'avais = je + avais: yo tenía, había",
+        "it": "j'avais = je + avais: avevo",
+        "nl": "j'avais = je + avais: ik had"
+      }
+    },
+    "j'en": {
+      "lemma": "en",
+      "pos": "PRON",
+      "gloss": {
+        "en": "j'en = je + en: I ... some of it, of it",
+        "es-419": "j'en = je + en: yo ... de eso",
+        "it": "j'en = je + en: ne ... io",
+        "nl": "j'en = je + en: ik ... ervan, daarvan"
+      }
+    },
+    "j'étais": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'étais = je + étais: I was",
+        "es-419": "j'étais = je + étais: yo era, yo estaba",
+        "it": "j'étais = je + étais: ero",
+        "nl": "j'étais = je + étais: ik was"
+      }
+    },
+    "jardin": {
+      "lemma": "jardin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "garden (m)",
+        "es-419": "jardín (m)",
+        "it": "giardino (m)",
+        "nl": "tuin (m)"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "I",
+        "es-419": "yo",
+        "it": "io",
+        "nl": "ik"
+      }
+    },
+    "jeune": {
+      "lemma": "jeune",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "young (same for m and f)",
+        "es-419": "joven (igual para m y f)",
+        "it": "giovane (uguale per m e f)",
+        "nl": "jong (m en f gelijk)"
+      }
+    },
+    "jouer": {
+      "lemma": "jouer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "jouer: to play; jouer à + sport, jouer de + instrument",
+        "es-419": "jouer: jugar, tocar; jouer à + deporte, jouer de + instrumento",
+        "it": "jouer: giocare, suonare; jouer à + sport, jouer de + strumento",
+        "nl": "jouer: spelen; jouer à + sport, jouer de + instrument"
+      }
+    },
+    "journée": {
+      "lemma": "journée",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "journée (f): day (the whole day); bonne journée = have a good day",
+        "es-419": "journée (f): día (el día entero); bonne journée = que tenga un buen día",
+        "it": "journée (f): giornata; bonne journée = buona giornata",
+        "nl": "journée (f): dag (de hele dag); bonne journée = een fijne dag"
+      }
+    },
+    "l'année": {
+      "lemma": "année",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'année = la + année: the year (f, as a period of time)",
+        "es-419": "l'année = la + année: el año (f, como período)",
+        "it": "l'année = la + année: l'anno (f, come periodo)",
+        "nl": "l'année = la + année: het jaar (f, als periode)"
+      }
+    },
+    "l'argent": {
+      "lemma": "argent",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'argent = le + argent: the money (m)",
+        "es-419": "l'argent = le + argent: el dinero (m)",
+        "it": "l'argent = le + argent: i soldi (m)",
+        "nl": "l'argent = le + argent: het geld (m)"
+      }
+    },
+    "l'occasion": {
+      "lemma": "occasion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'occasion = la + occasion: the chance, the opportunity (f)",
+        "es-419": "l'occasion = la + occasion: la oportunidad (f)",
+        "it": "l'occasion = la + occasion: l'occasione (f)",
+        "nl": "l'occasion = la + occasion: de kans (f)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (f)",
+        "es-419": "la",
+        "it": "la",
+        "nl": "de, het (f)"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (m)",
+        "es-419": "el",
+        "it": "il, lo",
+        "nl": "de, het (m)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural)",
+        "es-419": "los, las",
+        "it": "i, gli, le",
+        "nl": "de (meervoud)"
+      }
+    },
+    "liberté": {
+      "lemma": "liberté",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "freedom (f)",
+        "es-419": "libertad (f)",
+        "it": "libertà (f)",
+        "nl": "vrijheid (f)"
+      }
+    },
+    "loterie": {
+      "lemma": "loterie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "lottery (f)",
+        "es-419": "lotería (f)",
+        "it": "lotteria (f)",
+        "nl": "loterij (f)"
+      }
+    },
+    "m'appeler": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'appeler = me + appeler: to call me",
+        "es-419": "m'appeler = me + appeler: llamarme",
+        "it": "m'appeler = me + appeler: chiamarmi",
+        "nl": "m'appeler = me + appeler: mij bellen"
+      }
+    },
+    "m'avais": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "m'avais = me + avais: (tu m'avais écouté = you had listened to me)",
+        "es-419": "m'avais = me + avais: (tu m'avais écouté = me hubieras escuchado)",
+        "it": "m'avais = me + avais: (tu m'avais écouté = mi avessi ascoltato)",
+        "nl": "m'avais = me + avais: (tu m'avais écouté = je naar me had geluisterd)"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (f)",
+        "es-419": "mi (f)",
+        "it": "mia (f)",
+        "nl": "mijn (f)"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "but",
+        "es-419": "pero",
+        "it": "ma",
+        "nl": "maar"
+      }
+    },
+    "maison": {
+      "lemma": "maison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f)",
+        "es-419": "casa (f)",
+        "it": "casa (f)",
+        "nl": "huis, thuis (f)"
+      }
+    },
+    "mer": {
+      "lemma": "mer",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sea (f)",
+        "es-419": "mar (f); ojo: mer es femenino, el mar es masculino",
+        "it": "mare (f); attenzione: mer è femminile, il mare è maschile",
+        "nl": "zee (f)"
+      }
+    },
+    "milliard": {
+      "lemma": "milliard",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "billion, a thousand million (m); watch out: not the English \"milliard\"",
+        "es-419": "mil millones (m); ojo: no es \"millardo\"",
+        "it": "miliardo (m)",
+        "nl": "miljard (m)"
+      }
+    },
+    "million": {
+      "lemma": "million",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "million (m); un million de = a million",
+        "es-419": "millón (m); un million de = un millón de",
+        "it": "milione (m); un million de = un milione di",
+        "nl": "miljoen (m); un million de = een miljoen"
+      }
+    },
+    "moi": {
+      "lemma": "moi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "me (stressed: pour moi = for me)",
+        "es-419": "yo, mí (pour moi = para mí)",
+        "it": "io, me (pour moi = per me)",
+        "nl": "ik, mij (pour moi = voor mij)"
+      }
+    },
+    "mon": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "my (m)",
+        "es-419": "mi (m)",
+        "it": "mio (m)",
+        "nl": "mijn (m)"
+      }
+    },
+    "monde": {
+      "lemma": "monde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "world (m)",
+        "es-419": "mundo (m)",
+        "it": "mondo (m)",
+        "nl": "wereld (m)"
+      }
+    },
+    "même": {
+      "lemma": "même",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "same",
+        "es-419": "mismo",
+        "it": "stesso",
+        "nl": "zelfde"
+      }
+    },
+    "n'aurions": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'aurions = ne + aurions: we would not have",
+        "es-419": "n'aurions = ne + aurions: no habríamos",
+        "it": "n'aurions = ne + aurions: non avremmo",
+        "nl": "n'aurions = ne + aurions: we zouden niet hebben"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: isn't (n'est pas)",
+        "es-419": "n'est = ne + est: no es, no está (n'est pas)",
+        "it": "n'est = ne + est: non è (n'est pas)",
+        "nl": "n'est = ne + est: is niet (n'est pas)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: not, with pas (ne ... pas)",
+        "es-419": "ne: no, con pas (ne ... pas)",
+        "it": "ne: non, con pas (ne ... pas)",
+        "nl": "ne: niet, met pas (ne ... pas)"
+      }
+    },
+    "nous": {
+      "lemma": "nous",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we, us",
+        "es-419": "nosotros, nos",
+        "it": "noi, ci",
+        "nl": "wij, ons"
+      }
+    },
+    "occasion": {
+      "lemma": "occasion",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chance, opportunity (f)",
+        "es-419": "oportunidad (f)",
+        "it": "occasione (f)",
+        "nl": "kans, gelegenheid (f)"
+      }
+    },
+    "on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "we (everyday French)",
+        "es-419": "nosotros (francés cotidiano)",
+        "it": "noi (francese quotidiano)",
+        "nl": "we (alledaags Frans)"
+      }
+    },
+    "où": {
+      "lemma": "où",
+      "pos": "ADV",
+      "gloss": {
+        "en": "where",
+        "es-419": "dónde",
+        "it": "dove",
+        "nl": "waar"
+      }
+    },
+    "parapluie": {
+      "lemma": "parapluie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "umbrella (m)",
+        "es-419": "paraguas (m)",
+        "it": "ombrello (m)",
+        "nl": "paraplu (m)"
+      }
+    },
+    "parce": {
+      "lemma": "parce",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "parce: in parce que = because",
+        "es-419": "parce: en parce que = porque",
+        "it": "parce: in parce que = perché",
+        "nl": "parce: in parce que = omdat, want"
+      }
+    },
+    "parfait": {
+      "lemma": "parfait",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "perfect",
+        "es-419": "perfecto",
+        "it": "perfetto",
+        "nl": "perfect"
+      }
+    },
+    "parfaite": {
+      "lemma": "parfait",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "parfaite = feminine of parfait: perfect",
+        "es-419": "parfaite = femenino de parfait: perfecta",
+        "it": "parfaite = femminile di parfait: perfetta",
+        "nl": "parfaite = vrouwelijk van parfait: perfecte"
+      }
+    },
+    "partait": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "partait = left (imperfect of partir: on partait); et si on partait = what if we left",
+        "es-419": "partait = nos fuéramos (imperfecto de partir: on partait); et si on partait = y si nos fuéramos",
+        "it": "partait = partissimo (imperfetto di partir: on partait); et si on partait = e se partissimo",
+        "nl": "partait = vertrokken (imperfectum van partir: on partait); et si on partait = en als we vertrokken"
+      }
+    },
+    "partir": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to leave, to depart",
+        "es-419": "salir, irse",
+        "it": "partire",
+        "nl": "vertrekken"
+      }
+    },
+    "partirais": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "partirais = would leave (partir: je partirais)",
+        "es-419": "partirais = me iría (partir: je partirais)",
+        "it": "partirais = partirei (partir: je partirais)",
+        "nl": "partirais = zou vertrekken (partir: je partirais)"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "not (ne ... pas)",
+        "es-419": "no (ne ... pas)",
+        "it": "non (ne ... pas)",
+        "nl": "niet (ne ... pas)"
+      }
+    },
+    "passer": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to spend (time), to pass",
+        "es-419": "pasar (tiempo)",
+        "it": "passare (tempo)",
+        "nl": "doorbrengen (tijd), voorbijgaan"
+      }
+    },
+    "peine": {
+      "lemma": "peine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "effort, trouble (f); ça vaut la peine = it's worth it",
+        "es-419": "esfuerzo, pena (f); ça vaut la peine = vale la pena",
+        "it": "fatica (f); ça vaut la peine = vale la pena",
+        "nl": "moeite (f); ça vaut la peine = het is de moeite waard"
+      }
+    },
+    "pendant": {
+      "lemma": "pendant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, during (pendant trois jours = for three days)",
+        "es-419": "durante (pendant trois jours = durante tres días)",
+        "it": "per, durante (pendant trois jours = per tre giorni)",
+        "nl": "gedurende, lang (pendant trois jours = drie dagen lang)"
+      }
+    },
+    "penser": {
+      "lemma": "penser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to think",
+        "es-419": "pensar",
+        "it": "pensare",
+        "nl": "denken"
+      }
+    },
+    "perdu": {
+      "lemma": "perdu",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "perdu = lost (perdue for a woman)",
+        "es-419": "perdu = perdido (perdue para una mujer)",
+        "it": "perdu = perso (perdue per una donna)",
+        "nl": "perdu = verdwaald (perdue voor een vrouw)"
+      }
+    },
+    "petit": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "small, short, little",
+        "es-419": "pequeño, bajo",
+        "it": "piccolo, basso",
+        "nl": "klein"
+      }
+    },
+    "petite": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "small, short (f of petit)",
+        "es-419": "pequeña, baja (f de petit)",
+        "it": "piccola, bassa (f di petit)",
+        "nl": "klein (f van petit)"
+      }
+    },
+    "peut-être": {
+      "lemma": "peut-être",
+      "pos": "ADV",
+      "gloss": {
+        "en": "peut-être: maybe, perhaps",
+        "es-419": "peut-être: quizás, tal vez",
+        "it": "peut-être: forse, magari",
+        "nl": "peut-être: misschien"
+      }
+    },
+    "piano": {
+      "lemma": "piano",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "piano (m): piano",
+        "es-419": "piano (m): piano",
+        "it": "piano (m): piano",
+        "nl": "piano (m): piano"
+      }
+    },
+    "pire": {
+      "lemma": "pire",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "worse, worst",
+        "es-419": "peor",
+        "it": "peggiore, peggio",
+        "nl": "erger, slechter"
+      }
+    },
+    "place": {
+      "lemma": "place",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "place (f): place, seat, square; sur place = here (to eat in)",
+        "es-419": "place (f): lugar, asiento, plaza; sur place = aquí (para tomar allí)",
+        "it": "place (f): posto, piazza; attenzione: in italiano posto è maschile; sur place = qui (da consumare)",
+        "nl": "place (f): plaats, zitplaats, plein; sur place = hier (opeten)"
+      }
+    },
+    "pleuvrait": {
+      "lemma": "pleuvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pleuvrait = would rain (pleuvoir: il pleuvrait)",
+        "es-419": "pleuvrait = lloviera (pleuvoir: il pleuvrait)",
+        "it": "pleuvrait = piovesse (pleuvoir: il pleuvrait)",
+        "nl": "pleuvrait = zou regenen (pleuvoir: il pleuvrait)"
+      }
+    },
+    "plus": {
+      "lemma": "plus",
+      "pos": "ADV",
+      "gloss": {
+        "en": "plus: more; plus grand = bigger",
+        "es-419": "plus: más; plus grand = más grande",
+        "it": "plus: più; plus grand = più grande",
+        "nl": "plus: meer; plus grand = groter"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for",
+        "es-419": "para",
+        "it": "per",
+        "nl": "voor"
+      }
+    },
+    "pourrait": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pourrait = could, would be able to (pouvoir: on pourrait)",
+        "es-419": "pourrait = podría (pouvoir: on pourrait)",
+        "it": "pourrait = potrebbe (pouvoir: on pourrait)",
+        "nl": "pourrait = zou kunnen (pouvoir: on pourrait)"
+      }
+    },
+    "pourrions": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pourrions = could (pouvoir: nous pourrions)",
+        "es-419": "pourrions = podríamos (pouvoir: nous pourrions)",
+        "it": "pourrions = potremmo (pouvoir: nous pourrions)",
+        "nl": "pourrions = zouden kunnen (pouvoir: nous pourrions)"
+      }
+    },
+    "pouvais": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pouvais = could (pouvoir: je/tu pouvais)",
+        "es-419": "pouvais = podía, podías (pouvoir: je/tu pouvais)",
+        "it": "pouvais = potevo, potevi (pouvoir: je/tu pouvais)",
+        "nl": "pouvais = kon (pouvoir: je/tu pouvais)"
+      }
+    },
+    "prendre": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to take, to have (food, drink); je vais prendre = I'll have",
+        "es-419": "tomar, pedir (comida); je vais prendre = voy a pedir",
+        "it": "prendere (anche cibo); je vais prendre = prendo",
+        "nl": "nemen (ook eten, drinken); je vais prendre = ik neem"
+      }
+    },
+    "prends": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "take, have (prendre: je prends)",
+        "es-419": "tomo, pido (prendre: je prends)",
+        "it": "prendo (prendre: je prends)",
+        "nl": "neem (prendre: je prends)"
+      }
+    },
+    "pris": {
+      "lemma": "prendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pris = taken (participle of prendre)",
+        "es-419": "pris = tomado (participio de prendre)",
+        "it": "pris = preso (participio di prendre)",
+        "nl": "pris = genomen (voltooid deelwoord van prendre)"
+      }
+    },
+    "près": {
+      "lemma": "près",
+      "pos": "ADV",
+      "gloss": {
+        "en": "près = near, close (près de = near; sounds like prêt); près d'ici = near here",
+        "es-419": "près = cerca (près de = cerca de); près d'ici = cerca de aquí",
+        "it": "près = vicino (près de = vicino a); près d'ici = vicino a qui",
+        "nl": "près = dichtbij (près de = dicht bij); près d'ici = hier dichtbij"
+      }
+    },
+    "pu": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "pu = been able (participle of pouvoir: aurions pu = could have)",
+        "es-419": "pu = podido (participio de pouvoir: aurions pu = habríamos podido)",
+        "it": "pu = potuto (participio di pouvoir: aurions pu = avremmo potuto)",
+        "nl": "pu = gekund (voltooid deelwoord van pouvoir: aurions pu = hadden kunnen)"
+      }
+    },
+    "père": {
+      "lemma": "père",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "father (m)",
+        "es-419": "padre (m)",
+        "it": "padre (m)",
+        "nl": "vader (m)"
+      }
+    },
+    "qu'est-ce": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "qu'est-ce = que + est-ce: what (qu'est-ce que = what)",
+        "es-419": "qu'est-ce = que + est-ce: qué (qu'est-ce que = qué)",
+        "it": "qu'est-ce = que + est-ce: che cosa (qu'est-ce que = che cosa)",
+        "nl": "qu'est-ce = que + est-ce: wat (qu'est-ce que = wat)"
+      }
+    },
+    "qu'on": {
+      "lemma": "on",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qu'on = que + on: that we, that one",
+        "es-419": "qu'on = que + on: que nosotros, que uno",
+        "it": "qu'on = que + on: che noi, che si",
+        "nl": "qu'on = que + on: dat we, dat men"
+      }
+    },
+    "qu'un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "qu'un = que + un: only a (ne ... qu'un = only one)",
+        "es-419": "qu'un = que + un: solo un (ne ... qu'un = solo un)",
+        "it": "qu'un = que + un: solo un (ne ... qu'un = solo un)",
+        "nl": "qu'un = que + un: alleen een (ne ... qu'un = maar een)"
+      }
+    },
+    "quand": {
+      "lemma": "quand",
+      "pos": "ADV",
+      "gloss": {
+        "en": "quand: when",
+        "es-419": "quand: cuándo",
+        "it": "quand: quando",
+        "nl": "quand: wanneer"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, which, whom (ce que, les gens que = what, the people whom)",
+        "es-419": "que = que, lo que (ce que, les gens que = lo que, la gente que)",
+        "it": "que = che, ciò che (ce que, les gens que = ciò che, le persone che)",
+        "nl": "que = dat, wat (ce que, les gens que = wat, de mensen van wie)"
+      }
+    },
+    "que#conj": {
+      "lemma": "que",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "than, that",
+        "es-419": "que, de (en comparación)",
+        "it": "che, di (nel confronto)",
+        "nl": "dan, dat"
+      }
+    },
+    "quitterais": {
+      "lemma": "quitter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "quitterais = would leave, would quit (quitter: je quitterais)",
+        "es-419": "quitterais = dejaría (quitter: je quitterais)",
+        "it": "quitterais = lascerei (quitter: je quitterais)",
+        "nl": "quitterais = zou opzeggen, zou verlaten (quitter: je quitterais)"
+      }
+    },
+    "raté": {
+      "lemma": "rater",
+      "pos": "VERB",
+      "gloss": {
+        "en": "raté = missed (participle of rater)",
+        "es-419": "raté = perdido (participio de rater)",
+        "it": "raté = perso (participio di rater)",
+        "nl": "raté = gemist (voltooid deelwoord van rater)"
+      }
+    },
+    "regrette": {
+      "lemma": "regretter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "regrette = regret (regretter: je regrette)",
+        "es-419": "regrette = lamento (regretter: je regrette)",
+        "it": "regrette = rimpiango, mi dispiace (regretter: je regrette)",
+        "nl": "regrette = betreur, heb spijt (regretter: je regrette)"
+      }
+    },
+    "regretter": {
+      "lemma": "regretter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to regret",
+        "es-419": "lamentar",
+        "it": "rimpiangere",
+        "nl": "betreuren"
+      }
+    },
+    "rend": {
+      "lemma": "rendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "rend = makes (rendre: il rend); rendre + adjective = to make",
+        "es-419": "rend = hace (rendre: il rend); rendre + adjetivo = hacer",
+        "it": "rend = rende (rendre: il rend); rendre + aggettivo = rendere",
+        "nl": "rend = maakt (rendre: il rend)"
+      }
+    },
+    "resterais": {
+      "lemma": "rester",
+      "pos": "VERB",
+      "gloss": {
+        "en": "resterais = would stay (rester: je resterais)",
+        "es-419": "resterais = me quedaría (rester: je resterais)",
+        "it": "resterais = resterei (rester: je resterais)",
+        "nl": "resterais = zou blijven (rester: je resterais)"
+      }
+    },
+    "riche": {
+      "lemma": "riche",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "rich",
+        "es-419": "rico",
+        "it": "ricco",
+        "nl": "rijk"
+      }
+    },
+    "rien": {
+      "lemma": "rien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "rien = nothing; de rien = you're welcome",
+        "es-419": "rien = nada; de rien = de nada",
+        "it": "rien = niente; de rien = prego",
+        "nl": "rien = niets; de rien = graag gedaan"
+      }
+    },
+    "risque": {
+      "lemma": "risque",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "risk (m)",
+        "es-419": "riesgo (m)",
+        "it": "rischio (m)",
+        "nl": "risico (m)"
+      }
+    },
+    "rêve": {
+      "lemma": "rêve",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "dream (m)",
+        "es-419": "sueño (m)",
+        "it": "sogno (m)",
+        "nl": "droom (m)"
+      }
+    },
+    "s'il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "s'il = si + il: if it; s'il vous plaît = please",
+        "es-419": "s'il = si + il: si; s'il vous plaît = por favor",
+        "it": "s'il = si + il: se; s'il vous plaît = per favore",
+        "nl": "s'il = si + il: als; s'il vous plaît = alstublieft"
+      }
+    },
+    "sais": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "sais = know (savoir); je ne sais pas = I don't know",
+        "es-419": "sais = sé (savoir); je ne sais pas = no sé",
+        "it": "sais = so (savoir); je ne sais pas = non so",
+        "nl": "sais = weet (savoir); je ne sais pas = ik weet het niet"
+      }
+    },
+    "semaine": {
+      "lemma": "semaine",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "week (f)",
+        "es-419": "semana (f)",
+        "it": "settimana (f)",
+        "nl": "week (f)"
+      }
+    },
+    "serais": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "serais = would be (être: je/tu serais)",
+        "es-419": "serais = sería, serías (être: je/tu serais)",
+        "it": "serais = sarei, saresti (être: je/tu serais)",
+        "nl": "serais = zou zijn (être: je/tu serais)"
+      }
+    },
+    "serait": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "serait = would be (être: il/ce serait)",
+        "es-419": "serait = sería (être: il/ce serait)",
+        "it": "serait = sarebbe (être: il/ce serait)",
+        "nl": "serait = zou zijn (être: il/ce serait)"
+      }
+    },
+    "seulement": {
+      "lemma": "seulement",
+      "pos": "ADV",
+      "gloss": {
+        "en": "only, just",
+        "es-419": "solo, solamente",
+        "it": "solo, soltanto",
+        "nl": "alleen, slechts"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if; watch out: s'il = si + il",
+        "es-419": "si = si (condición); ojo: s'il = si + il",
+        "it": "se; attenzione: s'il = si + il",
+        "nl": "als, of; let op: s'il = si + il"
+      }
+    },
+    "su": {
+      "lemma": "savoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "su = known (participle of savoir: j'avais su = I had known)",
+        "es-419": "su = sabido (participio de savoir: j'avais su = lo hubiera sabido)",
+        "it": "su = saputo (participio di savoir: j'avais su = l'avessi saputo)",
+        "nl": "su = geweten (voltooid deelwoord van savoir: j'avais su = ik het had geweten)"
+      }
+    },
+    "sur": {
+      "lemma": "sur",
+      "pos": "ADP",
+      "gloss": {
+        "en": "on",
+        "es-419": "sobre, en",
+        "it": "su",
+        "nl": "op"
+      }
+    },
+    "ta": {
+      "lemma": "ton",
+      "pos": "DET",
+      "gloss": {
+        "en": "ta = feminine of ton: your (to one person you know well)",
+        "es-419": "ta = femenino de ton: tu",
+        "it": "ta = femminile di ton: tua",
+        "nl": "ta = vrouwelijk van ton: jouw"
+      }
+    },
+    "taxi": {
+      "lemma": "taxi",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "taxi (m): taxi",
+        "es-419": "taxi (m): taxi",
+        "it": "taxi (m): taxi",
+        "nl": "taxi (m): taxi"
+      }
+    },
+    "temps": {
+      "lemma": "temps",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "time (m); à temps plein = full time",
+        "es-419": "tiempo (m); à temps plein = tiempo completo",
+        "it": "tempo (m); à temps plein = a tempo pieno",
+        "nl": "tijd (m); à temps plein = fulltime"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "all, the whole (masculine)",
+        "es-419": "todo (masculino)",
+        "it": "tutto (maschile)",
+        "nl": "hele, al (mannelijk)"
+      }
+    },
+    "toute": {
+      "lemma": "tout",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "toute = feminine of tout: all, the whole",
+        "es-419": "toute = femenino de tout: toda, todo el",
+        "it": "toute = femminile di tout: tutta",
+        "nl": "toute = vrouwelijk van tout: hele, alle"
+      }
+    },
+    "train": {
+      "lemma": "train",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "train (m)",
+        "es-419": "tren (m)",
+        "it": "treno (m)",
+        "nl": "trein (m)"
+      }
+    },
+    "travail": {
+      "lemma": "travail",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "work, job (m); un nouveau travail = a new job",
+        "es-419": "trabajo (m); un nouveau travail = un trabajo nuevo",
+        "it": "lavoro (m); un nouveau travail = un nuovo lavoro",
+        "nl": "werk, baan (m); un nouveau travail = een nieuwe baan"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (informal, one person)",
+        "es-419": "tú",
+        "it": "tu",
+        "nl": "jij, je"
+      }
+    },
+    "tôt": {
+      "lemma": "tôt",
+      "pos": "ADV",
+      "gloss": {
+        "en": "early",
+        "es-419": "temprano",
+        "it": "presto",
+        "nl": "vroeg"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (m)",
+        "es-419": "un, uno (m)",
+        "it": "un, uno (m)",
+        "nl": "een, één (m)"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "a, an, one (f)",
+        "es-419": "una (f)",
+        "it": "una (f)",
+        "nl": "een, één (f)"
+      }
+    },
+    "vacances": {
+      "lemma": "vacances",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "vacation (f, always plural in French)",
+        "es-419": "vacaciones (f, siempre en plural en francés)",
+        "it": "vacanze (f, sempre al plurale in francese)",
+        "nl": "vakantie (f, altijd meervoud in het Frans)"
+      }
+    },
+    "valeur": {
+      "lemma": "valeur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "value, worth (f)",
+        "es-419": "valor (f)",
+        "it": "valore (f)",
+        "nl": "waarde (f)"
+      }
+    },
+    "vaut": {
+      "lemma": "valoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "vaut = is worth (valoir: ça vaut)",
+        "es-419": "vaut = vale (valoir: ça vaut)",
+        "it": "vaut = vale (valoir: ça vaut)",
+        "nl": "vaut = is waard (valoir: ça vaut)"
+      }
+    },
+    "venu": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "venu = come (participle of venir; with a woman: venue)",
+        "es-419": "venu = venido (participio de venir)",
+        "it": "venu = venuto (participio di venir)",
+        "nl": "venu = gekomen (voltooid deelwoord van venir)"
+      }
+    },
+    "vie": {
+      "lemma": "vie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "life (f); dans la vie = in life, for a living",
+        "es-419": "vida (f); dans la vie = en la vida, para vivir",
+        "it": "vita (f); dans la vie = nella vita, per vivere",
+        "nl": "leven (f); dans la vie = in het leven, voor de kost"
+      }
+    },
+    "voyager": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to travel",
+        "es-419": "viajar",
+        "it": "viaggiare",
+        "nl": "reizen"
+      }
+    },
+    "voyagerais": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voyagerais = would travel (voyager: je voyagerais)",
+        "es-419": "voyagerais = viajaría (voyager: je voyagerais)",
+        "it": "voyagerais = viaggerei (voyager: je voyagerais)",
+        "nl": "voyagerais = zou reizen (voyager: je voyagerais)"
+      }
+    },
+    "voyagé": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voyagé = traveled (participle of voyager)",
+        "es-419": "voyagé = viajado (participio de voyager)",
+        "it": "voyagé = viaggiato (participio di voyager)",
+        "nl": "voyagé = gereisd (voltooid deelwoord van voyager)"
+      }
+    },
+    "vrai": {
+      "lemma": "vrai",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "vrai: true, real; c'est vrai = it's true",
+        "es-419": "vrai: verdadero; c'est vrai = es verdad",
+        "it": "vrai: vero; c'est vrai = è vero",
+        "nl": "vrai: waar, echt; c'est vrai = het is waar"
+      }
+    },
+    "week-end": {
+      "lemma": "week-end",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "weekend (m); also written weekend",
+        "es-419": "fin de semana (m); también se escribe weekend",
+        "it": "fine settimana (m); si scrive anche weekend",
+        "nl": "weekend (m); ook geschreven weekend"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "there; il y a = there is, there are",
+        "es-419": "allí; il y a = hay",
+        "it": "ci, vi; il y a = c'è, ci sono",
+        "nl": "er; il y a = er is, er zijn"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "to, at, in",
+        "es-419": "a, en",
+        "it": "a, in",
+        "nl": "naar, in, om"
+      }
+    },
+    "ça": {
+      "lemma": "ça",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, it (ça dure = it lasts)",
+        "es-419": "eso, esto (ça dure = dura)",
+        "it": "questo, ciò (ça dure = dura)",
+        "nl": "dat, het (ça dure = het duurt)"
+      }
+    },
+    "écouter": {
+      "lemma": "écouter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to listen (to)",
+        "es-419": "escuchar",
+        "it": "ascoltare",
+        "nl": "luisteren (naar)"
+      }
+    },
+    "écouté": {
+      "lemma": "écouter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "écouté = listened (participle of écouter)",
+        "es-419": "écouté = escuchado (participio de écouter)",
+        "it": "écouté = ascoltato (participio di écouter)",
+        "nl": "écouté = geluisterd (voltooid deelwoord van écouter)"
+      }
+    },
+    "était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "était = was (imperfect of être: il était)",
+        "es-419": "était = era, estaba (imperfecto de être: il était)",
+        "it": "était = era (imperfetto di être: il était)",
+        "nl": "était = was (imperfectum van être: il était)"
+      }
+    },
+    "étions": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "étions = we were (imperfect of être)",
+        "es-419": "étions = éramos, estábamos (imperfecto de être)",
+        "it": "étions = eravamo (imperfetto di être)",
+        "nl": "étions = we waren (imperfectum van être)"
+      }
+    },
+    "être": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "to be",
+        "es-419": "ser, estar",
+        "it": "essere",
+        "nl": "zijn"
+      }
+    },
+    "île": {
+      "lemma": "île",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "island (f); watch out: sounds like il (he, it)",
+        "es-419": "isla (f)",
+        "it": "isola (f)",
+        "nl": "eiland (f)"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-b1-hypotheses-1",
+      "title": "Si j'avais le temps",
+      "grammarFocus": {
+        "en": [
+          "si + imparfait + conditionnel: Si j'avais le temps, je voyagerais.",
+          "si j'étais à ta place, je resterais ici",
+          "pouvoir au conditionnel: je pourrais, nous pourrions"
+        ],
+        "es-419": [
+          "si + imparfait + conditionnel: Si j'avais le temps, je voyagerais.",
+          "si j'étais à ta place, je resterais ici",
+          "pouvoir au conditionnel: je pourrais, nous pourrions"
+        ],
+        "it": [
+          "si + imparfait + conditionnel: Si j'avais le temps, je voyagerais.",
+          "si j'étais à ta place, je resterais ici",
+          "pouvoir au conditionnel: je pourrais, nous pourrions"
+        ],
+        "nl": [
+          "si + imparfait + conditionnel: Si j'avais le temps, je voyagerais.",
+          "si j'étais à ta place, je resterais ici",
+          "pouvoir au conditionnel: je pourrais, nous pourrions"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-1-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si j'avais le temps",
+          "translation": {
+            "en": "if I had time",
+            "es-419": "si tuviera tiempo",
+            "it": "se avessi tempo",
+            "nl": "als ik tijd had"
+          },
+          "distractors": {
+            "en": [
+              "if I had money",
+              "if I have time"
+            ],
+            "es-419": [
+              "si tuviera dinero",
+              "si tengo tiempo"
+            ],
+            "it": [
+              "se avessi soldi",
+              "se ho tempo"
+            ],
+            "nl": [
+              "als ik geld had",
+              "als ik tijd heb"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "entier",
+          "translation": {
+            "en": "whole",
+            "es-419": "entero",
+            "it": "intero",
+            "nl": "heel"
+          },
+          "distractors": {
+            "en": [
+              "half",
+              "empty"
+            ],
+            "es-419": [
+              "medio",
+              "vacío"
+            ],
+            "it": [
+              "mezzo",
+              "vuoto"
+            ],
+            "nl": [
+              "half",
+              "leeg"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u03",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une semaine entière",
+          "translation": {
+            "en": "a whole week",
+            "es-419": "una semana entera",
+            "it": "una settimana intera",
+            "nl": "een hele week"
+          },
+          "distractors": {
+            "en": [
+              "half a week",
+              "a whole month"
+            ],
+            "es-419": [
+              "media semana",
+              "un mes entero"
+            ],
+            "it": [
+              "mezza settimana",
+              "un mese intero"
+            ],
+            "nl": [
+              "een halve week",
+              "een hele maand"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'avais le temps, je voyagerais pendant une semaine entière.",
+          "translation": {
+            "en": "If I had time, I'd travel for a whole week.",
+            "es-419": "Si tuviera tiempo, viajaría durante una semana entera.",
+            "it": "Se avessi tempo, viaggerei per una settimana intera.",
+            "nl": "Als ik tijd had, zou ik een hele week reizen."
+          },
+          "distractors": {
+            "en": [
+              "If I had time, I'd travel for a whole month.",
+              "If I had money, I'd travel for a whole week."
+            ],
+            "es-419": [
+              "Si tuviera tiempo, viajaría durante un mes entero.",
+              "Si tuviera dinero, viajaría durante una semana entera."
+            ],
+            "it": [
+              "Se avessi tempo, viaggerei per un mese intero.",
+              "Se avessi soldi, viaggerei per una settimana intera."
+            ],
+            "nl": [
+              "Als ik tijd had, zou ik een hele maand reizen.",
+              "Als ik geld had, zou ik een hele week reizen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "imaginer",
+          "translation": {
+            "en": "to imagine",
+            "es-419": "imaginar",
+            "it": "immaginare",
+            "nl": "zich voorstellen"
+          },
+          "distractors": {
+            "en": [
+              "to remember",
+              "to decide"
+            ],
+            "es-419": [
+              "recordar",
+              "decidir"
+            ],
+            "it": [
+              "ricordare",
+              "decidere"
+            ],
+            "nl": [
+              "zich herinneren",
+              "beslissen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si j'étais à ta place",
+          "translation": {
+            "en": "if I were in your place",
+            "es-419": "si yo estuviera en tu lugar",
+            "it": "se fossi al tuo posto",
+            "nl": "als ik in jouw plaats was"
+          },
+          "distractors": {
+            "en": [
+              "if I were in his place",
+              "if you were in my place"
+            ],
+            "es-419": [
+              "si yo estuviera en su lugar",
+              "si tú estuvieras en mi lugar"
+            ],
+            "it": [
+              "se fossi al suo posto",
+              "se tu fossi al mio posto"
+            ],
+            "nl": [
+              "als ik in zijn plaats was",
+              "als jij in mijn plaats was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'étais à ta place, je resterais ici.",
+          "translation": {
+            "en": "If I were you, I'd stay here.",
+            "es-419": "Si yo fuera tú, me quedaría aquí.",
+            "it": "Se fossi in te, resterei qui.",
+            "nl": "Als ik jou was, zou ik hier blijven."
+          },
+          "distractors": {
+            "en": [
+              "If I were you, I'd go home.",
+              "If I were her, I'd stay here."
+            ],
+            "es-419": [
+              "Si yo fuera tú, me iría a casa.",
+              "Si yo fuera ella, me quedaría aquí."
+            ],
+            "it": [
+              "Se fossi in te, andrei a casa.",
+              "Se fossi in lei, resterei qui."
+            ],
+            "nl": [
+              "Als ik jou was, zou ik naar huis gaan.",
+              "Als ik haar was, zou ik hier blijven."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "ailleurs",
+          "translation": {
+            "en": "elsewhere",
+            "es-419": "en otro lugar",
+            "it": "altrove",
+            "nl": "elders"
+          },
+          "distractors": {
+            "en": [
+              "here",
+              "nowhere"
+            ],
+            "es-419": [
+              "aquí",
+              "en ninguna parte"
+            ],
+            "it": [
+              "qui",
+              "da nessuna parte"
+            ],
+            "nl": [
+              "hier",
+              "nergens"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "habiter ailleurs",
+          "translation": {
+            "en": "to live elsewhere",
+            "es-419": "vivir en otro lugar",
+            "it": "abitare altrove",
+            "nl": "elders wonen"
+          },
+          "distractors": {
+            "en": [
+              "to live here",
+              "to work elsewhere"
+            ],
+            "es-419": [
+              "vivir aquí",
+              "trabajar en otro lugar"
+            ],
+            "it": [
+              "abitare qui",
+              "lavorare altrove"
+            ],
+            "nl": [
+              "hier wonen",
+              "elders werken"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si tu pouvais habiter ailleurs, où est-ce que tu irais?",
+          "translation": {
+            "en": "If you could live somewhere else, where would you go?",
+            "es-419": "Si pudieras vivir en otro lugar, ¿adónde irías?",
+            "it": "Se potessi abitare altrove, dove andresti?",
+            "nl": "Als je ergens anders kon wonen, waar zou je dan heen gaan?"
+          },
+          "distractors": {
+            "en": [
+              "If you could live somewhere else, what would you do?",
+              "If you could work somewhere else, where would you go?"
+            ],
+            "es-419": [
+              "Si pudieras vivir en otro lugar, ¿qué harías?",
+              "Si pudieras trabajar en otro lugar, ¿adónde irías?"
+            ],
+            "it": [
+              "Se potessi abitare altrove, cosa faresti?",
+              "Se potessi lavorare altrove, dove andresti?"
+            ],
+            "nl": [
+              "Als je ergens anders kon wonen, wat zou je dan doen?",
+              "Als je ergens anders kon werken, waar zou je dan heen gaan?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Qu'est-ce que tu ferais si tu avais un an de vacances?",
+          "translation": {
+            "en": "What would you do if you had a year of vacation?",
+            "es-419": "¿Qué harías si tuvieras un año de vacaciones?",
+            "it": "Cosa faresti se avessi un anno di vacanza?",
+            "nl": "Wat zou je doen als je een jaar vakantie had?"
+          },
+          "distractors": {
+            "en": [
+              "What would you do if you had a month of vacation?",
+              "What would you do if you had a year of work?"
+            ],
+            "es-419": [
+              "¿Qué harías si tuvieras un mes de vacaciones?",
+              "¿Qué harías si tuvieras un año de trabajo?"
+            ],
+            "it": [
+              "Cosa faresti se avessi un mese di vacanza?",
+              "Cosa faresti se avessi un anno di lavoro?"
+            ],
+            "nl": [
+              "Wat zou je doen als je een maand vakantie had?",
+              "Wat zou je doen als je een jaar werk had?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "occasion",
+          "translation": {
+            "en": "chance, opportunity",
+            "es-419": "oportunidad",
+            "it": "occasione",
+            "nl": "kans"
+          },
+          "distractors": {
+            "en": [
+              "danger",
+              "event"
+            ],
+            "es-419": [
+              "peligro",
+              "evento"
+            ],
+            "it": [
+              "pericolo",
+              "evento"
+            ],
+            "nl": [
+              "gevaar",
+              "evenement"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si j'avais l'occasion",
+          "translation": {
+            "en": "if I had the chance",
+            "es-419": "si tuviera la oportunidad",
+            "it": "se avessi l'occasione",
+            "nl": "als ik de kans had"
+          },
+          "distractors": {
+            "en": [
+              "if I had the money",
+              "if I have the chance"
+            ],
+            "es-419": [
+              "si tuviera el dinero",
+              "si tengo la oportunidad"
+            ],
+            "it": [
+              "se avessi i soldi",
+              "se ho l'occasione"
+            ],
+            "nl": [
+              "als ik het geld had",
+              "als ik de kans heb"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'avais l'occasion, je partirais demain.",
+          "translation": {
+            "en": "If I had the chance, I'd leave tomorrow.",
+            "es-419": "Si tuviera la oportunidad, me iría mañana.",
+            "it": "Se avessi l'occasione, partirei domani.",
+            "nl": "Als ik de kans had, zou ik morgen vertrekken."
+          },
+          "distractors": {
+            "en": [
+              "If I had the chance, I'd leave today.",
+              "If I had the money, I'd leave tomorrow."
+            ],
+            "es-419": [
+              "Si tuviera la oportunidad, me iría hoy.",
+              "Si tuviera el dinero, me iría mañana."
+            ],
+            "it": [
+              "Se avessi l'occasione, partirei oggi.",
+              "Se avessi i soldi, partirei domani."
+            ],
+            "nl": [
+              "Als ik de kans had, zou ik vandaag vertrekken.",
+              "Als ik het geld had, zou ik morgen vertrekken."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous pourrions changer de vie si nous avions plus d'argent.",
+          "translation": {
+            "en": "We could change our lives if we had more money.",
+            "es-419": "Podríamos cambiar de vida si tuviéramos más dinero.",
+            "it": "Potremmo cambiare vita se avessimo più soldi.",
+            "nl": "We zouden ons leven kunnen veranderen als we meer geld hadden."
+          },
+          "distractors": {
+            "en": [
+              "We could change jobs if we had more money.",
+              "We could change our lives if we had more time."
+            ],
+            "es-419": [
+              "Podríamos cambiar de trabajo si tuviéramos más dinero.",
+              "Podríamos cambiar de vida si tuviéramos más tiempo."
+            ],
+            "it": [
+              "Potremmo cambiare lavoro se avessimo più soldi.",
+              "Potremmo cambiare vita se avessimo più tempo."
+            ],
+            "nl": [
+              "We zouden van baan kunnen veranderen als we meer geld hadden.",
+              "We zouden ons leven kunnen veranderen als we meer tijd hadden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-hypotheses-2",
+      "title": "Si je gagnais à la loterie",
+      "grammarFocus": {
+        "en": [
+          "si + imparfait + conditionnel: Si je gagnais un million d'euros, je quitterais mon travail.",
+          "un million d'euros, un milliard d'euros",
+          "le conditionnel: j'achèterais, je serais, il faudrait"
+        ],
+        "es-419": [
+          "si + imparfait + conditionnel: Si je gagnais un million d'euros, je quitterais mon travail.",
+          "un million d'euros, un milliard d'euros",
+          "le conditionnel: j'achèterais, je serais, il faudrait"
+        ],
+        "it": [
+          "si + imparfait + conditionnel: Si je gagnais un million d'euros, je quitterais mon travail.",
+          "un million d'euros, un milliard d'euros",
+          "le conditionnel: j'achèterais, je serais, il faudrait"
+        ],
+        "nl": [
+          "si + imparfait + conditionnel: Si je gagnais un million d'euros, je quitterais mon travail.",
+          "un million d'euros, un milliard d'euros",
+          "le conditionnel: j'achèterais, je serais, il faudrait"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "loterie",
+          "translation": {
+            "en": "lottery",
+            "es-419": "lotería",
+            "it": "lotteria",
+            "nl": "loterij"
+          },
+          "distractors": {
+            "en": [
+              "contest",
+              "bank"
+            ],
+            "es-419": [
+              "concurso",
+              "banco"
+            ],
+            "it": [
+              "gara",
+              "banca"
+            ],
+            "nl": [
+              "wedstrijd",
+              "bank"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si je gagnais à la loterie",
+          "translation": {
+            "en": "if I won the lottery",
+            "es-419": "si me ganara la lotería",
+            "it": "se vincessi alla lotteria",
+            "nl": "als ik de loterij won"
+          },
+          "distractors": {
+            "en": [
+              "if I lost the lottery",
+              "if I won the race"
+            ],
+            "es-419": [
+              "si perdiera la lotería",
+              "si ganara la carrera"
+            ],
+            "it": [
+              "se perdessi alla lotteria",
+              "se vincessi la gara"
+            ],
+            "nl": [
+              "als ik de loterij verloor",
+              "als ik de wedstrijd won"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "million",
+          "translation": {
+            "en": "million",
+            "es-419": "millón",
+            "it": "milione",
+            "nl": "miljoen"
+          },
+          "distractors": {
+            "en": [
+              "thousand",
+              "hundred"
+            ],
+            "es-419": [
+              "mil",
+              "cien"
+            ],
+            "it": [
+              "mille",
+              "cento"
+            ],
+            "nl": [
+              "duizend",
+              "honderd"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un million d'euros",
+          "translation": {
+            "en": "a million euros",
+            "es-419": "un millón de euros",
+            "it": "un milione di euro",
+            "nl": "een miljoen euro"
+          },
+          "distractors": {
+            "en": [
+              "a thousand euros",
+              "two million euros"
+            ],
+            "es-419": [
+              "mil euros",
+              "dos millones de euros"
+            ],
+            "it": [
+              "mille euro",
+              "due milioni di euro"
+            ],
+            "nl": [
+              "duizend euro",
+              "twee miljoen euro"
+            ]
+          },
+          "variants": [
+            "1 million d'euros",
+            "1 million d'euro"
+          ]
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si je gagnais un million d'euros, je quitterais mon travail.",
+          "translation": {
+            "en": "If I won a million euros, I'd quit my job.",
+            "es-419": "Si me ganara un millón de euros, dejaría mi trabajo.",
+            "it": "Se vincessi un milione di euro, lascerei il lavoro.",
+            "nl": "Als ik een miljoen euro won, zou ik mijn baan opzeggen."
+          },
+          "distractors": {
+            "en": [
+              "If I won a million euros, I'd change jobs.",
+              "If I won a thousand euros, I'd quit my job."
+            ],
+            "es-419": [
+              "Si me ganara un millón de euros, cambiaría de trabajo.",
+              "Si me ganara mil euros, dejaría mi trabajo."
+            ],
+            "it": [
+              "Se vincessi un milione di euro, cambierei lavoro.",
+              "Se vincessi mille euro, lascerei il lavoro."
+            ],
+            "nl": [
+              "Als ik een miljoen euro won, zou ik van baan veranderen.",
+              "Als ik duizend euro won, zou ik mijn baan opzeggen."
+            ]
+          },
+          "variants": [
+            "Si je gagnais 1 million d'euros, je quitterais mon travail.",
+            "Si je gagnais 1 million d'euro, je quitterais mon travail."
+          ]
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "riche",
+          "translation": {
+            "en": "rich",
+            "es-419": "rico",
+            "it": "ricco",
+            "nl": "rijk"
+          },
+          "distractors": {
+            "en": [
+              "poor",
+              "famous"
+            ],
+            "es-419": [
+              "pobre",
+              "famoso"
+            ],
+            "it": [
+              "povero",
+              "famoso"
+            ],
+            "nl": [
+              "arm",
+              "beroemd"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si j'étais riche",
+          "translation": {
+            "en": "if I were rich",
+            "es-419": "si yo fuera rico",
+            "it": "se fossi ricco",
+            "nl": "als ik rijk was"
+          },
+          "distractors": {
+            "en": [
+              "if I were poor",
+              "if I were famous"
+            ],
+            "es-419": [
+              "si yo fuera pobre",
+              "si yo fuera famoso"
+            ],
+            "it": [
+              "se fossi povero",
+              "se fossi famoso"
+            ],
+            "nl": [
+              "als ik arm was",
+              "als ik beroemd was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'étais riche, j'achèterais une grande maison près de la mer.",
+          "translation": {
+            "en": "If I were rich, I'd buy a big house near the sea.",
+            "es-419": "Si fuera rico, compraría una casa grande cerca del mar.",
+            "it": "Se fossi ricco, comprerei una grande casa vicino al mare.",
+            "nl": "Als ik rijk was, zou ik een groot huis vlak bij de zee kopen."
+          },
+          "distractors": {
+            "en": [
+              "If I were rich, I'd buy a big house in the mountains.",
+              "If I were rich, I'd buy a small house near the sea."
+            ],
+            "es-419": [
+              "Si fuera rico, compraría una casa grande en la montaña.",
+              "Si fuera rico, compraría una casa pequeña cerca del mar."
+            ],
+            "it": [
+              "Se fossi ricco, comprerei una grande casa in montagna.",
+              "Se fossi ricco, comprerei una piccola casa vicino al mare."
+            ],
+            "nl": [
+              "Als ik rijk was, zou ik een groot huis in de bergen kopen.",
+              "Als ik rijk was, zou ik een klein huis vlak bij de zee kopen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "milliard",
+          "translation": {
+            "en": "billion",
+            "es-419": "mil millones",
+            "it": "miliardo",
+            "nl": "miljard"
+          },
+          "distractors": {
+            "en": [
+              "million",
+              "thousand"
+            ],
+            "es-419": [
+              "millón",
+              "mil"
+            ],
+            "it": [
+              "milione",
+              "mille"
+            ],
+            "nl": [
+              "miljoen",
+              "duizend"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un milliard d'euros",
+          "translation": {
+            "en": "a billion euros",
+            "es-419": "mil millones de euros",
+            "it": "un miliardo di euro",
+            "nl": "een miljard euro"
+          },
+          "distractors": {
+            "en": [
+              "a million euros",
+              "ten billion euros"
+            ],
+            "es-419": [
+              "un millón de euros",
+              "diez mil millones de euros"
+            ],
+            "it": [
+              "un milione di euro",
+              "dieci miliardi di euro"
+            ],
+            "nl": [
+              "een miljoen euro",
+              "tien miljard euro"
+            ]
+          },
+          "variants": [
+            "1 milliard d'euros",
+            "1 milliard d'euro"
+          ]
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Avec un milliard d'euros, on pourrait acheter une île entière.",
+          "translation": {
+            "en": "With a billion euros, we could buy a whole island.",
+            "es-419": "Con mil millones de euros, podríamos comprar una isla entera.",
+            "it": "Con un miliardo di euro potremmo comprare un'isola intera.",
+            "nl": "Met een miljard euro zouden we een heel eiland kunnen kopen."
+          },
+          "distractors": {
+            "en": [
+              "With a million euros, we could buy a whole island.",
+              "With a billion euros, we could buy a whole city."
+            ],
+            "es-419": [
+              "Con un millón de euros, podríamos comprar una isla entera.",
+              "Con mil millones de euros, podríamos comprar una ciudad entera."
+            ],
+            "it": [
+              "Con un milione di euro potremmo comprare un'isola intera.",
+              "Con un miliardo di euro potremmo comprare una città intera."
+            ],
+            "nl": [
+              "Met een miljoen euro zouden we een heel eiland kunnen kopen.",
+              "Met een miljard euro zouden we een hele stad kunnen kopen."
+            ]
+          },
+          "variants": [
+            "Avec 1 milliard d'euros, on pourrait acheter une île entière.",
+            "Avec 1 milliard d'euro, on pourrait acheter une île entière."
+          ]
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "bonheur",
+          "translation": {
+            "en": "happiness",
+            "es-419": "felicidad",
+            "it": "felicità",
+            "nl": "geluk"
+          },
+          "distractors": {
+            "en": [
+              "freedom",
+              "luck"
+            ],
+            "es-419": [
+              "libertad",
+              "suerte"
+            ],
+            "it": [
+              "libertà",
+              "fortuna"
+            ],
+            "nl": [
+              "vrijheid",
+              "rust"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'argent ne fait pas le bonheur, mais il rend la vie plus facile.",
+          "translation": {
+            "en": "Money doesn't buy happiness, but it makes life easier.",
+            "es-419": "El dinero no compra la felicidad, pero hace la vida más fácil.",
+            "it": "I soldi non fanno la felicità, ma rendono la vita più facile.",
+            "nl": "Geld maakt niet gelukkig, maar het maakt het leven makkelijker."
+          },
+          "distractors": {
+            "en": [
+              "Money doesn't buy happiness, but it makes life harder.",
+              "Money buys happiness, but it doesn't make life easier."
+            ],
+            "es-419": [
+              "El dinero no compra la felicidad, pero hace la vida más difícil.",
+              "El dinero compra la felicidad, pero no hace la vida más fácil."
+            ],
+            "it": [
+              "I soldi non fanno la felicità, ma rendono la vita più difficile.",
+              "I soldi fanno la felicità, ma non rendono la vita più facile."
+            ],
+            "nl": [
+              "Geld maakt niet gelukkig, maar het maakt het leven moeilijker.",
+              "Geld maakt gelukkig, maar het maakt het leven niet makkelijker."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u14",
+          "rev": 1,
+          "stage": "word",
+          "text": "valeur",
+          "translation": {
+            "en": "value",
+            "es-419": "valor",
+            "it": "valore",
+            "nl": "waarde"
+          },
+          "distractors": {
+            "en": [
+              "price",
+              "size"
+            ],
+            "es-419": [
+              "precio",
+              "talla"
+            ],
+            "it": [
+              "prezzo",
+              "taglia"
+            ],
+            "nl": [
+              "prijs",
+              "maat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u15",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "beaucoup de valeur",
+          "translation": {
+            "en": "a lot of value",
+            "es-419": "mucho valor",
+            "it": "molto valore",
+            "nl": "veel waarde"
+          },
+          "distractors": {
+            "en": [
+              "little value",
+              "a lot of money"
+            ],
+            "es-419": [
+              "poco valor",
+              "mucho dinero"
+            ],
+            "it": [
+              "poco valore",
+              "molti soldi"
+            ],
+            "nl": [
+              "weinig waarde",
+              "veel geld"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le temps a plus de valeur que l'argent.",
+          "translation": {
+            "en": "Time is worth more than money.",
+            "es-419": "El tiempo vale más que el dinero.",
+            "it": "Il tempo vale più dei soldi.",
+            "nl": "Tijd is meer waard dan geld."
+          },
+          "distractors": {
+            "en": [
+              "Money is worth more than time.",
+              "Time is worth as much as money."
+            ],
+            "es-419": [
+              "El dinero vale más que el tiempo.",
+              "El tiempo vale tanto como el dinero."
+            ],
+            "it": [
+              "I soldi valgono più del tempo.",
+              "Il tempo vale quanto i soldi."
+            ],
+            "nl": [
+              "Geld is meer waard dan tijd.",
+              "Tijd is evenveel waard als geld."
+            ]
+          },
+          "senses": {
+            "6": "conj"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-hypotheses-3",
+      "title": "Et si on partait?",
+      "grammarFocus": {
+        "en": [
+          "Et si on partait? = What if we left? (et si + imparfait)",
+          "comme si + imparfait: comme si on était en vacances",
+          "on = nous dans la conversation"
+        ],
+        "es-419": [
+          "Et si on partait? = What if we left? (et si + imparfait)",
+          "comme si + imparfait: comme si on était en vacances",
+          "on = nous dans la conversation"
+        ],
+        "it": [
+          "Et si on partait? = What if we left? (et si + imparfait)",
+          "comme si + imparfait: comme si on était en vacances",
+          "on = nous dans la conversation"
+        ],
+        "nl": [
+          "Et si on partait? = What if we left? (et si + imparfait)",
+          "comme si + imparfait: comme si on était en vacances",
+          "on = nous dans la conversation"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-3-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "et si on partait",
+          "translation": {
+            "en": "what if we left",
+            "es-419": "y si nos fuéramos",
+            "it": "e se partissimo",
+            "nl": "en als we vertrokken"
+          },
+          "distractors": {
+            "en": [
+              "what if we stayed",
+              "what if we arrived"
+            ],
+            "es-419": [
+              "y si nos quedáramos",
+              "y si llegáramos"
+            ],
+            "it": [
+              "e se restassimo",
+              "e se arrivassimo"
+            ],
+            "nl": [
+              "en als we bleven",
+              "en als we aankwamen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Et si on partait demain?",
+          "translation": {
+            "en": "What if we left tomorrow?",
+            "es-419": "¿Y si nos fuéramos mañana?",
+            "it": "E se partissimo domani?",
+            "nl": "Wat als we morgen vertrokken?"
+          },
+          "distractors": {
+            "en": [
+              "What if we left tonight?",
+              "What if we stayed tomorrow?"
+            ],
+            "es-419": [
+              "¿Y si nos fuéramos esta noche?",
+              "¿Y si nos quedáramos mañana?"
+            ],
+            "it": [
+              "E se partissimo stasera?",
+              "E se restassimo domani?"
+            ],
+            "nl": [
+              "Wat als we vanavond vertrokken?",
+              "Wat als we morgen bleven?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "et si on allait à la mer",
+          "translation": {
+            "en": "what if we went to the sea",
+            "es-419": "y si fuéramos al mar",
+            "it": "e se andassimo al mare",
+            "nl": "en als we naar zee gingen"
+          },
+          "distractors": {
+            "en": [
+              "what if we went to the mountains",
+              "what if we went home"
+            ],
+            "es-419": [
+              "y si fuéramos a la montaña",
+              "y si fuéramos a casa"
+            ],
+            "it": [
+              "e se andassimo in montagna",
+              "e se andassimo a casa"
+            ],
+            "nl": [
+              "en als we naar de bergen gingen",
+              "en als we naar huis gingen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "sur une île",
+          "translation": {
+            "en": "on an island",
+            "es-419": "en una isla",
+            "it": "su un'isola",
+            "nl": "op een eiland"
+          },
+          "distractors": {
+            "en": [
+              "on a beach",
+              "in a city"
+            ],
+            "es-419": [
+              "en una playa",
+              "en una ciudad"
+            ],
+            "it": [
+              "su una spiaggia",
+              "in una città"
+            ],
+            "nl": [
+              "op een strand",
+              "in een stad"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Et si on allait passer le week-end sur une île?",
+          "translation": {
+            "en": "What if we went to spend the weekend on an island?",
+            "es-419": "¿Y si fuéramos a pasar el fin de semana en una isla?",
+            "it": "E se andassimo a passare il weekend su un'isola?",
+            "nl": "Wat als we het weekend op een eiland gingen doorbrengen?"
+          },
+          "distractors": {
+            "en": [
+              "What if we went to spend the weekend in the mountains?",
+              "What if we went to spend the week on an island?"
+            ],
+            "es-419": [
+              "¿Y si fuéramos a pasar el fin de semana en la montaña?",
+              "¿Y si fuéramos a pasar la semana en una isla?"
+            ],
+            "it": [
+              "E se andassimo a passare il weekend in montagna?",
+              "E se andassimo a passare la settimana su un'isola?"
+            ],
+            "nl": [
+              "Wat als we het weekend in de bergen gingen doorbrengen?",
+              "Wat als we de week op een eiland gingen doorbrengen?"
+            ]
+          },
+          "variants": [
+            "Et si on allait passer le weekend sur une île?"
+          ]
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "hypothèse",
+          "translation": {
+            "en": "hypothesis",
+            "es-419": "hipótesis",
+            "it": "ipotesi",
+            "nl": "hypothese"
+          },
+          "distractors": {
+            "en": [
+              "proof",
+              "mistake"
+            ],
+            "es-419": [
+              "prueba",
+              "error"
+            ],
+            "it": [
+              "prova",
+              "errore"
+            ],
+            "nl": [
+              "bewijs",
+              "fout"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est seulement une hypothèse, mais ça vaut la peine d'y penser.",
+          "translation": {
+            "en": "It's only a hypothesis, but it's worth thinking about.",
+            "es-419": "Es solo una hipótesis, pero vale la pena pensarlo.",
+            "it": "È solo un'ipotesi, ma vale la pena pensarci.",
+            "nl": "Het is maar een hypothese, maar het is de moeite waard om erover na te denken."
+          },
+          "distractors": {
+            "en": [
+              "It's only a hypothesis, but it's worth trying.",
+              "It's only a hypothesis, and it's not worth thinking about."
+            ],
+            "es-419": [
+              "Es solo una hipótesis, pero vale la pena intentarlo.",
+              "Es solo una hipótesis, y no vale la pena pensarlo."
+            ],
+            "it": [
+              "È solo un'ipotesi, ma vale la pena provare.",
+              "È solo un'ipotesi, e non vale la pena pensarci."
+            ],
+            "nl": [
+              "Het is maar een hypothese, maar het is de moeite waard om het te proberen.",
+              "Het is maar een hypothese, en het is de moeite niet waard om erover na te denken."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "comme si on était en vacances",
+          "translation": {
+            "en": "as if we were on vacation",
+            "es-419": "como si estuviéramos de vacaciones",
+            "it": "come se fossimo in vacanza",
+            "nl": "alsof we op vakantie waren"
+          },
+          "distractors": {
+            "en": [
+              "as if we were at work",
+              "as if they were on vacation"
+            ],
+            "es-419": [
+              "como si estuviéramos trabajando",
+              "como si estuvieran de vacaciones"
+            ],
+            "it": [
+              "come se fossimo al lavoro",
+              "come se fossero in vacanza"
+            ],
+            "nl": [
+              "alsof we aan het werk waren",
+              "alsof ze op vakantie waren"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce serait comme si nous étions en vacances toute l'année.",
+          "translation": {
+            "en": "It would be as if we were on vacation all year.",
+            "es-419": "Sería como si estuviéramos de vacaciones todo el año.",
+            "it": "Sarebbe come se fossimo in vacanza tutto l'anno.",
+            "nl": "Het zou zijn alsof we het hele jaar op vakantie waren."
+          },
+          "distractors": {
+            "en": [
+              "It would be as if we were at work all year.",
+              "It would be as if we were on vacation all week."
+            ],
+            "es-419": [
+              "Sería como si estuviéramos trabajando todo el año.",
+              "Sería como si estuviéramos de vacaciones toda la semana."
+            ],
+            "it": [
+              "Sarebbe come se fossimo al lavoro tutto l'anno.",
+              "Sarebbe come se fossimo in vacanza tutta la settimana."
+            ],
+            "nl": [
+              "Het zou zijn alsof we het hele jaar aan het werk waren.",
+              "Het zou zijn alsof we de hele week op vakantie waren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "risque",
+          "translation": {
+            "en": "risk",
+            "es-419": "riesgo",
+            "it": "rischio",
+            "nl": "risico"
+          },
+          "distractors": {
+            "en": [
+              "price",
+              "result"
+            ],
+            "es-419": [
+              "precio",
+              "resultado"
+            ],
+            "it": [
+              "prezzo",
+              "risultato"
+            ],
+            "nl": [
+              "prijs",
+              "resultaat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un petit risque",
+          "translation": {
+            "en": "a small risk",
+            "es-419": "un pequeño riesgo",
+            "it": "un piccolo rischio",
+            "nl": "een klein risico"
+          },
+          "distractors": {
+            "en": [
+              "a big risk",
+              "a small problem"
+            ],
+            "es-419": [
+              "un gran riesgo",
+              "un pequeño problema"
+            ],
+            "it": [
+              "un grande rischio",
+              "un piccolo problema"
+            ],
+            "nl": [
+              "een groot risico",
+              "een klein probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a un risque, mais on pourrait essayer.",
+          "translation": {
+            "en": "There's a risk, but we could try.",
+            "es-419": "Hay un riesgo, pero podríamos intentarlo.",
+            "it": "C'è un rischio, ma potremmo provare.",
+            "nl": "Er is een risico, maar we zouden het kunnen proberen."
+          },
+          "distractors": {
+            "en": [
+              "There's a risk, but we could wait.",
+              "There's no risk, but we could try."
+            ],
+            "es-419": [
+              "Hay un riesgo, pero podríamos esperar.",
+              "No hay riesgo, pero podríamos intentarlo."
+            ],
+            "it": [
+              "C'è un rischio, ma potremmo aspettare.",
+              "Non c'è rischio, ma potremmo provare."
+            ],
+            "nl": [
+              "Er is een risico, maar we zouden kunnen wachten.",
+              "Er is geen risico, maar we zouden het kunnen proberen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "et si on invitait des amis",
+          "translation": {
+            "en": "what if we invited some friends",
+            "es-419": "y si invitáramos a unos amigos",
+            "it": "e se invitassimo degli amici",
+            "nl": "en als we vrienden uitnodigden"
+          },
+          "distractors": {
+            "en": [
+              "what if we invited your parents",
+              "what if we called some friends"
+            ],
+            "es-419": [
+              "y si invitáramos a tus padres",
+              "y si llamáramos a unos amigos"
+            ],
+            "it": [
+              "e se invitassimo i tuoi genitori",
+              "e se chiamassimo degli amici"
+            ],
+            "nl": [
+              "en als we je ouders uitnodigden",
+              "en als we vrienden belden"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Et si on invitait des amis et qu'on cuisinait ensemble?",
+          "translation": {
+            "en": "What if we invited some friends and cooked together?",
+            "es-419": "¿Y si invitáramos a unos amigos y cocináramos juntos?",
+            "it": "E se invitassimo degli amici e cucinassimo insieme?",
+            "nl": "Wat als we vrienden uitnodigden en samen kookten?"
+          },
+          "distractors": {
+            "en": [
+              "What if we invited some friends and ate outside?",
+              "What if we invited your parents and cooked together?"
+            ],
+            "es-419": [
+              "¿Y si invitáramos a unos amigos y comiéramos afuera?",
+              "¿Y si invitáramos a tus padres y cocináramos juntos?"
+            ],
+            "it": [
+              "E se invitassimo degli amici e mangiassimo fuori?",
+              "E se invitassimo i tuoi genitori e cucinassimo insieme?"
+            ],
+            "nl": [
+              "Wat als we vrienden uitnodigden en buiten aten?",
+              "Wat als we je ouders uitnodigden en samen kookten?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce serait génial, mais je ne sais pas si on aura le temps.",
+          "translation": {
+            "en": "That would be great, but I don't know if we'll have time.",
+            "es-419": "Sería genial, pero no sé si tendremos tiempo.",
+            "it": "Sarebbe fantastico, ma non so se avremo tempo.",
+            "nl": "Dat zou geweldig zijn, maar ik weet niet of we tijd zullen hebben."
+          },
+          "distractors": {
+            "en": [
+              "That would be great, but I don't know if we'll have the money.",
+              "That would be great, and I know we'll have time."
+            ],
+            "es-419": [
+              "Sería genial, pero no sé si tendremos el dinero.",
+              "Sería genial, y sé que tendremos tiempo."
+            ],
+            "it": [
+              "Sarebbe fantastico, ma non so se avremo i soldi.",
+              "Sarebbe fantastico, e so che avremo tempo."
+            ],
+            "nl": [
+              "Dat zou geweldig zijn, maar ik weet niet of we het geld zullen hebben.",
+              "Dat zou geweldig zijn, en ik weet dat we tijd zullen hebben."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-hypotheses-4",
+      "title": "J'aurais dû le faire",
+      "grammarFocus": {
+        "en": [
+          "j'aurais dû + infinitif = I should have; j'aurais aimé + infinitif = I would have liked",
+          "le conditionnel passé: j'aurais pris, nous aurions pu",
+          "regretter de + infinitif"
+        ],
+        "es-419": [
+          "j'aurais dû + infinitif = I should have; j'aurais aimé + infinitif = I would have liked",
+          "le conditionnel passé: j'aurais pris, nous aurions pu",
+          "regretter de + infinitif"
+        ],
+        "it": [
+          "j'aurais dû + infinitif = I should have; j'aurais aimé + infinitif = I would have liked",
+          "le conditionnel passé: j'aurais pris, nous aurions pu",
+          "regretter de + infinitif"
+        ],
+        "nl": [
+          "j'aurais dû + infinitif = I should have; j'aurais aimé + infinitif = I would have liked",
+          "le conditionnel passé: j'aurais pris, nous aurions pu",
+          "regretter de + infinitif"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-4-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'aurais dû",
+          "translation": {
+            "en": "I should have",
+            "es-419": "debería haber",
+            "it": "avrei dovuto",
+            "nl": "ik had moeten"
+          },
+          "distractors": {
+            "en": [
+              "I must",
+              "I could have"
+            ],
+            "es-419": [
+              "debo",
+              "habría podido"
+            ],
+            "it": [
+              "devo",
+              "avrei potuto"
+            ],
+            "nl": [
+              "ik moet",
+              "ik had gekund"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'aurais dû écouter mon père.",
+          "translation": {
+            "en": "I should have listened to my father.",
+            "es-419": "Debería haber escuchado a mi padre.",
+            "it": "Avrei dovuto ascoltare mio padre.",
+            "nl": "Ik had naar mijn vader moeten luisteren."
+          },
+          "distractors": {
+            "en": [
+              "I should have called my father.",
+              "I should have listened to my mother."
+            ],
+            "es-419": [
+              "Debería haber llamado a mi padre.",
+              "Debería haber escuchado a mi madre."
+            ],
+            "it": [
+              "Avrei dovuto chiamare mio padre.",
+              "Avrei dovuto ascoltare mia madre."
+            ],
+            "nl": [
+              "Ik had mijn vader moeten bellen.",
+              "Ik had naar mijn moeder moeten luisteren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "erreur",
+          "translation": {
+            "en": "mistake",
+            "es-419": "error",
+            "it": "errore",
+            "nl": "fout"
+          },
+          "distractors": {
+            "en": [
+              "accident",
+              "problem"
+            ],
+            "es-419": [
+              "accidente",
+              "problema"
+            ],
+            "it": [
+              "incidente",
+              "problema"
+            ],
+            "nl": [
+              "ongeluk",
+              "probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u04",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une grande erreur",
+          "translation": {
+            "en": "a big mistake",
+            "es-419": "un gran error",
+            "it": "un grande errore",
+            "nl": "een grote fout"
+          },
+          "distractors": {
+            "en": [
+              "a small mistake",
+              "a big problem"
+            ],
+            "es-419": [
+              "un pequeño error",
+              "un gran problema"
+            ],
+            "it": [
+              "un piccolo errore",
+              "un grande problema"
+            ],
+            "nl": [
+              "een kleine fout",
+              "een groot probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'était une erreur de partir si tôt.",
+          "translation": {
+            "en": "It was a mistake to leave so early.",
+            "es-419": "Fue un error irnos tan temprano.",
+            "it": "È stato un errore partire così presto.",
+            "nl": "Het was een fout om zo vroeg te vertrekken."
+          },
+          "distractors": {
+            "en": [
+              "It was a mistake to leave so late.",
+              "It was a good idea to leave so early."
+            ],
+            "es-419": [
+              "Fue un error irnos tan tarde.",
+              "Fue una buena idea irnos tan temprano."
+            ],
+            "it": [
+              "È stato un errore partire così tardi.",
+              "È stata una buona idea partire così presto."
+            ],
+            "nl": [
+              "Het was een fout om zo laat te vertrekken.",
+              "Het was een goed idee om zo vroeg te vertrekken."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "regretter",
+          "translation": {
+            "en": "to regret",
+            "es-419": "lamentar",
+            "it": "rimpiangere",
+            "nl": "betreuren"
+          },
+          "distractors": {
+            "en": [
+              "to forget",
+              "to refuse"
+            ],
+            "es-419": [
+              "olvidar",
+              "rechazar"
+            ],
+            "it": [
+              "dimenticare",
+              "rifiutare"
+            ],
+            "nl": [
+              "vergeten",
+              "weigeren"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "je regrette d'avoir dit ça",
+          "translation": {
+            "en": "I regret saying that",
+            "es-419": "lamento haber dicho eso",
+            "it": "mi dispiace di aver detto questo",
+            "nl": "ik heb spijt dat ik dat zei"
+          },
+          "distractors": {
+            "en": [
+              "I regret doing that",
+              "I regret buying that"
+            ],
+            "es-419": [
+              "lamento haber hecho eso",
+              "lamento haber comprado eso"
+            ],
+            "it": [
+              "mi dispiace di aver fatto questo",
+              "mi dispiace di aver comprato questo"
+            ],
+            "nl": [
+              "ik heb spijt dat ik dat deed",
+              "ik heb spijt dat ik dat kocht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je regrette de ne pas avoir voyagé quand j'étais jeune.",
+          "translation": {
+            "en": "I regret not traveling when I was young.",
+            "es-419": "Lamento no haber viajado cuando era joven.",
+            "it": "Mi dispiace di non aver viaggiato quando ero giovane.",
+            "nl": "Ik heb er spijt van dat ik niet gereisd heb toen ik jong was."
+          },
+          "distractors": {
+            "en": [
+              "I regret not studying when I was young.",
+              "I regret not traveling when I was a child."
+            ],
+            "es-419": [
+              "Lamento no haber estudiado cuando era joven.",
+              "Lamento no haber viajado cuando era niño."
+            ],
+            "it": [
+              "Mi dispiace di non aver studiato quando ero giovane.",
+              "Mi dispiace di non aver viaggiato quando ero bambino."
+            ],
+            "nl": [
+              "Ik heb er spijt van dat ik niet gestudeerd heb toen ik jong was.",
+              "Ik heb er spijt van dat ik niet gereisd heb toen ik een kind was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "décision",
+          "translation": {
+            "en": "decision",
+            "es-419": "decisión",
+            "it": "decisione",
+            "nl": "beslissing"
+          },
+          "distractors": {
+            "en": [
+              "question",
+              "opinion"
+            ],
+            "es-419": [
+              "pregunta",
+              "opinión"
+            ],
+            "it": [
+              "domanda",
+              "opinione"
+            ],
+            "nl": [
+              "vraag",
+              "mening"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "prendre une décision",
+          "translation": {
+            "en": "to make a decision",
+            "es-419": "tomar una decisión",
+            "it": "prendere una decisione",
+            "nl": "een beslissing nemen"
+          },
+          "distractors": {
+            "en": [
+              "to make a mistake",
+              "to change a decision"
+            ],
+            "es-419": [
+              "cometer un error",
+              "cambiar una decisión"
+            ],
+            "it": [
+              "fare un errore",
+              "cambiare una decisione"
+            ],
+            "nl": [
+              "een fout maken",
+              "een beslissing veranderen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'aurais pris la même décision.",
+          "translation": {
+            "en": "I would have made the same decision.",
+            "es-419": "Yo habría tomado la misma decisión.",
+            "it": "Avrei preso la stessa decisione.",
+            "nl": "Ik zou dezelfde beslissing hebben genomen."
+          },
+          "distractors": {
+            "en": [
+              "I would have made a different decision.",
+              "You would have made the same decision."
+            ],
+            "es-419": [
+              "Yo habría tomado otra decisión.",
+              "Tú habrías tomado la misma decisión."
+            ],
+            "it": [
+              "Avrei preso un'altra decisione.",
+              "Tu avresti preso la stessa decisione."
+            ],
+            "nl": [
+              "Ik zou een andere beslissing hebben genomen.",
+              "Jij zou dezelfde beslissing hebben genomen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "j'aurais aimé",
+          "translation": {
+            "en": "I would have liked",
+            "es-419": "me habría gustado",
+            "it": "mi sarebbe piaciuto",
+            "nl": "ik had graag gewild"
+          },
+          "distractors": {
+            "en": [
+              "I would like",
+              "I could have"
+            ],
+            "es-419": [
+              "me gustaría",
+              "habría podido"
+            ],
+            "it": [
+              "mi piacerebbe",
+              "avrei potuto"
+            ],
+            "nl": [
+              "ik zou graag willen",
+              "ik had gekund"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'aurais aimé apprendre à jouer du piano.",
+          "translation": {
+            "en": "I would have liked to learn to play the piano.",
+            "es-419": "Me habría gustado aprender a tocar el piano.",
+            "it": "Mi sarebbe piaciuto imparare a suonare il piano.",
+            "nl": "Ik had graag piano willen leren spelen."
+          },
+          "distractors": {
+            "en": [
+              "I would have liked to learn to play the guitar.",
+              "I would like to learn to play the piano."
+            ],
+            "es-419": [
+              "Me habría gustado aprender a tocar la guitarra.",
+              "Me gustaría aprender a tocar el piano."
+            ],
+            "it": [
+              "Mi sarebbe piaciuto imparare a suonare la chitarra.",
+              "Mi piacerebbe imparare a suonare il piano."
+            ],
+            "nl": [
+              "Ik had graag gitaar willen leren spelen.",
+              "Ik zou graag piano willen leren spelen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "nous aurions pu voyager",
+          "translation": {
+            "en": "we could have traveled",
+            "es-419": "habríamos podido viajar",
+            "it": "avremmo potuto viaggiare",
+            "nl": "we hadden kunnen reizen"
+          },
+          "distractors": {
+            "en": [
+              "we could have stayed",
+              "we should have traveled"
+            ],
+            "es-419": [
+              "habríamos podido quedarnos",
+              "deberíamos haber viajado"
+            ],
+            "it": [
+              "avremmo potuto restare",
+              "avremmo dovuto viaggiare"
+            ],
+            "nl": [
+              "we hadden kunnen blijven",
+              "we hadden moeten reizen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Tu aurais pu m'appeler avant de partir.",
+          "translation": {
+            "en": "You could have called me before leaving.",
+            "es-419": "Podrías haberme llamado antes de irte.",
+            "it": "Avresti potuto chiamarmi prima di partire.",
+            "nl": "Je had me kunnen bellen voordat je vertrok."
+          },
+          "distractors": {
+            "en": [
+              "You could have called me before arriving.",
+              "You should have called me before leaving."
+            ],
+            "es-419": [
+              "Podrías haberme llamado antes de llegar.",
+              "Deberías haberme llamado antes de irte."
+            ],
+            "it": [
+              "Avresti potuto chiamarmi prima di arrivare.",
+              "Avresti dovuto chiamarmi prima di partire."
+            ],
+            "nl": [
+              "Je had me kunnen bellen voordat je aankwam.",
+              "Je had me moeten bellen voordat je vertrok."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne regrette rien, parce que j'ai beaucoup appris.",
+          "translation": {
+            "en": "I don't regret anything, because I learned a lot.",
+            "es-419": "No lamento nada, porque aprendí mucho.",
+            "it": "Non rimpiango niente, perché ho imparato molto.",
+            "nl": "Ik heb nergens spijt van, want ik heb veel geleerd."
+          },
+          "distractors": {
+            "en": [
+              "I don't regret anything, because I earned a lot.",
+              "I regret everything, because I learned a lot."
+            ],
+            "es-419": [
+              "No lamento nada, porque gané mucho.",
+              "Lamento todo, porque aprendí mucho."
+            ],
+            "it": [
+              "Non rimpiango niente, perché ho guadagnato molto.",
+              "Rimpiango tutto, perché ho imparato molto."
+            ],
+            "nl": [
+              "Ik heb nergens spijt van, want ik heb veel verdiend.",
+              "Ik heb overal spijt van, want ik heb veel geleerd."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-hypotheses-5",
+      "title": "Si j'avais su",
+      "grammarFocus": {
+        "en": [
+          "si + plus-que-parfait + conditionnel passé: Si j'avais su, je ne serais pas venu.",
+          "s'il avait su, il serait venu",
+          "avoir ou être + participe: nous n'aurions pas perdu, je serais venu"
+        ],
+        "es-419": [
+          "si + plus-que-parfait + conditionnel passé: Si j'avais su, je ne serais pas venu.",
+          "s'il avait su, il serait venu",
+          "avoir ou être + participe: nous n'aurions pas perdu, je serais venu"
+        ],
+        "it": [
+          "si + plus-que-parfait + conditionnel passé: Si j'avais su, je ne serais pas venu.",
+          "s'il avait su, il serait venu",
+          "avoir ou être + participe: nous n'aurions pas perdu, je serais venu"
+        ],
+        "nl": [
+          "si + plus-que-parfait + conditionnel passé: Si j'avais su, je ne serais pas venu.",
+          "s'il avait su, il serait venu",
+          "avoir ou être + participe: nous n'aurions pas perdu, je serais venu"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si j'avais su",
+          "translation": {
+            "en": "if I had known",
+            "es-419": "si lo hubiera sabido",
+            "it": "se l'avessi saputo",
+            "nl": "als ik het had geweten"
+          },
+          "distractors": {
+            "en": [
+              "if I had understood",
+              "if I had wanted"
+            ],
+            "es-419": [
+              "si hubiera entendido",
+              "si hubiera querido"
+            ],
+            "it": [
+              "se avessi capito",
+              "se avessi voluto"
+            ],
+            "nl": [
+              "als ik het had begrepen",
+              "als ik het had gewild"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'avais su, je ne serais pas venu.",
+          "translation": {
+            "en": "If I had known, I wouldn't have come.",
+            "es-419": "Si lo hubiera sabido, no habría venido.",
+            "it": "Se l'avessi saputo, non sarei venuto.",
+            "nl": "Als ik het had geweten, was ik niet gekomen."
+          },
+          "distractors": {
+            "en": [
+              "If I had known, I would have come.",
+              "If I had known, I wouldn't have stayed."
+            ],
+            "es-419": [
+              "Si lo hubiera sabido, habría venido.",
+              "Si lo hubiera sabido, no me habría quedado."
+            ],
+            "it": [
+              "Se l'avessi saputo, sarei venuto.",
+              "Se l'avessi saputo, non sarei rimasto."
+            ],
+            "nl": [
+              "Als ik het had geweten, was ik gekomen.",
+              "Als ik het had geweten, was ik niet gebleven."
+            ]
+          },
+          "speaker": "M"
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "destin",
+          "translation": {
+            "en": "fate",
+            "es-419": "destino",
+            "it": "destino",
+            "nl": "lot"
+          },
+          "distractors": {
+            "en": [
+              "luck",
+              "future"
+            ],
+            "es-419": [
+              "suerte",
+              "futuro"
+            ],
+            "it": [
+              "fortuna",
+              "futuro"
+            ],
+            "nl": [
+              "toeval",
+              "toekomst"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u04",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "peut-être que c'était le destin",
+          "translation": {
+            "en": "maybe it was fate",
+            "es-419": "tal vez era el destino",
+            "it": "forse era il destino",
+            "nl": "misschien was het het lot"
+          },
+          "distractors": {
+            "en": [
+              "maybe it was luck",
+              "maybe it was a mistake"
+            ],
+            "es-419": [
+              "tal vez era la suerte",
+              "tal vez era un error"
+            ],
+            "it": [
+              "forse era la fortuna",
+              "forse era un errore"
+            ],
+            "nl": [
+              "misschien was het toeval",
+              "misschien was het een fout"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si tu m'avais écouté",
+          "translation": {
+            "en": "if you had listened to me",
+            "es-419": "si me hubieras escuchado",
+            "it": "se mi avessi ascoltato",
+            "nl": "als je naar me had geluisterd"
+          },
+          "distractors": {
+            "en": [
+              "if you had called me",
+              "if you had told me"
+            ],
+            "es-419": [
+              "si me hubieras llamado",
+              "si me hubieras dicho"
+            ],
+            "it": [
+              "se mi avessi chiamato",
+              "se mi avessi detto"
+            ],
+            "nl": [
+              "als je me had gebeld",
+              "als je het me had verteld"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si tu m'avais écouté, nous n'aurions pas perdu tout cet argent.",
+          "translation": {
+            "en": "If you had listened to me, we wouldn't have lost all that money.",
+            "es-419": "Si me hubieras escuchado, no habríamos perdido todo ese dinero.",
+            "it": "Se mi avessi ascoltato, non avremmo perso tutti quei soldi.",
+            "nl": "Als je naar me had geluisterd, hadden we al dat geld niet verloren."
+          },
+          "distractors": {
+            "en": [
+              "If you had listened to me, we wouldn't have spent all that money.",
+              "If you had listened to me, we would have lost all that money."
+            ],
+            "es-419": [
+              "Si me hubieras escuchado, no habríamos gastado todo ese dinero.",
+              "Si me hubieras escuchado, habríamos perdido todo ese dinero."
+            ],
+            "it": [
+              "Se mi avessi ascoltato, non avremmo speso tutti quei soldi.",
+              "Se mi avessi ascoltato, avremmo perso tutti quei soldi."
+            ],
+            "nl": [
+              "Als je naar me had geluisterd, hadden we al dat geld niet uitgegeven.",
+              "Als je naar me had geluisterd, hadden we al dat geld verloren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "si nous avions pris un taxi",
+          "translation": {
+            "en": "if we had taken a taxi",
+            "es-419": "si hubiéramos tomado un taxi",
+            "it": "se avessimo preso un taxi",
+            "nl": "als we een taxi hadden genomen"
+          },
+          "distractors": {
+            "en": [
+              "if we had taken a bus",
+              "if we had taken a train"
+            ],
+            "es-419": [
+              "si hubiéramos tomado un autobús",
+              "si hubiéramos tomado un tren"
+            ],
+            "it": [
+              "se avessimo preso l'autobus",
+              "se avessimo preso un treno"
+            ],
+            "nl": [
+              "als we de bus hadden genomen",
+              "als we de trein hadden genomen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si nous avions pris un taxi, nous n'aurions pas raté le train.",
+          "translation": {
+            "en": "If we had taken a taxi, we wouldn't have missed the train.",
+            "es-419": "Si hubiéramos tomado un taxi, no habríamos perdido el tren.",
+            "it": "Se avessimo preso un taxi, non avremmo perso il treno.",
+            "nl": "Als we een taxi hadden genomen, hadden we de trein niet gemist."
+          },
+          "distractors": {
+            "en": [
+              "If we had taken a taxi, we would have missed the train.",
+              "If we had taken a bus, we wouldn't have missed the train."
+            ],
+            "es-419": [
+              "Si hubiéramos tomado un taxi, habríamos perdido el tren.",
+              "Si hubiéramos tomado un autobús, no habríamos perdido el tren."
+            ],
+            "it": [
+              "Se avessimo preso un taxi, avremmo perso il treno.",
+              "Se avessimo preso l'autobus, non avremmo perso il treno."
+            ],
+            "nl": [
+              "Als we een taxi hadden genomen, hadden we de trein gemist.",
+              "Als we de bus hadden genomen, hadden we de trein niet gemist."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "s'il avait su",
+          "translation": {
+            "en": "if he had known",
+            "es-419": "si él lo hubiera sabido",
+            "it": "se lui l'avesse saputo",
+            "nl": "als hij het had geweten"
+          },
+          "distractors": {
+            "en": [
+              "if he had seen",
+              "if he had wanted"
+            ],
+            "es-419": [
+              "si él lo hubiera visto",
+              "si él hubiera querido"
+            ],
+            "it": [
+              "se lui l'avesse visto",
+              "se lui avesse voluto"
+            ],
+            "nl": [
+              "als hij het had gezien",
+              "als hij het had gewild"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "S'il avait su, il serait venu nous aider.",
+          "translation": {
+            "en": "If he had known, he would have come to help us.",
+            "es-419": "Si él lo hubiera sabido, habría venido a ayudarnos.",
+            "it": "Se l'avesse saputo, sarebbe venuto ad aiutarci.",
+            "nl": "Als hij het had geweten, was hij ons komen helpen."
+          },
+          "distractors": {
+            "en": [
+              "If he had known, he wouldn't have come to help us.",
+              "If she had known, she would have come to help us."
+            ],
+            "es-419": [
+              "Si él lo hubiera sabido, no habría venido a ayudarnos.",
+              "Si ella lo hubiera sabido, habría venido a ayudarnos."
+            ],
+            "it": [
+              "Se l'avesse saputo, non sarebbe venuto ad aiutarci.",
+              "Se l'avesse saputo, sarebbe venuta ad aiutarci."
+            ],
+            "nl": [
+              "Als hij het had geweten, was hij ons niet komen helpen.",
+              "Als zij het had geweten, was ze ons komen helpen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u11",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "cette maison",
+          "translation": {
+            "en": "this house",
+            "es-419": "esta casa",
+            "it": "questa casa",
+            "nl": "dit huis"
+          },
+          "distractors": {
+            "en": [
+              "this apartment",
+              "these houses"
+            ],
+            "es-419": [
+              "este apartamento",
+              "estas casas"
+            ],
+            "it": [
+              "questo appartamento",
+              "queste case"
+            ],
+            "nl": [
+              "dit appartement",
+              "deze huizen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si j'avais eu plus d'argent, j'aurais acheté cette maison.",
+          "translation": {
+            "en": "If I had had more money, I would have bought this house.",
+            "es-419": "Si hubiera tenido más dinero, habría comprado esta casa.",
+            "it": "Se avessi avuto più soldi, avrei comprato questa casa.",
+            "nl": "Als ik meer geld had gehad, had ik dit huis gekocht."
+          },
+          "distractors": {
+            "en": [
+              "If I had had more money, I would have rented this house.",
+              "If I had had more time, I would have bought this house."
+            ],
+            "es-419": [
+              "Si hubiera tenido más dinero, habría alquilado esta casa.",
+              "Si hubiera tenido más tiempo, habría comprado esta casa."
+            ],
+            "it": [
+              "Se avessi avuto più soldi, avrei affittato questa casa.",
+              "Se avessi avuto più tempo, avrei comprato questa casa."
+            ],
+            "nl": [
+              "Als ik meer geld had gehad, had ik dit huis gehuurd.",
+              "Als ik meer tijd had gehad, had ik dit huis gekocht."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un an plus tôt",
+          "translation": {
+            "en": "a year earlier",
+            "es-419": "un año antes",
+            "it": "un anno prima",
+            "nl": "een jaar eerder"
+          },
+          "distractors": {
+            "en": [
+              "a year later",
+              "two years earlier"
+            ],
+            "es-419": [
+              "un año después",
+              "dos años antes"
+            ],
+            "it": [
+              "un anno dopo",
+              "due anni prima"
+            ],
+            "nl": [
+              "een jaar later",
+              "twee jaar eerder"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si nous avions commencé un an plus tôt, nous aurions fini.",
+          "translation": {
+            "en": "If we had started a year earlier, we would have finished.",
+            "es-419": "Si hubiéramos empezado un año antes, habríamos terminado.",
+            "it": "Se avessimo cominciato un anno prima, avremmo finito.",
+            "nl": "Als we een jaar eerder waren begonnen, waren we klaar geweest."
+          },
+          "distractors": {
+            "en": [
+              "If we had started a year earlier, we wouldn't have finished.",
+              "If we had started a year later, we would have finished."
+            ],
+            "es-419": [
+              "Si hubiéramos empezado un año antes, no habríamos terminado.",
+              "Si hubiéramos empezado un año después, habríamos terminado."
+            ],
+            "it": [
+              "Se avessimo cominciato un anno prima, non avremmo finito.",
+              "Se avessimo cominciato un anno dopo, avremmo finito."
+            ],
+            "nl": [
+              "Als we een jaar eerder waren begonnen, waren we niet klaar geweest.",
+              "Als we een jaar later waren begonnen, waren we klaar geweest."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ça aurait pu être pire.",
+          "translation": {
+            "en": "It could have been worse.",
+            "es-419": "Podría haber sido peor.",
+            "it": "Poteva andare peggio.",
+            "nl": "Het had erger kunnen zijn."
+          },
+          "distractors": {
+            "en": [
+              "It could have been better.",
+              "It couldn't have been worse."
+            ],
+            "es-419": [
+              "Podría haber sido mejor.",
+              "No podría haber sido peor."
+            ],
+            "it": [
+              "Poteva andare meglio.",
+              "Non poteva andare peggio."
+            ],
+            "nl": [
+              "Het had beter kunnen zijn.",
+              "Het had niet erger kunnen zijn."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-hypotheses-6",
+      "title": "Mon rêve",
+      "grammarFocus": {
+        "en": [
+          "au cas où + conditionnel: Prends un parapluie au cas où il pleuvrait.",
+          "le conditionnel pour rêver: Mon rêve, ce serait...",
+          "ce n'est qu'un rêve = ne ... que"
+        ],
+        "es-419": [
+          "au cas où + conditionnel: Prends un parapluie au cas où il pleuvrait.",
+          "le conditionnel pour rêver: Mon rêve, ce serait...",
+          "ce n'est qu'un rêve = ne ... que"
+        ],
+        "it": [
+          "au cas où + conditionnel: Prends un parapluie au cas où il pleuvrait.",
+          "le conditionnel pour rêver: Mon rêve, ce serait...",
+          "ce n'est qu'un rêve = ne ... que"
+        ],
+        "nl": [
+          "au cas où + conditionnel: Prends un parapluie au cas où il pleuvrait.",
+          "le conditionnel pour rêver: Mon rêve, ce serait...",
+          "ce n'est qu'un rêve = ne ... que"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-hypotheses-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "idéal",
+          "translation": {
+            "en": "ideal",
+            "es-419": "ideal",
+            "it": "ideale",
+            "nl": "ideaal"
+          },
+          "distractors": {
+            "en": [
+              "normal",
+              "difficult"
+            ],
+            "es-419": [
+              "normal",
+              "difícil"
+            ],
+            "it": [
+              "normale",
+              "difficile"
+            ],
+            "nl": [
+              "normaal",
+              "moeilijk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un travail idéal",
+          "translation": {
+            "en": "an ideal job",
+            "es-419": "un trabajo ideal",
+            "it": "un lavoro ideale",
+            "nl": "een ideale baan"
+          },
+          "distractors": {
+            "en": [
+              "a difficult job",
+              "an ideal house"
+            ],
+            "es-419": [
+              "un trabajo difícil",
+              "una casa ideal"
+            ],
+            "it": [
+              "un lavoro difficile",
+              "una casa ideale"
+            ],
+            "nl": [
+              "een moeilijke baan",
+              "een ideaal huis"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon travail idéal serait dans une petite entreprise près de chez moi.",
+          "translation": {
+            "en": "My ideal job would be at a small company near my home.",
+            "es-419": "Mi trabajo ideal sería en una empresa pequeña cerca de mi casa.",
+            "it": "Il mio lavoro ideale sarebbe in una piccola azienda vicino a casa mia.",
+            "nl": "Mijn ideale baan zou bij een klein bedrijf vlak bij mijn huis zijn."
+          },
+          "distractors": {
+            "en": [
+              "My ideal job would be at a big company near my home.",
+              "My ideal job would be at a small company far from home."
+            ],
+            "es-419": [
+              "Mi trabajo ideal sería en una empresa grande cerca de mi casa.",
+              "Mi trabajo ideal sería en una empresa pequeña lejos de mi casa."
+            ],
+            "it": [
+              "Il mio lavoro ideale sarebbe in una grande azienda vicino a casa mia.",
+              "Il mio lavoro ideale sarebbe in una piccola azienda lontano da casa mia."
+            ],
+            "nl": [
+              "Mijn ideale baan zou bij een groot bedrijf vlak bij mijn huis zijn.",
+              "Mijn ideale baan zou bij een klein bedrijf ver van mijn huis zijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "parfait",
+          "translation": {
+            "en": "perfect",
+            "es-419": "perfecto",
+            "it": "perfetto",
+            "nl": "perfect"
+          },
+          "distractors": {
+            "en": [
+              "terrible",
+              "strange"
+            ],
+            "es-419": [
+              "terrible",
+              "extraño"
+            ],
+            "it": [
+              "terribile",
+              "strano"
+            ],
+            "nl": [
+              "verschrikkelijk",
+              "vreemd"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une journée parfaite",
+          "translation": {
+            "en": "a perfect day",
+            "es-419": "un día perfecto",
+            "it": "una giornata perfetta",
+            "nl": "een perfecte dag"
+          },
+          "distractors": {
+            "en": [
+              "a terrible day",
+              "a perfect evening"
+            ],
+            "es-419": [
+              "un día terrible",
+              "una noche perfecta"
+            ],
+            "it": [
+              "una giornata terribile",
+              "una serata perfetta"
+            ],
+            "nl": [
+              "een verschrikkelijke dag",
+              "een perfecte avond"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma journée parfaite, ce serait un dimanche à la maison avec ma famille.",
+          "translation": {
+            "en": "My perfect day would be a Sunday at home with my family.",
+            "es-419": "Mi día perfecto sería un domingo en casa con mi familia.",
+            "it": "La mia giornata perfetta sarebbe una domenica a casa con la mia famiglia.",
+            "nl": "Mijn perfecte dag zou een zondag thuis met mijn gezin zijn."
+          },
+          "distractors": {
+            "en": [
+              "My perfect day would be a Sunday at the beach with my family.",
+              "My perfect day would be a Saturday at home with my family."
+            ],
+            "es-419": [
+              "Mi día perfecto sería un domingo en la playa con mi familia.",
+              "Mi día perfecto sería un sábado en casa con mi familia."
+            ],
+            "it": [
+              "La mia giornata perfetta sarebbe una domenica in spiaggia con la mia famiglia.",
+              "La mia giornata perfetta sarebbe un sabato a casa con la mia famiglia."
+            ],
+            "nl": [
+              "Mijn perfecte dag zou een zondag op het strand met mijn gezin zijn.",
+              "Mijn perfecte dag zou een zaterdag thuis met mijn gezin zijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "liberté",
+          "translation": {
+            "en": "freedom",
+            "es-419": "libertad",
+            "it": "libertà",
+            "nl": "vrijheid"
+          },
+          "distractors": {
+            "en": [
+              "happiness",
+              "luck"
+            ],
+            "es-419": [
+              "felicidad",
+              "suerte"
+            ],
+            "it": [
+              "felicità",
+              "fortuna"
+            ],
+            "nl": [
+              "geluk",
+              "rust"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Pour moi, le vrai bonheur, c'est la liberté de faire ce que j'aime.",
+          "translation": {
+            "en": "For me, real happiness is the freedom to do what I like.",
+            "es-419": "Para mí, la verdadera felicidad es la libertad de hacer lo que me gusta.",
+            "it": "Per me, la vera felicità è la libertà di fare ciò che mi piace.",
+            "nl": "Voor mij is echt geluk de vrijheid om te doen wat ik leuk vind."
+          },
+          "distractors": {
+            "en": [
+              "For me, real happiness is the freedom to do what I want.",
+              "For me, real happiness is the money to do what I like."
+            ],
+            "es-419": [
+              "Para mí, la verdadera felicidad es la libertad de hacer lo que quiero.",
+              "Para mí, la verdadera felicidad es el dinero para hacer lo que me gusta."
+            ],
+            "it": [
+              "Per me, la vera felicità è la libertà di fare ciò che voglio.",
+              "Per me, la vera felicità sono i soldi per fare ciò che mi piace."
+            ],
+            "nl": [
+              "Voor mij is echt geluk de vrijheid om te doen wat ik wil.",
+              "Voor mij is echt geluk het geld om te doen wat ik leuk vind."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "au cas où",
+          "translation": {
+            "en": "just in case",
+            "es-419": "por si acaso",
+            "it": "nel caso in cui",
+            "nl": "voor het geval dat"
+          },
+          "distractors": {
+            "en": [
+              "in any case",
+              "in that case"
+            ],
+            "es-419": [
+              "en todo caso",
+              "en ese caso"
+            ],
+            "it": [
+              "in ogni caso",
+              "in quel caso"
+            ],
+            "nl": [
+              "in ieder geval",
+              "in dat geval"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Prends un parapluie au cas où il pleuvrait.",
+          "translation": {
+            "en": "Take an umbrella in case it rains.",
+            "es-419": "Lleva un paraguas por si llueve.",
+            "it": "Prendi un ombrello nel caso in cui piova.",
+            "nl": "Neem een paraplu mee voor het geval dat het regent."
+          },
+          "distractors": {
+            "en": [
+              "Take an umbrella in case it snows.",
+              "Take a jacket in case it rains."
+            ],
+            "es-419": [
+              "Lleva un paraguas por si nieva.",
+              "Lleva una chaqueta por si llueve."
+            ],
+            "it": [
+              "Prendi un ombrello nel caso in cui nevichi.",
+              "Prendi una giacca nel caso in cui piova."
+            ],
+            "nl": [
+              "Neem een paraplu mee voor het geval dat het sneeuwt.",
+              "Neem een jas mee voor het geval dat het regent."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "au cas où j'en aurais besoin",
+          "translation": {
+            "en": "in case I needed it",
+            "es-419": "por si lo necesitaba",
+            "it": "nel caso ne avessi bisogno",
+            "nl": "voor het geval ik het nodig zou hebben"
+          },
+          "distractors": {
+            "en": [
+              "in case I forgot it",
+              "in case we needed it"
+            ],
+            "es-419": [
+              "por si lo olvidaba",
+              "por si lo necesitábamos"
+            ],
+            "it": [
+              "nel caso lo dimenticassi",
+              "nel caso ne avessimo bisogno"
+            ],
+            "nl": [
+              "voor het geval ik het zou vergeten",
+              "voor het geval we het nodig zouden hebben"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le monde entier",
+          "translation": {
+            "en": "the whole world",
+            "es-419": "el mundo entero",
+            "it": "il mondo intero",
+            "nl": "de hele wereld"
+          },
+          "distractors": {
+            "en": [
+              "the whole country",
+              "half the world"
+            ],
+            "es-419": [
+              "el país entero",
+              "medio mundo"
+            ],
+            "it": [
+              "il paese intero",
+              "mezzo mondo"
+            ],
+            "nl": [
+              "het hele land",
+              "de halve wereld"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Si je pouvais, je voyagerais dans le monde entier avec les gens que j'aime.",
+          "translation": {
+            "en": "If I could, I'd travel all over the world with the people I love.",
+            "es-419": "Si pudiera, viajaría por todo el mundo con la gente que quiero.",
+            "it": "Se potessi, viaggerei per il mondo intero con le persone che amo.",
+            "nl": "Als ik kon, zou ik de hele wereld rondreizen met de mensen van wie ik hou."
+          },
+          "distractors": {
+            "en": [
+              "If I could, I'd travel all over the world with my family.",
+              "If I could, I'd stay at home with the people I love."
+            ],
+            "es-419": [
+              "Si pudiera, viajaría por todo el mundo con mi familia.",
+              "Si pudiera, me quedaría en casa con la gente que quiero."
+            ],
+            "it": [
+              "Se potessi, viaggerei per il mondo intero con la mia famiglia.",
+              "Se potessi, resterei a casa con le persone che amo."
+            ],
+            "nl": [
+              "Als ik kon, zou ik de hele wereld rondreizen met mijn gezin.",
+              "Als ik kon, zou ik thuisblijven met de mensen van wie ik hou."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u14",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le rêve de ma vie",
+          "translation": {
+            "en": "the dream of my life",
+            "es-419": "el sueño de mi vida",
+            "it": "il sogno della mia vita",
+            "nl": "de droom van mijn leven"
+          },
+          "distractors": {
+            "en": [
+              "the job of my life",
+              "the love of my life"
+            ],
+            "es-419": [
+              "el trabajo de mi vida",
+              "el amor de mi vida"
+            ],
+            "it": [
+              "il lavoro della mia vita",
+              "l'amore della mia vita"
+            ],
+            "nl": [
+              "de baan van mijn leven",
+              "de liefde van mijn leven"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce serait parfait, mais ce n'est qu'un rêve.",
+          "translation": {
+            "en": "That would be perfect, but it's only a dream.",
+            "es-419": "Sería perfecto, pero solo es un sueño.",
+            "it": "Sarebbe perfetto, ma è solo un sogno.",
+            "nl": "Dat zou perfect zijn, maar het is maar een droom."
+          },
+          "distractors": {
+            "en": [
+              "That would be perfect, but it's only an idea.",
+              "That would be strange, but it's only a dream."
+            ],
+            "es-419": [
+              "Sería perfecto, pero solo es una idea.",
+              "Sería extraño, pero solo es un sueño."
+            ],
+            "it": [
+              "Sarebbe perfetto, ma è solo un'idea.",
+              "Sarebbe strano, ma è solo un sogno."
+            ],
+            "nl": [
+              "Dat zou perfect zijn, maar het is maar een idee.",
+              "Dat zou vreemd zijn, maar het is maar een droom."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-hypotheses-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon rêve, c'est d'avoir une petite maison à la campagne, avec un jardin.",
+          "translation": {
+            "en": "My dream is to have a small house in the countryside, with a garden.",
+            "es-419": "Mi sueño es tener una casita en el campo, con un jardín.",
+            "it": "Il mio sogno è avere una piccola casa in campagna, con un giardino.",
+            "nl": "Mijn droom is om een klein huis op het platteland te hebben, met een tuin."
+          },
+          "distractors": {
+            "en": [
+              "My dream is to have a small apartment in the city, with a garden.",
+              "My dream is to have a big house in the countryside, with a garden."
+            ],
+            "es-419": [
+              "Mi sueño es tener un departamento pequeño en la ciudad, con un jardín.",
+              "Mi sueño es tener una casa grande en el campo, con un jardín."
+            ],
+            "it": [
+              "Il mio sogno è avere un piccolo appartamento in città, con un giardino.",
+              "Il mio sogno è avere una grande casa in campagna, con un giardino."
+            ],
+            "nl": [
+              "Mijn droom is om een klein appartement in de stad te hebben, met een tuin.",
+              "Mijn droom is om een groot huis op het platteland te hebben, met een tuin."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

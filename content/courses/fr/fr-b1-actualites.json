@@ -1,0 +1,4373 @@
+{
+  "id": "fr-b1-actualites",
+  "language": "fr",
+  "level": "B1",
+  "order": 30,
+  "title": "L'actualité",
+  "description": {
+    "en": "Reporting what others said and asked, and following the news on TV and social media",
+    "es-419": "Contar lo que otros dijeron y preguntaron, y seguir las noticias en la tele y en las redes sociales",
+    "it": "Riferire ciò che altri hanno detto e chiesto e seguire le notizie in tv e sui social",
+    "nl": "Weergeven wat anderen zeiden en vroegen, en het nieuws volgen op tv en sociale media"
+  },
+  "track": "main",
+  "requires": [
+    "fr-b1-hypotheses"
+  ],
+  "introduces": [
+    "reporter",
+    "actualités",
+    "article",
+    "titre",
+    "annoncer",
+    "déclarer",
+    "informer",
+    "assurer",
+    "confirmer",
+    "affirmer",
+    "nier",
+    "enquêter",
+    "élection",
+    "gouvernement",
+    "politique",
+    "président",
+    "maire",
+    "voter",
+    "partager",
+    "commentaire",
+    "source",
+    "délit",
+    "diffuser",
+    "interviewer",
+    "réseau",
+    "média",
+    "rumeur",
+    "télévisé",
+    "chaîne",
+    "ajouter",
+    "ministre",
+    "présentateur",
+    "vidéo",
+    "question"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "has (avoir); il y a = there is, there are",
+        "es-419": "tiene (avoir); il y a = hay",
+        "it": "ha (avoir); il y a = c'è, ci sono",
+        "nl": "heeft (avoir); il y a = er is, er zijn"
+      }
+    },
+    "accident": {
+      "lemma": "accident",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "accident (m)",
+        "es-419": "accidente (m)",
+        "it": "incidente (m)",
+        "nl": "ongeluk (m)"
+      }
+    },
+    "actualités": {
+      "lemma": "actualités",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "news, current events (f, plural); watch out: not \"actualities\", and actuellement means currently",
+        "es-419": "noticias, actualidad (f, plural)",
+        "it": "notizie, attualità (f, plurale)",
+        "nl": "nieuws, actualiteit (f, meervoud)"
+      }
+    },
+    "affirme": {
+      "lemma": "affirmer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "claims, states (affirmer: il/elle affirme)",
+        "es-419": "afirma (affirmer: il/elle affirme)",
+        "it": "afferma (affirmer: il/elle affirme)",
+        "nl": "beweert (affirmer: il/elle affirme)"
+      }
+    },
+    "ajouté": {
+      "lemma": "ajouter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "added (ajouter = to add; a ajouté = added)",
+        "es-419": "añadió (ajouter = añadir; a ajouté = añadió)",
+        "it": "ha aggiunto (ajouter = aggiungere; a ajouté = ha aggiunto)",
+        "nl": "voegde toe (ajouter = toevoegen; a ajouté = voegde toe)"
+      }
+    },
+    "allait": {
+      "lemma": "aller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was going (aller in the imparfait: il/elle/on allait; allait + infinitive = was going to)",
+        "es-419": "iba (aller en imparfait: il/elle/on allait; allait + infinitivo = iba a)",
+        "it": "andava (aller all'imperfetto: il/elle/on allait; allait + infinito = stava per)",
+        "nl": "ging (aller in de imparfait: il/elle/on allait; allait + infinitief = ging)"
+      }
+    },
+    "annoncé": {
+      "lemma": "annoncer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "announced (annoncer = to announce; a annoncé = announced)",
+        "es-419": "anunció (annoncer = anunciar; a annoncé = anunció)",
+        "it": "ha annunciato (annoncer = annunciare; a annoncé = ha annunciato)",
+        "nl": "kondigde aan (annoncer = aankondigen; a annoncé = kondigde aan)"
+      }
+    },
+    "assuré": {
+      "lemma": "assurer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "assured (assurer = to assure, to ensure; a assuré = assured)",
+        "es-419": "aseguró (assurer = asegurar; a assuré = aseguró)",
+        "it": "ha assicurato (assurer = assicurare; a assuré = ha assicurato)",
+        "nl": "verzekerde (assurer = verzekeren; a assuré = verzekerde)"
+      }
+    },
+    "avaient": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "had (avoir in the imparfait: ils/elles avaient; avaient raison = were right)",
+        "es-419": "tenían (avoir en imparfait: ils/elles avaient; avaient raison = tenían razón)",
+        "it": "avevano (avoir all'imperfetto: ils/elles avaient; avaient raison = avevano ragione)",
+        "nl": "hadden (avoir in de imparfait: ils/elles avaient; avaient raison = hadden gelijk)"
+      }
+    },
+    "avait": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "had (avoir in the imparfait: il/elle/on avait; avait eu = had had)",
+        "es-419": "tenía, había (avoir en imparfait: il/elle/on avait; avait + participio = había)",
+        "it": "aveva, era (avoir all'imperfetto: il/elle/on avait; avait + participio = aveva/era)",
+        "nl": "had (avoir in de imparfait: il/elle/on avait; avait + voltooid deelwoord = had/was)"
+      }
+    },
+    "avoir": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "to have; on peut avoir = can we have",
+        "es-419": "tener, haber; on peut avoir = podemos tener",
+        "it": "avere; on peut avoir = possiamo avere",
+        "nl": "hebben; on peut avoir = kunnen we krijgen"
+      }
+    },
+    "c'était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'était = c' + était: it was, that was",
+        "es-419": "c'était = c' + était: era, fue",
+        "it": "c'était = c' + était: era",
+        "nl": "c'était = c' + était: het was"
+      }
+    },
+    "chaîne": {
+      "lemma": "chaîne",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "TV channel (f); also chain",
+        "es-419": "canal de televisión (f); también cadena",
+        "it": "canale televisivo (f); anche catena",
+        "nl": "tv-zender (f); ook ketting"
+      }
+    },
+    "chercher": {
+      "lemma": "chercher",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to look for; venir chercher = to come and pick up",
+        "es-419": "buscar; venir chercher = venir a buscar",
+        "it": "cercare; venir chercher = venire a prendere",
+        "nl": "zoeken; venir chercher = komen ophalen"
+      }
+    },
+    "choisir": {
+      "lemma": "choisir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to choose",
+        "es-419": "elegir",
+        "it": "scegliere",
+        "nl": "kiezen"
+      }
+    },
+    "commentaire": {
+      "lemma": "commentaire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "comment (m)",
+        "es-419": "comentario (m)",
+        "it": "commento (m)",
+        "nl": "reactie, commentaar (m)"
+      }
+    },
+    "commentaires": {
+      "lemma": "commentaire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "comments (m, plural of commentaire)",
+        "es-419": "comentarios (m, plural de commentaire)",
+        "it": "commenti (m, plurale di commentaire)",
+        "nl": "reacties (m, meervoud van commentaire)"
+      }
+    },
+    "confirmé": {
+      "lemma": "confirmer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "confirmed (confirmer = to confirm; a confirmé = confirmed)",
+        "es-419": "confirmó (confirmer = confirmar; a confirmé = confirmó)",
+        "it": "ha confermato (confirmer = confermare; a confirmé = ha confermato)",
+        "nl": "bevestigde (confirmer = bevestigen; a confirmé = bevestigde)"
+      }
+    },
+    "connaître": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to know (a person, a place, a fact you have met); watch out: savoir = to know a fact or how to do something",
+        "es-419": "conocer",
+        "it": "conoscere",
+        "nl": "kennen"
+      }
+    },
+    "construirait": {
+      "lemma": "construire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would build (construire in the conditional: il/elle construirait)",
+        "es-419": "construiría (construire en condicional: il/elle construirait)",
+        "it": "costruirebbe (construire al condizionale: il/elle construirait)",
+        "nl": "zou bouwen (construire in de conditionnel: il/elle construirait)"
+      }
+    },
+    "croient": {
+      "lemma": "croire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "believe (croire: ils/elles croient, sounds like il/elle croit)",
+        "es-419": "creen (croire: ils/elles croient, suena como il/elle croit)",
+        "it": "credono (croire: ils/elles croient, suona come il/elle croit)",
+        "nl": "geloven (croire: ils/elles croient, klinkt als il/elle croit)"
+      }
+    },
+    "d'après": {
+      "lemma": "après",
+      "pos": "ADP",
+      "gloss": {
+        "en": "d'après = de + après: according to (d'après le maire = according to the mayor)",
+        "es-419": "d'après = de + après: según (d'après le maire = según el alcalde)",
+        "it": "d'après = de + après: secondo (d'après le maire = secondo il sindaco)",
+        "nl": "d'après = de + après: volgens (d'après le maire = volgens de burgemeester)"
+      }
+    },
+    "d'attendre": {
+      "lemma": "attendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "d'attendre = de + attendre: to wait (demander d'attendre = ask to wait); watch out: attendre = wait, not attend",
+        "es-419": "d'attendre = de + attendre: esperar (demander d'attendre = pedir que espere)",
+        "it": "d'attendre = de + attendre: aspettare (demander d'attendre = chiedere di aspettare)",
+        "nl": "d'attendre = de + attendre: wachten (demander d'attendre = vragen te wachten)"
+      }
+    },
+    "demandé": {
+      "lemma": "demander",
+      "pos": "VERB",
+      "gloss": {
+        "en": "asked (demander = to ask; a demandé = asked); watch out: demander is ask, not demand",
+        "es-419": "pidió, preguntó (demander = pedir o preguntar; a demandé = pidió, preguntó); ojo: no es \"demandar\"",
+        "it": "ha chiesto (demander = chiedere; a demandé = ha chiesto)",
+        "nl": "vroeg (demander = vragen; a demandé = vroeg)"
+      }
+    },
+    "devoirs": {
+      "lemma": "devoirs",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "homework (m, plural)",
+        "es-419": "tarea (m, plural)",
+        "it": "compiti (m, plurale)",
+        "nl": "huiswerk (m, meervoud)"
+      }
+    },
+    "diffuse": {
+      "lemma": "diffuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "broadcasts, spreads (diffuser: il/elle diffuse)",
+        "es-419": "transmite, difunde (diffuser: il/elle diffuse)",
+        "it": "trasmette, diffonde (diffuser: il/elle diffuse)",
+        "nl": "zendt uit, verspreidt (diffuser: il/elle diffuse)"
+      }
+    },
+    "diffusé": {
+      "lemma": "diffuser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "broadcast, spread (diffuser = to broadcast; a diffusé = broadcast)",
+        "es-419": "transmitió, difundió (diffuser = transmitir, difundir; a diffusé = transmitió)",
+        "it": "ha trasmesso, ha diffuso (diffuser = trasmettere, diffondere; a diffusé)",
+        "nl": "zond uit, verspreidde (diffuser = uitzenden, verspreiden; a diffusé)"
+      }
+    },
+    "disait": {
+      "lemma": "dire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was saying (dire in the imparfait: il/elle/on disait)",
+        "es-419": "decía (dire en imparfait: il/elle/on disait)",
+        "it": "diceva (dire all'imperfetto: il/elle/on disait)",
+        "nl": "zei (dire in de imparfait: il/elle/on disait)"
+      }
+    },
+    "décidé": {
+      "lemma": "décider",
+      "pos": "VERB",
+      "gloss": {
+        "en": "decided (décider = to decide; a décidé = decided)",
+        "es-419": "decidió (décider = decidir; a décidé = decidió)",
+        "it": "ha deciso (décider = decidere; a décidé = ha deciso)",
+        "nl": "besloot (décider = beslissen; a décidé = besloot)"
+      }
+    },
+    "déclaré": {
+      "lemma": "déclarer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "declared, stated (déclarer = to declare; a déclaré = stated)",
+        "es-419": "declaró (déclarer = declarar; a déclaré = declaró)",
+        "it": "ha dichiarato (déclarer = dichiarare; a déclaré = ha dichiarato)",
+        "nl": "verklaarde (déclarer = verklaren; a déclaré = verklaarde)"
+      }
+    },
+    "déjà": {
+      "lemma": "déjà",
+      "pos": "ADV",
+      "gloss": {
+        "en": "already; ever (as in \"have you ever...\")",
+        "es-419": "ya; alguna vez",
+        "it": "già; mai (in domande e dopo \"avere\")",
+        "nl": "al; ooit"
+      }
+    },
+    "délit": {
+      "lemma": "délit",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "offense, minor crime (m)",
+        "es-419": "delito (m)",
+        "it": "reato (m)",
+        "nl": "misdrijf (m)"
+      }
+    },
+    "démissionner": {
+      "lemma": "démissionner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to resign, to quit a job",
+        "es-419": "renunciar, dimitir",
+        "it": "dimettersi",
+        "nl": "ontslag nemen, aftreden"
+      }
+    },
+    "démissionnerait": {
+      "lemma": "démissionner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would resign (démissionner in the conditional: il/elle démissionnerait)",
+        "es-419": "renunciaría (démissionner en condicional: il/elle démissionnerait)",
+        "it": "si dimetterebbe (démissionner al condizionale: il/elle démissionnerait)",
+        "nl": "zou aftreden (démissionner in de conditionnel: il/elle démissionnerait)"
+      }
+    },
+    "démissionné": {
+      "lemma": "démissionner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "resigned (a démissionné = resigned)",
+        "es-419": "renunció (a démissionné = renunció)",
+        "it": "si è dimesso (a démissionné = si è dimesso)",
+        "nl": "trad af (a démissionné = trad af)"
+      }
+    },
+    "enquête": {
+      "lemma": "enquêter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "investigates (enquêter sur = to investigate)",
+        "es-419": "investiga (enquêter sur = investigar)",
+        "it": "indaga (enquêter sur = indagare su)",
+        "nl": "onderzoekt (enquêter sur = onderzoeken)"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "is (être: est)",
+        "es-419": "es, está (être: est)",
+        "it": "è (être: est)",
+        "nl": "is (être: est)"
+      }
+    },
+    "eu": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (past participle of avoir); il y a eu = there was, there has been",
+        "es-419": "tenido (participio de avoir); il y a eu = hubo",
+        "it": "avuto (participio di avoir); il y a eu = c'è stato",
+        "nl": "gehad (voltooid deelwoord van avoir); il y a eu = er is geweest"
+      }
+    },
+    "expliqué": {
+      "lemma": "expliquer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "explained (expliquer = to explain; a expliqué = explained)",
+        "es-419": "explicó (expliquer = explicar; a expliqué = explicó)",
+        "it": "ha spiegato (expliquer = spiegare; a expliqué = ha spiegato)",
+        "nl": "legde uit (expliquer = uitleggen; a expliqué = legde uit)"
+      }
+    },
+    "faisais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was doing, did (faire in the imparfait: je/tu faisais)",
+        "es-419": "hacía (faire en imparfait: je/tu faisais)",
+        "it": "facevo, facevi (faire all'imperfetto: je/tu faisais)",
+        "nl": "deed (faire in de imparfait: je/tu faisais)"
+      }
+    },
+    "fausse": {
+      "lemma": "faux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "false, wrong (faux, feminine)",
+        "es-419": "falsa, incorrecta (faux, femenino)",
+        "it": "falsa, sbagliata (faux, femminile)",
+        "nl": "onwaar, fout (faux, vrouwelijk)"
+      }
+    },
+    "faux": {
+      "lemma": "faux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "false, wrong",
+        "es-419": "falso, incorrecto",
+        "it": "falso, sbagliato",
+        "nl": "onwaar, fout"
+      }
+    },
+    "fermerait": {
+      "lemma": "fermer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would close (fermer in the conditional: il/elle fermerait)",
+        "es-419": "cerraría (fermer en condicional: il/elle fermerait)",
+        "it": "chiuderebbe (fermer al condizionale: il/elle fermerait)",
+        "nl": "zou sluiten (fermer in de conditionnel: il/elle fermerait)"
+      }
+    },
+    "fermée": {
+      "lemma": "fermé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "closed (fermé, feminine)",
+        "es-419": "cerrada (fermé, femenino)",
+        "it": "chiusa (fermé, femminile)",
+        "nl": "gesloten (fermé, vrouwelijk)"
+      }
+    },
+    "fini": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finished (past participle of finir; a fini = finished)",
+        "es-419": "terminado (participio de finir; a fini = terminó)",
+        "it": "finito (participio di finir; a fini = ha finito)",
+        "nl": "afgemaakt (voltooid deelwoord van finir; a fini = maakte af)"
+      }
+    },
+    "finie": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "over, finished (participle of finir, feminine: la grève est finie = the strike is over)",
+        "es-419": "terminada (participio de finir, femenino: la grève est finie = la huelga terminó)",
+        "it": "finita (participio di finir, femminile: la grève est finie = lo sciopero è finito)",
+        "nl": "voorbij (voltooid deelwoord van finir, vrouwelijk: la grève est finie = de staking is voorbij)"
+      }
+    },
+    "gouvernement": {
+      "lemma": "gouvernement",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "government (m)",
+        "es-419": "gobierno (m)",
+        "it": "governo (m)",
+        "nl": "regering (m)"
+      }
+    },
+    "grève": {
+      "lemma": "grève",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "strike, walkout (f)",
+        "es-419": "huelga (f)",
+        "it": "sciopero (f)",
+        "nl": "staking (f)"
+      }
+    },
+    "habitants": {
+      "lemma": "habitant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "residents, inhabitants (m/f, plural of habitant)",
+        "es-419": "habitantes (m/f, plural de habitant)",
+        "it": "abitanti (m/f, plurale di habitant)",
+        "nl": "inwoners (m/f, meervoud van habitant)"
+      }
+    },
+    "hier": {
+      "lemma": "hier",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "es-419": "ayer",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "information": {
+      "lemma": "information",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "information, a piece of news (f); les informations = the news",
+        "es-419": "información, noticia (f); les informations = las noticias",
+        "it": "informazione, notizia (f); les informations = le notizie",
+        "nl": "informatie, bericht (f); les informations = het nieuws"
+      }
+    },
+    "informe": {
+      "lemma": "informer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "informs (informer: il/elle informe)",
+        "es-419": "informa (informer: il/elle informe)",
+        "it": "informa (informer: il/elle informe)",
+        "nl": "informeert (informer: il/elle informe)"
+      }
+    },
+    "informé": {
+      "lemma": "informer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "informed (a informé = informed)",
+        "es-419": "informó (a informé = informó)",
+        "it": "ha informato (a informé = ha informato)",
+        "nl": "liet weten (a informé = liet weten)"
+      }
+    },
+    "instant": {
+      "lemma": "instant",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "moment, instant (m)",
+        "es-419": "momento, instante (m)",
+        "it": "momento, istante (m)",
+        "nl": "ogenblik, moment (m)"
+      }
+    },
+    "interviewer": {
+      "lemma": "interviewer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to interview",
+        "es-419": "entrevistar",
+        "it": "intervistare",
+        "nl": "interviewen"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'ai = je + ai: I have; j'ai faim = I'm hungry",
+        "es-419": "j'ai = je + ai: tengo; j'ai faim = tengo hambre",
+        "it": "j'ai = je + ai: ho; j'ai faim = ho fame",
+        "nl": "j'ai = je + ai: ik heb; j'ai faim = ik heb honger"
+      }
+    },
+    "j'avais": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'avais = je + avais: I had (avoir in the imparfait)",
+        "es-419": "j'avais = je + avais: yo tenía, yo había",
+        "it": "j'avais = je + avais: avevo",
+        "nl": "j'avais = je + avais: ik had"
+      }
+    },
+    "j'habitais": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'habitais = je + habitais: I lived (habiter in the imparfait)",
+        "es-419": "j'habitais = je + habitais: yo vivía (habiter en imparfait)",
+        "it": "j'habitais = je + habitais: abitavo (habiter all'imperfetto)",
+        "nl": "j'habitais = je + habitais: ik woonde (habiter in de imparfait)"
+      }
+    },
+    "j'étais": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "j'étais = je + étais: I was (être in the imparfait)",
+        "es-419": "j'étais = je + étais: yo estaba, yo era (être en imparfait)",
+        "it": "j'étais = je + étais: ero (être all'imperfetto)",
+        "nl": "j'étais = je + étais: ik was (être in de imparfait)"
+      }
+    },
+    "l'article": {
+      "lemma": "article",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'article = le + article: the article (m)",
+        "es-419": "l'article = le + article: el artículo (m)",
+        "it": "l'article = le + article: l'articolo (m)",
+        "nl": "l'article = le + article: het artikel (m)"
+      }
+    },
+    "l'entretien": {
+      "lemma": "entretien",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'entretien = le + entretien: the interview, the meeting (m)",
+        "es-419": "l'entretien = le + entretien: la entrevista, la reunión (m)",
+        "it": "l'entretien = le + entretien: il colloquio (m)",
+        "nl": "l'entretien = le + entretien: het gesprek (m)"
+      }
+    },
+    "l'heure": {
+      "lemma": "heure",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'heure = le + heure: the time, the hour (f); à l'heure = on time",
+        "es-419": "l'heure = le + heure: la hora (f); à l'heure = a tiempo",
+        "it": "l'heure = le + heure: l'ora (f); à l'heure = in orario",
+        "nl": "l'heure = le + heure: het uur, de tijd (f); à l'heure = op tijd"
+      }
+    },
+    "l'information": {
+      "lemma": "information",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'information = la + information: the information, the news (f)",
+        "es-419": "l'information = la + information: la información, la noticia (f)",
+        "it": "l'information = la + information: l'informazione, la notizia (f)",
+        "nl": "l'information = la + information: de informatie, het bericht (f)"
+      }
+    },
+    "l'étranger": {
+      "lemma": "étranger",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "l'étranger = le + étranger: foreign countries; à l'étranger = abroad (m)",
+        "es-419": "l'étranger = le + étranger: el extranjero; à l'étranger = en el extranjero (m)",
+        "it": "l'étranger = le + étranger: l'estero; à l'étranger = all'estero (m)",
+        "nl": "l'étranger = le + étranger: het buitenland; à l'étranger = in het buitenland (m)"
+      }
+    },
+    "lisent": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (lire: ils/elles lisent, audibly different from il/elle lit)",
+        "es-419": "leen (lire: ils/elles lisent)",
+        "it": "leggono (lire: ils/elles lisent)",
+        "nl": "lezen (lire: ils/elles lisent)"
+      }
+    },
+    "lu": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (past participle of lire; j'ai lu = I read, I have read)",
+        "es-419": "leído (participio de lire; j'ai lu = leí)",
+        "it": "letto (participio di lire; j'ai lu = ho letto)",
+        "nl": "gelezen (voltooid deelwoord van lire; j'ai lu = ik heb gelezen)"
+      }
+    },
+    "lyon": {
+      "lemma": "Lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon, a city in France",
+        "es-419": "Lyon, ciudad de Francia",
+        "it": "Lione, città della Francia",
+        "nl": "Lyon, stad in Frankrijk"
+      }
+    },
+    "m'a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "m'a = me + a: has ... me (il m'a dit = he told me)",
+        "es-419": "m'a = me + a: me ha (il m'a dit = me dijo)",
+        "it": "m'a = me + a: mi ha (il m'a dit = mi ha detto)",
+        "nl": "m'a = me + a: heeft me (il m'a dit = hij zei tegen me)"
+      }
+    },
+    "m'appellerait": {
+      "lemma": "appeler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'appellerait = me + appellerait: would call me (appeler in the conditional)",
+        "es-419": "m'appellerait = me + appellerait: me llamaría (appeler en condicional)",
+        "it": "m'appellerait = me + appellerait: mi chiamerebbe (appeler al condizionale)",
+        "nl": "m'appellerait = me + appellerait: zou me bellen (appeler in de conditionnel)"
+      }
+    },
+    "m'ont": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "m'ont = me + ont: have ... me (ils m'ont demandé = they asked me)",
+        "es-419": "m'ont = me + ont: me han (ils m'ont demandé = me preguntaron)",
+        "it": "m'ont = me + ont: mi hanno (ils m'ont demandé = mi hanno chiesto)",
+        "nl": "m'ont = me + ont: hebben me (ils m'ont demandé = ze vroegen me)"
+      }
+    },
+    "maire": {
+      "lemma": "maire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mayor (m/f)",
+        "es-419": "alcalde, alcaldesa (m/f)",
+        "it": "sindaco (m/f)",
+        "nl": "burgemeester (m/f)"
+      }
+    },
+    "malade": {
+      "lemma": "malade",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "sick, ill",
+        "es-419": "enfermo, enferma",
+        "it": "malato",
+        "nl": "ziek"
+      }
+    },
+    "menti": {
+      "lemma": "mentir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "lied (mentir = to lie; a menti = lied)",
+        "es-419": "mintió (mentir = mentir; a menti = mintió)",
+        "it": "ha mentito (mentir = mentire; a menti = ha mentito)",
+        "nl": "loog (mentir = liegen; a menti = loog)"
+      }
+    },
+    "ministre": {
+      "lemma": "ministre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "minister (m/f)",
+        "es-419": "ministro, ministra (m/f)",
+        "it": "ministro (m/f)",
+        "nl": "minister (m/f)"
+      }
+    },
+    "médias": {
+      "lemma": "média",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "media (m, plural; les médias = the media)",
+        "es-419": "medios de comunicación (m, plural; les médias)",
+        "it": "mezzi di informazione, media (m, plurale; les médias)",
+        "nl": "media (m, meervoud; les médias)"
+      }
+    },
+    "n'a": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'a = ne + a: has not (il n'a jamais = he has never)",
+        "es-419": "n'a = ne + a: no ha (il n'a jamais = nunca ha)",
+        "it": "n'a = ne + a: non ha (il n'a jamais = non ha mai)",
+        "nl": "n'a = ne + a: heeft niet (il n'a jamais = hij heeft nooit)"
+      }
+    },
+    "n'avait": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'avait = ne + avait: had not",
+        "es-419": "n'avait = ne + avait: no había, no tenía",
+        "it": "n'avait = ne + avait: non aveva",
+        "nl": "n'avait = ne + avait: had niet"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "ADV",
+      "gloss": {
+        "en": "ne ... pas = not (ne goes before the verb)",
+        "es-419": "ne ... pas = no (ne va antes del verbo)",
+        "it": "ne ... pas = non (ne va prima del verbo)",
+        "nl": "ne ... pas = niet (ne staat voor het werkwoord)"
+      }
+    },
+    "nie": {
+      "lemma": "nier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "denies (nier = to deny; il nie avoir menti = he denies having lied)",
+        "es-419": "niega (nier = negar; il nie avoir menti = niega haber mentido)",
+        "it": "nega (nier = negare; il nie avoir menti = nega di aver mentito)",
+        "nl": "ontkent (nier = ontkennen; il nie avoir menti = hij ontkent gelogen te hebben)"
+      }
+    },
+    "nié": {
+      "lemma": "nier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "denied (a nié = denied)",
+        "es-419": "negó (a nié = negó)",
+        "it": "ha negato (a nié = ha negato)",
+        "nl": "ontkende (a nié = ontkende)"
+      }
+    },
+    "nouvelle": {
+      "lemma": "nouveau",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "new (nouveau, feminine)",
+        "es-419": "nueva (nouveau, femenino)",
+        "it": "nuova (nouveau, femminile)",
+        "nl": "nieuwe (nouveau, vrouwelijk)"
+      }
+    },
+    "partagez": {
+      "lemma": "partager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "share (partager: vous partagez; ne partagez pas = don't share)",
+        "es-419": "compartan (partager: vous partagez; ne partagez pas = no compartan)",
+        "it": "condividete (partager: vous partagez; ne partagez pas = non condividete)",
+        "nl": "deelt (partager: vous partagez; ne partagez pas = deel niet)"
+      }
+    },
+    "partagé": {
+      "lemma": "partager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "shared (a partagé = shared)",
+        "es-419": "compartió (a partagé = compartió)",
+        "it": "ha condiviso (a partagé = ha condiviso)",
+        "nl": "deelde (a partagé = deelde)"
+      }
+    },
+    "parti": {
+      "lemma": "partir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "left (past participle of partir; est parti = has left)",
+        "es-419": "ido (participio de partir; est parti = se fue)",
+        "it": "partito (participio di partir; est parti = è partito)",
+        "nl": "vertrokken (voltooid deelwoord van partir; est parti = is vertrokken)"
+      }
+    },
+    "passé": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "happened (past participle of passer; se passer = to happen)",
+        "es-419": "pasado (participio de passer; se passer = pasar, suceder)",
+        "it": "successo (participio di passer; se passer = succedere)",
+        "nl": "gebeurd (voltooid deelwoord van passer; se passer = gebeuren)"
+      }
+    },
+    "patienter": {
+      "lemma": "patienter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "to wait, to be patient",
+        "es-419": "esperar, tener paciencia",
+        "it": "pazientare, aspettare",
+        "nl": "geduld hebben, wachten"
+      }
+    },
+    "photo": {
+      "lemma": "photo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "photo (f)",
+        "es-419": "foto (f)",
+        "it": "foto (f)",
+        "nl": "foto (f)"
+      }
+    },
+    "police": {
+      "lemma": "police",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "police (f)",
+        "es-419": "policía (f)",
+        "it": "polizia (f)",
+        "nl": "politie (f)"
+      }
+    },
+    "politique": {
+      "lemma": "politique",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "politics, policy (f); also an adjective (political)",
+        "es-419": "política (f); también adjetivo (político)",
+        "it": "politica (f); anche aggettivo (politico)",
+        "nl": "politiek, beleid (f); ook bijvoeglijk naamwoord (politiek)"
+      }
+    },
+    "portefeuille": {
+      "lemma": "portefeuille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "wallet (m)",
+        "es-419": "billetera, cartera (m)",
+        "it": "portafoglio (m)",
+        "nl": "portemonnee (m)"
+      }
+    },
+    "posé": {
+      "lemma": "poser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "asked, put (poser une question = to ask a question)",
+        "es-419": "hizo, puso (poser une question = hacer una pregunta)",
+        "it": "fatto, posto (poser une question = fare una domanda)",
+        "nl": "gesteld, gelegd (poser une question = een vraag stellen)"
+      }
+    },
+    "pouvait": {
+      "lemma": "pouvoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "could, was able to (pouvoir in the imparfait: il/elle pouvait)",
+        "es-419": "podía (pouvoir en imparfait: il/elle pouvait)",
+        "it": "poteva (pouvoir all'imperfetto: il/elle pouvait)",
+        "nl": "kon, mocht (pouvoir in de imparfait: il/elle pouvait)"
+      }
+    },
+    "promesse": {
+      "lemma": "promesse",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "promise (f)",
+        "es-419": "promesa (f)",
+        "it": "promessa (f)",
+        "nl": "belofte (f)"
+      }
+    },
+    "promis": {
+      "lemma": "promettre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "promised (promettre = to promise; a promis = promised)",
+        "es-419": "prometió (promettre = prometer; a promis = prometió)",
+        "it": "ha promesso (promettre = promettere; a promis = ha promesso)",
+        "nl": "beloofde (promettre = beloven; a promis = beloofde)"
+      }
+    },
+    "présentateur": {
+      "lemma": "présentateur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "presenter, news anchor (m)",
+        "es-419": "presentador (m)",
+        "it": "presentatore (m)",
+        "nl": "presentator (m)"
+      }
+    },
+    "président": {
+      "lemma": "président",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "president (m)",
+        "es-419": "presidente (m)",
+        "it": "presidente (m)",
+        "nl": "president (m)"
+      }
+    },
+    "présidente": {
+      "lemma": "président",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "president (f, feminine of président)",
+        "es-419": "presidenta (f, femenino de président)",
+        "it": "presidente (f, femminile di président)",
+        "nl": "presidente (f, vrouwelijk van président)"
+      }
+    },
+    "publierait": {
+      "lemma": "publier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would publish (publier in the conditional: il/elle publierait)",
+        "es-419": "publicaría (publier en condicional: il/elle publierait)",
+        "it": "pubblicherebbe (publier al condizionale: il/elle publierait)",
+        "nl": "zou publiceren (publier in de conditionnel: il/elle publierait)"
+      }
+    },
+    "qu'elle": {
+      "lemma": "elle",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qu'elle = que + elle: that she",
+        "es-419": "qu'elle = que + elle: que ella",
+        "it": "qu'elle = que + elle: che lei",
+        "nl": "qu'elle = que + elle: dat zij"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "that, what; qu'est-ce que ... = what ...",
+        "es-419": "que, qué; qu'est-ce que ... = qué ...",
+        "it": "che, cosa; qu'est-ce que ... = cosa ...?",
+        "nl": "dat, wat; qu'est-ce que ... = wat ...?"
+      }
+    },
+    "quelques": {
+      "lemma": "quelque",
+      "pos": "DET",
+      "gloss": {
+        "en": "a few, some (plural)",
+        "es-419": "unos pocos, algunos (plural)",
+        "it": "alcuni, qualche (plurale)",
+        "nl": "een paar, enkele (meervoud)"
+      }
+    },
+    "question": {
+      "lemma": "question",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "question (f); poser une question = ask a question",
+        "es-419": "pregunta (f); poser une question = hacer una pregunta",
+        "it": "domanda (f); poser une question = fare una domanda",
+        "nl": "vraag (f); poser une question = een vraag stellen"
+      }
+    },
+    "raison": {
+      "lemma": "raison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reason (f); avoir raison = to be right; watch out: avoir raison uses avoir, not être",
+        "es-419": "razón (f); avoir raison = tener razón",
+        "it": "ragione (f); avoir raison = avere ragione",
+        "nl": "reden (f); avoir raison = gelijk hebben; let op: avoir raison gebruikt avoir (hebben), niet être (zijn)"
+      }
+    },
+    "regardons": {
+      "lemma": "regarder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "watch, look at (regarder: nous regardons)",
+        "es-419": "miramos, vemos (regarder: nous regardons)",
+        "it": "guardiamo (regarder: nous regardons)",
+        "nl": "kijken (regarder: nous regardons)"
+      }
+    },
+    "reporter": {
+      "lemma": "reporter",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reporter (m/f)",
+        "es-419": "reportero, reportera (m/f)",
+        "it": "inviato, cronista (m/f)",
+        "nl": "verslaggever (m/f)"
+      }
+    },
+    "rumeur": {
+      "lemma": "rumeur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "rumor (f)",
+        "es-419": "rumor (f)",
+        "it": "voce, diceria (f)",
+        "nl": "gerucht (f)"
+      }
+    },
+    "répondu": {
+      "lemma": "répondre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "answered (répondre = to answer; a répondu = answered)",
+        "es-419": "respondió (répondre = responder; a répondu = respondió)",
+        "it": "ha risposto (répondre = rispondere; a répondu = ha risposto)",
+        "nl": "antwoordde (répondre = antwoorden; a répondu = antwoordde)"
+      }
+    },
+    "réseau": {
+      "lemma": "réseau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "network (m)",
+        "es-419": "red (m)",
+        "it": "rete (m)",
+        "nl": "netwerk (m)"
+      }
+    },
+    "réseaux": {
+      "lemma": "réseau",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "networks (m, plural of réseau); réseaux sociaux = social media",
+        "es-419": "redes (m, plural de réseau); réseaux sociaux = redes sociales",
+        "it": "reti (m, plurale di réseau); réseaux sociaux = social network",
+        "nl": "netwerken (m, meervoud van réseau); réseaux sociaux = sociale media"
+      }
+    },
+    "s'était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "s'était = se + était: (reflexive) was; ce qui s'était passé = what had happened",
+        "es-419": "s'était = se + était: (reflexivo) había; ce qui s'était passé = lo que había pasado",
+        "it": "s'était = se + était: (riflessivo) era; ce qui s'était passé = cosa era successo",
+        "nl": "s'était = se + était: (wederkerend) was; ce qui s'était passé = wat er gebeurd was"
+      }
+    },
+    "selon": {
+      "lemma": "selon",
+      "pos": "ADP",
+      "gloss": {
+        "en": "according to",
+        "es-419": "según",
+        "it": "secondo",
+        "nl": "volgens"
+      }
+    },
+    "serait": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "would be (être in the conditional: il/elle serait)",
+        "es-419": "sería (être en condicional: il/elle serait)",
+        "it": "sarebbe (être al condizionale: il/elle serait)",
+        "nl": "zou zijn (être in de conditionnel: il/elle serait)"
+      }
+    },
+    "si": {
+      "lemma": "si",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "if, whether (si + il = s'il)",
+        "es-419": "si (si + il = s'il)",
+        "it": "se (si + il = s'il)",
+        "nl": "als, of (si + il = s'il)"
+      }
+    },
+    "social": {
+      "lemma": "social",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "social",
+        "es-419": "social",
+        "it": "sociale",
+        "nl": "sociaal"
+      }
+    },
+    "sociaux": {
+      "lemma": "social",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "social (plural of social)",
+        "es-419": "sociales (plural de social)",
+        "it": "sociali (plurale di social)",
+        "nl": "sociale (meervoud van social)"
+      }
+    },
+    "soirs": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evenings (m, plural of soir); tous les soirs = every evening",
+        "es-419": "noches, tardes (m, plural de soir); tous les soirs = todas las noches",
+        "it": "sere (m, plurale di soir); tous les soirs = ogni sera",
+        "nl": "avonden (m, meervoud van soir); tous les soirs = elke avond"
+      }
+    },
+    "source": {
+      "lemma": "source",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "source (f)",
+        "es-419": "fuente (f)",
+        "it": "fonte (f)",
+        "nl": "bron (f)"
+      }
+    },
+    "titre": {
+      "lemma": "titre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "title, headline (m)",
+        "es-419": "título, titular (m)",
+        "it": "titolo (m)",
+        "nl": "titel, kop (m)"
+      }
+    },
+    "tous": {
+      "lemma": "tout",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, every (tous les soirs = every evening; tout in the plural)",
+        "es-419": "todos (tous les soirs = todas las noches; tout en plural)",
+        "it": "tutti, ogni (tous les soirs = ogni sera; tout al plurale)",
+        "nl": "alle, elke (tous les soirs = elke avond; tout in het meervoud)"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "ADV",
+      "gloss": {
+        "en": "tout de suite = right away",
+        "es-419": "tout de suite = enseguida",
+        "it": "tout de suite = subito",
+        "nl": "tout de suite = meteen"
+      }
+    },
+    "toute": {
+      "lemma": "tout",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, whole (toute la journée = all day long)",
+        "es-419": "toda (toute la journée = todo el día)",
+        "it": "tutta (toute la journée = tutto il giorno)",
+        "nl": "hele (toute la journée = de hele dag)"
+      }
+    },
+    "travaillé": {
+      "lemma": "travailler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "worked (a travaillé = worked; avais travaillé = had worked)",
+        "es-419": "trabajado (a travaillé = trabajó; avais travaillé = había trabajado)",
+        "it": "lavorato (a travaillé = ha lavorato; avais travaillé = avevo lavorato)",
+        "nl": "gewerkt (a travaillé = werkte; avais travaillé = had gewerkt)"
+      }
+    },
+    "téléphoné": {
+      "lemma": "téléphoner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "called, phoned (téléphoner = to call; a téléphoné = called)",
+        "es-419": "llamó (téléphoner = llamar por teléfono; a téléphoné = llamó)",
+        "it": "ha telefonato (téléphoner = telefonare; a téléphoné = ha telefonato)",
+        "nl": "belde (téléphoner = bellen; a téléphoné = belde)"
+      }
+    },
+    "télévisé": {
+      "lemma": "télévisé",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "televised (journal télévisé = TV news)",
+        "es-419": "televisado (journal télévisé = noticiero de televisión)",
+        "it": "televisivo (journal télévisé = telegiornale)",
+        "nl": "op tv, televisie- (journal télévisé = journaal)"
+      }
+    },
+    "vidéo": {
+      "lemma": "vidéo",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "video (f)",
+        "es-419": "video (f)",
+        "it": "video (f)",
+        "nl": "video (f)"
+      }
+    },
+    "viendra": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "will come (futur simple: il/elle viendra)",
+        "es-419": "vendrá (futuro: il/elle viendra)",
+        "it": "verrà (futuro: il/elle viendra)",
+        "nl": "zal komen (futur simple: il/elle viendra)"
+      }
+    },
+    "viendrait": {
+      "lemma": "venir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "would come (conditional: il/elle viendrait)",
+        "es-419": "vendría (condicional: il/elle viendrait)",
+        "it": "verrebbe (condizionale: il/elle viendrait)",
+        "nl": "zou komen (conditionnel: il/elle viendrait)"
+      }
+    },
+    "volé": {
+      "lemma": "voler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "stole (voler = to steal, also to fly; a volé = stole)",
+        "es-419": "robó (voler = robar, también volar; a volé = robó)",
+        "it": "ha rubato (voler = rubare, anche volare; a volé = ha rubato)",
+        "nl": "stal (voler = stelen, ook vliegen; a volé = stal)"
+      }
+    },
+    "voté": {
+      "lemma": "voter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "voted (voter = to vote; ont voté = voted)",
+        "es-419": "votó (voter = votar; ont voté = votaron)",
+        "it": "ha votato (voter = votare; ont voté = hanno votato)",
+        "nl": "stemde (voter = stemmen; ont voté = stemden)"
+      }
+    },
+    "écoles": {
+      "lemma": "école",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "schools (f, plural of école)",
+        "es-419": "escuelas (f, plural de école)",
+        "it": "scuole (f, plurale di école)",
+        "nl": "scholen (f, meervoud van école)"
+      }
+    },
+    "écrit": {
+      "lemma": "écrire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "wrote (past participle of écrire; a écrit = wrote)",
+        "es-419": "escribió (participio de écrire; a écrit = escribió)",
+        "it": "ha scritto (participio di écrire; a écrit = ha scritto)",
+        "nl": "schreef (voltooid deelwoord van écrire; a écrit = schreef)"
+      }
+    },
+    "élection": {
+      "lemma": "élection",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "election (f)",
+        "es-419": "elección (f)",
+        "it": "elezione (f)",
+        "nl": "verkiezing (f)"
+      }
+    },
+    "était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "was (être in the imparfait: il/elle/on était)",
+        "es-419": "era, estaba (être en imparfait: il/elle/on était)",
+        "it": "era (être all'imperfetto: il/elle/on était)",
+        "nl": "was (être in de imparfait: il/elle/on était)"
+      }
+    },
+    "ont": {
+      "lemma": "avoir",
+      "pos": "AUX",
+      "gloss": {
+        "en": "they have (ils/elles ont); ont is not on",
+        "es-419": "tienen (ils/elles ont); ont no es on",
+        "it": "hanno (ils/elles ont); ont non è on",
+        "nl": "hebben (ils/elles ont); ont is niet on"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-b1-actualites-1",
+      "title": "Il a dit que...",
+      "grammarFocus": {
+        "en": [
+          "reported speech shifts the tense back: Il dit qu'il est fatigué -> Il a dit qu'il était fatigué",
+          "passé composé -> plus-que-parfait: Il est parti -> Il a dit qu'il était déjà parti"
+        ],
+        "es-419": [
+          "el estilo indirecto retrocede el tiempo: Il dit qu'il est fatigué -> Il a dit qu'il était fatigué",
+          "passé composé -> plus-que-parfait: Il est parti -> Il a dit qu'il était déjà parti"
+        ],
+        "it": [
+          "il discorso indiretto sposta il tempo indietro: Il dit qu'il est fatigué -> Il a dit qu'il était fatigué",
+          "passé composé -> plus-que-parfait: Il est parti -> Il a dit qu'il était déjà parti"
+        ],
+        "nl": [
+          "bij indirecte rede gaat de tijd een stap terug: Il dit qu'il est fatigué -> Il a dit qu'il était fatigué",
+          "passé composé -> plus-que-parfait: Il est parti -> Il a dit qu'il était déjà parti"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "actualités",
+          "translation": {
+            "en": "the news",
+            "es-419": "las noticias",
+            "it": "le notizie",
+            "nl": "het nieuws"
+          },
+          "distractors": {
+            "en": [
+              "the weather forecast",
+              "the newspaper"
+            ],
+            "es-419": [
+              "el pronóstico del tiempo",
+              "el periódico"
+            ],
+            "it": [
+              "le previsioni del tempo",
+              "il giornale"
+            ],
+            "nl": [
+              "het weerbericht",
+              "de krant"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il dit qu'il est fatigué",
+          "translation": {
+            "en": "he says he's tired",
+            "es-419": "dice que está cansado",
+            "it": "dice che è stanco",
+            "nl": "hij zegt dat hij moe is"
+          },
+          "distractors": {
+            "en": [
+              "he said he was tired",
+              "he says he's busy"
+            ],
+            "es-419": [
+              "dijo que estaba cansado",
+              "dice que está ocupado"
+            ],
+            "it": [
+              "ha detto che era stanco",
+              "dice che è occupato"
+            ],
+            "nl": [
+              "hij zei dat hij moe was",
+              "hij zegt dat hij het druk heeft"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a dit qu'il était fatigué",
+          "translation": {
+            "en": "he said he was tired",
+            "es-419": "dijo que estaba cansado",
+            "it": "ha detto che era stanco",
+            "nl": "hij zei dat hij moe was"
+          },
+          "distractors": {
+            "en": [
+              "he says he's tired",
+              "he said he was sick"
+            ],
+            "es-419": [
+              "dice que está cansado",
+              "dijo que estaba enfermo"
+            ],
+            "it": [
+              "dice che è stanco",
+              "ha detto che era malato"
+            ],
+            "nl": [
+              "hij zegt dat hij moe is",
+              "hij zei dat hij ziek was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon frère a dit qu'il était trop fatigué pour sortir.",
+          "translation": {
+            "en": "My brother said he was too tired to go out.",
+            "es-419": "Mi hermano dijo que estaba demasiado cansado para salir.",
+            "it": "Mio fratello ha detto che era troppo stanco per uscire.",
+            "nl": "Mijn broer zei dat hij te moe was om uit te gaan."
+          },
+          "distractors": {
+            "en": [
+              "My brother said he was too sick to go out.",
+              "My brother says he's too tired to go out."
+            ],
+            "es-419": [
+              "Mi hermano dijo que estaba demasiado enfermo para salir.",
+              "Mi hermano dice que está demasiado cansado para salir."
+            ],
+            "it": [
+              "Mio fratello ha detto che era troppo malato per uscire.",
+              "Mio fratello dice che è troppo stanco per uscire."
+            ],
+            "nl": [
+              "Mijn broer zei dat hij te ziek was om uit te gaan.",
+              "Mijn broer zegt dat hij te moe is om uit te gaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le titre de l'article",
+          "translation": {
+            "en": "the headline of the article",
+            "es-419": "el título del artículo",
+            "it": "il titolo dell'articolo",
+            "nl": "de kop van het artikel"
+          },
+          "distractors": {
+            "en": [
+              "the author of the article",
+              "the end of the article"
+            ],
+            "es-419": [
+              "el autor del artículo",
+              "el final del artículo"
+            ],
+            "it": [
+              "l'autore dell'articolo",
+              "la fine dell'articolo"
+            ],
+            "nl": [
+              "de schrijver van het artikel",
+              "het einde van het artikel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il était déjà parti",
+          "translation": {
+            "en": "he had already left",
+            "es-419": "ya se había ido",
+            "it": "era già partito",
+            "nl": "hij was al vertrokken"
+          },
+          "distractors": {
+            "en": [
+              "he still hadn't left",
+              "he had already arrived"
+            ],
+            "es-419": [
+              "todavía no se había ido",
+              "ya había llegado"
+            ],
+            "it": [
+              "non era ancora partito",
+              "era già arrivato"
+            ],
+            "nl": [
+              "hij was nog niet vertrokken",
+              "hij was al aangekomen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a dit que le train était déjà parti.",
+          "translation": {
+            "en": "He said the train had already left.",
+            "es-419": "Dijo que el tren ya había salido.",
+            "it": "Ha detto che il treno era già partito.",
+            "nl": "Hij zei dat de trein al vertrokken was."
+          },
+          "distractors": {
+            "en": [
+              "He said the train hadn't left yet.",
+              "He said the plane had already left."
+            ],
+            "es-419": [
+              "Dijo que el tren todavía no había salido.",
+              "Dijo que el avión ya había salido."
+            ],
+            "it": [
+              "Ha detto che il treno non era ancora partito.",
+              "Ha detto che l'aereo era già partito."
+            ],
+            "nl": [
+              "Hij zei dat de trein nog niet vertrokken was.",
+              "Hij zei dat het vliegtuig al vertrokken was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "président",
+          "translation": {
+            "en": "president",
+            "es-419": "presidente",
+            "it": "presidente",
+            "nl": "president"
+          },
+          "distractors": {
+            "en": [
+              "mayor",
+              "minister"
+            ],
+            "es-419": [
+              "alcalde",
+              "ministro"
+            ],
+            "it": [
+              "sindaco",
+              "ministro"
+            ],
+            "nl": [
+              "burgemeester",
+              "minister"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le président a annoncé que",
+          "translation": {
+            "en": "the president announced that",
+            "es-419": "el presidente anunció que",
+            "it": "il presidente ha annunciato che",
+            "nl": "de president kondigde aan dat"
+          },
+          "distractors": {
+            "en": [
+              "the president denied that",
+              "the president asked whether"
+            ],
+            "es-419": [
+              "el presidente negó que",
+              "el presidente preguntó si"
+            ],
+            "it": [
+              "il presidente ha negato che",
+              "il presidente ha chiesto se"
+            ],
+            "nl": [
+              "de president ontkende dat",
+              "de president vroeg of"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le maire a annoncé que la piscine était fermée.",
+          "translation": {
+            "en": "The mayor announced that the pool was closed.",
+            "es-419": "El alcalde anunció que la piscina estaba cerrada.",
+            "it": "Il sindaco ha annunciato che la piscina era chiusa.",
+            "nl": "De burgemeester kondigde aan dat het zwembad gesloten was."
+          },
+          "distractors": {
+            "en": [
+              "The mayor announced that the pool was open.",
+              "The mayor announced that the library was closed."
+            ],
+            "es-419": [
+              "El alcalde anunció que la piscina estaba abierta.",
+              "El alcalde anunció que la biblioteca estaba cerrada."
+            ],
+            "it": [
+              "Il sindaco ha annunciato che la piscina era aperta.",
+              "Il sindaco ha annunciato che la biblioteca era chiusa."
+            ],
+            "nl": [
+              "De burgemeester kondigde aan dat het zwembad open was.",
+              "De burgemeester kondigde aan dat de bibliotheek gesloten was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elle m'a dit que",
+          "translation": {
+            "en": "she told me that",
+            "es-419": "me dijo que",
+            "it": "mi ha detto che",
+            "nl": "ze zei tegen me dat"
+          },
+          "distractors": {
+            "en": [
+              "she asked me whether",
+              "he told me that"
+            ],
+            "es-419": [
+              "me preguntó si",
+              "él me dijo que"
+            ],
+            "it": [
+              "mi ha chiesto se",
+              "lui mi ha detto che"
+            ],
+            "nl": [
+              "ze vroeg me of",
+              "hij zei tegen me dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur m'a dit qu'elle avait perdu son portefeuille.",
+          "translation": {
+            "en": "My sister told me she had lost her wallet.",
+            "es-419": "Mi hermana me dijo que había perdido su billetera.",
+            "it": "Mia sorella mi ha detto che aveva perso il portafoglio.",
+            "nl": "Mijn zus zei tegen me dat ze haar portemonnee kwijt was."
+          },
+          "distractors": {
+            "en": [
+              "My sister told me she had found her wallet.",
+              "My sister told me she had lost her phone."
+            ],
+            "es-419": [
+              "Mi hermana me dijo que había encontrado su billetera.",
+              "Mi hermana me dijo que había perdido su celular."
+            ],
+            "it": [
+              "Mia sorella mi ha detto che aveva trovato il portafoglio.",
+              "Mia sorella mi ha detto che aveva perso il cellulare."
+            ],
+            "nl": [
+              "Mijn zus zei tegen me dat ze haar portemonnee had gevonden.",
+              "Mijn zus zei tegen me dat ze haar telefoon kwijt was."
+            ]
+          },
+          "variants": [
+            "Ma soeur m'a dit qu'elle avait perdu son portefeuille."
+          ]
+        },
+        {
+          "id": "fr-b1-actualites-1-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "rumeur",
+          "translation": {
+            "en": "rumor",
+            "es-419": "rumor",
+            "it": "voce",
+            "nl": "gerucht"
+          },
+          "distractors": {
+            "en": [
+              "lie",
+              "promise"
+            ],
+            "es-419": [
+              "mentira",
+              "promesa"
+            ],
+            "it": [
+              "bugia",
+              "promessa"
+            ],
+            "nl": [
+              "leugen",
+              "belofte"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Selon une rumeur, le maire était malade.",
+          "translation": {
+            "en": "According to a rumor, the mayor was sick.",
+            "es-419": "Según un rumor, el alcalde estaba enfermo.",
+            "it": "Secondo una voce, il sindaco era malato.",
+            "nl": "Volgens een gerucht was de burgemeester ziek."
+          },
+          "distractors": {
+            "en": [
+              "According to a rumor, the mayor was tired.",
+              "According to the mayor, the rumor was false."
+            ],
+            "es-419": [
+              "Según un rumor, el alcalde estaba cansado.",
+              "Según el alcalde, el rumor era falso."
+            ],
+            "it": [
+              "Secondo una voce, il sindaco era stanco.",
+              "Secondo il sindaco, la voce era falsa."
+            ],
+            "nl": [
+              "Volgens een gerucht was de burgemeester moe.",
+              "Volgens de burgemeester was het gerucht onwaar."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-1-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hier soir, on a dit à la télévision que la grève était finie.",
+          "translation": {
+            "en": "Last night on TV they said the strike was over.",
+            "es-419": "Anoche dijeron en la televisión que la huelga había terminado.",
+            "it": "Ieri sera in televisione hanno detto che lo sciopero era finito.",
+            "nl": "Gisteravond zeiden ze op tv dat de staking voorbij was."
+          },
+          "distractors": {
+            "en": [
+              "Last night on TV they said the strike was continuing.",
+              "Last night at the airport they said the strike was over."
+            ],
+            "es-419": [
+              "Anoche dijeron en la televisión que la huelga continuaba.",
+              "Anoche dijeron en el aeropuerto que la huelga había terminado."
+            ],
+            "it": [
+              "Ieri sera in televisione hanno detto che lo sciopero continuava.",
+              "Ieri sera all'aeroporto hanno detto che lo sciopero era finito."
+            ],
+            "nl": [
+              "Gisteravond zeiden ze op tv dat de staking doorging.",
+              "Gisteravond zeiden ze op het vliegveld dat de staking voorbij was."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-actualites-2",
+      "title": "Elle m'a demandé si...",
+      "grammarFocus": {
+        "en": [
+          "indirect questions: Tu es prêt? -> Elle m'a demandé si j'étais prêt",
+          "question words stay: où, pourquoi, ce que, ce qui (Ce qui s'est passé? -> ce qui s'était passé)"
+        ],
+        "es-419": [
+          "preguntas indirectas: Tu es prêt? -> Elle m'a demandé si j'étais prêt",
+          "las palabras interrogativas se quedan: où, pourquoi, ce que, ce qui (ce qui s'était passé)"
+        ],
+        "it": [
+          "domande indirette: Tu es prêt? -> Elle m'a demandé si j'étais prêt",
+          "le parole interrogative restano: où, pourquoi, ce que, ce qui (ce qui s'était passé)"
+        ],
+        "nl": [
+          "indirecte vragen: Tu es prêt? -> Elle m'a demandé si j'étais prêt",
+          "vraagwoorden blijven: où, pourquoi, ce que, ce qui (ce qui s'était passé)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-2-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elle m'a demandé si",
+          "translation": {
+            "en": "she asked me whether",
+            "es-419": "me preguntó si",
+            "it": "mi ha chiesto se",
+            "nl": "ze vroeg me of"
+          },
+          "distractors": {
+            "en": [
+              "she told me that",
+              "he asked me whether"
+            ],
+            "es-419": [
+              "me dijo que",
+              "él me preguntó si"
+            ],
+            "it": [
+              "mi ha detto che",
+              "lui mi ha chiesto se"
+            ],
+            "nl": [
+              "ze zei tegen me dat",
+              "hij vroeg me of"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle m'a demandé si j'avais fini mes devoirs.",
+          "translation": {
+            "en": "She asked me if I had finished my homework.",
+            "es-419": "Me preguntó si había terminado mi tarea.",
+            "it": "Mi ha chiesto se avevo finito i compiti.",
+            "nl": "Ze vroeg me of ik mijn huiswerk af had."
+          },
+          "distractors": {
+            "en": [
+              "She asked me if I had lost my homework.",
+              "She asked me if I was doing my homework."
+            ],
+            "es-419": [
+              "Me preguntó si había perdido mi tarea.",
+              "Me preguntó si estaba haciendo mi tarea."
+            ],
+            "it": [
+              "Mi ha chiesto se avevo perso i compiti.",
+              "Mi ha chiesto se stavo facendo i compiti."
+            ],
+            "nl": [
+              "Ze vroeg me of ik mijn huiswerk kwijt was.",
+              "Ze vroeg me of ik mijn huiswerk aan het maken was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "où j'habitais",
+          "translation": {
+            "en": "where I lived",
+            "es-419": "dónde vivía",
+            "it": "dove abitavo",
+            "nl": "waar ik woonde"
+          },
+          "distractors": {
+            "en": [
+              "where I live",
+              "where I worked"
+            ],
+            "es-419": [
+              "dónde vivo",
+              "dónde trabajaba"
+            ],
+            "it": [
+              "dove abito",
+              "dove lavoravo"
+            ],
+            "nl": [
+              "waar ik woon",
+              "waar ik werkte"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La journaliste m'a demandé où j'habitais.",
+          "translation": {
+            "en": "The journalist asked me where I lived.",
+            "es-419": "La periodista me preguntó dónde vivía.",
+            "it": "La giornalista mi ha chiesto dove abitavo.",
+            "nl": "De journaliste vroeg me waar ik woonde."
+          },
+          "distractors": {
+            "en": [
+              "The journalist asked me where I worked.",
+              "The journalist asked me where I was going."
+            ],
+            "es-419": [
+              "La periodista me preguntó dónde trabajaba.",
+              "La periodista me preguntó adónde iba."
+            ],
+            "it": [
+              "La giornalista mi ha chiesto dove lavoravo.",
+              "La giornalista mi ha chiesto dove stavo andando."
+            ],
+            "nl": [
+              "De journaliste vroeg me waar ik werkte.",
+              "De journaliste vroeg me waar ik naartoe ging."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ce que je faisais",
+          "translation": {
+            "en": "what I was doing",
+            "es-419": "lo que estaba haciendo",
+            "it": "cosa stavo facendo",
+            "nl": "wat ik aan het doen was"
+          },
+          "distractors": {
+            "en": [
+              "what I wanted",
+              "what I was saying"
+            ],
+            "es-419": [
+              "lo que quería",
+              "lo que decía"
+            ],
+            "it": [
+              "cosa volevo",
+              "cosa dicevo"
+            ],
+            "nl": [
+              "wat ik wilde",
+              "wat ik zei"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle m'a demandé ce que je faisais dans la vie.",
+          "translation": {
+            "en": "She asked me what I did for a living.",
+            "es-419": "Me preguntó a qué me dedicaba.",
+            "it": "Mi ha chiesto che lavoro facevo.",
+            "nl": "Ze vroeg me wat ik voor werk deed."
+          },
+          "distractors": {
+            "en": [
+              "She asked me what I did on the weekend.",
+              "She asked me where I worked."
+            ],
+            "es-419": [
+              "Me preguntó qué hacía los fines de semana.",
+              "Me preguntó dónde trabajaba."
+            ],
+            "it": [
+              "Mi ha chiesto cosa facevo nel fine settimana.",
+              "Mi ha chiesto dove lavoravo."
+            ],
+            "nl": [
+              "Ze vroeg me wat ik in het weekend deed.",
+              "Ze vroeg me waar ik werkte."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ce qui s'était passé",
+          "translation": {
+            "en": "what had happened",
+            "es-419": "lo que había pasado",
+            "it": "cosa era successo",
+            "nl": "wat er gebeurd was"
+          },
+          "distractors": {
+            "en": [
+              "what was happening",
+              "what he had said"
+            ],
+            "es-419": [
+              "lo que estaba pasando",
+              "lo que había dicho"
+            ],
+            "it": [
+              "cosa stava succedendo",
+              "cosa aveva detto"
+            ],
+            "nl": [
+              "wat er gebeurde",
+              "wat hij had gezegd"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le maire a demandé ce qui s'était passé.",
+          "translation": {
+            "en": "The mayor asked what had happened.",
+            "es-419": "El alcalde preguntó qué había pasado.",
+            "it": "Il sindaco ha chiesto cosa fosse successo.",
+            "nl": "De burgemeester vroeg wat er gebeurd was."
+          },
+          "distractors": {
+            "en": [
+              "The mayor asked what was happening.",
+              "The mayor asked why it had happened."
+            ],
+            "es-419": [
+              "El alcalde preguntó qué estaba pasando.",
+              "El alcalde preguntó por qué había pasado."
+            ],
+            "it": [
+              "Il sindaco ha chiesto cosa stesse succedendo.",
+              "Il sindaco ha chiesto perché fosse successo."
+            ],
+            "nl": [
+              "De burgemeester vroeg wat er gebeurde.",
+              "De burgemeester vroeg waarom het gebeurd was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pourquoi j'étais en retard",
+          "translation": {
+            "en": "why I was late",
+            "es-419": "por qué llegué tarde",
+            "it": "perché ero in ritardo",
+            "nl": "waarom ik te laat was"
+          },
+          "distractors": {
+            "en": [
+              "why she was late",
+              "where I was"
+            ],
+            "es-419": [
+              "por qué ella llegó tarde",
+              "dónde estaba"
+            ],
+            "it": [
+              "perché lei era in ritardo",
+              "dove ero"
+            ],
+            "nl": [
+              "waarom zij te laat was",
+              "waar ik was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon chef m'a demandé pourquoi j'étais en retard.",
+          "translation": {
+            "en": "My boss asked me why I was late.",
+            "es-419": "Mi jefe me preguntó por qué llegué tarde.",
+            "it": "Il mio capo mi ha chiesto perché ero in ritardo.",
+            "nl": "Mijn baas vroeg me waarom ik te laat was."
+          },
+          "distractors": {
+            "en": [
+              "My boss asked me why I was leaving early.",
+              "My boss asked me who was late."
+            ],
+            "es-419": [
+              "Mi jefe me preguntó por qué me iba temprano.",
+              "Mi jefe me preguntó quién había llegado tarde."
+            ],
+            "it": [
+              "Il mio capo mi ha chiesto perché me ne andavo presto.",
+              "Il mio capo mi ha chiesto chi era in ritardo."
+            ],
+            "nl": [
+              "Mijn baas vroeg me waarom ik vroeg wegging.",
+              "Mijn baas vroeg me wie te laat was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "question",
+          "translation": {
+            "en": "question",
+            "es-419": "pregunta",
+            "it": "domanda",
+            "nl": "vraag"
+          },
+          "distractors": {
+            "en": [
+              "answer",
+              "problem"
+            ],
+            "es-419": [
+              "respuesta",
+              "problema"
+            ],
+            "it": [
+              "risposta",
+              "problema"
+            ],
+            "nl": [
+              "antwoord",
+              "probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le journaliste a posé une question au maire.",
+          "translation": {
+            "en": "The journalist asked the mayor a question.",
+            "es-419": "El periodista le hizo una pregunta al alcalde.",
+            "it": "Il giornalista ha fatto una domanda al sindaco.",
+            "nl": "De journalist stelde de burgemeester een vraag."
+          },
+          "distractors": {
+            "en": [
+              "The journalist asked the president a question.",
+              "The journalist answered the mayor's question."
+            ],
+            "es-419": [
+              "El periodista le hizo una pregunta al presidente.",
+              "El periodista respondió la pregunta del alcalde."
+            ],
+            "it": [
+              "Il giornalista ha fatto una domanda al presidente.",
+              "Il giornalista ha risposto alla domanda del sindaco."
+            ],
+            "nl": [
+              "De journalist stelde de president een vraag.",
+              "De journalist beantwoordde de vraag van de burgemeester."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "s'il avait faim",
+          "translation": {
+            "en": "if he was hungry",
+            "es-419": "si tenía hambre",
+            "it": "se aveva fame",
+            "nl": "of hij honger had"
+          },
+          "distractors": {
+            "en": [
+              "if he was thirsty",
+              "if he was tired"
+            ],
+            "es-419": [
+              "si tenía sed",
+              "si estaba cansado"
+            ],
+            "it": [
+              "se aveva sete",
+              "se era stanco"
+            ],
+            "nl": [
+              "of hij dorst had",
+              "of hij moe was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il m'a demandé s'il pouvait venir avec moi.",
+          "translation": {
+            "en": "He asked me if he could come with me.",
+            "es-419": "Me preguntó si podía venir conmigo.",
+            "it": "Mi ha chiesto se poteva venire con me.",
+            "nl": "Hij vroeg me of hij met me mee mocht komen."
+          },
+          "distractors": {
+            "en": [
+              "He asked me if I could come with him.",
+              "He asked me if he could call me."
+            ],
+            "es-419": [
+              "Me preguntó si yo podía ir con él.",
+              "Me preguntó si podía llamarme."
+            ],
+            "it": [
+              "Mi ha chiesto se potevo venire con lui.",
+              "Mi ha chiesto se poteva chiamarmi."
+            ],
+            "nl": [
+              "Hij vroeg me of ik met hem mee kon komen.",
+              "Hij vroeg me of hij me mocht bellen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ils m'ont demandé si j'avais déjà travaillé à l'étranger.",
+          "translation": {
+            "en": "They asked me whether I had ever worked abroad.",
+            "es-419": "Me preguntaron si alguna vez había trabajado en el extranjero.",
+            "it": "Mi hanno chiesto se avevo mai lavorato all'estero.",
+            "nl": "Ze vroegen me of ik ooit in het buitenland had gewerkt."
+          },
+          "distractors": {
+            "en": [
+              "They asked me whether I was working abroad.",
+              "They asked me whether I had ever lived abroad."
+            ],
+            "es-419": [
+              "Me preguntaron si estaba trabajando en el extranjero.",
+              "Me preguntaron si alguna vez había vivido en el extranjero."
+            ],
+            "it": [
+              "Mi hanno chiesto se stavo lavorando all'estero.",
+              "Mi hanno chiesto se avevo mai vissuto all'estero."
+            ],
+            "nl": [
+              "Ze vroegen me of ik in het buitenland aan het werk was.",
+              "Ze vroegen me of ik ooit in het buitenland had gewoond."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-actualites-3",
+      "title": "Il a promis qu'il viendrait",
+      "grammarFocus": {
+        "en": [
+          "the future becomes the conditional: Je viendrai -> Il a dit qu'il viendrait",
+          "reported requests: Attends! -> Il m'a demandé d'attendre; Ne pars pas! -> Il m'a dit de ne pas partir"
+        ],
+        "es-419": [
+          "el futuro pasa al condicional: Je viendrai -> Il a dit qu'il viendrait",
+          "órdenes y pedidos indirectos: Attends! -> Il m'a demandé d'attendre; Ne pars pas! -> Il m'a dit de ne pas partir"
+        ],
+        "it": [
+          "il futuro diventa condizionale: Je viendrai -> Il a dit qu'il viendrait",
+          "richieste riferite: Attends! -> Il m'a demandé d'attendre; Ne pars pas! -> Il m'a dit de ne pas partir"
+        ],
+        "nl": [
+          "de toekomende tijd wordt de voorwaardelijke wijs: Je viendrai -> Il a dit qu'il viendrait",
+          "verzoeken doorgeven: Attends! -> Il m'a demandé d'attendre; Ne pars pas! -> Il m'a dit de ne pas partir"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-3-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il viendra demain",
+          "translation": {
+            "en": "he'll come tomorrow",
+            "es-419": "vendrá mañana",
+            "it": "verrà domani",
+            "nl": "hij komt morgen"
+          },
+          "distractors": {
+            "en": [
+              "he came yesterday",
+              "he'll leave tomorrow"
+            ],
+            "es-419": [
+              "vino ayer",
+              "se irá mañana"
+            ],
+            "it": [
+              "è venuto ieri",
+              "partirà domani"
+            ],
+            "nl": [
+              "hij kwam gisteren",
+              "hij vertrekt morgen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a dit qu'il viendrait",
+          "translation": {
+            "en": "he said he would come",
+            "es-419": "dijo que vendría",
+            "it": "ha detto che sarebbe venuto",
+            "nl": "hij zei dat hij zou komen"
+          },
+          "distractors": {
+            "en": [
+              "he said he had come",
+              "he asked if he could come"
+            ],
+            "es-419": [
+              "dijo que había venido",
+              "preguntó si podía venir"
+            ],
+            "it": [
+              "ha detto che era venuto",
+              "ha chiesto se poteva venire"
+            ],
+            "nl": [
+              "hij zei dat hij was gekomen",
+              "hij vroeg of hij mocht komen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Mon frère a dit qu'il viendrait me chercher à la gare.",
+          "translation": {
+            "en": "My brother said he would come pick me up at the station.",
+            "es-419": "Mi hermano dijo que vendría a buscarme a la estación.",
+            "it": "Mio fratello ha detto che sarebbe venuto a prendermi alla stazione.",
+            "nl": "Mijn broer zei dat hij me op het station zou komen ophalen."
+          },
+          "distractors": {
+            "en": [
+              "My brother said he had come to pick me up at the station.",
+              "My brother said he would come pick me up at the airport."
+            ],
+            "es-419": [
+              "Mi hermano dijo que había venido a buscarme a la estación.",
+              "Mi hermano dijo que vendría a buscarme al aeropuerto."
+            ],
+            "it": [
+              "Mio fratello ha detto che era venuto a prendermi alla stazione.",
+              "Mio fratello ha detto che sarebbe venuto a prendermi all'aeroporto."
+            ],
+            "nl": [
+              "Mijn broer zei dat hij me op het station was komen ophalen.",
+              "Mijn broer zei dat hij me op het vliegveld zou komen ophalen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "promesse",
+          "translation": {
+            "en": "promise",
+            "es-419": "promesa",
+            "it": "promessa",
+            "nl": "belofte"
+          },
+          "distractors": {
+            "en": [
+              "lie",
+              "message"
+            ],
+            "es-419": [
+              "mentira",
+              "mensaje"
+            ],
+            "it": [
+              "bugia",
+              "messaggio"
+            ],
+            "nl": [
+              "leugen",
+              "bericht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a promis que",
+          "translation": {
+            "en": "he promised that",
+            "es-419": "prometió que",
+            "it": "ha promesso che",
+            "nl": "hij beloofde dat"
+          },
+          "distractors": {
+            "en": [
+              "he denied that",
+              "he confirmed that"
+            ],
+            "es-419": [
+              "negó que",
+              "confirmó que"
+            ],
+            "it": [
+              "ha negato che",
+              "ha confermato che"
+            ],
+            "nl": [
+              "hij ontkende dat",
+              "hij bevestigde dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le maire a promis qu'il construirait une nouvelle école.",
+          "translation": {
+            "en": "The mayor promised he would build a new school.",
+            "es-419": "El alcalde prometió que construiría una escuela nueva.",
+            "it": "Il sindaco ha promesso che avrebbe costruito una nuova scuola.",
+            "nl": "De burgemeester beloofde dat hij een nieuwe school zou bouwen."
+          },
+          "distractors": {
+            "en": [
+              "The mayor promised he would close a school.",
+              "The mayor promised that he had built a new school."
+            ],
+            "es-419": [
+              "El alcalde prometió que cerraría una escuela.",
+              "El alcalde prometió que había construido una escuela nueva."
+            ],
+            "it": [
+              "Il sindaco ha promesso che avrebbe chiuso una scuola.",
+              "Il sindaco ha promesso che aveva costruito una nuova scuola."
+            ],
+            "nl": [
+              "De burgemeester beloofde dat hij een school zou sluiten.",
+              "De burgemeester beloofde dat hij een nieuwe school had gebouwd."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "gouvernement",
+          "translation": {
+            "en": "government",
+            "es-419": "gobierno",
+            "it": "governo",
+            "nl": "regering"
+          },
+          "distractors": {
+            "en": [
+              "parliament",
+              "town hall"
+            ],
+            "es-419": [
+              "parlamento",
+              "ayuntamiento"
+            ],
+            "it": [
+              "parlamento",
+              "municipio"
+            ],
+            "nl": [
+              "parlement",
+              "gemeentehuis"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le gouvernement a assuré qu'il ne fermerait pas les écoles.",
+          "translation": {
+            "en": "The government assured people that it would not close the schools.",
+            "es-419": "El gobierno aseguró que no cerraría las escuelas.",
+            "it": "Il governo ha assicurato che non avrebbe chiuso le scuole.",
+            "nl": "De regering verzekerde dat ze de scholen niet zou sluiten."
+          },
+          "distractors": {
+            "en": [
+              "The government assured people that it would close the schools.",
+              "The government assured people that it hadn't closed the schools."
+            ],
+            "es-419": [
+              "El gobierno aseguró que cerraría las escuelas.",
+              "El gobierno aseguró que no había cerrado las escuelas."
+            ],
+            "it": [
+              "Il governo ha assicurato che avrebbe chiuso le scuole.",
+              "Il governo ha assicurato che non aveva chiuso le scuole."
+            ],
+            "nl": [
+              "De regering verzekerde dat ze de scholen zou sluiten.",
+              "De regering verzekerde dat ze de scholen niet had gesloten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il m'a assuré que",
+          "translation": {
+            "en": "he assured me that",
+            "es-419": "me aseguró que",
+            "it": "mi ha assicurato che",
+            "nl": "hij verzekerde me dat"
+          },
+          "distractors": {
+            "en": [
+              "he asked me whether",
+              "he warned me that"
+            ],
+            "es-419": [
+              "me preguntó si",
+              "me advirtió que"
+            ],
+            "it": [
+              "mi ha chiesto se",
+              "mi ha avvertito che"
+            ],
+            "nl": [
+              "hij vroeg me of",
+              "hij waarschuwde me dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle m'a assuré qu'elle serait à l'heure.",
+          "translation": {
+            "en": "She assured me she would be on time.",
+            "es-419": "Me aseguró que llegaría a tiempo.",
+            "it": "Mi ha assicurato che sarebbe arrivata in orario.",
+            "nl": "Ze verzekerde me dat ze op tijd zou zijn."
+          },
+          "distractors": {
+            "en": [
+              "She assured me she had been on time.",
+              "She assured me she would be late."
+            ],
+            "es-419": [
+              "Me aseguró que había llegado a tiempo.",
+              "Me aseguró que llegaría tarde."
+            ],
+            "it": [
+              "Mi ha assicurato che era arrivata in orario.",
+              "Mi ha assicurato che sarebbe arrivata in ritardo."
+            ],
+            "nl": [
+              "Ze verzekerde me dat ze op tijd was geweest.",
+              "Ze verzekerde me dat ze te laat zou zijn."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il m'a demandé d'attendre",
+          "translation": {
+            "en": "he asked me to wait",
+            "es-419": "me pidió que esperara",
+            "it": "mi ha chiesto di aspettare",
+            "nl": "hij vroeg me te wachten"
+          },
+          "distractors": {
+            "en": [
+              "he asked me to leave",
+              "he asked me if I was waiting"
+            ],
+            "es-419": [
+              "me pidió que me fuera",
+              "me preguntó si estaba esperando"
+            ],
+            "it": [
+              "mi ha chiesto di andarmene",
+              "mi ha chiesto se stavo aspettando"
+            ],
+            "nl": [
+              "hij vroeg me weg te gaan",
+              "hij vroeg me of ik aan het wachten was"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La secrétaire m'a demandé de patienter un instant.",
+          "translation": {
+            "en": "The secretary asked me to wait a moment.",
+            "es-419": "La secretaria me pidió que esperara un momento.",
+            "it": "La segretaria mi ha chiesto di pazientare un momento.",
+            "nl": "De secretaresse vroeg me even geduld te hebben."
+          },
+          "distractors": {
+            "en": [
+              "The secretary asked me to wait outside.",
+              "The secretary asked me to call tomorrow."
+            ],
+            "es-419": [
+              "La secretaria me pidió que esperara afuera.",
+              "La secretaria me pidió que llamara mañana."
+            ],
+            "it": [
+              "La segretaria mi ha chiesto di aspettare fuori.",
+              "La segretaria mi ha chiesto di telefonare domani."
+            ],
+            "nl": [
+              "De secretaresse vroeg me buiten te wachten.",
+              "De secretaresse vroeg me morgen te bellen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il m'a dit de ne pas partir",
+          "translation": {
+            "en": "he told me not to leave",
+            "es-419": "me dijo que no me fuera",
+            "it": "mi ha detto di non partire",
+            "nl": "hij zei me niet weg te gaan"
+          },
+          "distractors": {
+            "en": [
+              "he told me to leave",
+              "he told me he wasn't leaving"
+            ],
+            "es-419": [
+              "me dijo que me fuera",
+              "me dijo que no se iba"
+            ],
+            "it": [
+              "mi ha detto di partire",
+              "mi ha detto che non partiva"
+            ],
+            "nl": [
+              "hij zei me weg te gaan",
+              "hij zei dat hij niet wegging"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La police nous a dit de ne pas sortir.",
+          "translation": {
+            "en": "The police told us not to go out.",
+            "es-419": "La policía nos dijo que no saliéramos.",
+            "it": "La polizia ci ha detto di non uscire.",
+            "nl": "De politie zei ons niet naar buiten te gaan."
+          },
+          "distractors": {
+            "en": [
+              "The police told us to go out.",
+              "The police told us not to go to work."
+            ],
+            "es-419": [
+              "La policía nos dijo que saliéramos.",
+              "La policía nos dijo que no fuéramos a trabajar."
+            ],
+            "it": [
+              "La polizia ci ha detto di uscire.",
+              "La polizia ci ha detto di non andare al lavoro."
+            ],
+            "nl": [
+              "De politie zei ons naar buiten te gaan.",
+              "De politie zei ons niet naar het werk te gaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le ministre a confirmé qu'il ne démissionnerait pas.",
+          "translation": {
+            "en": "The minister confirmed that he would not resign.",
+            "es-419": "El ministro confirmó que no renunciaría.",
+            "it": "Il ministro ha confermato che non si sarebbe dimesso.",
+            "nl": "De minister bevestigde dat hij niet zou aftreden."
+          },
+          "distractors": {
+            "en": [
+              "The minister confirmed that he had resigned.",
+              "The minister announced that he would resign."
+            ],
+            "es-419": [
+              "El ministro confirmó que había renunciado.",
+              "El ministro anunció que renunciaría."
+            ],
+            "it": [
+              "Il ministro ha confermato che si era dimesso.",
+              "Il ministro ha annunciato che si sarebbe dimesso."
+            ],
+            "nl": [
+              "De minister bevestigde dat hij was afgetreden.",
+              "De minister kondigde aan dat hij zou aftreden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a promis qu'il m'appellerait ce soir, mais il n'a jamais téléphoné.",
+          "translation": {
+            "en": "He promised he would call me tonight, but he never called.",
+            "es-419": "Prometió que me llamaría esta noche, pero nunca llamó.",
+            "it": "Ha promesso che mi avrebbe chiamato stasera, ma non ha mai telefonato.",
+            "nl": "Hij beloofde dat hij me vanavond zou bellen, maar hij heeft nooit gebeld."
+          },
+          "distractors": {
+            "en": [
+              "He promised he would call me tonight, but he called late.",
+              "He promised he would call me tomorrow, but he never called."
+            ],
+            "es-419": [
+              "Prometió que me llamaría esta noche, pero llamó tarde.",
+              "Prometió que me llamaría mañana, pero nunca llamó."
+            ],
+            "it": [
+              "Ha promesso che mi avrebbe chiamato stasera, ma ha telefonato tardi.",
+              "Ha promesso che mi avrebbe chiamato domani, ma non ha mai telefonato."
+            ],
+            "nl": [
+              "Hij beloofde dat hij me vanavond zou bellen, maar hij belde laat.",
+              "Hij beloofde dat hij me morgen zou bellen, maar hij heeft nooit gebeld."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-actualites-4",
+      "title": "Le journal télévisé",
+      "grammarFocus": {
+        "en": [
+          "sources: selon, d'après + the source (Selon le journal, ...; D'après le maire, ...)",
+          "verbs that report: annoncer, déclarer, affirmer, confirmer, informer + que; nier + infinitive (Il nie avoir menti)"
+        ],
+        "es-419": [
+          "fuentes: selon, d'après + la fuente (Selon le journal, ...; D'après le maire, ...)",
+          "verbos para informar: annoncer, déclarer, affirmer, confirmer, informer + que; nier + infinitivo (Il nie avoir menti)"
+        ],
+        "it": [
+          "le fonti: selon, d'après + la fonte (Selon le journal, ...; D'après le maire, ...)",
+          "verbi per riferire: annoncer, déclarer, affirmer, confirmer, informer + que; nier + infinito (Il nie avoir menti)"
+        ],
+        "nl": [
+          "bronnen: selon, d'après + de bron (Selon le journal, ...; D'après le maire, ...)",
+          "werkwoorden om te melden: annoncer, déclarer, affirmer, confirmer, informer + que; nier + infinitief (Il nie avoir menti)"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "présentateur",
+          "translation": {
+            "en": "presenter",
+            "es-419": "presentador",
+            "it": "presentatore",
+            "nl": "presentator"
+          },
+          "distractors": {
+            "en": [
+              "reporter",
+              "viewer"
+            ],
+            "es-419": [
+              "reportero",
+              "espectador"
+            ],
+            "it": [
+              "inviato",
+              "spettatore"
+            ],
+            "nl": [
+              "verslaggever",
+              "kijker"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le journal télévisé",
+          "translation": {
+            "en": "the TV news",
+            "es-419": "el noticiero de televisión",
+            "it": "il telegiornale",
+            "nl": "het journaal"
+          },
+          "distractors": {
+            "en": [
+              "the weather forecast",
+              "the newspaper"
+            ],
+            "es-419": [
+              "el pronóstico del tiempo",
+              "el periódico"
+            ],
+            "it": [
+              "le previsioni del tempo",
+              "il giornale"
+            ],
+            "nl": [
+              "het weerbericht",
+              "de krant"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le journal de vingt heures",
+          "translation": {
+            "en": "the eight o'clock news",
+            "es-419": "el noticiero de las ocho",
+            "it": "il telegiornale delle otto",
+            "nl": "het achtuurjournaal"
+          },
+          "distractors": {
+            "en": [
+              "the seven o'clock news",
+              "the eight o'clock movie"
+            ],
+            "es-419": [
+              "el noticiero de las siete",
+              "la película de las ocho"
+            ],
+            "it": [
+              "il telegiornale delle sette",
+              "il film delle otto"
+            ],
+            "nl": [
+              "het zevenuurjournaal",
+              "de film van acht uur"
+            ]
+          },
+          "variants": [
+            "le journal de 20 heures"
+          ]
+        },
+        {
+          "id": "fr-b1-actualites-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Nous regardons le journal télévisé tous les soirs à vingt heures.",
+          "translation": {
+            "en": "We watch the TV news every evening at eight.",
+            "es-419": "Vemos el noticiero todas las noches a las ocho.",
+            "it": "Guardiamo il telegiornale ogni sera alle otto.",
+            "nl": "We kijken elke avond om acht uur naar het journaal."
+          },
+          "distractors": {
+            "en": [
+              "We watch the TV news every morning at eight.",
+              "We watch the TV news every evening at seven."
+            ],
+            "es-419": [
+              "Vemos el noticiero todas las mañanas a las ocho.",
+              "Vemos el noticiero todas las noches a las siete."
+            ],
+            "it": [
+              "Guardiamo il telegiornale ogni mattina alle otto.",
+              "Guardiamo il telegiornale ogni sera alle sette."
+            ],
+            "nl": [
+              "We kijken elke ochtend om acht uur naar het journaal.",
+              "We kijken elke avond om zeven uur naar het journaal."
+            ]
+          },
+          "variants": [
+            "Nous regardons le journal télévisé tous les soirs à 20 heures."
+          ]
+        },
+        {
+          "id": "fr-b1-actualites-4-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la politique du gouvernement",
+          "translation": {
+            "en": "the government's policy",
+            "es-419": "la política del gobierno",
+            "it": "la politica del governo",
+            "nl": "het beleid van de regering"
+          },
+          "distractors": {
+            "en": [
+              "the government's decision",
+              "the government's plan"
+            ],
+            "es-419": [
+              "la decisión del gobierno",
+              "el plan del gobierno"
+            ],
+            "it": [
+              "la decisione del governo",
+              "il piano del governo"
+            ],
+            "nl": [
+              "het besluit van de regering",
+              "het plan van de regering"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "D'après le journal télévisé, il y a eu un accident sur la route de Lyon.",
+          "translation": {
+            "en": "According to the TV news, there was an accident on the road to Lyon.",
+            "es-419": "Según el noticiero, hubo un accidente en la carretera a Lyon.",
+            "it": "Secondo il telegiornale, c'è stato un incidente sulla strada per Lione.",
+            "nl": "Volgens het journaal is er een ongeluk gebeurd op de weg naar Lyon."
+          },
+          "distractors": {
+            "en": [
+              "According to the newspaper, there was an accident on the road to Lyon.",
+              "According to the TV news, there was no accident on the road to Lyon."
+            ],
+            "es-419": [
+              "Según el periódico, hubo un accidente en la carretera a Lyon.",
+              "Según el noticiero, no hubo ningún accidente en la carretera a Lyon."
+            ],
+            "it": [
+              "Secondo il giornale, c'è stato un incidente sulla strada per Lione.",
+              "Secondo il telegiornale, non c'è stato nessun incidente sulla strada per Lione."
+            ],
+            "nl": [
+              "Volgens de krant is er een ongeluk gebeurd op de weg naar Lyon.",
+              "Volgens het journaal is er geen ongeluk gebeurd op de weg naar Lyon."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "élection",
+          "translation": {
+            "en": "election",
+            "es-419": "elección",
+            "it": "elezione",
+            "nl": "verkiezing"
+          },
+          "distractors": {
+            "en": [
+              "vote",
+              "campaign"
+            ],
+            "es-419": [
+              "voto",
+              "campaña"
+            ],
+            "it": [
+              "voto",
+              "campagna"
+            ],
+            "nl": [
+              "stem",
+              "campagne"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Hier, les habitants de la ville ont voté pour choisir un nouveau maire.",
+          "translation": {
+            "en": "Yesterday, the town's residents voted to choose a new mayor.",
+            "es-419": "Ayer, los habitantes de la ciudad votaron para elegir a un nuevo alcalde.",
+            "it": "Ieri gli abitanti della città hanno votato per scegliere un nuovo sindaco.",
+            "nl": "Gisteren hebben de inwoners van de stad gestemd om een nieuwe burgemeester te kiezen."
+          },
+          "distractors": {
+            "en": [
+              "Last week, the town's residents voted to choose a new mayor.",
+              "Yesterday, the town's residents voted to choose a new president."
+            ],
+            "es-419": [
+              "La semana pasada, los habitantes de la ciudad votaron para elegir a un nuevo alcalde.",
+              "Ayer, los habitantes de la ciudad votaron para elegir a un nuevo presidente."
+            ],
+            "it": [
+              "La settimana scorsa gli abitanti della città hanno votato per scegliere un nuovo sindaco.",
+              "Ieri gli abitanti della città hanno votato per scegliere un nuovo presidente."
+            ],
+            "nl": [
+              "Vorige week hebben de inwoners van de stad gestemd om een nieuwe burgemeester te kiezen.",
+              "Gisteren hebben de inwoners van de stad gestemd om een nieuwe president te kiezen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le gouvernement affirme que",
+          "translation": {
+            "en": "the government claims that",
+            "es-419": "el gobierno afirma que",
+            "it": "il governo afferma che",
+            "nl": "de regering beweert dat"
+          },
+          "distractors": {
+            "en": [
+              "the government denies that",
+              "the government confirms that"
+            ],
+            "es-419": [
+              "el gobierno niega que",
+              "el gobierno confirma que"
+            ],
+            "it": [
+              "il governo nega che",
+              "il governo conferma che"
+            ],
+            "nl": [
+              "de regering ontkent dat",
+              "de regering bevestigt dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le ministre affirme que tout va bien, mais les habitants ne le croient pas.",
+          "translation": {
+            "en": "The minister claims that everything is fine, but the residents don't believe him.",
+            "es-419": "El ministro afirma que todo va bien, pero los habitantes no le creen.",
+            "it": "Il ministro afferma che va tutto bene, ma gli abitanti non gli credono.",
+            "nl": "De minister beweert dat alles goed gaat, maar de inwoners geloven hem niet."
+          },
+          "distractors": {
+            "en": [
+              "The minister claims that everything is fine, but the residents believe him.",
+              "The president claims that everything is fine, but the residents don't believe him."
+            ],
+            "es-419": [
+              "El ministro afirma que todo va bien, pero los habitantes le creen.",
+              "El presidente afirma que todo va bien, pero los habitantes no le creen."
+            ],
+            "it": [
+              "Il ministro afferma che va tutto bene, ma gli abitanti gli credono.",
+              "Il presidente afferma che va tutto bene, ma gli abitanti non gli credono."
+            ],
+            "nl": [
+              "De minister beweert dat alles goed gaat, maar de inwoners geloven hem.",
+              "De president beweert dat alles goed gaat, maar de inwoners geloven hem niet."
+            ]
+          },
+          "senses": {
+            "11": "pron"
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "délit",
+          "translation": {
+            "en": "offense",
+            "es-419": "delito",
+            "it": "reato",
+            "nl": "misdrijf"
+          },
+          "distractors": {
+            "en": [
+              "fine",
+              "trial"
+            ],
+            "es-419": [
+              "multa",
+              "juicio"
+            ],
+            "it": [
+              "multa",
+              "processo"
+            ],
+            "nl": [
+              "boete",
+              "proces"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La police enquête sur un délit dans le centre de la ville.",
+          "translation": {
+            "en": "The police are investigating an offense in the city center.",
+            "es-419": "La policía investiga un delito en el centro de la ciudad.",
+            "it": "La polizia indaga su un reato nel centro della città.",
+            "nl": "De politie onderzoekt een misdrijf in het centrum van de stad."
+          },
+          "distractors": {
+            "en": [
+              "The police are investigating an accident in the city center.",
+              "The police arrested a thief in the city center."
+            ],
+            "es-419": [
+              "La policía investiga un accidente en el centro de la ciudad.",
+              "La policía arrestó a un ladrón en el centro de la ciudad."
+            ],
+            "it": [
+              "La polizia indaga su un incidente nel centro della città.",
+              "La polizia ha arrestato un ladro nel centro della città."
+            ],
+            "nl": [
+              "De politie onderzoekt een ongeluk in het centrum van de stad.",
+              "De politie heeft een dief aangehouden in het centrum van de stad."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u13",
+          "rev": 1,
+          "stage": "word",
+          "text": "chaîne",
+          "translation": {
+            "en": "TV channel",
+            "es-419": "canal de televisión",
+            "it": "canale televisivo",
+            "nl": "tv-zender"
+          },
+          "distractors": {
+            "en": [
+              "screen",
+              "program"
+            ],
+            "es-419": [
+              "pantalla",
+              "programa"
+            ],
+            "it": [
+              "schermo",
+              "programma"
+            ],
+            "nl": [
+              "scherm",
+              "programma"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Cette chaîne diffuse les actualités toute la journée.",
+          "translation": {
+            "en": "This channel broadcasts the news all day long.",
+            "es-419": "Este canal transmite las noticias todo el día.",
+            "it": "Questo canale trasmette le notizie tutto il giorno.",
+            "nl": "Deze zender zendt de hele dag nieuws uit."
+          },
+          "distractors": {
+            "en": [
+              "This channel broadcasts the news only in the evening.",
+              "This channel broadcasts movies all day long."
+            ],
+            "es-419": [
+              "Este canal transmite las noticias solo por la noche.",
+              "Este canal transmite películas todo el día."
+            ],
+            "it": [
+              "Questo canale trasmette le notizie solo la sera.",
+              "Questo canale trasmette film tutto il giorno."
+            ],
+            "nl": [
+              "Deze zender zendt alleen 's avonds nieuws uit.",
+              "Deze zender zendt de hele dag films uit."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "le journal nous informe",
+          "translation": {
+            "en": "the paper informs us",
+            "es-419": "el periódico nos informa",
+            "it": "il giornale ci informa",
+            "nl": "de krant informeert ons"
+          },
+          "distractors": {
+            "en": [
+              "the paper warns us",
+              "the paper is asking us"
+            ],
+            "es-419": [
+              "el periódico nos advierte",
+              "el periódico nos pregunta"
+            ],
+            "it": [
+              "il giornale ci avverte",
+              "il giornale ci chiede"
+            ],
+            "nl": [
+              "de krant waarschuwt ons",
+              "de krant vraagt ons"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le présentateur a informé les habitants qu'il y avait eu un accident.",
+          "translation": {
+            "en": "The presenter informed the residents that there had been an accident.",
+            "es-419": "El presentador informó a los habitantes que había habido un accidente.",
+            "it": "Il presentatore ha informato gli abitanti che c'era stato un incidente.",
+            "nl": "De presentator liet de inwoners weten dat er een ongeluk was gebeurd."
+          },
+          "distractors": {
+            "en": [
+              "The presenter told the residents that there hadn't been an accident.",
+              "The reporter informed the residents that there had been an accident."
+            ],
+            "es-419": [
+              "El presentador dijo a los habitantes que no había habido un accidente.",
+              "El reportero informó a los habitantes que había habido un accidente."
+            ],
+            "it": [
+              "Il presentatore ha detto agli abitanti che non c'era stato un incidente.",
+              "L'inviato ha informato gli abitanti che c'era stato un incidente."
+            ],
+            "nl": [
+              "De presentator zei tegen de inwoners dat er geen ongeluk was gebeurd.",
+              "De verslaggever liet de inwoners weten dat er een ongeluk was gebeurd."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-actualites-5",
+      "title": "Une interview",
+      "grammarFocus": {
+        "en": [
+          "reported answers: Il a répondu qu'il n'avait pas encore décidé; Il a ajouté que...",
+          "sources and denials: Selon une source, ...; Il nie avoir dit ça; ce qu'il avait dit"
+        ],
+        "es-419": [
+          "respuestas referidas: Il a répondu qu'il n'avait pas encore décidé; Il a ajouté que...",
+          "fuentes y desmentidos: Selon une source, ...; Il nie avoir dit ça; ce qu'il avait dit"
+        ],
+        "it": [
+          "risposte riferite: Il a répondu qu'il n'avait pas encore décidé; Il a ajouté que...",
+          "fonti e smentite: Selon une source, ...; Il nie avoir dit ça; ce qu'il avait dit"
+        ],
+        "nl": [
+          "antwoorden doorgeven: Il a répondu qu'il n'avait pas encore décidé; Il a ajouté que...",
+          "bronnen en ontkenningen: Selon une source, ...; Il nie avoir dit ça; ce qu'il avait dit"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "pour interviewer le maire",
+          "translation": {
+            "en": "to interview the mayor",
+            "es-419": "para entrevistar al alcalde",
+            "it": "per intervistare il sindaco",
+            "nl": "om de burgemeester te interviewen"
+          },
+          "distractors": {
+            "en": [
+              "to visit the mayor",
+              "to meet the mayor"
+            ],
+            "es-419": [
+              "para visitar al alcalde",
+              "para conocer al alcalde"
+            ],
+            "it": [
+              "per visitare il sindaco",
+              "per incontrare il sindaco"
+            ],
+            "nl": [
+              "om de burgemeester te bezoeken",
+              "om de burgemeester te ontmoeten"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u02",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le reporter veut interviewer le maire.",
+          "translation": {
+            "en": "The reporter wants to interview the mayor.",
+            "es-419": "El reportero quiere entrevistar al alcalde.",
+            "it": "L'inviato vuole intervistare il sindaco.",
+            "nl": "De verslaggever wil de burgemeester interviewen."
+          },
+          "distractors": {
+            "en": [
+              "The reporter wants to call the mayor.",
+              "The reporter wants to interview the president."
+            ],
+            "es-419": [
+              "El reportero quiere llamar al alcalde.",
+              "El reportero quiere entrevistar al presidente."
+            ],
+            "it": [
+              "L'inviato vuole telefonare al sindaco.",
+              "L'inviato vuole intervistare il presidente."
+            ],
+            "nl": [
+              "De verslaggever wil de burgemeester bellen.",
+              "De verslaggever wil de president interviewen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "source",
+          "translation": {
+            "en": "source",
+            "es-419": "fuente",
+            "it": "fonte",
+            "nl": "bron"
+          },
+          "distractors": {
+            "en": [
+              "author",
+              "title"
+            ],
+            "es-419": [
+              "autor",
+              "título"
+            ],
+            "it": [
+              "autore",
+              "titolo"
+            ],
+            "nl": [
+              "schrijver",
+              "titel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Selon une source, le ministre a démissionné hier soir.",
+          "translation": {
+            "en": "According to a source, the minister resigned last night.",
+            "es-419": "Según una fuente, el ministro renunció anoche.",
+            "it": "Secondo una fonte, il ministro si è dimesso ieri sera.",
+            "nl": "Volgens een bron is de minister gisteravond afgetreden."
+          },
+          "distractors": {
+            "en": [
+              "According to a source, the minister will resign tomorrow night.",
+              "According to a source, the president resigned last night."
+            ],
+            "es-419": [
+              "Según una fuente, el ministro renunciará mañana por la noche.",
+              "Según una fuente, el presidente renunció anoche."
+            ],
+            "it": [
+              "Secondo una fonte, il ministro si dimetterà domani sera.",
+              "Secondo una fonte, il presidente si è dimesso ieri sera."
+            ],
+            "nl": [
+              "Volgens een bron treedt de minister morgenavond af.",
+              "Volgens een bron is de president gisteravond afgetreden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u05",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a répondu que",
+          "translation": {
+            "en": "he answered that",
+            "es-419": "respondió que",
+            "it": "ha risposto che",
+            "nl": "hij antwoordde dat"
+          },
+          "distractors": {
+            "en": [
+              "he asked whether",
+              "he added that"
+            ],
+            "es-419": [
+              "preguntó si",
+              "añadió que"
+            ],
+            "it": [
+              "ha chiesto se",
+              "ha aggiunto che"
+            ],
+            "nl": [
+              "hij vroeg of",
+              "hij voegde eraan toe dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le maire a répondu qu'il n'avait pas encore décidé.",
+          "translation": {
+            "en": "The mayor answered that he hadn't decided yet.",
+            "es-419": "El alcalde respondió que todavía no había decidido.",
+            "it": "Il sindaco ha risposto che non aveva ancora deciso.",
+            "nl": "De burgemeester antwoordde dat hij nog niet had besloten."
+          },
+          "distractors": {
+            "en": [
+              "The mayor answered that he had already decided.",
+              "The mayor answered that he hadn't understood the question."
+            ],
+            "es-419": [
+              "El alcalde respondió que ya había decidido.",
+              "El alcalde respondió que no había entendido la pregunta."
+            ],
+            "it": [
+              "Il sindaco ha risposto che aveva già deciso.",
+              "Il sindaco ha risposto che non aveva capito la domanda."
+            ],
+            "nl": [
+              "De burgemeester antwoordde dat hij al had besloten.",
+              "De burgemeester antwoordde dat hij de vraag niet had begrepen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il a ajouté que",
+          "translation": {
+            "en": "he added that",
+            "es-419": "añadió que",
+            "it": "ha aggiunto che",
+            "nl": "hij voegde eraan toe dat"
+          },
+          "distractors": {
+            "en": [
+              "he answered that",
+              "he confirmed that"
+            ],
+            "es-419": [
+              "respondió que",
+              "confirmó que"
+            ],
+            "it": [
+              "ha risposto che",
+              "ha confermato che"
+            ],
+            "nl": [
+              "hij antwoordde dat",
+              "hij bevestigde dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a ajouté que les habitants avaient raison.",
+          "translation": {
+            "en": "He added that the residents were right.",
+            "es-419": "Añadió que los habitantes tenían razón.",
+            "it": "Ha aggiunto che gli abitanti avevano ragione.",
+            "nl": "Hij voegde eraan toe dat de inwoners gelijk hadden."
+          },
+          "distractors": {
+            "en": [
+              "He added that the residents were wrong.",
+              "He added that the mayor was right."
+            ],
+            "es-419": [
+              "Añadió que los habitantes estaban equivocados.",
+              "Añadió que el alcalde tenía razón."
+            ],
+            "it": [
+              "Ha aggiunto che gli abitanti avevano torto.",
+              "Ha aggiunto che il sindaco aveva ragione."
+            ],
+            "nl": [
+              "Hij voegde eraan toe dat de inwoners ongelijk hadden.",
+              "Hij voegde eraan toe dat de burgemeester gelijk had."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u09",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elle a déclaré que",
+          "translation": {
+            "en": "she stated that",
+            "es-419": "declaró que",
+            "it": "ha dichiarato che",
+            "nl": "ze verklaarde dat"
+          },
+          "distractors": {
+            "en": [
+              "she denied that",
+              "she added that"
+            ],
+            "es-419": [
+              "negó que",
+              "añadió que"
+            ],
+            "it": [
+              "ha negato che",
+              "ha aggiunto che"
+            ],
+            "nl": [
+              "ze ontkende dat",
+              "ze voegde eraan toe dat"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La présidente a déclaré qu'elle n'avait jamais menti.",
+          "translation": {
+            "en": "The president stated that she had never lied.",
+            "es-419": "La presidenta declaró que nunca había mentido.",
+            "it": "La presidente ha dichiarato che non aveva mai mentito.",
+            "nl": "De presidente verklaarde dat ze nooit had gelogen."
+          },
+          "distractors": {
+            "en": [
+              "The president stated that she had often lied.",
+              "The president stated that she would never lie."
+            ],
+            "es-419": [
+              "La presidenta declaró que había mentido muchas veces.",
+              "La presidenta declaró que nunca mentiría."
+            ],
+            "it": [
+              "La presidente ha dichiarato che aveva mentito spesso.",
+              "La presidente ha dichiarato che non avrebbe mai mentito."
+            ],
+            "nl": [
+              "De presidente verklaarde dat ze vaak had gelogen.",
+              "De presidente verklaarde dat ze nooit zou liegen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u11",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "il nie avoir menti",
+          "translation": {
+            "en": "he denies having lied",
+            "es-419": "niega haber mentido",
+            "it": "nega di aver mentito",
+            "nl": "hij ontkent gelogen te hebben"
+          },
+          "distractors": {
+            "en": [
+              "he admits he lied",
+              "he denies having stolen"
+            ],
+            "es-419": [
+              "admite que mintió",
+              "niega haber robado"
+            ],
+            "it": [
+              "ammette di aver mentito",
+              "nega di aver rubato"
+            ],
+            "nl": [
+              "hij geeft toe dat hij loog",
+              "hij ontkent gestolen te hebben"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le ministre nie avoir dit ça.",
+          "translation": {
+            "en": "The minister denies having said that.",
+            "es-419": "El ministro niega haber dicho eso.",
+            "it": "Il ministro nega di aver detto questo.",
+            "nl": "De minister ontkent dat te hebben gezegd."
+          },
+          "distractors": {
+            "en": [
+              "The minister admits having said that.",
+              "The minister denies having done that."
+            ],
+            "es-419": [
+              "El ministro admite haber dicho eso.",
+              "El ministro niega haber hecho eso."
+            ],
+            "it": [
+              "Il ministro ammette di aver detto questo.",
+              "Il ministro nega di averlo fatto."
+            ],
+            "nl": [
+              "De minister geeft toe dat hij dat heeft gezegd.",
+              "De minister ontkent dat te hebben gedaan."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a nié avoir volé le portefeuille.",
+          "translation": {
+            "en": "He denied having stolen the wallet.",
+            "es-419": "Negó haber robado la billetera.",
+            "it": "Ha negato di aver rubato il portafoglio.",
+            "nl": "Hij ontkende de portemonnee te hebben gestolen."
+          },
+          "distractors": {
+            "en": [
+              "He admitted having stolen the wallet.",
+              "He denied having lost the wallet."
+            ],
+            "es-419": [
+              "Admitió haber robado la billetera.",
+              "Negó haber perdido la billetera."
+            ],
+            "it": [
+              "Ha ammesso di aver rubato il portafoglio.",
+              "Ha negato di aver perso il portafoglio."
+            ],
+            "nl": [
+              "Hij gaf toe de portemonnee te hebben gestolen.",
+              "Hij ontkende de portemonnee te hebben verloren."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u14",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ce qu'il a dit",
+          "translation": {
+            "en": "what he said",
+            "es-419": "lo que dijo",
+            "it": "quello che ha detto",
+            "nl": "wat hij zei"
+          },
+          "distractors": {
+            "en": [
+              "what he asked",
+              "what he did"
+            ],
+            "es-419": [
+              "lo que preguntó",
+              "lo que hizo"
+            ],
+            "it": [
+              "quello che ha chiesto",
+              "quello che ha fatto"
+            ],
+            "nl": [
+              "wat hij vroeg",
+              "wat hij deed"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Elle m'a expliqué ce qu'il avait dit pendant l'entretien.",
+          "translation": {
+            "en": "She explained to me what he had said during the interview.",
+            "es-419": "Me explicó lo que él había dicho durante la entrevista.",
+            "it": "Mi ha spiegato quello che lui aveva detto durante il colloquio.",
+            "nl": "Ze legde me uit wat hij tijdens het gesprek had gezegd."
+          },
+          "distractors": {
+            "en": [
+              "She explained to me what he had done during the interview.",
+              "She asked me what he had said during the interview."
+            ],
+            "es-419": [
+              "Me explicó lo que él había hecho durante la entrevista.",
+              "Me preguntó lo que él había dicho durante la entrevista."
+            ],
+            "it": [
+              "Mi ha spiegato quello che lui aveva fatto durante il colloquio.",
+              "Mi ha chiesto quello che lui aveva detto durante il colloquio."
+            ],
+            "nl": [
+              "Ze legde me uit wat hij tijdens het gesprek had gedaan.",
+              "Ze vroeg me wat hij tijdens het gesprek had gezegd."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Après l'entretien, le journaliste a confirmé qu'il publierait l'article demain.",
+          "translation": {
+            "en": "After the interview, the journalist confirmed that he would publish the article tomorrow.",
+            "es-419": "Después de la entrevista, el periodista confirmó que publicaría el artículo mañana.",
+            "it": "Dopo l'intervista, il giornalista ha confermato che avrebbe pubblicato l'articolo domani.",
+            "nl": "Na het gesprek bevestigde de journalist dat hij het artikel morgen zou publiceren."
+          },
+          "distractors": {
+            "en": [
+              "After the interview, the journalist confirmed that he had published the article yesterday.",
+              "After the interview, the journalist confirmed that he would not publish the article."
+            ],
+            "es-419": [
+              "Después de la entrevista, el periodista confirmó que había publicado el artículo ayer.",
+              "Después de la entrevista, el periodista confirmó que no publicaría el artículo."
+            ],
+            "it": [
+              "Dopo l'intervista, il giornalista ha confermato che aveva pubblicato l'articolo ieri.",
+              "Dopo l'intervista, il giornalista ha confermato che non avrebbe pubblicato l'articolo."
+            ],
+            "nl": [
+              "Na het gesprek bevestigde de journalist dat hij het artikel gisteren had gepubliceerd.",
+              "Na het gesprek bevestigde de journalist dat hij het artikel niet zou publiceren."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-actualites-6",
+      "title": "Sur les réseaux sociaux",
+      "grammarFocus": {
+        "en": [
+          "reporting what people were saying: On disait que le maire allait démissionner",
+          "reported orders and the news you read: Ne partagez pas..., lisent, ont diffusé, avait raison"
+        ],
+        "es-419": [
+          "referir lo que la gente decía: On disait que le maire allait démissionner",
+          "órdenes referidas y noticias que se leen: Ne partagez pas..., lisent, ont diffusé, avait raison"
+        ],
+        "it": [
+          "riferire ciò che la gente diceva: On disait que le maire allait démissionner",
+          "ordini riferiti e notizie che si leggono: Ne partagez pas..., lisent, ont diffusé, avait raison"
+        ],
+        "nl": [
+          "weergeven wat mensen zeiden: On disait que le maire allait démissionner",
+          "doorgegeven bevelen en nieuws dat je leest: Ne partagez pas..., lisent, ont diffusé, avait raison"
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-actualites-6-u01",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un réseau social",
+          "translation": {
+            "en": "a social network",
+            "es-419": "una red social",
+            "it": "un social network",
+            "nl": "een sociaal netwerk"
+          },
+          "distractors": {
+            "en": [
+              "a social club",
+              "a social problem"
+            ],
+            "es-419": [
+              "un club social",
+              "un problema social"
+            ],
+            "it": [
+              "un club sociale",
+              "un problema sociale"
+            ],
+            "nl": [
+              "een sociale club",
+              "een sociaal probleem"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "les réseaux sociaux",
+          "translation": {
+            "en": "social media",
+            "es-419": "las redes sociales",
+            "it": "i social network",
+            "nl": "sociale media"
+          },
+          "distractors": {
+            "en": [
+              "the news media",
+              "the social problems"
+            ],
+            "es-419": [
+              "los medios de comunicación",
+              "los problemas sociales"
+            ],
+            "it": [
+              "i mezzi di informazione",
+              "i problemi sociali"
+            ],
+            "nl": [
+              "de nieuwsmedia",
+              "de sociale problemen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "commentaire",
+          "translation": {
+            "en": "comment",
+            "es-419": "comentario",
+            "it": "commento",
+            "nl": "reactie"
+          },
+          "distractors": {
+            "en": [
+              "question",
+              "message"
+            ],
+            "es-419": [
+              "pregunta",
+              "mensaje"
+            ],
+            "it": [
+              "domanda",
+              "messaggio"
+            ],
+            "nl": [
+              "vraag",
+              "bericht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "vidéo",
+          "translation": {
+            "en": "video",
+            "es-419": "video",
+            "it": "video",
+            "nl": "video"
+          },
+          "distractors": {
+            "en": [
+              "photo",
+              "message"
+            ],
+            "es-419": [
+              "foto",
+              "mensaje"
+            ],
+            "it": [
+              "foto",
+              "messaggio"
+            ],
+            "nl": [
+              "foto",
+              "bericht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai lu tous les commentaires sous la vidéo.",
+          "translation": {
+            "en": "I read all the comments under the video.",
+            "es-419": "Leí todos los comentarios debajo del video.",
+            "it": "Ho letto tutti i commenti sotto il video.",
+            "nl": "Ik heb alle reacties onder de video gelezen."
+          },
+          "distractors": {
+            "en": [
+              "I read all the comments under the article.",
+              "I wrote all the comments under the video."
+            ],
+            "es-419": [
+              "Leí todos los comentarios debajo del artículo.",
+              "Escribí todos los comentarios debajo del video."
+            ],
+            "it": [
+              "Ho letto tutti i commenti sotto l'articolo.",
+              "Ho scritto tutti i commenti sotto il video."
+            ],
+            "nl": [
+              "Ik heb alle reacties onder het artikel gelezen.",
+              "Ik heb alle reacties onder de video geschreven."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "elle a partagé la vidéo",
+          "translation": {
+            "en": "she shared the video",
+            "es-419": "compartió el video",
+            "it": "ha condiviso il video",
+            "nl": "ze heeft de video gedeeld"
+          },
+          "distractors": {
+            "en": [
+              "she watched the video",
+              "she posted the photo"
+            ],
+            "es-419": [
+              "vio el video",
+              "publicó la foto"
+            ],
+            "it": [
+              "ha guardato il video",
+              "ha pubblicato la foto"
+            ],
+            "nl": [
+              "ze heeft de video bekeken",
+              "ze heeft de foto geplaatst"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma cousine a partagé une photo de mon frère sur les réseaux sociaux.",
+          "translation": {
+            "en": "My cousin shared a photo of my brother on social media.",
+            "es-419": "Mi prima compartió una foto de mi hermano en las redes sociales.",
+            "it": "Mia cugina ha condiviso una foto di mio fratello sui social network.",
+            "nl": "Mijn nicht heeft een foto van mijn broer gedeeld op sociale media."
+          },
+          "distractors": {
+            "en": [
+              "My cousin shared a photo of my sister on social media.",
+              "My cousin shared a video of my brother on social media."
+            ],
+            "es-419": [
+              "Mi prima compartió una foto de mi hermana en las redes sociales.",
+              "Mi prima compartió un video de mi hermano en las redes sociales."
+            ],
+            "it": [
+              "Mia cugina ha condiviso una foto di mia sorella sui social network.",
+              "Mia cugina ha condiviso un video di mio fratello sui social network."
+            ],
+            "nl": [
+              "Mijn nicht heeft een foto van mijn zus gedeeld op sociale media.",
+              "Mijn nicht heeft een video van mijn broer gedeeld op sociale media."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "les médias",
+          "translation": {
+            "en": "the media",
+            "es-419": "los medios de comunicación",
+            "it": "i mezzi di informazione",
+            "nl": "de media"
+          },
+          "distractors": {
+            "en": [
+              "the government",
+              "the police"
+            ],
+            "es-419": [
+              "el gobierno",
+              "la policía"
+            ],
+            "it": [
+              "il governo",
+              "la polizia"
+            ],
+            "nl": [
+              "de regering",
+              "de politie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Les médias ont diffusé l'information en quelques minutes.",
+          "translation": {
+            "en": "The media spread the news within a few minutes.",
+            "es-419": "Los medios difundieron la información en unos minutos.",
+            "it": "I media hanno diffuso la notizia in pochi minuti.",
+            "nl": "De media verspreidden het nieuws binnen een paar minuten."
+          },
+          "distractors": {
+            "en": [
+              "The media spread the news after a few days.",
+              "The media confirmed the news within a few minutes."
+            ],
+            "es-419": [
+              "Los medios difundieron la información después de unos días.",
+              "Los medios confirmaron la información en unos minutos."
+            ],
+            "it": [
+              "I media hanno diffuso la notizia dopo qualche giorno.",
+              "I media hanno confermato la notizia in pochi minuti."
+            ],
+            "nl": [
+              "De media verspreidden het nieuws na een paar dagen.",
+              "De media bevestigden het nieuws binnen een paar minuten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u10",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "une fausse information",
+          "translation": {
+            "en": "a false report",
+            "es-419": "una información falsa",
+            "it": "una notizia falsa",
+            "nl": "een vals bericht"
+          },
+          "distractors": {
+            "en": [
+              "an important report",
+              "a new report"
+            ],
+            "es-419": [
+              "una información importante",
+              "una información nueva"
+            ],
+            "it": [
+              "una notizia importante",
+              "una notizia nuova"
+            ],
+            "nl": [
+              "een belangrijk bericht",
+              "een nieuw bericht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le gouvernement a confirmé que la rumeur était fausse.",
+          "translation": {
+            "en": "The government confirmed that the rumor was false.",
+            "es-419": "El gobierno confirmó que el rumor era falso.",
+            "it": "Il governo ha confermato che la voce era falsa.",
+            "nl": "De regering bevestigde dat het gerucht onwaar was."
+          },
+          "distractors": {
+            "en": [
+              "The government confirmed that the rumor was true.",
+              "The government confirmed that the article was false."
+            ],
+            "es-419": [
+              "El gobierno confirmó que el rumor era verdadero.",
+              "El gobierno confirmó que el artículo era falso."
+            ],
+            "it": [
+              "Il governo ha confermato che la voce era vera.",
+              "Il governo ha confermato che l'articolo era falso."
+            ],
+            "nl": [
+              "De regering bevestigde dat het gerucht waar was.",
+              "De regering bevestigde dat het artikel onwaar was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ne partagez pas une information avant de connaître la source.",
+          "translation": {
+            "en": "Don't share information before you know the source.",
+            "es-419": "No compartan información antes de conocer la fuente.",
+            "it": "Non condividete un'informazione prima di conoscerne la fonte.",
+            "nl": "Deel geen informatie voordat jullie de bron kennen."
+          },
+          "distractors": {
+            "en": [
+              "Don't share information before you read the article.",
+              "Don't believe information before you know the source."
+            ],
+            "es-419": [
+              "No compartan información antes de leer el artículo.",
+              "No crean en una información antes de conocer la fuente."
+            ],
+            "it": [
+              "Non condividete un'informazione prima di aver letto l'articolo.",
+              "Non credete a un'informazione prima di conoscerne la fonte."
+            ],
+            "nl": [
+              "Deel geen informatie voordat jullie het artikel lezen.",
+              "Geloof geen informatie voordat jullie de bron kennen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il a écrit un commentaire pour dire que l'article était faux.",
+          "translation": {
+            "en": "He wrote a comment to say the article was false.",
+            "es-419": "Escribió un comentario para decir que el artículo era falso.",
+            "it": "Ha scritto un commento per dire che l'articolo era falso.",
+            "nl": "Hij schreef een reactie om te zeggen dat het artikel onwaar was."
+          },
+          "distractors": {
+            "en": [
+              "He wrote a comment to say the article was true.",
+              "He wrote an article to say the comment was false."
+            ],
+            "es-419": [
+              "Escribió un comentario para decir que el artículo era verdadero.",
+              "Escribió un artículo para decir que el comentario era falso."
+            ],
+            "it": [
+              "Ha scritto un commento per dire che l'articolo era vero.",
+              "Ha scritto un articolo per dire che il commento era falso."
+            ],
+            "nl": [
+              "Hij schreef een reactie om te zeggen dat het artikel waar was.",
+              "Hij schreef een artikel om te zeggen dat de reactie onwaar was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Sur les réseaux sociaux, on disait que le maire allait démissionner.",
+          "translation": {
+            "en": "On social media, people were saying that the mayor was going to resign.",
+            "es-419": "En las redes sociales, decían que el alcalde iba a renunciar.",
+            "it": "Sui social network si diceva che il sindaco stava per dimettersi.",
+            "nl": "Op sociale media zeiden mensen dat de burgemeester zou aftreden."
+          },
+          "distractors": {
+            "en": [
+              "On social media, people were saying that the mayor had resigned.",
+              "On social media, people were saying that the president was going to resign."
+            ],
+            "es-419": [
+              "En las redes sociales, decían que el alcalde había renunciado.",
+              "En las redes sociales, decían que el presidente iba a renunciar."
+            ],
+            "it": [
+              "Sui social network si diceva che il sindaco si era dimesso.",
+              "Sui social network si diceva che il presidente stava per dimettersi."
+            ],
+            "nl": [
+              "Op sociale media zeiden mensen dat de burgemeester was afgetreden.",
+              "Op sociale media zeiden mensen dat de president zou aftreden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le maire a répondu que c'était une rumeur et qu'il ne démissionnerait pas.",
+          "translation": {
+            "en": "The mayor answered that it was a rumor and that he would not resign.",
+            "es-419": "El alcalde respondió que era un rumor y que no renunciaría.",
+            "it": "Il sindaco ha risposto che era una voce e che non si sarebbe dimesso.",
+            "nl": "De burgemeester antwoordde dat het een gerucht was en dat hij niet zou aftreden."
+          },
+          "distractors": {
+            "en": [
+              "The mayor answered that it was a rumor and that he had resigned.",
+              "The mayor answered that it was a rumor and that he would not leave the city."
+            ],
+            "es-419": [
+              "El alcalde respondió que era un rumor y que había renunciado.",
+              "El alcalde respondió que era un rumor y que no dejaría la ciudad."
+            ],
+            "it": [
+              "Il sindaco ha risposto che era una voce e che si era dimesso.",
+              "Il sindaco ha risposto che era una voce e che non avrebbe lasciato la città."
+            ],
+            "nl": [
+              "De burgemeester antwoordde dat het een gerucht was en dat hij was afgetreden.",
+              "De burgemeester antwoordde dat het een gerucht was en dat hij de stad niet zou verlaten."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-actualites-6-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Aujourd'hui, beaucoup de gens lisent les actualités sur leur portable.",
+          "translation": {
+            "en": "Today, many people read the news on their phones.",
+            "es-419": "Hoy, mucha gente lee las noticias en su celular.",
+            "it": "Oggi molte persone leggono le notizie sul cellulare.",
+            "nl": "Tegenwoordig lezen veel mensen het nieuws op hun telefoon."
+          },
+          "distractors": {
+            "en": [
+              "Today, many people watch the news on their phones.",
+              "Today, many people read the news in the newspaper."
+            ],
+            "es-419": [
+              "Hoy, mucha gente mira las noticias en su celular.",
+              "Hoy, mucha gente lee las noticias en el periódico."
+            ],
+            "it": [
+              "Oggi molte persone guardano le notizie sul cellulare.",
+              "Oggi molte persone leggono le notizie sul giornale."
+            ],
+            "nl": [
+              "Tegenwoordig kijken veel mensen naar het nieuws op hun telefoon.",
+              "Tegenwoordig lezen veel mensen het nieuws in de krant."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

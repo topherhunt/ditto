@@ -1,0 +1,5062 @@
+{
+  "id": "fr-b1-livres",
+  "language": "fr",
+  "level": "B1",
+  "order": 27,
+  "title": "Livres et films",
+  "description": {
+    "en": "Talk about books, films and series with relative pronouns: describe a story, name its characters and write a short review.",
+    "es-419": "Habla de libros, películas y series con los pronombres relativos: describe una historia, nombra a sus personajes y escribe una reseña breve.",
+    "it": "Parla di libri, film e serie con i pronomi relativi: descrivi una storia, nomina i suoi personaggi e scrivi una breve recensione.",
+    "nl": "Praat over boeken, films en series met betrekkelijke voornaamwoorden: beschrijf een verhaal, noem de personages en schrijf een korte recensie."
+  },
+  "track": "main",
+  "requires": [
+    "fr-b1-sentiments"
+  ],
+  "introduces": [
+    "dont",
+    "lequel",
+    "celui",
+    "quoi",
+    "personnage",
+    "héros",
+    "écrivain",
+    "auteur",
+    "genre",
+    "chapitre",
+    "page",
+    "intrigue",
+    "série",
+    "épisode",
+    "critique",
+    "scène",
+    "émouvant",
+    "passionnant",
+    "publier",
+    "sous-titre",
+    "version",
+    "original",
+    "succès",
+    "librairie",
+    "couverture",
+    "science",
+    "lecteur",
+    "public",
+    "roman",
+    "traiter",
+    "acteur",
+    "réalisateur",
+    "résumé",
+    "science-fiction"
+  ],
+  "lexicon": {
+    "a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "a = has (avoir: ai, as, a, avons, avez, ont); il y a = there is, there are",
+        "es-419": "a = tiene (avoir: ai, as, a, avons, avez, ont); il y a = hay",
+        "it": "a = ha (avoir: ai, as, a, avons, avez, ont); il y a = c'è, ci sono",
+        "nl": "a = heeft (avoir: ai, as, a, avons, avez, ont); il y a = er is, er zijn"
+      }
+    },
+    "acheté": {
+      "lemma": "acheter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "bought (acheter: past participle)",
+        "es-419": "comprado (acheter, participio)",
+        "it": "comprato (acheter, participio)",
+        "nl": "gekocht (acheter, voltooid deelwoord)"
+      }
+    },
+    "acteur": {
+      "lemma": "acteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "actor (m); actrice = actress (f)",
+        "es-419": "actor (m); actrice = actriz (f)",
+        "it": "attore (m); actrice = attrice (f)",
+        "nl": "acteur (m); actrice = actrice (f)"
+      }
+    },
+    "adore": {
+      "lemma": "adorer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "adore = love, adore (adorer: j'adore, tu adores, on adore)",
+        "es-419": "adore = adora, encanta (adorer: j'adore, tu adores, on adore)",
+        "it": "adore = adora (adorer: j'adore, tu adores, on adore)",
+        "nl": "adore = houdt heel veel van (adorer: j'adore, tu adores, on adore)"
+      }
+    },
+    "adoré": {
+      "lemma": "adorer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "loved, adored (adorer: past participle)",
+        "es-419": "adoró, adorado (adorer, participio)",
+        "it": "adorato (adorer, participio)",
+        "nl": "geweldig gevonden (adorer, voltooid deelwoord)"
+      }
+    },
+    "aimé": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "liked, loved (aimer: past participle)",
+        "es-419": "gustó, querido (aimer, participio)",
+        "it": "piaciuto, amato (aimer, participio)",
+        "nl": "leuk gevonden (aimer, voltooid deelwoord)"
+      }
+    },
+    "ami": {
+      "lemma": "ami",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "friend (m); amie = female friend (f)",
+        "es-419": "amigo (m); amie = amiga (f)",
+        "it": "amico (m); amie = amica (f)",
+        "nl": "vriend (m); amie = vriendin (f)"
+      }
+    },
+    "ans": {
+      "lemma": "an",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "years (m, plural of an); avoir ... ans = be ... years old",
+        "es-419": "años (m, plural de an); avoir ... ans = tener ... años",
+        "it": "anni (m, plurale di an); avoir ... ans = avere ... anni",
+        "nl": "jaren (m, meervoud van an); avoir ... ans = ... jaar zijn"
+      }
+    },
+    "au": {
+      "lemma": "au",
+      "pos": "ADP",
+      "gloss": {
+        "en": "au = à + le: to the, at the",
+        "es-419": "au = à + le: al, en el",
+        "it": "au = à + le: al, allo",
+        "nl": "au = à + le: naar de, bij de, op de"
+      }
+    },
+    "aussi": {
+      "lemma": "aussi",
+      "pos": "ADV",
+      "gloss": {
+        "en": "aussi = also, too; moi aussi = me too",
+        "es-419": "aussi = también; moi aussi = yo también",
+        "it": "aussi = anche; moi aussi = anch'io",
+        "nl": "aussi = ook; moi aussi = ik ook"
+      }
+    },
+    "auteur": {
+      "lemma": "auteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "author (m)",
+        "es-419": "autor (m)",
+        "it": "autore (m)",
+        "nl": "auteur (m)"
+      }
+    },
+    "auxquels": {
+      "lemma": "lequel",
+      "pos": "PRON",
+      "gloss": {
+        "en": "auxquels = à + lesquels: to which, about which",
+        "es-419": "auxquels = à + lesquels: a los que, en los que",
+        "it": "auxquels = à + lesquels: a cui, ai quali",
+        "nl": "auxquels = à + lesquels: waaraan, waarop"
+      }
+    },
+    "avec": {
+      "lemma": "avec",
+      "pos": "ADP",
+      "gloss": {
+        "en": "with",
+        "es-419": "con",
+        "it": "con",
+        "nl": "met"
+      }
+    },
+    "beaucoup": {
+      "lemma": "beaucoup",
+      "pos": "ADV",
+      "gloss": {
+        "en": "beaucoup = a lot, very much; merci beaucoup = thank you very much",
+        "es-419": "beaucoup = mucho; merci beaucoup = muchas gracias",
+        "it": "beaucoup = molto; merci beaucoup = grazie mille",
+        "nl": "beaucoup = veel, heel erg; merci beaucoup = heel erg bedankt"
+      }
+    },
+    "belle": {
+      "lemma": "beau",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "beautiful, pretty (f of beau)",
+        "es-419": "hermosa, bonita (f de beau)",
+        "it": "bella (f di beau)",
+        "nl": "mooi (f van beau)"
+      }
+    },
+    "besoin": {
+      "lemma": "besoin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "need (m); avoir besoin de = to need",
+        "es-419": "necesidad (m); avoir besoin de = necesitar",
+        "it": "bisogno (m); avoir besoin de = avere bisogno di",
+        "nl": "behoefte (m); avoir besoin de = nodig hebben"
+      }
+    },
+    "bibliothèque": {
+      "lemma": "bibliothèque",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bibliothèque (f): library; watch out: bibliothèque = library, librairie = bookstore",
+        "es-419": "bibliothèque (f): biblioteca",
+        "it": "bibliothèque (f): biblioteca; attenzione: bibliothèque = biblioteca, librairie = libreria",
+        "nl": "bibliothèque (f): bibliotheek; let op: bibliothèque = bibliotheek, librairie = boekhandel"
+      }
+    },
+    "bonne": {
+      "lemma": "bon",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "bonne = feminine of bon: good; bonne journée = have a good day",
+        "es-419": "bonne = femenino de bon: buena; bonne journée = que tenga un buen día",
+        "it": "bonne = femminile di bon: buona; bonne journée = buona giornata",
+        "nl": "bonne = vrouwelijk van bon: goed; bonne journée = een fijne dag"
+      }
+    },
+    "c'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "c'est = ce + est: it is, this is, that is",
+        "es-419": "c'est = ce + est: es, esto es, eso es",
+        "it": "c'est = ce + est: è, questo è, quello è",
+        "nl": "c'est = ce + est: het is, dit is, dat is"
+      }
+    },
+    "ce": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "ce = this, that (before a masculine noun); ce, cet, cette, ces; sounds like se",
+        "es-419": "ce = este, ese (antes de un sustantivo masculino); ce, cet, cette, ces",
+        "it": "ce = questo, quel (davanti a un nome maschile); ce, cet, cette, ces",
+        "nl": "ce = deze, dit, die (voor een mannelijk zelfstandig naamwoord); ce, cet, cette, ces"
+      }
+    },
+    "celle": {
+      "lemma": "celui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "celle = the one (f); celle que = the one that",
+        "es-419": "celle = la (f); celle que = la que",
+        "it": "celle = quella (f); celle que = quella che",
+        "nl": "celle = degene, die (f); celle que = die"
+      }
+    },
+    "celui": {
+      "lemma": "celui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "celui = the one, the man (m); celui qui = the one who",
+        "es-419": "celui = el (m); celui qui = el que",
+        "it": "celui = quello (m); celui qui = quello che",
+        "nl": "celui = degene (m); celui qui = degene die"
+      }
+    },
+    "cent": {
+      "lemma": "cent",
+      "pos": "NUM",
+      "gloss": {
+        "en": "cent = a hundred; sounds like sans (without); cent euros is said with a liaison",
+        "es-419": "cent = cien; suena igual que sans (sin); cent euros se pronuncia con enlace",
+        "it": "cent = cento; suona come sans (senza); cent euros si pronuncia con legamento",
+        "nl": "cent = honderd; klinkt als sans (zonder); let op: cent is geen munt maar het getal honderd"
+      }
+    },
+    "cette": {
+      "lemma": "ce",
+      "pos": "DET",
+      "gloss": {
+        "en": "cette = this, that (before a feminine noun)",
+        "es-419": "cette = esta, esa (ante sustantivo femenino)",
+        "it": "cette = questa, quella (davanti a nome femminile)",
+        "nl": "cette = deze, die (voor een vrouwelijk zelfstandig naamwoord)"
+      }
+    },
+    "ceux": {
+      "lemma": "celui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "ceux = the ones (m pl); ceux que = the ones that",
+        "es-419": "ceux = los (m pl); ceux que = los que",
+        "it": "ceux = quelli (m pl); ceux que = quelli che",
+        "nl": "ceux = degenen, die (mv); ceux que = die"
+      }
+    },
+    "chapitre": {
+      "lemma": "chapitre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "chapter (m)",
+        "es-419": "capítulo (m)",
+        "it": "capitolo (m)",
+        "nl": "hoofdstuk (m)"
+      }
+    },
+    "chez": {
+      "lemma": "chez",
+      "pos": "ADP",
+      "gloss": {
+        "en": "chez: at the home of, at; chez moi = at my place",
+        "es-419": "chez: en casa de; chez moi = en mi casa",
+        "it": "chez: da, a casa di; chez moi = a casa mia",
+        "nl": "chez: bij; chez moi = bij mij thuis"
+      }
+    },
+    "compris": {
+      "lemma": "comprendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "understood (comprendre: past participle)",
+        "es-419": "entendido, entendí (comprendre, participio)",
+        "it": "capito (comprendre, participio)",
+        "nl": "begrepen (comprendre, voltooid deelwoord)"
+      }
+    },
+    "connais": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "know (a person or place); connaître: connais, connaît, connaissons, connaissez, connaissent",
+        "es-419": "conocer (a una persona o un lugar); connaître: connais, connaît, connaissons, connaissez, connaissent",
+        "it": "conoscere (una persona o un luogo); connaître: connais, connaît, connaissons, connaissez, connaissent",
+        "nl": "kennen (een persoon of plaats); connaître: connais, connaît, connaissons, connaissez, connaissent"
+      }
+    },
+    "connu": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "known, well known (connaître: past participle)",
+        "es-419": "conocido (connaître, participio)",
+        "it": "conosciuto, famoso (connaître, participio)",
+        "nl": "bekend (connaître, voltooid deelwoord)"
+      }
+    },
+    "connue": {
+      "lemma": "connaître",
+      "pos": "VERB",
+      "gloss": {
+        "en": "known, well known (f) (connaître: past participle)",
+        "es-419": "conocida (f) (connaître, participio)",
+        "it": "conosciuta, famosa (f) (connaître, participio)",
+        "nl": "bekend (f) (connaître, voltooid deelwoord)"
+      }
+    },
+    "conseille": {
+      "lemma": "conseiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "recommend, advise (conseiller: je conseille)",
+        "es-419": "aconsejo, recomiendo (conseiller: je conseille)",
+        "it": "consiglio (conseiller: je conseille)",
+        "nl": "raad aan, adviseer (conseiller: je conseille)"
+      }
+    },
+    "conseillé": {
+      "lemma": "conseiller",
+      "pos": "VERB",
+      "gloss": {
+        "en": "recommended, advised (conseiller: past participle)",
+        "es-419": "aconsejó, recomendó (conseiller, participio)",
+        "it": "consigliato (conseiller, participio)",
+        "nl": "aangeraden (conseiller, voltooid deelwoord)"
+      }
+    },
+    "courts": {
+      "lemma": "court",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "short (plural of court): les cheveux courts = short hair",
+        "es-419": "cortos (plural de court): les cheveux courts = pelo corto",
+        "it": "corti (plurale di court): les cheveux courts = capelli corti",
+        "nl": "korte (meervoud van court): les cheveux courts = kort haar"
+      }
+    },
+    "couverture": {
+      "lemma": "couverture",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "cover (f): the cover of a book; also a blanket",
+        "es-419": "portada (f): la de un libro; también manta",
+        "it": "copertina (f): di un libro; anche coperta",
+        "nl": "omslag (f): van een boek; ook deken"
+      }
+    },
+    "critique": {
+      "lemma": "critique",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "review (f): a critique of a book or film",
+        "es-419": "reseña (f): crítica de un libro o película",
+        "it": "recensione (f): critica di un libro o film",
+        "nl": "recensie (f): over een boek of film"
+      }
+    },
+    "d'amour": {
+      "lemma": "amour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "of love (de + amour); un roman d'amour = a love story",
+        "es-419": "de amor (de + amour); un roman d'amour = novela de amor",
+        "it": "d'amore (de + amour); un roman d'amour = romanzo d'amore",
+        "nl": "van liefde (de + amour); un roman d'amour = liefdesroman"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, inside; dans un bureau = in an office",
+        "es-419": "en, dentro de; dans un bureau = en una oficina",
+        "it": "in, dentro; dans un bureau = in un ufficio",
+        "nl": "in, binnen; dans un bureau = op een kantoor; let op: NL dans is in het Frans danse"
+      }
+    },
+    "de": {
+      "lemma": "de",
+      "pos": "ADP",
+      "gloss": {
+        "en": "de = of, from; after an amount: un verre de vin; de l'eau = some water",
+        "es-419": "de = de; después de una cantidad: un verre de vin; de l'eau = agua, un poco de agua",
+        "it": "de = di, da; dopo una quantità: un verre de vin; de l'eau = dell'acqua",
+        "nl": "de = van; na een hoeveelheid: un verre de vin; de l'eau = water; let op: de is geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "dernier": {
+      "lemma": "dernier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "last (the final one)",
+        "es-419": "último (el final)",
+        "it": "ultimo (l'ultimo)",
+        "nl": "laatste (de allerlaatste)"
+      }
+    },
+    "des": {
+      "lemma": "des",
+      "pos": "DET",
+      "gloss": {
+        "en": "some, of the (plural of un/une); des pommes = apples",
+        "es-419": "unos, unas, de los (plural de un/une); des pommes = manzanas",
+        "it": "dei, delle (plurale di un/une); des pommes = mele",
+        "nl": "enkele, van de (meervoud van un/une); des pommes = appels"
+      }
+    },
+    "deux": {
+      "lemma": "deux",
+      "pos": "NUM",
+      "gloss": {
+        "en": "two",
+        "es-419": "dos",
+        "it": "due",
+        "nl": "twee"
+      }
+    },
+    "dont": {
+      "lemma": "dont",
+      "pos": "PRON",
+      "gloss": {
+        "en": "dont = whose, of which, about which; le livre dont je parle = the book I'm talking about",
+        "es-419": "dont = cuyo, del que, de quien; le livre dont je parle = el libro del que hablo",
+        "it": "dont = di cui, il cui; le livre dont je parle = il libro di cui parlo",
+        "nl": "dont = waarvan, waarover; le livre dont je parle = het boek waarover ik praat"
+      }
+    },
+    "drôle": {
+      "lemma": "drôle",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "funny (same for m and f)",
+        "es-419": "gracioso (igual para m y f)",
+        "it": "divertente (uguale per m e f)",
+        "nl": "grappig (m en f gelijk)"
+      }
+    },
+    "drôles": {
+      "lemma": "drôle",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "funny (plural of drôle)",
+        "es-419": "gracioso (plural de drôle)",
+        "it": "divertente (plurale di drôle)",
+        "nl": "grappig (meervoud van drôle)"
+      }
+    },
+    "du": {
+      "lemma": "du",
+      "pos": "DET",
+      "gloss": {
+        "en": "du = some (before a masculine noun): du lait, du sucre; also de + le",
+        "es-419": "du = algo de, un poco de (delante de un nombre masculino): du lait, du sucre; también de + le",
+        "it": "du = del, un po' di (davanti a un nome maschile): du lait, du sucre; anche de + le",
+        "nl": "du = wat, een beetje (vóór een mannelijk woord): du lait, du sucre; ook de + le; let op: de is hier geen lidwoord zoals in het Nederlands"
+      }
+    },
+    "duquel": {
+      "lemma": "lequel",
+      "pos": "PRON",
+      "gloss": {
+        "en": "duquel = de + lequel: of which",
+        "es-419": "duquel = de + lequel: del cual",
+        "it": "duquel = de + lequel: del quale",
+        "nl": "duquel = de + lequel: waarvan"
+      }
+    },
+    "en": {
+      "lemma": "en",
+      "pos": "ADP",
+      "gloss": {
+        "en": "en: in; vous l'avez en bleu = do you have it in blue?",
+        "es-419": "en: en; vous l'avez en bleu = ¿lo tiene en azul?",
+        "it": "en: in; vous l'avez en bleu = ce l'ha in blu?",
+        "nl": "en: in; vous l'avez en bleu = heeft u het in blauw?"
+      }
+    },
+    "est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "est = is (être: suis, es, est, sommes, êtes, sont); sounds like et (and)",
+        "es-419": "est = es, está (être: suis, es, est, sommes, êtes, sont); suena igual que et (y)",
+        "it": "est = è (être: suis, es, est, sommes, êtes, sont); suona come et (e)",
+        "nl": "est = is (être: suis, es, est, sommes, êtes, sont); klinkt als et (en)"
+      }
+    },
+    "et": {
+      "lemma": "et",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "and; sounds like est (is)",
+        "es-419": "y; suena igual que est (es)",
+        "it": "e; suona come est (è)",
+        "nl": "en; klinkt als est (is)"
+      }
+    },
+    "eu": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "had (avoir: past participle); avoir du succès = be a success",
+        "es-419": "tuvo (avoir, participio); avoir du succès = tener éxito",
+        "it": "avuto (avoir, participio); avoir du succès = avere successo",
+        "nl": "gehad (avoir, voltooid deelwoord); avoir du succès = succes hebben"
+      }
+    },
+    "fais": {
+      "lemma": "faire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "fais = do, make (faire: fais, fais, fait, faisons, faites, font); je fais du quarante = I'm a size 40",
+        "es-419": "fais = hago (faire: fais, fais, fait, faisons, faites, font); je fais du quarante = uso la talla 40",
+        "it": "fais = faccio (faire: fais, fais, fait, faisons, faites, font); je fais du quarante = porto la 40",
+        "nl": "fais = doe, maak (faire: fais, fais, fait, faisons, faites, font); je fais du quarante = ik heb maat 40"
+      }
+    },
+    "fille": {
+      "lemma": "fille",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "girl, daughter (f)",
+        "es-419": "hija, niña, chica (f)",
+        "it": "figlia, ragazza (f); attenzione: fille significa sia figlia sia ragazza",
+        "nl": "dochter, meisje (f)"
+      }
+    },
+    "film": {
+      "lemma": "film",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "film (m): movie, film",
+        "es-419": "film (m): película; ojo: film es masculino",
+        "it": "film (m): film",
+        "nl": "film (m): film"
+      }
+    },
+    "films": {
+      "lemma": "film",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "films, movies (m pl)",
+        "es-419": "películas (m pl)",
+        "it": "film (m pl)",
+        "nl": "films (mv)"
+      }
+    },
+    "fin": {
+      "lemma": "fin",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "end, ending (f)",
+        "es-419": "final, fin (f)",
+        "it": "fine, finale (f)",
+        "nl": "einde (f)"
+      }
+    },
+    "fini": {
+      "lemma": "finir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "finished (finir: past participle)",
+        "es-419": "terminé (finir, participio)",
+        "it": "finito (finir, participio)",
+        "nl": "uit, afgemaakt (finir, voltooid deelwoord)"
+      }
+    },
+    "française": {
+      "lemma": "français",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "française = feminine of français: French",
+        "es-419": "française = femenino de français: francés, francesa",
+        "it": "française = femminile di français: francese",
+        "nl": "française = vrouwelijk van français: Frans"
+      }
+    },
+    "futur": {
+      "lemma": "futur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "future (m); dans le futur = in the future",
+        "es-419": "futuro (m); dans le futur = en el futuro",
+        "it": "futuro (m); dans le futur = nel futuro",
+        "nl": "toekomst (m); dans le futur = in de toekomst"
+      }
+    },
+    "gagné": {
+      "lemma": "gagner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "won (gagner: past participle)",
+        "es-419": "ganó, ganado (gagner, participio)",
+        "it": "vinto (gagner, participio)",
+        "nl": "gewonnen (gagner, voltooid deelwoord)"
+      }
+    },
+    "garçon": {
+      "lemma": "garçon",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "boy (m)",
+        "es-419": "niño, chico (m); también mesero",
+        "it": "ragazzo (m); anche cameriere",
+        "nl": "jongen (m)"
+      }
+    },
+    "genre": {
+      "lemma": "genre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "genre, kind (m)",
+        "es-419": "género (m)",
+        "it": "genere (m)",
+        "nl": "genre (m)"
+      }
+    },
+    "grand": {
+      "lemma": "grand",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "grand = big, large, tall; watch out: grand covers both big and tall",
+        "es-419": "grand = grande, alto",
+        "it": "grand = grande, alto",
+        "nl": "grand = groot, lang"
+      }
+    },
+    "habite": {
+      "lemma": "habiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "live (habiter: habite, habites, habitons, habitez, habitent); the h is silent",
+        "es-419": "vivir, habitar (habiter: habite, habites, habitons, habitez, habitent); la h es muda",
+        "it": "abitare (habiter: habite, habites, habitons, habitez, habitent); la h è muta",
+        "nl": "wonen (habiter: habite, habites, habitons, habitez, habitent); de h is stom"
+      }
+    },
+    "hier": {
+      "lemma": "hier",
+      "pos": "ADV",
+      "gloss": {
+        "en": "yesterday",
+        "es-419": "ayer",
+        "it": "ieri",
+        "nl": "gisteren"
+      }
+    },
+    "héros": {
+      "lemma": "héros",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "hero (m); the s is silent",
+        "es-419": "héroe (m); la s es muda",
+        "it": "eroe (m); la s è muta",
+        "nl": "held (m); de s is stom"
+      }
+    },
+    "il": {
+      "lemma": "il",
+      "pos": "PRON",
+      "gloss": {
+        "en": "il: he, it; il y a = there is, there are",
+        "es-419": "il: él, ello; il y a = hay",
+        "it": "il: lui, esso; il y a = c'è, ci sono",
+        "nl": "il: hij, het; il y a = er is, er zijn"
+      }
+    },
+    "intrigue": {
+      "lemma": "intrigue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "plot (f)",
+        "es-419": "trama (f)",
+        "it": "trama (f)",
+        "nl": "plot (f)"
+      }
+    },
+    "j'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'ai = je + ai: I have",
+        "es-419": "j'ai = je + ai: tengo",
+        "it": "j'ai = je + ai: ho",
+        "nl": "j'ai = je + ai: ik heb"
+      }
+    },
+    "j'aime": {
+      "lemma": "aimer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "j'aime = je + aime: I like, I love",
+        "es-419": "j'aime = je + aime: me gusta, me encanta",
+        "it": "j'aime = je + aime: mi piace, amo",
+        "nl": "j'aime = je + aime: ik hou van, ik vind leuk"
+      }
+    },
+    "jamais": {
+      "lemma": "jamais",
+      "pos": "ADV",
+      "gloss": {
+        "en": "never; always with ne: je ne mange jamais",
+        "es-419": "nunca; siempre con ne: je ne mange jamais",
+        "it": "mai; sempre con ne: je ne mange jamais",
+        "nl": "nooit; altijd met ne: je ne mange jamais"
+      }
+    },
+    "je": {
+      "lemma": "je",
+      "pos": "PRON",
+      "gloss": {
+        "en": "je = I",
+        "es-419": "je = yo",
+        "it": "je = io",
+        "nl": "je = ik"
+      }
+    },
+    "jeune": {
+      "lemma": "jeune",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "young (same for m and f)",
+        "es-419": "joven (igual para m y f)",
+        "it": "giovane (uguale per m e f)",
+        "nl": "jong (m en f gelijk)"
+      }
+    },
+    "joli": {
+      "lemma": "joli",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "pretty",
+        "es-419": "bonito",
+        "it": "carino",
+        "nl": "mooi"
+      }
+    },
+    "joue": {
+      "lemma": "jouer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "joue = play (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "es-419": "joue = juego, juega (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "it": "joue = gioco, gioca (jouer: joue, joues, joue, jouons, jouez, jouent)",
+        "nl": "joue = speel, speelt (jouer: joue, joues, joue, jouons, jouez, jouent)"
+      }
+    },
+    "jour": {
+      "lemma": "jour",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "day, as a unit of time (m)",
+        "es-419": "día, como unidad de tiempo (m)",
+        "it": "giorno, come unità di tempo (m)",
+        "nl": "dag, als tijdseenheid (m)"
+      }
+    },
+    "journal": {
+      "lemma": "journal",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "newspaper (m)",
+        "es-419": "periódico (m)",
+        "it": "giornale (m)",
+        "nl": "krant (m)"
+      }
+    },
+    "l'acteur": {
+      "lemma": "acteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the actor (m)",
+        "es-419": "el actor (m)",
+        "it": "l'attore (m)",
+        "nl": "de acteur (m)"
+      }
+    },
+    "l'actrice": {
+      "lemma": "acteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the actress (f)",
+        "es-419": "la actriz (f)",
+        "it": "l'attrice (f)",
+        "nl": "de actrice (f)"
+      }
+    },
+    "l'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "l'ai = le/la + ai: (I) have it; je ne l'ai pas aimé = I didn't like it",
+        "es-419": "l'ai = le/la + ai: lo/la (he); je ne l'ai pas aimé = no me gustó",
+        "it": "l'ai = le/la + ai: lo/la (ho); je ne l'ai pas aimé = non mi è piaciuto",
+        "nl": "l'ai = le/la + ai: het (heb); je ne l'ai pas aimé = ik vond het niet mooi"
+      }
+    },
+    "l'auteur": {
+      "lemma": "auteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the author (m)",
+        "es-419": "el autor (m)",
+        "it": "l'autore (m)",
+        "nl": "de auteur (m)"
+      }
+    },
+    "l'histoire": {
+      "lemma": "histoire",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the story, the history (f)",
+        "es-419": "la historia (f)",
+        "it": "la storia (f)",
+        "nl": "het verhaal, de geschiedenis (o/v)"
+      }
+    },
+    "l'intrigue": {
+      "lemma": "intrigue",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the plot (f)",
+        "es-419": "la trama (f)",
+        "it": "la trama (f)",
+        "nl": "het plot (f)"
+      }
+    },
+    "l'écrivain": {
+      "lemma": "écrivain",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "the writer (m)",
+        "es-419": "el escritor (m)",
+        "it": "lo scrittore (m)",
+        "nl": "de schrijver (m)"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
+      }
+    },
+    "laquelle": {
+      "lemma": "lequel",
+      "pos": "PRON",
+      "gloss": {
+        "en": "laquelle = which (f); dans laquelle = in which; pour laquelle = for which",
+        "es-419": "laquelle = la cual (f); dans laquelle = en la que",
+        "it": "laquelle = la quale (f); dans laquelle = in cui",
+        "nl": "laquelle = welke (f); dans laquelle = waarin"
+      }
+    },
+    "le": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "le = the (before a masculine noun); la (feminine), l' (before a vowel), les (plural)",
+        "es-419": "le = el (delante de un nombre masculino); la (femenino), l' (delante de vocal), les (plural)",
+        "it": "le = il, lo (davanti a un nome maschile); la (femminile), l' (davanti a vocale), les (plurale)",
+        "nl": "le = de, het (vóór een mannelijk woord); la (vrouwelijk), l' (vóór een klinker), les (meervoud)"
+      }
+    },
+    "lecteur": {
+      "lemma": "lecteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reader (m); lectrice = female reader (f)",
+        "es-419": "lector (m); lectrice = lectora (f)",
+        "it": "lettore (m); lectrice = lettrice (f)",
+        "nl": "lezer (m); lectrice = lezeres (m)"
+      }
+    },
+    "lecteurs": {
+      "lemma": "lecteur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "readers (m pl)",
+        "es-419": "lectores (m pl)",
+        "it": "lettori (m pl)",
+        "nl": "lezers (mv)"
+      }
+    },
+    "lequel": {
+      "lemma": "lequel",
+      "pos": "PRON",
+      "gloss": {
+        "en": "lequel = which one (m); lequel de ces livres? = which of these books?",
+        "es-419": "lequel = cuál (m)",
+        "it": "lequel = quale (m)",
+        "nl": "lequel = welke (m)"
+      }
+    },
+    "les": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "the (plural of le, la)",
+        "es-419": "los, las (plural de le, la)",
+        "it": "i, le, gli (plurale di le, la)",
+        "nl": "de (meervoud van le, la)"
+      }
+    },
+    "librairie": {
+      "lemma": "librairie",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "bookshop (f); watch out: librairie = bookshop, bibliothèque = library",
+        "es-419": "librería (f); ojo: librairie = librería, bibliothèque = biblioteca",
+        "it": "libreria (f); attenzione: librairie = libreria, bibliothèque = biblioteca",
+        "nl": "boekhandel (f); let op: librairie = boekhandel, bibliothèque = bibliotheek"
+      }
+    },
+    "lis": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (lire); je lis = I read",
+        "es-419": "leo (lire); je lis",
+        "it": "leggo (lire); je lis",
+        "nl": "lees (lire); je lis"
+      }
+    },
+    "livre": {
+      "lemma": "livre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "book (m)",
+        "es-419": "libro (m)",
+        "it": "libro (m)",
+        "nl": "boek (m)"
+      }
+    },
+    "livres": {
+      "lemma": "livre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "books (m pl)",
+        "es-419": "libros (m pl)",
+        "it": "libri (m pl)",
+        "nl": "boeken (m pl)"
+      }
+    },
+    "long": {
+      "lemma": "long",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "long = long (masculine)",
+        "es-419": "long = largo (masculino)",
+        "it": "long = lungo (maschile)",
+        "nl": "long = lang (mannelijk)"
+      }
+    },
+    "lu": {
+      "lemma": "lire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "read (lire: past participle)",
+        "es-419": "leído (lire, participio)",
+        "it": "letto (lire, participio)",
+        "nl": "gelezen (lire, voltooid deelwoord)"
+      }
+    },
+    "lyon": {
+      "lemma": "lyon",
+      "pos": "PROPN",
+      "gloss": {
+        "en": "Lyon, a city in France",
+        "es-419": "Lyon, ciudad de Francia",
+        "it": "Lione, città della Francia",
+        "nl": "Lyon, stad in Frankrijk"
+      }
+    },
+    "m'a": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "m'a = me + a: (he/she) has ... me; elle m'a conseillé = she recommended to me",
+        "es-419": "m'a = me + a: me (ha); elle m'a conseillé = me aconsejó",
+        "it": "m'a = me + a: mi (ha); elle m'a conseillé = mi ha consigliato",
+        "nl": "m'a = me + a: mij (heeft); elle m'a conseillé = zij raadde mij aan"
+      }
+    },
+    "ma": {
+      "lemma": "mon",
+      "pos": "DET",
+      "gloss": {
+        "en": "ma = feminine of mon: my",
+        "es-419": "ma = femenino de mon: mi",
+        "it": "ma = femminile di mon: mia",
+        "nl": "ma = vrouwelijk van mon: mijn"
+      }
+    },
+    "mais": {
+      "lemma": "mais",
+      "pos": "CCONJ",
+      "gloss": {
+        "en": "mais: but",
+        "es-419": "mais: pero",
+        "it": "mais: ma",
+        "nl": "mais: maar"
+      }
+    },
+    "maison": {
+      "lemma": "maison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "house, home (f)",
+        "es-419": "casa (f)",
+        "it": "casa (f)",
+        "nl": "huis, thuis (f)"
+      }
+    },
+    "marché": {
+      "lemma": "marché",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "marché (m): market",
+        "es-419": "marché (m): mercado",
+        "it": "marché (m): mercato",
+        "nl": "marché (m): markt"
+      }
+    },
+    "meilleur": {
+      "lemma": "meilleur",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "best, better (meilleur = better; le meilleur = the best)",
+        "es-419": "mejor (meilleur = mejor; le meilleur = el mejor)",
+        "it": "migliore (meilleur = migliore; le meilleur = il migliore)",
+        "nl": "beste, beter (meilleur = beter; le meilleur = de beste)"
+      }
+    },
+    "milieu": {
+      "lemma": "milieu",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "middle (m); au milieu de = in the middle of",
+        "es-419": "medio, centro (m); au milieu de = en medio de",
+        "it": "mezzo (m); au milieu de = in mezzo a",
+        "nl": "midden (m); au milieu de = midden in"
+      }
+    },
+    "moi": {
+      "lemma": "moi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "moi = me (after a preposition or on its own); pour moi, moi aussi",
+        "es-419": "moi = yo, mí (después de preposición o solo); pour moi, moi aussi",
+        "it": "moi = io, me (dopo una preposizione o da solo); pour moi, moi aussi",
+        "nl": "moi = ik, mij (na een voorzetsel of alleen); pour moi, moi aussi"
+      }
+    },
+    "monde": {
+      "lemma": "monde",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "world (m); tout le monde = everyone",
+        "es-419": "mundo (m); tout le monde = todos",
+        "it": "mondo (m); tout le monde = tutti",
+        "nl": "wereld (m); tout le monde = iedereen"
+      }
+    },
+    "morte": {
+      "lemma": "mourir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "dead, died (f) (mourir: past participle, est morte)",
+        "es-419": "muerta, murió (f) (mourir, participio; est morte)",
+        "it": "morta, è morta (f) (mourir, participio; est morte)",
+        "nl": "dood, gestorven (f) (mourir, voltooid deelwoord; est morte)"
+      }
+    },
+    "mère": {
+      "lemma": "mère",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "mother (f)",
+        "es-419": "madre (f)",
+        "it": "madre (f)",
+        "nl": "moeder (f)"
+      }
+    },
+    "n'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "n'ai = ne + ai: (I) don't have; je n'ai pas = I don't have",
+        "es-419": "n'ai = ne + ai: no tengo; je n'ai pas = no tengo",
+        "it": "n'ai = ne + ai: non ho; je n'ai pas = non ho",
+        "nl": "n'ai = ne + ai: heb niet; je n'ai pas = ik heb niet"
+      }
+    },
+    "n'est": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "n'est = ne + est: is not (ne ... pas)",
+        "es-419": "n'est = ne + est: no es (ne ... pas)",
+        "it": "n'est = ne + est: non è (ne ... pas)",
+        "nl": "n'est = ne + est: is niet (ne ... pas)"
+      }
+    },
+    "ne": {
+      "lemma": "ne",
+      "pos": "PART",
+      "gloss": {
+        "en": "ne: not, with pas (ne ... pas)",
+        "es-419": "ne: no, con pas (ne ... pas)",
+        "it": "ne: non, con pas (ne ... pas)",
+        "nl": "ne: niet, met pas (ne ... pas)"
+      }
+    },
+    "original": {
+      "lemma": "original",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "original (m)",
+        "es-419": "original (m)",
+        "it": "originale (m)",
+        "nl": "origineel (m)"
+      }
+    },
+    "originale": {
+      "lemma": "original",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "original (f); en version originale = in the original language",
+        "es-419": "original (f); en version originale = en versión original",
+        "it": "originale (f); en version originale = in versione originale",
+        "nl": "origineel (f); en version originale = in de originele taal"
+      }
+    },
+    "où": {
+      "lemma": "où",
+      "pos": "ADV",
+      "gloss": {
+        "en": "où = where; also 'when' after a time: le jour où = the day when",
+        "es-419": "où = donde; también 'cuando' tras un tiempo: le jour où = el día en que",
+        "it": "où = dove; anche 'in cui' dopo un tempo: le jour où = il giorno in cui",
+        "nl": "où = waar; ook 'waarop' na een tijd: le jour où = de dag waarop"
+      }
+    },
+    "page": {
+      "lemma": "page",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "page (f)",
+        "es-419": "página (f)",
+        "it": "pagina (f)",
+        "nl": "bladzijde (f)"
+      }
+    },
+    "parc": {
+      "lemma": "parc",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "parc (m): park",
+        "es-419": "parc (m): parque",
+        "it": "parc (m): parco",
+        "nl": "parc (m): park"
+      }
+    },
+    "parce": {
+      "lemma": "parce",
+      "pos": "SCONJ",
+      "gloss": {
+        "en": "parce: in parce que = because",
+        "es-419": "parce: en parce que = porque",
+        "it": "parce: in parce que = perché",
+        "nl": "parce: in parce que = omdat, want"
+      }
+    },
+    "parle": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "parle = speak (je parle, il/elle parle)",
+        "es-419": "parle = hablo, habla (je parle, il/elle parle)",
+        "it": "parle = parlo, parla (je parle, il/elle parle)",
+        "nl": "parle = spreek, spreekt (je parle, il/elle parle)"
+      }
+    },
+    "parles": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "(you) speak (tu parles; the -s is silent)",
+        "es-419": "(tú) hablas (tu parles; la -s no se pronuncia)",
+        "it": "(tu) parli (tu parles; la -s non si pronuncia)",
+        "nl": "(jij) spreekt (tu parles; de -s hoor je niet)"
+      }
+    },
+    "parlé": {
+      "lemma": "parler",
+      "pos": "VERB",
+      "gloss": {
+        "en": "spoke, talked (parler: past participle)",
+        "es-419": "hablado (parler, participio)",
+        "it": "parlato (parler, participio)",
+        "nl": "gesproken (parler, voltooid deelwoord)"
+      }
+    },
+    "pas": {
+      "lemma": "pas",
+      "pos": "ADV",
+      "gloss": {
+        "en": "pas: not (ne ... pas)",
+        "es-419": "pas: no (ne ... pas)",
+        "it": "pas: non (ne ... pas)",
+        "nl": "pas: niet (ne ... pas)"
+      }
+    },
+    "passe": {
+      "lemma": "passer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "passes, goes by (passer); se passer = to take place, to happen; le métro passe = the subway runs",
+        "es-419": "pasa (passer); se passer = ocurrir, transcurrir; le métro passe = el metro pasa",
+        "it": "passa (passer); se passer = svolgersi, succedere; le métro passe = passa la metropolitana",
+        "nl": "gaat voorbij (passer); se passer = zich afspelen, gebeuren; le métro passe = de metro rijdt"
+      }
+    },
+    "passionnant": {
+      "lemma": "passionnant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "exciting, gripping (m)",
+        "es-419": "apasionante (m)",
+        "it": "appassionante (m)",
+        "nl": "boeiend (m)"
+      }
+    },
+    "pendant": {
+      "lemma": "pendant",
+      "pos": "ADP",
+      "gloss": {
+        "en": "for, during (pendant trois jours = for three days)",
+        "es-419": "durante (pendant trois jours = durante tres días)",
+        "it": "per, durante (pendant trois jours = per tre giorni)",
+        "nl": "gedurende, lang (pendant trois jours = drie dagen lang)"
+      }
+    },
+    "pensais": {
+      "lemma": "penser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "was thinking (penser: imperfect); je pensais = I was thinking",
+        "es-419": "pensaba (penser, imperfecto); je pensais = yo pensaba",
+        "it": "pensavo (penser, imperfetto); je pensais = io pensavo",
+        "nl": "dacht (penser, onvoltooid verleden tijd); je pensais = ik dacht"
+      }
+    },
+    "pense": {
+      "lemma": "penser",
+      "pos": "VERB",
+      "gloss": {
+        "en": "think (penser: je pense); penser à = to think about",
+        "es-419": "pienso (penser: je pense); penser à = pensar en",
+        "it": "penso (penser: je pense); penser à = pensare a",
+        "nl": "denk (penser: je pense); penser à = denken aan"
+      }
+    },
+    "personnage": {
+      "lemma": "personnage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "character (m), in a story",
+        "es-419": "personaje (m)",
+        "it": "personaggio (m)",
+        "nl": "personage (m)"
+      }
+    },
+    "personnages": {
+      "lemma": "personnage",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "characters (m pl), in a story",
+        "es-419": "personajes (m pl)",
+        "it": "personaggi (m pl)",
+        "nl": "personages (mv)"
+      }
+    },
+    "petit": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "petit = small, little",
+        "es-419": "petit = pequeño",
+        "it": "petit = piccolo",
+        "nl": "petit = klein"
+      }
+    },
+    "petite": {
+      "lemma": "petit",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "petite = feminine of petit: small, little",
+        "es-419": "petite = femenino de petit: pequeña",
+        "it": "petite = femminile di petit: piccola",
+        "nl": "petite = vrouwelijk van petit: klein"
+      }
+    },
+    "pleuré": {
+      "lemma": "pleurer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "cried (pleurer: past participle)",
+        "es-419": "lloró, llorado (pleurer, participio)",
+        "it": "pianto (pleurer, participio)",
+        "nl": "gehuild (pleurer, voltooid deelwoord)"
+      }
+    },
+    "pour": {
+      "lemma": "pour",
+      "pos": "ADP",
+      "gloss": {
+        "en": "pour = for; pour moi = for me",
+        "es-419": "pour = para; pour moi = para mí",
+        "it": "pour = per; pour moi = per me",
+        "nl": "pour = voor; pour moi = voor mij"
+      }
+    },
+    "premier": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (m)",
+        "es-419": "primero (m)",
+        "it": "primo (m)",
+        "nl": "eerste (m)"
+      }
+    },
+    "première": {
+      "lemma": "premier",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "first (f of premier)",
+        "es-419": "primera (f de premier)",
+        "it": "prima (f di premier)",
+        "nl": "eerste (v van premier)"
+      }
+    },
+    "prix": {
+      "lemma": "prix",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "prix (m): price, prize; the x is silent",
+        "es-419": "prix (m): precio, premio; la x es muda",
+        "it": "prix (m): prezzo, premio; la x è muta",
+        "nl": "prix (m): prijs; de x is stom"
+      }
+    },
+    "près": {
+      "lemma": "près",
+      "pos": "ADV",
+      "gloss": {
+        "en": "près = near, close (près de = near; sounds like prêt); près d'ici = near here",
+        "es-419": "près = cerca (près de = cerca de); près d'ici = cerca de aquí",
+        "it": "près = vicino (près de = vicino a); près d'ici = vicino a qui",
+        "nl": "près = dichtbij (près de = dicht bij); près d'ici = hier dichtbij"
+      }
+    },
+    "préfère": {
+      "lemma": "préférer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "prefer, like best (préférer: je préfère, il préfère)",
+        "es-419": "prefiero (préférer: je préfère)",
+        "it": "preferisco (préférer: je préfère)",
+        "nl": "heb liever (préférer: je préfère)"
+      }
+    },
+    "préfères": {
+      "lemma": "préférer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "préfères = prefer (tu préfères)",
+        "es-419": "préfères = prefieres (tu préfères)",
+        "it": "préfères = preferisci (tu préfères)",
+        "nl": "préfères = heb je liever (tu préfères)"
+      }
+    },
+    "préféré#préférer": {
+      "lemma": "préférer",
+      "pos": "VERB",
+      "gloss": {
+        "en": "liked best, preferred (préférer: past participle); watch out: préféré is also an adjective (favorite)",
+        "es-419": "gustó más, preferido (préférer, participio); ojo: préféré también es adjetivo (favorito)",
+        "it": "preferito (préférer, participio); attenzione: préféré è anche aggettivo (preferito)",
+        "nl": "liever gehad (préférer, voltooid deelwoord); let op: préféré is ook een bijvoeglijk naamwoord (favoriet)"
+      }
+    },
+    "public": {
+      "lemma": "public",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "audience, public (m)",
+        "es-419": "público (m)",
+        "it": "pubblico (m)",
+        "nl": "publiek (m)"
+      }
+    },
+    "publier": {
+      "lemma": "publier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "publish (publier)",
+        "es-419": "publicar (publier)",
+        "it": "pubblicare (publier)",
+        "nl": "publiceren (publier)"
+      }
+    },
+    "publié": {
+      "lemma": "publier",
+      "pos": "VERB",
+      "gloss": {
+        "en": "published (publier: past participle)",
+        "es-419": "publicó, publicado (publier, participio)",
+        "it": "pubblicato (publier, participio)",
+        "nl": "gepubliceerd (publier, voltooid deelwoord)"
+      }
+    },
+    "que": {
+      "lemma": "que",
+      "pos": "PRON",
+      "gloss": {
+        "en": "que = that, which, whom (relative pronoun): le livre que je lis = the book (that) I read",
+        "es-419": "que = que, el que (pronombre relativo): le livre que je lis = el libro que leo",
+        "it": "que = che (pronome relativo): le livre que je lis = il libro che leggo",
+        "nl": "que = die, dat (betrekkelijk voornaamwoord): le livre que je lis = het boek dat ik lees"
+      }
+    },
+    "qui": {
+      "lemma": "qui",
+      "pos": "PRON",
+      "gloss": {
+        "en": "qui = who, that, which (subject): l'écrivain qui a gagné = the writer who won; also after a preposition: avec qui = with whom",
+        "es-419": "qui = que, quien (sujeto): l'écrivain qui a gagné = el escritor que ganó; tras preposición: avec qui = con quien",
+        "it": "qui = che, chi (soggetto): l'écrivain qui a gagné = lo scrittore che ha vinto; dopo preposizione: avec qui = con cui",
+        "nl": "qui = die, wie (onderwerp): l'écrivain qui a gagné = de schrijver die won; na voorzetsel: avec qui = met wie"
+      }
+    },
+    "quoi": {
+      "lemma": "quoi",
+      "pos": "PRON",
+      "gloss": {
+        "en": "quoi = what (after a preposition): de quoi, à quoi",
+        "es-419": "quoi = qué (tras una preposición): de quoi, à quoi",
+        "it": "quoi = che cosa (dopo una preposizione): de quoi, à quoi",
+        "nl": "quoi = wat (na een voorzetsel): de quoi, à quoi"
+      }
+    },
+    "raison": {
+      "lemma": "raison",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "reason (f); avoir raison = to be right",
+        "es-419": "razón (f); avoir raison = tener razón",
+        "it": "ragione (f); avoir raison = avere ragione",
+        "nl": "reden (f); avoir raison = gelijk hebben"
+      }
+    },
+    "regarde": {
+      "lemma": "regarder",
+      "pos": "VERB",
+      "gloss": {
+        "en": "regarde = look, watch (regarder); je regarde seulement = I'm just looking",
+        "es-419": "regarde = miro, mira (regarder); je regarde seulement = solo estoy mirando",
+        "it": "regarde = guardo, guarda (regarder); je regarde seulement = sto solo guardando",
+        "nl": "regarde = kijk, kijkt (regarder); je regarde seulement = ik kijk alleen maar"
+      }
+    },
+    "rend": {
+      "lemma": "rendre",
+      "pos": "VERB",
+      "gloss": {
+        "en": "makes (rendre + adjective): rend passionnant = makes exciting; also to give back",
+        "es-419": "hace (rendre + adjetivo): rend passionnant = vuelve apasionante; también devolver",
+        "it": "rende (rendre + aggettivo): rend passionnant = rende appassionante; anche restituire",
+        "nl": "maakt (rendre + bijvoeglijk naamwoord): rend passionnant = maakt boeiend; ook teruggeven"
+      }
+    },
+    "rien": {
+      "lemma": "rien",
+      "pos": "PRON",
+      "gloss": {
+        "en": "rien = nothing; de rien = you're welcome",
+        "es-419": "rien = nada; de rien = de nada",
+        "it": "rien = niente; de rien = prego",
+        "nl": "rien = niets; de rien = graag gedaan"
+      }
+    },
+    "roman": {
+      "lemma": "roman",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "novel (m)",
+        "es-419": "novela (m)",
+        "it": "romanzo (m)",
+        "nl": "roman (m)"
+      }
+    },
+    "romans": {
+      "lemma": "roman",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "novels (m pl)",
+        "es-419": "novelas (m pl)",
+        "it": "romanzi (m pl)",
+        "nl": "romans (mv)"
+      }
+    },
+    "réalisateur": {
+      "lemma": "réalisateur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "director, of films (m)",
+        "es-419": "director de cine (m)",
+        "it": "regista (m)",
+        "nl": "regisseur (m)"
+      }
+    },
+    "résumé": {
+      "lemma": "résumé",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "summary (m)",
+        "es-419": "resumen (m)",
+        "it": "riassunto (m)",
+        "nl": "samenvatting (m)"
+      }
+    },
+    "science": {
+      "lemma": "science",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "science (f)",
+        "es-419": "ciencia (f)",
+        "it": "scienza (f)",
+        "nl": "wetenschap (f)"
+      }
+    },
+    "science-fiction": {
+      "lemma": "science-fiction",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "science fiction (f)",
+        "es-419": "ciencia ficción (f)",
+        "it": "fantascienza (f)",
+        "nl": "sciencefiction (f)"
+      }
+    },
+    "scène": {
+      "lemma": "scène",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "scene (f)",
+        "es-419": "escena (f)",
+        "it": "scena (f)",
+        "nl": "scène (f)"
+      }
+    },
+    "se": {
+      "lemma": "se",
+      "pos": "PRON",
+      "gloss": {
+        "en": "se: himself, herself, itself; ça se dit = it is said",
+        "es-419": "se: se; ça se dit = se dice",
+        "it": "se: si; ça se dit = si dice",
+        "nl": "se: zich; ça se dit = het wordt gezegd"
+      }
+    },
+    "simple": {
+      "lemma": "simple",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "simple, easy (same for m and f)",
+        "es-419": "simple, sencillo (igual en m y f)",
+        "it": "semplice (uguale per m e f)",
+        "nl": "eenvoudig (zelfde voor m en v)"
+      }
+    },
+    "soir": {
+      "lemma": "soir",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "evening (m); le soir = in the evening",
+        "es-419": "noche, atardecer (m); le soir = por la noche",
+        "it": "sera (m); le soir = di sera",
+        "nl": "avond (m); le soir = 's avonds"
+      }
+    },
+    "son": {
+      "lemma": "son",
+      "pos": "DET",
+      "gloss": {
+        "en": "his, her, its (masculine; sa = feminine, ses = plural)",
+        "es-419": "su (de él o de ella; masculino; sa = femenino, ses = plural)",
+        "it": "suo (di lui o di lei; maschile; sa = femminile, ses = plurale)",
+        "nl": "zijn of haar (mannelijk; sa = vrouwelijk, ses = meervoud)"
+      }
+    },
+    "sont": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "sont = are (ils sont, elles sont)",
+        "es-419": "sont = son, están (ils sont, elles sont)",
+        "it": "sont = sono (ils sont, elles sont)",
+        "nl": "sont = zijn (ils sont, elles sont)"
+      }
+    },
+    "sous-titre": {
+      "lemma": "sous-titre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "subtitle (m)",
+        "es-419": "subtítulo (m)",
+        "it": "sottotitolo (m)",
+        "nl": "ondertitel (m)"
+      }
+    },
+    "sous-titres": {
+      "lemma": "sous-titre",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "subtitles (m pl)",
+        "es-419": "subtítulos (m pl)",
+        "it": "sottotitoli (m pl)",
+        "nl": "ondertitels (mv)"
+      }
+    },
+    "souvent": {
+      "lemma": "souvent",
+      "pos": "ADV",
+      "gloss": {
+        "en": "often",
+        "es-419": "a menudo",
+        "it": "spesso",
+        "nl": "vaak"
+      }
+    },
+    "succès": {
+      "lemma": "succès",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "success, hit (m); avoir du succès = to be a hit",
+        "es-419": "éxito (m); avoir du succès = tener éxito",
+        "it": "successo (m); avoir du succès = avere successo",
+        "nl": "succes (m); avoir du succès = succes hebben"
+      }
+    },
+    "suis": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "am (être: suis, es, est, sommes, êtes, sont); je suis = I am",
+        "es-419": "soy, estoy (être: suis, es, est, sommes, êtes, sont); je suis = yo soy",
+        "it": "sono (être: suis, es, est, sommes, êtes, sont); je suis = io sono",
+        "nl": "ben (être: suis, es, est, sommes, êtes, sont); je suis = ik ben"
+      }
+    },
+    "série": {
+      "lemma": "série",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "series, TV show (f)",
+        "es-419": "serie (f)",
+        "it": "serie (f)",
+        "nl": "serie (f)"
+      }
+    },
+    "séries": {
+      "lemma": "série",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "series, TV shows (f pl)",
+        "es-419": "series (f pl)",
+        "it": "serie (f pl)",
+        "nl": "series (v mv)"
+      }
+    },
+    "sœur": {
+      "lemma": "sœur",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "sister (f)",
+        "es-419": "hermana (f)",
+        "it": "sorella (f)",
+        "nl": "zus, zuster (f)"
+      }
+    },
+    "t'ai": {
+      "lemma": "avoir",
+      "pos": "VERB",
+      "gloss": {
+        "en": "t'ai = te + ai: (I) have ... you; je t'ai parlé = I told you",
+        "es-419": "t'ai = te + ai: (yo) he ... te; je t'ai parlé = te hablé",
+        "it": "t'ai = te + ai: (io) ho ... ti; je t'ai parlé = ti ho parlato",
+        "nl": "t'ai = te + ai: (ik) heb ... je; je t'ai parlé = ik heb het je verteld"
+      }
+    },
+    "toujours": {
+      "lemma": "toujours",
+      "pos": "ADV",
+      "gloss": {
+        "en": "always; also: still",
+        "es-419": "siempre; también: todavía",
+        "it": "sempre; anche: ancora",
+        "nl": "altijd; ook: nog steeds"
+      }
+    },
+    "tourné": {
+      "lemma": "tourner",
+      "pos": "VERB",
+      "gloss": {
+        "en": "shot (tourner un film); turned (tourner: past participle)",
+        "es-419": "filmó, rodado (tourner un film; participio)",
+        "it": "girato (tourner un film; participio)",
+        "nl": "gedraaid (tourner un film; voltooid deelwoord)"
+      }
+    },
+    "tous": {
+      "lemma": "tout",
+      "pos": "DET",
+      "gloss": {
+        "en": "all, every (m pl of tout); tous les lecteurs = all the readers",
+        "es-419": "todos (m pl de tout); tous les lecteurs = todos los lectores",
+        "it": "tutti (m pl di tout); tous les lecteurs = tutti i lettori",
+        "nl": "alle (mv van tout); tous les lecteurs = alle lezers"
+      }
+    },
+    "tout": {
+      "lemma": "tout",
+      "pos": "PRON",
+      "gloss": {
+        "en": "tout = all, everything; c'est tout = that's all",
+        "es-419": "tout = todo; c'est tout = eso es todo",
+        "it": "tout = tutto; c'est tout = è tutto",
+        "nl": "tout = alles; c'est tout = dat is alles"
+      }
+    },
+    "traite": {
+      "lemma": "traiter",
+      "pos": "VERB",
+      "gloss": {
+        "en": "deals with (traiter de); de quoi traite ce livre? = what is this book about?",
+        "es-419": "trata (traiter de); de quoi traite ce livre? = ¿de qué trata este libro?",
+        "it": "tratta (traiter de); de quoi traite ce livre? = di che cosa tratta questo libro?",
+        "nl": "gaat over (traiter de); de quoi traite ce livre? = waarover gaat dit boek?"
+      }
+    },
+    "trois": {
+      "lemma": "trois",
+      "pos": "NUM",
+      "gloss": {
+        "en": "three",
+        "es-419": "tres",
+        "it": "tre",
+        "nl": "drie"
+      }
+    },
+    "trouve": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "trouve = find (trouver); je ne trouve pas = I can't find",
+        "es-419": "trouve = encuentro (trouver); je ne trouve pas = no encuentro",
+        "it": "trouve = trovo (trouver); je ne trouve pas = non trovo",
+        "nl": "trouve = vind (trouver); je ne trouve pas = ik kan niet vinden"
+      }
+    },
+    "trouvé": {
+      "lemma": "trouver",
+      "pos": "VERB",
+      "gloss": {
+        "en": "found (trouver: past participle)",
+        "es-419": "encontré, encontrado (trouver, participio)",
+        "it": "trovato (trouver, participio)",
+        "nl": "gevonden (trouver, voltooid deelwoord)"
+      }
+    },
+    "très": {
+      "lemma": "très",
+      "pos": "ADV",
+      "gloss": {
+        "en": "très: very",
+        "es-419": "très: muy",
+        "it": "très: molto",
+        "nl": "très: heel, erg"
+      }
+    },
+    "tu": {
+      "lemma": "tu",
+      "pos": "PRON",
+      "gloss": {
+        "en": "you (one person you know well)",
+        "es-419": "tú",
+        "it": "tu",
+        "nl": "jij, je"
+      }
+    },
+    "télévision": {
+      "lemma": "télévision",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "television (f)",
+        "es-419": "televisión (f)",
+        "it": "televisione (f)",
+        "nl": "televisie (f)"
+      }
+    },
+    "un": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "un = a, an (before a masculine noun); also one",
+        "es-419": "un = un (delante de un nombre masculino); también uno",
+        "it": "un = un (davanti a un nome maschile); anche uno",
+        "nl": "un = een (vóór een mannelijk woord); ook één"
+      }
+    },
+    "une": {
+      "lemma": "un",
+      "pos": "DET",
+      "gloss": {
+        "en": "une = a, an (before a feminine noun); also one",
+        "es-419": "une = una (delante de un nombre femenino); también una",
+        "it": "une = una (davanti a un nome femminile); anche una",
+        "nl": "une = een (vóór een vrouwelijk woord); ook één"
+      }
+    },
+    "version": {
+      "lemma": "version",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "version (f)",
+        "es-419": "versión (f)",
+        "it": "versione (f)",
+        "nl": "versie (f)"
+      }
+    },
+    "vieille": {
+      "lemma": "vieux",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "old (f of vieux)",
+        "es-419": "vieja (f de vieux)",
+        "it": "vecchia (f di vieux)",
+        "nl": "oud (v van vieux)"
+      }
+    },
+    "ville": {
+      "lemma": "ville",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "city, town (f)",
+        "es-419": "ciudad (f)",
+        "it": "città (f)",
+        "nl": "stad (f)"
+      }
+    },
+    "vingt": {
+      "lemma": "vingt",
+      "pos": "NUM",
+      "gloss": {
+        "en": "vingt = twenty; sounds like vin (wine)",
+        "es-419": "vingt = veinte; suena igual que vin (vino)",
+        "it": "vingt = venti; suona come vin (vino)",
+        "nl": "vingt = twintig; klinkt als vin (wijn)"
+      }
+    },
+    "voici": {
+      "lemma": "voici",
+      "pos": "ADV",
+      "gloss": {
+        "en": "here is, here are",
+        "es-419": "aquí está, aquí están",
+        "it": "ecco",
+        "nl": "hier is, dit is"
+      }
+    },
+    "voilà": {
+      "lemma": "voilà",
+      "pos": "INTJ",
+      "gloss": {
+        "en": "voilà = here is, here you are, there you go",
+        "es-419": "voilà = aquí tiene, aquí está, ahí está",
+        "it": "voilà = ecco",
+        "nl": "voilà = alstublieft, daar is"
+      }
+    },
+    "voyagé": {
+      "lemma": "voyager",
+      "pos": "VERB",
+      "gloss": {
+        "en": "traveled (voyager: past participle)",
+        "es-419": "viajado, viajó (voyager, participio)",
+        "it": "viaggiato (voyager, participio)",
+        "nl": "gereisd (voyager, voltooid deelwoord)"
+      }
+    },
+    "y": {
+      "lemma": "y",
+      "pos": "PRON",
+      "gloss": {
+        "en": "y: there; il y a = there is, there are",
+        "es-419": "y: allí; il y a = hay",
+        "it": "y: lì; il y a = c'è, ci sono",
+        "nl": "y: daar; il y a = er is, er zijn"
+      }
+    },
+    "à": {
+      "lemma": "à",
+      "pos": "ADP",
+      "gloss": {
+        "en": "à = at, to; à emporter = to go, take-away",
+        "es-419": "à = a, en; à emporter = para llevar",
+        "it": "à = a, in; à emporter = da portare via",
+        "nl": "à = naar, te, om; à emporter = om mee te nemen"
+      }
+    },
+    "écrit": {
+      "lemma": "écrire",
+      "pos": "VERB",
+      "gloss": {
+        "en": "written, wrote (écrire: past participle)",
+        "es-419": "escrito, escribió (écrire, participio)",
+        "it": "scritto (écrire, participio)",
+        "nl": "geschreven (écrire, voltooid deelwoord)"
+      }
+    },
+    "écrivain": {
+      "lemma": "écrivain",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "writer (m)",
+        "es-419": "escritor (m)",
+        "it": "scrittore (m)",
+        "nl": "schrijver (m)"
+      }
+    },
+    "émouvant": {
+      "lemma": "émouvant",
+      "pos": "ADJ",
+      "gloss": {
+        "en": "moving, touching (m)",
+        "es-419": "conmovedor (m)",
+        "it": "commovente (m)",
+        "nl": "ontroerend (m)"
+      }
+    },
+    "épisode": {
+      "lemma": "épisode",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "episode (m)",
+        "es-419": "episodio (m)",
+        "it": "episodio (m)",
+        "nl": "aflevering (m)"
+      }
+    },
+    "épisodes": {
+      "lemma": "épisode",
+      "pos": "NOUN",
+      "gloss": {
+        "en": "episodes (m pl)",
+        "es-419": "episodios (m pl)",
+        "it": "episodi (m pl)",
+        "nl": "afleveringen (mv)"
+      }
+    },
+    "était": {
+      "lemma": "être",
+      "pos": "AUX",
+      "gloss": {
+        "en": "était = was (être: imperfect); il était = he/it was",
+        "es-419": "era, estaba (être, imperfecto); il était = era",
+        "it": "era (être, imperfetto); il était = era",
+        "nl": "was (être, onvoltooid verleden tijd); il était = hij was"
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": "fr-b1-livres-1",
+      "title": "Le livre que je lis",
+      "grammarFocus": {
+        "en": [
+          "The relative pronoun que replaces the object of the clause: le roman que je lis = the novel (that) I'm reading. French never drops it, and the verb keeps its own subject: le chapitre que j'ai lu.",
+          "traiter de = to be about: De quoi traite ce livre? = What is this book about? After a preposition, quoi is used instead of que."
+        ],
+        "es-419": [
+          "El pronombre relativo que sustituye al complemento directo: le roman que je lis = la novela que leo. En francés nunca se omite, y el verbo conserva su propio sujeto: le chapitre que j'ai lu.",
+          "traiter de = tratar de, ir sobre: De quoi traite ce livre? = ¿De qué trata este libro? Tras una preposición se usa quoi en vez de que."
+        ],
+        "it": [
+          "Il pronome relativo que sostituisce il complemento oggetto: le roman que je lis = il romanzo che leggo. In francese non si omette mai, e il verbo mantiene il proprio soggetto: le chapitre que j'ai lu.",
+          "traiter de = trattare di: De quoi traite ce livre? = Di che cosa tratta questo libro? Dopo una preposizione si usa quoi al posto di que."
+        ],
+        "nl": [
+          "Het betrekkelijk voornaamwoord que vervangt het lijdend voorwerp: le roman que je lis = de roman die ik lees. In het Frans laat je het nooit weg, en het werkwoord houdt zijn eigen onderwerp: le chapitre que j'ai lu.",
+          "traiter de = gaan over: De quoi traite ce livre? = Waarover gaat dit boek? Na een voorzetsel gebruik je quoi in plaats van que."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-1-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "roman",
+          "translation": {
+            "en": "novel",
+            "es-419": "novela",
+            "it": "romanzo",
+            "nl": "roman"
+          },
+          "distractors": {
+            "en": [
+              "poem",
+              "magazine"
+            ],
+            "es-419": [
+              "poema",
+              "revista"
+            ],
+            "it": [
+              "poesia",
+              "rivista"
+            ],
+            "nl": [
+              "gedicht",
+              "tijdschrift"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un roman d'amour",
+          "translation": {
+            "en": "a love story",
+            "es-419": "una novela de amor",
+            "it": "un romanzo d'amore",
+            "nl": "een liefdesroman"
+          },
+          "distractors": {
+            "en": [
+              "a crime novel",
+              "a love song"
+            ],
+            "es-419": [
+              "una novela policial",
+              "una canción de amor"
+            ],
+            "it": [
+              "un romanzo giallo",
+              "una canzone d'amore"
+            ],
+            "nl": [
+              "een detectiveroman",
+              "een liefdesliedje"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le roman que je lis est très long.",
+          "translation": {
+            "en": "The novel I'm reading is very long.",
+            "es-419": "La novela que estoy leyendo es muy larga.",
+            "it": "Il romanzo che sto leggendo è molto lungo.",
+            "nl": "De roman die ik aan het lezen ben, is heel lang."
+          },
+          "distractors": {
+            "en": [
+              "The novel I'm reading is very short.",
+              "The novel I'm writing is very long."
+            ],
+            "es-419": [
+              "La novela que estoy leyendo es muy corta.",
+              "La novela que estoy escribiendo es muy larga."
+            ],
+            "it": [
+              "Il romanzo che sto leggendo è molto corto.",
+              "Il romanzo che sto scrivendo è molto lungo."
+            ],
+            "nl": [
+              "De roman die ik aan het lezen ben, is heel kort.",
+              "De roman die ik aan het schrijven ben, is heel lang."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "écrivain",
+          "translation": {
+            "en": "writer",
+            "es-419": "escritor",
+            "it": "scrittore",
+            "nl": "schrijver"
+          },
+          "distractors": {
+            "en": [
+              "reader",
+              "director"
+            ],
+            "es-419": [
+              "lector",
+              "director"
+            ],
+            "it": [
+              "lettore",
+              "regista"
+            ],
+            "nl": [
+              "lezer",
+              "regisseur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est un écrivain que j'aime beaucoup.",
+          "translation": {
+            "en": "He's a writer I like a lot.",
+            "es-419": "Es un escritor que me gusta mucho.",
+            "it": "È uno scrittore che mi piace molto.",
+            "nl": "Dat is een schrijver die ik erg graag mag."
+          },
+          "distractors": {
+            "en": [
+              "He's a writer I don't like much.",
+              "He's an actor I like a lot."
+            ],
+            "es-419": [
+              "Es un escritor que no me gusta mucho.",
+              "Es un actor que me gusta mucho."
+            ],
+            "it": [
+              "È uno scrittore che non mi piace molto.",
+              "È un attore che mi piace molto."
+            ],
+            "nl": [
+              "Dat is een schrijver die ik niet zo graag mag.",
+              "Dat is een acteur die ik erg graag mag."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "auteur",
+          "translation": {
+            "en": "author",
+            "es-419": "autor",
+            "it": "autore",
+            "nl": "auteur"
+          },
+          "distractors": {
+            "en": [
+              "translator",
+              "reader"
+            ],
+            "es-419": [
+              "traductor",
+              "lector"
+            ],
+            "it": [
+              "traduttore",
+              "lettore"
+            ],
+            "nl": [
+              "vertaler",
+              "lezer"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u07",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "l'auteur de ce livre",
+          "translation": {
+            "en": "the author of this book",
+            "es-419": "el autor de este libro",
+            "it": "l'autore di questo libro",
+            "nl": "de auteur van dit boek"
+          },
+          "distractors": {
+            "en": [
+              "the reader of this book",
+              "the author of this film"
+            ],
+            "es-419": [
+              "el lector de este libro",
+              "el autor de esta película"
+            ],
+            "it": [
+              "il lettore di questo libro",
+              "l'autore di questo film"
+            ],
+            "nl": [
+              "de lezer van dit boek",
+              "de maker van deze film"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je ne connais pas l'auteur de ce livre.",
+          "translation": {
+            "en": "I don't know the author of this book.",
+            "es-419": "No conozco al autor de este libro.",
+            "it": "Non conosco l'autore di questo libro.",
+            "nl": "Ik ken de auteur van dit boek niet."
+          },
+          "distractors": {
+            "en": [
+              "I know the author of this book well.",
+              "I don't know the author of this film."
+            ],
+            "es-419": [
+              "Conozco bien al autor de este libro.",
+              "No conozco al autor de esta película."
+            ],
+            "it": [
+              "Conosco bene l'autore di questo libro.",
+              "Non conosco l'autore di questo film."
+            ],
+            "nl": [
+              "Ik ken de auteur van dit boek goed.",
+              "Ik ken de auteur van deze film niet."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "chapitre",
+          "translation": {
+            "en": "chapter",
+            "es-419": "capítulo",
+            "it": "capitolo",
+            "nl": "hoofdstuk"
+          },
+          "distractors": {
+            "en": [
+              "page",
+              "scene"
+            ],
+            "es-419": [
+              "página",
+              "escena"
+            ],
+            "it": [
+              "pagina",
+              "scena"
+            ],
+            "nl": [
+              "bladzijde",
+              "scène"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le dernier chapitre",
+          "translation": {
+            "en": "the last chapter",
+            "es-419": "el último capítulo",
+            "it": "l'ultimo capitolo",
+            "nl": "het laatste hoofdstuk"
+          },
+          "distractors": {
+            "en": [
+              "the first chapter",
+              "the last page"
+            ],
+            "es-419": [
+              "el primer capítulo",
+              "la última página"
+            ],
+            "it": [
+              "il primo capitolo",
+              "l'ultima pagina"
+            ],
+            "nl": [
+              "het eerste hoofdstuk",
+              "de laatste bladzijde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le chapitre que j'ai lu hier soir est le meilleur du livre.",
+          "translation": {
+            "en": "The chapter I read last night is the best one in the book.",
+            "es-419": "El capítulo que leí anoche es el mejor del libro.",
+            "it": "Il capitolo che ho letto ieri sera è il migliore del libro.",
+            "nl": "Het hoofdstuk dat ik gisteravond heb gelezen, is het beste van het boek."
+          },
+          "distractors": {
+            "en": [
+              "The chapter I read last night is the longest in the book.",
+              "The chapter I read this morning is the best one in the book."
+            ],
+            "es-419": [
+              "El capítulo que leí anoche es el más largo del libro.",
+              "El capítulo que leí esta mañana es el mejor del libro."
+            ],
+            "it": [
+              "Il capitolo che ho letto ieri sera è il più lungo del libro.",
+              "Il capitolo che ho letto stamattina è il migliore del libro."
+            ],
+            "nl": [
+              "Het hoofdstuk dat ik gisteravond heb gelezen, is het langste van het boek.",
+              "Het hoofdstuk dat ik vanochtend heb gelezen, is het beste van het boek."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "page",
+          "translation": {
+            "en": "page",
+            "es-419": "página",
+            "it": "pagina",
+            "nl": "bladzijde"
+          },
+          "distractors": {
+            "en": [
+              "cover",
+              "line"
+            ],
+            "es-419": [
+              "portada",
+              "línea"
+            ],
+            "it": [
+              "copertina",
+              "riga"
+            ],
+            "nl": [
+              "omslag",
+              "regel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "à la page cent",
+          "translation": {
+            "en": "on page one hundred",
+            "es-419": "en la página cien",
+            "it": "a pagina cento",
+            "nl": "op bladzijde honderd"
+          },
+          "distractors": {
+            "en": [
+              "on page fifty",
+              "on page ten"
+            ],
+            "es-419": [
+              "en la página cincuenta",
+              "en la página diez"
+            ],
+            "it": [
+              "a pagina cinquanta",
+              "a pagina dieci"
+            ],
+            "nl": [
+              "op bladzijde vijftig",
+              "op bladzijde tien"
+            ]
+          },
+          "variants": [
+            "à la page 100"
+          ]
+        },
+        {
+          "id": "fr-b1-livres-1-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je suis à la page cent et il ne se passe toujours rien.",
+          "translation": {
+            "en": "I'm on page one hundred and still nothing is happening.",
+            "es-419": "Voy por la página cien y todavía no pasa nada.",
+            "it": "Sono a pagina cento e ancora non succede niente.",
+            "nl": "Ik ben op bladzijde honderd en er gebeurt nog steeds niets."
+          },
+          "distractors": {
+            "en": [
+              "I'm on page fifty and still nothing is happening.",
+              "I'm on page one hundred and I still don't understand anything."
+            ],
+            "es-419": [
+              "Voy por la página cincuenta y todavía no pasa nada.",
+              "Voy por la página cien y todavía no entiendo nada."
+            ],
+            "it": [
+              "Sono a pagina cinquanta e ancora non succede niente.",
+              "Sono a pagina cento e ancora non capisco niente."
+            ],
+            "nl": [
+              "Ik ben op bladzijde vijftig en er gebeurt nog steeds niets.",
+              "Ik ben op bladzijde honderd en ik begrijp er nog steeds niets van."
+            ]
+          },
+          "variants": [
+            "Je suis à la page 100 et il ne se passe toujours rien."
+          ],
+          "commas": [
+            5
+          ]
+        },
+        {
+          "id": "fr-b1-livres-1-u15",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "de quoi traite ce livre",
+          "translation": {
+            "en": "what this book is about",
+            "es-419": "de qué trata este libro",
+            "it": "di che cosa parla questo libro",
+            "nl": "waar dit boek over gaat"
+          },
+          "distractors": {
+            "en": [
+              "who wrote this book",
+              "how much this book costs"
+            ],
+            "es-419": [
+              "quién escribió este libro",
+              "cuánto cuesta este libro"
+            ],
+            "it": [
+              "chi ha scritto questo libro",
+              "quanto costa questo libro"
+            ],
+            "nl": [
+              "wie dit boek heeft geschreven",
+              "hoeveel dit boek kost"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-1-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "De quoi traite le livre que tu lis?",
+          "translation": {
+            "en": "What is the book you're reading about?",
+            "es-419": "¿De qué trata el libro que estás leyendo?",
+            "it": "Di che cosa parla il libro che stai leggendo?",
+            "nl": "Waar gaat het boek over dat je aan het lezen bent?"
+          },
+          "distractors": {
+            "en": [
+              "Who wrote the book you're reading?",
+              "What is the book you're buying about?"
+            ],
+            "es-419": [
+              "¿Quién escribió el libro que estás leyendo?",
+              "¿De qué trata el libro que estás comprando?"
+            ],
+            "it": [
+              "Chi ha scritto il libro che stai leggendo?",
+              "Di che cosa parla il libro che stai comprando?"
+            ],
+            "nl": [
+              "Wie heeft het boek geschreven dat je aan het lezen bent?",
+              "Waar gaat het boek over dat je aan het kopen bent?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-livres-2",
+      "title": "L'amie dont je t'ai parlé",
+      "grammarFocus": {
+        "en": [
+          "dont replaces de + noun: le livre dont je t'ai parlé (parler de un livre), le livre dont j'ai besoin (avoir besoin de). It also means whose: un garçon dont la mère est morte.",
+          "For people after a preposition, use preposition + qui: la fille avec qui j'ai voyagé, un ami avec qui je parle."
+        ],
+        "es-419": [
+          "dont sustituye a de + sustantivo: le livre dont je t'ai parlé (parler de un livre), le livre dont j'ai besoin (avoir besoin de). También significa cuyo: un garçon dont la mère est morte.",
+          "Para personas tras una preposición se usa preposición + qui: la fille avec qui j'ai voyagé, un ami avec qui je parle."
+        ],
+        "it": [
+          "dont sostituisce de + nome: le livre dont je t'ai parlé (parler de un livre), le livre dont j'ai besoin (avoir besoin de). Significa anche il cui: un garçon dont la mère est morte.",
+          "Per le persone dopo una preposizione si usa preposizione + qui: la fille avec qui j'ai voyagé, un ami avec qui je parle."
+        ],
+        "nl": [
+          "dont vervangt de + zelfstandig naamwoord: le livre dont je t'ai parlé (parler de un livre), le livre dont j'ai besoin (avoir besoin de). Het betekent ook wiens: un garçon dont la mère est morte.",
+          "Voor personen na een voorzetsel gebruik je voorzetsel + qui: la fille avec qui j'ai voyagé, un ami avec qui je parle."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-2-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "personnage",
+          "translation": {
+            "en": "character",
+            "es-419": "personaje",
+            "it": "personaggio",
+            "nl": "personage"
+          },
+          "distractors": {
+            "en": [
+              "actor",
+              "chapter"
+            ],
+            "es-419": [
+              "actor",
+              "capítulo"
+            ],
+            "it": [
+              "attore",
+              "capitolo"
+            ],
+            "nl": [
+              "acteur",
+              "hoofdstuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un personnage drôle",
+          "translation": {
+            "en": "a funny character",
+            "es-419": "un personaje gracioso",
+            "it": "un personaggio divertente",
+            "nl": "een grappig personage"
+          },
+          "distractors": {
+            "en": [
+              "a sad character",
+              "a funny actor"
+            ],
+            "es-419": [
+              "un personaje triste",
+              "un actor gracioso"
+            ],
+            "it": [
+              "un personaggio triste",
+              "un attore divertente"
+            ],
+            "nl": [
+              "een verdrietig personage",
+              "een grappige acteur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dont je t'ai parlé",
+          "translation": {
+            "en": "I told you about",
+            "es-419": "de quien te hablé",
+            "it": "di cui ti ho parlato",
+            "nl": "waarover ik je heb verteld"
+          },
+          "distractors": {
+            "en": [
+              "I told him about",
+              "I asked you about"
+            ],
+            "es-419": [
+              "de quien le hablé",
+              "de quien te pregunté"
+            ],
+            "it": [
+              "di cui gli ho parlato",
+              "di cui ti ho chiesto"
+            ],
+            "nl": [
+              "waarover ik hem heb verteld",
+              "waarover ik je heb gevraagd"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voici le livre dont je t'ai parlé.",
+          "translation": {
+            "en": "Here's the book I told you about.",
+            "es-419": "Aquí está el libro del que te hablé.",
+            "it": "Ecco il libro di cui ti ho parlato.",
+            "nl": "Hier is het boek waarover ik je heb verteld."
+          },
+          "distractors": {
+            "en": [
+              "Here's the book I gave you.",
+              "Here's the film I told you about."
+            ],
+            "es-419": [
+              "Aquí está el libro que te regalé.",
+              "Aquí está la película de la que te hablé."
+            ],
+            "it": [
+              "Ecco il libro che ti ho regalato.",
+              "Ecco il film di cui ti ho parlato."
+            ],
+            "nl": [
+              "Hier is het boek dat ik je heb gegeven.",
+              "Hier is de film waarover ik je heb verteld."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "héros",
+          "translation": {
+            "en": "hero, main character",
+            "es-419": "héroe, protagonista",
+            "it": "eroe, protagonista",
+            "nl": "held, hoofdpersoon"
+          },
+          "distractors": {
+            "en": [
+              "villain",
+              "author"
+            ],
+            "es-419": [
+              "villano",
+              "autor"
+            ],
+            "it": [
+              "cattivo",
+              "autore"
+            ],
+            "nl": [
+              "schurk",
+              "auteur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le héros du livre est un garçon dont la mère est morte.",
+          "translation": {
+            "en": "The hero of the book is a boy whose mother has died.",
+            "es-419": "El héroe del libro es un niño cuya madre ha muerto.",
+            "it": "Il protagonista del libro è un ragazzo la cui madre è morta.",
+            "nl": "De held van het boek is een jongen wiens moeder is overleden."
+          },
+          "distractors": {
+            "en": [
+              "The hero of the book is a boy whose father has died.",
+              "The hero of the book is a girl whose mother has died."
+            ],
+            "es-419": [
+              "El héroe del libro es un niño cuyo padre ha muerto.",
+              "La heroína del libro es una niña cuya madre ha muerto."
+            ],
+            "it": [
+              "Il protagonista del libro è un ragazzo il cui padre è morto.",
+              "La protagonista del libro è una ragazza la cui madre è morta."
+            ],
+            "nl": [
+              "De held van het boek is een jongen wiens vader is overleden.",
+              "De heldin van het boek is een meisje wier moeder is overleden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "genre",
+          "translation": {
+            "en": "genre, kind",
+            "es-419": "género",
+            "it": "genere",
+            "nl": "genre"
+          },
+          "distractors": {
+            "en": [
+              "title",
+              "chapter"
+            ],
+            "es-419": [
+              "título",
+              "capítulo"
+            ],
+            "it": [
+              "titolo",
+              "capitolo"
+            ],
+            "nl": [
+              "titel",
+              "hoofdstuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u08",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La science-fiction est un genre que je ne lis jamais.",
+          "translation": {
+            "en": "Science fiction is a genre I never read.",
+            "es-419": "La ciencia ficción es un género que nunca leo.",
+            "it": "La fantascienza è un genere che non leggo mai.",
+            "nl": "Sciencefiction is een genre dat ik nooit lees."
+          },
+          "distractors": {
+            "en": [
+              "Science fiction is a genre I always read.",
+              "Fantasy is a genre I never read."
+            ],
+            "es-419": [
+              "La ciencia ficción es un género que siempre leo.",
+              "La fantasía es un género que nunca leo."
+            ],
+            "it": [
+              "La fantascienza è un genere che leggo sempre.",
+              "Il fantasy è un genere che non leggo mai."
+            ],
+            "nl": [
+              "Sciencefiction is een genre dat ik altijd lees.",
+              "Fantasy is een genre dat ik nooit lees."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "série",
+          "translation": {
+            "en": "series, TV series",
+            "es-419": "serie",
+            "it": "serie",
+            "nl": "serie"
+          },
+          "distractors": {
+            "en": [
+              "film",
+              "episode"
+            ],
+            "es-419": [
+              "película",
+              "episodio"
+            ],
+            "it": [
+              "film",
+              "episodio"
+            ],
+            "nl": [
+              "film",
+              "aflevering"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u10",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une série française",
+          "translation": {
+            "en": "a French series",
+            "es-419": "una serie francesa",
+            "it": "una serie francese",
+            "nl": "een Franse serie"
+          },
+          "distractors": {
+            "en": [
+              "a French film",
+              "a Spanish series"
+            ],
+            "es-419": [
+              "una película francesa",
+              "una serie española"
+            ],
+            "it": [
+              "un film francese",
+              "una serie spagnola"
+            ],
+            "nl": [
+              "een Franse film",
+              "een Spaanse serie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est une série dont tout le monde parle.",
+          "translation": {
+            "en": "It's a series everybody's talking about.",
+            "es-419": "Es una serie de la que todo el mundo habla.",
+            "it": "È una serie di cui parlano tutti.",
+            "nl": "Het is een serie waar iedereen over praat."
+          },
+          "distractors": {
+            "en": [
+              "It's a series nobody is talking about.",
+              "It's a series everybody's watching."
+            ],
+            "es-419": [
+              "Es una serie de la que nadie habla.",
+              "Es una serie que todo el mundo ve."
+            ],
+            "it": [
+              "È una serie di cui non parla nessuno.",
+              "È una serie che guardano tutti."
+            ],
+            "nl": [
+              "Het is een serie waar niemand over praat.",
+              "Het is een serie waar iedereen naar kijkt."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La fille avec qui j'ai voyagé m'a conseillé ce roman.",
+          "translation": {
+            "en": "The girl I traveled with recommended this novel to me.",
+            "es-419": "La chica con quien viajé me recomendó esta novela.",
+            "it": "La ragazza con cui ho viaggiato mi ha consigliato questo romanzo.",
+            "nl": "Het meisje met wie ik heb gereisd, heeft me deze roman aangeraden."
+          },
+          "distractors": {
+            "en": [
+              "The girl I traveled with wrote this novel.",
+              "The girl I traveled with recommended this film to me."
+            ],
+            "es-419": [
+              "La chica con quien viajé escribió esta novela.",
+              "La chica con quien viajé me recomendó esta película."
+            ],
+            "it": [
+              "La ragazza con cui ho viaggiato ha scritto questo romanzo.",
+              "La ragazza con cui ho viaggiato mi ha consigliato questo film."
+            ],
+            "nl": [
+              "Het meisje met wie ik heb gereisd, heeft deze roman geschreven.",
+              "Het meisje met wie ik heb gereisd, heeft me deze film aangeraden."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u13",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "un livre dont j'ai besoin",
+          "translation": {
+            "en": "a book I need",
+            "es-419": "un libro que necesito",
+            "it": "un libro di cui ho bisogno",
+            "nl": "een boek dat ik nodig heb"
+          },
+          "distractors": {
+            "en": [
+              "a book I've lost",
+              "a book I'm writing"
+            ],
+            "es-419": [
+              "un libro que perdí",
+              "un libro que estoy escribiendo"
+            ],
+            "it": [
+              "un libro che ho perso",
+              "un libro che sto scrivendo"
+            ],
+            "nl": [
+              "een boek dat ik kwijt ben",
+              "een boek dat ik aan het schrijven ben"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le livre dont j'ai besoin n'est pas à la bibliothèque.",
+          "translation": {
+            "en": "The book I need isn't at the library.",
+            "es-419": "El libro que necesito no está en la biblioteca.",
+            "it": "Il libro di cui ho bisogno non è in biblioteca.",
+            "nl": "Het boek dat ik nodig heb, staat niet in de bibliotheek."
+          },
+          "distractors": {
+            "en": [
+              "The book I need isn't at the bookstore.",
+              "The book I need is at the library."
+            ],
+            "es-419": [
+              "El libro que necesito no está en la librería.",
+              "El libro que necesito está en la biblioteca."
+            ],
+            "it": [
+              "Il libro di cui ho bisogno non è in libreria.",
+              "Il libro di cui ho bisogno è in biblioteca."
+            ],
+            "nl": [
+              "Het boek dat ik nodig heb, staat niet in de boekhandel.",
+              "Het boek dat ik nodig heb, staat in de bibliotheek."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'écrivain dont tu parles a écrit trois romans.",
+          "translation": {
+            "en": "The writer you're talking about has written three novels.",
+            "es-419": "El escritor del que hablas ha escrito tres novelas.",
+            "it": "Lo scrittore di cui parli ha scritto tre romanzi.",
+            "nl": "De schrijver over wie je het hebt, heeft drie romans geschreven."
+          },
+          "distractors": {
+            "en": [
+              "The writer you're talking about has written ten novels.",
+              "The writer you're talking about has read three novels."
+            ],
+            "es-419": [
+              "El escritor del que hablas ha escrito diez novelas.",
+              "El escritor del que hablas ha leído tres novelas."
+            ],
+            "it": [
+              "Lo scrittore di cui parli ha scritto dieci romanzi.",
+              "Lo scrittore di cui parli ha letto tre romanzi."
+            ],
+            "nl": [
+              "De schrijver over wie je het hebt, heeft tien romans geschreven.",
+              "De schrijver over wie je het hebt, heeft drie romans gelezen."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-2-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai un ami avec qui je parle souvent de livres.",
+          "translation": {
+            "en": "I have a friend I often talk about books with.",
+            "es-419": "Tengo un amigo con quien hablo a menudo de libros.",
+            "it": "Ho un amico con cui parlo spesso di libri.",
+            "nl": "Ik heb een vriend met wie ik vaak over boeken praat."
+          },
+          "distractors": {
+            "en": [
+              "I have a friend I never talk about books with.",
+              "I have a friend I often talk about films with."
+            ],
+            "es-419": [
+              "Tengo un amigo con quien nunca hablo de libros.",
+              "Tengo un amigo con quien hablo a menudo de películas."
+            ],
+            "it": [
+              "Ho un amico con cui non parlo mai di libri.",
+              "Ho un amico con cui parlo spesso di film."
+            ],
+            "nl": [
+              "Ik heb een vriend met wie ik nooit over boeken praat.",
+              "Ik heb een vriend met wie ik vaak over films praat."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-livres-3",
+      "title": "La ville dans laquelle se passe l'histoire",
+      "grammarFocus": {
+        "en": [
+          "For things after a preposition, use preposition + lequel, which agrees with the noun: laquelle, lesquels, lesquelles. With à and de it contracts: auquel, auxquels, duquel.",
+          "où covers place and time: la ville où..., le jour où j'ai fini ce roman."
+        ],
+        "es-419": [
+          "Para cosas tras una preposición se usa preposición + lequel, que concuerda con el sustantivo: laquelle, lesquels, lesquelles. Con à y de se contrae: auquel, auxquels, duquel.",
+          "où sirve para lugar y tiempo: la ville où..., le jour où j'ai fini ce roman."
+        ],
+        "it": [
+          "Per le cose dopo una preposizione si usa preposizione + lequel, che concorda con il nome: laquelle, lesquels, lesquelles. Con à e de si contrae: auquel, auxquels, duquel.",
+          "où vale per il luogo e per il tempo: la ville où..., le jour où j'ai fini ce roman."
+        ],
+        "nl": [
+          "Voor zaken na een voorzetsel gebruik je voorzetsel + lequel, dat overeenkomt met het zelfstandig naamwoord: laquelle, lesquels, lesquelles. Met à en de smelt het samen: auquel, auxquels, duquel.",
+          "où geldt voor plaats en tijd: la ville où..., le jour où j'ai fini ce roman."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-3-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "intrigue",
+          "translation": {
+            "en": "plot",
+            "es-419": "trama",
+            "it": "trama",
+            "nl": "plot"
+          },
+          "distractors": {
+            "en": [
+              "ending",
+              "title"
+            ],
+            "es-419": [
+              "final",
+              "título"
+            ],
+            "it": [
+              "finale",
+              "titolo"
+            ],
+            "nl": [
+              "einde",
+              "titel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une intrigue simple",
+          "translation": {
+            "en": "a simple plot",
+            "es-419": "una trama simple",
+            "it": "una trama semplice",
+            "nl": "een eenvoudig plot"
+          },
+          "distractors": {
+            "en": [
+              "a long plot",
+              "a simple ending"
+            ],
+            "es-419": [
+              "una trama larga",
+              "un final simple"
+            ],
+            "it": [
+              "una trama lunga",
+              "un finale semplice"
+            ],
+            "nl": [
+              "een lang plot",
+              "een eenvoudig einde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'intrigue est simple, mais les personnages sont très drôles.",
+          "translation": {
+            "en": "The plot is simple, but the characters are very funny.",
+            "es-419": "La trama es simple, pero los personajes son muy graciosos.",
+            "it": "La trama è semplice, ma i personaggi sono molto divertenti.",
+            "nl": "Het plot is eenvoudig, maar de personages zijn heel grappig."
+          },
+          "distractors": {
+            "en": [
+              "The plot is simple, but the characters are very sad.",
+              "The plot is complicated, but the characters are very funny."
+            ],
+            "es-419": [
+              "La trama es simple, pero los personajes son muy tristes.",
+              "La trama es complicada, pero los personajes son muy graciosos."
+            ],
+            "it": [
+              "La trama è semplice, ma i personaggi sono molto tristi.",
+              "La trama è complicata, ma i personaggi sono molto divertenti."
+            ],
+            "nl": [
+              "Het plot is eenvoudig, maar de personages zijn heel verdrietig.",
+              "Het plot is ingewikkeld, maar de personages zijn heel grappig."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "scène",
+          "translation": {
+            "en": "scene",
+            "es-419": "escena",
+            "it": "scena",
+            "nl": "scène"
+          },
+          "distractors": {
+            "en": [
+              "chapter",
+              "ending"
+            ],
+            "es-419": [
+              "capítulo",
+              "final"
+            ],
+            "it": [
+              "capitolo",
+              "finale"
+            ],
+            "nl": [
+              "hoofdstuk",
+              "einde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la première scène",
+          "translation": {
+            "en": "the first scene",
+            "es-419": "la primera escena",
+            "it": "la prima scena",
+            "nl": "de eerste scène"
+          },
+          "distractors": {
+            "en": [
+              "the last scene",
+              "the first page"
+            ],
+            "es-419": [
+              "la última escena",
+              "la primera página"
+            ],
+            "it": [
+              "l'ultima scena",
+              "la prima pagina"
+            ],
+            "nl": [
+              "de laatste scène",
+              "de eerste bladzijde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u06",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "dans laquelle se passe l'histoire",
+          "translation": {
+            "en": "where the story takes place",
+            "es-419": "en la que transcurre la historia",
+            "it": "in cui si svolge la storia",
+            "nl": "waarin het verhaal zich afspeelt"
+          },
+          "distractors": {
+            "en": [
+              "where the story ends",
+              "where the story begins"
+            ],
+            "es-419": [
+              "en la que termina la historia",
+              "en la que empieza la historia"
+            ],
+            "it": [
+              "in cui finisce la storia",
+              "in cui comincia la storia"
+            ],
+            "nl": [
+              "waarin het verhaal eindigt",
+              "waarin het verhaal begint"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lyon est la ville dans laquelle se passe l'histoire.",
+          "translation": {
+            "en": "Lyon is the city where the story takes place.",
+            "es-419": "Lyon es la ciudad en la que transcurre la historia.",
+            "it": "Lione è la città in cui si svolge la storia.",
+            "nl": "Lyon is de stad waarin het verhaal zich afspeelt."
+          },
+          "distractors": {
+            "en": [
+              "Lyon is the city where the author was born.",
+              "Marseille is the city where the story takes place."
+            ],
+            "es-419": [
+              "Lyon es la ciudad en la que nació el autor.",
+              "Marsella es la ciudad en la que transcurre la historia."
+            ],
+            "it": [
+              "Lione è la città in cui è nato l'autore.",
+              "Marsiglia è la città in cui si svolge la storia."
+            ],
+            "nl": [
+              "Lyon is de stad waar de auteur is geboren.",
+              "Marseille is de stad waarin het verhaal zich afspeelt."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "science",
+          "translation": {
+            "en": "science",
+            "es-419": "ciencia",
+            "it": "scienza",
+            "nl": "wetenschap"
+          },
+          "distractors": {
+            "en": [
+              "history",
+              "nature"
+            ],
+            "es-419": [
+              "historia",
+              "naturaleza"
+            ],
+            "it": [
+              "storia",
+              "natura"
+            ],
+            "nl": [
+              "geschiedenis",
+              "natuur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u09",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un livre de science",
+          "translation": {
+            "en": "a science book",
+            "es-419": "un libro de ciencia",
+            "it": "un libro di scienza",
+            "nl": "een wetenschappelijk boek"
+          },
+          "distractors": {
+            "en": [
+              "a history book",
+              "a science film"
+            ],
+            "es-419": [
+              "un libro de historia",
+              "una película de ciencia"
+            ],
+            "it": [
+              "un libro di storia",
+              "un film di scienza"
+            ],
+            "nl": [
+              "een geschiedenisboek",
+              "een wetenschappelijke film"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'histoire de ce roman de science-fiction se passe dans le futur.",
+          "translation": {
+            "en": "The story of this science-fiction novel takes place in the future.",
+            "es-419": "La historia de esta novela de ciencia ficción transcurre en el futuro.",
+            "it": "La storia di questo romanzo di fantascienza è ambientata nel futuro.",
+            "nl": "Het verhaal van deze sciencefictionroman speelt zich af in de toekomst."
+          },
+          "distractors": {
+            "en": [
+              "The story of this science-fiction novel takes place in the past.",
+              "The story of this crime novel takes place in the future."
+            ],
+            "es-419": [
+              "La historia de esta novela de ciencia ficción transcurre en el pasado.",
+              "La historia de esta novela policial transcurre en el futuro."
+            ],
+            "it": [
+              "La storia di questo romanzo di fantascienza è ambientata nel passato.",
+              "La storia di questo giallo è ambientata nel futuro."
+            ],
+            "nl": [
+              "Het verhaal van deze sciencefictionroman speelt zich af in het verleden.",
+              "Het verhaal van deze misdaadroman speelt zich af in de toekomst."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Lequel des deux livres tu préfères?",
+          "translation": {
+            "en": "Which of the two books do you prefer?",
+            "es-419": "¿Cuál de los dos libros prefieres?",
+            "it": "Quale dei due libri preferisci?",
+            "nl": "Welk van de twee boeken heb je liever?"
+          },
+          "distractors": {
+            "en": [
+              "Which of the two books did you read?",
+              "Which of the two films do you prefer?"
+            ],
+            "es-419": [
+              "¿Cuál de los dos libros leíste?",
+              "¿Cuál de las dos películas prefieres?"
+            ],
+            "it": [
+              "Quale dei due libri hai letto?",
+              "Quale dei due film preferisci?"
+            ],
+            "nl": [
+              "Welk van de twee boeken heb je gelezen?",
+              "Welke van de twee films heb je liever?"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u12",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La maison dans laquelle habite le héros est très vieille.",
+          "translation": {
+            "en": "The house the hero lives in is very old.",
+            "es-419": "La casa en la que vive el héroe es muy vieja.",
+            "it": "La casa in cui abita l'eroe è molto vecchia.",
+            "nl": "Het huis waarin de held woont, is heel oud."
+          },
+          "distractors": {
+            "en": [
+              "The house the hero lives in is very new.",
+              "The house the hero dreams of is very old."
+            ],
+            "es-419": [
+              "La casa en la que vive el héroe es muy nueva.",
+              "La casa con la que sueña el héroe es muy vieja."
+            ],
+            "it": [
+              "La casa in cui abita l'eroe è molto nuova.",
+              "La casa che sogna l'eroe è molto vecchia."
+            ],
+            "nl": [
+              "Het huis waarin de held woont, is heel nieuw.",
+              "Het huis waarvan de held droomt, is heel oud."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est la raison pour laquelle je n'ai pas aimé la fin.",
+          "translation": {
+            "en": "That's the reason I didn't like the ending.",
+            "es-419": "Esa es la razón por la que no me gustó el final.",
+            "it": "Questa è la ragione per cui non mi è piaciuto il finale.",
+            "nl": "Dat is de reden waarom ik het einde niet mooi vond."
+          },
+          "distractors": {
+            "en": [
+              "That's the reason I liked the ending.",
+              "That's the reason I didn't like the beginning."
+            ],
+            "es-419": [
+              "Esa es la razón por la que me gustó el final.",
+              "Esa es la razón por la que no me gustó el principio."
+            ],
+            "it": [
+              "Questa è la ragione per cui mi è piaciuto il finale.",
+              "Questa è la ragione per cui non mi è piaciuto l'inizio."
+            ],
+            "nl": [
+              "Dat is de reden waarom ik het einde mooi vond.",
+              "Dat is de reden waarom ik het begin niet mooi vond."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce sont des films auxquels je pense souvent.",
+          "translation": {
+            "en": "These are films I often think about.",
+            "es-419": "Son películas en las que pienso a menudo.",
+            "it": "Sono film a cui penso spesso.",
+            "nl": "Het zijn films waaraan ik vaak denk."
+          },
+          "distractors": {
+            "en": [
+              "These are films I rarely think about.",
+              "These are films I often talk about."
+            ],
+            "es-419": [
+              "Son películas en las que pienso pocas veces.",
+              "Son películas de las que hablo a menudo."
+            ],
+            "it": [
+              "Sono film a cui penso raramente.",
+              "Sono film di cui parlo spesso."
+            ],
+            "nl": [
+              "Het zijn films waaraan ik zelden denk.",
+              "Het zijn films waarover ik vaak praat."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le parc au milieu duquel se trouve la maison est très joli.",
+          "translation": {
+            "en": "The park in the middle of which the house stands is very pretty.",
+            "es-419": "El parque en cuyo centro está la casa es muy lindo.",
+            "it": "Il parco in mezzo al quale si trova la casa è molto bello.",
+            "nl": "Het park waar het huis midden in staat, is heel mooi."
+          },
+          "distractors": {
+            "en": [
+              "The park in the middle of which the house stands is very old.",
+              "The park next to which the house stands is very pretty."
+            ],
+            "es-419": [
+              "El parque en cuyo centro está la casa es muy viejo.",
+              "El parque junto al cual está la casa es muy lindo."
+            ],
+            "it": [
+              "Il parco in mezzo al quale si trova la casa è molto vecchio.",
+              "Il parco accanto al quale si trova la casa è molto bello."
+            ],
+            "nl": [
+              "Het park waar het huis midden in staat, is heel oud.",
+              "Het park waar het huis naast staat, is heel mooi."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-3-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le jour où j'ai fini ce roman, j'ai pleuré.",
+          "translation": {
+            "en": "The day I finished this novel, I cried.",
+            "es-419": "El día que terminé esta novela, lloré.",
+            "it": "Il giorno in cui ho finito questo romanzo, ho pianto.",
+            "nl": "De dag waarop ik deze roman uit had, heb ik gehuild."
+          },
+          "distractors": {
+            "en": [
+              "The day I finished this novel, I laughed.",
+              "The day I started this novel, I cried."
+            ],
+            "es-419": [
+              "El día que terminé esta novela, me reí.",
+              "El día que empecé esta novela, lloré."
+            ],
+            "it": [
+              "Il giorno in cui ho finito questo romanzo, ho riso.",
+              "Il giorno in cui ho iniziato questo romanzo, ho pianto."
+            ],
+            "nl": [
+              "De dag waarop ik deze roman uit had, heb ik gelachen.",
+              "De dag waarop ik aan deze roman begon, heb ik gehuild."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-livres-4",
+      "title": "L'écrivain qui a gagné le prix",
+      "grammarFocus": {
+        "en": [
+          "qui is the subject of the relative clause: l'écrivain qui a gagné le prix (the writer won). Compare que, which is the object: l'écrivain que j'aime (I like the writer).",
+          "The verb after qui agrees with the noun before it: les épisodes qui passent."
+        ],
+        "es-419": [
+          "qui es el sujeto de la oración de relativo: l'écrivain qui a gagné le prix (el escritor ganó). Compara con que, que es el complemento: l'écrivain que j'aime (yo quiero al escritor).",
+          "El verbo tras qui concuerda con el sustantivo anterior: les épisodes qui passent."
+        ],
+        "it": [
+          "qui è il soggetto della relativa: l'écrivain qui a gagné le prix (lo scrittore ha vinto). Confrontalo con que, che è l'oggetto: l'écrivain que j'aime (io amo lo scrittore).",
+          "Il verbo dopo qui concorda con il nome che precede: les épisodes qui passent."
+        ],
+        "nl": [
+          "qui is het onderwerp van de bijzin: l'écrivain qui a gagné le prix (de schrijver won). Vergelijk que, dat het object is: l'écrivain que j'aime (ik mag de schrijver).",
+          "Het werkwoord na qui komt overeen met het woord ervoor: les épisodes qui passent."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-4-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "publier",
+          "translation": {
+            "en": "publish",
+            "es-419": "publicar",
+            "it": "pubblicare",
+            "nl": "publiceren"
+          },
+          "distractors": {
+            "en": [
+              "print",
+              "translate"
+            ],
+            "es-419": [
+              "imprimir",
+              "traducir"
+            ],
+            "it": [
+              "stampare",
+              "tradurre"
+            ],
+            "nl": [
+              "drukken",
+              "vertalen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u02",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "qui a publié un roman",
+          "translation": {
+            "en": "who published a novel",
+            "es-419": "que publicó una novela",
+            "it": "che ha pubblicato un romanzo",
+            "nl": "die een roman heeft gepubliceerd"
+          },
+          "distractors": {
+            "en": [
+              "who wrote a novel",
+              "who read a novel"
+            ],
+            "es-419": [
+              "que escribió una novela",
+              "que leyó una novela"
+            ],
+            "it": [
+              "che ha scritto un romanzo",
+              "che ha letto un romanzo"
+            ],
+            "nl": [
+              "die een roman heeft geschreven",
+              "die een roman heeft gelezen"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u03",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "l'écrivain qui a gagné le prix",
+          "translation": {
+            "en": "the writer who won the prize",
+            "es-419": "el escritor que ganó el premio",
+            "it": "lo scrittore che ha vinto il premio",
+            "nl": "de schrijver die de prijs won"
+          },
+          "distractors": {
+            "en": [
+              "the writer who lost the prize",
+              "the actor who won the prize"
+            ],
+            "es-419": [
+              "el escritor que perdió el premio",
+              "el actor que ganó el premio"
+            ],
+            "it": [
+              "lo scrittore che ha perso il premio",
+              "l'attore che ha vinto il premio"
+            ],
+            "nl": [
+              "de schrijver die de prijs verloor",
+              "de acteur die de prijs won"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'écrivain qui a gagné le prix a publié son premier roman à vingt ans.",
+          "translation": {
+            "en": "The writer who won the prize published his first novel at twenty.",
+            "es-419": "El escritor que ganó el premio publicó su primera novela a los veinte años.",
+            "it": "Lo scrittore che ha vinto il premio ha pubblicato il suo primo romanzo a vent'anni.",
+            "nl": "De schrijver die de prijs won, publiceerde zijn eerste roman toen hij twintig was."
+          },
+          "distractors": {
+            "en": [
+              "The writer who won the prize published his first novel at thirty.",
+              "The writer who lost the prize published his first novel at twenty."
+            ],
+            "es-419": [
+              "El escritor que ganó el premio publicó su primera novela a los treinta años.",
+              "El escritor que perdió el premio publicó su primera novela a los veinte años."
+            ],
+            "it": [
+              "Lo scrittore che ha vinto il premio ha pubblicato il suo primo romanzo a trent'anni.",
+              "Lo scrittore che ha perso il premio ha pubblicato il suo primo romanzo a vent'anni."
+            ],
+            "nl": [
+              "De schrijver die de prijs won, publiceerde zijn eerste roman toen hij dertig was.",
+              "De schrijver die de prijs verloor, publiceerde zijn eerste roman toen hij twintig was."
+            ]
+          },
+          "variants": [
+            "L'écrivain qui a gagné le prix a publié son premier roman à 20 ans."
+          ]
+        },
+        {
+          "id": "fr-b1-livres-4-u05",
+          "rev": 1,
+          "stage": "word",
+          "text": "succès",
+          "translation": {
+            "en": "success, hit",
+            "es-419": "éxito",
+            "it": "successo",
+            "nl": "succes"
+          },
+          "distractors": {
+            "en": [
+              "prize",
+              "failure"
+            ],
+            "es-419": [
+              "premio",
+              "fracaso"
+            ],
+            "it": [
+              "premio",
+              "fallimento"
+            ],
+            "nl": [
+              "prijs",
+              "mislukking"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u06",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un grand succès",
+          "translation": {
+            "en": "a big hit",
+            "es-419": "un gran éxito",
+            "it": "un grande successo",
+            "nl": "een groot succes"
+          },
+          "distractors": {
+            "en": [
+              "a big failure",
+              "a big prize"
+            ],
+            "es-419": [
+              "un gran fracaso",
+              "un gran premio"
+            ],
+            "it": [
+              "un grande fallimento",
+              "un grande premio"
+            ],
+            "nl": [
+              "een grote mislukking",
+              "een grote prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u07",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce roman a eu beaucoup de succès.",
+          "translation": {
+            "en": "This novel was a big success.",
+            "es-419": "Esta novela tuvo mucho éxito.",
+            "it": "Questo romanzo ha avuto molto successo.",
+            "nl": "Deze roman was een groot succes."
+          },
+          "distractors": {
+            "en": [
+              "This novel wasn't a success at all.",
+              "This film was a big success."
+            ],
+            "es-419": [
+              "Esta novela no tuvo ningún éxito.",
+              "Esta película tuvo mucho éxito."
+            ],
+            "it": [
+              "Questo romanzo non ha avuto nessun successo.",
+              "Questo film ha avuto molto successo."
+            ],
+            "nl": [
+              "Deze roman was helemaal geen succes.",
+              "Deze film was een groot succes."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u08",
+          "rev": 1,
+          "stage": "word",
+          "text": "acteur",
+          "translation": {
+            "en": "actor",
+            "es-419": "actor",
+            "it": "attore",
+            "nl": "acteur"
+          },
+          "distractors": {
+            "en": [
+              "director",
+              "writer"
+            ],
+            "es-419": [
+              "director",
+              "escritor"
+            ],
+            "it": [
+              "regista",
+              "scrittore"
+            ],
+            "nl": [
+              "regisseur",
+              "schrijver"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u09",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "L'actrice qui joue dans cette série est très connue.",
+          "translation": {
+            "en": "The actress who plays in this series is very well known.",
+            "es-419": "La actriz que actúa en esta serie es muy conocida.",
+            "it": "L'attrice che recita in questa serie è molto famosa.",
+            "nl": "De actrice die in deze serie speelt, is heel bekend."
+          },
+          "distractors": {
+            "en": [
+              "The actress who plays in this series isn't very well known.",
+              "The actress who plays in this film is very well known."
+            ],
+            "es-419": [
+              "La actriz que actúa en esta serie no es muy conocida.",
+              "La actriz que actúa en esta película es muy conocida."
+            ],
+            "it": [
+              "L'attrice che recita in questa serie non è molto famosa.",
+              "L'attrice che recita in questo film è molto famosa."
+            ],
+            "nl": [
+              "De actrice die in deze serie speelt, is niet erg bekend.",
+              "De actrice die in deze film speelt, is heel bekend."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u10",
+          "rev": 1,
+          "stage": "word",
+          "text": "réalisateur",
+          "translation": {
+            "en": "director (of films)",
+            "es-419": "director de cine",
+            "it": "regista",
+            "nl": "regisseur"
+          },
+          "distractors": {
+            "en": [
+              "actor",
+              "author"
+            ],
+            "es-419": [
+              "actor",
+              "autor"
+            ],
+            "it": [
+              "attore",
+              "autore"
+            ],
+            "nl": [
+              "acteur",
+              "auteur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le réalisateur qui a tourné ce film est aussi acteur.",
+          "translation": {
+            "en": "The director who shot this film is also an actor.",
+            "es-419": "El director que filmó esta película es también actor.",
+            "it": "Il regista che ha girato questo film è anche attore.",
+            "nl": "De regisseur die deze film heeft gedraaid, is ook acteur."
+          },
+          "distractors": {
+            "en": [
+              "The director who shot this film is also a writer.",
+              "The director who wrote this film is also an actor."
+            ],
+            "es-419": [
+              "El director que filmó esta película es también escritor.",
+              "El director que escribió esta película es también actor."
+            ],
+            "it": [
+              "Il regista che ha girato questo film è anche scrittore.",
+              "Il regista che ha scritto questo film è anche attore."
+            ],
+            "nl": [
+              "De regisseur die deze film heeft gedraaid, is ook schrijver.",
+              "De regisseur die deze film heeft geschreven, is ook acteur."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u12",
+          "rev": 1,
+          "stage": "word",
+          "text": "épisode",
+          "translation": {
+            "en": "episode",
+            "es-419": "episodio",
+            "it": "episodio",
+            "nl": "aflevering"
+          },
+          "distractors": {
+            "en": [
+              "season",
+              "chapter"
+            ],
+            "es-419": [
+              "temporada",
+              "capítulo"
+            ],
+            "it": [
+              "stagione",
+              "capitolo"
+            ],
+            "nl": [
+              "seizoen",
+              "hoofdstuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u13",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "le premier épisode",
+          "translation": {
+            "en": "the first episode",
+            "es-419": "el primer episodio",
+            "it": "il primo episodio",
+            "nl": "de eerste aflevering"
+          },
+          "distractors": {
+            "en": [
+              "the last episode",
+              "the first chapter"
+            ],
+            "es-419": [
+              "el último episodio",
+              "el primer capítulo"
+            ],
+            "it": [
+              "l'ultimo episodio",
+              "il primo capitolo"
+            ],
+            "nl": [
+              "de laatste aflevering",
+              "het eerste hoofdstuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Les épisodes que je regarde sont très courts.",
+          "translation": {
+            "en": "The episodes I watch are very short.",
+            "es-419": "Los episodios que veo son muy cortos.",
+            "it": "Gli episodi che guardo sono molto corti.",
+            "nl": "De afleveringen die ik bekijk, zijn heel kort."
+          },
+          "distractors": {
+            "en": [
+              "The episodes I watch are very long.",
+              "The episodes I write are very short."
+            ],
+            "es-419": [
+              "Los episodios que veo son muy largos.",
+              "Los episodios que escribo son muy cortos."
+            ],
+            "it": [
+              "Gli episodi che guardo sono molto lunghi.",
+              "Gli episodi che scrivo sono molto corti."
+            ],
+            "nl": [
+              "De afleveringen die ik bekijk, zijn heel lang.",
+              "De afleveringen die ik schrijf, zijn heel kort."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "La série qui passe ce soir à la télévision est un grand succès.",
+          "translation": {
+            "en": "The series on TV tonight is a big hit.",
+            "es-419": "La serie que pasan esta noche por la televisión es un gran éxito.",
+            "it": "La serie che va in onda stasera in televisione è un grande successo.",
+            "nl": "De serie die vanavond op televisie is, is een groot succes."
+          },
+          "distractors": {
+            "en": [
+              "The series on TV tomorrow evening is a big hit.",
+              "The series on TV tonight is a big disappointment."
+            ],
+            "es-419": [
+              "La serie que pasan mañana por la noche por la televisión es un gran éxito.",
+              "La serie que pasan esta noche por la televisión es una gran decepción."
+            ],
+            "it": [
+              "La serie che va in onda domani sera in televisione è un grande successo.",
+              "La serie che va in onda stasera in televisione è una grande delusione."
+            ],
+            "nl": [
+              "De serie die morgenavond op televisie is, is een groot succes.",
+              "De serie die vanavond op televisie is, is een grote teleurstelling."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-4-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ma sœur adore l'acteur qui joue le héros de cette série.",
+          "translation": {
+            "en": "My sister loves the actor who plays the hero of this series.",
+            "es-419": "Mi hermana adora al actor que interpreta al héroe de esta serie.",
+            "it": "Mia sorella adora l'attore che interpreta l'eroe di questa serie.",
+            "nl": "Mijn zus is dol op de acteur die de held van deze serie speelt."
+          },
+          "distractors": {
+            "en": [
+              "My sister hates the actor who plays the hero of this series.",
+              "My brother loves the actor who plays the hero of this series."
+            ],
+            "es-419": [
+              "Mi hermana detesta al actor que interpreta al héroe de esta serie.",
+              "Mi hermano adora al actor que interpreta al héroe de esta serie."
+            ],
+            "it": [
+              "Mia sorella detesta l'attore che interpreta l'eroe di questa serie.",
+              "Mio fratello adora l'attore che interpreta l'eroe di questa serie."
+            ],
+            "nl": [
+              "Mijn zus haat de acteur die de held van deze serie speelt.",
+              "Mijn broer is dol op de acteur die de held van deze serie speelt."
+            ]
+          },
+          "variants": [
+            "Ma soeur adore l'acteur qui joue le héros de cette série."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-livres-5",
+      "title": "Ce que j'ai préféré",
+      "grammarFocus": {
+        "en": [
+          "Without an antecedent, French uses ce qui (subject), ce que (object), ce dont (de) and ce à quoi (à): Ce que j'ai préféré, c'est la scène au marché.",
+          "celui qui, celle que, ceux que = the one(s) who or that: celui, celle, ceux agree with the person or thing."
+        ],
+        "es-419": [
+          "Sin antecedente, el francés usa ce qui (sujeto), ce que (complemento), ce dont (de) y ce à quoi (à): Ce que j'ai préféré, c'est la scène au marché.",
+          "celui qui, celle que, ceux que = el que, la que, los que: celui, celle, ceux concuerdan con la persona o cosa."
+        ],
+        "it": [
+          "Senza antecedente, il francese usa ce qui (soggetto), ce que (oggetto), ce dont (de) e ce à quoi (à): Ce que j'ai préféré, c'est la scène au marché.",
+          "celui qui, celle que, ceux que = quello che, quella che, quelli che: celui, celle, ceux concordano con la persona o la cosa."
+        ],
+        "nl": [
+          "Zonder antecedent gebruikt het Frans ce qui (onderwerp), ce que (object), ce dont (de) en ce à quoi (à): Ce que j'ai préféré, c'est la scène au marché.",
+          "celui qui, celle que, ceux que = degene die, die: celui, celle, ceux komen overeen met de persoon of zaak."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-5-u01",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "ce que j'ai préféré",
+          "translation": {
+            "en": "what I liked best",
+            "es-419": "lo que más me gustó",
+            "it": "quello che ho preferito",
+            "nl": "wat ik het leukst vond"
+          },
+          "distractors": {
+            "en": [
+              "what I liked least",
+              "what I read"
+            ],
+            "es-419": [
+              "lo que menos me gustó",
+              "lo que leí"
+            ],
+            "it": [
+              "quello che ho preferito di meno",
+              "quello che ho letto"
+            ],
+            "nl": [
+              "wat ik het minst leuk vond",
+              "wat ik las"
+            ]
+          },
+          "senses": {
+            "3": "préférer"
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u02",
+          "rev": 1,
+          "stage": "word",
+          "text": "émouvant",
+          "translation": {
+            "en": "moving, touching",
+            "es-419": "conmovedor",
+            "it": "commovente",
+            "nl": "ontroerend"
+          },
+          "distractors": {
+            "en": [
+              "boring",
+              "funny"
+            ],
+            "es-419": [
+              "aburrido",
+              "gracioso"
+            ],
+            "it": [
+              "noioso",
+              "divertente"
+            ],
+            "nl": [
+              "saai",
+              "grappig"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u03",
+          "rev": 1,
+          "stage": "word",
+          "text": "passionnant",
+          "translation": {
+            "en": "exciting, gripping",
+            "es-419": "apasionante",
+            "it": "appassionante",
+            "nl": "boeiend"
+          },
+          "distractors": {
+            "en": [
+              "tiring",
+              "simple"
+            ],
+            "es-419": [
+              "cansador",
+              "simple"
+            ],
+            "it": [
+              "faticoso",
+              "semplice"
+            ],
+            "nl": [
+              "vermoeiend",
+              "eenvoudig"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u04",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce qui est émouvant dans ce film, c'est la fin.",
+          "translation": {
+            "en": "What is moving in this film is the ending.",
+            "es-419": "Lo que es conmovedor en esta película es el final.",
+            "it": "Ciò che è commovente in questo film è il finale.",
+            "nl": "Wat ontroerend is in deze film, is het einde."
+          },
+          "distractors": {
+            "en": [
+              "What is funny in this film is the ending.",
+              "What is moving in this film is the beginning."
+            ],
+            "es-419": [
+              "Lo que es gracioso en esta película es el final.",
+              "Lo que es conmovedor en esta película es el principio."
+            ],
+            "it": [
+              "Ciò che è divertente in questo film è il finale.",
+              "Ciò che è commovente in questo film è l'inizio."
+            ],
+            "nl": [
+              "Wat grappig is in deze film, is het einde.",
+              "Wat ontroerend is in deze film, is het begin."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u05",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Ce que j'ai préféré, c'est la scène au marché.",
+          "translation": {
+            "en": "What I liked best is the scene at the market.",
+            "es-419": "Lo que más me gustó es la escena del mercado.",
+            "it": "Quello che ho preferito è la scena al mercato.",
+            "nl": "Wat ik het leukst vond, is de scène op de markt."
+          },
+          "distractors": {
+            "en": [
+              "What I liked best is the scene at the station.",
+              "What I liked least is the scene at the market."
+            ],
+            "es-419": [
+              "Lo que más me gustó es la escena de la estación.",
+              "Lo que menos me gustó es la escena del mercado."
+            ],
+            "it": [
+              "Quello che ho preferito è la scena alla stazione.",
+              "Quello che ho preferito di meno è la scena al mercato."
+            ],
+            "nl": [
+              "Wat ik het leukst vond, is de scène op het station.",
+              "Wat ik het minst leuk vond, is de scène op de markt."
+            ]
+          },
+          "senses": {
+            "3": "préférer"
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u06",
+          "rev": 1,
+          "stage": "word",
+          "text": "version",
+          "translation": {
+            "en": "version",
+            "es-419": "versión",
+            "it": "versione",
+            "nl": "versie"
+          },
+          "distractors": {
+            "en": [
+              "chapter",
+              "page"
+            ],
+            "es-419": [
+              "capítulo",
+              "página"
+            ],
+            "it": [
+              "capitolo",
+              "pagina"
+            ],
+            "nl": [
+              "hoofdstuk",
+              "bladzijde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "original",
+          "translation": {
+            "en": "original",
+            "es-419": "original",
+            "it": "originale",
+            "nl": "origineel"
+          },
+          "distractors": {
+            "en": [
+              "new",
+              "simple"
+            ],
+            "es-419": [
+              "nuevo",
+              "simple"
+            ],
+            "it": [
+              "nuovo",
+              "semplice"
+            ],
+            "nl": [
+              "nieuw",
+              "eenvoudig"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u08",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "en version originale",
+          "translation": {
+            "en": "in the original language",
+            "es-419": "en versión original",
+            "it": "in versione originale",
+            "nl": "in de originele versie"
+          },
+          "distractors": {
+            "en": [
+              "in a new version",
+              "in the French version"
+            ],
+            "es-419": [
+              "en una versión nueva",
+              "en la versión francesa"
+            ],
+            "it": [
+              "in una nuova versione",
+              "nella versione francese"
+            ],
+            "nl": [
+              "in een nieuwe versie",
+              "in de Franse versie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "sous-titre",
+          "translation": {
+            "en": "subtitle",
+            "es-419": "subtítulo",
+            "it": "sottotitolo",
+            "nl": "ondertitel"
+          },
+          "distractors": {
+            "en": [
+              "title",
+              "chapter"
+            ],
+            "es-419": [
+              "título",
+              "capítulo"
+            ],
+            "it": [
+              "titolo",
+              "capitolo"
+            ],
+            "nl": [
+              "titel",
+              "hoofdstuk"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je regarde toujours des séries en version originale avec des sous-titres.",
+          "translation": {
+            "en": "I always watch series in the original version with subtitles.",
+            "es-419": "Siempre veo series en versión original con subtítulos.",
+            "it": "Guardo sempre le serie in versione originale con i sottotitoli.",
+            "nl": "Ik kijk altijd series in de originele versie met ondertitels."
+          },
+          "distractors": {
+            "en": [
+              "I never watch series in the original version with subtitles.",
+              "I always watch series in the original version without subtitles."
+            ],
+            "es-419": [
+              "Nunca veo series en versión original con subtítulos.",
+              "Siempre veo series en versión original sin subtítulos."
+            ],
+            "it": [
+              "Non guardo mai le serie in versione originale con i sottotitoli.",
+              "Guardo sempre le serie in versione originale senza sottotitoli."
+            ],
+            "nl": [
+              "Ik kijk nooit series in de originele versie met ondertitels.",
+              "Ik kijk altijd series in de originele versie zonder ondertitels."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u11",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Celui qui a écrit ce livre est un écrivain très connu.",
+          "translation": {
+            "en": "The man who wrote this book is a very well-known writer.",
+            "es-419": "El que escribió este libro es un escritor muy conocido.",
+            "it": "Quello che ha scritto questo libro è uno scrittore molto famoso.",
+            "nl": "Degene die dit boek heeft geschreven, is een heel bekende schrijver."
+          },
+          "distractors": {
+            "en": [
+              "The man who wrote this book is a very young writer.",
+              "The man who read this book is a very well-known writer."
+            ],
+            "es-419": [
+              "El que escribió este libro es un escritor muy joven.",
+              "El que leyó este libro es un escritor muy conocido."
+            ],
+            "it": [
+              "Quello che ha scritto questo libro è uno scrittore molto giovane.",
+              "Quello che ha letto questo libro è uno scrittore molto famoso."
+            ],
+            "nl": [
+              "Degene die dit boek heeft geschreven, is een heel jonge schrijver.",
+              "Degene die dit boek heeft gelezen, is een heel bekende schrijver."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u12",
+          "rev": 1,
+          "stage": "chunk",
+          "text": "celle que je préfère",
+          "translation": {
+            "en": "the one I prefer",
+            "es-419": "la que prefiero",
+            "it": "quella che preferisco",
+            "nl": "die ik liever heb"
+          },
+          "distractors": {
+            "en": [
+              "the one I hate",
+              "the one I bought"
+            ],
+            "es-419": [
+              "la que detesto",
+              "la que compré"
+            ],
+            "it": [
+              "quella che detesto",
+              "quella che ho comprato"
+            ],
+            "nl": [
+              "die ik haat",
+              "die ik heb gekocht"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Il y a beaucoup de romans, mais ceux que je préfère sont les romans d'amour.",
+          "translation": {
+            "en": "There are many novels, but the ones I prefer are the love stories.",
+            "es-419": "Hay muchas novelas, pero las que prefiero son las novelas de amor.",
+            "it": "Ci sono molti romanzi, ma quelli che preferisco sono i romanzi d'amore.",
+            "nl": "Er zijn veel romans, maar die ik het liefst lees, zijn de liefdesromans."
+          },
+          "distractors": {
+            "en": [
+              "There are many novels, but the ones I prefer are the crime novels.",
+              "There are few novels, but the ones I prefer are the love stories."
+            ],
+            "es-419": [
+              "Hay muchas novelas, pero las que prefiero son las novelas policiales.",
+              "Hay pocas novelas, pero las que prefiero son las novelas de amor."
+            ],
+            "it": [
+              "Ci sono molti romanzi, ma quelli che preferisco sono i gialli.",
+              "Ci sono pochi romanzi, ma quelli che preferisco sono i romanzi d'amore."
+            ],
+            "nl": [
+              "Er zijn veel romans, maar die ik het liefst lees, zijn de misdaadromans.",
+              "Er zijn weinig romans, maar die ik het liefst lees, zijn de liefdesromans."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Je n'ai pas compris ce dont parle ce film.",
+          "translation": {
+            "en": "I didn't understand what this film is about.",
+            "es-419": "No entendí de qué trata esta película.",
+            "it": "Non ho capito di cosa parla questo film.",
+            "nl": "Ik heb niet begrepen waarover deze film gaat."
+          },
+          "distractors": {
+            "en": [
+              "I understood what this film is about.",
+              "I didn't understand what this book is about."
+            ],
+            "es-419": [
+              "Entendí de qué trata esta película.",
+              "No entendí de qué trata este libro."
+            ],
+            "it": [
+              "Ho capito di cosa parla questo film.",
+              "Non ho capito di cosa parla questo libro."
+            ],
+            "nl": [
+              "Ik heb begrepen waarover deze film gaat.",
+              "Ik heb niet begrepen waarover dit boek gaat."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Voilà ce à quoi je pensais pendant le film.",
+          "translation": {
+            "en": "That's what I was thinking about during the film.",
+            "es-419": "Eso es en lo que pensaba durante la película.",
+            "it": "Ecco a cosa pensavo durante il film.",
+            "nl": "Dat is waaraan ik dacht tijdens de film."
+          },
+          "distractors": {
+            "en": [
+              "That's what I was thinking about after the film.",
+              "That's what I was talking about during the film."
+            ],
+            "es-419": [
+              "Eso es en lo que pensaba después de la película.",
+              "Eso es de lo que hablaba durante la película."
+            ],
+            "it": [
+              "Ecco a cosa pensavo dopo il film.",
+              "Ecco di cosa parlavo durante il film."
+            ],
+            "nl": [
+              "Dat is waaraan ik dacht na de film.",
+              "Dat is waarover ik praatte tijdens de film."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-5-u16",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est ce qui rend ce film passionnant.",
+          "translation": {
+            "en": "That's what makes this film exciting.",
+            "es-419": "Eso es lo que hace apasionante esta película.",
+            "it": "È ciò che rende questo film appassionante.",
+            "nl": "Dat is wat deze film boeiend maakt."
+          },
+          "distractors": {
+            "en": [
+              "That's what makes this film boring.",
+              "That's what makes this book exciting."
+            ],
+            "es-419": [
+              "Eso es lo que hace aburrida esta película.",
+              "Eso es lo que hace apasionante este libro."
+            ],
+            "it": [
+              "È ciò che rende questo film noioso.",
+              "È ciò che rende questo libro appassionante."
+            ],
+            "nl": [
+              "Dat is wat deze film saai maakt.",
+              "Dat is wat dit boek boeiend maakt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-b1-livres-6",
+      "title": "Une critique",
+      "grammarFocus": {
+        "en": [
+          "Writing a review: put the relative pronouns together to describe a book or film and recommend it: un roman émouvant que je conseille, une critique de ce film.",
+          "Choose the pronoun by its job in the clause: qui (subject), que (object), dont (with de), où (place or time), preposition + qui or lequel."
+        ],
+        "es-419": [
+          "Escribir una reseña: combina los pronombres relativos para describir y recomendar un libro o película: un roman émouvant que je conseille, une critique de ce film.",
+          "Elige el pronombre según su función en la oración: qui (sujeto), que (complemento), dont (con de), où (lugar o tiempo), preposición + qui o lequel."
+        ],
+        "it": [
+          "Scrivere una recensione: combina i pronomi relativi per descrivere e consigliare un libro o un film: un roman émouvant que je conseille, une critique de ce film.",
+          "Scegli il pronome in base alla sua funzione nella frase: qui (soggetto), que (oggetto), dont (con de), où (luogo o tempo), preposizione + qui o lequel."
+        ],
+        "nl": [
+          "Een recensie schrijven: combineer betrekkelijke voornaamwoorden om een boek of film te beschrijven en aan te bevelen: un roman émouvant que je conseille, une critique de ce film.",
+          "Kies het voornaamwoord naar zijn functie in de zin: qui (onderwerp), que (object), dont (met de), où (plaats of tijd), voorzetsel + qui of lequel."
+        ]
+      },
+      "units": [
+        {
+          "id": "fr-b1-livres-6-u01",
+          "rev": 1,
+          "stage": "word",
+          "text": "critique",
+          "translation": {
+            "en": "review",
+            "es-419": "reseña",
+            "it": "recensione",
+            "nl": "recensie"
+          },
+          "distractors": {
+            "en": [
+              "ending",
+              "prize"
+            ],
+            "es-419": [
+              "final",
+              "premio"
+            ],
+            "it": [
+              "finale",
+              "premio"
+            ],
+            "nl": [
+              "einde",
+              "prijs"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u02",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "une bonne critique",
+          "translation": {
+            "en": "a good review",
+            "es-419": "una buena reseña",
+            "it": "una buona recensione",
+            "nl": "een goede recensie"
+          },
+          "distractors": {
+            "en": [
+              "a bad review",
+              "a good ending"
+            ],
+            "es-419": [
+              "una mala reseña",
+              "un buen final"
+            ],
+            "it": [
+              "una cattiva recensione",
+              "un buon finale"
+            ],
+            "nl": [
+              "een slechte recensie",
+              "een goed einde"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u03",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai lu une critique de ce film dans le journal.",
+          "translation": {
+            "en": "I read a review of this film in the newspaper.",
+            "es-419": "Leí una reseña de esta película en el periódico.",
+            "it": "Ho letto una recensione di questo film sul giornale.",
+            "nl": "Ik heb een recensie van deze film in de krant gelezen."
+          },
+          "distractors": {
+            "en": [
+              "I read a review of this book in the newspaper.",
+              "I saw this film in the newspaper."
+            ],
+            "es-419": [
+              "Leí una reseña de este libro en el periódico.",
+              "Vi esta película en el periódico."
+            ],
+            "it": [
+              "Ho letto una recensione di questo libro sul giornale.",
+              "Ho visto questo film sul giornale."
+            ],
+            "nl": [
+              "Ik heb een recensie van dit boek in de krant gelezen.",
+              "Ik heb deze film in de krant gezien."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u04",
+          "rev": 1,
+          "stage": "word",
+          "text": "résumé",
+          "translation": {
+            "en": "summary",
+            "es-419": "resumen",
+            "it": "riassunto",
+            "nl": "samenvatting"
+          },
+          "distractors": {
+            "en": [
+              "review",
+              "title"
+            ],
+            "es-419": [
+              "reseña",
+              "título"
+            ],
+            "it": [
+              "recensione",
+              "titolo"
+            ],
+            "nl": [
+              "recensie",
+              "titel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u05",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un petit résumé",
+          "translation": {
+            "en": "a short summary",
+            "es-419": "un pequeño resumen",
+            "it": "un piccolo riassunto",
+            "nl": "een korte samenvatting"
+          },
+          "distractors": {
+            "en": [
+              "a long summary",
+              "a short review"
+            ],
+            "es-419": [
+              "un resumen largo",
+              "una reseña corta"
+            ],
+            "it": [
+              "un lungo riassunto",
+              "una breve recensione"
+            ],
+            "nl": [
+              "een lange samenvatting",
+              "een korte recensie"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u06",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Dans ma critique, je fais un petit résumé de l'intrigue.",
+          "translation": {
+            "en": "In my review, I write a short summary of the plot.",
+            "es-419": "En mi reseña, hago un pequeño resumen de la trama.",
+            "it": "Nella mia recensione faccio un piccolo riassunto della trama.",
+            "nl": "In mijn recensie maak ik een korte samenvatting van het plot."
+          },
+          "distractors": {
+            "en": [
+              "In my review, I write a short summary of the ending.",
+              "In my review, I don't write a summary of the plot."
+            ],
+            "es-419": [
+              "En mi reseña, hago un pequeño resumen del final.",
+              "En mi reseña, no hago ningún resumen de la trama."
+            ],
+            "it": [
+              "Nella mia recensione faccio un piccolo riassunto del finale.",
+              "Nella mia recensione non faccio nessun riassunto della trama."
+            ],
+            "nl": [
+              "In mijn recensie maak ik een korte samenvatting van het einde.",
+              "In mijn recensie maak ik geen samenvatting van het plot."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u07",
+          "rev": 1,
+          "stage": "word",
+          "text": "lecteur",
+          "translation": {
+            "en": "reader",
+            "es-419": "lector",
+            "it": "lettore",
+            "nl": "lezer"
+          },
+          "distractors": {
+            "en": [
+              "writer",
+              "author"
+            ],
+            "es-419": [
+              "escritor",
+              "autor"
+            ],
+            "it": [
+              "scrittore",
+              "autore"
+            ],
+            "nl": [
+              "schrijver",
+              "auteur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u08",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "un jeune lecteur",
+          "translation": {
+            "en": "a young reader",
+            "es-419": "un lector joven",
+            "it": "un giovane lettore",
+            "nl": "een jonge lezer"
+          },
+          "distractors": {
+            "en": [
+              "an old reader",
+              "a young writer"
+            ],
+            "es-419": [
+              "un lector viejo",
+              "un escritor joven"
+            ],
+            "it": [
+              "un vecchio lettore",
+              "un giovane scrittore"
+            ],
+            "nl": [
+              "een oude lezer",
+              "een jonge schrijver"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u09",
+          "rev": 1,
+          "stage": "word",
+          "text": "public",
+          "translation": {
+            "en": "audience, public",
+            "es-419": "público",
+            "it": "pubblico",
+            "nl": "publiek"
+          },
+          "distractors": {
+            "en": [
+              "reader",
+              "actor"
+            ],
+            "es-419": [
+              "lector",
+              "actor"
+            ],
+            "it": [
+              "lettore",
+              "attore"
+            ],
+            "nl": [
+              "lezer",
+              "acteur"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u10",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "Le public a adoré le film, mais je ne l'ai pas aimé.",
+          "translation": {
+            "en": "The audience loved the film, but I didn't like it.",
+            "es-419": "Al público le encantó la película, pero a mí no me gustó.",
+            "it": "Il pubblico ha adorato il film, ma a me non è piaciuto.",
+            "nl": "Het publiek was dol op de film, maar ik vond hem niet mooi."
+          },
+          "distractors": {
+            "en": [
+              "The audience hated the film, but I liked it.",
+              "The audience loved the film, but I didn't see it."
+            ],
+            "es-419": [
+              "El público detestó la película, pero a mí me gustó.",
+              "Al público le encantó la película, pero yo no la vi."
+            ],
+            "it": [
+              "Il pubblico ha detestato il film, ma a me è piaciuto.",
+              "Il pubblico ha adorato il film, ma io non l'ho visto."
+            ],
+            "nl": [
+              "Het publiek haatte de film, maar ik vond hem wel mooi.",
+              "Het publiek was dol op de film, maar ik heb hem niet gezien."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u11",
+          "rev": 1,
+          "stage": "word",
+          "text": "couverture",
+          "translation": {
+            "en": "cover",
+            "es-419": "portada",
+            "it": "copertina",
+            "nl": "omslag"
+          },
+          "distractors": {
+            "en": [
+              "page",
+              "title"
+            ],
+            "es-419": [
+              "página",
+              "título"
+            ],
+            "it": [
+              "pagina",
+              "titolo"
+            ],
+            "nl": [
+              "bladzijde",
+              "titel"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u12",
+          "rev": 1,
+          "stage": "phrase",
+          "text": "la couverture du livre",
+          "translation": {
+            "en": "the cover of the book",
+            "es-419": "la portada del libro",
+            "it": "la copertina del libro",
+            "nl": "het omslag van het boek"
+          },
+          "distractors": {
+            "en": [
+              "the author of the book",
+              "the cover of the film"
+            ],
+            "es-419": [
+              "el autor del libro",
+              "la portada de la película"
+            ],
+            "it": [
+              "l'autore del libro",
+              "la copertina del film"
+            ],
+            "nl": [
+              "de auteur van het boek",
+              "het omslag van de film"
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u13",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai acheté ce livre parce que la couverture était belle.",
+          "translation": {
+            "en": "I bought this book because the cover was beautiful.",
+            "es-419": "Compré este libro porque la portada era bonita.",
+            "it": "Ho comprato questo libro perché la copertina era bella.",
+            "nl": "Ik heb dit boek gekocht omdat het omslag mooi was."
+          },
+          "distractors": {
+            "en": [
+              "I bought this book because the story was beautiful.",
+              "I read this book because the cover was beautiful."
+            ],
+            "es-419": [
+              "Compré este libro porque la historia era bonita.",
+              "Leí este libro porque la portada era bonita."
+            ],
+            "it": [
+              "Ho comprato questo libro perché la storia era bella.",
+              "Ho letto questo libro perché la copertina era bella."
+            ],
+            "nl": [
+              "Ik heb dit boek gekocht omdat het verhaal mooi was.",
+              "Ik heb dit boek gelezen omdat het omslag mooi was."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u14",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "J'ai trouvé ce roman dans une petite librairie près de chez moi.",
+          "translation": {
+            "en": "I found this novel in a small bookshop near my home.",
+            "es-419": "Encontré esta novela en una pequeña librería cerca de mi casa.",
+            "it": "Ho trovato questo romanzo in una piccola libreria vicino a casa mia.",
+            "nl": "Ik heb deze roman gevonden in een kleine boekhandel bij mij in de buurt."
+          },
+          "distractors": {
+            "en": [
+              "I found this novel in a big bookshop near my home.",
+              "I found this novel in a small bookshop far from my home."
+            ],
+            "es-419": [
+              "Encontré esta novela en una gran librería cerca de mi casa.",
+              "Encontré esta novela en una pequeña librería lejos de mi casa."
+            ],
+            "it": [
+              "Ho trovato questo romanzo in una grande libreria vicino a casa mia.",
+              "Ho trovato questo romanzo in una piccola libreria lontano da casa mia."
+            ],
+            "nl": [
+              "Ik heb deze roman gevonden in een grote boekhandel bij mij in de buurt.",
+              "Ik heb deze roman gevonden in een kleine boekhandel ver van mijn huis."
+            ]
+          }
+        },
+        {
+          "id": "fr-b1-livres-6-u15",
+          "rev": 1,
+          "stage": "sentence",
+          "text": "C'est un roman émouvant que je conseille à tous les lecteurs.",
+          "translation": {
+            "en": "It's a moving novel that I recommend to all readers.",
+            "es-419": "Es una novela conmovedora que aconsejo a todos los lectores.",
+            "it": "È un romanzo commovente che consiglio a tutti i lettori.",
+            "nl": "Het is een ontroerende roman die ik aan alle lezers aanraad."
+          },
+          "distractors": {
+            "en": [
+              "It's a boring novel that I recommend to all readers.",
+              "It's a moving novel that I recommend to no reader."
+            ],
+            "es-419": [
+              "Es una novela aburrida que aconsejo a todos los lectores.",
+              "Es una novela conmovedora que no aconsejo a ningún lector."
+            ],
+            "it": [
+              "È un romanzo noioso che consiglio a tutti i lettori.",
+              "È un romanzo commovente che non consiglio a nessun lettore."
+            ],
+            "nl": [
+              "Het is een saaie roman die ik aan alle lezers aanraad.",
+              "Het is een ontroerende roman die ik aan geen enkele lezer aanraad."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
