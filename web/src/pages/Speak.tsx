@@ -8,6 +8,17 @@ import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
 
+/** Language-neutral, so it lives here rather than in each locale file. */
+const STARTER_EMOJI: Record<Starter, string> = {
+  cafe: "☕", directions: "🧭", hotel: "🏨", meeting: "👋", market: "🍅", weekend: "🏖️",
+  pharmacy: "💊", train: "🚆", reservation: "📞", doctor: "🩺", clothes: "👕", taxi: "🚕", neighbor: "🏡", interview: "💼", hobbies: "🎸", airport: "✈️", lostitem: "🧳", movies: "🎬", apartment: "🔑", birthday: "🎂",
+};
+
+const SHOWN_STARTERS = 7;
+
+/** A fresh random pick of the pool, so the page doesn't always offer the same scenarios. */
+const pickStarters = (): Starter[] => [...STARTERS].sort(() => Math.random() - 0.5).slice(0, SHOWN_STARTERS);
+
 export function Speak() {
   const lang = useLang();
   const navigate = useNavigate();
@@ -16,6 +27,7 @@ export function Speak() {
   const prefs = () => me()!.prefs[lang()];
   /** The learner's self-rated level, which the dashboard asks for; A1 until they answer. */
   const level = () => prefs().level ?? "A1";
+  const starters = pickStarters();
   const [hardMode, setHardMode] = createSignal(false);
   const [topic, setTopic] = createSignal("");
   const [starting, setStarting] = createSignal(false);
@@ -66,13 +78,15 @@ export function Speak() {
           </div>
           <div>
             <h2 class="h6">{t("speak.starters")}</h2>
-            <div class="d-flex flex-wrap gap-2">
-              <For each={STARTERS}>
-                {(s) => <button type="button" class={`qa-speak-starter qa-speak-starter-${s} btn btn-outline-primary`} disabled={starting()} onClick={() => start({ starter: s })}>{t(`speak.starter.${s}`)}</button>}
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 justify-content-center g-2">
+              <For each={starters}>
+                {(s) => <div class="col"><button type="button" class={`qa-speak-starter qa-speak-starter-${s} btn btn-outline-primary w-100 h-100`} disabled={starting()} onClick={() => start({ starter: s })}><span aria-hidden="true">{STARTER_EMOJI[s]}</span> {t(`speak.starter.${s}`)}</button></div>}
               </For>
-              <button type="button" class="qa-speak-surprise btn btn-outline-secondary" disabled={starting()} onClick={() => start({ surprise: true })}>
-                <i class="bi bi-shuffle me-1" aria-hidden="true" />{t("speak.surprise")}
-              </button>
+              <div class="col">
+                <button type="button" class="qa-speak-surprise btn btn-outline-secondary w-100 h-100" disabled={starting()} onClick={() => start({ surprise: true })}>
+                  <span aria-hidden="true">🎲</span> {t("speak.surprise")}
+                </button>
+              </div>
             </div>
           </div>
           <form class="d-flex gap-2" onSubmit={(e) => { e.preventDefault(); void start({ topic: topic() }); }}>
@@ -88,7 +102,7 @@ export function Speak() {
         {(d) => (
           <>
             <section>
-              <h2 class="h5">{t("speak.history")}</h2>
+              <h2 class="h5"><i class="bi bi-clock-history me-2" aria-hidden="true" />{t("speak.history")}</h2>
               <Show when={d().conversations.length} fallback={<p class="text-body-secondary">{t("speak.noHistory")}</p>}>
                 <ul class="list-group">
                   <For each={d().conversations}>

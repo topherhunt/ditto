@@ -23,7 +23,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await signIn(page, "speaker@example.com");
   await page.locator(".qa-nav-speak").click();
   await expect(page).toHaveURL(/\/it\/talk$/);
-  await page.locator(".qa-speak-starter-cafe").click();
+  await page.locator(".qa-speak-starter").first().click();
 
   await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
   // The opening line plays by itself.
@@ -116,7 +116,7 @@ test("a playing line's play button turns into a stop button that stops it", asyn
   await page.route("**/audio/*.wav", (route) => route.fulfill({ contentType: "audio/wav", body: wav }));
   await signIn(page, "stopper@example.com");
   await page.goto("/it/talk");
-  await page.locator(".qa-speak-starter-cafe").click();
+  await page.locator(".qa-speak-starter").first().click();
 
   // The opening line autoplays, so its button starts as a stop button.
   const button = page.locator(".qa-turn-play").first();
@@ -132,7 +132,7 @@ test("a playing line's play button turns into a stop button that stops it", asyn
 test("retrying a partner that didn't answer shows a loading spinner until the answer arrives", async ({ page }) => {
   await signIn(page, "retrier@example.com");
   await page.goto("/it/talk");
-  await page.locator(".qa-speak-starter-cafe").click();
+  await page.locator(".qa-speak-starter").first().click();
   await record(page);
   await expect(page.locator(".qa-retry-target")).toBeVisible();
   await record(page);
@@ -166,7 +166,7 @@ test("retrying a partner that didn't answer shows a loading spinner until the an
 test("an admin sees reported judgments and spend", async ({ page }) => {
   await signIn(page, "admin@example.com");
   await page.goto("/it/talk");
-  await page.locator(".qa-speak-starter-cafe").click();
+  await page.locator(".qa-speak-starter").first().click();
   await record(page);
   await page.locator(".qa-retry-report-open").click();
   await page.locator(".qa-retry-report-note").fill("admin's own report");

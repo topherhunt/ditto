@@ -38,7 +38,7 @@ test("a paid call refused at the cap sends the learner to the congratulations pa
     })
     : route.continue());
   await page.goto("/it/talk");
-  await page.locator(".qa-speak-starter-cafe").click();
+  await page.locator(".qa-speak-starter").first().click();
 
   await expect(page).toHaveURL(/\/cap$/);
   await expect(page.locator(".qa-cap-reached h1")).toHaveText("Congratulazioni!");

@@ -33,6 +33,20 @@ const STARTER_PROMPTS: Record<Starter, string> = {
   meeting: "At a party: you and the learner have just met and are getting to know each other.",
   market: "At a market: you run a fruit and vegetable stall and the learner is shopping.",
   weekend: "Two friends catching up: you ask the learner about their weekend and share yours.",
+  pharmacy: "At a pharmacy: you are the pharmacist and the learner has a mild problem (a cold, a headache, a sore throat) and asks what to take.",
+  train: "At a train station: you are the ticket office clerk and the learner is buying a ticket for a trip.",
+  reservation: "On the phone: you are a restaurant host and the learner is calling to reserve a table.",
+  doctor: "At a doctor's office: you are the doctor and the learner describes how they feel.",
+  clothes: "At a clothing shop: you are the shop assistant helping the learner find something to wear.",
+  taxi: "In a taxi: you are the driver and the learner is a passenger going somewhere in town; chat as you drive.",
+  neighbor: "In the stairwell: you are a neighbor meeting the learner, who has just moved in next door.",
+  interview: "At a job interview: you are the interviewer asking the learner about themselves and their experience.",
+  hobbies: "Two friends chatting: you and the learner talk about what you each like to do in your free time.",
+  airport: "At an airport: you are the check-in agent and the learner is a traveler checking in for a flight.",
+  lostitem: "At a lost property office: you are the clerk and the learner has lost something and describes it.",
+  movies: "Two friends chatting: you and the learner talk about films and shows you have seen and would recommend.",
+  apartment: "At an apartment viewing: you are the landlord showing the learner a flat they might rent.",
+  birthday: "Two friends chatting: you and the learner plan a birthday party together.",
 };
 const SURPRISE = "Surprise the learner: pick an everyday situation yourself and set it up in your first line.";
 

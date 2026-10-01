@@ -164,7 +164,9 @@ export const ExplainSchema =z.strictObject({ unitId: z.string(), answer: z.strin
 /** Conversation mode (docs/conversation.md). Irish is out until live Irish TTS exists. */
 export const SPEAK_LANGUAGES = ["it", "nl", "en", "es", "fr", "el"] as const satisfies readonly Language[];
 export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
-export const STARTERS = ["cafe", "directions", "hotel", "meeting", "market", "weekend"] as const;
+export const STARTERS = [
+  "cafe", "directions", "hotel", "meeting", "market", "weekend", "pharmacy", "train", "reservation", "doctor", "clothes", "taxi", "neighbor", "interview", "hobbies", "airport", "lostitem", "movies", "apartment", "birthday",
+] as const;
 export type Starter = (typeof STARTERS)[number];
 /** Failed tries at one sentence before the coach offers to move on. */
 export const MOVE_ON_AFTER = 5;
