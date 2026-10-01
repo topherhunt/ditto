@@ -121,8 +121,8 @@ function ScrollButtons(props: { end: () => HTMLElement }) {
       window.removeEventListener("resize", update);
     });
   });
-  const btn = "scroll-fab btn btn-outline-secondary bg-body rounded-circle position-fixed end-0 m-3 d-flex align-items-center justify-content-center";
-  const size = { width: "2.75rem", height: "2.75rem", "z-index": 1030 };
+  const btn = "scroll-fab btn btn-outline-secondary bg-body rounded-circle position-fixed end-0 d-flex align-items-center justify-content-center";
+  const size = { width: "2.75rem", height: "2.75rem", "margin-block": "-.5rem", "margin-right": "-.5rem", "z-index": 1030 };
   return (
     <>
       <button type="button" data-silent class={`qa-scroll-up ${btn} top-0`} classList={{ show: canUp() }} style={size} aria-label={t("speak.scrollUp")}
@@ -292,7 +292,7 @@ export function Conversation() {
     <Show when={conv()}>
       <div class="d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <A href={`/${lang()}/talk`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
+          <A end href={`/${lang()}/talk`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
           <h1 class="qa-conversation-title h4 mb-0 me-auto">{c().title}</h1>
         </div>
         <div class="small text-body-secondary">{t("speak.tapHint")}</div>

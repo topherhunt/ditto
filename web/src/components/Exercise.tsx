@@ -487,7 +487,7 @@ export function Exercise(props: {
       when={reportOpen()}
       fallback={
         <button type="button" data-silent class="qa-report-open btn btn-link btn-sm p-0 ms-auto text-body-secondary" onClick={() => setReportOpen(true)}>
-          {t("report.open")}
+          <i class="bi bi-bug me-1" aria-hidden="true" />{t("report.open")}
         </button>
       }
     >

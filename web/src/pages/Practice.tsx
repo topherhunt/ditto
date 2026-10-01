@@ -4,7 +4,6 @@ import { MASTER_WAIT_MS, type AttemptOut, type CompareRow, type LessonOut, type 
 import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { Exercise } from "../components/Exercise.tsx";
-import { TypeCrumb } from "../components/TypeCrumb.tsx";
 import { Stars } from "../components/Stars.tsx";
 import { Tada } from "../components/Tada.tsx";
 import { t } from "../i18n/index.ts";
@@ -148,8 +147,8 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
 
   return (
     <div class="d-flex flex-column gap-3">
-      <Show when={props.mode === "review" || props.mode === "mistakes"}><TypeCrumb lang={props.lang} /></Show>
-      <div class="d-flex align-items-baseline gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <A end href={`/${props.lang}/type`} class="qa-lesson-back btn btn-sm btn-outline-secondary" aria-label={t("practice.back")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
         <h1 class="h4 mb-0 me-auto">{props.deck.title}</h1>
         <span class="qa-position text-body-secondary small">{Math.min(index() + 1, props.deck.units.length)} / {props.deck.units.length}</span>
       </div>
