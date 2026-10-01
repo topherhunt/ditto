@@ -10,6 +10,7 @@ const ChunkSchema = z.strictObject({ text: z.string().min(1), gloss: z.string().
 const PartnerSchema = z.strictObject({
   title: z.string().min(1),
   line: z.string().min(1),
+  level: z.enum(CEFR_LEVELS),
   suggestions: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })).length(3),
 });
 const CoachSchema = z.strictObject({
@@ -26,7 +27,7 @@ const GlossSchema = z.strictObject({ lines: z.array(z.strictObject({ chunks: z.a
 export type Line = { role: "partner" | "learner"; text: string };
 /** Glosses are written in `locale`, the learner's own language; coaching in `helpLocale` and titles in `uiLocale`, each the course's language when immersed. */
 export type Setting = { language: Language; locale: Locale; helpLocale: Locale; uiLocale: Locale; level: string; scenario: string };
-export type PartnerOut = { title: string; line: string; suggestions: Chunk[][] };
+export type PartnerOut = { title: string; line: string; level: (typeof CEFR_LEVELS)[number]; suggestions: Chunk[][] };
 export type CoachIn = Setting & {
   partnerLine: string;
   /** The sentence a retry is judged against; null on a first try. */
@@ -94,6 +95,7 @@ The conversation is open-ended: never steer toward ending it (no goodbyes, no wr
 Scenario: ${s.scenario}
 - title: a short title for this conversation in ${LOCALE_NAMES[s.uiLocale]}.
 - line: your next line.
+- level: the CEFR level of the line you just wrote, judged by its vocabulary and grammar as written, not the level you aimed for.
 - suggestions: exactly three replies the learner could say next, at the learner's level, each steering the conversation a different way, none of them ending it. Make each a polite, forthcoming full sentence (or two short ones) of about 6 to 12 words, never a bare two- or three-word answer: at A1, "${examples(s.language).suggestion}" rather than a bare "${examples(s.language).suggestion.split(/[.,]/)[0]}." Split each suggestion into chunks.
 ${CHUNKING(s.language)}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 

@@ -9,14 +9,14 @@ import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 import { playRecordStart, playRecordStop, playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
-import { autoplay } from "./player.ts";
+import { autoplay, loading, playing } from "./player.ts";
 import { keepRecording, recordingUrl } from "../recordings.ts";
 
 /** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
-function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; onTap: (key: string, text: string) => void; class?: string }) {
+function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void; class?: string; classList?: Record<string, boolean> }) {
   const key = (i: number) => `${props.id}-${i}`;
   return (
-    <div class={props.class}>
+    <div class={props.class} classList={props.classList}>
       <For each={props.chunks}>
         {(c, i) => (
           <>
@@ -25,7 +25,10 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
               <Show when={props.active === key(i())}>
                 <span class="qa-gloss tooltip bs-tooltip-bottom show position-absolute top-100 start-50 translate-middle-x" role="tooltip">
                   <span class="tooltip-arrow" style={{ left: "calc(50% - var(--bs-tooltip-arrow-width) / 2)" }} />
-                  <span class="tooltip-inner d-block text-nowrap">{c.gloss}</span>
+                  <span class="tooltip-inner d-block text-nowrap">
+                    <Show when={props.preparing}><span class="qa-gloss-spinner spinner-border spinner-border-sm me-2" role="status" aria-label={t("speak.preparingAudio")} /></Show>
+                    {c.gloss}
+                  </span>
                 </span>
               </Show>
             </span>{" "}
@@ -36,30 +39,38 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
   );
 }
 
-function Turn(props: { turn: TurnOut; active: string | null; onTap: (key: string, text: string) => void }) {
+/** The CEFR grade of a line, hung on the bottom-left corner of its bubble (which must be positioned). Absent on a line without one. Ignores taps so it never blocks the play button beneath its corner. */
+function LevelBadge(props: { level: string | null }) {
+  return <Show when={props.level}>{(l) => <span class="qa-turn-level badge text-bg-secondary pe-none position-absolute start-0 bottom-0 ms-2 translate-middle-y" style={{ "font-size": ".65rem" }}>{l()}</span>}</Show>;
+}
+
+/** `latest` is the conversation's last turn, set larger so the line to answer stands out. */
+function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void }) {
   const turn = () => props.turn;
   /** The learner's replies replay from this browser; the server never stores them. */
   const [kept] = createResource(() => turn().role === "learner" && turn().id, recordingUrl);
   return (
     <Show when={turn().role === "partner"} fallback={
       <div class="qa-turn qa-turn-learner align-self-end text-end" style={{ "max-width": "85%" }}>
-        <div class="d-inline-flex align-items-center gap-2 p-2 rounded bg-primary-subtle">
+        <div class="d-inline-flex align-items-center gap-2 p-2 rounded border bubble-learner bg-primary-subtle position-relative">
           <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
-            {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
+            {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
           </Show>
+          <LevelBadge level={turn().level} />
           <Show when={kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
         </div>
-        <div class="small text-body-secondary">
-          <Show when={turn().source !== "own"}>{t(`speak.source.${turn().source as "suggestion" | "how" | "moved_on"}`)}</Show>
-          <Show when={turn().level}>{(l) => <span class="qa-turn-level badge text-bg-secondary ms-2">{l()}</span>}</Show>
-        </div>
+        {/* A suggested or typed reply needs no label; only a skipped one is worth flagging. */}
+        <Show when={turn().source === "how" || turn().source === "moved_on"}>
+          <div class="small text-body-secondary">{t(`speak.source.${turn().source as "how" | "moved_on"}`)}</div>
+        </Show>
       </div>
     }>
-      <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded bg-body-secondary" style={{ "max-width": "85%" }}>
+      <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded border bubble-partner bg-body-secondary position-relative" style={{ "max-width": "85%" }}>
         <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" />
-        <Show when={turn().chunks} fallback={<span class="qa-turn-text fs-5">{turn().text}</span>}>
-          {(chunks) => <ChunkLine class="qa-turn-text fs-5" chunks={chunks()} id={`t${turn().id}`} active={props.active} onTap={props.onTap} />}
+        <Show when={turn().chunks} fallback={<span class="qa-turn-text" classList={{ "fs-5": props.latest }}>{turn().text}</span>}>
+          {(chunks) => <ChunkLine class="qa-turn-text" classList={{ "fs-5": props.latest }} chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
         </Show>
+        <LevelBadge level={turn().level} />
       </div>
     </Show>
   );
@@ -97,10 +108,15 @@ export function Conversation() {
   const last = () => c().turns[c().turns.length - 1];
   /** The chunk whose gloss tooltip is open; tapping it again or anywhere else closes it. */
   const [activeChunk, setActiveChunk] = createSignal<string | null>(null);
+  const [activeUrl, setActiveUrl] = createSignal<string | null>(null);
+  /** True while the tapped chunk's audio is being prepared, until it starts playing. */
+  const preparing = () => loading() && activeUrl() !== null && playing() === activeUrl();
   const tap = (key: string, text: string) => {
     if (activeChunk() === key) return setActiveChunk(null);
     setActiveChunk(key);
-    autoplay(`/api/conversations/${c().id}/say?text=${encodeURIComponent(text)}`);
+    const url = `/api/conversations/${c().id}/say?text=${encodeURIComponent(text)}`;
+    setActiveUrl(url);
+    autoplay(url);
     setRevealed((s) => new Set(s).add(key));
   };
   const closeTooltip = (e: MouseEvent) => {
@@ -213,10 +229,6 @@ export function Conversation() {
     const res = await api.post<PartnerRetryResult>(`/api/conversations/${c().id}/partner`);
     advance(res.turns, { spend: res.spend });
   });
-  const setHardMode = (hardMode: boolean) => run(async () => {
-    await api.put(`/api/conversations/${c().id}`, { hardMode });
-    update({ hardMode });
-  });
 
   return (
     <Show when={conv()}>
@@ -224,15 +236,11 @@ export function Conversation() {
         <div class="d-flex flex-wrap align-items-center gap-2">
           <A href={`/${lang()}/talk`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
           <h1 class="qa-conversation-title h4 mb-0 me-auto">{c().title}</h1>
-          <label class="form-check mb-0 small">
-            <input type="checkbox" class="qa-conversation-hard form-check-input" checked={c().hardMode} onChange={(e) => void setHardMode(e.currentTarget.checked)} />
-            <span class="form-check-label">{t("speak.hardMode")}</span>
-          </label>
         </div>
         <div class="small text-body-secondary">{t("speak.tapHint")}</div>
 
         <div class="d-flex flex-column gap-3">
-          <For each={c().turns}>{(turn) => <Turn turn={turn} active={activeChunk()} onTap={tap} />}</For>
+          <For each={c().turns}>{(turn, i) => <Turn turn={turn} latest={i() === c().turns.length - 1} active={activeChunk()} preparing={preparing()} onTap={tap} />}</For>
         </div>
 
         <Show when={last().role === "learner"}>
@@ -250,14 +258,14 @@ export function Conversation() {
           <div class="qa-reply d-flex flex-column gap-3 border-top pt-3">
             {/* Keyed, so each attempt gets a fresh report form. */}
             <Show when={attempt()} keyed fallback={
-              <>
-                <Show when={!c().hardMode}><div class="small fw-semibold">{t("speak.suggestions")}</div></Show>
+              <div>
+                <Show when={!c().hardMode}><div class="small fw-semibold mb-1">{t("speak.suggestions")}</div></Show>
                 {/* The suggestions, then "How do I say...?" as the last option; hard mode leaves only that. */}
                 <ul class="mb-0">
                   <Show when={!c().hardMode && last().suggestions}>
                     {(suggestions) => (
                       <For each={suggestions()}>
-                        {(s, j) => <li class="qa-suggestion mb-1"><ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} onTap={tap} /></li>}
+                        {(s, j) => <li class="qa-suggestion mb-1"><ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} /></li>}
                       </For>
                     )}
                   </Show>
@@ -265,7 +273,7 @@ export function Conversation() {
                     <button type="button" class="qa-how-open btn btn-link p-0 align-baseline" onClick={() => setHowOpen(!howOpen())}>{t("speak.how")}</button>
                     <Show when={howOpen()}>
                       <form class="d-flex gap-2 mt-1" onSubmit={(e) => { e.preventDefault(); void askHow(); }}>
-                        <input class="qa-how-text form-control form-control-sm" placeholder={t("speak.howPlaceholder")} value={howText()} onInput={(e) => setHowText(e.currentTarget.value)} />
+                        <input ref={(el) => queueMicrotask(() => el.focus())} class="qa-how-text form-control form-control-sm" placeholder={t("speak.howPlaceholder")} value={howText()} onInput={(e) => setHowText(e.currentTarget.value)} />
                         <button type="submit" class="qa-how-go btn btn-sm btn-outline-primary" disabled={busy() || !howText().trim()}>{t("speak.howGo")}</button>
                       </form>
                     </Show>
@@ -280,7 +288,7 @@ export function Conversation() {
                     </Show>
                   </li>
                 </ul>
-              </>
+              </div>
             }>
               {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
             </Show>

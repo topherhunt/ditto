@@ -157,8 +157,8 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       db.prepare("UPDATE conversations SET updated_at = ? WHERE id = ?").run(now, conv.id);
       if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(learnerChunks), learner.id);
       db.prepare(
-        "INSERT INTO conversation_turns (conversation_id, role, text, chunks, suggestions, audio_file, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?)",
-      ).run(conv.id, text, JSON.stringify(chunks), JSON.stringify(result.suggestions), file, now);
+        "INSERT INTO conversation_turns (conversation_id, role, text, chunks, suggestions, audio_file, level, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?, ?)",
+      ).run(conv.id, text, JSON.stringify(chunks), JSON.stringify(result.suggestions), file, result.level, now);
     });
     return turnRows(conv.id).slice(learner ? -2 : -1).map((t) => toTurn(conv.id, t));
   };

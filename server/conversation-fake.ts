@@ -32,6 +32,7 @@ export function fakeAI(): ConversationAI {
       result: {
         title: "Al bar",
         line: history.length ? "Certo! Altro?" : "Buongiorno! Cosa prende?",
+        level: "B1",
         suggestions: [
           [{ text: "Vorrei un caffè,", gloss: "I'd like a coffee," }, { text: "per favore.", gloss: "please." }],
           [{ text: "Un tè,", gloss: "A tea," }, { text: "grazie.", gloss: "thanks." }],

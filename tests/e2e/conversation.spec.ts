@@ -99,12 +99,23 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-turn-learner .qa-chunk").first()).toBeVisible();
   await expect(page.locator(".qa-turn-play-own")).toHaveCount(0);
 
-  await page.locator(".qa-conversation-hard").check();
-  await expect(page.locator(".qa-suggestion")).toHaveCount(0);
-  await expect(page.locator(".qa-how-open")).toBeVisible();
+  await expect(page.locator(".qa-conversation-hard")).toHaveCount(0);
 
   await page.goto("/it/talk");
   await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
+});
+
+test("hard mode chosen on the Talk page hides the suggested replies but keeps How do I say", async ({ page }) => {
+  await signIn(page, "speaker@example.com");
+  await page.locator(".qa-nav-speak").click();
+  await page.locator(".qa-speak-settings-toggle").click();
+  await page.locator(".qa-speak-hard").check();
+  await page.locator(".qa-speak-starter").first().click();
+  await expect(page.locator(".qa-conversation-title")).toBeVisible();
+  await expect(page.locator(".qa-turn-partner .qa-turn-level")).toHaveText("B1");
+  await expect(page.locator(".qa-suggestion")).toHaveCount(0);
+  await page.locator(".qa-how-open").click();
+  await expect(page.locator(".qa-how-text")).toBeFocused();
 });
 
 test("a playing line's play button turns into a stop button that stops it", async ({ page }) => {

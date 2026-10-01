@@ -79,6 +79,43 @@ describe("equivalent spellings", () => {
     expect(passes("en", "My name is Marko.", "My name is Mark.")).toBe(false);
   });
 
+  it.each([
+    ["Je mange un oeuf.", "Je mange un œuf."],
+    ["Ma soeur est ici.", "Ma sœur est ici."],
+    ["Il a mal au coeur.", "Il a mal au cœur."],
+    ["Oeuf.", "Œuf."],
+    ["Peut être.", "Peut-être."],
+    ["Il a vingt deux ans.", "Il a vingt-deux ans."],
+    ["Il a quatre vingt dix ans.", "Il a quatre-vingt-dix ans."],
+    ["Est ce que vous parlez anglais?", "Est-ce que vous parlez anglais?"],
+    ["Qu'est ce que c'est?", "Qu'est-ce que c'est?"],
+    ["Donnez moi un café.", "Donnez-moi un café."],
+    ["Allez vous au marché?", "Allez-vous au marché?"],
+    ["A-t-il faim?", "A t il faim?"],
+    ["Nous aimons le weekend.", "Nous aimons le week-end."],
+    ["Nous aimons le week end.", "Nous aimons le week-end."],
+    ["Ça fait 20€.", "Ça fait 20 euros."],
+    ["Ça fait € 20.", "Ça fait 20 euros."],
+  ])("fr: %s passes for %s", (typed, text) => {
+    expect(passes("fr", typed, text)).toBe(true);
+  });
+
+  it.each([
+    ["Je mange un oef.", "Je mange un œuf."],
+    ["Il peut eter ici.", "Il peut-être ici."],
+    ["Il a vingt dux ans.", "Il a vingt-deux ans."],
+    ["Il a vingtdeux ans.", "Il a vingt-deux ans."],
+    ["Il a vingt trois ans.", "Il a vingt-deux ans."],
+  ])("fr: %s fails for %s", (typed, text) => {
+    expect(passes("fr", typed, text)).toBe(false);
+  });
+
+  it("fr: accepts oe for œ and a spaced hyphen word when typed word by word", () => {
+    const text = "Il a mal au cœur, peut-être.";
+    for (const slots of [["Il", "a", "mal", "au", "coeur", "peut-être"], ["Il", "a", "mal", "au", "cœur", "peut être"]])
+      expect(grade({ mode: "slots", slots }, { language: "fr", text }).passed).toBe(true);
+  });
+
   it("keeps spacing and contractions strict outside English", () => {
     expect(passes("nl", "Ik drink een koffie-melk.", "Ik drink een koffiemelk.")).toBe(false);
     expect(passes("it", "Vorrei un caffè-latte.", "Vorrei un caffè latte.")).toBe(false);

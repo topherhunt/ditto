@@ -85,9 +85,28 @@ function names(s: string): string {
   return s.replace(NAME_RE, (m) => caseAs(m, NAME_OF.get(m.toLowerCase())!));
 }
 
+// Two-word spellings joined as one, compared in the joined form (hyphens already became spaces).
+const FR_JOINED: [string, string][] = [["week end", "weekend"], ["t shirt", "tshirt"]];
+
+/** `20 €` and `€20` are `20 euros` (`1 euro`), the form the French text uses. */
+function frenchEuro(s: string): string {
+  return s.replace(new RegExp(`€\\s?${AMOUNT}|${AMOUNT}\\s?€`, "gu"), (_, a?: string, b?: string) => {
+    const n = a ?? b!;
+    return `${n} ${n === "1" ? "euro" : "euros"}`;
+  });
+}
+
+/** `œ` typed as `oe`, and a hyphen between letters typed as a space (`peut être`, `vingt deux`), both ways round. */
+function french(s: string): string {
+  s = s.replaceAll("œ", "oe").replaceAll("Œ", "Oe");
+  s = s.replace(/(?<=[\p{L}\p{N}])-(?=[\p{L}\p{N}])/gu, " ");
+  for (const [spaced, joined] of FR_JOINED) s = s.replace(word(spaced), (m) => caseAs(m, joined));
+  return names(frenchEuro(s));
+}
+
 // Not applied to Irish, where `ana` is a word and the names only vary by accent.
 const RULES: Record<Language, (s: string) => string> = {
-  en: (s) => names(english(s)), el: (s) => s, es: names, fr: (s) => names(euro(s)), it: (s) => names(euro(s)), nl: (s) => names(euro(s)), ga: euro,
+  en: (s) => names(english(s)), el: (s) => s, es: names, fr: french, it: (s) => names(euro(s)), nl: (s) => names(euro(s)), ga: euro,
 };
 
 /** The canonical spelling of `text` in `language`: equal canonical forms are the same answer. */

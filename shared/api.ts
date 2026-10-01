@@ -200,6 +200,7 @@ export type TurnOut = {
   audioUrl: string | null;
   /** Learner turns only. */
   source: TurnSource | null;
+  /** The CEFR grade of the line: the coach's for a learner turn, the partner model's own for a partner turn. */
   level: string | null;
 };
 export type CoachVerdict = {

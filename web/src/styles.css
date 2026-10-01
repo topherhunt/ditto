@@ -93,3 +93,7 @@
   .notify-wrap { position: static; }
   .notify-wrap .notify-menu[data-bs-popper] { left: .5rem; right: .5rem; width: auto; max-width: none; }
 }
+
+/* Message bubbles: a border a step lighter than the bubble's own background (lighter on dark, darker on light). */
+.bubble-partner { --bs-border-color: color-mix(in srgb, var(--bs-body-color) 25%, var(--bs-secondary-bg)); }
+.bubble-learner { --bs-border-color: color-mix(in srgb, var(--bs-body-color) 25%, var(--bs-primary-bg-subtle)); }

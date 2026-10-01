@@ -15,7 +15,7 @@ CREATE TABLE conversations (
 ) STRICT;
 CREATE INDEX conversations_user ON conversations(user_id, updated_at);
 
--- partner turns carry chunks and suggestions (JSON); learner turns carry source, level (the CEFR grade of the line) and taps.
+-- partner turns carry chunks and suggestions (JSON); learner turns carry source and taps; both carry level (the CEFR grade of the line).
 CREATE TABLE conversation_turns (
   id INTEGER PRIMARY KEY,
   conversation_id INTEGER NOT NULL REFERENCES conversations(id) ON DELETE CASCADE,

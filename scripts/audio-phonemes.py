@@ -18,7 +18,7 @@ from phonemizer.backend.espeak.wrapper import EspeakWrapper
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
 MODEL = "facebook/wav2vec2-xlsr-53-espeak-cv-ft"
-ESPEAK = {"it": "it", "en": "en-us", "nl": "nl", "ga": "ga"}
+ESPEAK = {"it": "it", "en": "en-us", "nl": "nl", "fr": "fr-fr", "ga": "ga"}
 
 audio_dir = sys.argv[1]
 # Point phonemizer at the bundled espeak-ng before the recognizer loads; its tokenizer fails with "espeak not installed" otherwise.

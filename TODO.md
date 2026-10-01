@@ -1,6 +1,6 @@
 ### Now
 
-- [ ] Test and confirm with Luis and others that people can access the app fine.
+- [x] Test and confirm with Luis and others that people can access the app fine.
 - [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - [ ] Improving the UI
   - [x] Fix the Internal Error
@@ -23,7 +23,6 @@
 
 ### Wishlist
 
-- Talk activity: when you tap on a word to translate it, while the speakaloud is loading, show a spinner next to the left of the tooltip. Disappears once the audio plays.
 - The talk activity currently lets you just pick your level. It doesn't give you any guidance on how to pick your level or what you should be considering when you choose one or what are the implications of choosing one. I feel like the coach should recommend one for you and maybe even set a default for you based on your recent activity and what you've done in this talking app in the past and what you've done in other apps in the past.
 - First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way.
 - Review various list UIs for, how painful are they to scroll down and up on a phone? Think: Talk conversation UI (scrolling back up), Type review & notebook, etc. What can be done to surface the content you need to pay attention to near the top and tuck away lower content in expandable accordions in different categories so you don't have to do so much endless scrolling.
