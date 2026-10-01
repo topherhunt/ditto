@@ -142,10 +142,10 @@ export function Home() {
                                             </Show>
                                             <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
                                           </div>
-                                          <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} class="qa-master-popup"
+                                          <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} titleIcon="trophy-fill" titleIconClass="gold-shimmer" class="qa-master-popup"
                                             footer={<>
                                               <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
-                                              <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold">{t("home.masterReady")}</A>
+                                              <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold"><i class="bi bi-play-fill me-1" aria-hidden="true" />{t("home.masterReady")}</A>
                                             </>}>
                                             {t("home.masterIntro")}
                                           </Popup>
