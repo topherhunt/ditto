@@ -1,11 +1,10 @@
-import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import type { ExplanationOut, MistakeEntry } from "../../../shared/api.ts";
+import type { Catalog, ExplanationOut, MistakeEntry } from "../../../shared/api.ts";
 import { pickVoice } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
-import { Popup } from "../components/Popup.tsx";
+import { ReviewButton } from "../components/ReviewButton.tsx";
 import { ScrollUpButton } from "../components/ScrollButtons.tsx";
 import { TypeCrumb } from "../components/TypeCrumb.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
@@ -71,7 +70,7 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
 
 export function Notebook() {
   const lang = useLang();
-  const [intro, setIntro] = createSignal(false);
+  const [catalog] = createResource(lang, (l) => api.get<Catalog>(`/api/catalog?lang=${l}`));
   const [entries, { mutate }] = createResource(lang, (l) => api.get<MistakeEntry[]>(`/api/mistakes?lang=${l}`));
   const remove = async (unitId: string) => {
     await api.del(`/api/mistakes/${unitId}`);
@@ -83,14 +82,7 @@ export function Notebook() {
       <TypeCrumb lang={lang()} />
       <div class="d-flex align-items-center gap-2">
         <h1 class="h4 mb-0 me-auto">{t("notebook.title")}</h1>
-        <Show when={entries()?.length}>
-          <button type="button" class="qa-mistakes-practice btn btn-primary" onClick={() => setIntro(true)}>{t("notebook.practice")}</button>
-          <Popup open={intro()} onClose={() => setIntro(false)} title={t("notebook.practiceIntroTitle")} class="qa-mistakes-popup"
-            closeLabel={t("quiz.dismiss")} centerFooter
-            footer={<A href={`/${lang()}/type/notebook/practice`} class="qa-mistakes-go btn btn-primary">{t("popup.letsGo")}</A>}>
-            {t("notebook.practiceIntro")}
-          </Popup>
-        </Show>
+        <Show when={catalog()}>{(cat) => <ReviewButton lang={lang()} count={cat().reviewCount} onNotebook />}</Show>
       </div>
       <p class="small text-body-secondary mb-0">{t("notebook.rule")}</p>
       <Show when={entries()}>

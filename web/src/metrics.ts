@@ -25,7 +25,7 @@ export function pageOf(pathname: string): Page | null {
     section === undefined ? "home"
     : section === "type" ? (
       sub === "review" ? "review"
-      : sub === "notebook" ? (third === "practice" ? "mistakes" : "notebook")
+      : sub === "notebook" ? "notebook"
       : sub === "lesson" ? "lesson"
       : sub === "test" ? "level-test"
       : "home")

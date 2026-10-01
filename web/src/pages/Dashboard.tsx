@@ -56,7 +56,7 @@ export function Dashboard() {
     const today = byDay().get(dayKey(new Date()));
     const lesson = next && { href: `/${lang()}/type/lesson/${next.id}`, label: t("home.start") };
     if (next && Object.keys(cat.progress).length === 0) return { qa: "first", text: t("dash.coach.first", { title: next.title }), go: lesson! };
-    if (cat.dueCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.dueCount }), go: { href: `/${lang()}/type/review`, label: t("home.review") } };
+    if (cat.reviewCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.reviewCount }), go: { href: `/${lang()}/type/review`, label: t("home.review") } };
     if (next && !today?.type) return { qa: "lesson", text: t("dash.coach.lesson", { title: next.title }), go: { ...lesson!, label: t("home.continue") } };
     if (talkOn() && !today?.talk) return { qa: "talk", text: t("dash.coach.talk"), go: { href: `/${lang()}/talk`, label: t("activity.talk") } };
     if (quizOn() && !today?.quiz) return { qa: "quiz", text: t("dash.coach.quiz"), go: { href: `/${lang()}/quiz`, label: t("activity.quiz") } };
@@ -106,7 +106,6 @@ export function Dashboard() {
     <Show when={ready()}>
       <div class="qa-dashboard d-flex flex-column gap-4">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <h1 class="qa-dash-title h3 mb-0 me-auto">{LANGUAGE_FLAGS[lang()]} {languageName(lang())}</h1>
           <LanguageSwitcher lang={lang()} />
         </div>
 
@@ -179,7 +178,7 @@ export function Dashboard() {
   );
 }
 
-/** The learner's courses, plus the others they could start; starting one adds it and opens its dashboard, which asks their level. */
+/** The dashboard's title, doubling as the course switcher: the current language's flag and name open a menu of the learner's courses, plus the others they could start; starting one adds it and opens its dashboard, which asks their level. */
 function LanguageSwitcher(props: { lang: Language }) {
   const navigate = useNavigate();
   const [open, setOpen] = createSignal(false);
@@ -215,11 +214,14 @@ function LanguageSwitcher(props: { lang: Language }) {
     </li>
   );
   return (
-    <div class="dropdown" ref={root}>
-      <button type="button" class="qa-dash-lang btn btn-outline-primary dropdown-toggle" aria-expanded={open()} onClick={() => setOpen(!open())}>
-        <i class="bi bi-translate me-1" aria-hidden="true" />{t("dash.switch")}
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" classList={{ show: open() }} data-bs-popper="static">
+    <div class="dropdown me-auto" ref={root}>
+      <h1 class="qa-dash-title h3 mb-0">
+        <button type="button" class="qa-dash-lang btn btn-outline-primary dropdown-toggle" aria-expanded={open()} onClick={() => setOpen(!open())}
+          style={{ "--bs-btn-color": "var(--bs-body-color)", "--bs-btn-font-size": "inherit", "--bs-btn-font-weight": "inherit" }}>
+          {LANGUAGE_FLAGS[props.lang]} {languageName(props.lang)}
+        </button>
+      </h1>
+      <ul class="dropdown-menu" classList={{ show: open() }} data-bs-popper="static">
         <For each={learning()}>{(l) => item(l, () => go(l))}</For>
         <Show when={others().length}>
           <li><hr class="dropdown-divider" /></li>

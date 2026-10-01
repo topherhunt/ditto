@@ -237,12 +237,23 @@ export function createApp(deps: AppDeps) {
     return c.json({ ok: true });
   });
 
-  const counts = (userId: number, language: Language) => ({
-    dueCount: (db.prepare("SELECT count(*) AS n FROM review_cards WHERE user_id = ? AND language = ? AND due <= ?")
-      .get(userId, language, deps.now().toISOString()) as { n: number }).n,
-    mistakesCount: (db.prepare("SELECT count(*) AS n FROM mistakes WHERE user_id = ? AND language = ? AND removed_at IS NULL")
-      .get(userId, language) as { n: number }).n,
-  });
+  /**
+   * The Review queue: cards due now, alternating with the notebook's mistakes (most recently missed first), each unit once.
+   * A mistake that is also due is served as a mistake. `total` is the full queue; `ids` is its first REVIEW_BATCH.
+   */
+  const reviewQueue = (userId: number, language: Language) => {
+    const mistakes = (db.prepare("SELECT unit_id FROM mistakes WHERE user_id = ? AND language = ? AND removed_at IS NULL ORDER BY last_wrong_at DESC")
+      .all(userId, language) as { unit_id: string }[]).map((r) => r.unit_id);
+    const mistakeSet = new Set(mistakes);
+    const due = (db.prepare("SELECT unit_id FROM review_cards WHERE user_id = ? AND language = ? AND due <= ? ORDER BY due")
+      .all(userId, language, deps.now().toISOString()) as { unit_id: string }[]).map((r) => r.unit_id).filter((id) => !mistakeSet.has(id));
+    const ids: string[] = [];
+    for (let i = 0; i < Math.max(due.length, mistakes.length); i++) {
+      if (i < due.length) ids.push(due[i]);
+      if (i < mistakes.length) ids.push(mistakes[i]);
+    }
+    return { ids: ids.slice(0, REVIEW_BATCH), total: ids.length };
+  };
 
   const completedLessons = (userId: number) =>
     new Set((db.prepare("SELECT DISTINCT lesson_id FROM lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL")
@@ -280,7 +291,7 @@ export function createApp(deps: AppDeps) {
     }));
     const stars: Catalog["stars"] = Object.fromEntries(starRows(userId).filter((r) => lessonIds.has(r.lesson_id))
       .map((r) => [r.lesson_id, { stars: r.stars, practicedAt: r.practiced_at }]));
-    return c.json<Catalog>({ courses: listed, progress, stars, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, ...counts(userId, language) });
+    return c.json<Catalog>({ courses: listed, progress, stars, unlocked: [...unlocked], passedLevels: [...passed], viaFriends, reviewCount: reviewQueue(userId, language).total });
   });
 
   app.get("/api/lessons/:lessonId", (c) => {
@@ -442,11 +453,9 @@ export function createApp(deps: AppDeps) {
   app.get("/api/review", (c) => {
     const language = lang(c);
     const user = c.get("user");
-    const userId = user.id;
     const support = supportLocale(language, user.locale);
-    const rows = db.prepare("SELECT unit_id FROM review_cards WHERE user_id = ? AND language = ? AND due <= ? ORDER BY due LIMIT ?")
-      .all(userId, language, deps.now().toISOString(), REVIEW_BATCH) as { unit_id: string }[];
-    return c.json<ReviewOut>({ units: rows.map((r) => unitOr404(support, r.unit_id)), dueCount: counts(userId, language).dueCount });
+    const queue = reviewQueue(user.id, language);
+    return c.json<ReviewOut>({ units: queue.ids.map((id) => unitOr404(support, id)), reviewCount: queue.total });
   });
 
   /** A notebook entry's saved explanation, if it explains `answer` to the unit's current text in `locale`. */

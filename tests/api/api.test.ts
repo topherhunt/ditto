@@ -263,7 +263,7 @@ describe("mistakes notebook", () => {
     await t.attempt("it-a1-bar-1-u06", { mode: "mistakes" });
     await t.attempt("it-a1-bar-1-u06", { mode: "mistakes" });
     expect((await t.req("GET", "/api/mistakes?lang=it")).json).toHaveLength(0);
-    expect((await t.req("GET", "/api/catalog?lang=it")).json.mistakesCount).toBe(0);
+    expect((await t.req("GET", "/api/catalog?lang=it")).json.reviewCount).toBe(0);
   });
 
   it("records a clean dictation with a wrong meaning pick as a meaning mistake, scheduled like a miss", async () => {
@@ -303,12 +303,42 @@ describe("scheduled review", () => {
     await t.attempt("it-a1-bar-1-u01");
     await t.attempt("it-a1-bar-1-u02", { outcome: "corrected", submissions: ["vorei", "vorrei"] });
     await t.attempt("it-a1-bar-1-u06");
-    expect((await t.req("GET", "/api/review?lang=it")).json.units).toEqual([]);
+    // Only the notebook mistake is served before anything is due.
+    expect((await t.req("GET", "/api/review?lang=it")).json.units.map((u: { id: string }) => u.id)).toEqual(["it-a1-bar-1-u02"]);
 
     t.clock.now = new Date("2026-09-30T10:00:00Z");
     const due = await t.req("GET", "/api/review?lang=it");
     expect(due.json.units.map((u: { id: string }) => u.id).sort()).toEqual(["it-a1-bar-1-u02", "it-a1-bar-1-u06"]);
-    expect(due.json.dueCount).toBe(2);
+    expect(due.json.reviewCount).toBe(2);
+  });
+
+  it("serves due cards alternating with notebook mistakes, each unit once, and counts the whole queue", async () => {
+    const t = setup();
+    await t.login();
+    const at = (iso: string) => { t.clock.now = new Date(iso); };
+    at("2026-09-01T10:00:00Z");
+    await t.attempt("it-a1-bar-1-u06");
+    at("2026-09-01T10:01:00Z");
+    await t.attempt("it-a1-bar-1-u10");
+    at("2026-09-01T10:02:00Z");
+    await t.attempt("it-a1-bar-1-u02", { outcome: "corrected", submissions: ["buongiorn", "buongiorno"] });
+    at("2026-09-01T10:03:00Z");
+    await t.attempt("it-a1-bar-1-u08", { outcome: "revealed", submissions: [""] });
+
+    at("2026-09-30T10:00:00Z");
+    const review = await t.req("GET", "/api/review?lang=it");
+    // Due-only cards (oldest first) alternate with mistakes (latest miss first); u02 and u08 are both due and mistakes, and appear once.
+    expect(review.json.units.map((u: { id: string }) => u.id)).toEqual(["it-a1-bar-1-u06", "it-a1-bar-1-u08", "it-a1-bar-1-u10", "it-a1-bar-1-u02"]);
+    expect(review.json.reviewCount).toBe(4);
+    expect((await t.req("GET", "/api/catalog?lang=it")).json.reviewCount).toBe(4);
+  });
+
+  it("serves a mistake that is not yet due", async () => {
+    const t = setup();
+    await t.login();
+    await t.attempt("it-a1-bar-1-u02", { outcome: "corrected", submissions: ["buongiorn", "buongiorno"] });
+    const review = await t.req("GET", "/api/review?lang=it");
+    expect(review.json.units.map((u: { id: string }) => u.id)).toEqual(["it-a1-bar-1-u02"]);
   });
 
   it("schedules a missed unit sooner than a clean one", async () => {

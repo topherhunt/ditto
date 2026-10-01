@@ -6,6 +6,7 @@ import { ScrollUpButton } from "../components/ScrollButtons.tsx";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { PracticeSettingsPanel } from "../components/LanguagePrefs.tsx";
 import { Popup } from "../components/Popup.tsx";
+import { ReviewButton } from "../components/ReviewButton.tsx";
 import { Stars } from "../components/Stars.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { t } from "../i18n/index.ts";
@@ -20,7 +21,6 @@ export function Home() {
   /** Level or course id -> folded, for ones the learner opened or closed by hand; the rest fold once done (a level also once passed). */
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
   const fresh = () => Object.keys(catalog()!.progress).length === 0;
-  const [reviewIntro, setReviewIntro] = createSignal(false);
 
   return (
     <Show when={catalog()}>
@@ -39,19 +39,7 @@ export function Home() {
             </Show>
             {/* A first-timer sees just the way in; these fill up once they practice. */}
             <Show when={!fresh()}>
-              <div class="d-flex flex-nowrap gap-2">
-                <button type="button" class="qa-review-link btn btn-primary" onClick={() => setReviewIntro(true)}>
-                  {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
-                </button>
-                <Popup open={reviewIntro()} onClose={() => setReviewIntro(false)} title={t("home.reviewIntroTitle")} class="qa-review-popup"
-                  closeLabel={t("quiz.dismiss")} centerFooter
-                  footer={<A href={`/${lang()}/type/review`} class="qa-review-go btn btn-primary">{t("popup.letsGo")}</A>}>
-                  {t("home.reviewIntro")}
-                </Popup>
-                <A href={`/${lang()}/type/notebook`} class="qa-notebook-link btn btn-outline-primary">
-                  {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
-                </A>
-              </div>
+              <ReviewButton lang={lang()} count={cat().reviewCount} />
             </Show>
           </div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>
@@ -164,7 +152,7 @@ export function Home() {
                                           </Popup>
                                           <Popup open={ask() === "cooldown"} onClose={() => setAsk(null)} title={t("home.masterCooldownTitle")} class="qa-cooldown-popup"
                                             footer={<button type="button" class="qa-cooldown-ok btn btn-primary" onClick={() => setAsk(null)}>{t("home.masterCooldownOk")}</button>}>
-                                            <Show when={stars()}>{t("home.masterCooldown", { hours: masterWait() })}</Show>
+                                            <Show when={stars()}>{masterWait() === 1 ? t("home.masterCooldownOne") : t("home.masterCooldown", { hours: masterWait() })}</Show>
                                           </Popup>
                                         </li>
                                       );

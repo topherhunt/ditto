@@ -1,3 +1,4 @@
+import { useNavigate } from "@solidjs/router";
 import { createSignal, For, onCleanup, Show } from "solid-js";
 import { immersible } from "../../../shared/api.ts";
 import { LANGUAGES, NATIVE_LOCALES, type Language, type Locale } from "../../../shared/content.ts";
@@ -6,12 +7,13 @@ import { createSaver, ImmersionTable } from "../components/LanguagePrefs.tsx";
 import { RequestLanguageLink } from "../components/RequestLanguage.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
-import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
+import { homeLanguage, LANGUAGE_FLAGS, learnable } from "../learning.ts";
 import { me } from "../session.ts";
 import { chooseTheme, theme, type Theme } from "../theme.ts";
 
 export function Settings() {
-  const { save, markSaved, Status } = createSaver();
+  const { save, Status } = createSaver();
+  const navigate = useNavigate();
   return (
     <div class="d-flex flex-column gap-3" style={{ "max-width": "28rem" }} data-silent>
       <h1 class="qa-settings-title h4 mb-0">{t("settings.title")}</h1>
@@ -29,8 +31,6 @@ export function Settings() {
         </div>
         <LearningPicker save={save} />
         <ImmersionPicker save={save} />
-        <ThemePicker />
-        <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={markSaved} />
         <div>
           <div class="form-check form-switch">
             <input class="qa-settings-profile-public form-check-input" type="checkbox" role="switch" id="profile-public" checked={me()!.profilePublic}
@@ -39,6 +39,8 @@ export function Settings() {
           </div>
           <div class="form-text">{t("settings.profilePublicHint")}</div>
         </div>
+        <ThemePicker />
+        <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={() => navigate(`/${homeLanguage(me()!.learning)}`)} />
         <Status />
       </div>
     </div>

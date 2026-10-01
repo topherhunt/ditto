@@ -339,8 +339,8 @@ export type Catalog = {
   passedLevels: string[];
   /** Locked lessons a friend has started, which the learner may play anyway: lessonId -> those friends. */
   viaFriends: Record<string, Person[]>;
-  dueCount: number;
-  mistakesCount: number;
+  /** Units in the Review queue: due cards plus notebook mistakes, each once. */
+  reviewCount: number;
 };
 /** Days of history the dashboard's activity calendar and streak draw on. */
 export const ACTIVITY_DAYS = 60;
@@ -362,7 +362,7 @@ export type LessonOut = ServedLesson & {
   /** Ids of the lesson's units the learner has finished at least once, so study-first skips them. */
   seen: string[];
 };
-export type ReviewOut = { units: ServedUnit[]; dueCount: number };
+export type ReviewOut = { units: ServedUnit[]; reviewCount: number };
 export type LevelTestOut = { units: ServedUnit[] };
 
 /** Everything anyone may see about an account. `username` is null until they pick one. */

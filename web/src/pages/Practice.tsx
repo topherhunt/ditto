@@ -1,6 +1,6 @@
 import { A, useParams } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { MASTER_WAIT_MS, type AttemptOut, type CompareRow, type LessonOut, type LevelTestOut, type MistakeEntry, type Prefs, type ReviewOut } from "../../../shared/api.ts";
+import { MASTER_WAIT_MS, type AttemptOut, type CompareRow, type LessonOut, type LevelTestOut, type Prefs, type ReviewOut } from "../../../shared/api.ts";
 import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { Exercise } from "../components/Exercise.tsx";
@@ -21,16 +21,13 @@ async function loadDeck(mode: SessionMode, lang: Language, lessonId: string | un
     return { title: t("test.title", { level: level! }), units, start: 0, lessonId: null, seen: [] };
   }
   if (mode === "review") return { title: t("practice.review"), units: (await api.get<ReviewOut>(`/api/review?lang=${lang}`)).units, start: 0, lessonId: null, seen: [] };
-  if (mode === "mistakes") {
-    const units = (await api.get<MistakeEntry[]>(`/api/mistakes?lang=${lang}`)).map((m) => m.unit);
-    return { title: t("practice.mistakes"), units, start: 0, lessonId: null, seen: [] };
-  }
   const lesson = await api.get<LessonOut>(`/api/lessons/${encodeURIComponent(lessonId!)}?lang=${lang}`);
   if (!lesson.playable) throw new Error(t("practice.locked", { title: lesson.title }));
   if (mode === "master") {
     if (!lesson.stars) throw new Error(t("practice.masterNeedsLesson", { title: lesson.title }));
     const wait = Date.parse(lesson.stars.practicedAt) + MASTER_WAIT_MS - Date.now();
-    if (wait > 0) throw new Error(t("practice.masterWait", { title: lesson.title, hours: Math.ceil(wait / 3_600_000) }));
+    const hours = Math.ceil(wait / 3_600_000);
+    if (wait > 0) throw new Error(hours === 1 ? t("practice.masterWaitOne", { title: lesson.title }) : t("practice.masterWait", { title: lesson.title, hours }));
     const units = lesson.units.filter((u) => u.stage === "sentence");
     return { title: t("practice.masterTitle", { title: lesson.title }), units, start: 0, lessonId: lesson.id, seen: [] };
   }

@@ -71,7 +71,8 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-outcome")).toContainText("Revealed");
 
   await page.locator(".qa-nav-type").click();
-  await page.locator(".qa-notebook-link").click();
+  await page.locator(".qa-review-link").click();
+  await page.locator(".qa-review-notebook").click();
   await expect(page).toHaveURL(/\/it\/type\/notebook$/);
   await expect(page.locator(".qa-type-crumb")).toContainText("Listen and type");
   await expect(page.locator(".qa-mistake-text")).toHaveText(["per favore", "vorrei"]);
@@ -82,7 +83,7 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
   await page.locator(".qa-nav-type").click();
   await expect(page.locator(".qa-lesson-progress").first()).toContainText("4 / 10");
-  await expect(page.locator(".qa-mistakes-count")).toHaveText("1");
+  await expect(page.locator(".qa-review-count")).toHaveText("1");
 });
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {
@@ -133,7 +134,8 @@ test("free-text mode: lenient commas, a wrong end mark converts to slots, a wron
   await expect(page.locator(".qa-outcome")).toContainText("check the meaning");
 
   await page.locator(".qa-nav-type").click();
-  await page.locator(".qa-notebook-link").click();
+  await page.locator(".qa-review-link").click();
+  await page.locator(".qa-review-notebook").click();
   const entry = page.locator(".qa-mistake").filter({ hasText: "frizzante" });
   await expect(entry.locator(".qa-mistake-category")).toContainText(["meaning"]);
 });
@@ -150,7 +152,7 @@ async function completeLesson(page: Page, lessonId: string) {
   }
 }
 
-test("Review and the notebook's Practice these explain themselves first; X backs out, Let's go starts", async ({ page }) => {
+test("Review explains itself first, links to the notebook, and serves the notebook's mistakes", async ({ page }) => {
   await signIn(page, "intro1@example.com");
   await completeLesson(page, "it-a1-bar-1");
   const lesson = (await (await page.request.get("/api/lessons/it-a1-bar-1?lang=it")).json()) as LessonOut;
@@ -161,25 +163,25 @@ test("Review and the notebook's Practice these explain themselves first; X backs
   };
   expect((await page.request.post("/api/attempts", { data: miss })).ok()).toBe(true);
 
-  await page.goto("/it/type/notebook");
-  await page.locator(".qa-mistakes-practice").click();
-  await expect(page.locator(".qa-mistakes-popup")).toContainText("leaves the notebook for good");
-  await page.locator(".qa-mistakes-popup .qa-popup-close").click();
-  await expect(page.locator(".qa-mistakes-popup")).toBeHidden();
-  await expect(page).toHaveURL(/\/it\/type\/notebook$/);
-  await page.locator(".qa-mistakes-practice").click();
-  await page.locator(".qa-mistakes-go").click();
-  await expect(page).toHaveURL(/\/it\/type\/notebook\/practice$/);
-
   await page.goto("/it/type");
+  await expect(page.locator(".qa-notebook-link")).toHaveCount(0);
+  await expect(page.locator(".qa-review-count")).toHaveText("1");
   await page.locator(".qa-review-link").click();
-  await expect(page.locator(".qa-review-popup")).toContainText("just before you'd forget them");
+  await expect(page.locator(".qa-review-popup")).toContainText("mistakes from your notebook");
   await page.locator(".qa-review-popup .qa-popup-close").click();
   await expect(page.locator(".qa-review-popup")).toBeHidden();
   await expect(page).toHaveURL(/\/it\/type$/);
   await page.locator(".qa-review-link").click();
+  await page.locator(".qa-review-notebook").click();
+  await expect(page).toHaveURL(/\/it\/type\/notebook$/);
+  await expect(page.locator(".qa-mistake-text")).toHaveText([u.text]);
+
+  // The notebook has the same button, without a link back to itself.
+  await page.locator(".qa-review-link").click();
+  await expect(page.locator(".qa-review-notebook")).toHaveCount(0);
   await page.locator(".qa-review-go").click();
   await expect(page).toHaveURL(/\/it\/type\/review$/);
+  await expect(page.locator(".qa-position")).toHaveText("1 / 1");
 });
 
 test("a finished course folds to its title, and opens on click", async ({ page }) => {
@@ -377,7 +379,7 @@ test("legacy unscoped typing links redirect to their place under /type", async (
     ["/it/test/A1", "/it/type/test/A1"],
     ["/it/review", "/it/type/review"],
     ["/it/notebook", "/it/type/notebook"],
-    ["/it/mistakes/practice", "/it/type/notebook/practice"],
+    ["/it/mistakes/practice", "/it/type/review"],
   ]) {
     await page.goto(old);
     await expect(page).toHaveURL(new RegExp(`${scoped}$`));

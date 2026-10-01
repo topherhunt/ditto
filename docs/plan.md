@@ -20,7 +20,7 @@ Ditto is a dictation trainer & language learning app, served at `https://ditto.t
 - Practice: audio autoplay, replay, and 0.75x speed, in one of two voices picked at random per unit (among those matching its `speaker`); per-word inputs with a hint level; letter-level diff; lenient accents; a stepped hint box; show answer.
 - After each item: a meaning check, which asks the learner to pick the translation out of three options. Then the full text, the translation, and tappable words that play word audio and show a gloss.
 - The UI is localized into English, Latin American Spanish, Dutch, Italian and Greek (`LOCALES`: `en`, `es-419`, `nl`, `it`, `el`). Greek is shown only as immersion in the Greek course: a learner picks their own language from `NATIVE_LOCALES` (`LOCALES` without `el`), which the API enforces, because no course carries Greek translations. The learner's locale (`users.locale`, "Your language", picked at sign-in or in Settings) is the UI language and their support language: translations, distractors, glosses and descriptions come in it where the course supports it (`SUPPORT_LOCALES`: `it` has `en`, `es-419`, `nl`; `en` has `es-419`, `it`, `nl`; `es` has `en`, `it`, `nl`; `nl` has `en`, `es-419`; `ga` has `en`, `es-419`, `nl`, `it`), else in the course's first support language (`supportLocale`). Explanations and Speak coaching are written live, so they come in the learner's own language even where the content lacks it (`ownLocale`/`helpLocale` in `server/auth.ts`). Immersion is per course, in prefs, for courses written in a locale (`languageLocale` in `shared/content.ts`: `es` is `es-419`; `fr` and `ga` have none): `immerseUi` puts every page in its language while that course is the current one (the route's, else the home course), Speak titles included; the device remembers it (localStorage `immersion`), so the signed-out homepage and sign-in stay immersed until the visitor picks a language there. `immerseHelp` puts explanations and coaching in it. Translations and glosses stay in the learner's language.
-- Mistakes notebook, with focused practice of notebook items.
+- Mistakes notebook, whose items are practiced through Review.
 - "Report a problem" under each item (bad audio, wrong text, wrong meaning, "my answer should be accepted" after a wrong check, other), stored with the voice and audio file that played, for review and re-rendering. Admins (`ADMIN_EMAILS`) triage them at `/admin/reports` (account menu > Reports): play the reported clip, pick a decision (dismiss, fix audio, fix text, fix translation, accept answer, discuss), optionally with a note; dismissing closes the report. Fixes are made locally: `devops/reports.sh pull` mirrors production's reports into the dev DB, where the same page plays the current clip beside the reported one and records the admin's approve/reject review; after the fix is deployed, `devops/reports.sh push` closes on production every report approved or closed in the dev DB, then `pull` brings the closures back.
 - Admins watch usage and abuse at `/admin/users` (account menu > Users): every account with registration, last seen (`users.last_seen_at`, stamped by signed-in requests at most every 5 minutes), last practice, items, active days, friends, pending requests, blocks received, reports filed and AI spend, searchable, filterable and sortable in the browser. A user's page adds practice per language, daily activity, friends, blocks, reports and a link to their public profile. `/admin/metrics` (account menu > Metrics) shows daily learners, engaged time per activity, traffic, errors and latency ([metrics.md](metrics.md)), and the anonymous language requests: "Missing your language?" (homepage, setup and Settings pickers) opens a popup where a visitor, signed in or not, names the language they speak best and the one they want to learn, from a fixed list (`REQUEST_LANGUAGES`); `POST /api/language-requests` keeps only a count per UTC day and pair in `language_requests`, with a shared cap of 60 an hour.
 - Scheduled review (FSRS).
@@ -180,12 +180,13 @@ Voices, one per gender in each language:
 - **Meaning check:** after the dictation, the learner picks the translation out of the translation and two distractors, in shuffled order. A wrong pick records the category `meaning`, adds a notebook entry, and schedules the card as a miss, even when the dictation was clean. `attempts.meaning_correct` is null for units without a translation.
 - **Mistakes notebook:**
   - An entry is created on the first wrong submission or reveal. It keeps first and last wrong dates, a wrong count, the last wrong answer, and categories.
-  - Practice-mistakes mode drills the notebook entries.
+  - Review drills the notebook entries (see Scheduled review). The notebook is reached from Review's pop-up, not from the Type page.
   - An entry graduates after 2 consecutive `clean` attempts, or can be removed by hand.
 - **Scheduled review:**
   - Every completed `sentence` unit gets an FSRS card. Word, phrase and chunk units get a card only if they were missed.
   - Ratings: `clean` = Good, `hinted` = Hard, `corrected` / `revealed` = Again. Accent slips don't affect the rating.
-  - The home screen shows the number of due cards per language.
+  - Review serves a queue of due cards alternating with the notebook's mistakes (latest miss first), each unit once, at most `REVIEW_BATCH` per session. A mistake is served even when its card is not due. Attempts made in Review are recorded with `mode: "review"`, and they graduate notebook entries like any other attempt.
+  - The Type page's Review button shows the queue size (`reviewCount`) and opens a pop-up that explains the queue and links to the notebook. The notebook page has the same button.
 
 ## AI explainer
 
@@ -255,9 +256,9 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
 | PUT | `/api/profile-visibility` | `{public}` |
 | PUT | `/api/prefs` | |
-| GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress and best stars, plus review-due and notebook counts |
+| GET | `/api/catalog?lang=` | The language's full courses (with audio URLs) and the user's per-lesson, per-path progress and best stars, plus the Review queue size (`reviewCount`) |
 | POST | `/api/attempts` | Records the attempt and updates lesson_progress, mistakes and review_cards in one transaction. Returns `{ok, stars}`, the run's stars when the attempt finished it |
-| GET | `/api/review?lang=` | Due units with full payloads |
+| GET | `/api/review?lang=` | The Review queue (due units and notebook mistakes) with full payloads, plus `reviewCount` |
 | GET | `/api/mistakes?lang=` | Notebook entries with unit payloads and saved explanations |
 | DELETE | `/api/mistakes/:unitId` | |
 | POST | `/api/explain` | See above |

@@ -9,7 +9,7 @@ export function LegacyTypeRedirect() {
   return (
     <Navigate href={({ location }) =>
       location.pathname
-        .replace(/^\/([^/]+)\/mistakes\/practice$/, "/$1/type/notebook/practice")
+        .replace(/^\/([^/]+)\/mistakes\/practice$/, "/$1/type/review")
         .replace(/^\/([^/]+)\/(lesson|test|review|notebook)(?=\/|$)/, "/$1/type/$2") + location.search + location.hash} />
   );
 }

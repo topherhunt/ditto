@@ -63,7 +63,6 @@ render(
       <Route path="/:lang/type/test/:level" component={() => <Practice mode="test" />} />
       <Route path="/:lang/type/review" component={() => <Practice mode="review" />} />
       <Route path="/:lang/type/notebook" component={Notebook} />
-      <Route path="/:lang/type/notebook/practice" component={() => <Practice mode="mistakes" />} />
       {/* LEGACY unscoped typing URLs: remove by 2026-10-02 (TODO.md). */}
       <Route path="/:lang/lesson/:lessonId" component={LegacyTypeRedirect} />
       <Route path="/:lang/lesson/:lessonId/master" component={LegacyTypeRedirect} />

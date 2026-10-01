@@ -10,7 +10,7 @@ Ditto is a dictation trainer for language learners. You listen to a word, phrase
 - 🗣️ Several native-sounding voices per language, picked at random per item, with a slow-playback button.
 - ✍️ Letter-level diffs that are lenient on accents, with per-word hints and a "show answer" escape hatch.
 - 🧠 A meaning check after each item, then tappable words that play word audio and show a gloss.
-- 📓 A mistakes notebook with focused practice. An entry leaves after two clean attempts in a row.
+- 📓 A mistakes notebook, practiced through Review. An entry leaves after two clean attempts in a row.
 - 🔁 Spaced review, scheduled with FSRS.
 - 🤔 An on-demand AI explainer ("Why was that wrong?"), cached per mistake.
 - 🏁 Friends, profiles, weekly leaderboards and races.

@@ -6,7 +6,7 @@ const course = (id: string, level: string, order: number, track: "main" | "optio
   ({ id, level, order, track, lessons: [1, 2].map((i) => ({ id: `${id}-${i}` })) }) as unknown as CatalogCourse;
 const courses = [course("a1x", "A1", 1), course("a1y", "A1", 2), course("a1opt", "A1", 0, "optional"), course("a2x", "A2", 1)];
 const catalog = (unlocked: string[], done: string[]): Catalog => ({
-  courses, unlocked, passedLevels: [], viaFriends: {}, stars: {}, dueCount: 0, mistakesCount: 0,
+  courses, unlocked, passedLevels: [], viaFriends: {}, stars: {}, reviewCount: 0,
   progress: Object.fromEntries(done.map((id) => [id, { sentences: { nextIndex: 9, completedAt: "2026-09-01" } }])),
 });
 
