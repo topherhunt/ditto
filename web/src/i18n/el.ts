@@ -487,6 +487,8 @@ export const el: Dictionary = {
   "speak.partnerRetry": "Ο συνομιλητής σου δεν απάντησε. Δοκίμασε ξανά",
   "speak.play": "Αναπαραγωγή",
   "speak.tapHint": "Πάτα μια λέξη για να τη μεταφράσεις.",
+  "speak.scrollUp": "Κύλιση στην κορυφή",
+  "speak.scrollDown": "Κύλιση στο τέλος",
   "speak.preparingAudio": "Προετοιμασία ήχου",
   "speak.source.how": "Χρησιμοποίησε το «Πώς λέγεται…;»",
   "speak.source.moved_on": "Προχώρησε",

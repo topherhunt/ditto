@@ -487,6 +487,8 @@ export const es419: Dictionary = {
   "speak.partnerRetry": "Tu compañero no respondió. Reintentar",
   "speak.play": "Reproducir",
   "speak.tapHint": "Toca una palabra para traducirla.",
+  "speak.scrollUp": "Ir al principio",
+  "speak.scrollDown": "Ir al final",
   "speak.preparingAudio": "Preparando el audio",
   "speak.source.how": "Usaste \"¿Cómo se dice…?\"",
   "speak.source.moved_on": "Seguiste adelante",

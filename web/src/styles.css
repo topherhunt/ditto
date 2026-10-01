@@ -97,3 +97,8 @@
 /* Message bubbles: a border a step lighter than the bubble's own background (lighter on dark, darker on light). */
 .bubble-partner { --bs-border-color: color-mix(in srgb, var(--bs-body-color) 25%, var(--bs-secondary-bg)); }
 .bubble-learner { --bs-border-color: color-mix(in srgb, var(--bs-body-color) 25%, var(--bs-primary-bg-subtle)); }
+
+/* Floating scroll buttons fade in and out; visibility keeps the hidden ones out of taps and tab order once the fade ends. */
+.scroll-fab { opacity: 0; visibility: hidden; transition: opacity 500ms, visibility 500ms; }
+.scroll-fab.show { opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: reduce) { .scroll-fab { transition: none; } }

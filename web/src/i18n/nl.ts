@@ -487,6 +487,8 @@ export const nl: Dictionary = {
   "speak.partnerRetry": "Je gesprekspartner antwoordde niet. Opnieuw proberen",
   "speak.play": "Afspelen",
   "speak.tapHint": "Tik op een woord om het te vertalen.",
+  "speak.scrollUp": "Naar boven scrollen",
+  "speak.scrollDown": "Naar beneden scrollen",
   "speak.preparingAudio": "Audio voorbereiden",
   "speak.source.how": "\"Hoe zeg ik…?\" gebruikt",
   "speak.source.moved_on": "Verder gegaan",

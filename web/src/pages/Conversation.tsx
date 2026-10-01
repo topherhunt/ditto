@@ -1,5 +1,5 @@
 import { A, useLocation, useParams } from "@solidjs/router";
-import { createEffect, createResource, createSignal, For, onCleanup, Show } from "solid-js";
+import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import {
   MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
   type TurnOut,
@@ -82,6 +82,57 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
   );
 }
 
+const SCROLL_MS = 500;
+/** How far down the page the up button starts to show. */
+const SCROLL_UP_AFTER = 200;
+/** The down button hides once the end of the conversation is within this many px below the viewport. */
+const SCROLL_DOWN_UNTIL = 200;
+
+/** Scrolls the window to `top` linearly over SCROLL_MS (the browser's own smooth scroll has no settable duration); jumps for a reduced-motion preference. Each step is `instant` because Bootstrap sets `scroll-behavior: smooth` on the page, which would smooth every step and lag behind the animation. */
+function scrollToY(top: number) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return window.scrollTo({ top, behavior: "instant" });
+  const from = window.scrollY, start = performance.now();
+  const step = (now: number) => {
+    const p = Math.min((now - start) / SCROLL_MS, 1);
+    window.scrollTo({ top: from + (top - from) * p, behavior: "instant" });
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+/** Floating round buttons: down while the end of the conversation (`end`, its last row) is more than SCROLL_DOWN_UNTIL below the viewport, scrolling it to the viewport's bottom edge and no further, up once the page is scrolled past SCROLL_UP_AFTER. */
+function ScrollButtons(props: { end: () => HTMLElement }) {
+  const [canDown, setCanDown] = createSignal(false);
+  const [canUp, setCanUp] = createSignal(false);
+  const update = () => {
+    setCanDown(props.end().getBoundingClientRect().bottom > window.innerHeight + SCROLL_DOWN_UNTIL);
+    setCanUp(window.scrollY > SCROLL_UP_AFTER);
+  };
+  onMount(() => {
+    update();
+    // The page grows as replies, retries and glosses arrive, with no scroll event.
+    const resize = new ResizeObserver(update);
+    resize.observe(document.body);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    onCleanup(() => {
+      resize.disconnect();
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    });
+  });
+  const btn = "scroll-fab btn btn-outline-secondary bg-body rounded-circle position-fixed end-0 m-3 d-flex align-items-center justify-content-center";
+  const size = { width: "2.75rem", height: "2.75rem", "z-index": 1030 };
+  return (
+    <>
+      <button type="button" data-silent class={`qa-scroll-up ${btn} top-0`} classList={{ show: canUp() }} style={size} aria-label={t("speak.scrollUp")}
+        onClick={() => scrollToY(0)}><i class="bi bi-arrow-up" aria-hidden="true" /></button>
+      <button type="button" data-silent class={`qa-scroll-down ${btn} bottom-0`} classList={{ show: canDown() }} style={size} aria-label={t("speak.scrollDown")}
+        onClick={() => scrollToY(window.scrollY + props.end().getBoundingClientRect().bottom - window.innerHeight)}><i class="bi bi-arrow-down" aria-hidden="true" /></button>
+    </>
+  );
+}
+
 type RecState = "idle" | "starting" | "recording" | "checking";
 
 export function Conversation() {
@@ -103,6 +154,7 @@ export function Conversation() {
   const [attempt, setAttempt] = createSignal<SpeakAttemptOut | null>(null);
   /** The failed attempt's recording, from this browser. */
   const [ownUrl, setOwnUrl] = createSignal("");
+  let end: HTMLDivElement | undefined;
   const [how, setHow] = createSignal<HowOut | null>(null);
   const [howText, setHowText] = createSignal("");
   const [howOpen, setHowOpen] = createSignal(false);
@@ -318,10 +370,11 @@ export function Conversation() {
 
         <Show when={error()}>{(m) => <div class="qa-conversation-error alert alert-danger mb-0">{m()}</div>}</Show>
 
-        <div class="d-flex flex-wrap gap-3 small text-body-secondary border-top pt-2">
+        <div ref={end} class="d-flex flex-wrap gap-3 small text-body-secondary border-top pt-2">
           <span class="qa-replies">{t(c().reliance.of === 1 ? "speak.replies.one" : "speak.replies.other", { n: c().reliance.of })}</span>
           <span class="qa-hints">{t(c().reliance.leaned === 1 ? "speak.hints.one" : "speak.hints.other", { n: c().reliance.leaned })}</span>
         </div>
+        <ScrollButtons end={() => end!} />
       </div>
     </Show>
   );

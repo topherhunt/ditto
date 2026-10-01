@@ -14,8 +14,8 @@
     - [x] lanugage dropdowns need type-to-filter
     - [x] We also need a link after the languages you're learning list in the settings page. Even though it does the same thing, we want to Make it obvious to the user that we invite feedback on what languages they want to learn not just support for their native langauage as an interface. 
   - [x] I think we don't need to store users' email addresses, so they can be completely pseudonymous, but think this through with Claude. Maybe We can just store a arbitrary Google ID or something. 
+  - [x] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
-  - [ ] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
   - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz?
     - [ ] How many peolpe were ACTIVELY ENGAGED today?
     - [ ] What were they working on? Time spent total per activity, drill dow n

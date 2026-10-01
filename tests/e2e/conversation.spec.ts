@@ -118,6 +118,21 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-how-text")).toBeFocused();
 });
 
+test("a conversation taller than the screen offers floating scroll-to-bottom and scroll-to-top buttons", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 300 });
+  await signIn(page, "speaker@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter:visible").first().click();
+  await expect(page.locator(".qa-conversation-title")).toBeVisible();
+  await expect(page.locator(".qa-scroll-up")).toBeHidden();
+  await page.locator(".qa-scroll-down").click();
+  await expect(page.locator(".qa-scroll-down")).toBeHidden();
+  await expect(page.locator(".qa-replies")).toBeInViewport();
+  await page.locator(".qa-scroll-up").click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(page.locator(".qa-scroll-up")).toBeHidden();
+});
+
 test("a playing line's play button turns into a stop button that stops it", async ({ page }) => {
   // 30 s of silence instead of the fake 0.1 s line, so it is still playing when the test looks.
   const rate = 8000, data = 30 * rate * 2;

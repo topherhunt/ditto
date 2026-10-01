@@ -488,6 +488,8 @@ export const it: Dictionary = {
   "speak.partnerRetry": "Il tuo interlocutore non ha risposto. Riprova",
   "speak.play": "Ascolta",
   "speak.tapHint": "Tocca una parola per tradurla.",
+  "speak.scrollUp": "Vai in cima",
+  "speak.scrollDown": "Vai in fondo",
   "speak.preparingAudio": "Preparazione audio",
   "speak.source.how": "Hai usato \"Come si dice…?\"",
   "speak.source.moved_on": "Sei andato avanti",

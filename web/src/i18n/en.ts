@@ -487,6 +487,8 @@ export const en = {
   "speak.partnerRetry": "Your partner didn't answer. Try again",
   "speak.play": "Play",
   "speak.tapHint": "Tap a word to translate it.",
+  "speak.scrollUp": "Scroll to the top",
+  "speak.scrollDown": "Scroll to the bottom",
   "speak.preparingAudio": "Preparing audio",
   "speak.source.how": "Used \"How do I say…?\"",
   "speak.source.moved_on": "Moved on",
