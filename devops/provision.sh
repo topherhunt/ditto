@@ -4,7 +4,7 @@
 . "$(cd "$(dirname "$0")" && pwd)/config.sh"
 require_host
 echo "==> Provisioning ${SERVICE_NAME}: ${DOMAIN} -> 127.0.0.1:${APP_PORT}, ${REMOTE_DIR}, Node ${APP_NODE_MAJOR} in ${APP_NODE_DIR}"
-remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' bash -s" <<'REMOTE'
+remote_sudo "env SERVICE_NAME='${SERVICE_NAME}' SERVICE_USER='${SERVICE_USER}' DOMAIN='${DOMAIN}' APP_PORT='${APP_PORT}' REMOTE_DIR='${REMOTE_DIR}' REGISTRY_DIR='${REGISTRY_DIR}' APP_DIR='${APP_DIR}' DATA_DIR='${DATA_DIR}' BACKUP_DIR='${BACKUP_DIR}' LOG_DIR='${LOG_DIR}' BACKUP_KEEP='${BACKUP_KEEP}' ENV_FILE='${ENV_FILE}' APP_NODE_MAJOR='${APP_NODE_MAJOR}' APP_NODE_DIR='${APP_NODE_DIR}' bash -s" <<'REMOTE'
 set -euo pipefail
 if [ -d "${REGISTRY_DIR}" ]; then
   for f in "${REGISTRY_DIR}"/*.app; do
@@ -41,6 +41,7 @@ fi
 install -d -m 755 "${REMOTE_DIR}"
 install -d -o "${SERVICE_USER}" -g "${SERVICE_USER}" -m 755 "${APP_DIR}"
 install -d -o "${SERVICE_USER}" -g "${SERVICE_USER}" -m 750 "${DATA_DIR}" "${BACKUP_DIR}"
+install -d -m 750 "${LOG_DIR}"
 install -d -m 755 "${REGISTRY_DIR}" /etc/caddy/sites
 
 cat > "/etc/systemd/system/${SERVICE_NAME}.service" <<UNIT
@@ -100,9 +101,44 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 UNIT
+
+# journald is size-capped and shared with every tenant, so warnings and errors are copied out daily into files nothing deletes.
+install -m 755 /dev/stdin "/usr/local/sbin/${SERVICE_NAME}-archive-logs" <<'SCRIPT'
+#!/bin/sh
+# Usage: archive-logs <service> <dir>. Writes <dir>/YYYY-MM-DD.log (warnings and worse) for each of the last 3 days that has no file yet.
+set -eu
+service="$1"; dir="$2"
+for n in 3 2 1; do
+  day="$(date -d "${n} days ago" +%F)"
+  [ -e "${dir}/${day}.log" ] && continue
+  journalctl -q -u "${service}.service" -p warning -o short-iso --no-pager \
+    --since "@$(date -d "${day}" +%s)" --until "@$(date -d "${day} + 1 day" +%s)" > "${dir}/${day}.log.tmp"
+  mv "${dir}/${day}.log.tmp" "${dir}/${day}.log"
+done
+SCRIPT
+cat > "/etc/systemd/system/${SERVICE_NAME}-archive-logs.service" <<UNIT
+[Unit]
+Description=${SERVICE_NAME} warning and error log archive
+
+[Service]
+Type=oneshot
+UMask=0077
+ExecStart=/usr/local/sbin/${SERVICE_NAME}-archive-logs ${SERVICE_NAME} ${LOG_DIR}
+UNIT
+cat > "/etc/systemd/system/${SERVICE_NAME}-archive-logs.timer" <<UNIT
+[Unit]
+Description=Daily ${SERVICE_NAME} warning and error log archive
+
+[Timer]
+OnCalendar=*-*-* 00:10:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+UNIT
 systemctl daemon-reload
 systemctl enable "${SERVICE_NAME}.service"
-systemctl enable --now "${SERVICE_NAME}-backup.timer"
+systemctl enable --now "${SERVICE_NAME}-backup.timer" "${SERVICE_NAME}-archive-logs.timer"
 
 cat > "/etc/caddy/sites/${SERVICE_NAME}.caddy" <<CADDY
 # ${SERVICE_NAME}: one Node process serves the SPA, API and audio.
@@ -127,6 +163,7 @@ CADDY_SITE=/etc/caddy/sites/${SERVICE_NAME}.caddy
 ENV_FILE=${ENV_FILE}
 DATABASE=${DATA_DIR}/app.db
 BACKUPS=${BACKUP_DIR} (${SERVICE_NAME}-backup.timer, nightly)
+LOGS=${LOG_DIR} (${SERVICE_NAME}-archive-logs.timer, daily warnings and errors)
 NODE=${APP_NODE_DIR}/bin/node
 PROVISIONED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 MANIFEST

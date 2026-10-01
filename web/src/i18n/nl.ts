@@ -3,6 +3,10 @@ import type { Dictionary } from "./en.ts";
 export const nl: Dictionary = {
   "app.loading": "Laden…",
   "app.notFound": "Pagina niet gevonden.",
+  "app.offline": "Ditto is niet bereikbaar. Controleer je verbinding en probeer het opnieuw.",
+  "app.error": "Er is iets misgegaan.",
+  "app.retry": "Probeer opnieuw",
+  "app.reload": "Opnieuw laden",
   "footer.feedback": "Feedback",
   "footer.privacy": "Privacy",
   "footer.terms": "Voorwaarden",

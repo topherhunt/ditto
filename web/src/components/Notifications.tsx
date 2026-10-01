@@ -1,7 +1,7 @@
 import { A, useLocation } from "@solidjs/router";
 import { createEffect, createResource, createSignal, For, on, onCleanup, Show } from "solid-js";
 import type { NotificationsOut } from "../../../shared/api.ts";
-import { api } from "../api.ts";
+import { api, NetworkError } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { notificationText, shortDate } from "../social.ts";
 
@@ -10,7 +10,16 @@ const POLL_MS = 60_000;
 /** The bell in the navbar: unread count, and a dropdown of recent notifications that marks them read when opened. */
 export function Notifications() {
   const location = useLocation();
-  const [data, { refetch, mutate }] = createResource(() => api.get<NotificationsOut>("/api/notifications"));
+  // The bell is decorative, so a poll that can't reach the server (laptop just woke up) keeps the last data instead of erroring the whole layout.
+  const [data, { refetch, mutate }] = createResource<NotificationsOut | undefined>(async (_, { value }) => {
+    try {
+      return await api.get<NotificationsOut>("/api/notifications");
+    } catch (e) {
+      if (!(e instanceof NetworkError)) throw e;
+      console.warn("Notifications poll failed", e);
+      return value;
+    }
+  });
   const [open, setOpen] = createSignal(false);
   createEffect(on(() => location.pathname, () => refetch(), { defer: true }));
   const timer = setInterval(() => refetch(), POLL_MS);

@@ -3,6 +3,10 @@ import type { Dictionary } from "./en.ts";
 export const it: Dictionary = {
   "app.loading": "Caricamento…",
   "app.notFound": "Pagina non trovata.",
+  "app.offline": "Impossibile raggiungere Ditto. Controlla la connessione e riprova.",
+  "app.error": "Qualcosa è andato storto.",
+  "app.retry": "Riprova",
+  "app.reload": "Ricarica",
   "footer.feedback": "Feedback",
   "footer.privacy": "Privacy",
   "footer.terms": "Termini",

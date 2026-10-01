@@ -3,6 +3,10 @@ import type { Dictionary } from "./en.ts";
 export const es419: Dictionary = {
   "app.loading": "Cargando…",
   "app.notFound": "No se encontró la página.",
+  "app.offline": "No se puede conectar con Ditto. Revisa tu conexión e inténtalo de nuevo.",
+  "app.error": "Algo salió mal.",
+  "app.retry": "Intentar de nuevo",
+  "app.reload": "Recargar",
   "footer.feedback": "Comentarios",
   "footer.privacy": "Privacidad",
   "footer.terms": "Términos",

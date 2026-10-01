@@ -32,7 +32,7 @@ The shared host setup (`host-setup.sh`: Caddy, system Node, `/srv/registry`) is 
 ## Operate
 
 - `bash devops/status.sh`: unit state, socket, local + public health, latest backups, host memory/disk.
-- `bash devops/logs.sh [--since "1 hour ago"]`: tail journald.
+- `bash devops/logs.sh [--since "1 hour ago"]`: tail journald. Pass `-p warning` for only warnings and errors (the server tags them via `server/log.ts`). journald is size-capped and shared by every app on the host, so for history older than that use the archive: `ditto-archive-logs.timer` writes one file per day of warnings and errors to `/srv/ditto/logs/YYYY-MM-DD.log` and never prunes them. Re-run `provision.sh` to install it.
 - `bash devops/reports.sh pull`: save production's problem reports to `data/reports.json` and mirror them into the dev DB (start the dev server once first so it's migrated). `bash devops/reports.sh push`: after the fixes are deployed, close on production every report approved or closed in the dev DB (approved ones get a stock resolution; ones already closed there are skipped).
 - `bash devops/restart.sh`: restart without deploying.
 - `bash devops/push-env.sh`: update secrets; restarts the app if it is running.

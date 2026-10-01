@@ -8,8 +8,21 @@ export class ApiError extends Error {
   }
 }
 
+/** The server couldn't be reached at all (offline, asleep, DNS), as opposed to answering with an error status. */
+export class NetworkError extends Error {}
+
+/** `fetch` rejects with a bare TypeError on any network failure, which is indistinguishable from a code bug; this tags it. */
+async function send(path: string, init: RequestInit): Promise<Response> {
+  try {
+    return await fetch(path, init);
+  } catch (e) {
+    if (e instanceof TypeError) throw new NetworkError(`Could not reach the server for ${path}`, { cause: e });
+    throw e;
+  }
+}
+
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
-  const res = await fetch(path, {
+  const res = await send(path, {
     method,
     headers: body === undefined ? {} : { "content-type": "application/json" },
     body: body === undefined ? undefined : JSON.stringify(body),
@@ -26,7 +39,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
  * Errors before the stream starts come back as an ordinary JSON error response.
  */
 async function postStream<T, E>(path: string, body: unknown, onEvent: (e: E) => void): Promise<T> {
-  const res = await fetch(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  const res = await send(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
   noteSpend(res.headers);
   if (res.status === 429) hitCap();
   if (!res.ok) {

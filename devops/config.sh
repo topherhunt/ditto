@@ -18,6 +18,8 @@ APP_DIR="${REMOTE_DIR}/app"
 DATA_DIR="${REMOTE_DIR}/data"
 BACKUP_DIR="${REMOTE_DIR}/backups"
 BACKUP_KEEP="${BACKUP_KEEP:-14}"
+# Daily warning-and-error archive, one file per day, never pruned (journald itself is size-capped and shared).
+LOG_DIR="${REMOTE_DIR}/logs"
 # Secrets (GOOGLE_CLIENT_ID, OPENAI_API_KEY, ...) live only here on the host; push-env.sh writes it.
 ENV_FILE="/etc/${SERVICE_NAME}.env"
 # Ditto needs Node 26 (its bundled undici must match the npm undici, see server/conversation-ai.ts) but the shared

@@ -30,7 +30,7 @@ echo "HEALTH_LOCAL=$(curl -fsS --max-time 5 "http://127.0.0.1:${APP_PORT}/health
 echo "NODE=$("${APP_NODE_DIR}/bin/node" -v 2>/dev/null)"
 echo "DEPLOYED=$(stat -c %Y "${APP_DIR}/dist/web/index.html" 2>/dev/null)"
 echo "DB_BYTES=$(stat -c %s "${DATA_DIR}/app.db" 2>/dev/null)"
-# stderr reaches journald at info priority, so `journalctl -p err` misses app errors; count "Error:" headers instead.
+# Counts "Error:" headers rather than `-p err` lines, since every stack line carries the priority tag and Node's own crash output carries none.
 echo "ERRORS_24H=$(journalctl -u "${SERVICE_NAME}" --since '24 hours ago' -q -o cat --no-pager | grep -c 'Error:')"
 latest="$(ls -1t "${BACKUP_DIR}"/app-*.db 2>/dev/null | head -1)"
 echo "BACKUP_COUNT=$(ls -1 "${BACKUP_DIR}"/app-*.db 2>/dev/null | wc -l)"

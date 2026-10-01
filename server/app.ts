@@ -23,6 +23,7 @@ import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { reportError } from "./healthcheck.ts";
 import { levelTestUnits } from "./level-test.ts";
+import { log } from "./log.ts";
 import { registerAdminLanguageRequests, registerLanguageRequests } from "./language-requests.ts";
 import { registerMetrics, trafficCounter } from "./metrics.ts";
 import { registerPoc } from "./poc.ts";
@@ -80,7 +81,7 @@ export function createApp(deps: AppDeps) {
   app.onError((err, c) => {
     if (err instanceof HTTPException) return c.json({ error: err.message }, err.status);
     if (err instanceof z.ZodError) return c.json({ error: "Invalid request", issues: err.issues }, 400);
-    console.error(`${c.req.method} ${c.req.path}`, err);
+    log.error(`${c.req.method} ${c.req.path}`, err);
     void reportError(err);
     return c.json({ error: "Internal error" }, 500);
   });
@@ -92,7 +93,7 @@ export function createApp(deps: AppDeps) {
     const started = performance.now();
     await next();
     const ms = Math.round(performance.now() - started);
-    if (ms > SLOW_REQUEST_MS) console.warn(`Slow request: ${c.req.method} ${c.req.path} -> ${c.res.status} in ${ms} ms`);
+    if (ms > SLOW_REQUEST_MS) log.warn(`Slow request: ${c.req.method} ${c.req.path} -> ${c.res.status} in ${ms} ms`);
   });
 
   // CSRF: mutations must be same-origin JSON. Cross-site forms can't send application/json without a CORS preflight.

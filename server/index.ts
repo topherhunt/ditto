@@ -11,6 +11,7 @@ import { openAIConversation } from "./conversation-ai.ts";
 import { fakeAI, fakeSpeech } from "./conversation-fake.ts";
 import { openAIExplainer } from "./explain.ts";
 import { reportError, startHealthcheck } from "./healthcheck.ts";
+import { log } from "./log.ts";
 import { rollUpMetrics } from "./metrics.ts";
 import { openAISpeech } from "./speech.ts";
 
@@ -45,7 +46,7 @@ const conversation = env.FAKE_CONVERSATION === "1"
       audioDir: speakAudioDir,
     }
     : null;
-if (!conversation) console.warn("Conversation mode is off: it needs OPENAI_API_KEY");
+if (!conversation) log.warn("Conversation mode is off: it needs OPENAI_API_KEY");
 
 const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
 bootStep("db");
@@ -59,7 +60,7 @@ const health = healthcheckUrl ? startHealthcheck(healthcheckUrl, db) : null;
 // Node's default is to print and exit; a handler replaces that, so it must exit too. The report is awaited so it leaves before the process does.
 for (const event of ["uncaughtException", "unhandledRejection"] as const) {
   process.on(event, async (err) => {
-    console.error(event, err);
+    log.error(event, err);
     await reportError(err);
     process.exit(1);
   });

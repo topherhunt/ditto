@@ -2,6 +2,7 @@ import { writeFileSync } from "node:fs";
 import { LANGUAGE_NAMES, type Language } from "../shared/content.ts";
 import { openAIClient } from "./conversation-ai.ts";
 import type { Voice } from "./content.ts";
+import { log } from "./log.ts";
 import { minuteUsage, type Usage } from "./usage.ts";
 
 /** Speech for conversation mode and quiz audio. */
@@ -49,7 +50,7 @@ export function openAISpeech(apiKey: string, opts: { baseURL?: string; timeoutMs
         if (!signal.aborted) throw e;
         if (attempt === 2) throw new Error(`OpenAI TTS timed out twice after ${timeoutMs / 1000} s (${text.length} chars)`);
         // The length, not the text: partner lines can echo the learner.
-        console.warn(`OpenAI TTS timed out after ${timeoutMs / 1000} s, retrying (${text.length} chars)`);
+        log.warn(`OpenAI TTS timed out after ${timeoutMs / 1000} s, retrying (${text.length} chars)`);
       }
     }
   };

@@ -3,6 +3,10 @@ import type { Dictionary } from "./en.ts";
 export const el: Dictionary = {
   "app.loading": "Φόρτωση…",
   "app.notFound": "Η σελίδα δεν βρέθηκε.",
+  "app.offline": "Δεν είναι δυνατή η σύνδεση με το Ditto. Έλεγξε τη σύνδεσή σου και δοκίμασε ξανά.",
+  "app.error": "Κάτι πήγε στραβά.",
+  "app.retry": "Δοκίμασε ξανά",
+  "app.reload": "Επαναφόρτωση",
   "footer.feedback": "Σχόλια",
   "footer.privacy": "Απόρρητο",
   "footer.terms": "Όροι",

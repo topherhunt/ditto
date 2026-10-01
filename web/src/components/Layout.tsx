@@ -2,7 +2,7 @@ import { A, useLocation, useNavigate, type RouteSectionProps } from "@solidjs/ro
 import { createEffect, createResource, createSignal, ErrorBoundary, Match, on, onCleanup, Show, Switch } from "solid-js";
 import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
 import { LANGUAGES, languageLocale, type Language } from "../../../shared/content.ts";
-import { api } from "../api.ts";
+import { api, NetworkError } from "../api.ts";
 import { setImmersion, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage } from "../learning.ts";
 import { FEEDBACK_URL } from "../links.ts";
@@ -17,7 +17,32 @@ import { Notifications } from "./Notifications.tsx";
 import { LearnPicker } from "./LearnPicker.tsx";
 import { Setup } from "./Setup.tsx";
 
+/** Any error under the layout, effects and resources included, lands here instead of blanking the page. */
 export function Layout(props: RouteSectionProps) {
+  return (
+    <ErrorBoundary fallback={(err, reset) => (
+      <div class="container py-4">
+        <div class="qa-error alert alert-danger">
+          <p class="mb-2">{err instanceof NetworkError ? t("app.offline") : t("app.error")}</p>
+          <Show when={!(err instanceof NetworkError)}><p class="small mb-2">{String(err)}</p></Show>
+          {/* Resources keep their rejection, so a network retry refetches the session before re-rendering. */}
+          <button type="button" class="qa-error-retry btn btn-sm btn-danger" onClick={() => {
+            if (err instanceof NetworkError) {
+              refetchMe();
+              reset();
+            } else {
+              window.location.reload();
+            }
+          }}>{err instanceof NetworkError ? t("app.retry") : t("app.reload")}</button>
+        </div>
+      </div>
+    )}>
+      <LayoutBody {...props} />
+    </ErrorBoundary>
+  );
+}
+
+function LayoutBody(props: RouteSectionProps) {
   const location = useLocation();
   const lang = () => {
     const seg = location.pathname.split("/")[1];
@@ -44,7 +69,7 @@ export function Layout(props: RouteSectionProps) {
   document.addEventListener("click", closeOnOutsideClick);
   onCleanup(() => document.removeEventListener("click", closeOnOutsideClick));
   return (
-    <ErrorBoundary fallback={(err) => <div class="container py-4"><div class="alert alert-danger">{String(err)}</div></div>}>
+    <>
       <Switch>
         <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
         {/* Signed out, every path but these shows the homepage. Google's OAuth review needs /privacy and /terms public. */}
@@ -135,6 +160,6 @@ export function Layout(props: RouteSectionProps) {
           {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}
         </Show>
       </footer>
-    </ErrorBoundary>
+    </>
   );
 }

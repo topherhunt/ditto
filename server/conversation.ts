@@ -19,6 +19,7 @@ import { helpLocale, ownLocale, uiLocale, type User } from "./auth.ts";
 import { joinChunks, type ConversationAI, type Line, type Setting } from "./conversation-ai.ts";
 import { transaction } from "./db.ts";
 import { reportError } from "./healthcheck.ts";
+import { log } from "./log.ts";
 import type { Speech } from "./speech.ts";
 import { recordUsage, spentToday, type Usage } from "./usage.ts";
 
@@ -112,11 +113,11 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
         if (result.length !== lines.length) throw new Error(`${lines.length} lines came back as ${JSON.stringify(result.map(joinChunks))}`);
         // The chunks are shown as the line, so a mismatch shows the learner text other than what was spoken or said.
         result.forEach((c, i) => {
-          if (joinChunks(c) !== lines[i]) console.warn(`Gloss mismatch in conversation ${conv.id}: "${lines[i]}" was chunked as "${joinChunks(c)}"`);
+          if (joinChunks(c) !== lines[i]) log.warn(`Gloss mismatch in conversation ${conv.id}: "${lines[i]}" was chunked as "${joinChunks(c)}"`);
         });
         return result;
       } catch (e) {
-        console.warn(`Gloss failed in conversation ${conv.id}, try ${attempt} of 2: ${e instanceof Error ? e.message : e}`);
+        log.warn(`Gloss failed in conversation ${conv.id}, try ${attempt} of 2: ${e instanceof Error ? e.message : e}`);
       }
     }
     return null;
@@ -274,7 +275,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
         await send({ result: await check((step) => send({ step })) });
       } catch (e) {
         if (!(e instanceof HTTPException)) {
-          console.error(e);
+          log.error(e);
           void reportError(e);
         }
         await send(e instanceof HTTPException ? { error: e.message, status: e.status } : { error: "Internal error", status: 500 });

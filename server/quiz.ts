@@ -17,6 +17,7 @@ import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { VOICES, voiceId } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
+import { log } from "./log.ts";
 import type { QuizDeck } from "./quiz-content.ts";
 import { scheduleGrade } from "./srs.ts";
 import { recordUsage, underCapOr429 } from "./usage.ts";
@@ -52,7 +53,7 @@ export function syncPresets(db: DB, decks: QuizDeck[], now: Date) {
       .map((r) => [r.id, r.source_hash]));
     const gone = [...stored.keys()].filter((id) => !decks.some((d) => d.id === id));
     if (gone.length) {
-      console.warn(`Quiz: deleting ${gone.length} preset decks no longer in content, with their progress: ${gone.join(", ")}`);
+      log.warn(`Quiz: deleting ${gone.length} preset decks no longer in content, with their progress: ${gone.join(", ")}`);
       for (const id of gone) db.prepare("DELETE FROM quiz_decks WHERE id = ?").run(id);
     }
     for (const d of decks) {

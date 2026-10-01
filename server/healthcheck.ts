@@ -1,4 +1,5 @@
 import type { DB } from "./db.ts";
+import { log } from "./log.ts";
 
 const DAY_MS = 86_400_000;
 const FAIL_COOLDOWN_MS = 3_600_000;
@@ -20,14 +21,14 @@ export function healthcheck(url: string, db: DB, now: () => Date, post: (url: st
   let suppressed = 0;
 
   // A failed ping is only logged: reporting it as an error would loop.
-  const send = (path: string, body: string) => post(`${url}${path}`, body).catch((e) => console.error("Healthcheck ping failed:", e));
+  const send = (path: string, body: string) => post(`${url}${path}`, body).catch((e) => log.error("Healthcheck ping failed:", e));
 
   return {
     heartbeat: async () => {
       try {
         db.prepare("SELECT 1").get();
       } catch (e) {
-        console.error(e);
+        log.error(e);
         return send("/fail", `Daily check: database query failed (${errorName(e)})`);
       }
       return send("", "Daily check: ok");

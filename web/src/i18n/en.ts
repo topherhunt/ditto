@@ -2,6 +2,10 @@
 export const en = {
   "app.loading": "Loading…",
   "app.notFound": "Page not found.",
+  "app.offline": "Can't reach Ditto. Check your connection and try again.",
+  "app.error": "Something went wrong.",
+  "app.retry": "Try again",
+  "app.reload": "Reload",
   "footer.feedback": "Feedback",
   "footer.privacy": "Privacy",
   "footer.terms": "Terms",
