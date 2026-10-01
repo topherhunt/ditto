@@ -44,14 +44,14 @@ export function Notifications() {
   }
 
   return (
-    <div class="dropdown" ref={root}>
+    <div class="notify-wrap dropdown" ref={root}>
       <button type="button" class="qa-notifications btn btn-sm btn-outline-info position-relative" aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
         <i class="bi bi-bell" aria-hidden="true" />
         <Show when={data() && data()!.unread > 0}>
           <span class="qa-notifications-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">{data()!.unread}</span>
         </Show>
       </button>
-      <ul class="dropdown-menu dropdown-menu-end" classList={{ show: open() }} data-bs-popper="static" style={{ width: "20rem", "max-width": "90vw" }}>
+      <ul class="notify-menu dropdown-menu dropdown-menu-end" classList={{ show: open() }} data-bs-popper="static">
         <For each={data()?.items} fallback={<li class="dropdown-item-text text-body-secondary small">{t("notify.empty")}</li>}>
           {(n) => (
             <li>

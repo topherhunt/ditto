@@ -36,12 +36,14 @@ export function Home() {
             </Show>
             {/* A first-timer sees just the way in; these fill up once they practice. */}
             <Show when={!fresh()}>
-              <A href={`/${lang()}/type/review`} class="qa-review-link btn btn-primary">
-                {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
-              </A>
-              <A href={`/${lang()}/type/notebook`} class="qa-notebook-link btn btn-outline-primary">
-                {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
-              </A>
+              <div class="d-flex flex-nowrap gap-2">
+                <A href={`/${lang()}/type/review`} class="qa-review-link btn btn-primary">
+                  {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
+                </A>
+                <A href={`/${lang()}/type/notebook`} class="qa-notebook-link btn btn-outline-primary">
+                  {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
+                </A>
+              </div>
             </Show>
           </div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>
@@ -109,18 +111,12 @@ export function Home() {
                                       const [ask, setAsk] = createSignal<"master" | "cooldown" | null>(null);
                                       const label = () => t(underway() ? "home.continue" : stars() ? "home.practice" : "home.start");
                                       return (
-                                        <li class="qa-lesson list-group-item d-flex flex-column flex-md-row align-items-md-start gap-2 gap-md-3">
-                                          <div class="me-md-auto flex-md-grow-1 min-w-0">
+                                        <li class="qa-lesson lesson-row list-group-item">
+                                          <div class="lesson-text min-w-0">
                                             <div class="fw-semibold">{lesson.title}</div>
                                             <div class="small text-body-secondary">{lesson.grammarFocus.join(" · ")}</div>
                                           </div>
-                                          <div class="qa-lesson-actions d-flex flex-nowrap flex-shrink-0 align-items-center justify-content-end gap-2 gap-md-3 text-nowrap">
-                                            <Show when={!stars()}>
-                                              <span class="qa-lesson-progress small text-body-secondary text-nowrap">
-                                                {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
-                                              </span>
-                                            </Show>
-                                            <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
+                                          <div class="qa-lesson-actions lesson-actions d-flex flex-nowrap flex-shrink-0 align-items-center justify-content-end text-nowrap">
                                             <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                               <Match when={cat().unlocked.includes(lesson.id)}>
                                                 <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
@@ -144,6 +140,12 @@ export function Home() {
                                                 }}
                                               </Match>
                                             </Switch>
+                                            <Show when={!stars()}>
+                                              <span class="qa-lesson-progress small text-body-secondary text-nowrap">
+                                                {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
+                                              </span>
+                                            </Show>
+                                            <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
                                           </div>
                                           <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} class="qa-master-popup"
                                             footer={<>

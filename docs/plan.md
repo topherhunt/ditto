@@ -313,4 +313,4 @@ Every selector used in tests is a `qa-*` class.
 - Audio is rendered locally (`npm run content:audio`, macOS: needs `afconvert`) and rsynced separately.
 - Scripts, host layout, secrets and nightly backups: [`devops/README.md`](../devops/README.md).
 
-**Setup you do:** create a Google OAuth web client ID, with authorized JavaScript origins for `http://localhost:5173` and `https://ditto.topherhunt.com`.
+**Setup you do:** create a Google OAuth web client ID, with authorized JavaScript origins for `http://localhost:5176` and `https://ditto.topherhunt.com`.

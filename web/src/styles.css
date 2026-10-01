@@ -67,3 +67,28 @@
 @keyframes spark-y { 0% { transform: translateY(0) scale(.4); opacity: 1; } 70% { transform: translateY(var(--dy)) scale(1); } 100% { transform: translateY(calc(var(--dy) + 1.5rem)) scale(1); opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) { .tilt, .tilt.breathe { animation: none; } .spark { display: none; } }
+
+/* Navbar: under 500px the username hides and the padding and text shrink. */
+@media (max-width: 499.98px) {
+  .nav-username { display: none; }
+  .nav-inner { --bs-gutter-x: 1rem; font-size: .85rem; gap: .25rem !important; }
+  .nav-inner .navbar-brand { font-size: 1rem; margin-right: 0; }
+  .nav-inner .nav-link { padding-left: .35rem; padding-right: .35rem; }
+  .nav-inner .btn-sm { --bs-btn-padding-x: .4rem; --bs-btn-font-size: .8rem; }
+}
+
+/* Lesson rows: text above actions on a phone, side by side from 500px. */
+.lesson-row { display: flex; flex-direction: column; gap: .5rem; }
+.lesson-actions { gap: .5rem; }
+@media (min-width: 500px) {
+  .lesson-row { flex-direction: row; align-items: flex-start; gap: 1rem; }
+  .lesson-text { margin-right: auto; flex-grow: 1; }
+  .lesson-actions { gap: 1rem; }
+}
+
+/* Notifications menu: 20rem under the bell; on a phone the bell is mid-navbar, so span the viewport instead of bleeding off the left. */
+.notify-menu { width: 20rem; max-width: 90vw; }
+@media (max-width: 499.98px) {
+  .notify-wrap { position: static; }
+  .notify-wrap .notify-menu[data-bs-popper] { left: .5rem; right: .5rem; width: auto; max-width: none; }
+}

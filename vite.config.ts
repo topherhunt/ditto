@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [solid()],
   // Sounds stay files, not data URIs, so each is cached on its own and identifiable by name.
   build: { outDir: "../dist/web", emptyOutDir: true, assetsInlineLimit: (file) => (file.endsWith(".mp3") ? false : undefined) },
-  server: { port: 5173, proxy: { "/api": api, "/audio": api } },
+  server: { port: 5176, strictPort: true, proxy: { "/api": { target: api, changeOrigin: false }, "/audio": api } },
   test: {
     root: ".",
     environment: "node",

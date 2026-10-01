@@ -46,7 +46,7 @@ You need Node 26+ and, to render audio, macOS (the renderer encodes with `afconv
 ```sh
 npm install
 cp .env.example .env    # DEV_LOGIN=1 gives you a dev sign-in form locally
-npm start               # in dev: API on :3000, Vite on :5173 (same as npm run dev)
+npm start               # in dev: API on :3000, Vite on :5176 (same as npm run dev)
 ```
 
 `OPENAI_API_KEY` is optional; without it the "Why?" explainer and conversation mode are disabled and quiz audio fails. `GOOGLE_CLIENT_ID` is only needed for real sign-in.

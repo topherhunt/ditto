@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "npm run dev:server & vite",
-    "dev:server": "node --watch-path=server --watch-path=shared --watch-path=content/courses --watch-path=content/quizzes --watch-path=content/audio-fixes.json --env-file-if-exists=.env server/index.ts",
+    "dev:server": "node --watch-path=server --watch-path=shared --watch-path=content/courses --watch-path=content/quizzes --watch-path=content/audio-fixes.json --import=./scripts/load-env.ts server/index.ts",
     "dev:web": "vite",
     "build": "vite build",
     "start": "node scripts/start.ts",

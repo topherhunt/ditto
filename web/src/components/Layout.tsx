@@ -100,7 +100,7 @@ function LayoutBody(props: RouteSectionProps) {
           {(user) => (
             <>
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
-                <div class="container gap-2 flex-wrap">
+                <div class="nav-inner container gap-2 flex-wrap" style={{ "max-width": "52rem" }}>
                   <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><img class="logo-icon me-2" src="/favicon.svg" alt="" />Ditto</A>
                   <ul class="navbar-nav">
                     <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}/type`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
@@ -116,7 +116,7 @@ function LayoutBody(props: RouteSectionProps) {
                     <div class="dropdown" ref={menuRoot}>
                       <button type="button" class="qa-user btn btn-sm btn-outline-info dropdown-toggle" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
-                        <i class="bi bi-person me-1" aria-hidden="true" />{user().username}
+                        <i class="bi bi-person" aria-hidden="true" /><span class="nav-username ms-1">{user().username}</span>
                       </button>
                       {/* data-bs-popper="static" makes Bootstrap's CSS position the menu without its JS. */}
                       <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
