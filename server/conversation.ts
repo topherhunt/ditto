@@ -342,11 +342,11 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return c.json({ ok: true });
   });
 
-  // A tapped chunk, voiced on demand and cached by the browser rather than stored.
+  // A tapped chunk or a whole suggested reply, voiced on demand and cached by the browser rather than stored.
   app.get("/api/conversations/:id/say", async (c) => {
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    const text = z.string().trim().min(1).max(80).parse(c.req.query("text"));
+    const text = z.string().trim().min(1).max(200).parse(c.req.query("text"));
     const { audioDir } = speak();
     const path = join(audioDir, `say-${randomUUID()}.wav`);
     try {

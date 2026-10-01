@@ -15,7 +15,11 @@ export function ReviewButton(props: { lang: Language; count: number; onNotebook?
       <Popup open={open()} onClose={() => setOpen(false)} title={t("home.reviewIntroTitle")} class="qa-review-popup"
         closeLabel={t("quiz.dismiss")} centerFooter
         footer={<A href={`/${props.lang}/type/review`} class="qa-review-go btn btn-primary"><span aria-hidden="true">▶</span> {t("popup.letsGo")}</A>}>
-        <p class="mb-0">{t("home.reviewIntro")}</p>
+        <ul class="mb-0 d-flex flex-column gap-2">
+          <li>{t("home.reviewIntro1")}</li>
+          <li>{t("home.reviewIntro2")}</li>
+          <li>{t("home.reviewIntro3")}</li>
+        </ul>
         <Show when={!props.onNotebook}>
           <p class="mt-3 mb-0"><A href={`/${props.lang}/type/notebook`} class="qa-review-notebook">{t("home.reviewNotebook")}</A></p>
         </Show>

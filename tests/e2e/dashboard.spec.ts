@@ -39,7 +39,9 @@ test("a B1 answer on the setup screen picks the chunks path and suggests testing
   const me = await (await page.request.get("/api/me")).json();
   expect(me.prefs.it).toMatchObject({ level: "B1", path: "chunks" });
   await expect(page.locator(".qa-dash-testout")).toContainText("A1");
-  await expect(page.locator(".qa-dash-testout-go")).toHaveAttribute("href", "/it/type/test/A1");
+  await page.locator(".qa-dash-testout-go").click();
+  await expect(page.locator(".qa-testout-popup .qa-testout-go")).toHaveAttribute("href", "/it/type/test/A1");
+  await page.locator(".qa-testout-popup .qa-popup-close").click();
 
   await page.locator(".qa-dash-level-change").click();
   await expect(page.locator(".qa-dash-level-question")).toBeVisible();

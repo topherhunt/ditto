@@ -22,7 +22,11 @@ test("next lesson button, then a level test: fail on the first miss, retry, pass
   await expect(page.locator(".qa-level-toggle")).toHaveAttribute("aria-expanded", "true");
   await expect(page.locator(".qa-course-locked")).toHaveCount(1);
 
-  let units = await startTest(page, () => page.locator(".qa-level-test").click());
+  let units = await startTest(page, async () => {
+    await page.locator(".qa-level-test").click();
+    await expect(page.locator(".qa-testout-popup")).toBeVisible();
+    await page.locator(".qa-testout-go").click();
+  });
   await expect(page).toHaveURL(/\/it\/type\/test\/A1$/);
   await expect(page.locator(".qa-hint")).toHaveCount(0);
   // One wrong check ends the item, and the test with it.

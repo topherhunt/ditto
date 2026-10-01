@@ -4,6 +4,7 @@ import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut,
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { LevelPicker } from "../components/LevelPicker.tsx";
+import { TestOutButton } from "../components/TestOutButton.tsx";
 import { dayKey, deckName } from "../components/QuizCharts.tsx";
 import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
 import { languageName, locale, t } from "../i18n/index.ts";
@@ -135,7 +136,7 @@ export function Dashboard() {
                 {(r) => (
                   <div class="qa-dash-testout border-top pt-3 d-flex flex-wrap align-items-center gap-2">
                     <span class="small me-auto">{t("dash.testOut", { self: level()!, level: r().level })}</span>
-                    <A href={`/${lang()}/type/test/${r().level}`} class="qa-dash-testout-go btn btn-sm btn-outline-primary">{t("home.testOut", { level: r().level })}</A>
+                    <TestOutButton kind="type" href={`/${lang()}/type/test/${r().level}`} level={r().level} label={t("home.testOut", { level: r().level })} class="qa-dash-testout-go btn-sm" />
                   </div>
                 )}
               </Show>

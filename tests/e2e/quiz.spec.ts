@@ -70,6 +70,7 @@ test("a miss fails a level test; answering every question right tests out of A1,
   await signIn(page, "tester@example.com");
   await page.goto("/it/quiz");
   await page.locator(".qa-quiz-level-A1 .qa-quiz-level-test").click();
+  await page.locator(".qa-quiz-level-A1 .qa-testout-go").click();
   await expect(page.locator(".qa-quiz-counter")).toHaveText("1 / 3");
   await page.locator(".qa-quiz-option:not(.qa-quiz-option-correct)").first().click();
   await page.locator(".qa-quiz-continue").click();

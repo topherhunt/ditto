@@ -319,7 +319,12 @@ export function Conversation() {
                 <Show when={!c().hardMode && last().suggestions}>
                   {(suggestions) => (
                     <For each={suggestions()}>
-                      {(s, j) => <li class="qa-suggestion mb-1"><ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} /></li>}
+                      {(s, j) => (
+                        <li class="qa-suggestion d-flex align-items-start gap-2 mb-1">
+                          <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
+                          <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
+                        </li>
+                      )}
                     </For>
                   )}
                 </Show>

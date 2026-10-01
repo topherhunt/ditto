@@ -1,9 +1,10 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { QUIZ_GRADUATE_SHARE, QUIZ_TEST_SIZE, type QuizHomeOut } from "../../../shared/api.ts";
+import { QUIZ_GRADUATE_SHARE, type QuizHomeOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { dayKey, deckName, Donut, Sparkline } from "../components/QuizCharts.tsx";
+import { TestOutButton } from "../components/TestOutButton.tsx";
 import { languageInSentence, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 
@@ -56,8 +57,7 @@ export function QuizHome() {
                         <span class="qa-quiz-level-locked badge text-bg-secondary"><i class="bi bi-lock-fill me-1" aria-hidden="true" />{t("quiz.locked")}</span>
                       </Show>
                       <Show when={l.passed === null}>
-                        <A href={`/${lang()}/quiz/test/${encodeURIComponent(l.level)}`} class="qa-quiz-level-test btn btn-sm btn-outline-primary ms-auto"
-                          title={t("quiz.testOutTitle", { n: QUIZ_TEST_SIZE, level: l.level })}>{t("quiz.testOut")}</A>
+                        <TestOutButton kind="quiz" href={`/${lang()}/quiz/test/${encodeURIComponent(l.level)}`} level={l.level} label={t("quiz.testOut")} class="qa-quiz-level-test btn-sm ms-auto" />
                       </Show>
                     </div>
                     <Show when={l.unlocked && l.passed === null}>

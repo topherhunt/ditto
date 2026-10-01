@@ -8,6 +8,7 @@ import { PracticeSettingsPanel } from "../components/LanguagePrefs.tsx";
 import { Popup } from "../components/Popup.tsx";
 import { ReviewButton } from "../components/ReviewButton.tsx";
 import { Stars } from "../components/Stars.tsx";
+import { TestOutButton } from "../components/TestOutButton.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { t } from "../i18n/index.ts";
 import { me } from "../session.ts";
@@ -57,9 +58,7 @@ export function Home() {
                     </h2>
                     <Show when={passed()}><span class="qa-level-passed badge text-bg-success">{t("home.testedOut")}</span></Show>
                     <Show when={!passed() && !levelDone(cat(), courses)}>
-                      <A href={`/${lang()}/type/test/${level}`} class="qa-level-test btn btn-sm btn-outline-primary ms-auto" title={t("home.testOutTitle", { level })}>
-                        {t("home.testOut", { level })}
-                      </A>
+                      <TestOutButton kind="type" href={`/${lang()}/type/test/${level}`} level={level} label={t("home.testOut", { level })} class="qa-level-test btn-sm ms-auto" />
                     </Show>
                   </div>
                   <Show when={!folded()}>
