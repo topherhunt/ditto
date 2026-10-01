@@ -48,6 +48,9 @@ export const en = {
 
   "home.review": "Review",
   "home.notebook": "Notebook",
+  "home.reviewIntroTitle": "🏋️‍♀️ Lock in what you've learned",
+  "home.reviewIntro": "Review brings items back just before you'd forget them. Get one right and it returns later; miss it and it comes back sooner. A few minutes here keeps your progress from slipping away.",
+  "popup.letsGo": "Let's go",
   "home.noCourses": "No courses yet.",
   "home.optional": "Optional",
   "home.locked": "Locked",
@@ -73,6 +76,8 @@ export const en = {
 
   "notebook.title": "Mistakes notebook",
   "notebook.practice": "Practice these",
+  "notebook.practiceIntroTitle": "💪 Master your mistakes",
+  "notebook.practiceIntro": "Every mistake you've made is waiting here. Get an item right twice in a row and it leaves the notebook for good. Let's clear some out!",
   "notebook.rule": "An entry leaves the notebook after two clean attempts in a row.",
   "notebook.empty": "No mistakes. Nice.",
   "notebook.missed": "missed {n}×",

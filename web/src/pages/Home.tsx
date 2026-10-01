@@ -2,6 +2,7 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import { MASTER_WAIT_MS, type Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { ScrollUpButton } from "../components/ScrollButtons.tsx";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { PracticeSettingsPanel } from "../components/LanguagePrefs.tsx";
 import { Popup } from "../components/Popup.tsx";
@@ -19,11 +20,13 @@ export function Home() {
   /** Level or course id -> folded, for ones the learner opened or closed by hand; the rest fold once done (a level also once passed). */
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
   const fresh = () => Object.keys(catalog()!.progress).length === 0;
+  const [reviewIntro, setReviewIntro] = createSignal(false);
 
   return (
     <Show when={catalog()}>
       {(cat) => (
         <div class="d-flex flex-column gap-4">
+          <ScrollUpButton />
           <ActivityHeader activity="type" lang={lang()} fresh={fresh()} />
           <div class="qa-home-prefs"><PracticeSettingsPanel lang={lang()} /></div>
           <div class="d-flex flex-wrap justify-content-center gap-2">
@@ -37,9 +40,14 @@ export function Home() {
             {/* A first-timer sees just the way in; these fill up once they practice. */}
             <Show when={!fresh()}>
               <div class="d-flex flex-nowrap gap-2">
-                <A href={`/${lang()}/type/review`} class="qa-review-link btn btn-primary">
+                <button type="button" class="qa-review-link btn btn-primary" onClick={() => setReviewIntro(true)}>
                   {t("home.review")} <span class="qa-due-count badge text-bg-light">{cat().dueCount}</span>
-                </A>
+                </button>
+                <Popup open={reviewIntro()} onClose={() => setReviewIntro(false)} title={t("home.reviewIntroTitle")} class="qa-review-popup"
+                  closeLabel={t("quiz.dismiss")} centerFooter
+                  footer={<A href={`/${lang()}/type/review`} class="qa-review-go btn btn-primary">{t("popup.letsGo")}</A>}>
+                  {t("home.reviewIntro")}
+                </Popup>
                 <A href={`/${lang()}/type/notebook`} class="qa-notebook-link btn btn-outline-primary">
                   {t("home.notebook")} <span class="qa-mistakes-count badge text-bg-primary">{cat().mistakesCount}</span>
                 </A>

@@ -48,6 +48,9 @@ export const nl: Dictionary = {
 
   "home.review": "Herhalen",
   "home.notebook": "Schrift",
+  "home.reviewIntroTitle": "🏋️‍♀️ Zet vast wat je geleerd hebt",
+  "home.reviewIntro": "Herhalen brengt items terug vlak voordat je ze zou vergeten. Goed beantwoord? Dan komt het later terug; fout? Dan eerder. Een paar minuten hier voorkomt dat je voortgang vervaagt.",
+  "popup.letsGo": "Aan de slag",
   "home.noCourses": "Nog geen cursussen.",
   "home.optional": "Optioneel",
   "home.locked": "Op slot",
@@ -73,6 +76,8 @@ export const nl: Dictionary = {
 
   "notebook.title": "Foutenschrift",
   "notebook.practice": "Deze oefenen",
+  "notebook.practiceIntroTitle": "💪 Beheers je fouten",
+  "notebook.practiceIntro": "Al je fouten wachten hier op je. Beantwoord een item twee keer achter elkaar goed en het verdwijnt voorgoed uit het schrift. Laten we het leegmaken!",
   "notebook.rule": "Een item verdwijnt uit het schrift na twee foutloze pogingen op rij.",
   "notebook.empty": "Geen fouten. Goed zo!",
   "notebook.missed": "{n}× fout",

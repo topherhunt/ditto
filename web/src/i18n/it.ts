@@ -48,6 +48,9 @@ export const it: Dictionary = {
 
   "home.review": "Ripasso",
   "home.notebook": "Quaderno",
+  "home.reviewIntroTitle": "🏋️‍♀️ Fissa ciò che hai imparato",
+  "home.reviewIntro": "Il ripasso ti ripropone gli elementi poco prima che tu li dimentichi. Se rispondi bene, tornano più tardi; se sbagli, tornano prima. Pochi minuti qui evitano che i tuoi progressi svaniscano.",
+  "popup.letsGo": "Andiamo",
   "home.noCourses": "Ancora nessun corso.",
   "home.optional": "Facoltativo",
   "home.locked": "Bloccato",
@@ -73,6 +76,8 @@ export const it: Dictionary = {
 
   "notebook.title": "Quaderno degli errori",
   "notebook.practice": "Esercitati su questi",
+  "notebook.practiceIntroTitle": "💪 Padroneggia i tuoi errori",
+  "notebook.practiceIntro": "Tutti i tuoi errori ti aspettano qui. Rispondi bene a un elemento due volte di fila e esce dal quaderno per sempre. Svuotiamolo!",
   "notebook.rule": "Una voce lascia il quaderno dopo due tentativi senza errori di fila.",
   "notebook.empty": "Nessun errore. Ottimo!",
   "notebook.missed": "sbagliato {n}×",

@@ -48,6 +48,9 @@ export const es419: Dictionary = {
 
   "home.review": "Repasar",
   "home.notebook": "Cuaderno",
+  "home.reviewIntroTitle": "🏋️‍♀️ Fija lo que has aprendido",
+  "home.reviewIntro": "Repasar te trae de vuelta los elementos justo antes de que los olvides. Si aciertas, vuelve más tarde; si fallas, vuelve antes. Unos minutos aquí evitan que tu progreso se desvanezca.",
+  "popup.letsGo": "¡Vamos!",
   "home.noCourses": "Todavía no hay cursos.",
   "home.optional": "Opcional",
   "home.locked": "Bloqueado",
@@ -73,6 +76,8 @@ export const es419: Dictionary = {
 
   "notebook.title": "Cuaderno de errores",
   "notebook.practice": "Practicar estos",
+  "notebook.practiceIntroTitle": "💪 Domina tus errores",
+  "notebook.practiceIntro": "Todos tus errores te esperan aquí. Si aciertas un elemento dos veces seguidas, sale del cuaderno para siempre. ¡Vamos a vaciarlo!",
   "notebook.rule": "Una entrada sale del cuaderno tras dos intentos sin errores seguidos.",
   "notebook.empty": "Sin errores. ¡Bien!",
   "notebook.missed": "fallado {n}×",

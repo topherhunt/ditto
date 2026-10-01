@@ -1,7 +1,7 @@
-import { createEffect, type JSX } from "solid-js";
+import { createEffect, Show, type JSX } from "solid-js";
 
 /** A modal over the page (native `<dialog>`: Escape, focus trap and a backdrop for free). Clicking the backdrop or pressing Escape closes it. */
-export function Popup(props: { open: boolean; onClose: () => void; title: string; children: JSX.Element; footer: JSX.Element; class?: string }) {
+export function Popup(props: { open: boolean; onClose: () => void; title: string; children: JSX.Element; footer: JSX.Element; class?: string; closeLabel?: string; centerFooter?: boolean }) {
   let dialog!: HTMLDialogElement;
   createEffect(() => {
     if (props.open && !dialog.open) dialog.showModal();
@@ -11,9 +11,15 @@ export function Popup(props: { open: boolean; onClose: () => void; title: string
     <dialog ref={dialog} class={`qa-popup border rounded-3 p-0 text-body ${props.class ?? ""}`} aria-label={props.title}
       onClose={() => props.onClose()} onClick={(e) => e.target === dialog && props.onClose()}>
       <div class="p-3 d-flex flex-column gap-3">
-        <h2 class="h5 mb-0">{props.title}</h2>
+        <div class="d-flex align-items-start gap-2">
+          <h2 class="h5 mb-0 me-auto">{props.title}</h2>
+          {/* Opt-in: pass `closeLabel` (the X's accessible name) to show an X in the corner. */}
+          <Show when={props.closeLabel}>
+            {(label) => <button type="button" class="qa-popup-close btn-close" aria-label={label()} onClick={() => props.onClose()} />}
+          </Show>
+        </div>
         <div>{props.children}</div>
-        <div class="d-flex flex-wrap justify-content-end gap-2">{props.footer}</div>
+        <div class="d-flex flex-wrap gap-2" classList={{ "justify-content-center": props.centerFooter, "justify-content-end": !props.centerFooter }}>{props.footer}</div>
       </div>
     </dialog>
   );

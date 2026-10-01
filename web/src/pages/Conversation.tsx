@@ -9,6 +9,7 @@ import { t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 import { playRecordStart, playRecordStop, playResult, playWarning } from "../sounds.ts";
 import { PlayButton } from "../components/PlayButton.tsx";
+import { ScrollUpButton, scrollFabClass, scrollFabStyle, scrollToY } from "../components/ScrollButtons.tsx";
 import { autoplay, loading, playing } from "./player.ts";
 import { keepRecording, recordingUrl } from "../recordings.ts";
 
@@ -82,32 +83,13 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
   );
 }
 
-const SCROLL_MS = 500;
-/** How far down the page the up button starts to show. */
-const SCROLL_UP_AFTER = 200;
 /** The down button hides once the end of the conversation is within this many px below the viewport. */
 const SCROLL_DOWN_UNTIL = 200;
 
-/** Scrolls the window to `top` linearly over SCROLL_MS (the browser's own smooth scroll has no settable duration); jumps for a reduced-motion preference. Each step is `instant` because Bootstrap sets `scroll-behavior: smooth` on the page, which would smooth every step and lag behind the animation. */
-function scrollToY(top: number) {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return window.scrollTo({ top, behavior: "instant" });
-  const from = window.scrollY, start = performance.now();
-  const step = (now: number) => {
-    const p = Math.min((now - start) / SCROLL_MS, 1);
-    window.scrollTo({ top: from + (top - from) * p, behavior: "instant" });
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-/** Floating round buttons: down while the end of the conversation (`end`, its last row) is more than SCROLL_DOWN_UNTIL below the viewport, scrolling it to the viewport's bottom edge and no further, up once the page is scrolled past SCROLL_UP_AFTER. */
+/** Floating round buttons: down while the end of the conversation (`end`, its last row) is more than SCROLL_DOWN_UNTIL below the viewport, scrolling it to the viewport's bottom edge and no further, plus the shared up button. */
 function ScrollButtons(props: { end: () => HTMLElement }) {
   const [canDown, setCanDown] = createSignal(false);
-  const [canUp, setCanUp] = createSignal(false);
-  const update = () => {
-    setCanDown(props.end().getBoundingClientRect().bottom > window.innerHeight + SCROLL_DOWN_UNTIL);
-    setCanUp(window.scrollY > SCROLL_UP_AFTER);
-  };
+  const update = () => setCanDown(props.end().getBoundingClientRect().bottom > window.innerHeight + SCROLL_DOWN_UNTIL);
   onMount(() => {
     update();
     // The page grows as replies, retries and glosses arrive, with no scroll event.
@@ -121,13 +103,10 @@ function ScrollButtons(props: { end: () => HTMLElement }) {
       window.removeEventListener("resize", update);
     });
   });
-  const btn = "scroll-fab btn btn-outline-secondary bg-body rounded-circle position-fixed end-0 d-flex align-items-center justify-content-center";
-  const size = { width: "2.75rem", height: "2.75rem", "margin-block": "-.5rem", "margin-right": "-.5rem", "z-index": 1030 };
   return (
     <>
-      <button type="button" data-silent class={`qa-scroll-up ${btn} top-0`} classList={{ show: canUp() }} style={size} aria-label={t("speak.scrollUp")}
-        onClick={() => scrollToY(0)}><i class="bi bi-arrow-up" aria-hidden="true" /></button>
-      <button type="button" data-silent class={`qa-scroll-down ${btn} bottom-0`} classList={{ show: canDown() }} style={size} aria-label={t("speak.scrollDown")}
+      <ScrollUpButton />
+      <button type="button" data-silent class={`qa-scroll-down ${scrollFabClass} bottom-0`} classList={{ show: canDown() }} style={scrollFabStyle} aria-label={t("speak.scrollDown")}
         onClick={() => scrollToY(window.scrollY + props.end().getBoundingClientRect().bottom - window.innerHeight)}><i class="bi bi-arrow-down" aria-hidden="true" /></button>
     </>
   );

@@ -150,6 +150,38 @@ async function completeLesson(page: Page, lessonId: string) {
   }
 }
 
+test("Review and the notebook's Practice these explain themselves first; X backs out, Let's go starts", async ({ page }) => {
+  await signIn(page, "intro1@example.com");
+  await completeLesson(page, "it-a1-bar-1");
+  const lesson = (await (await page.request.get("/api/lessons/it-a1-bar-1?lang=it")).json()) as LessonOut;
+  const u = lesson.units.find((x) => x.stage === "sentence")!;
+  const miss: AttemptBody = {
+    unitId: u.id, rev: u.rev, mode: "learn", path: "sentences", hintsLevel: "letters", outcome: "corrected", wrongSubmissions: 1, hintsUsed: 0,
+    replays: 0, accentSlips: 0, submissions: ["sbagliato", u.text], categories: [], meaningCorrect: u.distractors ? true : null, durationMs: 1000, studied: false, master: false,
+  };
+  expect((await page.request.post("/api/attempts", { data: miss })).ok()).toBe(true);
+
+  await page.goto("/it/type/notebook");
+  await page.locator(".qa-mistakes-practice").click();
+  await expect(page.locator(".qa-mistakes-popup")).toContainText("leaves the notebook for good");
+  await page.locator(".qa-mistakes-popup .qa-popup-close").click();
+  await expect(page.locator(".qa-mistakes-popup")).toBeHidden();
+  await expect(page).toHaveURL(/\/it\/type\/notebook$/);
+  await page.locator(".qa-mistakes-practice").click();
+  await page.locator(".qa-mistakes-go").click();
+  await expect(page).toHaveURL(/\/it\/type\/notebook\/practice$/);
+
+  await page.goto("/it/type");
+  await page.locator(".qa-review-link").click();
+  await expect(page.locator(".qa-review-popup")).toContainText("just before you'd forget them");
+  await page.locator(".qa-review-popup .qa-popup-close").click();
+  await expect(page.locator(".qa-review-popup")).toBeHidden();
+  await expect(page).toHaveURL(/\/it\/type$/);
+  await page.locator(".qa-review-link").click();
+  await page.locator(".qa-review-go").click();
+  await expect(page).toHaveURL(/\/it\/type\/review$/);
+});
+
 test("a finished course folds to its title, and opens on click", async ({ page }) => {
   await signIn(page, "folds1@example.com");
   await completeLesson(page, "it-a1-bar-1");
