@@ -143,3 +143,29 @@ test("Master asks for confirmation first, offering the test or more practice", a
   await expect(row.locator(".qa-master-ready")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1/master");
   await expect(row.locator(".qa-master-more")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1");
 });
+
+test("a catalog of lessons without stars renders every lesson row without a page error", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await signIn(page, "stars7@example.com", "stars7", "A2");
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-lesson").nth(1)).toBeVisible();
+  await expect(page.locator(".qa-lesson-stars")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+for (const width of [320, 390, 800, 1200]) {
+  test(`at ${width}px the stars and buttons of a lesson stay on one line`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await signIn(page, `stars-w${width}@example.com`, `starsw${width}`, "A2");
+    await completeLesson(page, "it-a1-bar-1", "sentences", "letters", "corrected");
+    await page.clock.install({ time: new Date(Date.now() + 24 * 3_600_000) });
+    await page.goto("/it/type");
+    const parts = page.locator(".qa-lesson").first().locator(".qa-lesson-actions > *");
+    await expect(parts).toHaveCount(3);
+    const tops = await parts.evaluateAll((els) => els.map((el) => Math.round(el.getBoundingClientRect().top + el.getBoundingClientRect().height / 2)));
+    expect(new Set(tops.map((y) => Math.round(y / 4))).size).toBe(1);
+    const box = await page.locator(".qa-lesson").first().locator(".qa-lesson-actions").boundingBox();
+    expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+  });
+}

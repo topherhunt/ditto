@@ -18,6 +18,9 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await page.locator(".qa-dash-start-type").click();
   await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
 
+  // The keys hint opens with the task and shows each key as a key label.
+  await expect(page.locator(".qa-key")).toHaveText(["Enter", "Space", "Esc"]);
+
   // caffè typed without its accent: accepted, and the fixed letter stays orange.
   await slot(page, 0).fill("caffe");
   await slot(page, 0).press("Enter");
@@ -46,10 +49,15 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-explain .alert-warning")).toContainText("not configured");
   await page.locator(".qa-next").click();
 
-  // "un caffè": hint the first word, type the second.
-  await slot(page, 0).focus();
+  // "un caffè": the hint box grows with each press but never fills the slots; the learner types the answer.
   await page.locator(".qa-hint").click();
-  await expect(slot(page, 0)).toHaveValue("un");
+  await expect(page.locator(".qa-hint-words")).toHaveText("u· caf··");
+  await expect(slot(page, 0)).toHaveValue("");
+  await page.locator(".qa-hint").click();
+  await expect(page.locator(".qa-hint-words")).toHaveText("un caffè");
+  await expect(slot(page, 0)).toHaveValue("");
+  await expect(page.locator(".qa-hint")).toHaveCount(0);
+  await slot(page, 0).fill("un");
   await slot(page, 1).fill("caffè");
   await slot(page, 1).press("Enter");
   await pickMeaning(page, "a coffee");

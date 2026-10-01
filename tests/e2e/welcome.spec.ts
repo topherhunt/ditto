@@ -129,13 +129,27 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await expect(page.locator(".qa-settings-learn-it")).not.toBeChecked();
 });
 
+test("Settings invites a request for a language to learn, separately from the interface-language one", async ({ page }) => {
+  await signIn(page, "settingsrequest@example.com");
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-request-language")).toHaveCount(2);
+  await page.locator(".qa-request-learn-language").click();
+  await expect(page.locator(".qa-popup[open] .qa-request-send")).toBeDisabled();
+});
+
 test("a visitor can ask for a language from the homepage without changing their own", async ({ page }) => {
   await page.goto("/");
   await page.locator(".qa-request-language").first().click();
   const popup = page.locator(".qa-popup[open]");
   await expect(popup.locator(".qa-request-send")).toBeDisabled();
-  await popup.locator(".qa-request-spoken").selectOption("pt");
-  await popup.locator(".qa-request-wanted").selectOption("other");
+  await popup.locator(".qa-request-spoken .ts-control input").fill("portu");
+  await expect(popup.locator(".qa-request-spoken .ts-dropdown .option")).toHaveText(["Portuguese"]);
+  await popup.locator(".qa-request-spoken .ts-dropdown .option").click();
+  await expect(popup.locator(".qa-request-send")).toBeDisabled();
+  await popup.locator(".qa-request-wanted .ts-control input").fill("another");
+  await expect(popup.locator(".qa-request-wanted .ts-dropdown .option")).toHaveText(["Another language"]);
+  await popup.locator(".qa-request-wanted .ts-dropdown .option").click();
   await popup.locator(".qa-request-send").click();
   await expect(popup.locator(".qa-request-thanks")).toBeVisible();
   await popup.locator(".qa-request-close").click();

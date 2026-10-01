@@ -21,6 +21,22 @@ export function placeholder(word: string, hints: HintLevel): string {
   return "";
 }
 
+export type HintStep = "length" | "initial" | "half" | "full";
+
+/** The hint presses available for a hint level, skipping steps the level already shows. */
+export function hintLadder(hints: HintLevel): HintStep[] {
+  if (hints === "letters") return ["half", "full"];
+  if (hints === "initial") return ["length", "half", "full"];
+  return ["length", "initial", "half", "full"];
+}
+
+/** A word with its first letters shown and a dot per hidden letter; apostrophes and punctuation stay visible. */
+export function hintMask(word: string, step: HintStep): string {
+  const chars = Array.from(word);
+  const shown = step === "length" ? 0 : step === "initial" ? 1 : step === "half" ? Math.ceil(chars.length / 2) : chars.length;
+  return chars.map((ch, i) => (i < shown || !/[\p{L}\p{N}]/u.test(ch) ? ch : "·")).join("");
+}
+
 /** Status of one slot after a graded submission. */
 export type SlotState = "open" | "correct" | "accent";
 

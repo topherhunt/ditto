@@ -72,6 +72,7 @@ function LearningPicker(props: { save: (request: () => Promise<unknown>) => Prom
         </For>
       </div>
       <div class="form-text">{t("settings.learningHint")}</div>
+      <RequestLanguageLink class="qa-request-learn-language" label={t("settings.requestLearnLanguage")} />
     </fieldset>
   );
 }

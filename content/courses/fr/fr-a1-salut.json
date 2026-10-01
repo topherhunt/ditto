@@ -26,6 +26,7 @@
     "jour",
     "nuit",
     "journée",
+    "dans",
     "soirée",
     "enchanté",
     "bienvenue",
@@ -344,7 +345,7 @@
         "en": "bonne = good (feminine); bonne journée = have a good day",
         "es-419": "bonne = buena (femenino); bonne journée = que tengas un buen día",
         "it": "bonne = buona (femminile); bonne journée = buona giornata",
-        "nl": "bonne = goed (vrouwelijk); bonne journée = een fijne dag"
+        "nl": "bonne = goed (vrouwelijk); bonne journée = fijne dag"
       }
     },
     "journée": {
@@ -402,7 +403,7 @@
       "pos": "PRON",
       "gloss": {
         "en": "that, it; ça va? = how are you?",
-        "es-419": "eso, ello; ça va? = ¿cómo estás?",
+        "es-419": "eso; ça va? = ¿cómo estás?",
         "it": "ciò, questo; ça va? = come stai?",
         "nl": "dat, het; ça va? = hoe gaat het?"
       }
@@ -472,7 +473,7 @@
       "pos": "PRON",
       "gloss": {
         "en": "he, it",
-        "es-419": "él, ello",
+        "es-419": "él",
         "it": "lui, esso",
         "nl": "hij, het"
       }
@@ -1171,10 +1172,10 @@
       "lemma": "te",
       "pos": "PRON",
       "gloss": {
-        "en": "you (informal), to you; je te présente = I introduce you to",
+        "en": "you (informal), to you; je te présente = I introduce (someone) to you",
         "es-419": "te; je te présente = te presento a",
         "it": "ti; je te présente = ti presento",
-        "nl": "je, aan je; je te présente = ik stel je voor aan"
+        "nl": "je, aan je; je te présente = ik stel iemand aan je voor"
       }
     },
     "lentement": {
@@ -1375,6 +1376,26 @@
         "es-419": "appelez-vous = appelez + vous: se llama usted; comment vous appelez-vous? = ¿cómo se llama usted?",
         "it": "appelez-vous = appelez + vous: si chiama; comment vous appelez-vous? = come si chiama?",
         "nl": "appelez-vous = appelez + vous: heet u; comment vous appelez-vous? = hoe heet u?"
+      }
+    },
+    "dans": {
+      "lemma": "dans",
+      "pos": "ADP",
+      "gloss": {
+        "en": "in, inside",
+        "es-419": "en, dentro de",
+        "it": "in, dentro",
+        "nl": "in, binnen"
+      }
+    },
+    "la": {
+      "lemma": "le",
+      "pos": "DET",
+      "gloss": {
+        "en": "la = the (before a feminine noun)",
+        "es-419": "la = la (delante de un nombre femenino)",
+        "it": "la = la (davanti a un nome femminile)",
+        "nl": "la = de (vóór een vrouwelijk woord)"
       }
     }
   },
@@ -1620,7 +1641,7 @@
             "en": "have a good day",
             "es-419": "que tengas un buen día",
             "it": "buona giornata",
-            "nl": "een fijne dag"
+            "nl": "fijne dag"
           },
           "distractors": {
             "en": [
@@ -1636,8 +1657,8 @@
               "buon viaggio"
             ],
             "nl": [
-              "een fijne avond",
-              "een goede reis"
+              "fijne avond",
+              "goede reis"
             ]
           }
         },
@@ -1650,7 +1671,7 @@
             "en": "have a good evening",
             "es-419": "que tengas una buena noche",
             "it": "buona serata",
-            "nl": "een fijne avond"
+            "nl": "fijne avond"
           },
           "distractors": {
             "en": [
@@ -1666,8 +1687,8 @@
               "buon viaggio"
             ],
             "nl": [
-              "een fijne dag",
-              "een goede reis"
+              "fijne dag",
+              "goede reis"
             ]
           }
         },
@@ -1680,7 +1701,7 @@
             "en": "Thanks, have a good day!",
             "es-419": "¡Gracias, que tengas un buen día!",
             "it": "Grazie, buona giornata!",
-            "nl": "Bedankt, een fijne dag!"
+            "nl": "Bedankt, fijne dag!"
           },
           "distractors": {
             "en": [
@@ -1696,8 +1717,8 @@
               "Scusa, buona giornata!"
             ],
             "nl": [
-              "Bedankt, een fijne avond!",
-              "Sorry, een fijne dag!"
+              "Bedankt, fijne avond!",
+              "Sorry, fijne dag!"
             ]
           }
         },
@@ -2988,19 +3009,19 @@
       "grammarFocus": {
         "en": [
           "tu vs. vous: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
-          "monsieur / madame + last name; bonjour in the morning, bonsoir in the evening"
+          "monsieur / madame + last name; bonjour during the day, bonsoir in the evening"
         ],
         "es-419": [
           "tú y usted: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
-          "monsieur / madame + apellido; bonjour por la mañana, bonsoir por la noche"
+          "monsieur / madame + apellido; bonjour durante el día, bonsoir por la noche"
         ],
         "it": [
           "tu e Lei: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
-          "monsieur / madame + cognome; bonjour di mattina, bonsoir di sera"
+          "monsieur / madame + cognome; bonjour di giorno, bonsoir di sera"
         ],
         "nl": [
           "jij en u: Salut, Léa, comment vas-tu? / Bonjour, madame Martin, comment allez-vous?",
-          "monsieur / madame + achternaam; bonjour 's ochtends, bonsoir 's avonds"
+          "monsieur / madame + achternaam; bonjour overdag, bonsoir 's avonds"
         ]
       },
       "units": [
@@ -3188,29 +3209,29 @@
           "id": "fr-a1-salut-4-u07",
           "rev": 1,
           "stage": "sentence",
-          "text": "Vous dites bonjour le matin et bonsoir le soir.",
+          "text": "Vous dites bonjour dans la journée et bonsoir le soir.",
           "translation": {
-            "en": "You say bonjour in the morning and bonsoir in the evening.",
-            "es-419": "Se dice bonjour por la mañana y bonsoir por la noche.",
-            "it": "Si dice bonjour la mattina e bonsoir la sera.",
-            "nl": "Je zegt bonjour 's ochtends en bonsoir 's avonds."
+            "en": "You say bonjour during the day and bonsoir in the evening.",
+            "es-419": "Se dice bonjour durante el día y bonsoir por la noche.",
+            "it": "Si dice bonjour di giorno e bonsoir la sera.",
+            "nl": "Je zegt bonjour overdag en bonsoir 's avonds."
           },
           "distractors": {
             "en": [
-              "You say bonsoir in the morning and bonjour in the evening.",
-              "You say bonjour in the morning and au revoir in the evening."
+              "You say bonsoir during the day and bonjour in the evening.",
+              "You say bonjour during the day and au revoir in the evening."
             ],
             "es-419": [
-              "Se dice bonsoir por la mañana y bonjour por la noche.",
-              "Se dice bonjour por la mañana y au revoir por la noche."
+              "Se dice bonsoir durante el día y bonjour por la noche.",
+              "Se dice bonjour durante el día y au revoir por la noche."
             ],
             "it": [
-              "Si dice bonsoir la mattina e bonjour la sera.",
-              "Si dice bonjour la mattina e au revoir la sera."
+              "Si dice bonsoir di giorno e bonjour la sera.",
+              "Si dice bonjour di giorno e au revoir la sera."
             ],
             "nl": [
-              "Je zegt bonsoir 's ochtends en bonjour 's avonds.",
-              "Je zegt bonjour 's ochtends en au revoir 's avonds."
+              "Je zegt bonsoir overdag en bonjour 's avonds.",
+              "Je zegt bonjour overdag en au revoir 's avonds."
             ]
           }
         },
@@ -3969,7 +3990,7 @@
             "en": "okay, agreed",
             "es-419": "de acuerdo",
             "it": "d'accordo",
-            "nl": "akkoord"
+            "nl": "oké"
           },
           "distractors": {
             "en": [
@@ -3999,7 +4020,7 @@
             "en": "Okay, I'm speaking slowly.",
             "es-419": "De acuerdo, hablo despacio.",
             "it": "D'accordo, parlo lentamente.",
-            "nl": "Akkoord, ik spreek langzaam."
+            "nl": "Oké, ik spreek langzaam."
           },
           "distractors": {
             "en": [
@@ -4015,8 +4036,8 @@
               "D'accordo, non parlo lentamente."
             ],
             "nl": [
-              "Akkoord, ik schrijf langzaam.",
-              "Akkoord, ik spreek niet langzaam."
+              "Oké, ik schrijf langzaam.",
+              "Oké, ik spreek niet langzaam."
             ]
           }
         },
@@ -4233,7 +4254,7 @@
             "en": "I'd like you to meet",
             "es-419": "te presento a",
             "it": "ti presento",
-            "nl": "mag ik je voorstellen aan"
+            "nl": "ik stel iemand aan je voor"
           },
           "distractors": {
             "en": [
@@ -4293,7 +4314,7 @@
             "en": "I'd like you to meet",
             "es-419": "le presento a",
             "it": "le presento",
-            "nl": "mag ik u voorstellen aan"
+            "nl": "ik stel iemand aan u voor"
           },
           "distractors": {
             "en": [

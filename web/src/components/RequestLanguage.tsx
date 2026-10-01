@@ -1,11 +1,32 @@
-import { createMemo, createSignal, For, Show } from "solid-js";
+import TomSelect from "tom-select";
+import "tom-select/dist/css/tom-select.bootstrap5.css";
+import { createEffect, createMemo, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import { REQUEST_LANGUAGES, type RequestLanguage } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { locale, t } from "../i18n/index.ts";
 import { Popup } from "./Popup.tsx";
 
+/** A select whose options can be filtered by typing, for lists too long to scroll. `value` "" means nothing chosen. */
+function FilterSelect(props: { class: string; value: string; onChange: (v: string) => void; placeholder: string; options: { code: string; name: string }[] }) {
+  let select!: HTMLSelectElement;
+  let ts!: TomSelect;
+  onMount(() => {
+    ts = new TomSelect(select, { maxOptions: null, openOnFocus: true, onChange: (v: string) => props.onChange(v) });
+    onCleanup(() => ts.destroy());
+  });
+  createEffect(() => {
+    if (ts.getValue() !== props.value) ts.setValue(props.value, true);
+  });
+  return (
+    <select ref={select} class={props.class} value={props.value} data-placeholder={props.placeholder}>
+      <option value="">{props.placeholder}</option>
+      <For each={props.options}>{(o) => <option value={o.code}>{o.name}</option>}</For>
+    </select>
+  );
+}
+
 /** A small link that opens a popup asking, anonymously, which language the visitor speaks best and which they want to learn. It changes nothing about their account. */
-export function RequestLanguageLink() {
+export function RequestLanguageLink(props: { label?: string; class?: string }) {
   const [open, setOpen] = createSignal(false);
   const [spoken, setSpoken] = createSignal("");
   const [wanted, setWanted] = createSignal("");
@@ -34,18 +55,15 @@ export function RequestLanguageLink() {
     }
   };
   const picker = (cls: string, label: string, value: () => string, set: (v: string) => void) => (
-    <label class="form-label mb-0 d-block">
+    <label class={`${cls} form-label mb-0 d-block`}>
       {label}
-      <select class={`${cls} form-select`} value={value()} onChange={(e) => set(e.currentTarget.value)}>
-        <option value="" disabled>{t("request.choose")}</option>
-        <For each={options()}>{(o) => <option value={o.code}>{o.name}</option>}</For>
-      </select>
+      <FilterSelect class="form-select" value={value()} onChange={set} placeholder={t("request.choose")} options={options()} />
     </label>
   );
 
   return (
     <>
-      <button type="button" class="qa-request-language btn btn-link link-secondary p-0 align-baseline small" onClick={show}>{t("welcome.requestLanguage")}</button>
+      <button type="button" class={`qa-request-language ${props.class ?? ""} btn btn-link link-secondary p-0 align-baseline small`} onClick={show}>{props.label ?? t("welcome.requestLanguage")}</button>
       <Popup open={open()} onClose={() => setOpen(false)} title={t("request.title")}
         footer={
           <>

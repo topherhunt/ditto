@@ -6,15 +6,20 @@ import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
 import { celebrate } from "../celebrate.ts";
 import { categoryName, t } from "../i18n/index.ts";
-import { hasFeedback, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
+import { hasFeedback, hintLadder, hintMask, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
 import { playResult } from "../sounds.ts";
 import { PunctDiff, SentenceDiff, WordDiff } from "./WordDiff.tsx";
 
-type SlotFeedback = { state: SlotState | "hinted"; word?: WordResult };
+type SlotFeedback = { state: SlotState; word?: WordResult };
 
 /** Extra words typed between two slots, struck through; the lg padding lines them up with the slot text. */
 function ExtraWords(props: { words: WordResult[] }) {
   return <For each={props.words}>{(w) => <span class="qa-slot-extra form-control-lg px-0"><WordDiff word={w} /></span>}</For>;
+}
+
+/** A translated string with each `backticked` span shown as a key label. */
+function KeyHint(props: { text: string }) {
+  return <>{props.text.split("`").map((part, i) => (i % 2 ? <code class="qa-key">{part}</code> : part))}</>;
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -52,6 +57,7 @@ export function Exercise(props: {
   const [freeResult, setFreeResult] = createSignal<GradeResult | null>(null);
   const [wrongSubmissions, setWrongSubmissions] = createSignal(0);
   const [hintsUsed, setHintsUsed] = createSignal(0);
+  const ladder = hintLadder(props.prefs.hints);
   const [done, setDone] = createSignal(false);
   const [revealed, setRevealed] = createSignal(false);
   const [autoplayBlocked, setAutoplayBlocked] = createSignal(false);
@@ -119,10 +125,9 @@ export function Exercise(props: {
   function applySlots(result: GradeResult) {
     const s = slotsAfter(result, target.length);
     const byIndex = new Map(result.words.flatMap((w) => (w.kind === "extra" ? [] : [[w.wordIndex, w] as const])));
-    const old = feedback();
     setSlots(s.values);
     setExtras(s.extras);
-    setFeedback(s.states.map((state, i) => (old[i]?.state === "hinted" ? old[i] : { state, word: byIndex.get(i) })));
+    setFeedback(s.states.map((state, i) => ({ state, word: byIndex.get(i) })));
   }
 
   function submit() {
@@ -161,18 +166,10 @@ export function Exercise(props: {
     queueMicrotask(focusFirstOpen);
   }
 
+  /** Each press shows the hint box one step further; the learner still types the answer. */
   function hint() {
-    if (done()) return;
-    if (free()) {
-      setFree(false);
-      setSlots(target.map(() => ""));
-    }
-    const fb = feedback();
-    const i = fb[focused]?.state === "open" ? focused : fb.findIndex((f) => f.state === "open");
-    if (i < 0) return;
+    if (done() || hintsUsed() >= ladder.length) return;
     setHintsUsed((n) => n + 1);
-    setSlots((s) => s.map((v, k) => (k === i ? target[i] : v)));
-    setFeedback((f) => f.map((v, k) => (k === i ? { state: "hinted" } : v)));
     queueMicrotask(focusFirstOpen);
   }
 
@@ -398,12 +395,20 @@ export function Exercise(props: {
           <Show when={freeResult()}>
             {(r) => <div class="qa-free-diff small">{t("exercise.closest")} <SentenceDiff result={r()} /></div>}
           </Show>
+          <Show when={hintsUsed() > 0}>
+            <div class="qa-hint-box border rounded p-2">
+              <div class="small text-body-secondary">{t("exercise.hintBox")}{ladder[hintsUsed() - 1] === "length" ? ` · ${t("exercise.hintWords", { count: target.length })}` : ""}</div>
+              <div class="qa-hint-words d-flex flex-wrap gap-2 fs-5 font-mono">
+                <For each={target}>{(w) => <span>{hintMask(w, ladder[hintsUsed() - 1])}</span>}</For>
+              </div>
+            </div>
+          </Show>
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
-            <Show when={!test && !master}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t("exercise.hint")}</button></Show>
+            <Show when={!test && !master && hintsUsed() < ladder.length}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t(hintsUsed() === 0 ? "exercise.hint" : "exercise.moreHint")}</button></Show>
             <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
           </div>
-          <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary">{t("exercise.keys")}</div>}>
+          <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary"><KeyHint text={t("exercise.keys")} /></div>}>
             <div class="qa-retry small text-danger">{t("exercise.retry")}</div>
           </Show>
         </Show>

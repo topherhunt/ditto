@@ -46,7 +46,7 @@ You need Node 26+ and, to render audio, macOS (the renderer encodes with `afconv
 ```sh
 npm install
 cp .env.example .env    # DEV_LOGIN=1 gives you a dev sign-in form locally
-npm run dev             # API on :3000, Vite on :5173
+npm start               # in dev: API on :3000, Vite on :5173 (same as npm run dev)
 ```
 
 `OPENAI_API_KEY` is optional; without it the "Why?" explainer and conversation mode are disabled and quiz audio fails. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
@@ -75,7 +75,7 @@ Irish audio comes from ABAIR's online service rather than a local model, so it n
 |---|---|
 | `npm run dev` | Server and Vite dev server; the server restarts when `server/`, `shared/`, `content/courses/` or `content/audio-fixes.json` change |
 | `npm run build` | Builds the SPA into `dist/web` |
-| `npm start` | Runs the server |
+| `npm start` | With `NODE_ENV=production` (shell or `.env`), runs the plain server; otherwise the same as `npm run dev`. Production runs `node server/index.ts` under systemd, not this |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Unit and API tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright), against frozen fixture content |

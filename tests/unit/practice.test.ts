@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { grade } from "../../shared/grader.ts";
-import { hasFeedback, outcomeOf, placeholder, slotsAfter } from "../../web/src/practice.ts";
+import { hasFeedback, hintLadder, hintMask, outcomeOf, placeholder, slotsAfter } from "../../web/src/practice.ts";
 
 describe("practice helpers", () => {
   it("rates a unit by its worst event", () => {
@@ -15,6 +15,20 @@ describe("practice helpers", () => {
     expect(placeholder("un'acqua", "letters")).toBe("u·'·····");
     expect(placeholder("caffè", "initial")).toBe("c");
     expect(placeholder("caffè", "none")).toBe("");
+  });
+
+  it("skips hint steps the hint level already shows", () => {
+    expect(hintLadder("none")).toEqual(["length", "initial", "half", "full"]);
+    expect(hintLadder("initial")).toEqual(["length", "half", "full"]);
+    expect(hintLadder("letters")).toEqual(["half", "full"]);
+  });
+
+  it("masks a word for each hint step, keeping apostrophes visible", () => {
+    expect(hintMask("caffè", "length")).toBe("·····");
+    expect(hintMask("caffè", "initial")).toBe("c····");
+    expect(hintMask("caffè", "half")).toBe("caf··");
+    expect(hintMask("un'acqua", "half")).toBe("un'a····");
+    expect(hintMask("caffè", "full")).toBe("caffè");
   });
 
   it("locks correct and accent-fixed slots, keeping typed punctuation, and keeps wrong ones editable", () => {
