@@ -39,9 +39,15 @@ function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; 
   );
 }
 
-/** The CEFR grade of a line, hung on the bottom-left corner of its bubble (which must be positioned). Absent on a line without one. Ignores taps so it never blocks the play button beneath its corner. */
-function LevelBadge(props: { level: string | null }) {
-  return <Show when={props.level}>{(l) => <span class="qa-turn-level badge text-bg-secondary pe-none position-absolute start-0 bottom-0 ms-2 translate-middle-y" style={{ "font-size": ".65rem" }}>{l()}</span>}</Show>;
+/** The CEFR grade of a line, straddling the bottom border of its (positioned) bubble: at the left for the partner, the right for the learner. Absent on a line without one. Ignores taps so it never blocks the content it brushes. */
+function LevelBadge(props: { level: string | null; side: "start" | "end" }) {
+  return (
+    <Show when={props.level}>
+      {(l) => (
+        <span class={`qa-turn-level badge text-bg-secondary pe-none position-absolute top-100 translate-middle-y ${props.side === "start" ? "start-0 ms-1" : "end-0 me-1"}`} style={{ "font-size": ".65rem" }}>{l()}</span>
+      )}
+    </Show>
+  );
 }
 
 /** `latest` is the conversation's last turn, set larger so the line to answer stands out. */
@@ -56,7 +62,7 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
           <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
             {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
           </Show>
-          <LevelBadge level={turn().level} />
+          <LevelBadge level={turn().level} side="end" />
           <Show when={kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
         </div>
         {/* A suggested or typed reply needs no label; only a skipped one is worth flagging. */}
@@ -70,7 +76,7 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
         <Show when={turn().chunks} fallback={<span class="qa-turn-text" classList={{ "fs-5": props.latest }}>{turn().text}</span>}>
           {(chunks) => <ChunkLine class="qa-turn-text" classList={{ "fs-5": props.latest }} chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
         </Show>
-        <LevelBadge level={turn().level} />
+        <LevelBadge level={turn().level} side="start" />
       </div>
     </Show>
   );
@@ -257,44 +263,12 @@ export function Conversation() {
         <Show when={last().role === "partner"}>
           <div class="qa-reply d-flex flex-column gap-3 border-top pt-3">
             {/* Keyed, so each attempt gets a fresh report form. */}
-            <Show when={attempt()} keyed fallback={
-              <div>
-                <Show when={!c().hardMode}><div class="small fw-semibold mb-1">{t("speak.suggestions")}</div></Show>
-                {/* The suggestions, then "How do I say...?" as the last option; hard mode leaves only that. */}
-                <ul class="mb-0">
-                  <Show when={!c().hardMode && last().suggestions}>
-                    {(suggestions) => (
-                      <For each={suggestions()}>
-                        {(s, j) => <li class="qa-suggestion mb-1"><ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} /></li>}
-                      </For>
-                    )}
-                  </Show>
-                  <li>
-                    <button type="button" class="qa-how-open btn btn-link p-0 align-baseline" onClick={() => setHowOpen(!howOpen())}>{t("speak.how")}</button>
-                    <Show when={howOpen()}>
-                      <form class="d-flex gap-2 mt-1" onSubmit={(e) => { e.preventDefault(); void askHow(); }}>
-                        <input ref={(el) => queueMicrotask(() => el.focus())} class="qa-how-text form-control form-control-sm" placeholder={t("speak.howPlaceholder")} value={howText()} onInput={(e) => setHowText(e.currentTarget.value)} />
-                        <button type="submit" class="qa-how-go btn btn-sm btn-outline-primary" disabled={busy() || !howText().trim()}>{t("speak.howGo")}</button>
-                      </form>
-                    </Show>
-                    <Show when={how()}>
-                      {(h) => (
-                        <div class="qa-how-result mt-2">
-                          <span class="small text-body-secondary me-1">{t("speak.howResult")}</span>
-                          <span class="fs-5 fw-semibold">{h().sentence}</span>
-                          <div class="small text-body-secondary">{h().chunks.map((x) => `${x.text} = ${x.gloss}`).join(" · ")}</div>
-                        </div>
-                      )}
-                    </Show>
-                  </li>
-                </ul>
-              </div>
-            }>
+            <Show when={attempt()} keyed>
               {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
             </Show>
 
             <Show when={recState() === "checking"} fallback={
-              <button type="button" data-silent class="qa-record btn btn-lg align-self-start" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
+              <button type="button" data-silent class="qa-record btn btn-lg align-self-center" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
                 disabled={!canRecord()} onClick={toggleRecord}>
                 <i class={`bi ${recState() === "recording" ? "bi-stop-fill" : "bi-mic-fill"} me-1`} aria-hidden="true" />
                 {recState() === "recording" ? t("speak.stop") : attempt() ? t("speak.recordAgain") : t("speak.record")}
@@ -304,6 +278,40 @@ export function Conversation() {
                 <span class="spinner-border spinner-border-sm" aria-hidden="true" />
                 <span class={`qa-checking-${step()}`}>{t(`speak.step.${step()}`)}</span>
               </div>
+            </Show>
+
+            <Show when={!attempt()}>
+            <div>
+              <Show when={!c().hardMode}><div class="small fw-semibold mb-1">{t("speak.suggestions")}</div></Show>
+              {/* The suggestions, then "How do I say...?" as the last option; hard mode leaves only that. */}
+              <ul class="mb-0">
+                <Show when={!c().hardMode && last().suggestions}>
+                  {(suggestions) => (
+                    <For each={suggestions()}>
+                      {(s, j) => <li class="qa-suggestion mb-1"><ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} /></li>}
+                    </For>
+                  )}
+                </Show>
+                <li>
+                  <button type="button" class="qa-how-open btn btn-link p-0 align-baseline" onClick={() => setHowOpen(!howOpen())}>{t("speak.how")}</button>
+                  <Show when={howOpen()}>
+                    <form class="d-flex gap-2 mt-1" onSubmit={(e) => { e.preventDefault(); void askHow(); }}>
+                      <input ref={(el) => queueMicrotask(() => el.focus())} class="qa-how-text form-control form-control-sm" placeholder={t("speak.howPlaceholder")} value={howText()} onInput={(e) => setHowText(e.currentTarget.value)} />
+                      <button type="submit" class="qa-how-go btn btn-sm btn-outline-primary" disabled={busy() || !howText().trim()}>{t("speak.howGo")}</button>
+                    </form>
+                  </Show>
+                  <Show when={how()}>
+                    {(h) => (
+                      <div class="qa-how-result mt-2">
+                        <span class="small text-body-secondary me-1">{t("speak.howResult")}</span>
+                        <span class="fs-5 fw-semibold">{h().sentence}</span>
+                        <div class="small text-body-secondary">{h().chunks.map((x) => `${x.text} = ${x.gloss}`).join(" · ")}</div>
+                      </div>
+                    )}
+                  </Show>
+                </li>
+              </ul>
+            </div>
             </Show>
           </div>
         </Show>
@@ -337,34 +345,29 @@ function Retry(props: { attempt: SpeakAttemptOut; ownUrl: string; conversationId
   };
   return (
     <div class="qa-retry d-flex flex-column gap-2">
+      <div class="d-flex align-items-center gap-2 small text-body-secondary">
+        <span class="qa-retry-heard">{t("speak.youSaid")} <i>{a().transcript}</i></span>
+        <PlayButton url={props.ownUrl} class="qa-retry-play-own btn-link p-0" />
+      </div>
+      <div class="qa-retry-good-try text-orange fw-semibold">{t("speak.goodTry")}</div>
+      <ul class="mb-0">
+        <li class="qa-retry-feedback">{a().verdict.feedback}</li>
+        <For each={a().verdict.fixes}>
+          {(f) => <li class="qa-retry-fix"><span class="letter-delete">{f.wrong}</span> → <span class="letter-insert">{f.right}</span> <span class="small text-body-secondary">{f.why}</span></li>}
+        </For>
+      </ul>
       <div>
-        <div class="qa-retry-good-try text-orange fw-semibold">{t("speak.goodTry")}</div>
-        <div class="small fw-semibold">{t("speak.sayThis")} <span class="qa-retry-tries fw-normal text-body-secondary">({t("speak.tries", { n: a().failures + 1 })})</span></div>
+        <div class="small text-orange fw-semibold">{t("speak.sayThis")}:</div>
         <div class="d-flex align-items-center gap-2">
           <Show when={a().targetAudioUrl}>
             {(u) => <PlayButton url={u()} class="qa-retry-play-target" color="btn-outline-primary" />}
           </Show>
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>
-        <div class="d-flex align-items-center gap-2 small text-body-secondary">
-          <PlayButton url={props.ownUrl} class="qa-retry-play-own" color="btn-outline-secondary" />
-          <span class="qa-retry-heard">{t("speak.youSaid", { text: a().transcript })}</span>
-        </div>
       </div>
-      <div class="qa-retry-feedback">{a().verdict.feedback}</div>
-      <Show when={a().verdict.fixes.length}>
-        <div>
-          <div class="small fw-semibold">{t("speak.fixes")}</div>
-          <ul class="mb-0">
-            <For each={a().verdict.fixes}>
-              {(f) => <li class="qa-retry-fix"><span class="letter-delete">{f.wrong}</span> → <span class="letter-insert">{f.right}</span> <span class="small text-body-secondary">{f.why}</span></li>}
-            </For>
-          </ul>
-        </div>
-      </Show>
-      <div class="d-flex flex-wrap gap-2">
-        <button type="button" class="qa-retry-else btn btn-sm btn-link" onClick={props.onElse}>{t("speak.else")}</button>
-        <button type="button" class="qa-retry-report-open btn btn-sm btn-link" onClick={() => setReportOpen(!reportOpen())}>{t("speak.report")}</button>
+      <div class="d-flex flex-nowrap gap-1">
+        <button type="button" class="qa-retry-else btn btn-sm btn-link px-1 text-nowrap" onClick={props.onElse}>{t("speak.else")}</button>
+        <button type="button" class="qa-retry-report-open btn btn-sm btn-link px-1 text-nowrap" onClick={() => setReportOpen(!reportOpen())}>{t("speak.report")}</button>
       </div>
       <Show when={a().failures >= MOVE_ON_AFTER}>
         <div class="qa-move-on alert alert-warning d-flex flex-wrap align-items-center gap-2 mb-0">
