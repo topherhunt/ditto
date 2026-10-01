@@ -50,13 +50,6 @@ describe("content loading", () => {
     expect([irish("en"), irish("es-419"), irish("nl"), irish("it")]).toEqual(["Hello, Áine.", "Hola, Áine.", "Hallo, Áine.", "Ciao, Áine."]);
   });
 
-  it("leaves out a held-back language's courses and their audio jobs, and keeps the rest", () => {
-    const c = loadContent(join(root, "content"), join(root, "content/audio"), { audio: "skip", holdBack: ["el"] });
-    expect(new Set(c.locales.en.courses.map((x) => x.language))).toEqual(new Set(["en", "it", "nl", "ga", "es", "fr"]));
-    expect(c.audioJobs.filter((j) => j.file.startsWith("el/"))).toEqual([]);
-    expect(c.audioJobs.some((j) => j.file.startsWith("fr/"))).toBe(true);
-  });
-
   it("serves one audio URL per voice for the unit and each word, in voice order", () => {
     const c = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
     const u = c.locales.en.units.get("it-a1-bar-2-u09")!;

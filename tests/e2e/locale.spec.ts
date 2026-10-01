@@ -71,6 +71,27 @@ test("interface immersion shows every page in the course's language, signed out 
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
 });
 
+test("Greek is not offered as your own language, since no course is translated into it", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".qa-welcome-speak-nl")).toBeVisible();
+  await expect(page.locator(".qa-welcome-speak-el")).toHaveCount(0);
+  await signIn(page, "greek1@example.com");
+  await page.goto("/settings");
+  await expect(page.locator(".qa-settings-locale option")).toHaveCount(4);
+  await expect(page.locator(".qa-settings-locale option[value=el]")).toHaveCount(0);
+});
+
+test("interface immersion in the Greek course shows the app in Greek", async ({ page }) => {
+  await signIn(page, "greek2@example.com");
+  await setLearning(page, ["it", "el"]);
+  await page.goto("/settings");
+  await expect(page.locator(".qa-settings-immerseUi-el")).toHaveAttribute("aria-label", "Show the app in Greek");
+  await page.locator(".qa-settings-immerseUi-el").check();
+  await expect(page.locator(".qa-settings-status")).toHaveText("Saved");
+  await page.goto("/el/type");
+  await expect(page.locator("html")).toHaveAttribute("lang", "el");
+});
+
 test("a course the app isn't translated into offers no immersion", async ({ page }) => {
   await signIn(page, "immerse2@example.com");
   await setLearning(page, ["it", "ga"]);

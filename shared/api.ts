@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LANGUAGES, languageLocale, LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedLesson, type ServedUnit, type Stage } from "./content.ts";
+import { LANGUAGES, languageLocale, NATIVE_LOCALES, PATHS, type Language, type Locale, type ServedCourse, type ServedLesson, type ServedUnit, type Stage } from "./content.ts";
 
 export const HINT_LEVELS = ["letters", "initial", "none"] as const;
 export type HintLevel = (typeof HINT_LEVELS)[number];
@@ -28,7 +28,7 @@ export const immersible = (l: Language) => languageLocale(l) !== null;
 
 export const PutPrefsSchema = z.strictObject({ language: z.enum(LANGUAGES), prefs: PrefsSchema })
   .refine((p) => immersible(p.language) || !(p.prefs.immerseUi || p.prefs.immerseHelp), "This course has no immersion");
-export const PutLocaleSchema = z.strictObject({ locale: z.enum(LOCALES) });
+export const PutLocaleSchema = z.strictObject({ locale: z.enum(NATIVE_LOCALES) });
 /** The languages the learner studies, first-added first; at least one. */
 export const PutLearningSchema = z.strictObject({
   languages: z.array(z.enum(LANGUAGES)).min(1).refine((ls) => new Set(ls).size === ls.length, "Each language at most once"),
@@ -299,6 +299,17 @@ export type AdminMetricsOut = {
   routes: { route: string; requests: number; errors4xx: number; errors5xx: number; p95: (typeof LATENCY_BUCKETS)[number] }[];
   hours: { hour: string; requests: number; errors5xx: number; peakConcurrent: number }[];
 };
+
+/** ISO 639-1 codes a visitor can name when asking for a language, plus `other` for any not listed. Names come from `Intl.DisplayNames`. */
+export const REQUEST_LANGUAGES = [
+  "en", "es", "pt", "fr", "de", "it", "nl", "el", "ga", "ca", "gl", "eu", "pl", "cs", "sk", "hu", "ro", "bg", "sr", "hr", "sl", "uk", "ru",
+  "sv", "da", "no", "fi", "is", "et", "lv", "lt", "tr", "ar", "he", "fa", "hi", "bn", "ur", "ta", "th", "vi", "id", "ms", "tl", "zh", "ja", "ko", "sw", "af", "cy", "other",
+] as const;
+export type RequestLanguage = (typeof REQUEST_LANGUAGES)[number];
+/** A visitor's anonymous ask for a language: the one they speak best and the one they want to learn. */
+export const LanguageRequestSchema = z.strictObject({ spoken: z.enum(REQUEST_LANGUAGES), wanted: z.enum(REQUEST_LANGUAGES) });
+/** Requests per language pair, most asked first. */
+export type AdminLanguageRequestsOut = { spoken: RequestLanguage; wanted: RequestLanguage; count: number; lastDay: string }[];
 
 /** `learning`: empty only until a new learner picks a language. */
 export type Me = { email: string; username: string | null; profilePublic: boolean; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };

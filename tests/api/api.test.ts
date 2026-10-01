@@ -440,6 +440,22 @@ describe("locale", () => {
     expect(unit.translation).toBe("coffee");
   });
 
+  it("rejects Greek as a learner's own language at sign-in and in settings, since no course is translated into it", async () => {
+    const t = setup();
+    expect((await t.login("ana@example.com", "el")).status).toBe(400);
+    await t.login("ana@example.com", "nl");
+    expect((await t.req("PUT", "/api/locale", { locale: "el" })).status).toBe(400);
+    expect((await t.req("GET", "/api/me")).json.locale).toBe("nl");
+  });
+
+  it("allows immersion for the Greek course, which is also a locale", async () => {
+    const t = setup();
+    await t.login();
+    const prefs = { ...(await t.req("GET", "/api/me")).json.prefs.el, immerseUi: true, immerseHelp: true };
+    expect((await t.req("PUT", "/api/prefs", { language: "el", prefs })).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.prefs.el).toMatchObject({ immerseUi: true, immerseHelp: true });
+  });
+
   it("with help immersion, explains in the course's language while translations stay in the learner's own", async () => {
     const t = setup();
     const explainer = t.deps.explainer as ReturnType<typeof import("./helpers.ts").fakeExplainer>;

@@ -15,3 +15,12 @@ Learners are known to each other only by their username. Never break these:
 ## Privacy policy
 
 `web/src/pages/Privacy.tsx` states what Ditto stores, shows and sends to third parties. Any change to that (personal data in a migration, a new external service, retention, visibility) updates the page in the same change. Obligations and open items are in [docs/privacy.md](docs/privacy.md).
+
+## Phone-first UI
+
+Most learners use a phone, so design every learner-facing view for a screen under 500px wide first, and let it grow from there.
+
+- Stack content vertically and let it reflow. No wide tables or side-by-side columns that need room; wide tables are fine only on operator pages under `/admin`.
+- Don't stack padding: a card inside a container inside a page gutter squeezes its content. Cancel a card body's padding (`mx-n3`) for lists that should run edge to edge.
+- Buttons and tap targets stay reachable with a thumb, and button rows wrap (`flex-wrap`) instead of overflowing.
+- No tooltips (`title`, Bootstrap tooltips) for anything a learner needs, because hover doesn't exist on touch and a disabled button never shows one. Put the information on screen, or behind a tap that opens a `Popup` (`web/src/components/Popup.tsx`).

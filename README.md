@@ -14,7 +14,7 @@ Ditto is a dictation trainer for language learners. You listen to a word, phrase
 - 🔁 Spaced review, scheduled with FSRS.
 - 🤔 An on-demand AI explainer ("Why was that wrong?"), cached per mistake.
 - 🏁 Friends, profiles, weekly leaderboards and races.
-- 🌍 A UI in English, Latin American Spanish, Dutch and Italian.
+- 🌍 A UI in English, Latin American Spanish, Dutch and Italian, plus Greek and the rest as immersion in their own courses.
 
 ## Courses
 

@@ -7,7 +7,7 @@ import {
   MASTER_WAIT_MS, SPEND_CAP_HEADER, SPEND_TODAY_HEADER,
   type AttemptOut, type Catalog, type CatalogCourse, type Config, type ExplanationOut, type LessonOut, type LessonStars, type LevelTestOut, type Me, type MistakeEntry, type ReviewOut,
 } from "../shared/api.ts";
-import { LANGUAGES, LOCALES, PATHS, STAGES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
+import { LANGUAGES, NATIVE_LOCALES, PATHS, STAGES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
 import { exactKey } from "../shared/tokenize.ts";
 import { registerActivity } from "./activity.ts";
@@ -23,6 +23,7 @@ import { transaction, type DB } from "./db.ts";
 import type { Explainer } from "./explain.ts";
 import { reportError } from "./healthcheck.ts";
 import { levelTestUnits } from "./level-test.ts";
+import { registerAdminLanguageRequests, registerLanguageRequests } from "./language-requests.ts";
 import { registerMetrics, trafficCounter } from "./metrics.ts";
 import { registerPoc } from "./poc.ts";
 import { registerQuiz } from "./quiz.ts";
@@ -139,7 +140,7 @@ export function createApp(deps: AppDeps) {
 
   app.post("/api/auth/google", async (c) => {
     if (!deps.verifyGoogle) throw new HTTPException(503, { message: "Google login is not configured (GOOGLE_CLIENT_ID)" });
-    const { credential, locale, learning } = z.strictObject({ credential: z.string(), locale: z.enum(LOCALES), learning: z.enum(LANGUAGES).optional() })
+    const { credential, locale, learning } = z.strictObject({ credential: z.string(), locale: z.enum(NATIVE_LOCALES), learning: z.enum(LANGUAGES).optional() })
       .parse(await c.req.json());
     let profile;
     try {
@@ -152,7 +153,7 @@ export function createApp(deps: AppDeps) {
 
   if (deps.devLogin) {
     app.post("/api/auth/dev", async (c) => {
-      const { email, locale, learning } = z.strictObject({ email: z.email(), locale: z.enum(LOCALES), learning: z.enum(LANGUAGES).optional() })
+      const { email, locale, learning } = z.strictObject({ email: z.email(), locale: z.enum(NATIVE_LOCALES), learning: z.enum(LANGUAGES).optional() })
         .parse(await c.req.json());
       return startSession(c, { sub: `dev:${email}`, email }, locale, learning);
     });
@@ -164,6 +165,8 @@ export function createApp(deps: AppDeps) {
     deleteCookie(c, SESSION_COOKIE, { path: "/" });
     return c.json({ ok: true });
   });
+
+  registerLanguageRequests(app, deps);
 
   // Every signed-in response, errors included, carries the learner's spend so the client can show it and the cap screen.
   // A streamed response's headers go out before its paid calls finish, so they show the spend as it stood at the start.
@@ -519,6 +522,7 @@ export function createApp(deps: AppDeps) {
 
   registerSocial(app, deps);
   registerAdmin(app, deps);
+  registerAdminLanguageRequests(app, deps);
   registerAdminUsers(app, deps);
   registerAdminUserReports(app, deps);
   registerConversation(app, deps);

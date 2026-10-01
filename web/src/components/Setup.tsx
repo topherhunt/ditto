@@ -1,12 +1,13 @@
 import { useLocation, useNavigate } from "@solidjs/router";
 import { createSignal, For, Show } from "solid-js";
 import type { LearnerLevel } from "../../../shared/api.ts";
-import { LOCALES, type Language, type Locale } from "../../../shared/content.ts";
+import { NATIVE_LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { LOCALE_LABELS, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage, saveLevel } from "../learning.ts";
 import { logout, me, refetchMe } from "../session.ts";
 import { LearnPicker } from "./LearnPicker.tsx";
+import { RequestLanguageLink } from "./RequestLanguage.tsx";
 import { LevelPicker } from "./LevelPicker.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
 
@@ -63,12 +64,15 @@ function LocalePicker() {
     }
   };
   return (
-    <label class="form-label small mb-3 d-block">
-      {t("settings.yourLanguage")}
-      <select class="qa-choose-locale form-select form-select-sm" value={me()!.locale} onChange={(e) => choose(e.currentTarget.value as Locale)}>
-        <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
-      </select>
-      <Show when={error()}>{(m) => <div class="qa-choose-locale-error text-danger small">{m()}</div>}</Show>
-    </label>
+    <div class="mb-3">
+      <label class="form-label small mb-0 d-block">
+        {t("settings.yourLanguage")}
+        <select class="qa-choose-locale form-select form-select-sm" value={me()!.locale} onChange={(e) => choose(e.currentTarget.value as Locale)}>
+          <For each={NATIVE_LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
+        </select>
+        <Show when={error()}>{(m) => <div class="qa-choose-locale-error text-danger small">{m()}</div>}</Show>
+      </label>
+      <RequestLanguageLink />
+    </div>
   );
 }

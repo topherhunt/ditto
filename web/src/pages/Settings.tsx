@@ -1,8 +1,9 @@
 import { createSignal, For, onCleanup, Show } from "solid-js";
 import { immersible } from "../../../shared/api.ts";
-import { LANGUAGES, LOCALES, type Language, type Locale } from "../../../shared/content.ts";
+import { LANGUAGES, NATIVE_LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { createSaver, ImmersionTable } from "../components/LanguagePrefs.tsx";
+import { RequestLanguageLink } from "../components/RequestLanguage.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
 import { languageName, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
@@ -15,14 +16,17 @@ export function Settings() {
     <div class="d-flex flex-column gap-3" style={{ "max-width": "28rem" }} data-silent>
       <h1 class="qa-settings-title h4 mb-0">{t("settings.title")}</h1>
       <div class="qa-settings-general d-flex flex-column gap-3">
-        <label class="form-label mb-0">
-          {t("settings.yourLanguage")}
-          <select class="qa-settings-locale form-select" value={me()!.locale}
-            onChange={(e) => save(() => api.put("/api/locale", { locale: e.currentTarget.value as Locale }))}>
-            <For each={LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
-          </select>
-          <div class="form-text">{t("settings.yourLanguageHint")}</div>
-        </label>
+        <div>
+          <label class="form-label mb-0 d-block">
+            {t("settings.yourLanguage")}
+            <select class="qa-settings-locale form-select" value={me()!.locale}
+              onChange={(e) => save(() => api.put("/api/locale", { locale: e.currentTarget.value as Locale }))}>
+              <For each={NATIVE_LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
+            </select>
+            <div class="form-text">{t("settings.yourLanguageHint")}</div>
+          </label>
+          <RequestLanguageLink />
+        </div>
         <LearningPicker save={save} />
         <ImmersionPicker save={save} />
         <ThemePicker />

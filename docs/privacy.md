@@ -20,6 +20,7 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 
 ## Ongoing
 
+- **Language requests hold no personal data** (`language_requests`, migration 038): the "Missing your language?" popup posts two codes from a fixed list, anonymously, and the server keeps only a count per day and pair. Keep it that way: never add free text, a user id or an IP to it.
 - **Healthchecks.io gets no personal data** (`server/healthcheck.ts` sends fixed text plus an error class name), so it needs no DPA. Keep it that way: never put an error message, path, id or request data in a ping body.
 
 - **When data handling changes, update the policy in the same change**: a new table or column holding personal data, a new third party, a new retention period, or anything shown to other learners. Bump its "Last updated" date. A new third party also needs its DPA signed before it receives data.

@@ -4,14 +4,16 @@ export const LANGUAGES = ["en", "el", "es", "fr", "it", "nl", "ga"] as const;
 export type Language = (typeof LANGUAGES)[number];
 export const LANGUAGE_NAMES: Record<Language, string> = { en: "English", el: "Greek", es: "Latin American Spanish", fr: "French", it: "Italian", nl: "Dutch", ga: "Irish" };
 
-/** UI languages, which are also the support languages content can be translated into. `es-419` is Latin American Spanish. */
-export const LOCALES = ["en", "es-419", "nl", "it"] as const;
+/** Languages a learner can have as their own: the UI language and the support language of translations. `es-419` is Latin American Spanish. */
+export const NATIVE_LOCALES = ["en", "es-419", "nl", "it"] as const;
+/** Every language the UI is written in. Greek is only shown as immersion in the Greek course, because no content is translated into it. */
+export const LOCALES = [...NATIVE_LOCALES, "el"] as const;
 export type Locale = (typeof LOCALES)[number];
 /** In English, for LLM prompts. */
-export const LOCALE_NAMES: Record<Locale, string> = { en: "English", "es-419": "Latin American Spanish", nl: "Dutch", it: "Italian" };
+export const LOCALE_NAMES: Record<Locale, string> = { en: "English", "es-419": "Latin American Spanish", nl: "Dutch", it: "Italian", el: "Greek" };
 
-/** The locale each target language is written in, where the UI has one (Irish has none). */
-const LANGUAGE_LOCALES: Partial<Record<Language, Locale>> = { en: "en", es: "es-419", it: "it", nl: "nl" };
+/** The locale each target language is written in, where the UI has one (French and Irish have none). */
+const LANGUAGE_LOCALES: Partial<Record<Language, Locale>> = { en: "en", el: "el", es: "es-419", it: "it", nl: "nl" };
 export const languageLocale = (language: Language): Locale | null => LANGUAGE_LOCALES[language] ?? null;
 
 /** Support languages each target language's content carries, in fallback order: every localized field has exactly these. */

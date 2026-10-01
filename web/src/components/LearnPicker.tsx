@@ -2,9 +2,9 @@ import { For } from "solid-js";
 import type { Language, Locale } from "../../../shared/content.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
-import { FEEDBACK_URL } from "../links.ts";
+import { RequestLanguageLink } from "./RequestLanguage.tsx";
 
-/** One button per course a speaker of `locale` can take, plus a way to ask for a missing one. */
+/** One button per course a speaker of `locale` can take, plus a way to ask for a missing language. */
 export function LearnPicker(props: { locale: Locale; chosen: Language | null; onChoose: (l: Language) => void }) {
   return (
     <div class="d-flex flex-column gap-2">
@@ -20,7 +20,7 @@ export function LearnPicker(props: { locale: Locale; chosen: Language | null; on
       </div>
       <div class="small text-body-secondary">
         {t("welcome.learnMore")}{" "}
-        <a class="qa-request-language link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">{t("welcome.requestLanguage")}</a>
+        <RequestLanguageLink />
       </div>
     </div>
   );

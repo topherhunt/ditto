@@ -7,7 +7,7 @@ export function Privacy() {
   return (
     <article class="qa-privacy">
       <h1 class="h4 mb-1">Privacy policy</h1>
-      <p class="text-body-secondary small">Last updated 30 September 2026</p>
+      <p class="text-body-secondary small">Last updated 1 October 2026</p>
 
       <div class="alert alert-secondary">
         <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, without your name or email. We never store your voice. You can get a copy of your data or have your account deleted by emailing {mail()}.
@@ -25,9 +25,10 @@ export function Privacy() {
         <li><strong>Social features:</strong> friends and friend requests, races, notifications, people you block, and your post on the make-new-friends board if you make one.</li>
         <li><strong>Reports:</strong> problems you report with course content, and reports you make about another learner (we keep a copy of the username and board post you reported, since both can change).</li>
         <li><strong>Usage metrics:</strong> how many minutes per day you spend in each part of the app (for example "lessons, Italian, 12 minutes") and when you last used it. We use this to learn which features help people. Per-person figures are deleted after 90 days, leaving only totals that identify no one.</li>
+        <li><strong>Language requests:</strong> if you use "Missing your language?" to ask for a language, we keep a count of the two languages you chose, per day. We don't store who sent it or anything you type, so it can't be traced back to you.</li>
         <li><strong>AI costs:</strong> each AI request made for you, with its cost, to enforce the free daily allowance and plan our budget.</li>
       </ul>
-      <p>We need the first six to provide the service you signed up for (performance of a contract). Reports about other learners, usage metrics and AI costs are kept because we have a legitimate interest in keeping the community safe, improving the app and keeping it affordable.</p>
+      <p>We need the first six to provide the service you signed up for (performance of a contract). Reports about other learners, usage metrics, language requests and AI costs are kept because we have a legitimate interest in keeping the community safe, improving the app and keeping it affordable.</p>
       <p>We don't record your IP address, device, browser or location, and we don't use your data for advertising.</p>
 
       <h2 class="h5 mt-4">Cookies and browser storage</h2>

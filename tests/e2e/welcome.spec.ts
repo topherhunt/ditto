@@ -42,7 +42,6 @@ test("the homepage offers only the courses translated into the language the visi
   await expect(page.locator(".qa-learn-it")).toHaveCount(0);
   await expect(page.locator(".qa-learn-nl")).toHaveCount(0);
   await expect(page.locator(".qa-learn-ga")).toBeVisible();
-  await expect(page.locator(".qa-request-language")).toHaveAttribute("href", /^https:\/\/docs\.google\.com\/forms\//);
 
   await page.locator(".qa-welcome-speak-nl").click();
   await expect(page.locator(".qa-learn-en")).toBeVisible();
@@ -128,4 +127,19 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await expect(page.locator(".qa-settings-learn-nl")).toBeDisabled();
   await page.reload();
   await expect(page.locator(".qa-settings-learn-it")).not.toBeChecked();
+});
+
+test("a visitor can ask for a language from the homepage without changing their own", async ({ page }) => {
+  await page.goto("/");
+  await page.locator(".qa-request-language").first().click();
+  const popup = page.locator(".qa-popup[open]");
+  await expect(popup.locator(".qa-request-send")).toBeDisabled();
+  await popup.locator(".qa-request-spoken").selectOption("pt");
+  await popup.locator(".qa-request-wanted").selectOption("other");
+  await popup.locator(".qa-request-send").click();
+  await expect(popup.locator(".qa-request-thanks")).toBeVisible();
+  await popup.locator(".qa-request-close").click();
+  await expect(page.locator(".qa-popup")).not.toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator(".qa-welcome-speak-en")).toHaveAttribute("aria-pressed", "true");
 });

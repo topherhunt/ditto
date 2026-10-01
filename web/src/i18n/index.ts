@@ -1,34 +1,35 @@
 import { createEffect, createRoot, createSignal } from "solid-js";
-import { LOCALES, type Language, type Locale } from "../../../shared/content.ts";
+import { LOCALES, NATIVE_LOCALES, type Language, type Locale } from "../../../shared/content.ts";
 import { en, type Dictionary, type Key } from "./en.ts";
+import { el } from "./el.ts";
 import { es419 } from "./es-419.ts";
 import { it } from "./it.ts";
 import { nl } from "./nl.ts";
 
-const DICTIONARIES: Record<Locale, Dictionary> = { en, "es-419": es419, nl, it };
+const DICTIONARIES: Record<Locale, Dictionary> = { en, "es-419": es419, nl, it, el };
 
 /** Each locale's name in its own language, for the pickers. */
-export const LOCALE_LABELS: Record<Locale, string> = { en: "English", "es-419": "Español", nl: "Nederlands", it: "Italiano" };
+export const LOCALE_LABELS: Record<Locale, string> = { en: "English", "es-419": "Español", nl: "Nederlands", it: "Italiano", el: "Ελληνικά" };
 
 const STORAGE_KEY = "locale";
 const IMMERSION_KEY = "immersion";
 
-function storedLocale(key: string): Locale | null {
+function storedLocale(key: string, allowed: readonly Locale[]): Locale | null {
   try {
     const saved = localStorage.getItem(key);
-    if (saved && (LOCALES as readonly string[]).includes(saved)) return saved as Locale;
+    if (saved && (allowed as readonly string[]).includes(saved)) return saved as Locale;
   } catch { /* storage unavailable */ }
   return null;
 }
 
 /** Before sign-in: the last locale used on this device, else the browser's first language we have, else English. */
 function initialLocale(): Locale {
-  const saved = storedLocale(STORAGE_KEY);
+  const saved = storedLocale(STORAGE_KEY, NATIVE_LOCALES);
   if (saved) return saved;
   for (const tag of navigator.languages) {
     const base = tag.toLowerCase().split("-")[0];
     if (base === "es") return "es-419";
-    if ((LOCALES as readonly string[]).includes(base)) return base as Locale;
+    if ((NATIVE_LOCALES as readonly string[]).includes(base)) return base as Locale;
   }
   return "en";
 }
@@ -36,7 +37,7 @@ function initialLocale(): Locale {
 /** The learner's own language, which the UI is in unless `setImmersion` overrides it. */
 export const [ownLocale, setLocale] = createSignal<Locale>(initialLocale());
 /** The course language the whole UI is in while the learner's current course has interface immersion on, else null. Kept on the device, so signed-out pages stay immersed. */
-export const [immersion, setImmersion] = createSignal<Locale | null>(storedLocale(IMMERSION_KEY));
+export const [immersion, setImmersion] = createSignal<Locale | null>(storedLocale(IMMERSION_KEY, LOCALES));
 /** The UI's language. */
 export const locale = () => immersion() ?? ownLocale();
 

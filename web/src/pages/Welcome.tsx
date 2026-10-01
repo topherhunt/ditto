@@ -1,11 +1,12 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, type JSX, Show } from "solid-js";
 import { SPEAK_LANGUAGES, type Config } from "../../../shared/api.ts";
-import { LANGUAGES, LOCALES, type Language } from "../../../shared/content.ts";
+import { LANGUAGES, NATIVE_LOCALES, type Language } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { api } from "../api.ts";
 import { EmojiLine } from "../components/EmojiLine.tsx";
 import { LearnPicker } from "../components/LearnPicker.tsx";
+import { RequestLanguageLink } from "../components/RequestLanguage.tsx";
 import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import type { Key } from "../i18n/en.ts";
@@ -88,7 +89,7 @@ export function Welcome() {
               <div>
                 <h2 class="h6">{t("welcome.speakQ")}</h2>
                 <div class="d-flex flex-wrap gap-2">
-                  <For each={LOCALES}>
+                  <For each={NATIVE_LOCALES}>
                     {(l) => (
                       <button type="button" class={`qa-welcome-speak-${l} btn btn-outline-primary`} classList={{ active: ownLocale() === l }}
                         aria-pressed={ownLocale() === l} onClick={() => { setLocale(l); setImmersion(null); }}>
@@ -97,6 +98,7 @@ export function Welcome() {
                     )}
                   </For>
                 </div>
+                <div class="mt-2"><RequestLanguageLink /></div>
               </div>
               <div>
                 <h2 class="h6">{t("welcome.learnQ")}</h2>

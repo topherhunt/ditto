@@ -1,5 +1,5 @@
 import { createResource, For, Show } from "solid-js";
-import { METRICS_KEEP_DAYS, type AdminMetricsOut } from "../../../shared/api.ts";
+import { METRICS_KEEP_DAYS, type AdminLanguageRequestsOut, type AdminMetricsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
 
@@ -10,6 +10,9 @@ const rps = (requests: number) => (requests / 3600).toFixed(3);
 
 export function MetricsAdmin() {
   const [m] = createResource(() => api.get<AdminMetricsOut>(`/api/admin/metrics?days=${DAYS}`));
+  const [requests] = createResource(() => api.get<AdminLanguageRequestsOut>("/api/admin/language-requests"));
+  const languageName = new Intl.DisplayNames("en", { type: "language" });
+  const named = (code: string) => (code === "other" ? "Another language" : languageName.of(code));
   return (
     <div class="d-flex flex-column gap-4">
       <div>
@@ -19,6 +22,22 @@ export function MetricsAdmin() {
           Per-learner rows become anonymous totals after {METRICS_KEEP_DAYS} days.
         </p>
       </div>
+      <section>
+        <h2 class="h6 text-body-secondary text-uppercase">Language requests</h2>
+        <p class="small text-body-secondary">Anonymous asks from the "Missing your language?" popup, all time. Each row is one pair of the language someone speaks best and the one they want to learn.</p>
+        <table class="table table-sm small">
+          <thead><tr><th>Speaks</th><th>Wants to learn</th><th class="text-end">Requests</th><th class="text-end">Last (UTC)</th></tr></thead>
+          <tbody>
+            <For each={requests()} fallback={<tr><td colspan={4} class="text-body-secondary">No requests yet.</td></tr>}>
+              {(r) => (
+                <tr class="qa-language-request">
+                  <td>{named(r.spoken)}</td><td>{named(r.wanted)}</td><td class="text-end">{r.count}</td><td class="text-end">{r.lastDay}</td>
+                </tr>
+              )}
+            </For>
+          </tbody>
+        </table>
+      </section>
       <Show when={m()}>
         {(m) => (
           <>

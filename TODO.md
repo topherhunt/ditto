@@ -6,24 +6,25 @@
   - [x] Fix the Internal Error
   - [x] Sfx when you start & stop recording
   - [x] Revise & polish the Greek typing course content
-  - [x] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there. 
+  - [x] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there.
+  - [x] The name should be "Ditto", not translated. Confirm that this is the case in all languages.
+  - [x] Add a favicon.
   - [ ] Revise & polish the French typing course content
-  - [ ] The name should be "Ditto", not translated. Confirm that this is the case in all languages. 
-  - [ ] Add a favicon.
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
   - [ ] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
-  - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz? 
+  - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz?
     - [ ] How many peolpe were ACTIVELY ENGAGED today?
     - [ ] What were they working on? Time spent total per activity, drill dow n
-- [ ] 
+- \[ \]
 
 ### Wishlist
 
-- Review various list UIs for, how painful are they to scroll down and up on a phone? Think: Talk conversation UI (scrolling back up), Type review & notebook, etc. What can be done to surface the content you need to pay attention to near the top and tuck away lower content in expandable accordions in different categories so you don't have to do so much endless scrolling. 
-- [ ]  In the talk activity for the suggested replies, there should be a little play icon to the right of each one so that you can listen to it and then repeat after it if you want.
+- First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way.
+- Review various list UIs for, how painful are they to scroll down and up on a phone? Think: Talk conversation UI (scrolling back up), Type review & notebook, etc. What can be done to surface the content you need to pay attention to near the top and tuck away lower content in expandable accordions in different categories so you don't have to do so much endless scrolling.
+- [ ] In the talk activity for the suggested replies, there should be a little play icon to the right of each one so that you can listen to it and then repeat after it if you want.
 - [ ] Stars: Expand this system from just "indicating how much you've mastered each Type lesson" to "a unified progress metric, and a currency you can spend down".
-  - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that. 
-  - To make gaming the system less tempting, the coach should also have some feedback if it appears that you are working on things that are too easy for you. Like if you're not struggling, then the coach should be like, Hey, you are not living up to your potential. Work on the harder stuff, bro, or something like that. If you're never getting anything wrong, then or if that you're going through the stars too quickly per item, then that should be feedback from your coach. What do you think? 
+  - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that.
+  - To make gaming the system less tempting, the coach should also have some feedback if it appears that you are working on things that are too easy for you. Like if you're not struggling, then the coach should be like, Hey, you are not living up to your potential. Work on the harder stuff, bro, or something like that. If you're never getting anything wrong, then or if that you're going through the stars too quickly per item, then that should be feedback from your coach. What do you think?
 - [ ] Set up PWA phone notifications
   - TIme to study today
   - Make up for lost time! Challenge: Earn 9 stars today
@@ -37,7 +38,7 @@
 - [ ] Review the mobile UX. Where are back-links non-obvious or confusing?
   - Type page - header is cluttered. Compact the Practice Settings line?
 - [ ] Add French
-- [x] Add Greek (content written and validated; audio not yet rendered, and a native spelling/tonos review is open)
+- [x] Add Greek
 - [ ] Ensure We have full production logging with log rotation.
 - Smoke-test learning in each language to ensure content sounds & looks good
 - Support self-service account deletion (but preserve anonymous activity metrics & API call ledger)

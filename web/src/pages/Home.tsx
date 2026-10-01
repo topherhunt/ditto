@@ -4,6 +4,7 @@ import { MASTER_WAIT_MS, type Catalog } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { PracticeSettingsPanel } from "../components/LanguagePrefs.tsx";
+import { Popup } from "../components/Popup.tsx";
 import { Stars } from "../components/Stars.tsx";
 import { lessonDone, levelDone, levels, nextLesson, pathUnits } from "../curriculum.ts";
 import { t } from "../i18n/index.ts";
@@ -95,57 +96,68 @@ export function Home() {
                                 </p>
                               </Show>
                               <Show when={!folded() && listed().length > 0}>
-                                <ul class="list-group mt-3">
+                                <ul class="list-group list-group-flush mx-n3 mt-3">
                                   <For each={listed()}>
                                     {(lesson) => {
                                       const progress = () => cat().progress[lesson.id]?.[path()];
                                       const total = () => pathUnits(lesson, path());
                                       const stars = () => cat().stars[lesson.id];
-                                      /** Hours until Master opens; 0 once it has. Its locked button gets no hover events, so the tooltip sits on a wrapper span. */
+                                      /** Hours until Master opens; 0 once it has. */
                                       const masterWait = () => Math.max(0, Math.ceil((Date.parse(stars().practicedAt) + MASTER_WAIT_MS - Date.now()) / 3_600_000));
                                       /** A finished lesson is practiced again from the top, so only a run underway continues. */
                                       const underway = () => !!progress() && progress()!.nextIndex < total();
+                                      const [ask, setAsk] = createSignal<"master" | "cooldown" | null>(null);
                                       const label = () => t(underway() ? "home.continue" : stars() ? "home.practice" : "home.start");
                                       return (
-                                        <li class="qa-lesson list-group-item d-flex align-items-center gap-3">
-                                          <div class="me-auto">
+                                        <li class="qa-lesson list-group-item d-flex flex-column gap-2">
+                                          <div>
                                             <div class="fw-semibold">{lesson.title}</div>
                                             <div class="small text-body-secondary">{lesson.grammarFocus.join(" · ")}</div>
                                           </div>
-                                          <Show when={!stars()}>
-                                            <span class="qa-lesson-progress small text-body-secondary text-nowrap">
-                                              {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
-                                            </span>
-                                          </Show>
-                                          <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
-                                          <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
-                                            <Match when={cat().unlocked.includes(lesson.id)}>
-                                              <div class="btn-group">
-                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
-                                                  classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
-                                                <Show when={stars()?.stars !== undefined && stars().stars < 3}>
-                                                  <Show when={masterWait() === 0} fallback={
-                                                    <span class="qa-lesson-master-locked d-inline-flex" style={{ "margin-left": "-1px" }} title={t("home.masterWait", { hours: masterWait() })}>
-                                                      <button type="button" class="btn btn-sm btn-gold rounded-start-0" disabled>{t("home.master")}</button>
-                                                    </span>
-                                                  }>
-                                                    <A href={`/${lang()}/type/lesson/${lesson.id}/master`} class="qa-lesson-master btn btn-sm btn-gold" title={t("home.masterTitle")}>{t("home.master")}</A>
+                                          <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                            <Show when={!stars()}>
+                                              <span class="qa-lesson-progress small text-body-secondary text-nowrap">
+                                                {Math.min(progress()?.nextIndex ?? 0, total())} / {total()}
+                                              </span>
+                                            </Show>
+                                            <Show when={stars()}>{(s) => <Stars n={s().stars} class="qa-lesson-stars" />}</Show>
+                                            <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
+                                              <Match when={cat().unlocked.includes(lesson.id)}>
+                                                <div class="btn-group">
+                                                  <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                    classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
+                                                  <Show when={stars()?.stars !== undefined && stars().stars < 3 && masterWait() === 0}>
+                                                    <button type="button" class="qa-lesson-master btn btn-sm btn-gold" onClick={() => setAsk("master")}>{t("home.master")}</button>
                                                   </Show>
+                                                </div>
+                                                <Show when={stars()?.stars !== undefined && stars().stars < 3 && masterWait() > 0}>
+                                                  <button type="button" class="qa-lesson-master-locked btn btn-sm btn-link text-danger p-0 fs-5" aria-label={t("home.masterCooldownTitle")}
+                                                    onClick={() => setAsk("cooldown")}><i class="bi bi-hourglass-split" aria-hidden="true" /></button>
                                                 </Show>
-                                              </div>
-                                            </Match>
-                                            <Match when={cat().viaFriends[lesson.id]}>
-                                              {(friends) => {
-                                                const names = () => friends().map(displayName);
-                                                return (
-                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap"
-                                                  title={t("home.unlockedBy", { names: names().join(", ") })}>
-                                                  {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
-                                                </A>
-                                                );
-                                              }}
-                                            </Match>
-                                          </Switch>
+                                              </Match>
+                                              <Match when={cat().viaFriends[lesson.id]}>
+                                                {(friends) => {
+                                                  const names = () => friends().map(displayName);
+                                                  return (
+                                                  <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap">
+                                                    {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
+                                                  </A>
+                                                  );
+                                                }}
+                                              </Match>
+                                            </Switch>
+                                          </div>
+                                          <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} class="qa-master-popup"
+                                            footer={<>
+                                              <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
+                                              <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold">{t("home.masterReady")}</A>
+                                            </>}>
+                                            {t("home.masterIntro")}
+                                          </Popup>
+                                          <Popup open={ask() === "cooldown"} onClose={() => setAsk(null)} title={t("home.masterCooldownTitle")} class="qa-cooldown-popup"
+                                            footer={<button type="button" class="qa-cooldown-ok btn btn-primary" onClick={() => setAsk(null)}>{t("home.masterCooldownOk")}</button>}>
+                                            <Show when={stars()}>{t("home.masterCooldown", { hours: masterWait() })}</Show>
+                                          </Popup>
                                         </li>
                                       );
                                     }}

@@ -79,8 +79,7 @@ test("a completed lesson shows its stars with a Practice button and a locked Mas
   await expect(stars.locator(".qa-star-off")).toHaveCount(2);
   await expect(page.locator(".qa-lesson-start").first()).toHaveText("Practice");
   await expect(page.locator(".qa-lesson-start").first()).toHaveClass(/btn-success/);
-  await expect(page.locator(".qa-lesson-master-locked").first().locator("button")).toBeDisabled();
-  await expect(page.locator(".qa-lesson-master-locked").first()).toHaveAttribute("title", /opens|unlocks/i);
+  await expect(page.locator(".qa-lesson-master-locked").first()).toBeVisible();
   await expect(page.locator(".qa-lesson-master")).toHaveCount(0);
 });
 
@@ -117,4 +116,30 @@ test("finishing a run shows the stars it earned", async ({ page }) => {
   }
   // The sentences path is capped at two stars.
   await expect(page.locator(".qa-earned .qa-star-on")).toHaveCount(2);
+});
+
+test("the hourglass explains that Master is closed because the lesson was just practiced", async ({ page }) => {
+  await signIn(page, "stars5@example.com", "stars5", "A2");
+  await completeLesson(page, "it-a1-bar-1", "sentences", "letters", "corrected");
+  await page.goto("/it/type");
+  const row = page.locator(".qa-lesson").first();
+  await expect(row.locator(".qa-cooldown-popup")).toBeHidden();
+  await row.locator(".qa-lesson-master-locked").click();
+  await expect(row.locator(".qa-cooldown-popup")).toBeVisible();
+  await row.locator(".qa-cooldown-ok").click();
+  await expect(row.locator(".qa-cooldown-popup")).toBeHidden();
+});
+
+test("Master asks for confirmation first, offering the test or more practice", async ({ page }) => {
+  await signIn(page, "stars6@example.com", "stars6", "A2");
+  await completeLesson(page, "it-a1-bar-1", "sentences", "letters", "corrected");
+  // The wait is measured on the page's clock, so a clock a day ahead opens Master without waiting.
+  await page.clock.install({ time: new Date(Date.now() + 24 * 3_600_000) });
+  await page.goto("/it/type");
+  const row = page.locator(".qa-lesson").first();
+  await expect(row.locator(".qa-lesson-master-locked")).toHaveCount(0);
+  await row.locator(".qa-lesson-master").click();
+  await expect(row.locator(".qa-master-popup")).toBeVisible();
+  await expect(row.locator(".qa-master-ready")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1/master");
+  await expect(row.locator(".qa-master-more")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1");
 });
