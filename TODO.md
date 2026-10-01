@@ -1,20 +1,7 @@
 ### Now
 
-- [x] Test and confirm with Luis and others that people can access the app fine.
 - [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - [ ] Improving the UI
-  - [x] Fix the Internal Error
-  - [x] Sfx when you start & stop recording
-  - [x] Revise & polish the Greek typing course content
-  - [x] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there.
-  - [x] The name should be "Ditto", not translated. Confirm that this is the case in all languages.
-  - [x] Add a favicon.
-  - [x] Revise & polish the French typing course content
-  - [x] "Missing your language?" popup: 
-    - [x] lanugage dropdowns need type-to-filter
-    - [x] We also need a link after the languages you're learning list in the settings page. Even though it does the same thing, we want to Make it obvious to the user that we invite feedback on what languages they want to learn not just support for their native langauage as an interface. 
-  - [x] I think we don't need to store users' email addresses, so they can be completely pseudonymous, but think this through with Claude. Maybe We can just store a arbitrary Google ID or something. 
-  - [x] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
   - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz?
     - [ ] How many peolpe were ACTIVELY ENGAGED today?
@@ -28,7 +15,6 @@
 - The talk activity currently lets you just pick your level. It doesn't give you any guidance on how to pick your level or what you should be considering when you choose one or what are the implications of choosing one. I feel like the coach should recommend one for you and maybe even set a default for you based on your recent activity and what you've done in this talking app in the past and what you've done in other apps in the past.
 - First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way.
 - Put something about friends on the dashboard to nudge people to connect and find friends.
-- [ ] In the talk activity for the suggested replies, there should be a little play icon to the right of each one so that you can listen to it, to help you pronounce it better. Same icon as what's at the end of each of your replies.
 - [ ] Stars: Expand this system from just "indicating how much you've mastered each Type lesson" to "a unified progress metric, and a currency you can spend down".
   - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that.
   - To make gaming the system less tempting, the coach should also have some feedback if it appears that you are working on things that are too easy for you. Like if you're not struggling, then the coach should be like, Hey, you are not living up to your potential. Work on the harder stuff, bro, or something like that. If you're never getting anything wrong, then or if that you're going through the stars too quickly per item, then that should be feedback from your coach. What do you think?

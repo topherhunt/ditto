@@ -261,7 +261,8 @@ describe("conversation mode", () => {
     expect(res.headers.get("content-type")).toBe("audio/wav");
     expect(t.voices.at(-1)).toBe((t.deps.db.prepare("SELECT voice FROM conversations WHERE id = ?").get(conv.id) as { voice: string }).voice);
     expect(readdirSync(t.deps.conversation!.audioDir).filter((f) => f.startsWith("say-"))).toEqual([]);
-    expect((await say("x".repeat(81))).status).toBe(400);
+    expect((await say("x".repeat(200))).status).toBe(200);
+    expect((await say("x".repeat(201))).status).toBe(400);
     await t.login("someone@example.com");
     expect((await say("Le porto")).status).toBe(404);
   });
