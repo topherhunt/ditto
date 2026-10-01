@@ -3,6 +3,7 @@ import { createResource, createSignal, For, Show } from "solid-js";
 import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type LearnerLevel, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
+import { Popup } from "../components/Popup.tsx";
 import { t } from "../i18n/index.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
@@ -15,6 +16,8 @@ const STARTER_EMOJI: Record<Starter, string> = {
 };
 
 const SHOWN_STARTERS = 7;
+/** The first of the random picks that drop out on phones, which leaves 5 starters plus Surprise me. */
+const HIDDEN_BELOW_MD = 2;
 
 /** A fresh random pick of the pool, so the page doesn't always offer the same scenarios. */
 const pickStarters = (): Starter[] => [...STARTERS].sort(() => Math.random() - 0.5).slice(0, SHOWN_STARTERS);
@@ -28,6 +31,8 @@ export function Speak() {
   /** The learner's self-rated level, which the dashboard asks for; A1 until they answer. */
   const level = () => prefs().level ?? "A1";
   const starters = pickStarters();
+  const [customOpen, setCustomOpen] = createSignal(false);
+  const [settingsOpen, setSettingsOpen] = createSignal(false);
   const [hardMode, setHardMode] = createSignal(false);
   const [topic, setTopic] = createSignal("");
   const [starting, setStarting] = createSignal(false);
@@ -64,23 +69,43 @@ export function Speak() {
       </Show>
       <Show when={config()?.speak && supported()}>
         <section class="d-flex flex-column gap-3">
-          <div class="d-flex flex-wrap align-items-center gap-3">
-            <label class="d-flex align-items-center gap-2">
-              {t("speak.level")}
-              <select class="qa-speak-level form-select form-select-sm w-auto" value={level()} onChange={(e) => void pickLevel(e.currentTarget.value as LearnerLevel)}>
-                <For each={LEARNER_LEVELS}>{(l) => <option value={l}>{l}</option>}</For>
-              </select>
-            </label>
-            <label class="form-check mb-0">
-              <input type="checkbox" class="qa-speak-hard form-check-input" checked={hardMode()} onChange={(e) => setHardMode(e.currentTarget.checked)} />
-              <span class="form-check-label">{t("speak.hardMode")}</span>
-            </label>
+          <div class="qa-speak-settings border rounded-3 overflow-hidden">
+            <button type="button" class="qa-speak-settings-toggle btn border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start" aria-expanded={settingsOpen()}
+              onClick={() => setSettingsOpen(!settingsOpen())}>
+              <i class={`bi ${settingsOpen() ? "bi-chevron-down" : "bi-chevron-right"} flex-shrink-0`} aria-hidden="true" />
+              <span class="flex-shrink-0">{t("home.practiceSettings")}</span>
+              <Show when={!settingsOpen()}>
+                <span class="qa-speak-settings-summary small text-body-secondary text-truncate">
+                  {level()}<Show when={hardMode()}><span aria-hidden="true"> · </span>{t("speak.hardMode")}</Show>
+                </span>
+              </Show>
+            </button>
+            <Show when={settingsOpen()}>
+              <div class="border-top p-3 d-flex flex-column gap-3">
+                <div>
+                  <label class="d-flex align-items-center gap-2">
+                    {t("speak.level")}
+                    <select class="qa-speak-level form-select form-select-sm w-auto" value={level()} onChange={(e) => void pickLevel(e.currentTarget.value as LearnerLevel)}>
+                      <For each={LEARNER_LEVELS}>{(l) => <option value={l}>{l}</option>}</For>
+                    </select>
+                  </label>
+                  <div class="form-text">{t("speak.levelHint")}</div>
+                </div>
+                <div>
+                  <label class="form-check mb-0">
+                    <input type="checkbox" class="qa-speak-hard form-check-input" checked={hardMode()} onChange={(e) => setHardMode(e.currentTarget.checked)} />
+                    <span class="form-check-label">{t("speak.hardMode")}</span>
+                  </label>
+                  <div class="form-text">{t("speak.hardModeHint")}</div>
+                </div>
+              </div>
+            </Show>
           </div>
           <div>
             <h2 class="h6">{t("speak.starters")}</h2>
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 justify-content-center g-2">
               <For each={starters}>
-                {(s) => <div class="col"><button type="button" class={`qa-speak-starter qa-speak-starter-${s} btn btn-outline-primary w-100 h-100`} disabled={starting()} onClick={() => start({ starter: s })}><span aria-hidden="true">{STARTER_EMOJI[s]}</span> {t(`speak.starter.${s}`)}</button></div>}
+                {(s, i) => <div class="col" classList={{ "d-none d-md-block": i() < HIDDEN_BELOW_MD }}><button type="button" class={`qa-speak-starter qa-speak-starter-${s} btn btn-outline-primary w-100 h-100`} disabled={starting()} onClick={() => start({ starter: s })}><span aria-hidden="true">{STARTER_EMOJI[s]}</span> {t(`speak.starter.${s}`)}</button></div>}
               </For>
               <div class="col">
                 <button type="button" class="qa-speak-surprise btn btn-outline-secondary w-100 h-100" disabled={starting()} onClick={() => start({ surprise: true })}>
@@ -89,10 +114,20 @@ export function Speak() {
               </div>
             </div>
           </div>
-          <form class="d-flex gap-2" onSubmit={(e) => { e.preventDefault(); void start({ topic: topic() }); }}>
-            <input class="qa-speak-topic form-control" placeholder={t("speak.topicPlaceholder")} aria-label={t("speak.topic")} value={topic()} onInput={(e) => setTopic(e.currentTarget.value)} />
-            <button type="submit" class="qa-speak-topic-start btn btn-primary" disabled={starting() || !topic().trim()}>{t("speak.start")}</button>
-          </form>
+          <div class="text-center mt-n2">
+            <button type="button" class="qa-speak-custom btn btn-link p-0" onClick={() => setCustomOpen(true)}>
+              <i class="bi bi-pencil me-1" aria-hidden="true" />{t("speak.custom")}
+            </button>
+          </div>
+          <Popup open={customOpen()} onClose={() => setCustomOpen(false)} title={t("speak.custom")} class="qa-speak-custom-popup"
+            footer={<button type="submit" form="speak-custom-form" class="qa-speak-topic-start btn btn-primary" disabled={starting() || !topic().trim()}>{t("speak.start")}</button>}>
+            {/* Closes before starting: the starting and error messages sit behind the modal. */}
+            <form id="speak-custom-form" onSubmit={(e) => { e.preventDefault(); setCustomOpen(false); void start({ topic: topic() }); }}>
+              <label class="form-label fw-medium" for="speak-custom-topic">{t("speak.topic")}</label>
+              <input id="speak-custom-topic" class="qa-speak-topic form-control" maxLength={300} placeholder={t("speak.topicPlaceholder")} value={topic()} onInput={(e) => setTopic(e.currentTarget.value)} />
+              <div class="form-text">{t("speak.customHint")}</div>
+            </form>
+          </Popup>
           <Show when={starting()}><div class="qa-speak-starting text-body-secondary">{t("speak.starting")}</div></Show>
           <Show when={error()}>{(m) => <div class="qa-speak-error alert alert-danger mb-0">{m()}</div>}</Show>
         </section>
