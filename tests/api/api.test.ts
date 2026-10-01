@@ -34,12 +34,6 @@ describe("auth", () => {
     expect((await t.req("GET", "/api/me")).status).toBe(401);
   });
 
-  it("enforces ALLOWED_EMAILS", async () => {
-    const t = setup({ allowedEmails: new Set(["ok@example.com"]) });
-    expect((await t.req("POST", "/api/auth/google", { credential: "intruder", locale: "en" })).status).toBe(403);
-    expect((await t.req("POST", "/api/auth/google", { credential: "ok", locale: "en" })).status).toBe(200);
-  });
-
   it("stores the language picked before sign-in only when the account has none yet", async () => {
     const t = setup();
     await t.req("POST", "/api/auth/dev", { email: "new@example.com", locale: "en" });

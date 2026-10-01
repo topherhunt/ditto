@@ -1,8 +1,8 @@
-import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import { LANGUAGE_NAMES, LOCALE_NAMES, type Locale, type ServedUnit } from "../shared/content.ts";
 import type { GradeResult } from "../shared/grader.ts";
+import { openAIClient } from "./conversation-ai.ts";
 import { tokenUsage, type Usage } from "./usage.ts";
 
 export const EXPLAIN_CATEGORIES = [
@@ -59,7 +59,7 @@ export function buildPrompt({ unit, grammarFocus, answer, grade, locale }: Expla
 export const EXPLAIN_MODEL = "gpt-6-luna";
 
 export function openAIExplainer(apiKey: string): Explainer {
-  const client = new OpenAI({ apiKey });
+  const client = openAIClient(apiKey);
   const model = EXPLAIN_MODEL;
   tokenUsage(model, 0, 0);
   return {

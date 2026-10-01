@@ -247,7 +247,7 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | Method | Path | Notes |
 |---|---|---|
 | GET | `/api/config` | Public: Google client ID and whether dev login is on |
-| POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`), checks `ALLOWED_EMAILS`, and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
+| POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`) and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
 | POST | `/api/auth/dev` | Enabled only when `DEV_LOGIN=1`. Used by E2E tests |
 | POST | `/api/auth/logout` | |
 | GET | `/api/me` | User, username, prefs, profile visibility, and whether they're an admin |

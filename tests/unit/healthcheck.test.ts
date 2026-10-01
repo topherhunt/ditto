@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { openDb } from "../../server/db.ts";
-import { healthcheck } from "../../server/healthcheck.ts";
+import { healthcheck, reportError, startHealthcheck } from "../../server/healthcheck.ts";
 
 const URL = "https://hc.test/abc";
 
@@ -50,5 +50,25 @@ describe("healthcheck", () => {
     const hc = healthcheck(URL, openDb(":memory:"), () => new Date(), async () => { throw new Error("offline"); });
     await expect(hc.reportError(new Error("x"))).resolves.toBeUndefined();
     await expect(hc.heartbeat()).resolves.toBeUndefined();
+  });
+});
+
+describe("startHealthcheck", () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
+
+  it("reports errors at once but sends the first heartbeat only once the server is listening, then daily", async () => {
+    vi.useFakeTimers({ toFake: ["setInterval"] });
+    const sent: { url: string; body: string }[] = [];
+    vi.stubGlobal("fetch", async (url: string, init: RequestInit) => { sent.push({ url, body: String(init.body) }); return new Response(); });
+
+    const { listening } = startHealthcheck(URL, openDb(":memory:"));
+    await reportError(new TypeError("boot"));
+    expect(sent).toEqual([{ url: `${URL}/fail`, body: "Server error: TypeError. See the server logs." }]);
+
+    listening();
+    await vi.waitFor(() => expect(sent).toHaveLength(2));
+    expect(sent[1]).toEqual({ url: URL, body: "Daily check: ok" });
+    await vi.advanceTimersByTimeAsync(86_400_000);
+    await vi.waitFor(() => expect(sent).toHaveLength(3));
   });
 });

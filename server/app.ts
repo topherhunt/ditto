@@ -39,9 +39,7 @@ export type AppDeps = {
   now: () => Date;
   googleClientId: string | null;
   verifyGoogle: VerifyGoogle | null;
-  /** Lowercased; null allows any verified Google account. */
-  allowedEmails: Set<string> | null;
-  /** Lowercased; may see and triage problem reports. */
+  /** Lowercased; may use /api/admin/* and play any conversation's partner audio. */
   adminEmails: Set<string>;
   devLogin: boolean;
   explainer: Explainer | null;
@@ -115,8 +113,6 @@ export function createApp(deps: AppDeps) {
 
   /** `learning`: the language picked on the homepage before sign-in; it only fills an empty list, so a saved choice wins. */
   const startSession = (c: Context, profile: Parameters<typeof upsertUser>[1], locale: Locale, learning: Language | undefined) => {
-    if (deps.allowedEmails && !deps.allowedEmails.has(profile.email.toLowerCase()))
-      throw new HTTPException(403, { message: `${profile.email} is not allowed` });
     const now = deps.now();
     const userId = upsertUser(db, profile, locale, now);
     if (learning && learningOf(userId).length === 0) insertLearning(userId, learning);

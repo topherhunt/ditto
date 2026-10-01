@@ -55,11 +55,19 @@ async function httpPost(url: string, body: string) {
 
 let active: Healthcheck | null = null;
 
-/** Pings now and then daily. Unset in development and tests, where `reportError` does nothing. */
-export function startHealthcheck(url: string, db: DB) {
-  active = healthcheck(url, db, () => new Date());
-  void active.heartbeat();
-  setInterval(() => void active!.heartbeat(), DAY_MS);
+/**
+ * Starts error reports now and the daily heartbeat on `listening`, so the first ping isn't timed out by blocking startup work.
+ * Unset in development and tests, where `reportError` does nothing.
+ */
+export function startHealthcheck(url: string, db: DB): { listening: () => void } {
+  const check = healthcheck(url, db, () => new Date());
+  active = check;
+  return {
+    listening: () => {
+      void check.heartbeat();
+      setInterval(() => void check.heartbeat(), DAY_MS);
+    },
+  };
 }
 
 /** Call wherever a server error is logged. */

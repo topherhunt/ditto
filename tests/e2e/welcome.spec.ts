@@ -139,7 +139,7 @@ test("a visitor can ask for a language from the homepage without changing their 
   await popup.locator(".qa-request-send").click();
   await expect(popup.locator(".qa-request-thanks")).toBeVisible();
   await popup.locator(".qa-request-close").click();
-  await expect(page.locator(".qa-popup")).not.toBeVisible();
+  await expect(page.locator(".qa-popup[open]")).toHaveCount(0);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator(".qa-welcome-speak-en")).toHaveAttribute("aria-pressed", "true");
 });

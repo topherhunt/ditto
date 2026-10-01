@@ -9,6 +9,10 @@
   - [x] Confirmed there was no French or Greek changes to the flashcards, and thus nothing needs to be revised or polished up there.
   - [x] The name should be "Ditto", not translated. Confirm that this is the case in all languages.
   - [x] Add a favicon.
+  - [ ] "Missing your language?" popup: 
+    - [ ] lanugage dropdowns need type-to-filter
+    - [ ] We also need a link after the languages you're learning list in the settings page. Even though it does the same thing, we want to Make it obvious to the user that we invite feedback on what languages they want to learn not just support for their native langauage as an interface. 
+  - [ ] I think we don't need to store users' email addresses, so they can be completely pseudonymous, but think this through with Claude. We just store a arbitrary Google ID or something. 
   - [ ] Revise & polish the French typing course content
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
   - [ ] Type - when in activity, need some 1-line hint of what to do. And/or a "Help" ? link.

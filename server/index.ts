@@ -14,6 +14,11 @@ import { reportError, startHealthcheck } from "./healthcheck.ts";
 import { rollUpMetrics } from "./metrics.ts";
 import { openAISpeech } from "./speech.ts";
 
+// Milliseconds since the process started, logged once listening: production boots take ~14 s.
+const bootSteps: string[] = [];
+const bootStep = (label: string) => bootSteps.push(`${label} ${Math.round(performance.now())}`);
+bootStep("imports");
+
 const root = join(import.meta.dirname, "..");
 const env = process.env;
 const production = env.NODE_ENV === "production";
@@ -43,12 +48,14 @@ const conversation = env.FAKE_CONVERSATION === "1"
 if (!conversation) console.warn("Conversation mode is off: it needs OPENAI_API_KEY");
 
 const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
+bootStep("db");
 // Per-learner engaged time past METRICS_KEEP_DAYS becomes anonymous totals (docs/metrics.md).
 rollUpMetrics(db, new Date());
+bootStep("metrics");
 setInterval(() => rollUpMetrics(db, new Date()), 3_600_000);
 
 const healthcheckUrl = production ? required("HEALTHCHECK_URL") : env.HEALTHCHECK_URL;
-if (healthcheckUrl) startHealthcheck(healthcheckUrl, db);
+const health = healthcheckUrl ? startHealthcheck(healthcheckUrl, db) : null;
 // Node's default is to print and exit; a handler replaces that, so it must exit too. The report is awaited so it leaves before the process does.
 for (const event of ["uncaughtException", "unhandledRejection"] as const) {
   process.on(event, async (err) => {
@@ -59,13 +66,13 @@ for (const event of ["uncaughtException", "unhandledRejection"] as const) {
 }
 
 const content = loadContent(env.CONTENT_DIR || join(root, "content"), audioDir, { audio: production ? "require" : "warn" });
+bootStep("content");
 const app = createApp({
   db,
   content,
   now: () => new Date(),
   googleClientId,
   verifyGoogle: googleClientId ? googleVerifier(googleClientId) : null,
-  allowedEmails: env.ALLOWED_EMAILS ? new Set(env.ALLOWED_EMAILS.split(",").map((e) => e.trim().toLowerCase())) : null,
   adminEmails: new Set((env.ADMIN_EMAILS || "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean)),
   devLogin: env.DEV_LOGIN === "1",
   explainer: env.OPENAI_API_KEY ? openAIExplainer(env.OPENAI_API_KEY) : null,
@@ -74,7 +81,7 @@ const app = createApp({
   conversation,
   dailySpendCap: Number(env.DAILY_SPEND_CAP || 1),
 });
-if (production && !env.ALLOWED_EMAILS) console.warn("WARNING: ALLOWED_EMAILS is unset; any Google account can sign in");
+bootStep("app");
 
 app.use("/audio/*", serveStatic({
   root: audioDir,
@@ -106,4 +113,9 @@ app.get("/*", (c) => {
 });
 
 const port = Number(env.PORT || 3000);
-serve({ fetch: app.fetch, port, hostname: env.HOST || "127.0.0.1" }, () => console.log(`Listening on http://127.0.0.1:${port}`));
+// Boot blocks the event loop for longer than the ping timeout, so the heartbeat waits for the listener.
+serve({ fetch: app.fetch, port, hostname: env.HOST || "127.0.0.1" }, () => {
+  bootStep("listening");
+  console.log(`Listening on http://127.0.0.1:${port} (boot ms: ${bootSteps.join(", ")})`);
+  health?.listening();
+});
