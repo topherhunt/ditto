@@ -1,6 +1,7 @@
 import { createResource, createSignal, For, Show } from "solid-js";
 import { REPORT_DECISIONS, REPORT_STATUSES, type AdminReport, type ReportDecision, type ReportStatus } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 const DECISION_LABELS: Record<ReportDecision, string> = {
@@ -133,7 +134,7 @@ export function Reports() {
   return (
     <div class="d-flex flex-column gap-3">
       <div class="d-flex flex-wrap align-items-center gap-2">
-        <h1 class="h4 mb-0 me-auto">Problem reports</h1>
+        <h1 class="h4 mb-0 me-auto"><AdminCrumb>Problem reports</AdminCrumb></h1>
         <div class="btn-group btn-group-sm" role="group">
           <For each={REPORT_STATUSES}>
             {(s) => (

@@ -7,7 +7,7 @@ test("an admin triages a report, reviews the fix, and non-admins can't reach the
   await expect((await page.request.post("/api/reports", { data: { unitId: "it-a1-bar-1-u01", rev: 1, voice: 0, kind: "audio", note: "e2e-triage" } })).status()).toBe(200);
   await page.locator(".qa-user").click();
   await expect(page.locator(".qa-nav-profile")).toBeVisible();
-  await expect(page.locator(".qa-nav-reports")).toHaveCount(0);
+  await expect(page.locator(".qa-nav-admin")).toHaveCount(0);
   await page.goto("/admin/reports");
   await expect(page.locator(".alert-danger")).toContainText("Admins only");
   await page.goto("/");
@@ -15,6 +15,7 @@ test("an admin triages a report, reviews the fix, and non-admins can't reach the
 
   await signIn(page, "admin@example.com");
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-reports").click();
   const report = page.locator(".qa-admin-report").filter({ has: page.locator(".qa-admin-note", { hasText: "e2e-triage" }) });
   await expect(report.locator(".qa-play-reported")).toBeVisible();

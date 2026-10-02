@@ -1,6 +1,7 @@
 import { createResource, createSignal, For, Show } from "solid-js";
 import type { PocData, PocSentence, PocTake } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Dev-only admin tool, so English-only: records takes for scripts/pronunciation-poc.ts (docs/conversation.md).
 
@@ -120,7 +121,7 @@ export function PocRecorder() {
   const done = () => data()!.sentences.filter((s) => data()!.takes.some((t) => t.sentence === s.id && t.expect === "pass")).length;
   return (
     <div class="d-flex flex-column gap-3">
-      <h1 class="h3 mb-0">Pronunciation POC recorder</h1>
+      <h1 class="h3 mb-0"><AdminCrumb>Pronunciation POC recorder</AdminCrumb></h1>
       <p class="mb-0 text-body-secondary">
         For each sentence, record a careful correct take and one or more deliberately mispronounced takes, noting what you got wrong.
         Takes save to <code>data/poc/</code>; then run <code>node --env-file=.env scripts/pronunciation-poc.ts data/poc</code>.

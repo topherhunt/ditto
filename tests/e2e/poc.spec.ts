@@ -7,6 +7,7 @@ test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-
 test("an admin records a correct and a mispronounced take with a note, then deletes one", async ({ page }) => {
   await signIn(page, "admin@example.com");
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-poc").click();
   const sentence = page.locator(".qa-poc-it-anno");
 

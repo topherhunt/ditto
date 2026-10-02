@@ -5,6 +5,7 @@ import { Route, Router } from "@solidjs/router";
 import { render } from "solid-js/web";
 import { Layout } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
+import { Admin } from "./pages/Admin.tsx";
 import { About } from "./pages/About.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
 import { Dashboard } from "./pages/Dashboard.tsx";
@@ -49,6 +50,7 @@ render(
       <Route path="/leaderboard" component={Leaderboard} />
       <Route path="/settings" component={Settings} />
       <Route path="/people/:id" component={Profile} />
+      <Route path="/admin" component={Admin} />
       <Route path="/admin/reports" component={Reports} />
       <Route path="/admin/pronunciation" component={PocRecorder} />
       <Route path="/admin/speaking" component={SpeakingAdmin} />

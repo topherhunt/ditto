@@ -26,14 +26,6 @@
 
 ### Unorganized
 
-- Talk:
-  - Conversation history should be compacted in a scrollable & hidable div so you don't have trouble getting back up to the top of the page. Or, Talk with Claude to think through what is the best way to do this on mobile. Maybe chats older than the most recent 3 are hidden under a "See chat history" modal that you can easily X out of. But that also introduces friction.... I'd like to hear your suggestions. Maybe just a "Skip to top" button on the left side or sth.
-- [ ] Review the mobile UX. Where are back-links non-obvious or confusing?
-  - Type page - header is cluttered. Compact the Practice Settings line?
-- [ ] Add French
-- [x] Add Greek
-- [ ] Ensure We have full production logging with log rotation.
-- Smoke-test learning in each language to ensure content sounds & looks good
 - Support self-service account deletion (but preserve anonymous activity metrics & API call ledger)
 - Support self-service full data download/export
 - Cache / store glossed / tooltipped audio so it plays faster & avoids extra GPT-4o calls?
@@ -48,11 +40,9 @@
   - [x] "Make new friends" board: opt in with a one-line blurb, see everyone else on it in random order, 3 friend requests a day.
   - [x] Block or report anyone from their profile; the operator takes down board posts or clears usernames at `/admin/user-reports`.
   - [ ] Send friends words of encouragement.
-- Support slowing down audio as a user setting. Only up to A2.
+- Support slowing down audio in Talk mode?
 - Stream on-demand audio to reduce wait times, rather than waiting until the full clip is returned?
 - Find nicer `wrong` sound that's gentler on the ears. Search the marimba sound effects.
 - [ ] separate mode for pronunciation coach. Words, then sentences, very precisely.
 - Set up email sending. For user welcome email / accounin-app notifications
-- Experiment with more gpt-4o-mini-tts voices in each language, beyond marin (F) and cedar (M), which all pre-rendered English, Italian and Dutch audio uses as of September 2026.
-- \[ \]
 - [ ] Once the dollar spend cap is verified in production, drop the unused `explain_usage` table with a migration.

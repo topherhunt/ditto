@@ -200,6 +200,7 @@ test("an admin sees reported judgments and spend", async ({ page }) => {
   await expect(page.locator(".qa-retry-reported")).toBeVisible();
 
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-speaking").click();
   const report = page.locator(".qa-admin-speak-report").filter({ hasText: "admin's own report" });
   await expect(report).toContainText("Buongiorno! Cosa prende?");

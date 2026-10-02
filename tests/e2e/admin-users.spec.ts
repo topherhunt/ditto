@@ -6,7 +6,7 @@ test("an admin finds a user, opens their details and their public profile; non-a
   await signIn(page, "watched@example.com");
   await expect((await page.request.post("/api/reports", { data: { unitId: "it-a1-bar-1-u01", rev: 1, voice: 0, kind: "text", note: "e2e-admin-users" } })).status()).toBe(200);
   await page.locator(".qa-user").click();
-  await expect(page.locator(".qa-nav-users")).toHaveCount(0);
+  await expect(page.locator(".qa-nav-admin")).toHaveCount(0);
   await page.goto("/admin/users");
   await expect(page.locator(".alert-danger")).toContainText("Admins only");
   await page.goto("/");
@@ -14,6 +14,7 @@ test("an admin finds a user, opens their details and their public profile; non-a
 
   await signIn(page, "admin@example.com");
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-users").click();
   await expect(page.locator(".qa-admin-users-summary")).toBeVisible();
   await page.locator(".qa-admin-users-search").fill("watched@");
@@ -33,6 +34,9 @@ test("an admin finds a user, opens their details and their public profile; non-a
   await page.goBack();
   await expect(page.locator(".qa-admin-users-search")).toHaveValue("watched@");
   await page.goForward();
+  await page.locator(".qa-admin-crumb-home").click();
+  await expect(page.locator(".qa-nav-users")).toBeVisible();
+  await page.goBack();
   await page.locator(".qa-admin-user-profile").click();
   await expect(page.locator(".qa-profile-name")).toHaveText("watched");
 });

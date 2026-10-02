@@ -2,6 +2,7 @@ import { createResource, For, Show } from "solid-js";
 import { METRICS_KEEP_DAYS, type AdminLanguageRequestsOut, type AdminMetricsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries. What is collected and why: docs/metrics.md.
 
@@ -16,7 +17,7 @@ export function MetricsAdmin() {
   return (
     <div class="d-flex flex-column gap-4">
       <div>
-        <h1 class="h4 mb-1">Metrics</h1>
+        <h1 class="h4 mb-1"><AdminCrumb>Metrics</AdminCrumb></h1>
         <p class="small text-body-secondary mb-0">
           Last {DAYS} UTC days. Engaged time counts a visible page used within the last minute; admin pages aren't counted.
           Per-learner rows become anonymous totals after {METRICS_KEEP_DAYS} days.

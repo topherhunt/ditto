@@ -68,3 +68,14 @@ describe("report triage", () => {
       .toMatchObject({ status: "triaged", review: "rejected", reviewNote: "still mumbled" });
   });
 });
+
+describe("admin summary", () => {
+  it("counts accounts and open reports for the /admin tiles and refuses non-admins", async () => {
+    const t = setup();
+    await report(t);
+    const summary = (await t.req("GET", "/api/admin/summary")).json;
+    expect(summary).toMatchObject({ users: 2, reportsNew: 1, reportsTriaged: 0, peopleReportsOpen: 0, speakReports: 0 });
+    await t.login("learner@example.com");
+    expect((await t.req("GET", "/api/admin/summary")).status).toBe(403);
+  });
+});

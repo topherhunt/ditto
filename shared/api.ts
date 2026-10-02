@@ -303,6 +303,12 @@ export type AdminMetricsOut = {
   hours: { hour: string; requests: number; errors5xx: number; peakConcurrent: number }[];
 };
 
+/** What each tile on /admin counts. `spendMonthUsd`: AI spend over the last ADMIN_RECENT_DAYS. */
+export type AdminSummary = {
+  users: number; usersSeenWeek: number; learnersToday: number; spendMonthUsd: number;
+  reportsNew: number; reportsTriaged: number; peopleReportsOpen: number; speakReports: number;
+};
+
 /** ISO 639-1 codes a visitor can name when asking for a language, plus `other` for any not listed. Names come from `Intl.DisplayNames`. */
 export const REQUEST_LANGUAGES = [
   "en", "es", "pt", "fr", "de", "it", "nl", "el", "ga", "ca", "gl", "eu", "pl", "cs", "sk", "hu", "ro", "bg", "sr", "hr", "sl", "uk", "ru",

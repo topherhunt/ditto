@@ -4,6 +4,7 @@ import { ADMIN_RECENT_DAYS, type AdminUserDetail, type AdminUserRow, type Person
 import { LANGUAGES } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -80,7 +81,7 @@ export function UsersAdmin() {
 
   return (
     <div class="d-flex flex-column gap-3">
-      <h1 class="h4 mb-0">Users</h1>
+      <h1 class="h4 mb-0"><AdminCrumb>Users</AdminCrumb></h1>
       <Show when={users()}>
         {(all) => (
           <p class="qa-admin-users-summary mb-0 text-body-secondary">
@@ -171,7 +172,7 @@ export function UserAdmin() {
         return (
           <div class="d-flex flex-column gap-4">
             <div>
-              <A href="/admin/users" class="small">← All users</A>
+              <div class="small"><AdminCrumb><A href="/admin/users">Users</A></AdminCrumb></div>
               <div class="d-flex flex-wrap align-items-baseline gap-2 mt-1">
                 <h1 class="qa-admin-user-name h4 mb-0">{u().username ?? "(no username)"}</h1>
                 <span class="qa-admin-user-email text-body-secondary">{u().email}</span>

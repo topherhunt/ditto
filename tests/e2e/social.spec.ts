@@ -228,6 +228,7 @@ test("a profile's menu blocks and unblocks, reporting blocks too, and the operat
 
   await signIn(page, "admin@example.com");
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-user-reports").click();
   const report = page.locator(".qa-user-report").filter({ hasText: "heckler reported by reporter" });
   await expect(report).toContainText("something rude");

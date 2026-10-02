@@ -126,12 +126,7 @@ function LayoutBody(props: RouteSectionProps) {
                         <li><A href="/settings" class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-gear me-2" aria-hidden="true" />{t("nav.settings")}</A></li>
                         <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
                         {/* Admin-only, so not translated. */}
-                        {user().admin && <li><A href="/admin/users" class="qa-nav-users dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people me-2" aria-hidden="true" />Users</A></li>}
-                        {user().admin && <li><A href="/admin/metrics" class="qa-nav-metrics dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-graph-up me-2" aria-hidden="true" />Metrics</A></li>}
-                        {user().admin && <li><A href="/admin/reports" class="qa-nav-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-bug me-2" aria-hidden="true" />Reports</A></li>}
-                        {user().admin && <li><A href="/admin/user-reports" class="qa-nav-user-reports dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-flag me-2" aria-hidden="true" />People reports</A></li>}
-                        {user().admin && config()?.poc && <li><A href="/admin/pronunciation" class="qa-nav-poc dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-mic me-2" aria-hidden="true" />Pronunciation POC</A></li>}
-                        {user().admin && <li><A href="/admin/speaking" class="qa-nav-speaking dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-chat-dots me-2" aria-hidden="true" />Speaking</A></li>}
+                        {user().admin && <li><A href="/admin" class="qa-nav-admin dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-shield-lock me-2" aria-hidden="true" />Admin</A></li>}
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item text-danger" onClick={logout}><i class="bi bi-power me-2" aria-hidden="true" />{t("nav.signOut")}</button></li>
                       </ul>

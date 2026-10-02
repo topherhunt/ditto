@@ -22,6 +22,7 @@ test("a learner's engaged time is reported with only the page's activity and lan
   await signOut(page);
   await signIn(page, "admin@example.com");
   await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-admin").click();
   await page.locator(".qa-nav-metrics").click();
   await expect(page.locator(".qa-metrics-activity").filter({ hasText: "notebook" })).toBeVisible();
   await expect(page.locator(".qa-metrics-day").first()).toBeVisible();

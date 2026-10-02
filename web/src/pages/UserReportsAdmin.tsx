@@ -2,6 +2,7 @@ import { A } from "@solidjs/router";
 import { createResource, For, Show } from "solid-js";
 import { USER_REPORT_ACTIONS, type AdminUserReport, type Person, type UserReportReason, type UserReportResolution } from "../../../shared/api.ts";
 import { api } from "../api.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -24,7 +25,7 @@ export function UserReportsAdmin() {
 
   return (
     <div class="d-flex flex-column gap-3">
-      <h1 class="h3 mb-0">People reports</h1>
+      <h1 class="h3 mb-0"><AdminCrumb>People reports</AdminCrumb></h1>
       <p class="text-body-secondary mb-0">
         Taking down a post or clearing a username also resolves the other open reports about it. A cleared username makes them pick a new one.
       </p>

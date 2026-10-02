@@ -2,6 +2,7 @@ import { createResource, For, Show } from "solid-js";
 import type { AdminSpeakReport, AdminSpendOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
+import { AdminCrumb } from "../components/AdminCrumb.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -29,7 +30,7 @@ export function SpeakingAdmin() {
   const [reports] = createResource(() => api.get<AdminSpeakReport[]>("/api/admin/speak-reports"));
   return (
     <div class="d-flex flex-column gap-4">
-      <h1 class="h3 mb-0">Speaking</h1>
+      <h1 class="h3 mb-0"><AdminCrumb>Speaking</AdminCrumb></h1>
       <section>
         <h2 class="h5">AI spend, last 30 days</h2>
         <Show when={spend()}>
