@@ -532,3 +532,16 @@ describe("locale", () => {
     expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation).toBeNull();
   });
 });
+
+describe("install hint", () => {
+  it("stays dismissed once the learner dismisses it, and starts undismissed", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.req("GET", "/api/me")).json.installHintDismissed).toBe(false);
+    expect((await t.req("POST", "/api/install-hint/dismiss", {})).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.installHintDismissed).toBe(true);
+    await t.req("POST", "/api/auth/logout", {});
+    await t.login();
+    expect((await t.req("GET", "/api/me")).json.installHintDismissed).toBe(true);
+  });
+});

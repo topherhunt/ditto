@@ -6,6 +6,7 @@ import { api } from "../api.ts";
 import { locale, ownLocale, t } from "../i18n/index.ts";
 import { homeLanguage } from "../learning.ts";
 import { me, refetchMe } from "../session.ts";
+import { theme } from "../theme.ts";
 
 declare global {
   interface Window {
@@ -37,14 +38,23 @@ function GoogleButton(props: { clientId: string; signIn: (body: object) => Promi
     };
     document.head.append(script);
   });
-  // Re-render on a locale change so the button's own label follows the picker.
+  // Re-render on a locale or theme change so the button's own label and colors follow.
   createEffect(() => {
     if (!loaded()) return;
     el.replaceChildren();
-    window.google!.accounts.id.renderButton(el, { theme: "outline", size: "large", text: "signin_with", locale: locale() });
+    window.google!.accounts.id.renderButton(el, {
+      theme: theme() === "dark" ? "filled_black" : "outline",
+      size: "large",
+      text: "signin_with",
+      locale: locale(),
+    });
   });
   // Google's iframe declares no color-scheme, so under our dark scheme the browser paints it an opaque white backdrop.
-  return <div ref={el} class="qa-google-signin" style={{ "color-scheme": "light" }} />;
+  return (
+    <div class="d-flex justify-content-center">
+      <div ref={el} class="qa-google-signin border border-primary rounded-2 overflow-hidden" style={{ "color-scheme": "light" }} />
+    </div>
+  );
 }
 
 /** Signs in with the course picked on the homepage; the server keeps it only for an account that has none yet. */

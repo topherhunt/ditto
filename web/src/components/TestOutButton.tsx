@@ -12,7 +12,7 @@ export function TestOutButton(props: { kind: "type" | "quiz"; href: string; leve
     <>
       <button type="button" class={`btn btn-outline-primary ${props.class}`} onClick={() => setOpen(true)}>{props.label}</button>
       <Popup open={open()} onClose={() => setOpen(false)} title={t(`testOut.${props.kind}Title`, vars())} class="qa-testout-popup"
-        closeLabel={t("quiz.dismiss")} centerFooter
+        centerFooter
         footer={<A href={props.href} class="qa-testout-go btn btn-primary"><span aria-hidden="true">▶</span> {t("popup.letsGo")}</A>}>
         <ul class="mb-0 d-flex flex-column gap-2">
           <li>{t(`testOut.${props.kind}How`, vars())}</li>

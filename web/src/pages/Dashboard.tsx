@@ -8,6 +8,7 @@ import { TestOutButton } from "../components/TestOutButton.tsx";
 import { dayKey, deckName } from "../components/QuizCharts.tsx";
 import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
 import { languageName, locale, t } from "../i18n/index.ts";
+import { isIosSafari, isStandalone } from "../install.ts";
 import { LANGUAGE_FLAGS, learnable, rememberLanguage, saveLevel } from "../learning.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
@@ -106,6 +107,8 @@ export function Dashboard() {
   return (
     <Show when={ready()}>
       <div class="qa-dashboard d-flex flex-column gap-4">
+        <Show when={!me()!.installHintDismissed && isIosSafari() && !isStandalone()}><InstallHint /></Show>
+
         <div class="d-flex flex-wrap align-items-center gap-2">
           <LanguageSwitcher lang={lang()} />
         </div>
@@ -124,13 +127,19 @@ export function Dashboard() {
         }>
           <div class="qa-dash-coach card border-success">
             <div class="card-body d-flex flex-column gap-3">
-              <div class="d-flex flex-wrap align-items-center gap-3">
-                <span class="fs-2" aria-hidden="true">🧭</span>
-                <div class="me-auto">
-                  <div class="small text-body-secondary">{t("dash.coach.heading")}</div>
-                  <div class={`qa-dash-coach-${tip().qa} fw-semibold`}>{tip().text}</div>
+              <div class="coach-grid">
+                <div class="coach-text d-flex align-items-start gap-3">
+                  <span class="fs-2 flex-shrink-0" aria-hidden="true">🧭</span>
+                  <div>
+                    <div class="small text-body-secondary">{t("dash.coach.heading")}</div>
+                    <div class={`qa-dash-coach-${tip().qa} fw-semibold`}>{tip().text}</div>
+                  </div>
                 </div>
-                <Show when={tip().go}>{(go) => <A href={go().href} class="qa-dash-coach-go btn btn-success">{go().label}</A>}</Show>
+                <Show when={tip().go}>{(go) => <A href={go().href} class="qa-dash-coach-go coach-go btn btn-success">{go().label}</A>}</Show>
+                <div class="coach-level small text-end">
+                  <span class="text-body-secondary">{t("dash.yourLevel", { level: level()! })}</span>{" "}
+                  <button type="button" class="qa-dash-level-change btn btn-link btn-sm p-0 align-baseline" onClick={() => setRerating(true)}>{t("dash.levelChange")}</button>
+                </div>
               </div>
               <Show when={testOut()}>
                 {(r) => (
@@ -140,10 +149,6 @@ export function Dashboard() {
                   </div>
                 )}
               </Show>
-              <div class="small">
-                <span class="text-body-secondary">{t("dash.yourLevel", { level: level()! })}</span>{" "}
-                <button type="button" class="qa-dash-level-change btn btn-link btn-sm p-0 align-baseline" onClick={() => setRerating(true)}>{t("dash.levelChange")}</button>
-              </div>
             </div>
           </div>
         </Show>
@@ -176,6 +181,20 @@ export function Dashboard() {
         </section>
       </div>
     </Show>
+  );
+}
+
+/** Invites an iOS Safari learner to add Ditto to their home screen; closing it is remembered on their account. */
+function InstallHint() {
+  const [error, setError] = createSignal<string | null>(null);
+  const dismiss = () => api.post("/api/install-hint/dismiss").then(refetchMe, (e: Error) => setError(e.message));
+  return (
+    <div class="qa-install-hint alert alert-info d-flex flex-wrap align-items-center gap-2 mb-0" role="alert">
+      <span class="me-auto">{t("install.alert")}</span>
+      <A href="/add-to-home" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>
+      <button type="button" class="qa-install-hint-dismiss btn-close" aria-label={t("install.dismiss")} onClick={() => void dismiss()} />
+      <Show when={error()}>{(m) => <div class="text-danger small w-100">{m()}</div>}</Show>
+    </div>
   );
 }
 

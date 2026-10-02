@@ -7,7 +7,7 @@ import type { DB } from "./db.ts";
 export type GoogleProfile = { sub: string; email: string };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
 /** `locale` is the learner's own language: translations, explanations and coaching come in it, and so does the UI unless immersed. */
-export type User = { id: number; email: string; username: string | null; profilePublic: boolean; prefs: string; locale: Locale };
+export type User = { id: number; email: string; username: string | null; profilePublic: boolean; installHintDismissed: boolean; prefs: string; locale: Locale };
 
 export const prefsOf = (user: User): Record<Language, Prefs> => {
   const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
@@ -69,13 +69,13 @@ export function createSession(db: DB, userId: number, now: Date): string {
 export function sessionUser(db: DB, token: string, now: Date): User | null {
   const row = db
     .prepare(
-      `SELECT u.id, u.email, u.username, u.profile_public, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
+      `SELECT u.id, u.email, u.username, u.profile_public, u.install_hint_dismissed, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
        WHERE s.token_hash = ? AND s.expires_at > ?`,
     )
-    .get(hashToken(token), now.toISOString()) as (Omit<User, "profilePublic"> & { profile_public: number }) | undefined;
+    .get(hashToken(token), now.toISOString()) as (Omit<User, "profilePublic" | "installHintDismissed"> & { profile_public: number; install_hint_dismissed: number }) | undefined;
   if (!row) return null;
-  const { profile_public, ...user } = row;
-  return { ...user, profilePublic: profile_public === 1 };
+  const { profile_public, install_hint_dismissed, ...user } = row;
+  return { ...user, profilePublic: profile_public === 1, installHintDismissed: install_hint_dismissed === 1 };
 }
 
 export function deleteSession(db: DB, token: string): void {

@@ -7,6 +7,7 @@ import { Layout } from "./components/Layout.tsx";
 import { t } from "./i18n/index.ts";
 import { Admin } from "./pages/Admin.tsx";
 import { About } from "./pages/About.tsx";
+import { AddToHome } from "./pages/AddToHome.tsx";
 import { Conversation } from "./pages/Conversation.tsx";
 import { Dashboard } from "./pages/Dashboard.tsx";
 import { FriendBoard } from "./pages/FriendBoard.tsx";
@@ -42,6 +43,7 @@ render(
     <Router root={Layout}>
       <Route path="/" component={Welcome} />
       <Route path="/about" component={About} />
+      <Route path="/add-to-home" component={AddToHome} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/cap" component={CapReached} />

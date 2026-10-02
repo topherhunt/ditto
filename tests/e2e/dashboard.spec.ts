@@ -114,8 +114,36 @@ test("a course in another alphabet adds a keyboard tip to the typing help, with 
   await page.locator(".qa-keyboard-help-open").click();
   await expect(page.locator(".qa-keyboard-popup")).toBeVisible();
   for (const device of ["ios", "android", "mac", "windows"]) await expect(page.locator(`.qa-keyboard-${device}`)).toContainText("Greek");
+  // The computer's own steps lead, in a border, and the computers come before the phones.
+  await expect(page.locator(".qa-keyboard-step").first()).toHaveClass(/qa-keyboard-yours/);
+  await expect(page.locator(".qa-keyboard-step").first()).toHaveClass(/qa-keyboard-(mac|windows)/);
+  await expect(page.locator(".qa-keyboard-step").nth(2)).toHaveClass(/qa-keyboard-ios/);
+  await expect(page.locator(".qa-keyboard-step").nth(3)).toHaveClass(/qa-keyboard-android/);
   await page.locator(".qa-keyboard-popup-close").click();
   await expect(page.locator(".qa-keyboard-popup")).toBeHidden();
+
+  // Every popup has an X in its corner, which doesn't take focus on open.
+  await page.locator(".qa-keyboard-help-open").click();
+  await expect(page.locator(".qa-keyboard-popup")).toBeVisible();
+  await expect(page.locator(".qa-keyboard-popup")).toBeFocused();
+  await expect(page.locator(".qa-keyboard-popup .qa-popup-close")).not.toBeFocused();
+  await page.locator(".qa-keyboard-popup .qa-popup-close").click();
+  await expect(page.locator(".qa-keyboard-popup")).toBeHidden();
+});
+
+test("a popup taller than the screen opens scrolled to its top, even when the page behind it is scrolled", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 320 });
+  await signIn(page, "dash9@example.com");
+  await setLearning(page, ["it", "el"]);
+  await page.goto("/el/type");
+  await page.locator(".qa-keyboard-help-open").scrollIntoViewIfNeeded();
+  await page.locator(".qa-keyboard-help-open").click();
+  await expect(page.locator(".qa-keyboard-popup")).toBeVisible();
+  expect(await page.locator(".qa-keyboard-popup").evaluate((d) => d.scrollHeight > d.clientHeight)).toBe(true);
+  expect(await page.locator(".qa-keyboard-popup").evaluate((d) => d.scrollTop)).toBe(0);
+  await page.locator(".qa-keyboard-popup-close").click();
+  await page.locator(".qa-keyboard-help-open").click();
+  expect(await page.locator(".qa-keyboard-popup").evaluate((d) => d.scrollTop)).toBe(0);
 });
 
 test.describe("on a phone", () => {
@@ -128,7 +156,11 @@ test.describe("on a phone", () => {
     await expect(page.locator(".qa-keyboard-help")).toContainText("in your phone's settings");
     await expect(page.locator(".qa-keyboard-help")).not.toContainText("keyboard viewer");
     await page.locator(".qa-keyboard-help-open").click();
-    await expect(page.locator(".qa-keyboard-step").first()).toHaveClass(/qa-keyboard-ios/);
+    await expect(page.locator(".qa-keyboard-step")).toHaveCount(4);
+    await expect(page.locator(".qa-keyboard-step").first()).toHaveClass(/qa-keyboard-ios qa-keyboard-yours/);
+    await expect(page.locator(".qa-keyboard-yours")).toHaveCount(1);
+    await expect(page.locator(".qa-keyboard-step").nth(1)).toHaveClass(/qa-keyboard-android/);
+    await expect(page.locator(".qa-keyboard-step").nth(2)).toHaveClass(/qa-keyboard-mac/);
   });
 });
 

@@ -13,7 +13,7 @@ export function ReviewButton(props: { lang: Language; count: number; onNotebook?
         <span aria-hidden="true">🏋️‍♀️</span> {t("home.review")} <span class="qa-review-count badge text-bg-light">{props.count}</span>
       </button>
       <Popup open={open()} onClose={() => setOpen(false)} title={t("home.reviewIntroTitle")} class="qa-review-popup"
-        closeLabel={t("quiz.dismiss")} centerFooter
+        centerFooter
         footer={<A href={`/${props.lang}/type/review`} class="qa-review-go btn btn-primary"><span aria-hidden="true">▶</span> {t("popup.letsGo")}</A>}>
         <ul class="mb-0 d-flex flex-column gap-2">
           <li>{t("home.reviewIntro1")}</li>

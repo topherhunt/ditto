@@ -362,8 +362,8 @@ export const LanguageRequestSchema = z.strictObject({ spoken: z.enum(REQUEST_LAN
 /** Requests per language pair, most asked first. */
 export type AdminLanguageRequestsOut = { spoken: RequestLanguage; wanted: RequestLanguage; count: number; lastDay: string }[];
 
-/** `learning`: empty only until a new learner picks a language. */
-export type Me = { email: string; username: string | null; profilePublic: boolean; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
+/** `learning`: empty only until a new learner picks a language. `installHintDismissed`: they closed the dashboard's add-to-home-screen alert for good. */
+export type Me = { email: string; username: string | null; profilePublic: boolean; installHintDismissed: boolean; locale: Locale; learning: Language[]; prefs: Record<Language, Prefs>; admin: boolean };
 /** `poc`: the pronunciation proof-of-concept recorder is on (development only). `speak`: conversation mode is configured. */
 /** `quiz`: the languages with quiz decks. `dailySpendCap`: each learner's free AI credit per UTC day, in USD. */
 export type Config = { googleClientId: string | null; devLogin: boolean; poc: boolean; speak: boolean; quiz: Language[]; dailySpendCap: number };

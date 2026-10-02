@@ -193,7 +193,7 @@ export function createApp(deps: AppDeps) {
   app.get("/api/me", (c) => {
     const u = c.get("user");
     return c.json<Me>({
-      email: u.email, username: u.username, profilePublic: u.profilePublic, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
+      email: u.email, username: u.username, profilePublic: u.profilePublic, installHintDismissed: u.installHintDismissed, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
     });
   });
 
@@ -227,6 +227,11 @@ export function createApp(deps: AppDeps) {
   app.put("/api/profile-visibility", async (c) => {
     const { public: open } = PutProfileVisibilitySchema.parse(await c.req.json());
     db.prepare("UPDATE users SET profile_public = ? WHERE id = ?").run(Number(open), c.get("user").id);
+    return c.json({ ok: true });
+  });
+
+  app.post("/api/install-hint/dismiss", (c) => {
+    db.prepare("UPDATE users SET install_hint_dismissed = 1 WHERE id = ?").run(c.get("user").id);
     return c.json({ ok: true });
   });
 

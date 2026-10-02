@@ -24,8 +24,19 @@
 .mx-n3 { margin-inline: -1rem; }
 .mt-n2 { margin-top: -.5rem; }
 
+/* Dashboard coach: on a phone the button sits bottom left and the level note bottom right; wider, the button moves up beside the tip. */
+.coach-grid { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "text text" "go level"; align-items: center; gap: 1rem; }
+.coach-text { grid-area: text; }
+.coach-go { grid-area: go; justify-self: start; }
+.coach-level { grid-area: level; justify-self: end; }
+@media (min-width: 550px) {
+  .coach-grid { grid-template-areas: "text go" "level level"; }
+  .coach-go { justify-self: end; }
+}
+
 /* A native <dialog> centered in the viewport, never wider than a phone. */
 .qa-popup { width: min(92vw, 28rem); max-width: none; background: var(--bs-body-bg); }
+.qa-popup:focus { outline: none; }
 .qa-popup::backdrop { background: rgb(0 0 0 / .55); }
 
 .font-mono { font-family: var(--bs-font-monospace); }

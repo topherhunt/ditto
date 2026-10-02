@@ -105,7 +105,7 @@ export function Welcome() {
                 <LearnPicker locale={ownLocale()}chosen={learning()} onChoose={(l) => { rememberLanguage(l); setPicked(l); }} />
               </div>
               <div>
-                <h2 class="h6">
+                <h2 class="h6 text-center">
                   <Show when={learning()} fallback={t("welcome.signInReturning")}>
                     {(l) => t("welcome.signInToStart", { language: languageInSentence(l()) })}
                   </Show>

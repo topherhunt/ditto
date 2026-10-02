@@ -1,8 +1,6 @@
 ### Now
 
 - [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
-- [ ] Improving the UI
-  - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
 - Friends list: should show basic stats about each friend. # stars, etc.
 - When you go to a friend's profile and and then click to do an activity they've done or accept a challenge they've done or whatever, and you do it, it should send them a notification indicating that you've done an activity they also did. Clicking it links to a page comparing all activities you've both done (ordered by recency) with time & scores for each. (This notification type should be "idempotent" per friend, so if they do 12 activities since you last checked, you only see 1 notification saying "X did N activitiies you also did" or sth like that -- rather than 12 different notifications.)
 - Friends section on the dashboard, below "Ways to practice".

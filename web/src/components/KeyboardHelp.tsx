@@ -6,11 +6,11 @@ import { Popup } from "./Popup.tsx";
 
 type Platform = "ios" | "android" | "mac" | "windows";
 
-const STEPS: Record<Platform, { name: string; steps: Key }> = {
-  ios: { name: "iPhone / iPad", steps: "help.keyboard.ios" },
-  android: { name: "Android", steps: "help.keyboard.android" },
-  mac: { name: "Mac", steps: "help.keyboard.mac" },
-  windows: { name: "Windows", steps: "help.keyboard.windows" },
+const STEPS: Record<Platform, { name: string; icon: string; steps: Key }> = {
+  ios: { icon: "apple", name: "iPhone / iPad", steps: "help.keyboard.ios" },
+  android: { icon: "android", name: "Android", steps: "help.keyboard.android" },
+  mac: { icon: "apple", name: "MacOS", steps: "help.keyboard.mac" },
+  windows: { icon: "windows", name: "Windows", steps: "help.keyboard.windows" },
 };
 
 /** An iPad in desktop mode reports a Mac user agent, so touch points tell them apart. */
@@ -26,7 +26,8 @@ export function KeyboardHelp(props: { lang: Language }) {
   const [open, setOpen] = createSignal(false);
   const platform = detectPlatform();
   const mobile = platform === "ios" || platform === "android";
-  const order = [platform, ...(Object.keys(STEPS) as Platform[]).filter((p) => p !== platform)];
+  /** The learner's own device first, then the rest with phones before computers on a phone and the reverse on a computer. */
+  const order = [platform, ...(mobile ? ["ios", "android", "mac", "windows"] as const : ["mac", "windows", "ios", "android"] as const).filter((p) => p !== platform)];
   const language = () => languageInSentence(props.lang);
   return (
     <>
@@ -36,8 +37,8 @@ export function KeyboardHelp(props: { lang: Language }) {
         footer={<button type="button" class="qa-keyboard-popup-close btn btn-primary" onClick={() => setOpen(false)}>{t("help.gotIt")}</button>}>
         <div class="d-flex flex-column gap-3">
           <For each={order}>{(p) => (
-            <div class={`qa-keyboard-step qa-keyboard-${p}`}>
-              <h3 class="h6 mb-1">{STEPS[p].name}</h3>
+            <div class={`qa-keyboard-step qa-keyboard-${p}`} classList={{ "qa-keyboard-yours border border-primary rounded-3 p-2": p === platform }}>
+              <h3 class="h6 mb-1"><i class={`bi bi-${STEPS[p].icon} me-2`} aria-hidden="true" />{STEPS[p].name}</h3>
               <p class="mb-0">{t(STEPS[p].steps, { language: language() })}</p>
             </div>
           )}</For>
