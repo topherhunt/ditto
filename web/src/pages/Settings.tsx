@@ -1,4 +1,4 @@
-import { useNavigate } from "@solidjs/router";
+import { A, useNavigate } from "@solidjs/router";
 import { createSignal, For, onCleanup, Show } from "solid-js";
 import { immersible } from "../../../shared/api.ts";
 import { LANGUAGES, NATIVE_LOCALES, type Language, type Locale } from "../../../shared/content.ts";
@@ -39,6 +39,7 @@ export function Settings() {
           </div>
           <div class="form-text">{t("settings.profilePublicHint")}</div>
         </div>
+        <div><A href="/about/home-screen" class="qa-settings-install"><i class="bi bi-phone me-1" aria-hidden="true" />{t("install.title")}</A></div>
         <ThemePicker />
         <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={() => navigate(`/${homeLanguage(me()!.learning)}`)} />
         <Status />

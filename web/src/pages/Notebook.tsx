@@ -8,6 +8,7 @@ import { ReviewButton } from "../components/ReviewButton.tsx";
 import { ScrollUpButton } from "../components/ScrollButtons.tsx";
 import { TypeCrumb } from "../components/TypeCrumb.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
+import { nextLesson } from "../curriculum.ts";
 import { categoryName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
 
@@ -82,7 +83,7 @@ export function Notebook() {
       <TypeCrumb lang={lang()} />
       <div class="d-flex align-items-center gap-2">
         <h1 class="h4 mb-0 me-auto">{t("notebook.title")}</h1>
-        <Show when={catalog()}>{(cat) => <ReviewButton lang={lang()} count={cat().reviewCount} onNotebook />}</Show>
+        <Show when={catalog()}>{(cat) => <ReviewButton lang={lang()} count={cat().reviewCount} next={nextLesson(cat())} onNotebook />}</Show>
       </div>
       <p class="small text-body-secondary mb-0">{t("notebook.rule")}</p>
       <Show when={entries()}>

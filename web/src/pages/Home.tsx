@@ -40,7 +40,7 @@ export function Home() {
             </Show>
             {/* A first-timer sees just the way in; these fill up once they practice. */}
             <Show when={!fresh()}>
-              <ReviewButton lang={lang()} count={cat().reviewCount} />
+              <ReviewButton lang={lang()} count={cat().reviewCount} next={nextLesson(cat())} />
             </Show>
           </div>
           <For each={levels(cat())} fallback={<p class="text-body-secondary">{t("home.noCourses")}</p>}>

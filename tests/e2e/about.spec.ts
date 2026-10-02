@@ -8,7 +8,7 @@ test("the About page shows usage tips in two columns, then the credits with link
   await expect(page).toHaveURL(/\/about$/);
 
   await expect(page.locator(".qa-about-tips")).toHaveCount(2);
-  await expect(page.locator(".qa-about-tips li")).toHaveCount(13);
+  await expect(page.locator(".qa-about-tips li")).toHaveCount(14);
   await expect(page.locator(".qa-about-made-by")).toHaveText("Made with 💙 by Topher Hunt");
   await expect(page.locator(".qa-about-github")).toHaveAttribute("href", "https://github.com/topherhunt/ditto");
   await expect(page.locator(".qa-about-abair a")).toHaveAttribute("href", "https://abair.ie");

@@ -184,6 +184,18 @@ test("Review explains itself first, links to the notebook, and serves the notebo
   await expect(page.locator(".qa-position")).toHaveText("1 / 1");
 });
 
+test("Review with nothing due says so in green and links to the next lesson instead of Let's go", async ({ page }) => {
+  await signIn(page, "intro2@example.com");
+  await completeLesson(page, "it-a1-bar-1");
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-review-count")).toHaveText("0");
+  await page.locator(".qa-review-link").click();
+  await expect(page.locator(".qa-review-popup .qa-review-nothing")).toContainText("Nothing to review");
+  await expect(page.locator(".qa-review-go")).toHaveCount(0);
+  await page.locator(".qa-review-next-lesson").click();
+  await expect(page).toHaveURL(/\/it\/type\/lesson\//);
+});
+
 test("a finished course folds to its title, and opens on click", async ({ page }) => {
   await signIn(page, "folds1@example.com");
   await completeLesson(page, "it-a1-bar-1");

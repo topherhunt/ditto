@@ -43,7 +43,7 @@ render(
     <Router root={Layout}>
       <Route path="/" component={Welcome} />
       <Route path="/about" component={About} />
-      <Route path="/add-to-home" component={AddToHome} />
+      <Route path="/about/home-screen" component={AddToHome} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/cap" component={CapReached} />

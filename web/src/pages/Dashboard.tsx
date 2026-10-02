@@ -191,7 +191,7 @@ function InstallHint() {
   return (
     <div class="qa-install-hint alert alert-info d-flex flex-wrap align-items-center gap-2 mb-0" role="alert">
       <span class="me-auto">{t("install.alert")}</span>
-      <A href="/add-to-home" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>
+      <A href="/about/home-screen" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>
       <button type="button" class="qa-install-hint-dismiss btn-close" aria-label={t("install.dismiss")} onClick={() => void dismiss()} />
       <Show when={error()}>{(m) => <div class="text-danger small w-100">{m()}</div>}</Show>
     </div>

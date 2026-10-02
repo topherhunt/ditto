@@ -1,7 +1,9 @@
-import { For } from "solid-js";
+import { A } from "@solidjs/router";
+import { For, Show } from "solid-js";
 import { EmojiLine } from "../components/EmojiLine.tsx";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
+import { me } from "../session.ts";
 
 const COLUMNS: { heading: Key; tips: Key[] }[] = [
   { heading: "about.exerciseHeading", tips: ["about.tipListen", "about.tipSlow", "about.tipVoices", "about.tipHints", "about.tipWords", "about.tipWhy", "about.tipAloud"] },
@@ -19,6 +21,12 @@ export function About() {
               <h2 class="h6 text-body-secondary text-uppercase">{t(col.heading)}</h2>
               <ul class="qa-about-tips list-unstyled d-flex flex-column gap-2 mb-0">
                 <For each={col.tips}>{(tip) => <EmojiLine text={t(tip)} />}</For>
+                <Show when={col.heading === "about.habitsHeading" && me()}>
+                  <li class="qa-about-install d-flex gap-2">
+                    <span aria-hidden="true">📲</span>
+                    <span>{t("about.tipInstall")} <A href="/about/home-screen" class="qa-about-install-link">{t("install.show")}</A></span>
+                  </li>
+                </Show>
               </ul>
             </div>
           )}

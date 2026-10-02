@@ -11,7 +11,7 @@ test.describe("on iOS Safari", () => {
     await expect(page.locator(".qa-install-hint")).toBeVisible();
 
     await page.locator(".qa-install-hint-show").click();
-    await expect(page).toHaveURL(/\/add-to-home$/);
+    await expect(page).toHaveURL(/\/about\/home-screen$/);
     await expect(page.locator(".qa-install-not-ios")).toHaveCount(0);
     await expect(page.locator(".qa-install-back")).toBeDisabled();
     for (const n of [1, 2, 3, 4]) {
@@ -48,6 +48,22 @@ test("the dashboard shows no install alert outside iOS Safari, and the guide say
   await signIn(page, "install3@example.com");
   await expect(page.locator(".qa-dash-title")).toBeVisible();
   await expect(page.locator(".qa-install-hint")).toHaveCount(0);
-  await page.goto("/add-to-home");
+  await page.goto("/about/home-screen");
+  await expect(page.locator(".qa-install-not-ios")).toBeVisible();
+});
+
+test("the guide opens from the About tips and from Settings, on any browser and after the alert was dismissed", async ({ page }) => {
+  await signIn(page, "install4@example.com");
+  expect((await page.request.post("/api/install-hint/dismiss", { data: {} })).ok()).toBe(true);
+
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-about").click();
+  await page.locator(".qa-about-install-link").click();
+  await expect(page).toHaveURL(/\/about\/home-screen$/);
+  await expect(page.locator(".qa-install-progress")).toHaveText("Step 1 of 4");
+
+  await page.goto("/settings");
+  await page.locator(".qa-settings-install").click();
+  await expect(page).toHaveURL(/\/about\/home-screen$/);
   await expect(page.locator(".qa-install-not-ios")).toBeVisible();
 });
