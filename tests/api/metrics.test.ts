@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { AdminMetricsOut } from "../../shared/api.ts";
+import type { AdminExploreOut, AdminMetricsOut, AdminTodayOut } from "../../shared/api.ts";
 import { rollUpMetrics } from "../../server/metrics.ts";
 import { setup } from "./helpers.ts";
 
@@ -90,5 +90,83 @@ describe("usage metrics", () => {
     const after = await metrics(t);
     expect(after.activities).toEqual(before.activities);
     expect(after.days.map((d) => [d.activeUsers, d.engagedMinutes])).toEqual(before.days.map((d) => [d.activeUsers, d.engagedMinutes]));
+  });
+
+  it("snapshots a window by activity, language and learner, counting as engaged only learners with 2 minutes on one day", async () => {
+    const t = setup();
+    await t.login("a@example.com");
+    await ping(t, "lesson", "it", 60);
+    await ping(t, "lesson", "it", 60);
+    await ping(t, "talk", "it", 30);
+    await t.login("b@example.com");
+    await ping(t, "quiz-study", "it", 60);
+    t.clock.now = new Date("2026-09-02T10:00:00Z");
+    await ping(t, "talk", "it", 30);
+    await t.login("admin@example.com");
+    expect((await t.req("GET", "/api/admin/metrics/today?range=bogus")).status).toBe(400);
+
+    const day1 = (await t.req("GET", "/api/admin/metrics/today?range=yesterday")).json as AdminTodayOut;
+    expect(day1).toMatchObject({ from: "2026-09-01", to: "2026-09-01", minSeconds: 120, engagedLearners: 1, otherLearners: 1 });
+    expect(day1.rows.map((r) => [r.activity, r.language, r.seconds])).toEqual([["lesson", "it", 120], ["quiz-study", "it", 60], ["talk", "it", 30]]);
+    expect(Object.keys(day1.rows[0]).sort()).toEqual(["activity", "language", "learner", "seconds", "username"]);
+
+    const week = (await t.req("GET", "/api/admin/metrics/today?range=7")).json as AdminTodayOut;
+    expect(week).toMatchObject({ from: "2026-08-27", to: "2026-09-02", engagedLearners: 1, otherLearners: 1 });
+    expect(week.rows.reduce((n, r) => n + r.seconds, 0)).toBe(240);
+  });
+
+  it("explores minutes by area per day or week, filters, folds extra series into other, and refuses unknown learners", async () => {
+    const t = setup();
+    await t.login("a@example.com");
+    await ping(t, "lesson", "it", 60);
+    await ping(t, "notebook", "it", 60);
+    await ping(t, "talk", "es", 30);
+    const a = (t.deps.db.prepare("SELECT public_id AS id FROM users WHERE email = 'a@example.com'").get() as { id: string }).id;
+    await t.login("b@example.com");
+    await ping(t, "quiz-test", "it", 60);
+    await ping(t, "quiz-test", "it", 30);
+    t.clock.now = new Date("2026-09-08T10:00:00Z");
+    await ping(t, "talk", "it", 30);
+    await t.login("admin@example.com");
+    const explore = async (query: string) => (await t.req("GET", `/api/admin/metrics/explore?${query}`)).json as AdminExploreOut;
+
+    const byArea = await explore("days=30&by=area");
+    expect(byArea.buckets).toHaveLength(30);
+    const at = (r: AdminExploreOut, key: string) => r.series.find((s) => s.key === key)!;
+    expect(byArea.series.map((s) => [s.key, s.total])).toEqual([["type", 2], ["quiz", 1.5], ["talk", 1]]);
+    expect(at(byArea, "type").values[byArea.buckets.indexOf("2026-09-01")]).toBe(2);
+
+    const weekly = await explore("days=30&by=none&grain=week");
+    expect(weekly.buckets).toEqual(["2026-08-10", "2026-08-17", "2026-08-24", "2026-08-31", "2026-09-07"]);
+    expect(weekly.series).toEqual([{ key: "all", label: "all", total: 4.5, values: [0, 0, 0, 4, 0.5] }]);
+
+    const learners = await explore("by=none&metric=learners&grain=week");
+    expect(learners.series[0].total).toBe(2);
+    expect(learners.series[0].values.slice(-2)).toEqual([2, 1]);
+    const perLearner = await explore("by=none&metric=perLearner&grain=week");
+    expect(perLearner.series[0].values.slice(-2)).toEqual([2, 0.5]);
+
+    const filtered = await explore(`by=learner&area=type&language=it&learner=${a}`);
+    expect(filtered.learner).toEqual({ publicId: a, username: null });
+    expect(filtered.series.map((s) => [s.key, s.total])).toEqual([[a, 2]]);
+
+    const byLanguage = await explore("by=language");
+    expect(byLanguage.series.map((s) => s.key)).toEqual(["it", "es"]);
+    expect(byLanguage.series.every((s) => s.label === s.key)).toBe(true);
+
+    t.deps.db.prepare("DELETE FROM engaged_time").run();
+    t.deps.db.prepare("INSERT INTO engaged_time (user_id, day, language, activity, seconds) SELECT id, '2026-09-01', 'it', 'lesson', 60 FROM users").run();
+    for (const [i, activity] of ["home", "review", "talk", "quiz-study", "social", "mistakes", "settings", "other", "notebook"].entries()) {
+      t.deps.db.prepare("INSERT INTO engaged_time (user_id, day, language, activity, seconds) VALUES (1, '2026-09-02', ?, ?, ?)").run("it", activity, 10 + i);
+    }
+    const folded = await explore("by=activity");
+    expect(folded.series).toHaveLength(7);
+    expect(folded.series.at(-1)).toMatchObject({ key: "other", label: "Other" });
+
+    expect((await t.req("GET", "/api/admin/metrics/explore?learner=nope")).status).toBe(404);
+    expect((await t.req("GET", "/api/admin/metrics/explore?by=email")).status).toBe(400);
+    await t.login("a@example.com");
+    expect((await t.req("GET", "/api/admin/metrics/explore")).status).toBe(403);
+    expect((await t.req("GET", "/api/admin/metrics/today")).status).toBe(403);
   });
 });

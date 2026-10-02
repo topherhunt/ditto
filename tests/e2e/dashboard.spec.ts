@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { signIn } from "./helpers.ts";
+import { setLearning, signIn } from "./helpers.ts";
 
 test("a new learner's dashboard coaches the first lesson, and practicing shows on the calendar and streak", async ({ page }) => {
   await signIn(page, "dash1@example.com");
@@ -79,6 +79,57 @@ test("an activity's help opens by itself on a first visit, stays closed once dis
   await page.locator(".qa-nav-quiz").click();
   await expect(page.locator(".qa-activity-title")).toHaveText("Quiz");
   await expect(page.locator(".qa-help")).toBeVisible();
+});
+
+test("dismissing an activity's help is saved per course, so a new course shows it again", async ({ page }) => {
+  await signIn(page, "dash6@example.com");
+  await setLearning(page, ["it", "nl"]);
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-help")).toBeVisible();
+  await page.locator(".qa-help-close").click();
+  await expect(page.locator(".qa-help")).toHaveCount(0);
+  await page.evaluate(() => localStorage.clear());
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-activity-title")).toBeVisible();
+  await expect(page.locator(".qa-help")).toHaveCount(0);
+  const me = await (await page.request.get("/api/me")).json();
+  expect(me.prefs.it.helpSeen).toEqual(["type"]);
+  expect(me.prefs.nl.helpSeen).toEqual([]);
+
+  await page.goto("/nl/type");
+  await expect(page.locator(".qa-help")).toBeVisible();
+});
+
+test("a course in another alphabet adds a keyboard tip to the typing help, with steps for each device in a popup", async ({ page }) => {
+  await signIn(page, "dash7@example.com");
+  await setLearning(page, ["it", "el"]);
+  await page.goto("/it/type");
+  await expect(page.locator(".qa-help li")).toHaveCount(4);
+  await expect(page.locator(".qa-keyboard-help")).toHaveCount(0);
+
+  await page.goto("/el/type");
+  await expect(page.locator(".qa-help li")).toHaveCount(5);
+  await expect(page.locator(".qa-keyboard-help")).toContainText("Different alphabet?");
+  await expect(page.locator(".qa-keyboard-help")).toContainText("keyboard viewer");
+  await page.locator(".qa-keyboard-help-open").click();
+  await expect(page.locator(".qa-keyboard-popup")).toBeVisible();
+  for (const device of ["ios", "android", "mac", "windows"]) await expect(page.locator(`.qa-keyboard-${device}`)).toContainText("Greek");
+  await page.locator(".qa-keyboard-popup-close").click();
+  await expect(page.locator(".qa-keyboard-popup")).toBeHidden();
+});
+
+test.describe("on a phone", () => {
+  test.use({ userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1" });
+
+  test("the keyboard tip says to switch keyboards in settings, and the iPhone steps come first", async ({ page }) => {
+    await signIn(page, "dash8@example.com");
+    await setLearning(page, ["it", "el"]);
+    await page.goto("/el/type");
+    await expect(page.locator(".qa-keyboard-help")).toContainText("in your phone's settings");
+    await expect(page.locator(".qa-keyboard-help")).not.toContainText("keyboard viewer");
+    await page.locator(".qa-keyboard-help-open").click();
+    await expect(page.locator(".qa-keyboard-step").first()).toHaveClass(/qa-keyboard-ios/);
+  });
 });
 
 test("the dashboard's language menu starts another language, asks its level, and switches back", async ({ page }) => {

@@ -8,6 +8,10 @@ export type Mode = (typeof MODES)[number];
 export const LEARNER_LEVELS = ["A1", "A2", "B1", "B2"] as const;
 export type LearnerLevel = (typeof LEARNER_LEVELS)[number];
 
+/** The activities whose "how it works" panel a learner can dismiss. */
+export const HELP_TOPICS = ["type", "talk", "quiz"] as const;
+export type HelpTopic = (typeof HELP_TOPICS)[number];
+
 export const PrefsSchema = z.strictObject({
   path: z.enum(Object.keys(PATHS) as [keyof typeof PATHS]),
   hints: z.enum(HINT_LEVELS),
@@ -19,9 +23,11 @@ export const PrefsSchema = z.strictObject({
   immerseHelp: z.boolean(),
   /** The first time a learner meets an item, show and say it (with its translation) before asking them to type it. */
   studyFirst: z.boolean(),
+  /** Activities whose help panel the learner has dismissed in this course, so it stops opening by itself. */
+  helpSeen: z.array(z.enum(HELP_TOPICS)),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false };
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false, helpSeen: [] };
 
 /** Whether a course can be immersed in: the app and the AI write only in a locale. */
 export const immersible = (l: Language) => languageLocale(l) !== null;
@@ -282,6 +288,17 @@ export const ACTIVITIES = [
   "home", "lesson", "review", "mistakes", "level-test", "notebook", "talk", "quiz-study", "quiz-test", "quiz-decks", "social", "settings", "other",
 ] as const;
 export type Activity = (typeof ACTIVITIES)[number];
+/** The three parts of the app (Type, Talk, Quiz) plus everything else, as /admin/metrics groups activities. */
+export const AREAS = ["type", "talk", "quiz", "other"] as const;
+export type Area = (typeof AREAS)[number];
+export const ACTIVITY_AREAS: Record<Activity, Area> = {
+  lesson: "type", review: "type", mistakes: "type", "level-test": "type", notebook: "type",
+  talk: "talk",
+  "quiz-study": "quiz", "quiz-test": "quiz", "quiz-decks": "quiz",
+  home: "other", social: "other", settings: "other", other: "other",
+};
+/** A learner counts as "actively engaged" on /admin/metrics when they have at least this much engaged time on one UTC day. */
+export const ACTIVE_MIN_SECONDS = 120;
 /** Seconds of engaged time the client reports at once; the server refuses more. */
 export const ENGAGED_MAX_SECONDS = 60;
 export const EngagedSchema = z.strictObject({
@@ -301,6 +318,31 @@ export type AdminMetricsOut = {
   activities: { activity: Activity; language: Language | null; learnerDays: number; minutes: number }[];
   routes: { route: string; requests: number; errors4xx: number; errors5xx: number; p95: (typeof LATENCY_BUCKETS)[number] }[];
   hours: { hour: string; requests: number; errors5xx: number; peakConcurrent: number }[];
+};
+
+/**
+ * /admin/metrics/today: engaged time over a window of whole UTC days, `from` to `to`, one row per learner, activity and language.
+ * `engagedLearners` had at least `minSeconds` on some single day of the window; `otherLearners` were present for less.
+ */
+export type AdminTodayOut = {
+  from: string; to: string; minSeconds: number; engagedLearners: number; otherLearners: number;
+  rows: { activity: Activity; language: Language | null; learner: string; username: string | null; seconds: number }[];
+};
+
+export const EXPLORE_GRAINS = ["day", "week"] as const;
+export const EXPLORE_GROUPS = ["none", "area", "activity", "language", "learner"] as const;
+export const EXPLORE_METRICS = ["minutes", "learners", "perLearner"] as const;
+export type ExploreGroup = (typeof EXPLORE_GROUPS)[number];
+export type ExploreMetric = (typeof EXPLORE_METRICS)[number];
+/**
+ * /admin/metrics/explore: one value per bucket (a UTC day, or the UTC Monday that starts a week) for each series. `key` is the
+ * area, activity, language ('' for none), learner public id or 'all'; the bucket past the top series is 'other'. `total` is over the
+ * whole range, and `by` and `learner` echo the request.
+ */
+export type AdminExploreOut = {
+  by: ExploreGroup; buckets: string[];
+  series: { key: string; label: string; total: number; values: number[] }[];
+  learner: { publicId: string; username: string | null } | null;
 };
 
 /** What each tile on /admin counts. `spendMonthUsd`: AI spend over the last ADMIN_RECENT_DAYS. */

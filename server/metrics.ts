@@ -6,6 +6,7 @@ import type { Language } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { transaction, type DB } from "./db.ts";
+import { registerMetricsExplore } from "./metrics-explore.ts";
 
 // Usage metrics: what is kept and why is in docs/metrics.md.
 
@@ -99,6 +100,7 @@ export function rollUpMetrics(db: DB, now: Date) {
 
 export function registerMetrics(app: Hono<{ Variables: { user: User } }>, deps: AppDeps, traffic: ReturnType<typeof trafficCounter>) {
   const { db } = deps;
+  registerMetricsExplore(app, deps);
   /** Learners who reported engaged time in the current 5-minute window; a restart undercounts that window. */
   let window = { start: 0, users: new Set<number>() };
 

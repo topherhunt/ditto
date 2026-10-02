@@ -1,6 +1,6 @@
 # Usage metrics
 
-What Ditto measures about how it is used, why, and how the numbers answer product questions. It is also the source for the usage section of the privacy policy (`web/src/pages/Privacy.tsx`, obligations in [privacy.md](privacy.md)). Code: `server/metrics.ts`, `web/src/metrics.ts`, migration `023-metrics.sql`; report at `/admin/metrics` (account menu > Admin > Metrics, admins only).
+What Ditto measures about how it is used, why, and how the numbers answer product questions. It is also the source for the usage section of the privacy policy (`web/src/pages/Privacy.tsx`, obligations in [privacy.md](privacy.md)). Code: `server/metrics.ts`, `server/metrics-explore.ts`, `web/src/metrics.ts`, migration `023-metrics.sql`; report at `/admin/metrics` (account menu > Admin > Metrics, admins only).
 
 ## Principle
 
@@ -19,6 +19,12 @@ Collect the least that answers a question we actually have, as aggregates, never
 **Engaged time** counts only while a page is visible and the learner pressed a key, clicked, tapped or scrolled within the last minute, so a tab left open overnight adds nothing. The browser counts 5-second ticks and reports them every 30 seconds, on leaving the page and on hiding the tab; the server refuses more than 60 seconds per report. A report carries only the activity name (from the route: `home`, `lesson`, `review`, `level-test`, `notebook`, `talk`, `quiz-study`, `quiz-test`, `quiz-decks`, `social`, `settings`, `other`; `ACTIVITIES` in `shared/api.ts`), the course language and the seconds. Admin pages are not counted.
 
 **Not recorded:** URLs or ids of what was viewed, clicks, keystrokes, text, timestamps finer than the day, IP addresses, browser or device details, referrers, or location. Route patterns (`GET /api/lessons/:lessonId`) are stored, never real paths. Caddy keeps no access log.
+
+## Reading engaged time on /admin/metrics
+
+- **Who was here and what they did** (top of the page): for today, yesterday or the last 7 days, how many learners were actively engaged and where the time went, opening from area (Type, Talk, Quiz, other) into activity, language, then learner (username). "Actively engaged" means at least `ACTIVE_MIN_SECONDS` (2 minutes, `shared/api.ts`) of engaged time on one UTC day; the panel states the threshold, and learners under it still count toward the minutes. Areas are `ACTIVITY_AREAS`: Type is lesson, review, mistakes, level-test and notebook; Quiz is quiz-study, quiz-test and quiz-decks.
+- **Explore engaged time**: a day or week chart (7, 30 or 90 days) of minutes, active learners or minutes per learner, split by nothing, area, activity, language or learner, with filters. Tapping a series filters to it and splits what is left by the next dimension. Past 7 series the smallest fold into "other". Minutes stack; the other two metrics are lines, since a learner in two series would be counted twice in a stack.
+- Both read `engaged_time` only, so they reach back `METRICS_KEEP_DAYS` days and no further. If a longer range is ever added, it can't split by learner.
 
 ## Retention
 

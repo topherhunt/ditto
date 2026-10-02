@@ -3,15 +3,12 @@
 - [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - [ ] Improving the UI
   - [ ] Add an "Install to home screen" guidance page - walk users through how to install the icon on their phone. Is there a prompt API for this?
-  - [ ] Improve the "Engaged time by activity" To ensure it answers the questions that I need answered. For example, which activities type versus talk versus quiz?
-    - [ ] How many peolpe were ACTIVELY ENGAGED today?
-    - [ ] What were they working on? Time spent total per activity, drill dow n
-- \[ \]
-
-### Wishlist
-
-- Quizzer: talk through w Claude how to make the difficulty buttons less painful to use. What if we reduce it to just easy/hard? Or,  Is there any way we could remove this entirely, and use time as a proxy, or use repeated correctness as a proxy for easy? Or maybe replace it with a 1/4-col "Hard", 1/2-col "OK", and 1/4-col "Easy"?
-- Currently, it feels like I've done very in-depth thinking about the UI and polish and mechanics of the type activity, but not so much about the incentives and motivation and reward stars and review mechanics for the talk or quiz activities. I should do a deep dive on those as well. Also, not just incentives and stars and rewards, but also noting mistakes and review and kind of collecting things to coach you on and support you on. Ideally, there should be a pool of items to review that's shared between different activities, but at the very least, each activity should have ways of tracking what you need reviewing. 
+- Friends list: should show basic stats about each friend. # stars, etc.
+- When you go to a friend's profile and and then click to do an activity they've done or accept a challenge they've done or whatever, and you do it, it should send them a notification indicating that you've done an activity they also did. Clicking it links to a page comparing all activities you've both done (ordered by recency) with time & scores for each. (This notification type should be "idempotent" per friend, so if they do 12 activities since you last checked, you only see 1 notification saying "X did N activitiies you also did" or sth like that -- rather than 12 different notifications.)
+- Friends section on the dashboard, below "Ways to practice".
+- Talk activity: "Past conversations" title should be renamed to "Continue a past conversation" to emphasize that this is actionable.
+- Quizzer: talk through w Claude how to make the difficulty buttons less painful to use. What if we reduce it to just easy/hard? Or, Is there any way we could remove this entirely, and use time as a proxy, or use repeated correctness as a proxy for easy? Or maybe replace it with a 1/4-col "Hard", 1/2-col "OK", and 1/4-col "Easy"?
+- Currently, it feels like I've done very in-depth thinking about the UI and polish and mechanics of the type activity, but not so much about the incentives and motivation and reward stars and review mechanics for the talk or quiz activities. I should do a deep dive on those as well. Also, not just incentives and stars and rewards, but also noting mistakes and review and kind of collecting things to coach you on and support you on. Ideally, there should be a pool of items to review that's shared between different activities, but at the very least, each activity should have ways of tracking what you need reviewing.
 - The talk activity currently lets you just pick your level. It doesn't give you any guidance on how to pick your level or what you should be considering when you choose one or what are the implications of choosing one. I feel like the coach should recommend one for you and maybe even set a default for you based on your recent activity and what you've done in this talking app in the past and what you've done in other apps in the past.
 - First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way.
 - Put something about friends on the dashboard to nudge people to connect and find friends.
@@ -45,4 +42,4 @@
 - Find nicer `wrong` sound that's gentler on the ears. Search the marimba sound effects.
 - [ ] separate mode for pronunciation coach. Words, then sentences, very precisely.
 - Set up email sending. For user welcome email / accounin-app notifications
-- [ ] Once the dollar spend cap is verified in production, drop the unused `explain_usage` table with a migration.
+- [ ] Once the dollar spend cap is verified in production, drop the unused `explain_usage` table with a migration.When you go to a friend's page and you do an activity they've done, it should send them a notification. 

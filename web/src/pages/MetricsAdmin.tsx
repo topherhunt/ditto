@@ -3,6 +3,8 @@ import { METRICS_KEEP_DAYS, type AdminLanguageRequestsOut, type AdminMetricsOut 
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
 import { AdminCrumb } from "../components/AdminCrumb.tsx";
+import { MetricsExplore } from "../components/MetricsExplore.tsx";
+import { MetricsToday } from "../components/MetricsToday.tsx";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries. What is collected and why: docs/metrics.md.
 
@@ -23,6 +25,8 @@ export function MetricsAdmin() {
           Per-learner rows become anonymous totals after {METRICS_KEEP_DAYS} days.
         </p>
       </div>
+      <MetricsToday />
+      <MetricsExplore />
       <section>
         <h2 class="h6 text-body-secondary text-uppercase">Language requests</h2>
         <p class="small text-body-secondary">Anonymous asks from the "Missing your language?" popup, all time. Each row is one pair of the language someone speaks best and the one they want to learn.</p>

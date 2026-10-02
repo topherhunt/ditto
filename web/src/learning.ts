@@ -1,4 +1,4 @@
-import type { LearnerLevel, Prefs } from "../../shared/api.ts";
+import type { HelpTopic, LearnerLevel, Prefs } from "../../shared/api.ts";
 import { LANGUAGES, SUPPORT_LOCALES, type Language, type Locale, type PracticePath } from "../../shared/content.ts";
 import { api } from "./api.ts";
 import { me, refetchMe } from "./session.ts";
@@ -30,6 +30,14 @@ const LEVEL_PATH: Record<LearnerLevel, PracticePath> = { A1: "full", A2: "full",
 export async function saveLevel(lang: Language, level: LearnerLevel) {
   const prefs: Prefs = { ...me()!.prefs[lang], level, path: LEVEL_PATH[level], studyFirst: level === "A1" };
   await api.put("/api/prefs", { language: lang, prefs });
+  await refetchMe();
+}
+
+/** Remembers that the learner dismissed an activity's help in this course, so it opens by itself only once per course. */
+export async function markHelpSeen(lang: Language, topic: HelpTopic) {
+  const prefs = me()!.prefs[lang];
+  if (prefs.helpSeen.includes(topic)) return;
+  await api.put("/api/prefs", { language: lang, prefs: { ...prefs, helpSeen: [...prefs.helpSeen, topic] } });
   await refetchMe();
 }
 
