@@ -8,6 +8,8 @@ import { loadContent } from "../../server/content.ts";
 import { openDb } from "../../server/db.ts";
 import { EXPLAIN_MODEL, type Explainer, type ExplainInput } from "../../server/explain.ts";
 import { tokenUsage } from "../../server/usage.ts";
+import { expect } from "vitest";
+import { recordHit } from "./route-coverage.ts";
 
 const root = join(import.meta.dirname, "../..");
 const content = loadContent(join(root, "tests/fixtures/content"), join(root, "content/audio"), { audio: "skip" });
@@ -53,6 +55,7 @@ export function setup(overrides: Partial<AppDeps> = {}) {
       headers: { host: "app.test", origin: ORIGIN, ...(body !== undefined ? { "content-type": "application/json" } : {}), ...(cookie ? { cookie } : {}), ...headers },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
+    recordHit(app, method, path, res.status, expect.getState().testPath);
     const set = res.headers.get("set-cookie");
     if (set) cookie = set.split(";")[0];
     // NDJSON streams come back as text.

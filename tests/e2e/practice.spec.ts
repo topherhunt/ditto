@@ -50,10 +50,10 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
 
   // "un caffè": the hint box grows with each press but never fills the slots; the learner types the answer.
   await page.locator(".qa-hint").click();
-  await expect(page.locator(".qa-hint-words")).toHaveText("u· caf··");
+  await expect(page.locator(".qa-hint-words span")).toHaveText(["u·", "caf··"]);
   await expect(slot(page, 0)).toHaveValue("");
   await page.locator(".qa-hint").click();
-  await expect(page.locator(".qa-hint-words")).toHaveText("un caffè");
+  await expect(page.locator(".qa-hint-words span")).toHaveText(["un", "caffè"]);
   await expect(slot(page, 0)).toHaveValue("");
   await expect(page.locator(".qa-hint")).toHaveCount(0);
   await slot(page, 0).fill("un");
@@ -292,7 +292,7 @@ test("review is empty for a new learner", async ({ page }) => {
   await expect(page.locator(".qa-review-link")).toHaveCount(0);
   await page.goto("/it/type/review");
   await expect(page.locator(".qa-session-done")).toContainText("Nothing to practice");
-  await page.locator(".qa-type-crumb").click();
+  await page.locator(".qa-back").click();
   await expect(page).toHaveURL(/\/it\/type$/);
 });
 

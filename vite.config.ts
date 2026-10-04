@@ -13,5 +13,6 @@ export default defineConfig({
     root: ".",
     environment: "node",
     include: ["tests/unit/**/*.test.ts", "tests/api/**/*.test.ts"],
+    globalSetup: ["tests/api/global-route-coverage.ts"],
   },
 });

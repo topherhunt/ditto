@@ -401,6 +401,22 @@ describe("leaderboard", () => {
     expect(JSON.stringify(b)).not.toContain("example.com");
   });
 
+  it("flags your friends on the board, and `?friends=1` drops public strangers but keeps your friends and you", async () => {
+    const t = setup();
+    await accounts(t, A, B, C);
+    await befriend(t, A, B);
+    for (const email of [B, C, A]) {
+      await t.login(email);
+      await completeBar1(t);
+    }
+    const flags = (rows: { person: { username: string }; isFriend: boolean }[]) => rows.map((r) => [r.person.username, r.isFriend]);
+    const all = (await t.req("GET", "/api/leaderboard")).json;
+    expect(flags(all.rows).sort()).toEqual([["ana", false], ["bob", true], ["cyd", false]]);
+    expect(all.rows.find((r: { isMe: boolean }) => r.isMe).isFriend).toBe(false);
+    const friendsOnly = (await t.req("GET", "/api/leaderboard?friends=1")).json;
+    expect(flags(friendsOnly.rows).sort()).toEqual([["ana", false], ["bob", true]]);
+  });
+
   it("ranks you among your friends who practiced this week, and has no rank without friends or without practice", async () => {
     const t = setup();
     await accounts(t, A, B, C);

@@ -70,11 +70,15 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry-reported")).toBeVisible();
 
   // Space records and stops, even with a play button focused from a tap.
+  // Only the conversation's own audio counts: starting a recording sounds a cue by design.
+  const plays = () => page.evaluate(() => (window as unknown as { played: string[] }).played.filter((src) => src.includes("/audio/")).length);
   await page.locator(".qa-retry-play-target").click();
-  const plays = () => page.evaluate(() => (window as unknown as { played: string[] }).played.length);
+  // The tap plays a click sound, then the line's audio; wait for the audio so only a replay caused by Space itself would add one.
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/\/audio\/[^/]+\.wav$/);
   const before = await plays();
   await page.keyboard.press(" ");
   await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
+  await page.waitForTimeout(500);
   expect(await plays()).toBe(before);
   await page.waitForTimeout(300);
   await page.keyboard.press(" ");

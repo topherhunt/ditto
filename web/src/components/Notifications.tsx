@@ -9,6 +9,7 @@ import { routes } from "../routes.ts";
 const POLL_MS = 60_000;
 
 /** The bell in the navbar: unread count, and a dropdown of recent notifications that marks them read when opened. */
+/** The dashboard's second bell (`large`, for screens too narrow for the navbar one) carries no `qa-*` classes of the navbar bell, so tests keep one selector. */
 export function Notifications(props: { large?: boolean }) {
   const location = useLocation();
   // The bell is decorative, so a poll that can't reach the server (laptop just woke up) keeps the last data instead of erroring the whole layout.
@@ -46,18 +47,18 @@ export function Notifications(props: { large?: boolean }) {
 
   return (
     <div class="notify-wrap dropdown" ref={root}>
-      <button type="button" class="qa-notifications btn btn-outline-info position-relative" classList={{ "btn-sm": !props.large }} aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
+      <button type="button" class="btn btn-outline-info position-relative" classList={{ "btn-sm": !props.large, "qa-notifications": !props.large, "qa-notifications-xs": props.large }} aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
         <i class="bi bi-bell" aria-hidden="true" />
         <Show when={data() && data()!.unread > 0}>
-          <span class="qa-notifications-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">{data()!.unread}</span>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger" classList={{ "qa-notifications-count": !props.large, "qa-notifications-count-xs": props.large }}>{data()!.unread}</span>
         </Show>
       </button>
       <ul class="notify-menu dropdown-menu dropdown-menu-end" classList={{ show: open() }} data-bs-popper="static">
         <For each={data()?.items} fallback={<li class="dropdown-item-text text-body-secondary small">{t("notify.empty")}</li>}>
           {(n) => (
             <li>
-              <A href={n.kind === "friend_accepted" ? routes.person({ id: n.actor.id }) : routes.friends()} class="qa-notification dropdown-item text-wrap small"
-                classList={{ "fw-semibold": !n.read }} onClick={() => setOpen(false)}>
+              <A href={n.kind === "friend_accepted" ? routes.person({ id: n.actor.id }) : routes.friends()} class="dropdown-item text-wrap small"
+                classList={{ "fw-semibold": !n.read, "qa-notification": !props.large }} onClick={() => setOpen(false)}>
                 {notificationText(n)}
                 <div class="text-body-secondary">{shortDate(n.createdAt)}</div>
               </A>

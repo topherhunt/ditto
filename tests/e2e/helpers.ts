@@ -1,4 +1,4 @@
-import { expect, type Page } from "@playwright/test";
+import { expect, type ConsoleMessage, type Page, type Response } from "@playwright/test";
 import type { SampleIds } from "../route-samples.ts";
 
 /**
@@ -56,13 +56,36 @@ export async function createSampleIds(page: Page): Promise<SampleIds> {
 /** Master refuses to open until its lesson has been finished once; that error page still proves the route matched. */
 const EXPECTED_ERRORS: [path: RegExp, message: RegExp][] = [[/\/lesson\/[^/]+\/master$/, /once before you try Master/]];
 
-/** Opens `url` and fails if it lands on "Page not found" or on an error page the app doesn't deliberately show there. */
-export async function expectPageOpens(page: Page, url: string) {
-  await page.goto(url);
-  await expect(page.locator(".qa-user, .qa-error").first()).toBeVisible();
-  await expect(page.locator(".qa-not-found")).toHaveCount(0);
-  if (await page.locator(".qa-error").count() === 0) return;
-  const expected = EXPECTED_ERRORS.find(([path]) => path.test(new URL(url, "http://x").pathname));
-  expect(expected, `${url} shows an error page`).toBeDefined();
-  await expect(page.locator(".qa-error")).toContainText(expected![1]);
+/**
+ * Opens `url` and fails if it lands on "Page not found", on an error page the app doesn't deliberately show there, or, when
+ * `marker` is given, if the page never renders it. A spinner that never goes away, a failed `/api` call or a console error
+ * during the visit fails it too.
+ */
+export async function expectPageOpens(page: Page, url: string, marker?: string) {
+  const problems: string[] = [];
+  const onResponse = (res: Response) => {
+    if (res.url().includes("/api/") && res.status() >= 400) problems.push(`${res.request().method()} ${new URL(res.url()).pathname} -> ${res.status()}`);
+  };
+  const onConsole = (msg: ConsoleMessage) => {
+    if (msg.type() === "error" && !msg.text().startsWith("Failed to load resource")) problems.push(`console.error: ${msg.text()}`);
+  };
+  page.on("response", onResponse);
+  page.on("console", onConsole);
+  try {
+    await page.goto(url);
+    await expect(page.locator(".qa-user, .qa-error").first()).toBeVisible();
+    await expect(page.locator(".qa-not-found")).toHaveCount(0);
+    await expect(page.locator(".qa-loading"), `${url} is still loading`).toHaveCount(0);
+    if (await page.locator(".qa-error").count() > 0) {
+      const expected = EXPECTED_ERRORS.find(([path]) => path.test(new URL(url, "http://x").pathname));
+      expect(expected, `${url} shows an error page`).toBeDefined();
+      await expect(page.locator(".qa-error")).toContainText(expected![1]);
+    } else if (marker) {
+      await expect(page.locator(marker).first(), `${url} never rendered its content (${marker})`).toBeVisible();
+    }
+  } finally {
+    page.off("response", onResponse);
+    page.off("console", onConsole);
+  }
+  expect(problems, `${url} had failing requests or console errors`).toEqual([]);
 }

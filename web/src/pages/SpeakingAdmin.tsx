@@ -35,7 +35,7 @@ export function SpeakingAdmin() {
         <h2 class="h5">AI spend, last 30 days</h2>
         <Show when={spend()}>
           {(s) => (
-            <Show when={s().users.length} fallback={<p class="text-body-secondary">No spend.</p>}>
+            <Show when={s().users.length} fallback={<p class="qa-admin-spend-empty text-body-secondary">No spend.</p>}>
               <table class="table table-sm">
                 <thead><tr><th>User</th><th class="text-end">Total</th><th>By day (UTC)</th></tr></thead>
                 <tbody>

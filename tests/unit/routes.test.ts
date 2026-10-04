@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { routes } from "../../web/src/routes.ts";
-import { ROUTE_SAMPLES } from "../route-samples.ts";
+import { ROUTE_MARKERS, ROUTE_SAMPLES } from "../route-samples.ts";
 
 const helpers = Object.entries(routes);
 
@@ -39,6 +39,34 @@ describe("route helpers", () => {
       const regex = new RegExp(`^${route.pattern.replace(/:\w+/g, "[^/?]+")}$`);
       expect(ROUTE_SAMPLES[name as keyof typeof routes](ids).split("?")[0], name).toMatch(regex);
     }
+  });
+});
+
+const QA_CLASS = /qa-[a-z0-9-]*[a-z0-9]-?/g;
+const qaClasses = (text: string) => new Set(text.match(QA_CLASS) ?? []);
+
+describe("page coverage", () => {
+  it("gives every route a content marker that names qa classes the web app really renders", () => {
+    expect(Object.keys(ROUTE_MARKERS).sort()).toEqual(helpers.map(([name]) => name).sort());
+    const rendered = qaClasses(sourceFiles("web/src").map((f) => readFileSync(f, "utf8")).join("\n"));
+    for (const [name, selector] of Object.entries(ROUTE_MARKERS)) {
+      const classes = [...selector.matchAll(/\.(qa-[a-z0-9-]+)/g)].map((m) => m[1]);
+      expect(classes.length, `${name}: marker "${selector}" should be made of .qa-* classes`).toBeGreaterThan(0);
+      for (const c of classes) expect(rendered.has(c), `${name}: no web/src file renders ${c}`).toBe(true);
+    }
+  });
+
+  it("has at least two of each page's qa classes driven or asserted by an e2e spec beyond the 'every route renders' visit", () => {
+    const specs = readdirSync("tests/e2e").filter((f) => f.endsWith(".spec.ts") && f !== "routes.spec.ts")
+      .map((f) => readFileSync(join("tests/e2e", f), "utf8")).join("\n");
+    const used = [...qaClasses(specs)];
+    const thin = readdirSync("web/src/pages").filter((f) => f.endsWith(".tsx")).flatMap((f) => {
+      const own = [...qaClasses(readFileSync(join("web/src/pages", f), "utf8"))];
+      // A class ending in "-" is a prefix a template string completes (`qa-quiz-mode-${mode}`).
+      const covered = own.filter((c) => (c.endsWith("-") ? used.some((u) => u.startsWith(c)) : used.includes(c)));
+      return covered.length >= 2 ? [] : [`${f}: ${covered.length} of its ${own.length} qa classes appear in tests/e2e`];
+    });
+    expect(thin, "write an e2e test that uses these pages (a spec referencing their qa-* classes)").toEqual([]);
   });
 });
 

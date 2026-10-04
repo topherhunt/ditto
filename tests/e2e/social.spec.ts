@@ -169,7 +169,7 @@ test("a new account picks a username, finds a stranger by username, sees only th
   await expect(page.locator(".qa-username")).toHaveValue("wren");
   await page.locator(".qa-username").fill("wren.b");
   await page.locator(".qa-username-save").click();
-  await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Saved");
+  await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-user")).toHaveText("wren.b");
 });
 
@@ -265,4 +265,43 @@ test("your own profile says who sees what, never shows your email, and going pri
   await expect(page.locator(".qa-profile-hidden")).toBeVisible();
   await expect(page.locator(".qa-profile-lessons-week")).toHaveCount(0);
   await expect(page.locator(".qa-profile-befriend")).toBeVisible();
+});
+
+test("the leaderboard marks your friends, and its friends-only switch hides public strangers but keeps your friends and you", async ({ page }) => {
+  const [me, friend, stranger] = ["learner20", "learner21", "learner22"];
+  for (const name of [friend, stranger]) {
+    await signIn(page, `${name}@example.com`);
+    await page.goto("/it/type/lesson/it-a1-bar-1");
+    await finishLesson(page);
+    await signOut(page);
+  }
+  const requestFriendship = async (email: string) => {
+    const { person } = await (await page.request.get(`/api/friends/search?q=${encodeURIComponent(email)}`)).json();
+    expect((await page.request.post("/api/friends/requests", { data: { userId: person.id } })).ok()).toBe(true);
+  };
+  await signIn(page, `${me}@example.com`);
+  await requestFriendship(`${friend}@example.com`);
+  await signOut(page);
+  await signIn(page, `${friend}@example.com`);
+  await requestFriendship(`${me}@example.com`);
+  await signOut(page);
+
+  await signIn(page, `${me}@example.com`);
+  await page.locator(".qa-user").click();
+  await page.locator(".qa-nav-leaderboard").click();
+  const row = (name: string) => page.locator(".qa-leader").filter({ hasText: name });
+  await expect(row(friend)).toHaveCount(1);
+  await expect(row(stranger)).toHaveCount(1);
+  await expect(row(friend).locator(".qa-leader-friend")).toHaveCount(1);
+  await expect(row(stranger).locator(".qa-leader-friend")).toHaveCount(0);
+  await expect(row(me).locator(".qa-leader-friend")).toHaveCount(0);
+  await expect(page.locator(".qa-board-friends-only")).not.toBeChecked();
+
+  await page.locator(".qa-board-friends-only").check();
+  await expect(row(stranger)).toHaveCount(0);
+  await expect(row(friend)).toHaveCount(1);
+  await expect(row(me)).toHaveCount(1);
+
+  await page.locator(".qa-board-friends-only").uncheck();
+  await expect(row(stranger)).toHaveCount(1);
 });

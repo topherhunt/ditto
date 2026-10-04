@@ -52,3 +52,53 @@ export const ROUTE_SAMPLES: { [K in keyof typeof routes]: (ids: SampleIds) => st
   quizStats: () => routes.quizStats({ lang: "it", deckId: "it-a1-grammar-1" }),
   quizSession: (ids) => routes.quizSession({ lang: "it", deckId: "it-a1-grammar-1", sessionId: ids.quizSessionId }),
 };
+
+/**
+ * A CSS selector per route for something only the page's loaded content renders (never the nav bar or a spinner). The "every
+ * route renders" e2e test waits for it, so a page stuck on Loading or rendering nothing fails. Exhaustive like `ROUTE_SAMPLES`.
+ * A route whose sample URL deliberately shows an error page (see `EXPECTED_ERRORS` in `tests/e2e/helpers.ts`) uses `.qa-error`.
+ */
+export const ROUTE_MARKERS: { [K in keyof typeof routes]: string } = {
+  welcome: ".qa-welcome",
+  about: ".qa-about-tips",
+  aboutHomeScreen: ".qa-install",
+  privacy: ".qa-privacy",
+  terms: ".qa-terms",
+  cap: ".qa-cap-reached",
+  feedback: ".qa-feedback",
+  friends: ".qa-make-friends",
+  friendBoard: ".qa-board-form, .qa-board-you",
+  leaderboard: ".qa-leaderboard",
+  settings: ".qa-settings-general",
+  person: ".qa-profile",
+
+  admin: ".qa-admin-tile-summary",
+  adminReports: ".qa-reports-empty, .qa-report-group",
+  adminPronunciation: ".qa-poc-progress",
+  adminSpeaking: ".qa-admin-spend-user, .qa-admin-spend-empty",
+  adminMetrics: ".qa-metrics-day",
+  adminUsers: ".qa-admin-user",
+  adminUserReports: ".qa-user-report, .qa-user-reports-empty",
+  adminFeedback: ".qa-feedback-moods",
+  adminUser: ".qa-admin-user-email",
+
+  dashboard: ".qa-dash-friends",
+
+  type: ".qa-course",
+  typeLesson: ".qa-position",
+  typeMaster: ".qa-error",
+  typeTest: ".qa-position",
+  typeReview: ".qa-position, .qa-session-done",
+  typeNotebook: ".qa-mistake, .qa-notebook-empty",
+
+  talk: ".qa-speak-starter",
+  talkConversation: ".qa-conversation-title",
+
+  quiz: ".qa-quiz-level",
+  quizTest: ".qa-quiz-test",
+  quizDeck: ".qa-quiz-deck-home",
+  quizStudy: ".qa-quiz-question",
+  quizBrowse: ".qa-quiz-browse-page",
+  quizStats: ".qa-quiz-stats",
+  quizSession: ".qa-quiz-session-detail",
+};
