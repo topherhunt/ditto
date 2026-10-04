@@ -14,8 +14,7 @@ async function pickMeaning(page: Page, meaning: string) {
 test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebook", async ({ page }) => {
   await signIn(page, "learner1@example.com");
   await expect(page).toHaveURL(/\/it$/);
-  await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
-  await page.locator(".qa-dash-start-type").click();
+  await page.locator(".qa-dash-coach-go").click();
   await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
 
   // The keys hint opens with the task and shows each key as a key label.
@@ -381,19 +380,4 @@ test("account settings hold immersion but none of the typing settings", async ({
   await expect(page.locator(".qa-settings-locale")).toBeVisible();
   await expect(page.locator(".qa-settings-immerseUi-it")).toBeVisible();
   await expect(page.locator(".qa-settings-path")).toHaveCount(0);
-});
-
-test("legacy unscoped typing links redirect to their place under /type", async ({ page }) => {
-  await signIn(page, "legacy1@example.com");
-  for (const [old, scoped] of [
-    ["/it/lesson/it-a1-bar-1", "/it/type/lesson/it-a1-bar-1"],
-    ["/it/lesson/it-a1-bar-1/master", "/it/type/lesson/it-a1-bar-1/master"],
-    ["/it/test/A1", "/it/type/test/A1"],
-    ["/it/review", "/it/type/review"],
-    ["/it/notebook", "/it/type/notebook"],
-    ["/it/mistakes/practice", "/it/type/review"],
-  ]) {
-    await page.goto(old);
-    await expect(page).toHaveURL(new RegExp(`${scoped}$`));
-  }
 });

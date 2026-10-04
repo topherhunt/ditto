@@ -1,23 +1,23 @@
 import { expect, test } from "@playwright/test";
 import { setLearning, signIn } from "./helpers.ts";
 
-test("a new learner's dashboard coaches the first lesson, and practicing shows on the calendar and streak", async ({ page }) => {
+test("a new learner's dashboard coaches the first lesson, and practicing shows on the streak, chart and stars", async ({ page }) => {
   await signIn(page, "dash1@example.com");
   await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-dash-title")).toHaveText("🇮🇹 Italian");
   await expect(page.locator(".qa-dash-coach-first")).toContainText("Un caffè, per favore");
   await expect(page.locator(".qa-dash-streak")).toHaveText("Practice today to start a streak");
   await expect(page.locator(".qa-dash-active-days")).toHaveText("Practiced 0 of the last 30 days");
-  await expect(page.locator(".qa-dash-day-active")).toHaveCount(0);
-  await expect(page.locator(".qa-dash-ladder-type .qa-dash-ladder-status")).toHaveText("0% of the way to A1");
+  await expect(page.locator(".qa-dash-chart")).toBeVisible();
+  await expect(page.locator(".qa-dash-stars-total")).toHaveText("0");
+  await expect(page.locator(".qa-dash-stars-today")).toHaveCount(0);
+  await expect(page.locator(".qa-dash-ladder-status")).toHaveText("0% of the way to A1");
   await expect(page.locator(".qa-dash-way")).toHaveCount(3);
-  // Each card invites to its own next step.
-  await expect(page.locator(".qa-dash-start-type")).toHaveText("Start lesson: Un caffè, per favore");
-  await expect(page.locator(".qa-dash-start-type")).toHaveAttribute("href", "/it/type/lesson/it-a1-bar-1");
-  await expect(page.locator(".qa-dash-start-talk")).toHaveText("Start your first conversation");
-  await expect(page.locator(".qa-dash-start-talk")).toHaveAttribute("href", "/it/talk");
-  await expect(page.locator(".qa-dash-start-quiz")).toHaveText(/^Study A1 /);
-  await expect(page.locator(".qa-dash-start-quiz")).toHaveAttribute("href", /^\/it\/quiz\/it-a1-/);
+  // Each card opens its activity's page, not a specific lesson, deck or conversation.
+  for (const [activity, name] of [["type", "Type"], ["talk", "Talk"], ["quiz", "Quiz"]]) {
+    await expect(page.locator(`.qa-dash-start-${activity}`)).toContainText(`Open ${name}`);
+    await expect(page.locator(`.qa-dash-start-${activity}`)).toHaveAttribute("href", `/it/${activity}`);
+  }
 
   await page.locator(".qa-dash-coach-go").click();
   await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
@@ -28,10 +28,48 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
   await page.locator(".qa-nav-home").click();
   await expect(page).toHaveURL(/\/it$/);
   await expect(page.locator(".qa-dash-coach-first")).toHaveCount(0);
-  await expect(page.locator(".qa-dash-start-type")).toHaveText("Continue lesson: Un caffè, per favore");
-  await expect(page.locator(".qa-dash-day-active")).toHaveCount(1);
   await expect(page.locator(".qa-dash-streak")).toHaveText("🔥 1-day streak");
   await expect(page.locator(".qa-dash-active-days")).toHaveText("Practiced 1 of the last 30 days");
+});
+
+test("the dashboard's top row opens friends, the leaderboard and settings, and its bottom row opens the guide and the feedback form", async ({ page }) => {
+  await signIn(page, "dash8@example.com");
+  await expect(page.locator(".qa-dash-friends-count")).toHaveText("0");
+  await expect(page.locator(".qa-dash-rank")).toHaveCount(0);
+  await expect(page.locator(".qa-dash-feedback-go")).toHaveAttribute("href", /^https:\/\/docs\.google\.com\/forms\//);
+  for (const [button, path] of [["friends", "/friends"], ["leaderboard", "/leaderboard"], ["settings", "/settings"], ["about-go", "/about"]]) {
+    await page.locator(`.qa-dash-${button}`).click();
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await page.goBack();
+    await expect(page.locator(".qa-dashboard")).toBeVisible();
+  }
+});
+
+test("the leaderboard button's badge shows your rank among friends in gold, silver, bronze or gray, and the friends button their count", async ({ page }) => {
+  await signIn(page, "dash9@example.com");
+  for (const [rank, color] of [[1, "rank-1"], [2, "rank-2"], [3, "rank-3"], [4, "text-bg-secondary"]] as const) {
+    await page.route("**/api/social-summary", (route) => route.fulfill({ json: { friends: 5, weekRank: rank } }));
+    await page.reload();
+    await expect(page.locator(".qa-dash-friends-count")).toHaveText("5");
+    await expect(page.locator(".qa-dash-rank")).toHaveText(String(rank));
+    await expect(page.locator(".qa-dash-rank")).toHaveClass(new RegExp(`\\b${color}\\b`));
+  }
+});
+
+test("finishing a lesson adds its stars to the dashboard's total and today's count", async ({ page }) => {
+  await signIn(page, "dash11@example.com");
+  await page.goto("/it/type/lesson/it-a1-bar-1");
+  await expect(page.locator(".qa-exercise")).toBeVisible();
+  while (await page.locator(".qa-exercise").count()) {
+    await page.locator(".qa-reveal").click();
+    await page.locator(".qa-meaning-option").first().click();
+    await page.locator(".qa-next").click();
+  }
+  await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
+  const stars = (await (await page.request.get("/api/catalog?lang=it")).json()).stars["it-a1-bar-1"].stars as number;
+  await page.goto("/it");
+  await expect(page.locator(".qa-dash-stars-total")).toHaveText(String(stars));
+  await expect(page.locator(".qa-dash-stars-today")).toHaveText(`+${stars} today`);
 });
 
 test("a B1 answer on the setup screen picks the chunks path and suggests testing out of A1, until the level is changed", async ({ page }) => {

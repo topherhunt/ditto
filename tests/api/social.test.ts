@@ -380,6 +380,29 @@ describe("leaderboard", () => {
     expect(JSON.stringify(b)).not.toContain("example.com");
   });
 
+  it("ranks you among your friends who practiced this week, and has no rank without friends or without practice", async () => {
+    const t = setup();
+    await accounts(t, A, B, C);
+    await befriend(t, A, B);
+    const summaryOf = async () => (await t.req("GET", "/api/social-summary")).json;
+    await t.login(A);
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: null });
+    await completeBar1(t);
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: 1 });
+    await t.login(C);
+    await completeBar1(t);
+    await completeBar2(t);
+    expect(await summaryOf()).toEqual({ friends: 0, weekRank: null });
+    await t.login(B);
+    await completeBar1(t);
+    await completeBar2(t);
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: 1 });
+    await t.login(A);
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: 2 });
+    t.clock.now = new Date("2026-09-07T00:00:00Z");
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: null });
+  });
+
   it("fills 25 slots with you, all your friends who practiced, then the best public learners", async () => {
     const t = setup();
     await accounts(t, A);

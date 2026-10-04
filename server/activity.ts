@@ -4,6 +4,7 @@ import { ACTIVITY_DAYS, type ActivityOut } from "../shared/api.ts";
 import { LANGUAGES } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
+import { earnedLessons } from "./leaderboard.ts";
 
 /** The dashboard's activity: dictation items, quiz answers and spoken replies, counted per UTC hour. */
 export function registerActivity(app: Hono<{ Variables: { user: User } }>, deps: AppDeps) {
@@ -30,6 +31,11 @@ export function registerActivity(app: Hono<{ Variables: { user: User } }>, deps:
       h[r.kind] += r.n;
       byHour.set(r.hour, h);
     }
-    return c.json<ActivityOut>({ hours: [...byHour.values()].sort((a, b) => a.hour.localeCompare(b.hour)) });
+    // Type lessons are left out: their stars come with the catalog.
+    const earned = earnedLessons(db, new Set(), { userId, language }).sort((a, b) => a.at.localeCompare(b.at));
+    return c.json<ActivityOut>({
+      hours: [...byHour.values()].sort((a, b) => a.hour.localeCompare(b.hour)),
+      earned: { talk: earned.filter((e) => e.kind === "talk").map((e) => e.at), quiz: earned.filter((e) => e.kind === "quiz").map((e) => e.at) },
+    });
   });
 }

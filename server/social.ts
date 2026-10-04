@@ -4,7 +4,7 @@ import { z } from "zod";
 import {
   BOARD_SIZE, CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FRIEND_REQUESTS_PER_DAY, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
   PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
-  type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile,
+  type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile, type SocialSummaryOut,
   type Relation, UserReportSchema,
 } from "../shared/api.ts";
 import type { Language, ServedCourse, ServedLesson } from "../shared/content.ts";
@@ -170,6 +170,15 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const rows = chosen.map((r) => row(r.userId, r.week));
     if (!mine) rows.push(row(me, 0));
     return c.json<LeaderboardOut>({ rows, stats: { activeLearners: stats.activeLearners, lessons: stats.lessons, seconds: stats.secondsTotal } });
+  });
+
+  app.get("/api/social-summary", (c) => {
+    const me = c.get("user").id;
+    const friends = friendIds(db, me);
+    const { ranked } = weeklyStats(db, new Set(courseOf.keys()), deps.now());
+    const group = new Set([me, ...friends]);
+    const place = ranked.filter((r) => group.has(r.userId)).findIndex((r) => r.userId === me) + 1;
+    return c.json<SocialSummaryOut>({ friends: friends.length, weekRank: friends.length && place ? place : null });
   });
 
   app.get("/api/friends/search", (c) => {

@@ -15,7 +15,6 @@ import { Privacy } from "./pages/Privacy.tsx";
 import { Terms } from "./pages/Terms.tsx";
 import { Friends } from "./pages/Friends.tsx";
 import { Home } from "./pages/Home.tsx";
-import { LegacyTypeRedirect } from "./pages/LegacyRedirect.tsx";
 import { Leaderboard } from "./pages/Leaderboard.tsx";
 import { MetricsAdmin } from "./pages/MetricsAdmin.tsx";
 import { Notebook } from "./pages/Notebook.tsx";
@@ -67,13 +66,6 @@ render(
       <Route path="/:lang/type/test/:level" component={() => <Practice mode="test" />} />
       <Route path="/:lang/type/review" component={() => <Practice mode="review" />} />
       <Route path="/:lang/type/notebook" component={Notebook} />
-      {/* LEGACY unscoped typing URLs: remove by 2026-10-02 (TODO.md). */}
-      <Route path="/:lang/lesson/:lessonId" component={LegacyTypeRedirect} />
-      <Route path="/:lang/lesson/:lessonId/master" component={LegacyTypeRedirect} />
-      <Route path="/:lang/test/:level" component={LegacyTypeRedirect} />
-      <Route path="/:lang/review" component={LegacyTypeRedirect} />
-      <Route path="/:lang/notebook" component={LegacyTypeRedirect} />
-      <Route path="/:lang/mistakes/practice" component={LegacyTypeRedirect} />
       <Route path="/:lang/talk" component={Speak} />
       <Route path="/:lang/talk/:id" component={Conversation} />
       <Route path="/:lang/quiz" component={QuizHome} />

@@ -56,7 +56,15 @@
 .stars-3 .star-on:nth-child(2) { animation-delay: .4s; }
 .stars-3 .star-on:nth-child(3) { animation-delay: .8s; }
 @keyframes star-shimmer { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.3) saturate(1.2); } }
-@media (prefers-reduced-motion: reduce) { .stars-3 .star-on, .gold-shimmer { animation: none; } }
+/* A rank badge in star colors: gold (shimmering), silver, copper; any other place uses Bootstrap's gray. */
+.rank-1 { background: #f2b90d; color: #3a2c00; animation: star-shimmer 3s ease-in-out infinite; }
+.rank-2 { background: #a3abb5; color: #1f2429; }
+.rank-3 { background: #b87333; color: #fff; }
+/* The dashboard's star count pops in, the day's stars a beat after the total. */
+.star-pop { animation: star-pop .6s cubic-bezier(.34, 1.56, .64, 1) both; }
+.star-pop-late { animation-delay: .35s; }
+@keyframes star-pop { 0% { opacity: 0; transform: scale(.3); } 100% { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .stars-3 .star-on, .gold-shimmer, .rank-1, .star-pop { animation: none; } }
 
 /* A card that lights its border when hovered, for cards that are links. */
 .hover-border { transition: border-color .15s; }

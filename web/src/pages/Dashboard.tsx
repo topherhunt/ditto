@@ -1,26 +1,28 @@
 import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, onCleanup, Show } from "solid-js";
-import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut, type Catalog, type Config, type ConversationsOut, type QuizHomeOut } from "../../../shared/api.ts";
+import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut, type Catalog, type Config, type ConversationsOut, type QuizHomeOut, type SocialSummaryOut } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { RequestLanguagePopup } from "../components/RequestLanguage.tsx";
 import { LevelPicker } from "../components/LevelPicker.tsx";
+import { ProgressChart } from "../components/ProgressChart.tsx";
 import { TestOutButton } from "../components/TestOutButton.tsx";
-import { dayKey, deckName } from "../components/QuizCharts.tsx";
+import { dayKey } from "../components/QuizCharts.tsx";
 import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
-import { languageName, locale, t } from "../i18n/index.ts";
+import { languageName, t } from "../i18n/index.ts";
 import { canPromptInstall, isMobile, isStandalone, promptInstall } from "../install.ts";
 import { LANGUAGE_FLAGS, learnable, rememberLanguage, saveLevel } from "../learning.ts";
+import { FEEDBACK_URL } from "../links.ts";
+import { journey, progressSeries, type Rung } from "../progress.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
 
-const CALENDAR_WEEKS = 5;
+/** Days the progress chart spans, ending today. */
+const CHART_DAYS = 30;
 type Counts = { type: number; talk: number; quiz: number };
 const itemsOf = (c: Counts | undefined) => (c ? c.type + c.talk + c.quiz : 0);
-/** One level of a ladder: `pct` is the way to it, meaningful only for the level after the highest achieved one. */
-type Rung = { level: string; achieved: boolean; pct: number };
-/** `icon`: a card button's Bootstrap icon, a play arrow unless set. */
-type Go = { href: string; label: string; icon?: string };
+type Go = { href: string; label: string };
+const NAV_NAME = { type: "nav.type", talk: "nav.speak", quiz: "nav.quiz" } as const;
 type Tip = { qa: string; text: string; go?: Go };
 
 /** A course's home: what to do next, how the learner has been doing, and the ways to practice. */
@@ -33,6 +35,7 @@ export function Dashboard() {
   const [activity] = createResource(lang, (l) => api.get<ActivityOut>(`/api/activity?lang=${l}`));
   const [quiz] = createResource(() => config() && quizOn() && lang(), (l) => api.get<QuizHomeOut>(`/api/quiz?lang=${l}`));
   const [talk] = createResource(() => config() && talkOn() && lang(), (l) => api.get<ConversationsOut>(`/api/conversations?lang=${l}`));
+  const [social] = createResource(() => api.get<SocialSummaryOut>("/api/social-summary"));
   const ready = () => config() && catalog() && activity() && (!quizOn() || quiz()) && (!talkOn() || talk());
   const level = () => me()!.prefs[lang()].level;
   const [levelError, setLevelError] = createSignal<string | null>(null);
@@ -86,23 +89,36 @@ export function Dashboard() {
   const lessonsTotal = () => catalog()!.courses.reduce((n, c) => n + c.lessons.length, 0);
   const quizCount = (k: "graduated" | "total") => quiz()!.levels.reduce((n, l) => n + l[k], 0);
 
-  /** Each card's way in: the specific next thing in that activity, else its page. */
-  const typeGo = (): Go => {
-    const next = nextLesson(catalog()!);
-    if (!next) return { href: `/${lang()}/type`, label: t("dash.go.lessonsDone"), icon: "bi-list-ul" };
-    const started = next.id in catalog()!.progress;
-    return { href: `/${lang()}/type/lesson/${next.id}`, label: t(started ? "dash.go.lessonContinue" : "dash.go.lessonStart", { title: next.title }) };
+  /** The course's levels, reached through either Type or Quiz; the one being worked toward is the first after the highest reached. */
+  const rungs = () => journey(typeLadder(), quizOn() ? quizLadder() : null);
+  const targetIndex = () => rungs().findLastIndex((r) => r.achieved) + 1;
+
+  /** Stars: Type's best per lesson; each Talk conversation and Quiz session that counts as a lesson is one star. A Type lesson's stars count on the day it was last practiced. */
+  const stars = () => {
+    const earned = [
+      ...Object.values(catalog()!.stars).map((s) => ({ n: s.stars, at: Date.parse(s.practicedAt) })),
+      ...[...activity()!.earned.talk, ...activity()!.earned.quiz].map((at) => ({ n: 1, at: Date.parse(at) })),
+    ];
+    const midnight = new Date().setHours(0, 0, 0, 0);
+    return { total: earned.reduce((n, e) => n + e.n, 0), today: earned.filter((e) => e.at >= midnight).reduce((n, e) => n + e.n, 0) };
   };
-  /** A new topic, not the last conversation: the talk page picks topics and lists past conversations. */
-  const talkGo = (): Go => ({ href: `/${lang()}/talk`, label: t(talk()!.conversations.length ? "dash.go.talkNew" : "dash.go.talkFirst") });
-  /** The lowest unfinished level's first deck with questions due, else with new ones. */
-  const quizGo = (): Go => {
-    const level = quiz()!.levels.find((l) => l.unlocked && l.passed === null);
-    const decks = quiz()!.decks.filter((d) => d.level === level?.level);
-    const deck = decks.find((d) => d.due > 0) ?? decks.find((d) => d.fresh > 0);
-    return deck
-      ? { href: `/${lang()}/quiz/${deck.id}`, label: t("dash.go.quizDeck", { deck: deckName(deck) }) }
-      : { href: `/${lang()}/quiz`, label: t("dash.go.quizAll"), icon: "bi-list-ul" };
+
+  /** The last CHART_DAYS local days' progress toward the target level, today last. */
+  const chart = (target: Rung) => {
+    const days = Array.from({ length: CHART_DAYS }, (_, i) => new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - (CHART_DAYS - 1 - i)));
+    const main = levels(catalog()!).find(([l]) => l === target.level)![1].filter((c) => c.track === "main").flatMap((c) => c.lessons);
+    const typeDoneAt = main.flatMap((l) => {
+      const done = Object.values(catalog()!.progress[l.id] ?? {}).flatMap((p) => (p.completedAt ? [Date.parse(p.completedAt)] : []));
+      return done.length ? [Math.min(...done)] : [];
+    });
+    const quizRung = quizOn() ? quizLadder().find((r) => r.level === target.level) : undefined;
+    return {
+      start: days[0],
+      pcts: progressSeries({
+        dayEnds: days.map((d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1).getTime()), typeDoneAt, typeTotal: main.length,
+        quizPct: quizRung?.pct ?? null, quizAnswers: days.map((d) => byDay().get(dayKey(d))?.quiz ?? 0),
+      }),
+    };
   };
 
   return (
@@ -112,6 +128,19 @@ export function Dashboard() {
 
         <div class="d-flex flex-wrap align-items-center gap-2">
           <LanguageSwitcher lang={lang()} />
+          <div class="d-flex gap-2">
+            <A href="/friends" class="qa-dash-friends btn btn-outline-primary position-relative">
+              <i class="bi bi-people-fill me-1" aria-hidden="true" />{t("nav.friends")}
+              <Show when={social()}>{(s) => <span class="qa-dash-friends-count position-absolute top-100 start-100 translate-middle badge rounded-pill text-bg-secondary">{s().friends}</span>}</Show>
+            </A>
+            <A href="/leaderboard" class="qa-dash-leaderboard btn btn-outline-primary position-relative">
+              <i class="bi bi-trophy me-1" aria-hidden="true" />{t("nav.leaderboard")}
+              <Show when={social()?.weekRank}>
+                {(rank) => <span class={`qa-dash-rank qa-dash-rank-${rank()} position-absolute top-100 start-100 translate-middle badge rounded-pill ${rank() <= 3 ? `rank-${rank()}` : "text-bg-secondary"}`}>{rank()}</span>}
+              </Show>
+            </A>
+            <A href="/settings" class="qa-dash-settings btn btn-outline-secondary" aria-label={t("nav.settings")}><i class="bi bi-gear" aria-hidden="true" /></A>
+          </div>
         </div>
 
         <Show when={level() && !rerating()} fallback={
@@ -155,31 +184,60 @@ export function Dashboard() {
         </Show>
 
         <section class="qa-dash-progress card">
-          <div class="card-body row g-4">
-            <div class="col-md-5">
-              <h2 class="h6">{t("dash.practiceHeading")}</h2>
-              <Calendar byDay={byDay()} />
-              <Streak byDay={byDay()} />
+          <div class="card-body d-flex flex-column gap-3">
+            <h2 class="h6 mb-0">{t("dash.practiceHeading")}</h2>
+            <Ladder rungs={rungs()} />
+            <div class="position-relative">
+              <Show when={rungs()[targetIndex()]}>
+                {(target) => {
+                  const c = () => chart(target());
+                  return <ProgressChart pcts={c().pcts} start={c().start} label={t("dash.chart.label", { level: target().level })} />;
+                }}
+              </Show>
+              <div class="qa-dash-stars position-absolute top-0 d-flex flex-wrap align-items-baseline gap-2 bg-body rounded px-2" style={{ left: "2.5rem" }}>
+                <span class="qa-dash-stars-total star-pop fs-5 fw-semibold"><i class="bi bi-star-fill gold-shimmer me-1" aria-hidden="true" />{stars().total}</span>
+                <span class="small text-body-secondary">{t("dash.stars.total")}</span>
+                <Show when={stars().today}>
+                  {(n) => <span class="qa-dash-stars-today star-pop star-pop-late badge text-bg-warning">{t("dash.stars.today", { n: n() })}</span>}
+                </Show>
+              </div>
             </div>
-            <div class="col-md-7 d-flex flex-column gap-3">
-              <h2 class="h6 mb-0">{t("dash.levelHeading")}</h2>
-              <Ladder qa="type" label={t("activity.type")} rungs={typeLadder()} />
-              <Show when={quizOn()}><Ladder qa="quiz" label={t("activity.quiz")} rungs={quizLadder()} /></Show>
-            </div>
+            <Streak byDay={byDay()} />
           </div>
         </section>
 
         <section>
           <h2 class="h5 mb-3">{t("dash.waysHeading")}</h2>
           <div class="row g-3">
-            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={`/${lang()}/type`} go={typeGo()}
+            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={`/${lang()}/type`}
               stat={t("dash.stat.type", { done: lessonsDone(), total: lessonsTotal() })} />
-            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? `/${lang()}/talk` : undefined} go={talkOn() ? talkGo() : undefined}
+            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? `/${lang()}/talk` : undefined}
               stat={talkOn() ? t("dash.stat.talk", { n: talk()!.conversations.length }) : undefined} />
-            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? `/${lang()}/quiz` : undefined} go={quizOn() ? quizGo() : undefined}
+            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? `/${lang()}/quiz` : undefined}
               stat={quizOn() ? t("dash.stat.quiz", { done: quizCount("graduated"), total: quizCount("total") }) : undefined} />
           </div>
         </section>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="qa-dash-about card h-100">
+              <div class="card-body d-flex flex-column gap-2">
+                <h2 class="h6 mb-0">{t("dash.about.title")}</h2>
+                <p class="small mb-0">{t("dash.about.body")}</p>
+                <div class="mt-auto pt-2"><A href="/about" class="qa-dash-about-go btn btn-outline-primary btn-sm"><i class="bi bi-question-circle me-1" aria-hidden="true" />{t("dash.about.go")}</A></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="qa-dash-feedback card h-100">
+              <div class="card-body d-flex flex-column gap-2">
+                <h2 class="h6 mb-0">{t("dash.feedback.title")}</h2>
+                <p class="small mb-0">{t("dash.feedback.body")}</p>
+                <div class="mt-auto pt-2"><a href={FEEDBACK_URL} target="_blank" rel="noopener" class="qa-dash-feedback-go btn btn-outline-primary btn-sm"><i class="bi bi-chat-heart me-1" aria-hidden="true" />{t("dash.feedback.go")}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Show>
   );
@@ -262,32 +320,6 @@ function LanguageSwitcher(props: { lang: Language }) {
   );
 }
 
-/** The last few weeks, Monday first, one square per day shaded by how much was practiced. */
-function Calendar(props: { byDay: Map<string, Counts> }) {
-  const now = new Date();
-  const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7) - 7 * (CALENDAR_WEEKS - 1));
-  const days = Array.from({ length: CALENDAR_WEEKS * 7 }, (_, i) => new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i));
-  const weekday = new Intl.DateTimeFormat(locale(), { weekday: "narrow" });
-  const shade = (n: number) => (n === 0 ? "bg-body-secondary" : `bg-success ${n < 10 ? "bg-opacity-25" : n < 30 ? "bg-opacity-50" : n < 60 ? "bg-opacity-75" : ""}`);
-  return (
-    <div class="qa-dash-calendar mb-2" style={{ display: "grid", "grid-template-columns": "repeat(7, 1fr)", gap: "3px", "max-width": "15rem" }}>
-      <For each={days.slice(0, 7)}>{(d) => <div class="small text-body-secondary text-center">{weekday.format(d)}</div>}</For>
-      <For each={days}>
-        {(d) => {
-          const key = dayKey(d);
-          const n = itemsOf(props.byDay.get(key));
-          return (
-            <div class="ratio ratio-1x1">
-              <div class={`qa-dash-day rounded-1 ${d > now ? "" : shade(n)}`} classList={{ "qa-dash-day-active": n > 0, "border border-2 border-primary": key === dayKey(now) }}
-                data-day={key} title={d > now ? undefined : t("dash.dayItems", { date: d.toLocaleDateString(locale()), n })} />
-            </div>
-          );
-        }}
-      </For>
-    </div>
-  );
-}
-
 /** Consecutive days practiced up to today, or up to yesterday while today is still open. */
 function Streak(props: { byDay: Map<string, Counts> }) {
   const streak = () => {
@@ -310,8 +342,8 @@ function Streak(props: { byDay: Map<string, Counts> }) {
   );
 }
 
-/** Levels as segments of one bar: achieved ones full, the next one filled as far as the learner has come. */
-function Ladder(props: { qa: string; label: string; rungs: Rung[] }) {
+/** Levels as segments of one bar: reached ones full, the next one filled as far as the learner has come. */
+function Ladder(props: { rungs: Rung[] }) {
   const top = () => props.rungs.findLastIndex((r) => r.achieved);
   const next = () => props.rungs[top() + 1] as Rung | undefined;
   const status = () => {
@@ -322,8 +354,7 @@ function Ladder(props: { qa: string; label: string; rungs: Rung[] }) {
   };
   return (
     <Show when={props.rungs.length}>
-      <div class={`qa-dash-ladder qa-dash-ladder-${props.qa}`}>
-        <div class="small text-body-secondary mb-1">{props.label}</div>
+      <div class="qa-dash-ladder">
         <div class="d-flex gap-1">
           <For each={props.rungs}>
             {(r, i) => {
@@ -341,17 +372,14 @@ function Ladder(props: { qa: string; label: string; rungs: Rung[] }) {
             }}
           </For>
         </div>
-        <div class={`qa-dash-ladder-status small mt-1`}>{status()}</div>
+        <div class="qa-dash-ladder-status small mt-1">{status()}</div>
       </div>
     </Show>
   );
 }
 
-/**
- * One activity: what it is, how far the learner has come in it, and an invitation to its next step. `href` (the activity's page,
- * linked from the heading) and `go` are unset where the course lacks the activity.
- */
-function Way(props: { qa: "type" | "talk" | "quiz"; icon: string; body: string; href?: string; go?: Go; stat?: string }) {
+/** One activity: what it is, how far the learner has come in it, and a way into its page. `href` is unset where the course lacks the activity. */
+function Way(props: { qa: "type" | "talk" | "quiz"; icon: string; body: string; href?: string; stat?: string }) {
   const title = () => <><i class={`bi ${props.icon} me-2 text-primary`} aria-hidden="true" />{t(`activity.${props.qa}`)}</>;
   return (
     <div class="col-md-4">
@@ -365,9 +393,9 @@ function Way(props: { qa: "type" | "talk" | "quiz"; icon: string; body: string; 
           <p class="small mb-0">{props.body}</p>
           <Show when={props.stat}>{(s) => <div class="qa-dash-way-stat small text-body-secondary">{s()}</div>}</Show>
           <div class="mt-auto pt-2 text-center">
-            <Show when={props.go} fallback={<span class="small text-body-secondary">{t("dash.notYet")}</span>}>
-              {(go) => <A href={go().href} class={`qa-dash-start-${props.qa} btn btn-primary`}>
-                <i class={`bi ${go().icon ?? "bi-play-fill"} me-1`} aria-hidden="true" />{go().label}
+            <Show when={props.href} fallback={<span class="small text-body-secondary">{t("dash.notYet")}</span>}>
+              {(href) => <A href={href()} class={`qa-dash-start-${props.qa} btn btn-primary`}>
+                <i class="bi bi-arrow-right me-1" aria-hidden="true" />{t("dash.go.open", { activity: t(NAV_NAME[props.qa]) })}
               </A>}
             </Show>
           </div>

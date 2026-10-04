@@ -20,11 +20,18 @@ describe("activity", () => {
     turn.run(conv.lastInsertRowid, "partner", now);
     turn.run(conv.lastInsertRowid, "learner", now);
     turn.run(conv.lastInsertRowid, "learner", "2026-06-01T09:00:00.000Z");
+    const full = db.prepare(`INSERT INTO conversations (user_id, language, locale, level, scenario, title, created_at, updated_at)
+      VALUES (?, 'it', 'en', 'A1', '{}', 'Full', ?, ?)`).run(userId, now, now);
+    for (let i = 0; i < 10; i++) turn.run(full.lastInsertRowid, "learner", "2026-09-01T11:00:00.000Z");
 
-    expect((await t.req("GET", "/api/activity?lang=it")).json).toEqual({ hours: [
-      { hour: "2026-09-01T10", type: 2, talk: 0, quiz: 1 },
-      { hour: "2026-09-01T12", type: 0, talk: 1, quiz: 0 },
-    ] });
-    expect((await t.req("GET", "/api/activity?lang=nl")).json).toEqual({ hours: [] });
+    expect((await t.req("GET", "/api/activity?lang=it")).json).toEqual({
+      hours: [
+        { hour: "2026-09-01T10", type: 2, talk: 0, quiz: 1 },
+        { hour: "2026-09-01T11", type: 0, talk: 10, quiz: 0 },
+        { hour: "2026-09-01T12", type: 0, talk: 1, quiz: 0 },
+      ],
+      earned: { talk: ["2026-09-01T11:00:00.000Z"], quiz: [] },
+    });
+    expect((await t.req("GET", "/api/activity?lang=nl")).json).toEqual({ hours: [], earned: { talk: [], quiz: [] } });
   });
 });

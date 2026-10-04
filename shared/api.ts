@@ -395,7 +395,11 @@ export type Catalog = {
 /** Days of history the dashboard's activity calendar and streak draw on. */
 export const ACTIVITY_DAYS = 60;
 /** Items practiced per UTC hour (`2026-09-29T14`), so the client can bucket them into its own local days. */
-export type ActivityOut = { hours: { hour: string; type: number; talk: number; quiz: number }[] };
+export type ActivityOut = {
+  hours: { hour: string; type: number; talk: number; quiz: number }[];
+  /** When each conversation and quiz session in the language became a lesson (see CONVERSATION_LESSON_REPLIES), oldest first. */
+  earned: { talk: string[]; quiz: string[] };
+};
 export type ExplanationOut = { categories: string[]; summary: string; details: string };
 export type MistakeEntry = {
   unit: ServedUnit;
@@ -438,6 +442,11 @@ export const CONVERSATION_LESSON_REPLIES = 10;
 export type LeaderboardRow = {
   rank: number | null; person: Person; language: Language | null; lessonsWeek: number; lessonsAll: number; isMe: boolean;
 };
+/**
+ * What the dashboard's Friends and Leaderboard buttons show. `weekRank` is your place this week among you and your friends who
+ * practiced, null while you haven't practiced this week or have no friends to rank against.
+ */
+export type SocialSummaryOut = { friends: number; weekRank: number | null };
 /** The week runs from Monday 00:00 UTC. `rows` are your friends who practiced, then the top learners with public profiles, best first, and you. */
 export type LeaderboardOut = {
   rows: LeaderboardRow[];
