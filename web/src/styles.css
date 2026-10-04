@@ -125,3 +125,7 @@
 .today-caret { transition: transform 150ms; }
 details[open] > summary > .today-caret { transform: rotate(90deg); }
 @media (prefers-reduced-motion: reduce) { .today-caret { transition: none; } }
+
+/* Option grids (Settings language pickers): 3 columns, 2 under 425px. */
+.option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+@media (max-width: 424.98px) { .option-grid { grid-template-columns: repeat(2, 1fr); } }

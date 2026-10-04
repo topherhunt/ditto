@@ -6,7 +6,7 @@ import { grade } from "../../../shared/grader.ts";
 import { api } from "../api.ts";
 import { EmojiLine } from "../components/EmojiLine.tsx";
 import { LearnPicker } from "../components/LearnPicker.tsx";
-import { RequestLanguageLink } from "../components/RequestLanguage.tsx";
+import { RequestLanguagePopup } from "../components/RequestLanguage.tsx";
 import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import type { Key } from "../i18n/en.ts";
@@ -67,6 +67,7 @@ const languageList = (ls: readonly Language[]) => new Intl.ListFormat(locale(), 
 export function Welcome() {
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const [picked, setPicked] = createSignal(storedLanguage());
+  const [requesting, setRequesting] = createSignal(false);
   // A pick the visitor's own language has no translations for doesn't count.
   const learning = () => { const l = picked(); return l && learnable(ownLocale()).includes(l) ? l : null; };
   const samples = () => SAMPLES[learning() ?? "it"];
@@ -97,8 +98,9 @@ export function Welcome() {
                       </button>
                     )}
                   </For>
+                  <button type="button" class="qa-welcome-speak-other btn btn-link link-secondary" onClick={() => setRequesting(true)}>{t("request.menu")}</button>
                 </div>
-                <div class="mt-2"><RequestLanguageLink /></div>
+                <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />
               </div>
               <div>
                 <h2 class="h6">{t("welcome.learnQ")}</h2>

@@ -7,7 +7,7 @@ import { LOCALE_LABELS, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage, saveLevel } from "../learning.ts";
 import { logout, me, refetchMe } from "../session.ts";
 import { LearnPicker } from "./LearnPicker.tsx";
-import { RequestLanguageLink } from "./RequestLanguage.tsx";
+import { RequestLanguagePopup } from "./RequestLanguage.tsx";
 import { LevelPicker } from "./LevelPicker.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
 
@@ -51,9 +51,13 @@ export function Setup() {
   );
 }
 
+/** The select value that opens the language request instead of choosing a language. */
+const OTHER = "other";
+
 /** Saves on change, so the rest of the screen switches language right away. */
 function LocalePicker() {
   const [error, setError] = createSignal<string | null>(null);
+  const [requesting, setRequesting] = createSignal(false);
   const choose = async (locale: Locale) => {
     setError(null);
     try {
@@ -67,12 +71,16 @@ function LocalePicker() {
     <div class="mb-3">
       <label class="form-label small mb-0 d-block">
         {t("settings.yourLanguage")}
-        <select class="qa-choose-locale form-select form-select-sm" value={me()!.locale} onChange={(e) => choose(e.currentTarget.value as Locale)}>
+        <select class="qa-choose-locale form-select form-select-sm" value={me()!.locale} onChange={(e) => {
+          if (e.currentTarget.value === OTHER) { e.currentTarget.value = me()!.locale; setRequesting(true); } else void choose(e.currentTarget.value as Locale);
+        }}>
           <For each={NATIVE_LOCALES}>{(l) => <option value={l}>{LOCALE_LABELS[l]}</option>}</For>
+          <option disabled>──────────</option>
+          <option value={OTHER} class="qa-choose-locale-other">{t("request.menu")}</option>
         </select>
         <Show when={error()}>{(m) => <div class="qa-choose-locale-error text-danger small">{m()}</div>}</Show>
       </label>
-      <RequestLanguageLink />
+      <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />
     </div>
   );
 }

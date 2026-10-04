@@ -1,5 +1,37 @@
+- Feedback from 2026-10-04 Luis call
+  - 
+
 ### Now
 
+- [x] On the dashboard at the top, if you haven't already, if your account hasn't already been flagged as dismissed for this, there should be an invitation, like a like a bright blue alert info invitation to download the app. And you can click on that link to install it on your phone or device. And once you dismiss that invitation, it's persisted across your whole account. So it doesn't keep annoying you. I thought I already added this but I don't know where it is now. 
+- Everything that is accessible from the accounts menu or the account menu must also be accessible from the dashboard. So you don't need to tap the account menu in order to discover things like your friends list and make new friends and leaderboard. (Luis couldn't find the "Find new friends" button.)
+- In geeral, think through implications: People don't read things that aren't on the dashboard.
+  - "About" link
+  - Settings link
+  - Feedback
+  - leaderboard & friends
+  - Language switcher: "Request another" link at bottom - pops open the request language modal
+  - Settings -> "falta tu idioma" links - put them INTO the dropdown / buttons and eliminate the links. Too confusing right now.
+- Inspect the "N% del camino hacia A1" - how's that calculated?
+- On the friends page on the top, the find a friend search input needs to be reduced to just a button which opens a pop-up. And you need to have the find new friends next to that. So you can search for friends andor you can add yourself to the Find a Friends board both at the top of the Friends page because currently it's too hard to discover that functionality. 
+- Leaderboard:
+  - N active total this week
+  - Show everyone who has practiced this week. And you can also page back to past weeks.
+  - Remove the day/week/month toggle?
+- Dashboard -> Your Practice: need to get rid of the emphasis on "what you haven't done" and instead emphasize your progress towards the currently-targeted level, as a line chart growing up per day.
+  - Also show the # of stars you've earned total and today, as an animated pop-in. Maybe put them on the chart somehow?
+- Dashboard, bottom 3 buttons, should link to the activity homepage, not jump straight into an activity.
+- It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are. 
+  - remind about races too
+- [ ] Go through the old quizzer translator bugs folder and identify any problems with the quiz decks. also review all of the popular quiz decks and ensure there are no significant errors in them. Especially distractors that are actually correct or things like that.
+- [ ] Yes. In the talking activity, there should also be a notebook of your mistakes, which tracks sentences that you had trouble with so that you can review them and clear them out of the notebook.
+- [ ] Also the talking activity needs to have a representation of earning stars, and we need to ensure that that's roughly balanced per effort unit with the stars that you earn in the typing activity. 
+- 
+- Plan out: support chat w friends -- only in a language you're learning.
+- [ ] Think through a friendlier onboarding & welcome for absolute beginners.
+  - [ ] The Type activity's extra step probably doesn't add anything. Show it in the SAME step, so the user can hear, read, see translation, and then type it in. Only the 1st time you get that item (same as before).
+  - [ ] Have Claude brainstorm and think through with me what would make for a friendly or welcome experience so the user doesn't feel that they were just dropped in. Especially on the initial dashboard page.
+  - [ ] Have some sort of little one-line feedback widget or button on the dashboard page. Asking you how your experience is going and what's missing. Button opens a pop-up that invites you to share what you're struggling with or what could be better. For example: users may indicate that the initial onboarding experience feels overwhelming, or there's too many options, or they don't know what to do next, or the experience is too structured & they want more flexibility, or they want a specific feature that's missing, etc.
 - [ ] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - Friends list: should show basic stats about each friend. # stars, etc.
 - When you go to a friend's profile and and then click to do an activity they've done or accept a challenge they've done or whatever, and you do it, it should send them a notification indicating that you've done an activity they also did. Clicking it links to a page comparing all activities you've both done (ordered by recency) with time & scores for each. (This notification type should be "idempotent" per friend, so if they do 12 activities since you last checked, you only see 1 notification saying "X did N activitiies you also did" or sth like that -- rather than 12 different notifications.)
@@ -40,4 +72,4 @@
 - Find nicer `wrong` sound that's gentler on the ears. Search the marimba sound effects.
 - [ ] separate mode for pronunciation coach. Words, then sentences, very precisely.
 - Set up email sending. For user welcome email / accounin-app notifications
-- [ ] Once the dollar spend cap is verified in production, drop the unused `explain_usage` table with a migration.When you go to a friend's page and you do an activity they've done, it should send them a notification. 
+- [ ] Once the dollar spend cap is verified in production, drop the unused `explain_usage` table with a migration.When you go to a friend's page and you do an activity they've done, it should send them a notification.

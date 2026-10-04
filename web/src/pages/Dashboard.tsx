@@ -3,12 +3,13 @@ import { createResource, createSignal, For, onCleanup, Show } from "solid-js";
 import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut, type Catalog, type Config, type ConversationsOut, type QuizHomeOut } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
+import { RequestLanguagePopup } from "../components/RequestLanguage.tsx";
 import { LevelPicker } from "../components/LevelPicker.tsx";
 import { TestOutButton } from "../components/TestOutButton.tsx";
 import { dayKey, deckName } from "../components/QuizCharts.tsx";
 import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
 import { languageName, locale, t } from "../i18n/index.ts";
-import { isIosSafari, isStandalone } from "../install.ts";
+import { canPromptInstall, isMobile, isStandalone, promptInstall } from "../install.ts";
 import { LANGUAGE_FLAGS, learnable, rememberLanguage, saveLevel } from "../learning.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
@@ -107,7 +108,7 @@ export function Dashboard() {
   return (
     <Show when={ready()}>
       <div class="qa-dashboard d-flex flex-column gap-4">
-        <Show when={!me()!.installHintDismissed && isIosSafari() && !isStandalone()}><InstallHint /></Show>
+        <Show when={!me()!.installHintDismissed && isMobile() && !isStandalone()}><InstallHint /></Show>
 
         <div class="d-flex flex-wrap align-items-center gap-2">
           <LanguageSwitcher lang={lang()} />
@@ -184,14 +185,17 @@ export function Dashboard() {
   );
 }
 
-/** Invites an iOS Safari learner to add Ditto to their home screen; closing it is remembered on their account. */
+/** Invites a phone or tablet learner to add Ditto to their home screen; closing it is remembered on their account. Where the browser offers a native install dialog the button opens it, otherwise it opens the guide. */
 function InstallHint() {
   const [error, setError] = createSignal<string | null>(null);
   const dismiss = () => api.post("/api/install-hint/dismiss").then(refetchMe, (e: Error) => setError(e.message));
+  const install = () => promptInstall().then((accepted) => (accepted ? dismiss() : undefined), (e: Error) => setError(e.message));
   return (
     <div class="qa-install-hint alert alert-info d-flex flex-wrap align-items-center gap-2 mb-0" role="alert">
       <span class="me-auto">{t("install.alert")}</span>
-      <A href="/about/home-screen" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>
+      <Show when={canPromptInstall()} fallback={<A href="/about/home-screen" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>}>
+        <button type="button" class="qa-install-hint-prompt btn btn-info btn-sm" onClick={() => void install()}>{t("install.prompt")}</button>
+      </Show>
       <button type="button" class="qa-install-hint-dismiss btn-close" aria-label={t("install.dismiss")} onClick={() => void dismiss()} />
       <Show when={error()}>{(m) => <div class="text-danger small w-100">{m()}</div>}</Show>
     </div>
@@ -209,6 +213,7 @@ function LanguageSwitcher(props: { lang: Language }) {
   };
   document.addEventListener("click", closeOnOutsideClick);
   onCleanup(() => document.removeEventListener("click", closeOnOutsideClick));
+  const [requesting, setRequesting] = createSignal(false);
   const learning = () => me()!.learning;
   const others = () => learnable(me()!.locale).filter((l) => !learning().includes(l));
   const go = (l: Language) => {
@@ -248,7 +253,10 @@ function LanguageSwitcher(props: { lang: Language }) {
           <li><h6 class="dropdown-header">{t("dash.addLanguage")}</h6></li>
           <For each={others()}>{(l) => item(l, () => void add(l))}</For>
         </Show>
+        <li><hr class="dropdown-divider" /></li>
+        <li><button type="button" class="qa-dash-lang-other dropdown-item text-body-secondary" onClick={() => { setOpen(false); setRequesting(true); }}>{t("request.menu")}</button></li>
       </ul>
+      <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />
       <Show when={error()}>{(m) => <div class="text-danger small">{m()}</div>}</Show>
     </div>
   );

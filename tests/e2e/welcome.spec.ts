@@ -116,6 +116,11 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await signIn(page, "settingslearn@example.com");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
+  await expect(page.locator(".qa-settings-learning-current")).toHaveText("🇮🇹 Italian");
+  await page.locator(".qa-settings-learning-toggle").click();
+  const names = (await page.locator(".qa-settings-learning .option-grid label").allTextContents()).map((n) => n.replace(/^\S+\s/, "").trim());
+  expect(names.length).toBeGreaterThan(1);
+  expect(names).toEqual([...names].sort((x, y) => x.localeCompare(y, "en")));
   await expect(page.locator(".qa-settings-learn-it")).toBeChecked();
   await expect(page.locator(".qa-settings-learn-it")).toBeDisabled();
 
@@ -126,21 +131,27 @@ test("Settings adds and hides courses but never hides the last one", async ({ pa
   await page.locator("label[for=learn-it]").click();
   await expect(page.locator(".qa-settings-learn-nl")).toBeDisabled();
   await page.reload();
-  await expect(page.locator(".qa-settings-learn-it")).not.toBeChecked();
+  await expect(page.locator(".qa-settings-learning-current")).toHaveText("🇳🇱 Dutch");
 });
 
-test("Settings invites a request for a language to learn, separately from the interface-language one", async ({ page }) => {
+test("Settings opens the language request from Other... in the pickers without changing anything", async ({ page }) => {
   await signIn(page, "settingsrequest@example.com");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await expect(page.locator(".qa-request-language")).toHaveCount(2);
-  await page.locator(".qa-request-learn-language").click();
+  await expect(page.locator(".qa-request-language")).toHaveCount(0);
+  await page.locator(".qa-settings-learning-toggle").click();
+  await page.locator(".qa-settings-learn-other").click();
   await expect(page.locator(".qa-popup[open] .qa-request-send")).toBeDisabled();
+  await page.locator(".qa-popup[open] .qa-request-close").click();
+  await page.locator(".qa-settings-locale-toggle").click();
+  await page.locator(".qa-settings-locale-other").click();
+  await expect(page.locator(".qa-popup[open] .qa-request-send")).toBeDisabled();
+  await expect(page.locator(".qa-settings-locale-current")).toHaveText(/English/);
 });
 
 test("a visitor can ask for a language from the homepage without changing their own", async ({ page }) => {
   await page.goto("/");
-  await page.locator(".qa-request-language").first().click();
+  await page.locator(".qa-welcome-speak-other").click();
   const popup = page.locator(".qa-popup[open]");
   await expect(popup.locator(".qa-request-send")).toBeDisabled();
   await popup.locator(".qa-request-spoken .ts-control input").fill("portu");

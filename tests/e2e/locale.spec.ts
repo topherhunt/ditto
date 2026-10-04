@@ -8,7 +8,9 @@ test("switching your language localizes the UI and the meaning check, and surviv
 
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await page.locator(".qa-settings-locale").selectOption("es-419");
+  await page.locator(".qa-settings-locale-toggle").click();
+  await page.locator(".qa-settings-locale-es-419").click();
+  await expect(page.locator(".qa-settings-locale-es-419")).toHaveCount(0);
   await expect(page.locator(".qa-settings-general .qa-settings-status")).toHaveText("Guardado");
   await expect(page.locator("html")).toHaveAttribute("lang", "es-419");
   await expect(page.locator(".qa-settings-title")).toHaveText("Ajustes");
@@ -77,8 +79,12 @@ test("Greek is not offered as your own language, since no course is translated i
   await expect(page.locator(".qa-welcome-speak-el")).toHaveCount(0);
   await signIn(page, "greek1@example.com");
   await page.goto("/settings");
-  await expect(page.locator(".qa-settings-locale option")).toHaveCount(4);
-  await expect(page.locator(".qa-settings-locale option[value=el]")).toHaveCount(0);
+  await expect(page.locator(".qa-settings-locale-current")).toHaveText(/English/);
+  await page.locator(".qa-settings-locale-toggle").click();
+  const names = (await page.locator(".qa-settings-locale .option-grid .btn:not(.qa-settings-locale-other)").allTextContents()).map((n) => n.replace(/^\S+\s/, "").trim());
+  expect(names).toHaveLength(4);
+  expect(names).toEqual([...names].sort((x, y) => x.localeCompare(y, "en")));
+  await expect(page.locator(".qa-settings-locale-el")).toHaveCount(0);
 });
 
 test("interface immersion in the Greek course shows the app in Greek", async ({ page }) => {
@@ -125,7 +131,7 @@ test("a language picked before sign-in becomes a new account's language", async 
   await expect(page.locator(".qa-nav-type")).toHaveText("Typen");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await expect(page.locator(".qa-settings-locale")).toHaveValue("nl");
+  await expect(page.locator(".qa-settings-locale-current")).toHaveText(/Nederlands/);
 });
 
 test("a new account picks its language alongside its username", async ({ page }) => {
@@ -147,5 +153,5 @@ test("a new account picks its language alongside its username", async ({ page })
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-settings").click();
-  await expect(page.locator(".qa-settings-locale")).toHaveValue("it");
+  await expect(page.locator(".qa-settings-locale-current")).toHaveText(/Italiano/);
 });

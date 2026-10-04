@@ -25,9 +25,8 @@ function FilterSelect(props: { class: string; value: string; onChange: (v: strin
   );
 }
 
-/** A small link that opens a popup asking, anonymously, which language the visitor speaks best and which they want to learn. It changes nothing about their account. */
-export function RequestLanguageLink(props: { label?: string; class?: string }) {
-  const [open, setOpen] = createSignal(false);
+/** A popup asking which language the visitor speaks best and which they want to learn. It changes nothing about their account. */
+export function RequestLanguagePopup(props: { open: boolean; onClose: () => void }) {
   const [spoken, setSpoken] = createSignal("");
   const [wanted, setWanted] = createSignal("");
   const [sent, setSent] = createSignal(false);
@@ -41,7 +40,9 @@ export function RequestLanguageLink(props: { label?: string; class?: string }) {
     return [...named, { code: "other" as RequestLanguage, name: t("request.other") }];
   });
 
-  const show = () => { setSpoken(""); setWanted(""); setSent(false); setError(null); setOpen(true); };
+  createEffect(() => {
+    if (props.open) { setSpoken(""); setWanted(""); setSent(false); setError(null); }
+  });
   const send = async () => {
     setSending(true);
     setError(null);
@@ -63,11 +64,10 @@ export function RequestLanguageLink(props: { label?: string; class?: string }) {
 
   return (
     <>
-      <button type="button" class={`qa-request-language ${props.class ?? ""} btn btn-link link-secondary p-0 align-baseline small`} onClick={show}>{props.label ?? t("welcome.requestLanguage")}</button>
-      <Popup open={open()} onClose={() => setOpen(false)} title={t("request.title")}
+      <Popup open={props.open} onClose={props.onClose} title={t("request.title")}
         footer={
           <>
-            <button type="button" class="qa-request-close btn btn-outline-secondary" onClick={() => setOpen(false)}>{t("request.close")}</button>
+            <button type="button" class="qa-request-close btn btn-outline-secondary" onClick={props.onClose}>{t("request.close")}</button>
             <Show when={!sent()}>
               <button type="button" class="qa-request-send btn btn-primary" disabled={!spoken() || !wanted() || sending()} onClick={send}>{t("request.send")}</button>
             </Show>

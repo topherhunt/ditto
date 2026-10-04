@@ -1,11 +1,12 @@
-import { For } from "solid-js";
+import { createSignal, For } from "solid-js";
 import type { Language, Locale } from "../../../shared/content.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS, learnable } from "../learning.ts";
-import { RequestLanguageLink } from "./RequestLanguage.tsx";
+import { RequestLanguagePopup } from "./RequestLanguage.tsx";
 
-/** One button per course a speaker of `locale` can take, plus a way to ask for a missing language. */
+/** One button per course a speaker of `locale` can take, plus an Other button that opens the language request. */
 export function LearnPicker(props: { locale: Locale; chosen: Language | null; onChoose: (l: Language) => void }) {
+  const [requesting, setRequesting] = createSignal(false);
   return (
     <div class="d-flex flex-column gap-2">
       <div class="d-flex flex-wrap gap-2">
@@ -17,11 +18,10 @@ export function LearnPicker(props: { locale: Locale; chosen: Language | null; on
             </button>
           )}
         </For>
+        <button type="button" class="qa-learn-other btn btn-link link-secondary" onClick={() => setRequesting(true)}>{t("request.menu")}</button>
       </div>
-      <div class="small text-body-secondary">
-        {t("welcome.learnMore")}{" "}
-        <RequestLanguageLink />
-      </div>
+      <div class="small text-body-secondary">{t("welcome.learnMore")}</div>
+      <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />
     </div>
   );
 }
