@@ -92,6 +92,12 @@
 @keyframes spark-x { to { transform: translateX(var(--dx)); } }
 @keyframes spark-y { 0% { transform: translateY(0) scale(.4); opacity: 1; } 70% { transform: translateY(var(--dy)) scale(1); } 100% { transform: translateY(calc(var(--dy) + 1.5rem)) scale(1); opacity: 0; } }
 
+/* Emoji that drop in one after another and pile up in a row, then restart. --i is each one's position. */
+.loading-pile { display: flex; justify-content: center; font-size: 1.75rem; line-height: 1; }
+.loading-pile > span { display: inline-block; margin: 0 -.1rem; opacity: 0; animation: loading-drop 2.1s ease-in infinite; animation-delay: calc(var(--i) * .22s); }
+@keyframes loading-drop { 0% { opacity: 0; transform: translateY(-2rem) scale(.6); } 12% { opacity: 1; transform: translateY(0) scale(1.15); } 18%, 80% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .loading-pile > span { animation: none; opacity: 1; } }
+
 @media (prefers-reduced-motion: reduce) { .tilt, .tilt.breathe { animation: none; } .spark { display: none; } }
 
 /* Navbar: under 500px the username hides and the padding and text shrink. */

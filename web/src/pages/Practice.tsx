@@ -11,6 +11,8 @@ import type { Outcome, SessionMode } from "../practice.ts";
 import { me } from "../session.ts";
 import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** `seen`: ids of the units the learner has already finished, which study-first doesn't show again. */
 type Deck = { title: string; units: ServedUnit[]; start: number; lessonId: string | null; seen: string[] };
@@ -75,7 +77,7 @@ export function Practice(props: { mode: SessionMode }) {
   const params = useParams();
   const [deck, { refetch }] = createResource(() => [props.mode, lang(), params.lessonId, params.level] as const, ([m, l, id, level]) => loadDeck(m, l, id, level));
   return (
-    <Show when={deck()} keyed>
+    <Show when={deck()} keyed fallback={<Loading />}>
       {(d) => <Session deck={d} mode={props.mode} lang={lang()} level={params.level} onRetry={refetch} />}
     </Show>
   );
@@ -120,7 +122,7 @@ function TestResult(props: { lang: Language; level: string; passed: boolean; rig
         <Show when={saved.error}>{(e) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: (e() as Error).message })}</div>}</Show>
       </Show>
       <div class="d-flex gap-2">
-        <A href={`/${props.lang}/type`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
+        <A href={routes.type({ lang: props.lang })} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
         <Show when={!props.passed}>
           <button type="button" class="qa-test-retry btn btn-outline-primary" onClick={() => props.onRetry()}>{t("test.retry")}</button>
         </Show>
@@ -145,7 +147,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
   return (
     <div class="d-flex flex-column gap-3">
       <div class="d-flex align-items-center gap-2">
-        <A end href={`/${props.lang}/type`} class="qa-lesson-back btn btn-sm btn-outline-secondary" aria-label={t("practice.back")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
+        <A end href={routes.type({ lang: props.lang })} class="qa-lesson-back btn btn-sm btn-outline-secondary" aria-label={t("practice.back")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
         <h1 class="h4 mb-0 me-auto">{props.deck.title}</h1>
         <span class="qa-position text-body-secondary small">{Math.min(index() + 1, props.deck.units.length)} / {props.deck.units.length}</span>
       </div>
@@ -177,7 +179,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
             </Show>
             <div class="d-flex gap-2">
               {/* Focused so Enter goes straight back. */}
-              <A href={`/${props.lang}/type`} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
+              <A href={routes.type({ lang: props.lang })} class="qa-back btn btn-primary" ref={(el) => queueMicrotask(() => el.focus())}>{t("practice.back")}</A>
               <Show when={props.mode === "learn"}>
                 <button type="button" class="qa-restart btn btn-outline-primary" onClick={() => setIndex(0)}>{t("practice.again")}</button>
               </Show>

@@ -15,6 +15,8 @@ import { capHits, spend, usdShort } from "../spend.ts";
 import { Notifications } from "./Notifications.tsx";
 import { LearnPicker } from "./LearnPicker.tsx";
 import { Setup } from "./Setup.tsx";
+import { Loading } from "./Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** Any error under the layout, effects and resources included, lands here instead of blanking the page. */
 export function Layout(props: RouteSectionProps) {
@@ -57,7 +59,7 @@ function LayoutBody(props: RouteSectionProps) {
     setImmersion(l && user.prefs[l].immerseUi ? languageLocale(l) : null);
   });
   const navigate = useNavigate();
-  createEffect(on(capHits, () => navigate("/cap"), { defer: true }));
+  createEffect(on(capHits, () => navigate(routes.cap()), { defer: true }));
   createEffect(() => { if (me()) trackPage(location.pathname); });
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [config] = createResource(() => api.get<Config>("/api/config"));
@@ -70,14 +72,14 @@ function LayoutBody(props: RouteSectionProps) {
   return (
     <>
       <Switch>
-        <Match when={me.loading && me() === undefined}><div class="container py-5 text-body-secondary">{t("app.loading")}</div></Match>
+        <Match when={me.loading && me() === undefined}><div class="container"><Loading /></div></Match>
         {/* Signed out, every path but these shows the homepage. Google's OAuth review needs /privacy and /terms public. */}
         <Match when={me() === null}>
           <div class="container py-4" style={{ "max-width": "52rem" }}>
             <Switch fallback={<Welcome />}>
-              <Match when={location.pathname === "/about"}><About /></Match>
-              <Match when={location.pathname === "/privacy"}><Privacy /></Match>
-              <Match when={location.pathname === "/terms"}><Terms /></Match>
+              <Match when={location.pathname === routes.about()}><About /></Match>
+              <Match when={location.pathname === routes.privacy()}><Privacy /></Match>
+              <Match when={location.pathname === routes.terms()}><Terms /></Match>
             </Switch>
           </div>
         </Match>
@@ -91,7 +93,7 @@ function LayoutBody(props: RouteSectionProps) {
               await api.put("/api/learning", { languages: [l] });
               rememberLanguage(l);
               await refetchMe();
-              if (location.pathname === "/") navigate(`/${l}`);
+              if (location.pathname === "/") navigate(routes.dashboard({ lang: l }));
             }} />
           </div>
         </Match>
@@ -100,14 +102,14 @@ function LayoutBody(props: RouteSectionProps) {
             <>
               <nav class="navbar navbar-expand bg-body border-bottom" data-silent>
                 <div class="nav-inner container gap-2 flex-wrap" style={{ "max-width": "52rem" }}>
-                  <A class="qa-nav-home navbar-brand" href={`/${navLang()}`}><img class="logo-icon me-2" src="/favicon.svg" alt="" />Ditto</A>
+                  <A class="qa-nav-home navbar-brand" href={routes.dashboard({ lang: navLang() })}><img class="logo-icon me-2" src="/favicon.svg" alt="" />Ditto</A>
                   <ul class="navbar-nav">
-                    <li class="nav-item"><A class="qa-nav-type nav-link" href={`/${navLang()}/type`}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
+                    <li class="nav-item"><A class="qa-nav-type nav-link" href={routes.type({ lang: navLang() })}><i class="bi bi-keyboard me-1" aria-hidden="true" />{t("nav.type")}</A></li>
                     <Show when={config()?.speak && (SPEAK_LANGUAGES as readonly string[]).includes(navLang())}>
-                      <li class="nav-item"><A class="qa-nav-speak nav-link" href={`/${navLang()}/talk`}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-speak nav-link" href={routes.talk({ lang: navLang() })}><i class="bi bi-mic me-1" aria-hidden="true" />{t("nav.speak")}</A></li>
                     </Show>
                     <Show when={config()?.quiz.includes(navLang())}>
-                      <li class="nav-item"><A class="qa-nav-quiz nav-link" href={`/${navLang()}/quiz`}><i class="bi bi-patch-question me-1" aria-hidden="true" />{t("nav.quiz")}</A></li>
+                      <li class="nav-item"><A class="qa-nav-quiz nav-link" href={routes.quiz({ lang: navLang() })}><i class="bi bi-patch-question me-1" aria-hidden="true" />{t("nav.quiz")}</A></li>
                     </Show>
                   </ul>
                   <div class="ms-auto d-flex align-items-center gap-2">
@@ -120,13 +122,13 @@ function LayoutBody(props: RouteSectionProps) {
                       </button>
                       {/* data-bs-popper="static" makes Bootstrap's CSS position the menu without its JS. */}
                       <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
-                        <li><A href="/people/me" class="qa-nav-profile dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-person-circle me-2" aria-hidden="true" />{t("nav.profile")}</A></li>
-                        <li><A href="/friends" class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people-fill me-2" aria-hidden="true" />{t("nav.friends")}</A></li>
-                        <li><A href="/leaderboard" class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-trophy me-2" aria-hidden="true" />{t("nav.leaderboard")}</A></li>
-                        <li><A href="/settings" class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-gear me-2" aria-hidden="true" />{t("nav.settings")}</A></li>
-                        <li><A href="/about" class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
+                        <li><A href={routes.person({ id: "me" })} class="qa-nav-profile dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-person-circle me-2" aria-hidden="true" />{t("nav.profile")}</A></li>
+                        <li><A href={routes.friends()} class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people-fill me-2" aria-hidden="true" />{t("nav.friends")}</A></li>
+                        <li><A href={routes.leaderboard()} class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-trophy me-2" aria-hidden="true" />{t("nav.leaderboard")}</A></li>
+                        <li><A href={routes.settings()} class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-gear me-2" aria-hidden="true" />{t("nav.settings")}</A></li>
+                        <li><A href={routes.about()} class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
                         {/* Admin-only, so not translated. */}
-                        {user().admin && <li><A href="/admin" class="qa-nav-admin dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-shield-lock me-2" aria-hidden="true" />Admin</A></li>}
+                        {user().admin && <li><A href={routes.admin()} class="qa-nav-admin dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-shield-lock me-2" aria-hidden="true" />Admin</A></li>}
                         <li><hr class="dropdown-divider" /></li>
                         <li><button type="button" class="qa-logout dropdown-item text-danger" onClick={logout}><i class="bi bi-power me-2" aria-hidden="true" />{t("nav.signOut")}</button></li>
                       </ul>
@@ -143,13 +145,13 @@ function LayoutBody(props: RouteSectionProps) {
       </Switch>
       <footer class="container py-3 small text-body-secondary d-flex flex-wrap justify-content-between gap-2" style={{ "max-width": "52rem" }}>
         <span>
-          <A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span>
-          <A class="qa-footer-about link-secondary" href="/about">{t("nav.about")}</A><span class="mx-2" aria-hidden="true">•</span>
-          <A class="qa-footer-privacy link-secondary" href="/privacy">{t("footer.privacy")}</A><span class="mx-2" aria-hidden="true">•</span>
-          <A class="qa-footer-terms link-secondary" href="/terms">{t("footer.terms")}</A>
+          <A class="qa-footer-home link-secondary" href={routes.welcome()}>{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-about link-secondary" href={routes.about()}>{t("nav.about")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-privacy link-secondary" href={routes.privacy()}>{t("footer.privacy")}</A><span class="mx-2" aria-hidden="true">•</span>
+          <A class="qa-footer-terms link-secondary" href={routes.terms()}>{t("footer.terms")}</A>
           <Show when={me()}>
             <span class="mx-2" aria-hidden="true">•</span>
-            <A class="qa-feedback-link link-secondary text-nowrap" href={`/feedback?from=${encodeURIComponent(location.pathname)}`}>
+            <A class="qa-feedback-link link-secondary text-nowrap" href={routes.feedback({ from: location.pathname })}>
               <i class="bi bi-bug-fill me-1" aria-hidden="true" />{t("footer.feedback")}
             </A>
           </Show>

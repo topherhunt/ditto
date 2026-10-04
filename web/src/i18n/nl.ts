@@ -407,6 +407,8 @@ export const nl: Dictionary = {
   "leaderboard.allTime": "{n} totaal",
   "leaderboard.duration": "{h} u {m} min",
   "leaderboard.findFriends": "Vrienden zoeken",
+  "leaderboard.friendsOnly": "Alleen vrienden",
+  "leaderboard.isFriend": "Vriend",
   "profile.lessonsDay": "Lessen in de afgelopen dag",
   "profile.lessonsWeek": "Lessen in de afgelopen week",
   "profile.lessonsMonth": "Lessen in de afgelopen maand",

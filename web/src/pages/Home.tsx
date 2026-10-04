@@ -14,6 +14,8 @@ import { t } from "../i18n/index.ts";
 import { me } from "../session.ts";
 import { displayName } from "../social.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 export function Home() {
   const lang = useLang();
@@ -24,7 +26,7 @@ export function Home() {
   const fresh = () => Object.keys(catalog()!.progress).length === 0;
 
   return (
-    <Show when={catalog()}>
+    <Show when={catalog()} fallback={<Loading />}>
       {(cat) => (
         <div class="d-flex flex-column gap-4">
           <ScrollUpButton />
@@ -33,7 +35,7 @@ export function Home() {
           <div class="d-flex flex-wrap justify-content-center gap-2">
             <Show when={nextLesson(cat())}>
               {(lesson) => (
-                <A href={`/${lang()}/type/lesson/${lesson().id}`} class="qa-next-lesson btn btn-success">
+                <A href={routes.typeLesson({ lang: lang(), lessonId: lesson().id })} class="qa-next-lesson btn btn-success">
                   <span aria-hidden="true">▶</span> {t("home.next", { title: lesson().title })}
                 </A>
               )}
@@ -58,7 +60,7 @@ export function Home() {
                     </h2>
                     <Show when={passed()}><span class="qa-level-passed badge text-bg-success">{t("home.testedOut")}</span></Show>
                     <Show when={!passed() && !levelDone(cat(), courses)}>
-                      <TestOutButton kind="type" href={`/${lang()}/type/test/${level}`} level={level} label={t("home.testOut", { level })} class="qa-level-test btn-sm ms-auto" />
+                      <TestOutButton kind="type" href={routes.typeTest({ lang: lang(), level: level })} level={level} label={t("home.testOut", { level })} class="qa-level-test btn-sm ms-auto" />
                     </Show>
                   </div>
                   <Show when={!folded()}>
@@ -114,7 +116,7 @@ export function Home() {
                                           <div class="qa-lesson-actions lesson-actions d-flex flex-nowrap flex-shrink-0 align-items-center justify-content-end text-nowrap">
                                             <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                               <Match when={cat().unlocked.includes(lesson.id)}>
-                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                <A href={routes.typeLesson({ lang: lang(), lessonId: lesson.id })} class="qa-lesson-start btn btn-sm"
                                                     classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
                                                 <Show when={stars()?.stars !== undefined && stars().stars < 3 && masterWait() === 0}>
                                                   <button type="button" class="qa-lesson-master btn btn-sm btn-gold" onClick={() => setAsk("master")}>{t("home.master")}</button>
@@ -128,7 +130,7 @@ export function Home() {
                                                 {(friends) => {
                                                   const names = () => friends().map(displayName);
                                                   return (
-                                                  <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap">
+                                                  <A href={routes.typeLesson({ lang: lang(), lessonId: lesson.id })} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap">
                                                     {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
                                                   </A>
                                                   );
@@ -144,8 +146,8 @@ export function Home() {
                                           </div>
                                           <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} titleIcon="trophy-fill" titleIconClass="gold-shimmer" class="qa-master-popup"
                                             footer={<>
-                                              <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
-                                              <A href={`/${lang()}/type/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold"><i class="bi bi-play-fill me-1" aria-hidden="true" />{t("home.masterReady")}</A>
+                                              <A href={routes.typeLesson({ lang: lang(), lessonId: lesson.id })} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
+                                              <A href={routes.typeMaster({ lang: lang(), lessonId: lesson.id })} class="qa-master-ready btn btn-gold"><i class="bi bi-play-fill me-1" aria-hidden="true" />{t("home.masterReady")}</A>
                                             </>}>
                                             {t("home.masterIntro")}
                                           </Popup>

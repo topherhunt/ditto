@@ -6,6 +6,8 @@ import { PlayButton } from "../components/PlayButton.tsx";
 import { deckName, MasteryBar, MasteryChart, ratingClass, SessionSummary } from "../components/QuizCharts.tsx";
 import { locale, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 export function useDeck() {
   const params = useParams();
@@ -36,12 +38,12 @@ export function QuizDeck() {
   const lang = useLang();
   const detail = useDeck();
   return (
-    <Show when={detail()}>
+    <Show when={detail()} fallback={<Loading />}>
       {(d) => {
-        const base = () => `/${lang()}/quiz/${d().deck.id}`;
+        const at = () => ({ lang: lang(), deckId: d().deck.id });
         return (
           <div class="qa-quiz-deck-home d-flex flex-column gap-3">
-            <Back href={`/${lang()}/quiz`} label={t("quiz.allDecks")} />
+            <Back href={routes.quiz({ lang: lang() })} label={t("quiz.allDecks")} />
             <h1 class="h3 mb-0">{deckName(d().deck)}</h1>
             <div class="row text-center g-2">
               <Count n={d().deck.due} label={t("quiz.due")} qa="due" color="text-danger" />
@@ -53,7 +55,7 @@ export function QuizDeck() {
             <Show when={d().deck.due === 0 && d().deck.fresh === 0}>
               <p class="qa-quiz-caught-up text-success text-center mb-0">{t("quiz.caughtUp")}</p>
             </Show>
-            <A href={`${base()}/study/spaced`} class="qa-quiz-mode-spaced btn btn-success btn-lg">
+            <A href={routes.quizStudy({ ...at(), mode: "spaced" })} class="qa-quiz-mode-spaced btn btn-success btn-lg">
               <div class="fw-bold">{t("quiz.mode.spaced")}</div>
               <div class="small">{t("quiz.mode.spacedDesc")}</div>
             </A>
@@ -61,18 +63,18 @@ export function QuizDeck() {
             <div class="list-group">
               <For each={QUIZ_MODES.filter((m) => m !== "spaced")}>
                 {(mode) => (
-                  <A href={`${base()}/study/${mode}`} class={`qa-quiz-mode-${mode} list-group-item list-group-item-action`}>
+                  <A href={routes.quizStudy({ ...at(), mode })} class={`qa-quiz-mode-${mode} list-group-item list-group-item-action`}>
                     <div class="fw-medium">{t(`quiz.mode.${mode}`)}</div>
                     <div class="small text-body-secondary">{t(`quiz.mode.${mode}Desc`)}</div>
                   </A>
                 )}
               </For>
-              <A href={`${base()}/browse`} class="qa-quiz-browse list-group-item list-group-item-action">
+              <A href={routes.quizBrowse(at())} class="qa-quiz-browse list-group-item list-group-item-action">
                 <div class="fw-medium">{t("quiz.browse")}</div>
                 <div class="small text-body-secondary">{t("quiz.browseDesc")}</div>
               </A>
             </div>
-            <A href={`${base()}/stats`} class="qa-quiz-stats-link btn btn-outline-primary">{t("quiz.stats")}</A>
+            <A href={routes.quizStats(at())} class="qa-quiz-stats-link btn btn-outline-primary">{t("quiz.stats")}</A>
           </div>
         );
       }}
@@ -95,13 +97,13 @@ export function QuizBrowse() {
   const speak = useSpeak();
   const [index, setIndex] = createSignal(0);
   return (
-    <Show when={detail()}>
+    <Show when={detail()} fallback={<Loading />}>
       {(d) => {
         const q = () => d().questions[index()];
         const say = (field: string) => <Say on={speak()} deckId={d().deck.id} questionId={q().id} field={field} />;
         return (
           <div class="qa-quiz-browse-page d-flex flex-column gap-3">
-            <Back href={`/${lang()}/quiz/${d().deck.id}`} label={deckName(d().deck)} />
+            <Back href={routes.quizDeck({ lang: lang(), deckId: d().deck.id })} label={deckName(d().deck)} />
             <div class="d-flex align-items-center gap-2">
               <button type="button" class="qa-quiz-prev btn btn-outline-primary" disabled={index() === 0} onClick={() => setIndex(index() - 1)}>{t("quiz.previous")}</button>
               <span class="qa-quiz-position small text-body-secondary mx-auto">{index() + 1} / {d().questions.length}</span>
@@ -124,10 +126,10 @@ export function QuizStats() {
   const lang = useLang();
   const detail = useDeck();
   return (
-    <Show when={detail()}>
+    <Show when={detail()} fallback={<Loading />}>
       {(d) => (
         <div class="qa-quiz-stats d-flex flex-column gap-3">
-          <Back href={`/${lang()}/quiz/${d().deck.id}`} label={deckName(d().deck)} />
+          <Back href={routes.quizDeck({ lang: lang(), deckId: d().deck.id })} label={deckName(d().deck)} />
           <h1 class="h3 mb-0">{t("quiz.stats")}</h1>
           <MasteryBar mastery={d().deck.mastery} total={d().deck.total} />
           <MasteryChart sessions={d().sessions} total={d().deck.total} />
@@ -145,7 +147,7 @@ export function QuizStats() {
             <div class="list-group">
               <For each={d().sessions}>
                 {(s) => (
-                  <A href={`/${lang()}/quiz/${d().deck.id}/sessions/${s.id}`} class="qa-quiz-session list-group-item list-group-item-action d-flex justify-content-between">
+                  <A href={routes.quizSession({ lang: lang(), deckId: d().deck.id, sessionId: String(s.id) })} class="qa-quiz-session list-group-item list-group-item-action d-flex justify-content-between">
                     <span>{dateTime(s.startedAt)}</span>
                     <span class="text-body-secondary">{t("quiz.answeredN", { n: s.answered })}</span>
                   </A>
@@ -189,10 +191,10 @@ export function QuizSession() {
   const params = useParams();
   const [session] = createResource(() => params.sessionId, (id) => api.get<QuizSessionOut>(`/api/quiz/sessions/${id}`));
   return (
-    <Show when={session()}>
+    <Show when={session()} fallback={<Loading />}>
       {(s) => (
         <div class="qa-quiz-session-detail d-flex flex-column gap-3">
-          <Back href={`/${lang()}/quiz/${s().deckId}/stats`} label={t("quiz.stats")} />
+          <Back href={routes.quizStats({ lang: lang(), deckId: s().deckId })} label={t("quiz.stats")} />
           <div>
             <h1 class="h3 mb-0">{t("quiz.sessionDetail")}</h1>
             <p class="text-body-secondary mb-0">{dateTime(s().startedAt)}</p>

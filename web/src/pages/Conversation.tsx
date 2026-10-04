@@ -12,6 +12,8 @@ import { PlayButton } from "../components/PlayButton.tsx";
 import { ScrollUpButton, scrollFabClass, scrollFabStyle, scrollToY } from "../components/ScrollButtons.tsx";
 import { autoplay, loading, playing } from "./player.ts";
 import { keepRecording, recordingUrl } from "../recordings.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
 function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void; class?: string; classList?: Record<string, boolean> }) {
@@ -268,10 +270,10 @@ export function Conversation() {
   });
 
   return (
-    <Show when={conv()}>
+    <Show when={conv()} fallback={<Loading />}>
       <div class="d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <A end href={`/${lang()}/talk`} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
+          <A end href={routes.talk({ lang: lang() })} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
           <h1 class="qa-conversation-title h4 mb-0 me-auto">{c().title}</h1>
         </div>
         <div class="small text-body-secondary">{t("speak.tapHint")}</div>

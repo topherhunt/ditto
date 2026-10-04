@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("a failed notifications poll leaves the navbar and page in place", async ({ page }) => {

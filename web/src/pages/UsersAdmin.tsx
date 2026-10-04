@@ -5,6 +5,7 @@ import { LANGUAGES } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
 import { AdminCrumb } from "../components/AdminCrumb.tsx";
+import { routes } from "../routes.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -136,7 +137,7 @@ export function UsersAdmin() {
                 {(u) => (
                   <tr class="qa-admin-user">
                     <td>
-                      <A href={`/admin/users/${u.id}`} class="qa-admin-user-link fw-semibold">{u.username ?? "(no username)"}</A>
+                      <A href={routes.adminUser({ id: u.id })} class="qa-admin-user-link fw-semibold">{u.username ?? "(no username)"}</A>
                       <Show when={!u.profilePublic}><span class="badge text-bg-secondary ms-1">private</span></Show>
                       <div class="qa-admin-user-email text-body-secondary">{u.email}</div>
                     </td>
@@ -156,7 +157,7 @@ export function UsersAdmin() {
 const PeopleList = (props: { people: Person[] }) => (
   <Show when={props.people.length} fallback={<span class="text-body-secondary">none</span>}>
     <For each={props.people}>
-      {(p, i) => <>{i() > 0 && ", "}<A href={`/admin/users/${p.id}`}>{p.username ?? p.id}</A></>}
+      {(p, i) => <>{i() > 0 && ", "}<A href={routes.adminUser({ id: p.id })}>{p.username ?? p.id}</A></>}
     </For>
   </Show>
 );
@@ -172,11 +173,11 @@ export function UserAdmin() {
         return (
           <div class="d-flex flex-column gap-4">
             <div>
-              <div class="small"><AdminCrumb><A href="/admin/users">Users</A></AdminCrumb></div>
+              <div class="small"><AdminCrumb><A href={routes.adminUsers()}>Users</A></AdminCrumb></div>
               <div class="d-flex flex-wrap align-items-baseline gap-2 mt-1">
                 <h1 class="qa-admin-user-name h4 mb-0">{u().username ?? "(no username)"}</h1>
                 <span class="qa-admin-user-email text-body-secondary">{u().email}</span>
-                <A href={`/people/${u().id}`} class="qa-admin-user-profile btn btn-sm btn-outline-primary ms-auto">View public profile</A>
+                <A href={routes.person({ id: u().id })} class="qa-admin-user-profile btn btn-sm btn-outline-primary ms-auto">View public profile</A>
               </div>
             </div>
             <dl class="row mb-0 small">

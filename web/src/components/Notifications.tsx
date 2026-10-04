@@ -4,6 +4,7 @@ import type { NotificationsOut } from "../../../shared/api.ts";
 import { api, NetworkError } from "../api.ts";
 import { t } from "../i18n/index.ts";
 import { notificationText, shortDate } from "../social.ts";
+import { routes } from "../routes.ts";
 
 const POLL_MS = 60_000;
 
@@ -55,7 +56,7 @@ export function Notifications(props: { large?: boolean }) {
         <For each={data()?.items} fallback={<li class="dropdown-item-text text-body-secondary small">{t("notify.empty")}</li>}>
           {(n) => (
             <li>
-              <A href={n.kind === "friend_accepted" ? `/people/${n.actor.id}` : "/friends"} class="qa-notification dropdown-item text-wrap small"
+              <A href={n.kind === "friend_accepted" ? routes.person({ id: n.actor.id }) : routes.friends()} class="qa-notification dropdown-item text-wrap small"
                 classList={{ "fw-semibold": !n.read }} onClick={() => setOpen(false)}>
                 {notificationText(n)}
                 <div class="text-body-secondary">{shortDate(n.createdAt)}</div>

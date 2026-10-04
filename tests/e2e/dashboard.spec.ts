@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { setLearning, signIn } from "./helpers.ts";
 
 test("a new learner's dashboard coaches the first lesson, and practicing shows on the streak, chart and stars", async ({ page }) => {

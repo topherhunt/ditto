@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("tapping a face on the dashboard card saves the mood at once, and the page it opens can add tags and text before returning to the dashboard with thanks", async ({ page }) => {

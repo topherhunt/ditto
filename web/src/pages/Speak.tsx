@@ -7,6 +7,8 @@ import { t } from "../i18n/index.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** Language-neutral, so it lives here rather than in each locale file. */
 const STARTER_EMOJI: Record<Starter, string> = {
@@ -42,7 +44,7 @@ export function Speak() {
     unlockPlayer();
     try {
       const conv = await api.post<ConversationOut>("/api/conversations", { language: lang(), level: level(), scenario, hardMode: hardMode() });
-      navigate(`/${lang()}/talk/${conv.id}`, { state: { opened: true } });
+      navigate(routes.talkConversation({ lang: lang(), id: String(conv.id) }), { state: { opened: true } });
     } catch (e) {
       setError((e as Error).message);
       setStarting(false);
@@ -121,7 +123,7 @@ export function Speak() {
         </section>
       </Show>
 
-      <Show when={data()}>
+      <Show when={data()} fallback={<Loading />}>
         {(d) => (
           <>
             <section>
@@ -131,7 +133,7 @@ export function Speak() {
                   <For each={d().conversations}>
                     {(c) => (
                       <li class="qa-speak-history list-group-item d-flex flex-wrap align-items-center gap-2">
-                        <A href={`/${lang()}/talk/${c.id}`} class="me-auto">{c.title}</A>
+                        <A href={routes.talkConversation({ lang: lang(), id: String(c.id) })} class="me-auto">{c.title}</A>
                         <span class="qa-speak-replies small" classList={{ "text-body-secondary": c.replies < CONVERSATION_LESSON_REPLIES, "text-success": c.replies >= CONVERSATION_LESSON_REPLIES }}>
                           <i class={`bi ${c.replies >= CONVERSATION_LESSON_REPLIES ? "bi-chat-heart" : "bi-chat-dots"} me-1`} aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
                         </span>

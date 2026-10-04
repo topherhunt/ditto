@@ -5,10 +5,12 @@ import { api } from "../api.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS } from "../learning.ts";
 import { activityText, displayName, sendFriendRequest } from "../social.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 export function MakeFriendsButton() {
   return (
-    <A href="/friends/board" class="qa-make-friends btn btn-outline-primary w-100 text-start">
+    <A href={routes.friendBoard()} class="qa-make-friends btn btn-outline-primary w-100 text-start">
       <i class="bi bi-person-fill-add me-1" />{t("board.open")}
     </A>
   );
@@ -40,7 +42,7 @@ export function FriendBoard() {
     <div class="d-flex flex-column gap-3">
       <h1 class="h3 mb-0">{t("board.title")}</h1>
       <p class="text-body-secondary mb-0">{t("board.intro")}</p>
-      <Show when={board()}>
+      <Show when={board()} fallback={<Loading />}>
         {(b) => (
           <Show when={b().posted ? (b() as Extract<BoardOut, { posted: true }>) : null} fallback={
             <form class="qa-board-form card" onSubmit={post}><div class="card-body d-flex flex-column gap-2">
@@ -78,7 +80,7 @@ function Entry(props: { entry: BoardEntry; onBefriend: (e: BoardEntry) => unknow
   return (
     <li class="qa-board-entry list-group-item d-flex align-items-center gap-3" classList={{ "list-group-item-primary": e().isMe }}>
       <div class="me-auto">
-        <A href={`/people/${e().person.id}`} class="qa-person-link fw-semibold text-decoration-none">{displayName(e().person)}</A>
+        <A href={routes.person({ id: e().person.id })} class="qa-person-link fw-semibold text-decoration-none">{displayName(e().person)}</A>
         <div class="small text-body-secondary">{facts()}</div>
         <Show when={e().blurb}><div class="qa-board-entry-blurb">{e().blurb}</div></Show>
       </div>

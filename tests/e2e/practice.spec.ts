@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures.ts";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
 import { openPracticeSettings, setLearning, signIn } from "./helpers.ts";
 

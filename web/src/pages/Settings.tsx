@@ -10,6 +10,7 @@ import { languageName, locale, LOCALE_LABELS, t } from "../i18n/index.ts";
 import { homeLanguage, LANGUAGE_FLAGS, learnable, LOCALE_FLAGS } from "../learning.ts";
 import { me } from "../session.ts";
 import { chooseTheme, theme, type Theme } from "../theme.ts";
+import { routes } from "../routes.ts";
 
 export function Settings() {
   const { save, Status } = createSaver();
@@ -30,9 +31,9 @@ export function Settings() {
           </div>
           <div class="form-text">{t("settings.profilePublicHint")}</div>
         </div>
-        <div><A href="/about/home-screen" class="qa-settings-install"><i class="bi bi-phone me-1" aria-hidden="true" />{t("install.title")}</A></div>
+        <div><A href={routes.aboutHomeScreen()} class="qa-settings-install"><i class="bi bi-phone me-1" aria-hidden="true" />{t("install.title")}</A></div>
         <ThemePicker />
-        <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={() => navigate(`/${homeLanguage(me()!.learning)}`)} />
+        <UsernameForm initial={me()!.username} submitLabel={t("username.save")} onSaved={() => navigate(routes.dashboard({ lang: homeLanguage(me()!.learning) }))} />
         <Status />
       </div>
       <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />

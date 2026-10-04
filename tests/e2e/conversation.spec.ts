@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import type { ConversationOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
 import { signIn, signOut } from "./helpers.ts";
 

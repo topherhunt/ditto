@@ -4,6 +4,7 @@ import { EmojiLine } from "../components/EmojiLine.tsx";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
 import { me } from "../session.ts";
+import { routes } from "../routes.ts";
 
 const COLUMNS: { heading: Key; tips: Key[] }[] = [
   { heading: "about.exerciseHeading", tips: ["about.tipListen", "about.tipSlow", "about.tipVoices", "about.tipHints", "about.tipWords", "about.tipWhy", "about.tipAloud"] },
@@ -24,7 +25,7 @@ export function About() {
                 <Show when={col.heading === "about.habitsHeading" && me()}>
                   <li class="qa-about-install d-flex gap-2">
                     <span aria-hidden="true">📲</span>
-                    <span>{t("about.tipInstall")} <A href="/about/home-screen" class="qa-about-install-link">{t("install.show")}</A></span>
+                    <span>{t("about.tipInstall")} <A href={routes.aboutHomeScreen()} class="qa-about-install-link">{t("install.show")}</A></span>
                   </li>
                 </Show>
               </ul>

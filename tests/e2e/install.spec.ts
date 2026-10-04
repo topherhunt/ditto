@@ -1,4 +1,4 @@
-import { devices, expect, test } from "@playwright/test";
+import { devices, expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 const { userAgent: IOS_SAFARI } = devices["iPhone 13"];

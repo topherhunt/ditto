@@ -18,6 +18,8 @@ import { feedbackThanks, setFeedbackThanks } from "../feedback.ts";
 import { journey, progressSeries, type Rung } from "../progress.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** Days the progress chart spans, ending today. */
 const CHART_DAYS = 30;
@@ -50,8 +52,8 @@ export function Dashboard() {
     setRating(true);
     setRatingError(null);
     try {
-      const saved = await api.post<FeedbackOut>("/api/feedback", { mood, tags: [], message: "", mayContact: false, page: `/${lang()}` });
-      navigate(`/feedback?id=${saved.id}`);
+      const saved = await api.post<FeedbackOut>("/api/feedback", { mood, tags: [], message: "", mayContact: false, page: routes.dashboard({ lang: lang() }) });
+      navigate(routes.feedback({ id: String(saved.id) }));
     } catch (e) {
       setRatingError(t("feedback.failed", { error: (e as Error).message }));
       setRating(false);
@@ -77,12 +79,12 @@ export function Dashboard() {
     const cat = catalog()!;
     const next = nextLesson(cat);
     const today = byDay().get(dayKey(new Date()));
-    const lesson = next && { href: `/${lang()}/type/lesson/${next.id}`, label: t("home.start") };
+    const lesson = next && { href: routes.typeLesson({ lang: lang(), lessonId: next.id }), label: t("home.start") };
     if (next && Object.keys(cat.progress).length === 0) return { qa: "first", text: t("dash.coach.first", { title: next.title }), go: lesson! };
-    if (cat.reviewCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.reviewCount }), go: { href: `/${lang()}/type/review`, label: t("home.review") } };
+    if (cat.reviewCount > 0) return { qa: "review", text: t("dash.coach.review", { n: cat.reviewCount }), go: { href: routes.typeReview({ lang: lang() }), label: t("home.review") } };
     if (next && !today?.type) return { qa: "lesson", text: t("dash.coach.lesson", { title: next.title }), go: { ...lesson!, label: t("home.continue") } };
-    if (talkOn() && !today?.talk) return { qa: "talk", text: t("dash.coach.talk"), go: { href: `/${lang()}/talk`, label: t("activity.talk") } };
-    if (quizOn() && !today?.quiz) return { qa: "quiz", text: t("dash.coach.quiz"), go: { href: `/${lang()}/quiz`, label: t("activity.quiz") } };
+    if (talkOn() && !today?.talk) return { qa: "talk", text: t("dash.coach.talk"), go: { href: routes.talk({ lang: lang() }), label: t("activity.talk") } };
+    if (quizOn() && !today?.quiz) return { qa: "quiz", text: t("dash.coach.quiz"), go: { href: routes.quiz({ lang: lang() }), label: t("activity.quiz") } };
     return { qa: "done", text: t("dash.coach.done") };
   };
 
@@ -141,7 +143,7 @@ export function Dashboard() {
 
   onCleanup(() => setFeedbackThanks(false));
   return (
-    <Show when={ready()}>
+    <Show when={ready()} fallback={<Loading />}>
       <div class="qa-dashboard d-flex flex-column gap-4">
         <Show when={feedbackThanks()}><div class="qa-feedback-thanks alert alert-success mb-0" role="status">{t("feedback.thanks")}</div></Show>
         <Show when={!me()!.installHintDismissed && isMobile() && !isStandalone()}><InstallHint /></Show>
@@ -149,18 +151,18 @@ export function Dashboard() {
         <div class="position-relative d-flex flex-wrap-reverse align-items-center gap-2">
           <LanguageSwitcher lang={lang()} />
           <div class="d-flex gap-2 ms-auto">
-            <A href="/friends" class="qa-dash-friends btn btn-outline-primary position-relative">
+            <A href={routes.friends()} class="qa-dash-friends btn btn-outline-primary position-relative">
               <i class="bi bi-people-fill me-1" aria-hidden="true" />{t("nav.friends")}
               <Show when={social()}>{(s) => <span class="qa-dash-friends-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary" style={{ "margin-left": "-6px" }}>{s().friends}</span>}</Show>
             </A>
-            <A href="/leaderboard" class="qa-dash-leaderboard btn btn-outline-primary position-relative">
+            <A href={routes.leaderboard()} class="qa-dash-leaderboard btn btn-outline-primary position-relative">
               <i class="bi bi-trophy me-1" aria-hidden="true" />{t("nav.leaderboard")}
               <Show when={social()?.weekRank}>
                 {(rank) => <span class={`qa-dash-rank qa-dash-rank-${rank()} position-absolute top-0 start-100 translate-middle badge rounded-pill ${rank() <= 3 ? `rank-${rank()}` : "text-bg-secondary"}`} style={{ "margin-left": "-6px" }}>{rank()}</span>}
               </Show>
             </A>
             <div class="xs-only"><Notifications large /></div>
-            <A href="/settings" class="qa-dash-settings xs-hide btn btn-outline-secondary" aria-label={t("nav.settings")}><i class="bi bi-gear" aria-hidden="true" /></A>
+            <A href={routes.settings()} class="qa-dash-settings xs-hide btn btn-outline-secondary" aria-label={t("nav.settings")}><i class="bi bi-gear" aria-hidden="true" /></A>
           </div>
         </div>
 
@@ -196,7 +198,7 @@ export function Dashboard() {
                 {(r) => (
                   <div class="qa-dash-testout border-top pt-3 d-flex flex-wrap align-items-center gap-2">
                     <span class="small me-auto">{t("dash.testOut", { self: level()!, level: r().level })}</span>
-                    <TestOutButton kind="type" href={`/${lang()}/type/test/${r().level}`} level={r().level} label={t("home.testOut", { level: r().level })} class="qa-dash-testout-go btn-sm" />
+                    <TestOutButton kind="type" href={routes.typeTest({ lang: lang(), level: r().level })} level={r().level} label={t("home.testOut", { level: r().level })} class="qa-dash-testout-go btn-sm" />
                   </div>
                 )}
               </Show>
@@ -230,11 +232,11 @@ export function Dashboard() {
         <section>
           <h2 class="h5 mb-3">{t("dash.waysHeading")}</h2>
           <div class="row g-3">
-            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={`/${lang()}/type`}
+            <Way qa="type" icon="bi-keyboard" body={t("welcome.type.body")} href={routes.type({ lang: lang() })}
               stat={t("dash.stat.type", { done: lessonsDone(), total: lessonsTotal() })} />
-            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? `/${lang()}/talk` : undefined}
+            <Way qa="talk" icon="bi-mic" body={t("welcome.talk.body")} href={talkOn() ? routes.talk({ lang: lang() }) : undefined}
               stat={talkOn() ? t("dash.stat.talk", { n: talk()!.conversations.length }) : undefined} />
-            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? `/${lang()}/quiz` : undefined}
+            <Way qa="quiz" icon="bi-patch-question" body={t("quiz.intro")} href={quizOn() ? routes.quiz({ lang: lang() }) : undefined}
               stat={quizOn() ? t("dash.stat.quiz", { done: quizCount("graduated"), total: quizCount("total") }) : undefined} />
           </div>
         </section>
@@ -245,7 +247,7 @@ export function Dashboard() {
               <div class="card-body d-flex flex-column gap-2">
                 <h2 class="h6 mb-0">{t("dash.about.title")}</h2>
                 <p class="small mb-0">{t("dash.about.body")}</p>
-                <div class="mt-auto pt-2"><A href="/about" class="qa-dash-about-go btn btn-outline-primary btn-sm"><i class="bi bi-question-circle me-1" aria-hidden="true" />{t("dash.about.go")}</A></div>
+                <div class="mt-auto pt-2"><A href={routes.about()} class="qa-dash-about-go btn btn-outline-primary btn-sm"><i class="bi bi-question-circle me-1" aria-hidden="true" />{t("dash.about.go")}</A></div>
               </div>
             </div>
           </div>
@@ -256,7 +258,7 @@ export function Dashboard() {
                 <p class="small mb-0">{t("dash.feedback.body")}</p>
                 <MoodFaces value={null} disabled={rating()} onPick={rate} />
                 <Show when={ratingError()}>{(m) => <div class="qa-dash-feedback-error text-danger small">{m()}</div>}</Show>
-                <div class="mt-auto pt-2"><A href={`/feedback?from=${encodeURIComponent(`/${lang()}`)}`} class="qa-dash-feedback-go btn btn-outline-primary btn-sm"><i class="bi bi-chat-heart me-1" aria-hidden="true" />{t("dash.feedback.go")}</A></div>
+                <div class="mt-auto pt-2"><A href={routes.feedback({ from: routes.dashboard({ lang: lang() }) })} class="qa-dash-feedback-go btn btn-outline-primary btn-sm"><i class="bi bi-chat-heart me-1" aria-hidden="true" />{t("dash.feedback.go")}</A></div>
               </div>
             </div>
           </div>
@@ -274,7 +276,7 @@ function InstallHint() {
   return (
     <div class="qa-install-hint alert alert-info d-flex flex-wrap align-items-center gap-2 mb-0" role="alert">
       <span class="me-auto">{t("install.alert")}</span>
-      <Show when={canPromptInstall()} fallback={<A href="/about/home-screen" class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>}>
+      <Show when={canPromptInstall()} fallback={<A href={routes.aboutHomeScreen()} class="qa-install-hint-show btn btn-info btn-sm">{t("install.show")}</A>}>
         <button type="button" class="qa-install-hint-prompt btn btn-info btn-sm" onClick={() => void install()}>{t("install.prompt")}</button>
       </Show>
       <button type="button" class="qa-install-hint-dismiss btn-close" aria-label={t("install.dismiss")} onClick={() => void dismiss()} />
@@ -300,7 +302,7 @@ function LanguageSwitcher(props: { lang: Language }) {
   const go = (l: Language) => {
     rememberLanguage(l);
     setOpen(false);
-    navigate(`/${l}`);
+    navigate(routes.dashboard({ lang: l }));
   };
   const add = async (l: Language) => {
     setError(null);

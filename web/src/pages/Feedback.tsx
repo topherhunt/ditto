@@ -7,6 +7,7 @@ import { safeFrom, setFeedbackThanks } from "../feedback.ts";
 import { t } from "../i18n/index.ts";
 import { homeLanguage } from "../learning.ts";
 import { me } from "../session.ts";
+import { routes } from "../routes.ts";
 
 /** Structured prompts plus a free-text box, all optional. `?id=` continues a mood saved from the dashboard card; `?from=` is the route the learner came from. */
 export function Feedback() {
@@ -29,7 +30,7 @@ function FeedbackForm(props: { saved: FeedbackOut | undefined; from: string }) {
   const [sending, setSending] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
   const empty = () => mood() === null && tags().length === 0 && message().trim() === "";
-  const home = () => `/${homeLanguage(me()!.learning)}`;
+  const home = () => routes.dashboard({ lang: homeLanguage(me()!.learning) });
 
   const toggle = (tag: FeedbackTag) => setTags(tags().includes(tag) ? tags().filter((x) => x !== tag) : [...tags(), tag]);
   const send = async () => {

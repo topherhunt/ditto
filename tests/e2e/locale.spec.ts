@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { openPracticeSettings, setLearning, signIn } from "./helpers.ts";
 
 test("switching your language localizes the UI and the meaning check, and survives a reload", async ({ page }) => {

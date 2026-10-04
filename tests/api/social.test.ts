@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { FRIEND_REQUESTS_PER_DAY, LEADERBOARD_SIZE, type BoardEntry } from "../../shared/api.ts";
+import { FRIEND_REQUESTS_PER_DAY, LEADERBOARD_SIZE, MASTER_WAIT_MS, type BoardEntry } from "../../shared/api.ts";
 import { setup } from "./helpers.ts";
 
 type T = ReturnType<typeof setup>;
@@ -345,6 +345,26 @@ describe("leaderboard", () => {
     await quizSession(t, 3);
     await quizSession(t, 2);
     expect(summary((await board(t)).rows)).toEqual([[1, "ana", 3, 4]]);
+  });
+
+  it("counts a lesson at most once per UTC day, however many runs finish, but again on a later day (Master included)", async () => {
+    const t = setup();
+    t.clock.now = new Date("2026-09-02T08:00:00.000Z");
+    await accounts(t, A);
+    await completeBar1(t);
+    later(t, 1000);
+    await completeBar1(t);
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 1, 1]]);
+    later(t, MASTER_WAIT_MS);
+    for (const u of ["u06", "u08", "u10"]) await t.attempt(`it-a1-bar-1-${u}`, { path: "sentences", master: true, hintsLevel: "none" });
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 1, 1]]);
+    later(t, 24 * 3600_000);
+    for (const u of ["u06", "u08", "u10"]) await t.attempt(`it-a1-bar-1-${u}`, { path: "sentences", master: true, hintsLevel: "none" });
+    await t.attempt("it-a1-bar-1-u06", { path: "sentences" });
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 2, 2]]);
+    later(t, 24 * 3600_000);
+    await completeBar1(t);
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 3, 3]]);
   });
 
   it("starts the week on Monday at 00:00 UTC, and shows you without a rank until you practice", async () => {

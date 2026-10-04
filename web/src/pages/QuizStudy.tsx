@@ -9,6 +9,8 @@ import { t } from "../i18n/index.ts";
 import { playResult } from "../sounds.ts";
 import { useLang } from "./lang.ts";
 import { Say, useDeck, useSpeak } from "./QuizDeck.tsx";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 export const shuffle = <T,>(xs: T[]) => {
   const out = [...xs];
@@ -54,7 +56,7 @@ export function QuizStudy() {
     shownAt = performance.now();
     return q ? shuffle([q.correct, ...q.wrong]) : [];
   });
-  const deckHref = () => `/${lang()}/quiz/${params.deckId}`;
+  const deckHref = () => routes.quizDeck({ lang: lang(), deckId: params.deckId! });
 
   const answer = async (rating: QuizRating) => {
     setBusy(true);
@@ -90,7 +92,7 @@ export function QuizStudy() {
   };
 
   return (
-    <Show when={ready()}>
+    <Show when={ready()} fallback={<Loading />}>
       {(r) => (
         <div class="d-flex flex-column gap-3">
           <Show when={levelUp()}>

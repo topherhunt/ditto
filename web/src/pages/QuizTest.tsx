@@ -9,6 +9,7 @@ import { playResult } from "../sounds.ts";
 import { useLang } from "./lang.ts";
 import { useSpeak } from "./QuizDeck.tsx";
 import { QuestionCard, shuffle } from "./QuizStudy.tsx";
+import { routes } from "../routes.ts";
 
 /** A level test-out: the first miss ends it; all right records the pass. Answers touch no cards. */
 export function QuizTest() {
@@ -49,7 +50,7 @@ function TestRun(props: { test: QuizTestOut; level: string; onRetry: () => void 
       setIndex(index() + 1);
     }
   };
-  const Back = () => <A href={`/${lang()}/quiz`} class="qa-quiz-test-back btn btn-outline-secondary">{t("quiz.allDecks")}</A>;
+  const Back = () => <A href={routes.quiz({ lang: lang() })} class="qa-quiz-test-back btn btn-outline-secondary">{t("quiz.allDecks")}</A>;
 
   return (
     <div class="qa-quiz-test d-flex flex-column gap-3">

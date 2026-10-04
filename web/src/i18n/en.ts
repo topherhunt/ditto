@@ -407,6 +407,8 @@ export const en = {
   "leaderboard.allTime": "{n} all time",
   "leaderboard.duration": "{h} h {m} min",
   "leaderboard.findFriends": "Find friends",
+  "leaderboard.friendsOnly": "Friends only",
+  "leaderboard.isFriend": "Friend",
   "profile.lessonsDay": "Lessons in the past day",
   "profile.lessonsWeek": "Lessons in the past week",
   "profile.lessonsMonth": "Lessons in the past month",

@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("a learner misses a quiz question, gets it again at the end, and sees the session in the summary and stats", async ({ page }) => {

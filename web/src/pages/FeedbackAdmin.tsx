@@ -5,6 +5,7 @@ import { api } from "../api.ts";
 import { AdminCrumb } from "../components/AdminCrumb.tsx";
 import { MOOD_ICONS, MOODS_HAPPIEST_FIRST } from "../feedback.ts";
 import { en } from "../i18n/en.ts";
+import { routes } from "../routes.ts";
 
 // Admin-only, so English-only: tag labels come from the English dictionary.
 
@@ -73,7 +74,7 @@ function Item(props: { f: AdminFeedback; onHandle: (f: AdminFeedback, handled: b
     <li class="qa-feedback-item list-group-item d-flex flex-column gap-2" classList={{ "text-body-secondary": f().handledAt !== null }}>
       <div class="d-flex flex-wrap gap-2 align-items-baseline">
         <Show when={f().mood}>{(m) => <i class={`bi bi-${MOOD_ICONS[m() - 1]} fs-4`} aria-hidden="true" />}</Show>
-        <A href={`/admin/users/${f().user.id}`}>{f().user.username ?? <em>no username</em>}</A>
+        <A href={routes.adminUser({ id: f().user.id })}>{f().user.username ?? <em>no username</em>}</A>
         <Show when={f().email}>{(e) => <a class="small" href={`mailto:${e()}`}>{e()}</a>}</Show>
         <span class="small text-body-secondary ms-auto">{f().page} · {f().locale} · {new Date(f().createdAt).toLocaleString()}</span>
       </div>

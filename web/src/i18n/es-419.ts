@@ -407,6 +407,8 @@ export const es419: Dictionary = {
   "leaderboard.allTime": "{n} en total",
   "leaderboard.duration": "{h} h {m} min",
   "leaderboard.findFriends": "Buscar amigos",
+  "leaderboard.friendsOnly": "Solo amigos",
+  "leaderboard.isFriend": "Amigo",
   "profile.lessonsDay": "Lecciones en el último día",
   "profile.lessonsWeek": "Lecciones en la última semana",
   "profile.lessonsMonth": "Lecciones en el último mes",

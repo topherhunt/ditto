@@ -159,13 +159,14 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     const isPublic = new Set((db.prepare("SELECT id FROM users WHERE profile_public = 1").all() as { id: number }[]).map((r) => r.id));
     // Friends fill the board first, then the best learners who show themselves to strangers; one slot is always yours.
     const others = stats.ranked.filter((r) => r.userId !== me && !hidden.has(r.userId));
-    const picked = [...others.filter((r) => friends.has(r.userId)), ...others.filter((r) => !friends.has(r.userId) && isPublic.has(r.userId))]
+    const friendsOnly = c.req.query("friends") === "1";
+    const picked = [...others.filter((r) => friends.has(r.userId)), ...(friendsOnly ? [] : others.filter((r) => !friends.has(r.userId) && isPublic.has(r.userId)))]
       .slice(0, LEADERBOARD_SIZE - 1);
     const mine = stats.ranked.find((r) => r.userId === me);
     const chosen = [...picked, ...(mine ? [mine] : [])].sort((a, b) => stats.ranked.indexOf(a) - stats.ranked.indexOf(b));
     const row = (userId: number, week: number): LeaderboardRow => ({
       rank: week ? stats.ranked.findIndex((r) => r.userId === userId) + 1 : null, person: person(userId), language: summarize(userId).language,
-      lessonsWeek: week, lessonsAll: stats.totals.get(userId) ?? 0, isMe: userId === me,
+      lessonsWeek: week, lessonsAll: stats.totals.get(userId) ?? 0, isMe: userId === me, isFriend: friends.has(userId),
     });
     const rows = chosen.map((r) => row(r.userId, r.week));
     if (!mine) rows.push(row(me, 0));

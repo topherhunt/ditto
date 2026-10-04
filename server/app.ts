@@ -410,6 +410,7 @@ export function createApp(deps: AppDeps) {
              ON CONFLICT DO UPDATE SET next_index = excluded.next_index, completed_at = coalesce(completed_at, excluded.completed_at)`,
           ).run(userId, unit.lessonId, a.path, idx + 1, done ? iso : null);
         }
+        if (done) db.prepare("INSERT INTO lesson_runs (user_id, lesson_id, completed_at) VALUES (?, ?, ?)").run(userId, unit.lessonId, iso);
         if (done) stars = finishRun(userId, unit.lessonId, pathUnits.map((u) => u.id), a.master, a.path === "full", iso);
       }
 

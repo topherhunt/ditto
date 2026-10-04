@@ -1,5 +1,6 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures.ts";
 import type { AttemptBody, LessonOut, Prefs } from "../../shared/api.ts";
+import { routes } from "../../web/src/routes.ts";
 import { openPracticeSettings, signIn } from "./helpers.ts";
 
 /** Answers every item of the lesson on `path` through the API. Full-path answers with hints off earn three stars. */
@@ -140,8 +141,16 @@ test("Master asks for confirmation first, offering the test or more practice", a
   await expect(row.locator(".qa-lesson-master-locked")).toHaveCount(0);
   await row.locator(".qa-lesson-master").click();
   await expect(row.locator(".qa-master-popup")).toBeVisible();
-  await expect(row.locator(".qa-master-ready")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1/master");
-  await expect(row.locator(".qa-master-more")).toHaveAttribute("href", "/it/lesson/it-a1-bar-1");
+  const at = { lang: "it", lessonId: "it-a1-bar-1" };
+  await row.locator(".qa-master-more").click();
+  await expect(page).toHaveURL(routes.typeLesson(at));
+  await expect(page.locator(".qa-lesson-back")).toBeVisible();
+  await page.goto(routes.type({ lang: "it" }));
+  await row.locator(".qa-lesson-master").click();
+  await row.locator(".qa-master-ready").click();
+  await expect(page).toHaveURL(routes.typeMaster(at));
+  await expect(page.locator(".qa-lesson-back")).toBeVisible();
+  await expect(page.locator(".qa-error")).toHaveCount(0);
 });
 
 test("a catalog of lessons without stars renders every lesson row without a page error", async ({ page }) => {

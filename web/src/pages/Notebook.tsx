@@ -11,6 +11,7 @@ import { SentenceDiff } from "../components/WordDiff.tsx";
 import { nextLesson } from "../curriculum.ts";
 import { categoryName, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
 
 function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
   const [explanation, setExplanation] = createSignal<ExplanationOut | null>(props.entry.explanation);
@@ -86,7 +87,7 @@ export function Notebook() {
         <Show when={catalog()}>{(cat) => <ReviewButton lang={lang()} count={cat().reviewCount} next={nextLesson(cat())} onNotebook />}</Show>
       </div>
       <p class="small text-body-secondary mb-0">{t("notebook.rule")}</p>
-      <Show when={entries()}>
+      <Show when={entries()} fallback={<Loading />}>
         {(list) => (
           <ul class="list-group">
             <For each={list()} fallback={<li class="qa-notebook-empty list-group-item text-body-secondary">{t("notebook.empty")}</li>}>

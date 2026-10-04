@@ -7,6 +7,8 @@ import { dayKey, deckName, Donut, Sparkline } from "../components/QuizCharts.tsx
 import { TestOutButton } from "../components/TestOutButton.tsx";
 import { languageInSentence, t } from "../i18n/index.ts";
 import { useLang } from "./lang.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 const SPARK_DAYS = 14;
 
@@ -17,7 +19,7 @@ export function QuizHome() {
   const [toggled, setToggled] = createSignal<Record<string, boolean>>({});
 
   return (
-    <Show when={home()}>
+    <Show when={home()} fallback={<Loading />}>
       {(h) => {
         /** Deck id -> answers on each of the last 14 local days, oldest first. */
         const counts = () => {
@@ -57,7 +59,7 @@ export function QuizHome() {
                         <span class="qa-quiz-level-locked badge text-bg-secondary"><i class="bi bi-lock-fill me-1" aria-hidden="true" />{t("quiz.locked")}</span>
                       </Show>
                       <Show when={l.passed === null}>
-                        <TestOutButton kind="quiz" href={`/${lang()}/quiz/test/${encodeURIComponent(l.level)}`} level={l.level} label={t("quiz.testOut")} class="qa-quiz-level-test btn-sm ms-auto" />
+                        <TestOutButton kind="quiz" href={routes.quizTest({ lang: lang(), level: l.level })} level={l.level} label={t("quiz.testOut")} class="qa-quiz-level-test btn-sm ms-auto" />
                       </Show>
                     </div>
                     <Show when={l.unlocked && l.passed === null}>
@@ -72,7 +74,7 @@ export function QuizHome() {
                       <div class="list-group">
                         <For each={decks()}>
                           {(deck) => (
-                            <A href={`/${lang()}/quiz/${deck.id}`} class={`qa-quiz-deck qa-quiz-deck-${deck.id} list-group-item list-group-item-action d-flex align-items-center gap-3`}
+                            <A href={routes.quizDeck({ lang: lang(), deckId: deck.id })} class={`qa-quiz-deck qa-quiz-deck-${deck.id} list-group-item list-group-item-action d-flex align-items-center gap-3`}
                               classList={{ "disabled opacity-50": !l.unlocked }} aria-disabled={!l.unlocked}>
                               <div class="me-auto">
                                 <div class="fw-medium">{deckName(deck)}</div>

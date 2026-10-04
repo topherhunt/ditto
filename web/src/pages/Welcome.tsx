@@ -14,6 +14,7 @@ import { languageInSentence, locale, LOCALE_LABELS, ownLocale, setImmersion, set
 import { homeLanguage, learnable, LOCALE_FLAGS, rememberLanguage, storedLanguage } from "../learning.ts";
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
+import { routes } from "../routes.ts";
 
 type Samples = {
   /** Graded by the real grader, so it looks exactly like an exercise: missing letters, an accent and an extra letter. */
@@ -120,7 +121,7 @@ export function Welcome() {
           {(u) => (
             <div class="text-center">
               <p>{t("welcome.back", { name: u().username! })}</p>
-              <A class="qa-welcome-continue btn btn-primary btn-lg" href={`/${homeLanguage(u().learning)}`}>
+              <A class="qa-welcome-continue btn btn-primary btn-lg" href={routes.dashboard({ lang: homeLanguage(u().learning) })}>
                 {t("welcome.continue", { language: languageInSentence(homeLanguage(u().learning)) })}
               </A>
             </div>

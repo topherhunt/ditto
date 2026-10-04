@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("the About page shows usage tips in two columns, then the credits with links to GitHub and ABAIR", async ({ page }) => {

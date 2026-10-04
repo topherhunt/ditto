@@ -7,6 +7,7 @@ import { locale, ownLocale, t } from "../i18n/index.ts";
 import { homeLanguage } from "../learning.ts";
 import { me, refetchMe } from "../session.ts";
 import { theme } from "../theme.ts";
+import { routes } from "../routes.ts";
 
 declare global {
   interface Window {
@@ -74,7 +75,7 @@ export function SignIn(props: { config: Config; learning: Language | null }) {
     await refetchMe();
     // Deep links keep their page; the homepage hands over to the course.
     const learning = me()!.learning;
-    if (location.pathname === "/" && learning.length > 0) navigate(`/${homeLanguage(learning)}`);
+    if (location.pathname === "/" && learning.length > 0) navigate(routes.dashboard({ lang: homeLanguage(learning) }));
   }
 
   return (

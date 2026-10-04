@@ -9,6 +9,8 @@ import { languageName, t } from "../i18n/index.ts";
 import { LANGUAGE_FLAGS } from "../learning.ts";
 import { me } from "../session.ts";
 import { activityText, displayName, lessonCount, sendFriendRequest, shortDate } from "../social.ts";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 const LESSONS_KEYS = { day: "profile.lessonsDay", week: "profile.lessonsWeek", month: "profile.lessonsMonth" } as const satisfies Record<LeaderboardWindow, string>;
 
@@ -21,7 +23,7 @@ export function Profile() {
   async function unfriend(p: ProfileOut) {
     if (!confirm(t("profile.unfriendConfirm", { name: displayName(p.person) }))) return;
     await api.post(`/api/friends/${p.person.id}/unfriend`);
-    navigate("/friends");
+    navigate(routes.friends());
   }
   /** Sends a request, or accepts theirs. */
   const [limited, setLimited] = createSignal(false);
@@ -56,13 +58,13 @@ export function Profile() {
   }
 
   return (
-    <Show when={profile()}>
+    <Show when={profile()} fallback={<Loading />}>
       {(p) => (
         <div class="qa-profile d-flex flex-column gap-4">
           <Show when={p().relation === "self"}>
             <div class="qa-profile-self-note alert alert-secondary small mb-0">
               {t(me()!.profilePublic ? "profile.selfPublic" : "profile.selfPrivate")}{" "}
-              <A href="/settings" class="alert-link">{t("profile.changeInSettings")}</A>
+              <A href={routes.settings()} class="alert-link">{t("profile.changeInSettings")}</A>
             </div>
           </Show>
           <div class="d-flex align-items-center gap-3">
@@ -183,7 +185,7 @@ export function Profile() {
                                     <div class="fw-semibold">{r.lessonTitle}{r.completed ? " ✓" : ""}</div>
                                     <div class="small text-body-secondary">{r.courseTitle} · {shortDate(r.lastAt)}</div>
                                   </div>
-                                  <A href={`/${l.language}/type/lesson/${r.lessonId}`} class="qa-play btn btn-sm btn-success">{t("profile.play")}</A>
+                                  <A href={routes.typeLesson({ lang: l.language, lessonId: r.lessonId })} class="qa-play btn btn-sm btn-success">{t("profile.play")}</A>
                                 </li>
                               )}
                             </For>

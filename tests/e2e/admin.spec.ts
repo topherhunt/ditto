@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn, signOut } from "./helpers.ts";
 
 // playwright.config.ts makes admin@example.com the admin.

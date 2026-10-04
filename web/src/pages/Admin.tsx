@@ -4,6 +4,7 @@ import { ADMIN_RECENT_DAYS, type AdminSummary, type Config } from "../../../shar
 import { api } from "../api.ts";
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
+import { routes } from "../routes.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -32,25 +33,25 @@ export function Admin() {
     <Show when={me()?.admin} fallback={<div class="alert alert-danger">Admins only.</div>}>
       <h1 class="h4 mb-3">Admin</h1>
       <div class="row g-3">
-        <Tile href="/admin/users" qa="qa-nav-users" icon="bi-people" title="Users">
+        <Tile href={routes.adminUsers()} qa="qa-nav-users" icon="bi-people" title="Users">
           {s() && `${n(s()!.users, "account")}, ${s()!.usersSeenWeek} seen in the last 7 days`}
         </Tile>
-        <Tile href="/admin/metrics" qa="qa-nav-metrics" icon="bi-graph-up" title="Metrics">
+        <Tile href={routes.adminMetrics()} qa="qa-nav-metrics" icon="bi-graph-up" title="Metrics">
           {s() && `${n(s()!.learnersToday, "learner")} today, ${usd(s()!.spendMonthUsd)} AI spend in ${ADMIN_RECENT_DAYS} days`}
         </Tile>
-        <Tile href="/admin/reports" qa="qa-nav-reports" icon="bi-bug" title="Reports">
+        <Tile href={routes.adminReports()} qa="qa-nav-reports" icon="bi-bug" title="Reports">
           {s() && `${s()!.reportsNew} new, ${s()!.reportsTriaged} triaged problem reports`}
         </Tile>
-        <Tile href="/admin/user-reports" qa="qa-nav-user-reports" icon="bi-flag" title="People reports">
+        <Tile href={routes.adminUserReports()} qa="qa-nav-user-reports" icon="bi-flag" title="People reports">
           {s() && `${s()!.peopleReportsOpen} open reports on learners`}
         </Tile>
-        <Tile href="/admin/feedback" qa="qa-nav-feedback" icon="bi-chat-heart" title="Feedback">
+        <Tile href={routes.adminFeedback()} qa="qa-nav-feedback" icon="bi-chat-heart" title="Feedback">
           {s() && `${s()!.feedbackOpen} unhandled`}
         </Tile>
         <Show when={config()?.poc}>
-          <Tile href="/admin/pronunciation" qa="qa-nav-poc" icon="bi-mic" title="Pronunciation POC">Record correct and mispronounced takes</Tile>
+          <Tile href={routes.adminPronunciation()} qa="qa-nav-poc" icon="bi-mic" title="Pronunciation POC">Record correct and mispronounced takes</Tile>
         </Show>
-        <Tile href="/admin/speaking" qa="qa-nav-speaking" icon="bi-chat-dots" title="Speaking">
+        <Tile href={routes.adminSpeaking()} qa="qa-nav-speaking" icon="bi-chat-dots" title="Speaking">
           {s() && `${n(s()!.speakReports, "reported judgment")}, AI spend per learner`}
         </Tile>
       </div>

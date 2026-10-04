@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 /** Records each UI sound instead of playing it, as "name volume". */

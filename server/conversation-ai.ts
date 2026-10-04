@@ -54,33 +54,39 @@ export const joinChunks = (chunks: Chunk[]) => chunks.map((c) => c.text).join(" 
 const ABOVE: Record<string, string> = { A1: "A2", A2: "B1", B1: "B2", B2: "C1", C1: "C2", C2: "C2" };
 
 /** Chunking examples and a suggestion sample in the language being spoken, so a prompt never shows another language. */
-const EXAMPLES: Partial<Record<Language, { idioms: string; pronoun: string; compound: string; sentence: string; extra: string; suggestion: string; register: string; homophones: string }>> = {
+const EXAMPLES: Partial<Record<Language, { idioms: string; pronoun: string; compound: string; sentence: string; extra: string; suggestion: string; register: string; homophones: string; neighbors: string }>> = {
   it: {
     idioms: `("ci vediamo" = "see you", "per favore" = "please")`, pronoun: `("Le porto" = "I'll bring you", "il conto" = "the bill")`, compound: `("ho preso" = "I took")`,
     sentence: `"Le porto tutto subito." is "Le porto" / "tutto" / "subito."`, extra: "", suggestion: "Sì, grazie. Vorrei anche un bicchiere d'acqua, per favore.", register: "tu/Lei", homophones: "words that sound the same (e/è, a/ha, anno/hanno)",
+    neighbors: `Spanish or English spellings of an Italian word: "teléfono" and "música" sound like "telefono" and "musica", but "noche" does not sound like "notte"`,
   },
   el: {
     idioms: `("τα λέμε" = "see you", "παρακαλώ" = "please", "με συγχωρείτε" = "excuse me")`, pronoun: `("σας φέρνω" = "I'll bring you", "το λογαριασμό" = "the bill")`, compound: `("έχω φάει" = "I have eaten", "θα πάω" = "I will go")`,
     sentence: `"Σας φέρνω όλα αμέσως." is "Σας φέρνω" / "όλα" / "αμέσως."`, extra: ` A Greek question ends in ";" (the Greek question mark), which stays attached to its last chunk. Never use the English "?" in Greek text.`,
     suggestion: "Ναι, ευχαριστώ. Θα ήθελα και ένα ποτήρι νερό, παρακαλώ.", register: "εσύ/εσείς", homophones: "words that sound the same (η/ι/υ/ει/οι, ο/ω, ε/αι)",
+    neighbors: `Latin-script or English spellings of a Greek word: "taxi" and "kalimera" sound like "ταξί" and "καλημέρα", but "phone" does not sound like "τηλέφωνο"`,
   },
   es: {
     idioms: `("hasta luego" = "see you later", "por favor" = "please")`, pronoun: `("Le traigo" = "I'll bring you", "la cuenta" = "the bill")`, compound: `("he tomado" = "I have taken")`,
     sentence: `"Le traigo todo enseguida." is "Le traigo" / "todo" / "enseguida."`, extra: "", suggestion: "Sí, gracias. Quisiera también un vaso de agua, por favor.", register: "tú/usted", homophones: "words that sound the same (b/v, haber/a ver, silent h)",
+    neighbors: `Italian, Portuguese or English spellings of a Spanish word: "telefono" and "musica" sound like "teléfono" and "música", but "notte" does not sound like "noche"`,
   },
   fr: {
     idioms: `("à bientôt" = "see you soon", "s'il vous plaît" = "please", "tout de suite" = "right away")`, pronoun: `("je vous apporte" = "I'll bring you", "l'addition" = "the bill")`, compound: `("j'ai pris" = "I took")`,
     sentence: `"Je vous apporte tout de suite." is "Je vous apporte" / "tout de suite."`,
     extra: ` An elided or hyphenated word is one chunk, written exactly as in the sentence: "j'ai", "l'addition", "qu'est-ce que", "as-tu" are never split at the apostrophe or hyphen.`,
     suggestion: "Oui, merci. Je voudrais aussi un verre d'eau, s'il vous plaît.", register: "tu/vous", homophones: "words that sound the same or silent endings (a/à, ses/ces, parle/parles/parlent, marié/mariée, -é/-er/-ez)",
+    neighbors: `English spellings of a French word: "cafe" and "address" sound like "café" and "adresse", but "exactly" does not sound like "exactement"`,
   },
   nl: {
     idioms: `("tot straks" = "see you later", "alsjeblieft" = "please")`, pronoun: `("breng u" = "bring you", "de rekening" = "the bill")`, compound: `("heb genomen" = "took", "have taken")`,
     sentence: `"Ik breng u alles meteen." is "Ik" / "breng u" / "alles" / "meteen."`, extra: "", suggestion: "Ja, graag. Ik wil ook een glas water, alsjeblieft.", register: "je/u", homophones: "words that sound the same or endings that differ only in writing (d/t, ei/ij, au/ou)",
+    neighbors: `German or English spellings of a Dutch word: "Tee" and "Bett" sound like "thee" and "bed", but "Wasser" does not sound like "water"`,
   },
   en: {
     idioms: `("see you later" = the leave-taking, "right away" = immediately)`, pronoun: `("the bill", "a glass of water")`, compound: `("I've taken", "pick up")`,
     sentence: `"I'll bring everything right away." is "I'll" / "bring" / "everything" / "right away."`, extra: "", suggestion: "Yes, please. I'd also like a glass of water, please.", register: "you (English has no formal address)", homophones: "words that sound the same (their/there, to/too)",
+    neighbors: `German or other spellings of an English word: "Tee" and "Fisch" sound like "tea" and "fish", but "Wasser" does not sound like "water"`,
   },
 };
 export const examples = (l: Language) => EXAMPLES[l] ?? (() => { throw new Error(`No Talk prompt examples for ${l}`); })();
@@ -100,6 +106,7 @@ Scenario: ${s.scenario}
 ${CHUNKING(s.language)}`.replaceAll("{locale}", LOCALE_NAMES[s.locale]);
 
 const COACH_INSTRUCTIONS = `You are a grammar coach for a {language} learner (CEFR {level}) speaking in a role-play. You get the transcript of the learner's spoken reply (speech-to-text; ignore its punctuation and capitalization). Pronunciation is not judged. Speech-to-text picks one spelling for {homophones}, so never count a choice between them as an error when the spoken form would be identical.
+Speech-to-text can also write a {language} word the way another language spells it ({neighbors}). On a first try or a retry, if the written word would sound the same or nearly the same as a {language} word that fits, take it as that word: use the {language} word in meant, leave it out of fixes, and never let it fail grammarOk. If the sounds clearly differ, it is a real fix, but word its why and the feedback knowing the transcript may have misheard: say what it sounded like and which sound the {language} word needs, without suggesting the learner chose the wrong language on purpose.
 
 meant is the {language} sentence the learner meant, corrected so it is grammatical and natural (keep their words and meaning where you can). grammarOk is true only if the transcript already is that sentence, ignoring case and punctuation. fixes lists each change from the transcript to meant, with a short plain why in {help}. On a retry the learner is reading a given target: meant is the target, and grammarOk is whether the transcript says the target.
 Register (informal vs formal address: {register}, and the verb forms that go with them) is always the learner's choice. Keep the learner's register in meant, never list it in fixes, never let it fail grammarOk, and never mention it in feedback. The partner addressing the learner formally while the learner answers informally (or the reverse) is normal and is not inconsistency, whoever the partner is (waiter, stranger, receptionist).
@@ -117,7 +124,8 @@ ${CHUNKING(l)}`;
 
 const fill = (t: string, s: Setting) =>
   t.replaceAll("{language}", LANGUAGE_NAMES[s.language]).replaceAll("{locale}", LOCALE_NAMES[s.locale]).replaceAll("{help}", LOCALE_NAMES[s.helpLocale])
-    .replaceAll("{level}", s.level).replaceAll("{register}", examples(s.language).register).replaceAll("{homophones}", examples(s.language).homophones);
+    .replaceAll("{level}", s.level).replaceAll("{register}", examples(s.language).register).replaceAll("{homophones}", examples(s.language).homophones)
+    .replaceAll("{neighbors}", examples(s.language).neighbors);
 const transcript = (history: Line[]) => history.map((l) => `${l.role === "partner" ? "Partner" : "Learner"}: ${l.text}`).join("\n");
 
 /**

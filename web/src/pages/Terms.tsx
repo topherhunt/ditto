@@ -1,5 +1,6 @@
 import { A } from "@solidjs/router";
 import { CONTACT_EMAIL } from "../links.ts";
+import { routes } from "../routes.ts";
 
 export function Terms() {
   const mail = () => <a class="qa-contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
@@ -8,7 +9,7 @@ export function Terms() {
       <h1 class="h4 mb-1">Terms of service</h1>
       <p class="text-body-secondary small">Last updated 30 September 2026</p>
 
-      <p>Ditto is a free language-practice app run by Topher Hunt ("we"). By using it you agree to these terms. How we handle your data is covered by the <A href="/privacy">privacy policy</A>.</p>
+      <p>Ditto is a free language-practice app run by Topher Hunt ("we"). By using it you agree to these terms. How we handle your data is covered by the <A href={routes.privacy()}>privacy policy</A>.</p>
 
       <h2 class="h5 mt-4">Your account</h2>
       <ul class="d-flex flex-column gap-2">

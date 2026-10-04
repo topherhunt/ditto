@@ -33,13 +33,13 @@ export type EarnedScope = { userId: number; language: Language };
 export type Earned = { userId: number; at: string; kind: "type" | "talk" | "quiz" };
 
 /**
- * When each lesson unit was earned: a lesson's first completion, a conversation's 10th reply, and a quiz session's last
+ * When each lesson unit was earned: a lesson's first finished run each UTC day (repeats and Master included), a conversation's 10th reply, and a quiz session's last
  * first-time answer once its queue was fully answered.
  */
 export function earnedLessons(db: DB, lessonIds: ReadonlySet<string>, only?: EarnedScope): Earned[] {
   const out: Earned[] = [];
   for (const r of db.prepare(
-    "SELECT user_id, lesson_id, min(completed_at) AS at FROM lesson_progress WHERE completed_at IS NOT NULL AND (?1 IS NULL OR user_id = ?1) GROUP BY user_id, lesson_id",
+    "SELECT user_id, lesson_id, min(completed_at) AS at FROM lesson_runs WHERE (?1 IS NULL OR user_id = ?1) GROUP BY user_id, lesson_id, substr(completed_at, 1, 10)",
   ).all(only?.userId ?? null) as { user_id: number; lesson_id: string; at: string }[]) {
     if (lessonIds.has(r.lesson_id)) out.push({ userId: r.user_id, at: r.at, kind: "type" });
   }

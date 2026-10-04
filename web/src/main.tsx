@@ -35,6 +35,7 @@ import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
 import { FeedbackAdmin } from "./pages/FeedbackAdmin.tsx";
 import { UserReportsAdmin } from "./pages/UserReportsAdmin.tsx";
 import { UserAdmin, UsersAdmin } from "./pages/UsersAdmin.tsx";
+import { routes } from "./routes.ts";
 import { installClickSound } from "./sounds.ts";
 
 installClickSound();
@@ -42,43 +43,43 @@ installClickSound();
 render(
   () => (
     <Router root={Layout}>
-      <Route path="/" component={Welcome} />
-      <Route path="/about" component={About} />
-      <Route path="/about/home-screen" component={AddToHome} />
-      <Route path="/privacy" component={Privacy} />
-      <Route path="/terms" component={Terms} />
-      <Route path="/cap" component={CapReached} />
-      <Route path="/feedback" component={Feedback} />
-      <Route path="/friends" component={Friends} />
-      <Route path="/friends/board" component={FriendBoard} />
-      <Route path="/leaderboard" component={Leaderboard} />
-      <Route path="/settings" component={Settings} />
-      <Route path="/people/:id" component={Profile} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/admin/reports" component={Reports} />
-      <Route path="/admin/pronunciation" component={PocRecorder} />
-      <Route path="/admin/speaking" component={SpeakingAdmin} />
-      <Route path="/admin/metrics" component={MetricsAdmin} />
-      <Route path="/admin/users" component={UsersAdmin} />
-      <Route path="/admin/user-reports" component={UserReportsAdmin} />
-      <Route path="/admin/feedback" component={FeedbackAdmin} />
-      <Route path="/admin/users/:id" component={UserAdmin} />
-      <Route path="/:lang" component={Dashboard} />
-      <Route path="/:lang/type" component={Home} />
-      <Route path="/:lang/type/lesson/:lessonId" component={() => <Practice mode="learn" />} />
-      <Route path="/:lang/type/lesson/:lessonId/master" component={() => <Practice mode="master" />} />
-      <Route path="/:lang/type/test/:level" component={() => <Practice mode="test" />} />
-      <Route path="/:lang/type/review" component={() => <Practice mode="review" />} />
-      <Route path="/:lang/type/notebook" component={Notebook} />
-      <Route path="/:lang/talk" component={Speak} />
-      <Route path="/:lang/talk/:id" component={Conversation} />
-      <Route path="/:lang/quiz" component={QuizHome} />
-      <Route path="/:lang/quiz/test/:level" component={QuizTest} />
-      <Route path="/:lang/quiz/:deckId" component={QuizDeck} />
-      <Route path="/:lang/quiz/:deckId/study/:mode" component={QuizStudy} />
-      <Route path="/:lang/quiz/:deckId/browse" component={QuizBrowse} />
-      <Route path="/:lang/quiz/:deckId/stats" component={QuizStats} />
-      <Route path="/:lang/quiz/:deckId/sessions/:sessionId" component={QuizSession} />
+      <Route path={routes.welcome.pattern} component={Welcome} />
+      <Route path={routes.about.pattern} component={About} />
+      <Route path={routes.aboutHomeScreen.pattern} component={AddToHome} />
+      <Route path={routes.privacy.pattern} component={Privacy} />
+      <Route path={routes.terms.pattern} component={Terms} />
+      <Route path={routes.cap.pattern} component={CapReached} />
+      <Route path={routes.feedback.pattern} component={Feedback} />
+      <Route path={routes.friends.pattern} component={Friends} />
+      <Route path={routes.friendBoard.pattern} component={FriendBoard} />
+      <Route path={routes.leaderboard.pattern} component={Leaderboard} />
+      <Route path={routes.settings.pattern} component={Settings} />
+      <Route path={routes.person.pattern} component={Profile} />
+      <Route path={routes.admin.pattern} component={Admin} />
+      <Route path={routes.adminReports.pattern} component={Reports} />
+      <Route path={routes.adminPronunciation.pattern} component={PocRecorder} />
+      <Route path={routes.adminSpeaking.pattern} component={SpeakingAdmin} />
+      <Route path={routes.adminMetrics.pattern} component={MetricsAdmin} />
+      <Route path={routes.adminUsers.pattern} component={UsersAdmin} />
+      <Route path={routes.adminUserReports.pattern} component={UserReportsAdmin} />
+      <Route path={routes.adminFeedback.pattern} component={FeedbackAdmin} />
+      <Route path={routes.adminUser.pattern} component={UserAdmin} />
+      <Route path={routes.dashboard.pattern} component={Dashboard} />
+      <Route path={routes.type.pattern} component={Home} />
+      <Route path={routes.typeLesson.pattern} component={() => <Practice mode="learn" />} />
+      <Route path={routes.typeMaster.pattern} component={() => <Practice mode="master" />} />
+      <Route path={routes.typeTest.pattern} component={() => <Practice mode="test" />} />
+      <Route path={routes.typeReview.pattern} component={() => <Practice mode="review" />} />
+      <Route path={routes.typeNotebook.pattern} component={Notebook} />
+      <Route path={routes.talk.pattern} component={Speak} />
+      <Route path={routes.talkConversation.pattern} component={Conversation} />
+      <Route path={routes.quiz.pattern} component={QuizHome} />
+      <Route path={routes.quizTest.pattern} component={QuizTest} />
+      <Route path={routes.quizDeck.pattern} component={QuizDeck} />
+      <Route path={routes.quizStudy.pattern} component={QuizStudy} />
+      <Route path={routes.quizBrowse.pattern} component={QuizBrowse} />
+      <Route path={routes.quizStats.pattern} component={QuizStats} />
+      <Route path={routes.quizSession.pattern} component={QuizSession} />
       <Route path="*" component={() => <p class="qa-not-found">{t("app.notFound")}</p>} />
     </Router>
   ),

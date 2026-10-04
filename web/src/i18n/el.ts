@@ -407,6 +407,8 @@ export const el: Dictionary = {
   "leaderboard.allTime": "{n} συνολικά",
   "leaderboard.duration": "{h} ω {m} λ",
   "leaderboard.findFriends": "Βρες φίλους",
+  "leaderboard.friendsOnly": "Μόνο φίλοι",
+  "leaderboard.isFriend": "Φίλος",
   "profile.lessonsDay": "Μαθήματα την τελευταία ημέρα",
   "profile.lessonsWeek": "Μαθήματα την τελευταία εβδομάδα",
   "profile.lessonsMonth": "Μαθήματα τον τελευταίο μήνα",

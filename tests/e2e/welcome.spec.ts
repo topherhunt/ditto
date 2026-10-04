@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("signed-out visitors see the homepage: three ways to practice, a real graded sample, the free daily credit and a sign-in", async ({ page }) => {

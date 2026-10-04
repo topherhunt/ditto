@@ -10,6 +10,7 @@ import { LearnPicker } from "./LearnPicker.tsx";
 import { RequestLanguagePopup } from "./RequestLanguage.tsx";
 import { LevelPicker } from "./LevelPicker.tsx";
 import { UsernameForm } from "./UsernameForm.tsx";
+import { routes } from "../routes.ts";
 
 /** A new account's one screen: how much of the course it knows (plus which course, if the homepage didn't ask) and a username. */
 export function Setup() {
@@ -35,7 +36,7 @@ export function Setup() {
       <p class="text-body-secondary">{t("setup.intro")}</p>
       <LocalePicker />
       <UsernameForm initial={null} submitLabel={t("username.continue")} hint={t("username.intro")} before={before}
-        onSaved={() => { if (location.pathname === "/") navigate(`/${picked()}`); }}>
+        onSaved={() => { if (location.pathname === "/") navigate(routes.dashboard({ lang: picked()! })); }}>
         <Show when={needsCourse}>
           <div class="mb-3">
             <h2 class="h6">{t("welcome.learnQ")}</h2>

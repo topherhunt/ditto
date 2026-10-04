@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn } from "./helpers.ts";
 
 test("signed-out visitors can open the privacy policy and terms directly, as Google's OAuth review does", async ({ page }) => {

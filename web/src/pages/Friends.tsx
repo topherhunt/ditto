@@ -10,6 +10,8 @@ import { t } from "../i18n/index.ts";
 import { dayCount, daysLeft, displayName, raceLabel, sendFriendRequest } from "../social.ts";
 import { Popup } from "../components/Popup.tsx";
 import { MakeFriendsButton } from "./FriendBoard.tsx";
+import { Loading } from "../components/Loading.tsx";
+import { routes } from "../routes.ts";
 
 /** What a search says about an account; `none` and `incoming` show a button instead. */
 const SEARCH_RESULT: Record<Exclude<Relation, "none" | "incoming">, Key> = {
@@ -106,7 +108,7 @@ export function Friends() {
         </div>
       </Popup>
 
-      <Show when={friends()}>
+      <Show when={friends()} fallback={<Loading />}>
         {(f) => (
           <>
             <Show when={f().incoming.length > 0}>
@@ -164,7 +166,7 @@ export function Friends() {
 
 function PersonLabel(props: { person: Person }) {
   return (
-    <A href={`/people/${props.person.id}`} class="qa-person-link me-auto fw-semibold text-decoration-none">{displayName(props.person)}</A>
+    <A href={routes.person({ id: props.person.id })} class="qa-person-link me-auto fw-semibold text-decoration-none">{displayName(props.person)}</A>
   );
 }
 
@@ -192,7 +194,7 @@ function FriendRow(props: { person: Person; racing: boolean; onRaced: () => unkn
   return (
     <div class="qa-friend card"><div class="card-body d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
-        <A href={`/people/${props.person.id}`} class="qa-friend-link me-auto text-decoration-none">
+        <A href={routes.person({ id: props.person.id })} class="qa-friend-link me-auto text-decoration-none">
           <div class="fw-semibold">{displayName(props.person)}</div>
         </A>
         <Show when={!props.racing}>

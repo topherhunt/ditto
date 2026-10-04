@@ -1,5 +1,6 @@
 import { A } from "@solidjs/router";
 import { CONTACT_EMAIL } from "../links.ts";
+import { routes } from "../routes.ts";
 
 // Every claim here must match the code. docs/privacy.md lists what to update when data handling changes.
 export function Privacy() {
@@ -77,7 +78,7 @@ export function Privacy() {
       <h2 class="h5 mt-4">Changes</h2>
       <p>When what we store or who processes it changes, we'll update this page and the date at the top, and announce significant changes in the app.</p>
 
-      <p class="mt-4 text-body-secondary small">See also the <A href="/terms">terms of service</A>.</p>
+      <p class="mt-4 text-body-secondary small">See also the <A href={routes.terms()}>terms of service</A>.</p>
     </article>
   );
 }

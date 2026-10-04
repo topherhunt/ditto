@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures.ts";
 import { signIn, signOut } from "./helpers.ts";
 
 test("a learner's engaged time is reported with only the page's activity and language, and admins see it on /admin/metrics", async ({ page }) => {

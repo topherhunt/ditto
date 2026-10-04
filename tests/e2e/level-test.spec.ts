@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures.ts";
 import type { LevelTestOut } from "../../shared/api.ts";
 import { signIn } from "./helpers.ts";
 

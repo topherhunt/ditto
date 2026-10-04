@@ -3,6 +3,7 @@ import { createResource, For, Show } from "solid-js";
 import { USER_REPORT_ACTIONS, type AdminUserReport, type Person, type UserReportReason, type UserReportResolution } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { AdminCrumb } from "../components/AdminCrumb.tsx";
+import { routes } from "../routes.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries.
 
@@ -13,7 +14,7 @@ const RESOLUTIONS: Record<UserReportResolution, string> = {
   took_down_post: "Took down the board post", cleared_username: "Cleared the username", dismissed: "Dismissed",
 };
 const Who = (props: { person: Person }) =>
-  <A href={`/admin/users/${props.person.id}`}>{props.person.username ?? <em>no username</em>}</A>;
+  <A href={routes.adminUser({ id: props.person.id })}>{props.person.username ?? <em>no username</em>}</A>;
 
 /** Learners reporting other learners, open ones first. The reporter has already blocked the reported account. */
 export function UserReportsAdmin() {

@@ -472,14 +472,14 @@ export const LEADERBOARD_SIZE = 25;
 export const CONVERSATION_LESSON_REPLIES = 10;
 /** `rank` is the place among everyone who practiced this week; null for you before your first lesson of the week. */
 export type LeaderboardRow = {
-  rank: number | null; person: Person; language: Language | null; lessonsWeek: number; lessonsAll: number; isMe: boolean;
+  rank: number | null; person: Person; language: Language | null; lessonsWeek: number; lessonsAll: number; isMe: boolean; isFriend: boolean;
 };
 /**
  * What the dashboard's Friends and Leaderboard buttons show. `weekRank` is your place this week among you and your friends who
  * practiced, null while you haven't practiced this week or have no friends to rank against.
  */
 export type SocialSummaryOut = { friends: number; weekRank: number | null };
-/** The week runs from Monday 00:00 UTC. `rows` are your friends who practiced, then the top learners with public profiles, best first, and you. */
+/** The week runs from Monday 00:00 UTC. `rows` are your friends who practiced (only them with `?friends=1`), then the top learners with public profiles, best first, and you. */
 export type LeaderboardOut = {
   rows: LeaderboardRow[];
   stats: { activeLearners: number; lessons: number; seconds: number };

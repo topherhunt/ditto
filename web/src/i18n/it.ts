@@ -408,6 +408,8 @@ export const it: Dictionary = {
   "leaderboard.allTime": "{n} in tutto",
   "leaderboard.duration": "{h} h {m} min",
   "leaderboard.findFriends": "Trova amici",
+  "leaderboard.friendsOnly": "Solo amici",
+  "leaderboard.isFriend": "Amico",
   "profile.lessonsDay": "Lezioni nell'ultimo giorno",
   "profile.lessonsWeek": "Lezioni nell'ultima settimana",
   "profile.lessonsMonth": "Lezioni nell'ultimo mese",
