@@ -23,6 +23,8 @@
 - [x] Go through the old quizzer translator bugs folder and identify any problems with the quiz decks. also review all of the popular quiz decks and ensure there are no significant errors in them. Especially distractors that are actually correct or things like that.
 - [x] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
 - [x] First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way. This replaces the Google Form that the dashboard's feedback card and the footer link to (`FEEDBACK_URL`).
+- [ ] Leaderboard: your friends should be highlighted a brighter color so you can pick them out from the public. Maybe w a icon showing that they're a friend of yours.
+  - [ ] Have a toggleable leaderboard mode to just show your friends. Default to including public.
 - It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are.
   - remind about races too
 - [ ] In the talking activity, there should also be a notebook of your mistakes, which tracks sentences that you had trouble with so that you can review them and clear them out of the notebook.

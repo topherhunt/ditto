@@ -318,9 +318,9 @@ describe("leaderboard", () => {
   const summary = (rows: { rank: number | null; person: { username: string }; lessonsWeek: number; lessonsAll: number }[]) =>
     rows.map((r) => [r.rank, r.person.username, r.lessonsWeek, r.lessonsAll]);
   const userRow = (t: T, email: string) => (t.deps.db.prepare("SELECT id FROM users WHERE email = ?").get(email) as { id: number }).id;
-  const engage = (t: T, email: string, seconds: number) =>
-    t.deps.db.prepare("INSERT INTO engaged_time (user_id, day, language, activity, seconds) VALUES (?, ?, 'it', 'type', ?)")
-      .run(userRow(t, email), t.clock.now.toISOString().slice(0, 10), seconds);
+  const engage = (t: T, email: string, seconds: number, activity = "lesson") =>
+    t.deps.db.prepare("INSERT INTO engaged_time (user_id, day, language, activity, seconds) VALUES (?, ?, 'it', ?, ?)")
+      .run(userRow(t, email), t.clock.now.toISOString().slice(0, 10), activity, seconds);
   /** A conversation with `replies` learner replies, the last at `at`. */
   const conversation = (t: T, email: string, replies: number, at: string) => {
     const db = t.deps.db;
@@ -359,7 +359,7 @@ describe("leaderboard", () => {
     expect(b.stats).toEqual({ activeLearners: 0, lessons: 0, seconds: 0 });
   });
 
-  it("ranks everyone this week by lessons then time, shows your friends and public learners but not private strangers, and totals everyone", async () => {
+  it("ranks everyone this week by lessons then learning time (not home or other pages), shows your friends and public learners but not private strangers, and totals everyone", async () => {
     const t = setup();
     await accounts(t, A, B, C, "dee@example.com", "eve@example.com");
     await befriend(t, A, B);
@@ -372,6 +372,7 @@ describe("leaderboard", () => {
     engage(t, "dee@example.com", 600);
     engage(t, C, 60);
     engage(t, "eve@example.com", 300);
+    for (const activity of ["home", "social", "settings", "other"]) engage(t, "eve@example.com", 500, activity);
     await t.login(A);
     const b = await board(t);
     expect(summary(b.rows)).toEqual([[2, "cyd", 2, 2], [3, "eve", 1, 1], [4, "bob", 1, 1], [null, "ana", 0, 0]]);

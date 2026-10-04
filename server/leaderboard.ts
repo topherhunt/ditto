@@ -1,9 +1,12 @@
-import { CONVERSATION_LESSON_REPLIES } from "../shared/api.ts";
+import { ACTIVITIES, ACTIVITY_AREAS, CONVERSATION_LESSON_REPLIES } from "../shared/api.ts";
 import type { Language } from "../shared/content.ts";
 import type { DB } from "./db.ts";
 
 /** Cards in one quiz practice unit. */
 export const QUIZ_QUEUE_SIZE = 20;
+
+/** Activities that are learning, as opposed to home, social, settings and other pages. */
+const LEARNING_ACTIVITIES = ACTIVITIES.filter((a) => ACTIVITY_AREAS[a] !== "other");
 
 export type LearnerWeek = { userId: number; week: number; total: number; seconds: number };
 export type WeeklyStats = {
@@ -70,8 +73,8 @@ export function weeklyStats(db: DB, lessonIds: ReadonlySet<string>, now: Date): 
     totals.set(userId, (totals.get(userId) ?? 0) + 1);
     if (at >= weekStart) week.set(userId, (week.get(userId) ?? 0) + 1);
   }
-  const seconds = new Map((db.prepare("SELECT user_id, sum(seconds) AS s FROM engaged_time WHERE day >= ? GROUP BY user_id")
-    .all(weekStart.slice(0, 10)) as { user_id: number; s: number }[]).map((r) => [r.user_id, r.s]));
+  const seconds = new Map((db.prepare(`SELECT user_id, sum(seconds) AS s FROM engaged_time WHERE day >= ? AND activity IN (${LEARNING_ACTIVITIES.map(() => "?").join(", ")}) GROUP BY user_id`)
+    .all(weekStart.slice(0, 10), ...LEARNING_ACTIVITIES) as { user_id: number; s: number }[]).map((r) => [r.user_id, r.s]));
   const ranked = [...week].map(([userId, w]): LearnerWeek => ({ userId, week: w, total: totals.get(userId)!, seconds: seconds.get(userId) ?? 0 }))
     .sort((a, b) => b.week - a.week || b.seconds - a.seconds || b.total - a.total || a.userId - b.userId);
   return {

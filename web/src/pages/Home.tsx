@@ -114,7 +114,7 @@ export function Home() {
                                           <div class="qa-lesson-actions lesson-actions d-flex flex-nowrap flex-shrink-0 align-items-center justify-content-end text-nowrap">
                                             <Switch fallback={<button type="button" class="qa-lesson-locked btn btn-sm btn-outline-secondary" disabled>{t("home.locked")}</button>}>
                                               <Match when={cat().unlocked.includes(lesson.id)}>
-                                                <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
+                                                <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-start btn btn-sm"
                                                     classList={{ "btn-success": stars()?.stars !== 3, "btn-outline-success": stars()?.stars === 3 }}>{label()}</A>
                                                 <Show when={stars()?.stars !== undefined && stars().stars < 3 && masterWait() === 0}>
                                                   <button type="button" class="qa-lesson-master btn btn-sm btn-gold" onClick={() => setAsk("master")}>{t("home.master")}</button>
@@ -128,7 +128,7 @@ export function Home() {
                                                 {(friends) => {
                                                   const names = () => friends().map(displayName);
                                                   return (
-                                                  <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap">
+                                                  <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-lesson-friend btn btn-sm btn-outline-success text-nowrap">
                                                     {label()} <span class="small">{t("home.via", { name: names()[0] })}{names().length > 1 ? ` +${names().length - 1}` : ""}</span>
                                                   </A>
                                                   );
@@ -144,8 +144,8 @@ export function Home() {
                                           </div>
                                           <Popup open={ask() === "master"} onClose={() => setAsk(null)} title={t("home.masterIntroTitle")} titleIcon="trophy-fill" titleIconClass="gold-shimmer" class="qa-master-popup"
                                             footer={<>
-                                              <A href={`/${lang()}/lesson/${lesson.id}`} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
-                                              <A href={`/${lang()}/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold"><i class="bi bi-play-fill me-1" aria-hidden="true" />{t("home.masterReady")}</A>
+                                              <A href={`/${lang()}/type/lesson/${lesson.id}`} class="qa-master-more btn btn-outline-success">{t("home.masterMore")}</A>
+                                              <A href={`/${lang()}/type/lesson/${lesson.id}/master`} class="qa-master-ready btn btn-gold"><i class="bi bi-play-fill me-1" aria-hidden="true" />{t("home.masterReady")}</A>
                                             </>}>
                                             {t("home.masterIntro")}
                                           </Popup>
