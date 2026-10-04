@@ -38,6 +38,8 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await expect(page.locator(".qa-lesson-start")).toHaveCount(1);
   await expect(page.locator(".qa-lesson-friend")).toHaveCount(0);
   await openFriends(page);
+  await page.locator(".qa-friend-search-open").click();
+  await expect(page.locator(".qa-friend-query")).toBeFocused();
   await page.locator(".qa-friend-query").fill("nobody@example.com");
   await page.locator(".qa-friend-search").click();
   await expect(page.locator(".qa-friend-result")).toContainText("No account");
@@ -45,6 +47,8 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await page.locator(".qa-friend-search").click();
   await page.locator(".qa-friend-add").click();
   await expect(page.locator(".qa-friend-result")).toContainText("sent");
+  await page.locator(".qa-friend-popup .qa-popup-close").click();
+  await expect(page.locator(".qa-friend-popup")).toBeHidden();
   await expect(page.locator(".qa-outgoing")).toContainText(ana.split("@")[0]);
   await signOut(page);
 
@@ -115,7 +119,8 @@ test("a race invite shows in the bell and starts once accepted", async ({ page }
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-leaderboard").click();
   await expect(page.locator(".qa-board-note")).toBeVisible();
-  await expect(page.locator(".qa-leader")).toHaveCount(2);
+  await expect(page.locator(".qa-board-stat-lessons")).toBeVisible();
+  await expect(page.locator(".qa-leader").filter({ hasText: "learner11" })).toHaveCount(1);
 });
 
 test("a new account picks a username, finds a stranger by username, sees only their counts, asks to be friends, and renames itself", async ({ page }) => {
@@ -140,10 +145,11 @@ test("a new account picks a username, finds a stranger by username, sees only th
   await page.locator(".qa-user").click();
   await page.locator(".qa-nav-leaderboard").click();
   await expect(page).toHaveURL(/\/leaderboard$/);
-  await expect(page.locator(".qa-leader")).toHaveCount(1);
-  await expect(page.locator(".qa-leader")).toContainText("wren");
+  await expect(page.locator(".qa-leader").filter({ hasText: "wren" })).toHaveCount(1);
+  await expect(page.locator(".qa-leader").filter({ hasText: "wren" }).locator(".qa-leader-lessons")).toHaveText("0 lessons");
 
   await openFriends(page);
+  await page.locator(".qa-friend-search-open").click();
   await page.locator(".qa-friend-query").fill("@Learner13");
   await page.locator(".qa-friend-search").click();
   await page.locator(".qa-friend-result .qa-person-link").click();

@@ -11,6 +11,7 @@ import type { Language, ServedCourse, ServedLesson } from "../shared/content.ts"
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { transaction, type DB } from "./db.ts";
+import { weeklyStats } from "./leaderboard.ts";
 
 const DAY = 86_400_000;
 const ACTIVITY_WINDOWS: [ActivityWindow, number][] = [["day", 1], ["week", 7], ["month", 30], ["year", 365]];
@@ -150,28 +151,25 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
     });
   });
 
-  /** Lessons first completed in the window, per user with a username. */
-  const lessonsSince = (since: string) => {
-    const rows = db.prepare(
-      `SELECT p.user_id, p.lesson_id FROM lesson_progress p JOIN users u ON u.id = p.user_id
-       WHERE u.username IS NOT NULL AND p.completed_at IS NOT NULL GROUP BY p.user_id, p.lesson_id HAVING min(p.completed_at) >= ?`,
-    ).all(since) as { user_id: number; lesson_id: string }[];
-    const counts = new Map<number, number>();
-    for (const r of rows) if (courseOf.has(r.lesson_id)) counts.set(r.user_id, (counts.get(r.user_id) ?? 0) + 1);
-    return counts;
-  };
-
   app.get("/api/leaderboard", (c) => {
-    const window = z.enum(Object.keys(LEADERBOARD_WINDOWS) as [LeaderboardWindow]).parse(c.req.query("window"));
     const me = c.get("user").id;
-    const counts = lessonsSince(daysAgo(LEADERBOARD_WINDOWS[window]));
-    const ranked = [me, ...friendIds(db, me)].map((id) => ({ id, person: person(id), lessons: counts.get(id) ?? 0 }))
-      .sort((a, b) => b.lessons - a.lessons || byName(a.person, b.person));
-    const rows: LeaderboardRow[] = ranked.map(({ id, ...r }) => ({
-      rank: ranked.findIndex((x) => x.lessons === r.lessons) + 1, ...r, isMe: id === me,
-    }));
-    const shown = rows.slice(0, LEADERBOARD_SIZE);
-    return c.json<LeaderboardOut>({ rows: shown, me: shown.some((r) => r.isMe) ? null : (rows.find((r) => r.isMe) ?? null) });
+    const stats = weeklyStats(db, new Set(courseOf.keys()), deps.now());
+    const friends = new Set(friendIds(db, me));
+    const hidden = new Set((db.prepare("SELECT blocked_id AS id FROM blocks WHERE blocker_id = ?1 UNION SELECT blocker_id FROM blocks WHERE blocked_id = ?1").all(me) as { id: number }[]).map((r) => r.id));
+    const isPublic = new Set((db.prepare("SELECT id FROM users WHERE profile_public = 1").all() as { id: number }[]).map((r) => r.id));
+    // Friends fill the board first, then the best learners who show themselves to strangers; one slot is always yours.
+    const others = stats.ranked.filter((r) => r.userId !== me && !hidden.has(r.userId));
+    const picked = [...others.filter((r) => friends.has(r.userId)), ...others.filter((r) => !friends.has(r.userId) && isPublic.has(r.userId))]
+      .slice(0, LEADERBOARD_SIZE - 1);
+    const mine = stats.ranked.find((r) => r.userId === me);
+    const chosen = [...picked, ...(mine ? [mine] : [])].sort((a, b) => stats.ranked.indexOf(a) - stats.ranked.indexOf(b));
+    const row = (userId: number, week: number): LeaderboardRow => ({
+      rank: week ? stats.ranked.findIndex((r) => r.userId === userId) + 1 : null, person: person(userId), language: summarize(userId).language,
+      lessonsWeek: week, lessonsAll: stats.totals.get(userId) ?? 0, isMe: userId === me,
+    });
+    const rows = chosen.map((r) => row(r.userId, r.week));
+    if (!mine) rows.push(row(me, 0));
+    return c.json<LeaderboardOut>({ rows, stats: { activeLearners: stats.activeLearners, lessons: stats.lessons, seconds: stats.secondsTotal } });
   });
 
   app.get("/api/friends/search", (c) => {

@@ -243,6 +243,8 @@ export type ConversationSummary = {
   /** CEFR grades of the learner's replies, in order. */
   levels: string[];
   reliance: Reliance;
+  /** The learner's replies so far; at CONVERSATION_LESSON_REPLIES the conversation counts as a lesson. */
+  replies: number;
 };
 export type ConversationsOut = { conversations: ConversationSummary[]; weakPhrases: { text: string; createdAt: string }[] };
 /** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
@@ -426,14 +428,21 @@ export type FriendsOut = {
   blocked: Person[];
 };
 
-/** Rolling windows, in days. */
+/** Rolling windows, in days; profiles show lesson counts over these. */
 export const LEADERBOARD_WINDOWS = { day: 1, week: 7, month: 30 } as const;
 export type LeaderboardWindow = keyof typeof LEADERBOARD_WINDOWS;
-export const LEADERBOARD_SIZE = 20;
-/** Tied lesson counts share a rank. */
-export type LeaderboardRow = { rank: number; person: Person; lessons: number; isMe: boolean };
-/** The viewer and their friends only; strangers never appear. `me` is the viewer's row when it falls outside `rows`. */
-export type LeaderboardOut = { rows: LeaderboardRow[]; me: LeaderboardRow | null };
+export const LEADERBOARD_SIZE = 25;
+/** Replies that make a conversation count as a lesson. */
+export const CONVERSATION_LESSON_REPLIES = 10;
+/** `rank` is the place among everyone who practiced this week; null for you before your first lesson of the week. */
+export type LeaderboardRow = {
+  rank: number | null; person: Person; language: Language | null; lessonsWeek: number; lessonsAll: number; isMe: boolean;
+};
+/** The week runs from Monday 00:00 UTC. `rows` are your friends who practiced, then the top learners with public profiles, best first, and you. */
+export type LeaderboardOut = {
+  rows: LeaderboardRow[];
+  stats: { activeLearners: number; lessons: number; seconds: number };
+};
 
 export type ActivityWindow = "day" | "week" | "month" | "year";
 /** The smallest window with at least two lessons completed, else when the last one was. */

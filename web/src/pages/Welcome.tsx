@@ -11,7 +11,7 @@ import { SignIn } from "../components/Login.tsx";
 import { SentenceDiff } from "../components/WordDiff.tsx";
 import type { Key } from "../i18n/en.ts";
 import { languageInSentence, locale, LOCALE_LABELS, ownLocale, setImmersion, setLocale, t } from "../i18n/index.ts";
-import { homeLanguage, learnable, rememberLanguage, storedLanguage } from "../learning.ts";
+import { homeLanguage, learnable, LOCALE_FLAGS, rememberLanguage, storedLanguage } from "../learning.ts";
 import { me } from "../session.ts";
 import { usd } from "../spend.ts";
 
@@ -89,16 +89,16 @@ export function Welcome() {
             <div class="card-body d-flex flex-column gap-4">
               <div>
                 <h2 class="h6">{t("welcome.speakQ")}</h2>
-                <div class="d-flex flex-wrap gap-2">
+                <div class="option-grid">
                   <For each={NATIVE_LOCALES}>
                     {(l) => (
-                      <button type="button" class={`qa-welcome-speak-${l} btn btn-outline-primary`} classList={{ active: ownLocale() === l }}
+                      <button type="button" class={`qa-welcome-speak-${l} btn btn-outline-primary px-2 text-start text-nowrap`} classList={{ active: ownLocale() === l }}
                         aria-pressed={ownLocale() === l} onClick={() => { setLocale(l); setImmersion(null); }}>
-                        {LOCALE_LABELS[l]}
+                        {LOCALE_FLAGS[l]} {LOCALE_LABELS[l]}
                       </button>
                     )}
                   </For>
-                  <button type="button" class="qa-welcome-speak-other btn btn-link link-secondary" onClick={() => setRequesting(true)}>{t("request.menu")}</button>
+                  <button type="button" class="qa-welcome-speak-other btn btn-outline-secondary px-2 text-start" onClick={() => setRequesting(true)}>{t("request.menu")}</button>
                 </div>
                 <RequestLanguagePopup open={requesting()} onClose={() => setRequesting(false)} />
               </div>

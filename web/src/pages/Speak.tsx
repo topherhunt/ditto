@@ -1,6 +1,6 @@
 import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type LearnerLevel, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
+import { CONVERSATION_LESSON_REPLIES, LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type LearnerLevel, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
 import { Popup } from "../components/Popup.tsx";
@@ -144,6 +144,9 @@ export function Speak() {
                     {(c) => (
                       <li class="qa-speak-history list-group-item d-flex flex-wrap align-items-center gap-2">
                         <A href={`/${lang()}/talk/${c.id}`} class="me-auto">{c.title}</A>
+                        <span class="qa-speak-replies small" classList={{ "text-body-secondary": c.replies < CONVERSATION_LESSON_REPLIES, "text-success": c.replies >= CONVERSATION_LESSON_REPLIES }}>
+                          <i class="bi bi-chat-dots me-1" aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
+                        </span>
                         <For each={c.levels.slice(-3)}>{(l) => <span class="badge text-bg-secondary">{l}</span>}</For>
                         <span class="small text-body-secondary">{new Date(c.updatedAt).toLocaleDateString()}</span>
                       </li>

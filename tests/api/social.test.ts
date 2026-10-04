@@ -314,55 +314,108 @@ describe("usernames", () => {
 });
 
 describe("leaderboard", () => {
-  const board = async (t: T, window: string) => (await t.req("GET", `/api/leaderboard?window=${window}`)).json;
-  const summary = (rows: { rank: number; person: { username: string }; lessons: number }[]) =>
-    rows.map((r) => [r.rank, r.person.username, r.lessons]);
+  const board = async (t: T) => (await t.req("GET", "/api/leaderboard")).json;
+  const summary = (rows: { rank: number | null; person: { username: string }; lessonsWeek: number; lessonsAll: number }[]) =>
+    rows.map((r) => [r.rank, r.person.username, r.lessonsWeek, r.lessonsAll]);
+  const userRow = (t: T, email: string) => (t.deps.db.prepare("SELECT id FROM users WHERE email = ?").get(email) as { id: number }).id;
+  const engage = (t: T, email: string, seconds: number) =>
+    t.deps.db.prepare("INSERT INTO engaged_time (user_id, day, language, activity, seconds) VALUES (?, ?, 'it', 'type', ?)")
+      .run(userRow(t, email), t.clock.now.toISOString().slice(0, 10), seconds);
+  /** A conversation with `replies` learner replies, the last at `at`. */
+  const conversation = (t: T, email: string, replies: number, at: string) => {
+    const db = t.deps.db;
+    const { lastInsertRowid } = db.prepare(
+      `INSERT INTO conversations (user_id, language, locale, level, scenario, title, created_at, updated_at) VALUES (?, 'it', 'en', 'A1', '{}', 'Bar', ?, ?)`,
+    ).run(userRow(t, email), at, at);
+    for (let i = 0; i < replies; i++) db.prepare("INSERT INTO conversation_turns (conversation_id, role, text, created_at) VALUES (?, 'learner', 'Ciao', ?)").run(lastInsertRowid, at);
+  };
+  /** A quiz session on the 3-question fixture deck that answers `answers` of its queue. */
+  async function quizSession(t: T, answers: number) {
+    const { sessionId, queue } = (await t.req("POST", "/api/quiz/decks/it-a1-grammar-1/sessions", { mode: "random" })).json as { sessionId: number; queue: string[] };
+    for (const questionId of queue.slice(0, answers)) await t.req("POST", `/api/quiz/sessions/${sessionId}/answers`, { questionId, rating: "good", responseMs: 1500 });
+  }
 
-  it("ranks you and your friends, never strangers or friends of friends, by lessons first completed in the past day, week or month; ties share a rank", async () => {
+  it("counts a lesson, a conversation of 10 replies and a fully answered quiz queue as one lesson each, and counts everything toward all time", async () => {
     const t = setup();
-    const [ana] = await accounts(t, A, B, C);
-    await befriend(t, A, B);
-    await befriend(t, B, C);
-    await t.login(A);
+    await accounts(t, A);
     await completeBar1(t);
-    later(t, 3 * DAY);
-    await completeBar2(t);
-    await t.login(B);
-    await completeBar1(t);
-    await t.login(C);
-    await completeBar1(t);
-
-    await t.login(A);
-    expect(summary((await board(t, "day")).rows)).toEqual([[1, "ana", 1], [1, "bob", 1]]);
-    expect(await board(t, "week")).toEqual({
-      rows: [{ rank: 1, person: { id: ana, username: "ana" }, lessons: 2, isMe: true }, expect.objectContaining({ rank: 2, lessons: 1, isMe: false })],
-      me: null,
-    });
-    expect((await t.req("GET", "/api/leaderboard?window=year")).status).toBe(400);
-
-    await t.login(C);
-    expect(summary((await board(t, "week")).rows)).toEqual([[1, "bob", 1], [1, "cyd", 1]]);
-    later(t, 31 * DAY);
-    await t.login(B);
-    expect(summary((await board(t, "month")).rows)).toEqual([[1, "ana", 0], [1, "bob", 0], [1, "cyd", 0]]);
+    conversation(t, A, 10, "2026-09-01T10:00:00.000Z");
+    conversation(t, A, 9, "2026-09-01T10:00:00.000Z");
+    conversation(t, A, 10, "2026-08-20T10:00:00.000Z");
+    await quizSession(t, 3);
+    await quizSession(t, 2);
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 3, 4]]);
   });
 
-  it("adds your own row below the top 20 when you're not in it", async () => {
+  it("starts the week on Monday at 00:00 UTC, and shows you without a rank until you practice", async () => {
     const t = setup();
-    await accounts(t, "zed@example.com");
-    for (let i = 0; i < LEADERBOARD_SIZE; i++) {
-      const email = `u${String(i).padStart(2, "0")}@example.com`;
-      await accounts(t, email);
-      await befriend(t, email, "zed@example.com");
+    await accounts(t, A);
+    await completeBar1(t);
+    t.clock.now = new Date("2026-09-06T23:59:00Z");
+    expect(summary((await board(t)).rows)).toEqual([[1, "ana", 1, 1]]);
+    t.clock.now = new Date("2026-09-07T00:00:00Z");
+    const b = await board(t);
+    expect(summary(b.rows)).toEqual([[null, "ana", 0, 1]]);
+    expect(b.stats).toEqual({ activeLearners: 0, lessons: 0, seconds: 0 });
+  });
+
+  it("ranks everyone this week by lessons then time, shows your friends and public learners but not private strangers, and totals everyone", async () => {
+    const t = setup();
+    await accounts(t, A, B, C, "dee@example.com", "eve@example.com");
+    await befriend(t, A, B);
+    t.deps.db.prepare("UPDATE users SET profile_public = 0 WHERE email IN (?, ?)").run(B, "dee@example.com");
+    for (const [email, bars] of [[B, 1], [C, 2], ["dee@example.com", 2], ["eve@example.com", 1]] as const) {
       await t.login(email);
       await completeBar1(t);
+      if (bars === 2) await completeBar2(t);
     }
-    await t.login("zed@example.com");
-    await completeBar1(t);
-    const b = await board(t, "week");
-    expect(b.rows).toHaveLength(LEADERBOARD_SIZE);
-    expect(b.rows.every((r: { rank: number; isMe: boolean }) => r.rank === 1 && !r.isMe)).toBe(true);
-    expect(b.me).toMatchObject({ rank: 1, person: { username: "zed" }, lessons: 1, isMe: true });
+    engage(t, "dee@example.com", 600);
+    engage(t, C, 60);
+    engage(t, "eve@example.com", 300);
+    await t.login(A);
+    const b = await board(t);
+    expect(summary(b.rows)).toEqual([[2, "cyd", 2, 2], [3, "eve", 1, 1], [4, "bob", 1, 1], [null, "ana", 0, 0]]);
+    expect(b.rows.map((r: { language: string | null }) => r.language)).toEqual(["it", "it", "it", null]);
+    expect(b.stats).toEqual({ activeLearners: 4, lessons: 6, seconds: 960 });
+    expect(JSON.stringify(b)).not.toContain("example.com");
+  });
+
+  it("fills 25 slots with you, all your friends who practiced, then the best public learners", async () => {
+    const t = setup();
+    await accounts(t, A);
+    const strangers = Array.from({ length: 24 }, (_, i) => `s${String(i).padStart(2, "0")}@example.com`);
+    const friends = ["fr0@example.com", "fr1@example.com", "fr2@example.com"];
+    await accounts(t, ...strangers, ...friends);
+    for (const f of friends) await befriend(t, A, f);
+    for (const [i, email] of [...strangers, ...friends].entries()) {
+      await t.login(email);
+      await completeBar1(t);
+      engage(t, email, i < strangers.length ? 1000 - i * 10 : 1);
+    }
+    await t.login(A);
+    const b = await board(t);
+    const names = b.rows.map((r: { person: { username: string } }) => r.person.username);
+    expect(names).toHaveLength(LEADERBOARD_SIZE);
+    expect(names.slice(-4)).toEqual(["fr0", "fr1", "fr2", "ana"]);
+    expect(names).not.toContain("s23");
+    expect(names).not.toContain("s22");
+    expect(names).not.toContain("s21");
+    expect(b.rows.at(-2)).toMatchObject({ rank: 27, person: { username: "fr2" } });
+  });
+
+  it("leaves out learners who blocked you or whom you blocked", async () => {
+    const t = setup();
+    const [, , cy] = await accounts(t, A, B, C);
+    for (const e of [B, C]) {
+      await t.login(e);
+      await completeBar1(t);
+    }
+    await t.login(A);
+    expect(summary((await board(t)).rows).map((r) => r[1])).toEqual(["bob", "cyd", "ana"]);
+    expect((await t.req("POST", `/api/friends/${cy}/block`, {})).status).toBe(200);
+    expect(summary((await board(t)).rows).map((r) => r[1])).toEqual(["bob", "ana"]);
+    await t.login(C);
+    expect(summary((await board(t)).rows).map((r) => r[1])).toEqual(["bob", "cyd"]);
   });
 });
 

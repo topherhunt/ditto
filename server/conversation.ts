@@ -102,6 +102,9 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return { leaned: sources.filter((s) => LEANED.includes(s)).length, of: sources.length };
   };
 
+  const replyCount = (conversationId: number) =>
+    (db.prepare("SELECT count(*) AS n FROM conversation_turns WHERE conversation_id = ? AND role = 'learner'").get(conversationId) as { n: number }).n;
+
   const spend = (userId: number, conversationId: number): Spend => ({
     today: spentToday(db, userId, deps.now()),
     cap: deps.dailySpendCap,
@@ -201,7 +204,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       id: r.id, language: r.language, level: r.level, title: r.title, createdAt: r.created_at, updatedAt: r.updated_at,
       levels: (db.prepare("SELECT level FROM conversation_turns WHERE conversation_id = ? AND role = 'learner' AND level IS NOT NULL ORDER BY id").all(r.id) as { level: string }[])
         .map((t) => t.level),
-      reliance: reliance(r.id),
+      reliance: reliance(r.id), replies: replyCount(r.id),
     }));
     const weakPhrases = db.prepare("SELECT text, created_at AS createdAt FROM weak_phrases WHERE user_id = ? AND language = ? ORDER BY id DESC")
       .all(userId, language) as { text: string; createdAt: string }[];

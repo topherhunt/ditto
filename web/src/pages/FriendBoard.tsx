@@ -8,7 +8,7 @@ import { activityText, displayName, sendFriendRequest } from "../social.ts";
 
 export function MakeFriendsButton() {
   return (
-    <A href="/friends/board" class="qa-make-friends btn btn-outline-primary align-self-start">
+    <A href="/friends/board" class="qa-make-friends btn btn-outline-primary w-100 text-start">
       <i class="bi bi-person-fill-add me-1" />{t("board.open")}
     </A>
   );

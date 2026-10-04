@@ -18,11 +18,11 @@ import type { User } from "./auth.ts";
 import { VOICES, voiceId } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import { log } from "./log.ts";
+import { QUIZ_QUEUE_SIZE } from "./leaderboard.ts";
 import type { QuizDeck } from "./quiz-content.ts";
 import { scheduleGrade } from "./srs.ts";
 import { recordUsage, underCapOr429 } from "./usage.ts";
 
-const QUEUE_SIZE = 20;
 const GRADE: Record<QuizRating, Grade> = { again: Rating.Again, hard: Rating.Hard, good: Rating.Good, easy: Rating.Easy };
 /** Lower levels hear the voice slower, as in conversation mode. */
 const PACE: Record<QuizLevel, number> = { "A1": 1.3, "A1+": 1.3, "A2": 1.2, "A2+": 1.2, "B1": 1.1, "B1+": 1.1, "B2": 1, "B2+": 1 };
@@ -213,9 +213,10 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
       if (!queue.length) queue = seen;
     }
     const iso = deps.now().toISOString();
-    const { lastInsertRowid } = db.prepare("INSERT INTO quiz_sessions (user_id, deck_id, mode, started_at, updated_at) VALUES (?, ?, ?, ?, ?)")
-      .run(userId, deck.id, mode, iso, iso);
-    return c.json<QuizSessionStartOut>({ sessionId: Number(lastInsertRowid), queue: queue.slice(0, QUEUE_SIZE).map((x) => x.id) });
+    const unit = queue.slice(0, QUIZ_QUEUE_SIZE).map((x) => x.id);
+    const { lastInsertRowid } = db.prepare("INSERT INTO quiz_sessions (user_id, deck_id, mode, queue_size, started_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)")
+      .run(userId, deck.id, mode, unit.length, iso, iso);
+    return c.json<QuizSessionStartOut>({ sessionId: Number(lastInsertRowid), queue: unit });
   });
 
   // A wrong answer is rated again; the learner rates a right one. The client re-asks missed questions within the session.

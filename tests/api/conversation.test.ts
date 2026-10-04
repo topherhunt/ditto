@@ -94,7 +94,7 @@ describe("conversation mode", () => {
 
     const again = (await t.req("GET", `/api/conversations/${conv.id}`)).json;
     expect(again.turns.map((x: { role: string }) => x.role)).toEqual(["partner", "learner", "partner"]);
-    expect((await t.req("GET", "/api/conversations?lang=it")).json.conversations[0].levels).toEqual(["A2"]);
+    expect((await t.req("GET", "/api/conversations?lang=it")).json.conversations[0]).toMatchObject({ levels: ["A2"], replies: 1 });
   });
 
   it("counts a reply as a suggestion when the coach, shown the suggestions, judges it one, and tells it from an own reply and \"How do I say...?\"", async () => {

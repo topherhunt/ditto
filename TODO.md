@@ -3,23 +3,23 @@
 
 ### Now
 
-- [x] On the dashboard at the top, if you haven't already, if your account hasn't already been flagged as dismissed for this, there should be an invitation, like a like a bright blue alert info invitation to download the app. And you can click on that link to install it on your phone or device. And once you dismiss that invitation, it's persisted across your whole account. So it doesn't keep annoying you. I thought I already added this but I don't know where it is now. 
+- [x] On the dashboard at the top, if you haven't already, if your account hasn't already been flagged as dismissed for this, there should be an invitation, like a like a bright blue alert info invitation to download the app. And you can click on that link to install it on your phone or device. And once you dismiss that invitation, it's persisted across your whole account. So it doesn't keep annoying you. I thought I already added this but I don't know where it is now.
+- [x] On the friends page on the top, the find a friend search input needs to be reduced to just a button which opens a pop-up. And you need to have the find new friends next to that. So you can search for friends andor you can add yourself to the Find a Friends board both at the top of the Friends page because currently it's too hard to discover that functionality. 
+- [x] Leaderboard:
+  - N active total this week
+  - Show everyone who has practiced this week. And you can also page back to past weeks.
+  - Remove the day/week/month toggle?
 - Everything that is accessible from the accounts menu or the account menu must also be accessible from the dashboard. So you don't need to tap the account menu in order to discover things like your friends list and make new friends and leaderboard. (Luis couldn't find the "Find new friends" button.)
 - In geeral, think through implications: People don't read things that aren't on the dashboard.
   - "About" link
   - Settings link
   - Feedback
   - leaderboard & friends
-  - Language switcher: "Request another" link at bottom - pops open the request language modal
+  - [x] Language switcher: "Request another" link at bottom - pops open the request language modal
   - Settings -> "falta tu idioma" links - put them INTO the dropdown / buttons and eliminate the links. Too confusing right now.
-- Inspect the "N% del camino hacia A1" - how's that calculated?
-- On the friends page on the top, the find a friend search input needs to be reduced to just a button which opens a pop-up. And you need to have the find new friends next to that. So you can search for friends andor you can add yourself to the Find a Friends board both at the top of the Friends page because currently it's too hard to discover that functionality. 
-- Leaderboard:
-  - N active total this week
-  - Show everyone who has practiced this week. And you can also page back to past weeks.
-  - Remove the day/week/month toggle?
 - Dashboard -> Your Practice: need to get rid of the emphasis on "what you haven't done" and instead emphasize your progress towards the currently-targeted level, as a line chart growing up per day.
   - Also show the # of stars you've earned total and today, as an animated pop-in. Maybe put them on the chart somehow?
+- Inspect the "N% del camino hacia A1" - how's that calculated?
 - Dashboard, bottom 3 buttons, should link to the activity homepage, not jump straight into an activity.
 - It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are. 
   - remind about races too

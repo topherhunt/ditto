@@ -8,6 +8,7 @@ import { api } from "../api.ts";
 import type { Key } from "../i18n/en.ts";
 import { t } from "../i18n/index.ts";
 import { dayCount, daysLeft, displayName, raceLabel, sendFriendRequest } from "../social.ts";
+import { Popup } from "../components/Popup.tsx";
 import { MakeFriendsButton } from "./FriendBoard.tsx";
 
 /** What a search says about an account; `none` and `incoming` show a button instead. */
@@ -29,6 +30,16 @@ export function Friends() {
     e.preventDefault();
     setFound(await api.get<FriendSearchOut>(`/api/friends/search?q=${encodeURIComponent(query().trim())}`));
   }
+  const [searching, setSearching] = createSignal(false);
+  let queryInput!: HTMLInputElement;
+  function openSearch() {
+    setQuery("");
+    setFound(null);
+    setLimited(false);
+    setSearching(true);
+    // Popup focuses the dialog itself when it opens, so focus the field after that.
+    setTimeout(() => queryInput.focus());
+  }
   const [limited, setLimited] = createSignal(false);
   async function request(f: Extract<FriendSearchOut, { found: true }>) {
     const relation = await sendFriendRequest(f.person.id);
@@ -49,37 +60,51 @@ export function Friends() {
     <div class="d-flex flex-column gap-4">
       <h1 class="h3 mb-0">{t("friends.title")}</h1>
 
-      <section class="card"><div class="card-body d-flex flex-column gap-2">
-        <h2 class="h5 mb-0">{t("friends.add")}</h2>
-        <form class="d-flex gap-2" onSubmit={search}>
-          <input type="text" required autocapitalize="none" class="qa-friend-query form-control" placeholder={t("friends.searchPlaceholder")} value={query()}
-            onInput={(e) => { setQuery(e.currentTarget.value); setFound(null); }} />
-          <button type="submit" class="qa-friend-search btn btn-primary">{t("friends.find")}</button>
-        </form>
-        <Show when={found()}>
-          {(f) => (
-            <div class="qa-friend-result">
-              <Show when={f().found ? f() as Extract<FriendSearchOut, { found: true }> : null}
-                fallback={<span class="text-body-secondary">{t("friends.noAccount")}</span>}>
-                {(hit) => (
-                  <div class="d-flex flex-wrap align-items-center gap-2">
-                    <PersonLabel person={hit().person} />
-                    <Switch fallback={<span class="text-body-secondary">{t(SEARCH_RESULT[hit().relation as keyof typeof SEARCH_RESULT])}</span>}>
-                      <Match when={hit().relation === "none"}>
-                        <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.send")}</button>
-                      </Match>
-                      <Match when={hit().relation === "incoming"}>
-                        <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.acceptTheirs")}</button>
-                      </Match>
-                    </Switch>
-                  </div>
-                )}
-              </Show>
-            </div>
-          )}
-        </Show>
-        <Show when={limited()}><p class="qa-friend-limit alert alert-info mb-0">{t("friends.limit", { n: FRIEND_REQUESTS_PER_DAY })}</p></Show>
-      </div></section>
+      <div class="row g-2">
+        <div class="col-6 d-flex flex-column gap-2">
+          <h2 class="h6 mb-0">{t("friends.findHeading")}</h2>
+          <button type="button" class="qa-friend-search-open btn btn-outline-primary w-100 text-start" onClick={openSearch}>
+            <i class="bi bi-search-heart me-1" aria-hidden="true" />{t("friends.findOpen")}
+          </button>
+        </div>
+        <div class="col-6 d-flex flex-column gap-2">
+          <h2 class="h6 mb-0">{t("board.heading")}</h2>
+          <MakeFriendsButton />
+        </div>
+      </div>
+
+      <Popup open={searching()} onClose={() => setSearching(false)} title={t("friends.add")} class="qa-friend-popup"
+        footer={<button type="submit" form="qa-friend-form" class="qa-friend-search btn btn-primary">{t("friends.find")}</button>}>
+        <div class="d-flex flex-column gap-2">
+          <form id="qa-friend-form" onSubmit={search}>
+            <input type="text" required autocapitalize="none" class="qa-friend-query form-control" placeholder={t("friends.searchPlaceholder")} value={query()}
+              ref={queryInput} onInput={(e) => { setQuery(e.currentTarget.value); setFound(null); }} />
+          </form>
+          <Show when={found()}>
+            {(f) => (
+              <div class="qa-friend-result">
+                <Show when={f().found ? f() as Extract<FriendSearchOut, { found: true }> : null}
+                  fallback={<span class="text-body-secondary">{t("friends.noAccount")}</span>}>
+                  {(hit) => (
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                      <PersonLabel person={hit().person} />
+                      <Switch fallback={<span class="text-body-secondary">{t(SEARCH_RESULT[hit().relation as keyof typeof SEARCH_RESULT])}</span>}>
+                        <Match when={hit().relation === "none"}>
+                          <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.send")}</button>
+                        </Match>
+                        <Match when={hit().relation === "incoming"}>
+                          <button type="button" class="qa-friend-add btn btn-success" onClick={() => request(hit())}>{t("friends.acceptTheirs")}</button>
+                        </Match>
+                      </Switch>
+                    </div>
+                  )}
+                </Show>
+              </div>
+            )}
+          </Show>
+          <Show when={limited()}><p class="qa-friend-limit alert alert-info mb-0">{t("friends.limit", { n: FRIEND_REQUESTS_PER_DAY })}</p></Show>
+        </div>
+      </Popup>
 
       <Show when={friends()}>
         {(f) => (
@@ -133,7 +158,6 @@ export function Friends() {
           </>
         )}
       </Show>
-      <MakeFriendsButton />
     </div>
   );
 }

@@ -38,7 +38,8 @@ export function Privacy() {
       <ul class="d-flex flex-column gap-2">
         <li>Other learners know you only by your username. Your email is never shown to them, including your friends.</li>
         <li>If your profile is public (the default), anyone signed in can see your username, the language you most recently practiced and your lesson counts. If it's private, strangers see only your username.</li>
-        <li>Friends see your progress details, and you appear on their weekly leaderboard.</li>
+        <li>Friends see your progress details, and you appear on their weekly leaderboard when you've practiced that week.</li>
+        <li>The weekly leaderboard lists your friends who practiced that week and the top learners worldwide. A learner with a public profile can appear on anyone's leaderboard with their username, the language they most recently practiced, and their lessons this week and in total. With a private profile you appear only on your friends' leaderboards. Everyone is counted in the leaderboard's totals, which show no names.</li>
         <li>A post on the make-new-friends board shows your language, level, recent activity and blurb to every learner, even if your profile is private. Take it down any time.</li>
         <li>Friend search matches an exact username or email and shows only the username. So someone who already knows your email can find your username, but never the other way round.</li>
       </ul>

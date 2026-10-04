@@ -7,7 +7,7 @@ import { createSaver, ImmersionTable } from "../components/LanguagePrefs.tsx";
 import { RequestLanguagePopup } from "../components/RequestLanguage.tsx";
 import { UsernameForm } from "../components/UsernameForm.tsx";
 import { languageName, locale, LOCALE_LABELS, t } from "../i18n/index.ts";
-import { homeLanguage, LANGUAGE_FLAGS, learnable } from "../learning.ts";
+import { homeLanguage, LANGUAGE_FLAGS, learnable, LOCALE_FLAGS } from "../learning.ts";
 import { me } from "../session.ts";
 import { chooseTheme, theme, type Theme } from "../theme.ts";
 
@@ -39,8 +39,6 @@ export function Settings() {
     </div>
   );
 }
-
-const LOCALE_FLAGS: Record<Locale, string> = { en: LANGUAGE_FLAGS.en, "es-419": LANGUAGE_FLAGS.es, nl: LANGUAGE_FLAGS.nl, it: LANGUAGE_FLAGS.it, el: LANGUAGE_FLAGS.el };
 
 /** The interface language as a collapsed row showing the current one, expanding to a grid of the others. Picking one saves it and collapses the row. */
 function LocalePicker(props: { save: (request: () => Promise<unknown>) => Promise<void>; onRequest: () => void }) {

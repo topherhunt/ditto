@@ -7,6 +7,9 @@ const LAST_LANG_KEY = "lastLanguage";
 
 export const LANGUAGE_FLAGS: Record<Language, string> = { en: "🇺🇸", el: "🇬🇷", es: "🇲🇽", fr: "🇫🇷", it: "🇮🇹", nl: "🇳🇱", ga: "🇮🇪" };
 
+/** The flag shown beside each interface language. */
+export const LOCALE_FLAGS: Record<Locale, string> = { en: LANGUAGE_FLAGS.en, "es-419": LANGUAGE_FLAGS.es, nl: LANGUAGE_FLAGS.nl, it: LANGUAGE_FLAGS.it, el: LANGUAGE_FLAGS.el };
+
 /** The courses to offer a speaker of `locale`: ones with translations into it, minus its own language. */
 export const learnable = (locale: Locale) => LANGUAGES.filter((l) => l !== locale && SUPPORT_LOCALES[l].includes(locale));
 
