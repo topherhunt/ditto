@@ -5,7 +5,6 @@ import { LANGUAGES, languageLocale, type Language } from "../../../shared/conten
 import { api, NetworkError } from "../api.ts";
 import { setImmersion, t } from "../i18n/index.ts";
 import { homeLanguage, rememberLanguage } from "../learning.ts";
-import { FEEDBACK_URL } from "../links.ts";
 import { trackPage } from "../metrics.ts";
 import { About } from "../pages/About.tsx";
 import { Privacy } from "../pages/Privacy.tsx";
@@ -112,7 +111,8 @@ function LayoutBody(props: RouteSectionProps) {
                     </Show>
                   </ul>
                   <div class="ms-auto d-flex align-items-center gap-2">
-                    <Notifications />
+                    {/* Tiny screens get the bell on the dashboard's first row (in place of the settings button) instead. */}
+                    <div class="xs-hide"><Notifications /></div>
                     <div class="dropdown" ref={menuRoot}>
                       <button type="button" class="qa-user btn btn-sm btn-outline-info dropdown-toggle" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
@@ -146,10 +146,13 @@ function LayoutBody(props: RouteSectionProps) {
           <A class="qa-footer-home link-secondary" href="/">{t("footer.home")}</A><span class="mx-2" aria-hidden="true">•</span>
           <A class="qa-footer-about link-secondary" href="/about">{t("nav.about")}</A><span class="mx-2" aria-hidden="true">•</span>
           <A class="qa-footer-privacy link-secondary" href="/privacy">{t("footer.privacy")}</A><span class="mx-2" aria-hidden="true">•</span>
-          <A class="qa-footer-terms link-secondary" href="/terms">{t("footer.terms")}</A><span class="mx-2" aria-hidden="true">•</span>
-          <a class="qa-feedback-link link-secondary" href={FEEDBACK_URL} target="_blank" rel="noopener">
-            <i class="bi bi-bug-fill me-1" aria-hidden="true" />{t("footer.feedback")}
-          </a>
+          <A class="qa-footer-terms link-secondary" href="/terms">{t("footer.terms")}</A>
+          <Show when={me()}>
+            <span class="mx-2" aria-hidden="true">•</span>
+            <A class="qa-feedback-link link-secondary text-nowrap" href={`/feedback?from=${encodeURIComponent(location.pathname)}`}>
+              <i class="bi bi-bug-fill me-1" aria-hidden="true" />{t("footer.feedback")}
+            </A>
+          </Show>
         </span>
         <Show when={me() && spend()}>
           {(s) => <span class="qa-spend-today">{t("footer.spend", { today: usdShort(s().today), cap: usdShort(s().cap) })}</span>}

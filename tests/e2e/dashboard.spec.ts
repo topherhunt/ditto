@@ -32,11 +32,11 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
   await expect(page.locator(".qa-dash-active-days")).toHaveText("Practiced 1 of the last 30 days");
 });
 
-test("the dashboard's top row opens friends, the leaderboard and settings, and its bottom row opens the guide and the feedback form", async ({ page }) => {
+test("the dashboard's top row opens friends, the leaderboard and settings, and its bottom row opens the guide and the feedback page", async ({ page }) => {
   await signIn(page, "dash8@example.com");
   await expect(page.locator(".qa-dash-friends-count")).toHaveText("0");
   await expect(page.locator(".qa-dash-rank")).toHaveCount(0);
-  await expect(page.locator(".qa-dash-feedback-go")).toHaveAttribute("href", /^https:\/\/docs\.google\.com\/forms\//);
+  await expect(page.locator(".qa-dash-feedback-go")).toHaveAttribute("href", "/feedback?from=%2Fit");
   for (const [button, path] of [["friends", "/friends"], ["leaderboard", "/leaderboard"], ["settings", "/settings"], ["about-go", "/about"]]) {
     await page.locator(`.qa-dash-${button}`).click();
     await expect(page).toHaveURL(new RegExp(`${path}$`));

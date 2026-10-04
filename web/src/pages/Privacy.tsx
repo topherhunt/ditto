@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import { CONTACT_EMAIL, FEEDBACK_URL } from "../links.ts";
+import { CONTACT_EMAIL } from "../links.ts";
 
 // Every claim here must match the code. docs/privacy.md lists what to update when data handling changes.
 export function Privacy() {
@@ -7,7 +7,7 @@ export function Privacy() {
   return (
     <article class="qa-privacy">
       <h1 class="h4 mb-1">Privacy policy</h1>
-      <p class="text-body-secondary small">Last updated 1 October 2026</p>
+      <p class="text-body-secondary small">Last updated 4 October 2026</p>
 
       <div class="alert alert-secondary">
         <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, without your name or email. We never store your voice. You can get a copy of your data or have your account deleted by emailing {mail()}.
@@ -25,10 +25,11 @@ export function Privacy() {
         <li><strong>Social features:</strong> friends and friend requests, races, notifications, people you block, and your post on the make-new-friends board if you make one.</li>
         <li><strong>Reports:</strong> problems you report with course content, and reports you make about another learner (we keep a copy of the username and board post you reported, since both can change).</li>
         <li><strong>Usage metrics:</strong> how many minutes per day you spend in each part of the app (for example "lessons, Italian, 12 minutes") and when you last used it. We use this to learn which features help people. Per-person figures are deleted after 90 days, leaving only totals that identify no one.</li>
+        <li><strong>Feedback:</strong> what you send through the feedback page: how it's going (a mood from 1 to 5), the topics you tick, anything you write, whether you're happy to be emailed about it, the page you were on and your interface language. It is tied to your account, only the operator sees it, and it is kept until you delete your account. A mood you tap on the dashboard is saved right away, even if you never send the rest.</li>
         <li><strong>Language requests:</strong> if you use "Other..." to ask for a language, we keep a count of the two languages you chose, per day. If you are signed in we also keep a one-way hash of your account's public ID next to that pair, only so asking twice isn't counted twice. The hash isn't shown to anyone and we don't store anything you type.</li>
         <li><strong>AI costs:</strong> each AI request made for you, with its cost, to enforce the free daily allowance and plan our budget.</li>
       </ul>
-      <p>We need the first six to provide the service you signed up for (performance of a contract). Reports about other learners, usage metrics, language requests and AI costs are kept because we have a legitimate interest in keeping the community safe, improving the app and keeping it affordable.</p>
+      <p>We need the first six to provide the service you signed up for (performance of a contract). Reports about other learners, feedback, usage metrics, language requests and AI costs are kept because we have a legitimate interest in keeping the community safe, improving the app and keeping it affordable.</p>
       <p>We don't record your IP address, device, browser or location, and we don't use your data for advertising.</p>
 
       <h2 class="h5 mt-4">Cookies and browser storage</h2>
@@ -50,7 +51,7 @@ export function Privacy() {
         <li><strong>RackNerd</strong> (United States) hosts the server, which stores the database and nightly backups.</li>
         <li><strong>OpenAI</strong> (United States) powers the AI features. For a "Why?" explanation we send the exercise and the answer you typed. In conversation mode we send each voice recording for transcription, the conversation's text for replies and feedback, and text to be spoken. We never send your name, email, username or account ID. Under OpenAI's API terms, this data isn't used to train their models and is kept for up to 30 days, for abuse monitoring.</li>
         <li><strong>Healthchecks.io</strong> alerts the operator when the server fails or goes silent. The server sends it a fixed status message and, after an error, the error's type (such as "TypeError"), never anything about a learner.</li>
-        <li><strong>Google</strong> (United States) signs you in, under <a href="https://policies.google.com/privacy">Google's own privacy policy</a>. The <a href={FEEDBACK_URL}>feedback form</a> is also a Google Form, so anything you write in it is stored by Google.</li>
+        <li><strong>Google</strong> (United States) signs you in, under <a href="https://policies.google.com/privacy">Google's own privacy policy</a>.</li>
       </ul>
       <p>If you're in the European Economic Area, the UK or Switzerland, this means your data goes to the United States. OpenAI processes it under a data processing agreement and is certified under the EU-U.S. Data Privacy Framework.</p>
 

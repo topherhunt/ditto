@@ -1,16 +1,15 @@
 import { expect, test } from "@playwright/test";
 import { signIn } from "./helpers.ts";
 
-test("the feedback link is in the footer before and after signing in", async ({ page }) => {
+test("the feedback link appears in the footer only once signed in", async ({ page }) => {
   await page.goto("/");
   const link = page.locator(".qa-feedback-link");
   await expect(page.locator(".qa-dev-email")).toBeVisible();
-  await expect(link).toHaveAttribute("href", /^https:\/\/docs\.google\.com\/forms\//);
-  await expect(link).toHaveAttribute("target", "_blank");
+  await expect(link).toHaveCount(0);
   await expect(page.locator(".qa-spend-today")).toHaveCount(0);
 
   await signIn(page, "footer@example.com");
-  await expect(link).toBeVisible();
+  await expect(link).toHaveAttribute("href", "/feedback?from=%2Fit");
   await expect(page.locator(".qa-spend-today")).toHaveText(/^Usage today: \$0 \/ \$\d+(\.\d\d)?$/);
   await page.locator(".qa-footer-about").click();
   await expect(page).toHaveURL(/\/about$/);

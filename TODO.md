@@ -1,10 +1,11 @@
-- Feedback from 2026-10-04 Luis call
-  - 
+- 
+
+## Feedback from 2026-10-04 Luis call
 
 ### Now
 
 - [x] On the dashboard at the top, if you haven't already, if your account hasn't already been flagged as dismissed for this, there should be an invitation, like a like a bright blue alert info invitation to download the app. And you can click on that link to install it on your phone or device. And once you dismiss that invitation, it's persisted across your whole account. So it doesn't keep annoying you. I thought I already added this but I don't know where it is now.
-- [x] On the friends page on the top, the find a friend search input needs to be reduced to just a button which opens a pop-up. And you need to have the find new friends next to that. So you can search for friends andor you can add yourself to the Find a Friends board both at the top of the Friends page because currently it's too hard to discover that functionality. 
+- [x] On the friends page on the top, the find a friend search input needs to be reduced to just a button which opens a pop-up. And you need to have the find new friends next to that. So you can search for friends andor you can add yourself to the Find a Friends board both at the top of the Friends page because currently it's too hard to discover that functionality.
 - [x] Leaderboard:
   - N active total this week
   - Show everyone who has practiced this week. And you can also page back to past weeks.
@@ -21,10 +22,11 @@
 - [x] Dashboard, bottom 3 buttons, should link to the activity homepage, not jump straight into an activity.
 - [x] Go through the old quizzer translator bugs folder and identify any problems with the quiz decks. also review all of the popular quiz decks and ensure there are no significant errors in them. Especially distractors that are actually correct or things like that.
 - [x] Remove the legacy unscoped typing URLs (`/:lang/lesson/...`, `/:lang/test/...`, `/:lang/review`, `/:lang/notebook`, `/:lang/mistakes/practice`) by Fri 2026-10-02: delete `web/src/pages/LegacyRedirect.tsx` and its routes in `web/src/main.tsx`.
-- It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are. 
+- [x] First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way. This replaces the Google Form that the dashboard's feedback card and the footer link to (`FEEDBACK_URL`).
+- It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are.
   - remind about races too
 - [ ] In the talking activity, there should also be a notebook of your mistakes, which tracks sentences that you had trouble with so that you can review them and clear them out of the notebook.
-- [ ] Also the talking activity needs to have a representation of earning stars, and we need to ensure that that's roughly balanced per effort unit with the stars that you earn in the typing activity. 
+- [ ] Also the talking activity needs to have a representation of earning stars, and we need to ensure that that's roughly balanced per effort unit with the stars that you earn in the typing activity.
 - Plan out: support chat w friends -- only in a language you're learning.
 - [ ] Think through a friendlier onboarding & welcome for absolute beginners.
   - [ ] The Type activity's extra step probably doesn't add anything. Show it in the SAME step, so the user can hear, read, see translation, and then type it in. Only the 1st time you get that item (same as before).
@@ -36,7 +38,6 @@
 - Quizzer: talk through w Claude how to make the difficulty buttons less painful to use. What if we reduce it to just easy/hard? Or, Is there any way we could remove this entirely, and use time as a proxy, or use repeated correctness as a proxy for easy? Or maybe replace it with a 1/4-col "Hard", 1/2-col "OK", and 1/4-col "Easy"?
 - Currently, it feels like I've done very in-depth thinking about the UI and polish and mechanics of the type activity, but not so much about the incentives and motivation and reward stars and review mechanics for the talk or quiz activities. I should do a deep dive on those as well. Also, not just incentives and stars and rewards, but also noting mistakes and review and kind of collecting things to coach you on and support you on. Ideally, there should be a pool of items to review that's shared between different activities, but at the very least, each activity should have ways of tracking what you need reviewing.
 - The talk activity currently lets you just pick your level. It doesn't give you any guidance on how to pick your level or what you should be considering when you choose one or what are the implications of choosing one. I feel like the coach should recommend one for you and maybe even set a default for you based on your recent activity and what you've done in this talking app in the past and what you've done in other apps in the past.
-- First-class feedback-gatherer UI that prompts for and collects users' wishes, needs, priorities, and feedback in a structured usable way. This replaces the Google Form that the dashboard's feedback card and the footer link to (`FEEDBACK_URL`).
 - [ ] Stars: Expand this system from just "indicating how much you've mastered each Type lesson" to "a unified progress metric, and a currency you can spend down".
   - So this would mean in addition to the type activity, the talk activity and quiz activities can earn you stars at roughly the same effort rate. And the more stars you get, the higher your overall score or identity. And you people can see that on your profile. Like it's like a primary metric of how engaged you are in this app is how many stars you've earned. And the leaderboard shows it basically tracks how many stars people are earning on a day or week or month basis or something like that.
   - The dashboard already shows a total and today's count, with a stand-in for Talk and Quiz: each conversation or quiz session that counts as a lesson is 1 star, and a Type lesson's stars count on the day it was last practiced. Properly design how Talk and Quiz earn stars, balanced per unit of effort against Type, and record star events with timestamps so "today" and the leaderboard can use them.

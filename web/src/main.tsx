@@ -26,11 +26,13 @@ import { QuizHome } from "./pages/QuizHome.tsx";
 import { QuizStudy } from "./pages/QuizStudy.tsx";
 import { QuizTest } from "./pages/QuizTest.tsx";
 import { CapReached } from "./pages/CapReached.tsx";
+import { Feedback } from "./pages/Feedback.tsx";
 import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
 import { Welcome } from "./pages/Welcome.tsx";
 import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
+import { FeedbackAdmin } from "./pages/FeedbackAdmin.tsx";
 import { UserReportsAdmin } from "./pages/UserReportsAdmin.tsx";
 import { UserAdmin, UsersAdmin } from "./pages/UsersAdmin.tsx";
 import { installClickSound } from "./sounds.ts";
@@ -46,6 +48,7 @@ render(
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/cap" component={CapReached} />
+      <Route path="/feedback" component={Feedback} />
       <Route path="/friends" component={Friends} />
       <Route path="/friends/board" component={FriendBoard} />
       <Route path="/leaderboard" component={Leaderboard} />
@@ -58,6 +61,7 @@ render(
       <Route path="/admin/metrics" component={MetricsAdmin} />
       <Route path="/admin/users" component={UsersAdmin} />
       <Route path="/admin/user-reports" component={UserReportsAdmin} />
+      <Route path="/admin/feedback" component={FeedbackAdmin} />
       <Route path="/admin/users/:id" component={UserAdmin} />
       <Route path="/:lang" component={Dashboard} />
       <Route path="/:lang/type" component={Home} />

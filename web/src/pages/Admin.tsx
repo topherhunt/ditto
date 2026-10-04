@@ -44,6 +44,9 @@ export function Admin() {
         <Tile href="/admin/user-reports" qa="qa-nav-user-reports" icon="bi-flag" title="People reports">
           {s() && `${s()!.peopleReportsOpen} open reports on learners`}
         </Tile>
+        <Tile href="/admin/feedback" qa="qa-nav-feedback" icon="bi-chat-heart" title="Feedback">
+          {s() && `${s()!.feedbackOpen} unhandled`}
+        </Tile>
         <Show when={config()?.poc}>
           <Tile href="/admin/pronunciation" qa="qa-nav-poc" icon="bi-mic" title="Pronunciation POC">Record correct and mispronounced takes</Tile>
         </Show>

@@ -42,6 +42,7 @@ export function registerAdmin(app: Hono<{ Variables: { user: User } }>, deps: Ap
       reportsNew: count(`SELECT count(*) AS n FROM reports r WHERE ${WHERE.new}`),
       reportsTriaged: count(`SELECT count(*) AS n FROM reports r WHERE ${WHERE.triaged}`),
       peopleReportsOpen: count("SELECT count(*) AS n FROM user_reports WHERE resolved_at IS NULL"),
+      feedbackOpen: count("SELECT count(*) AS n FROM feedback WHERE handled_at IS NULL"),
       speakReports: count("SELECT count(*) AS n FROM conversation_attempts WHERE reported_at IS NOT NULL"),
     });
   });

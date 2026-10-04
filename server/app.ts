@@ -13,6 +13,7 @@ import { exactKey } from "../shared/tokenize.ts";
 import { registerActivity } from "./activity.ts";
 import { isAdmin, registerAdmin } from "./admin.ts";
 import { registerAdminUserReports } from "./admin-user-reports.ts";
+import { registerAdminFeedback, registerFeedback } from "./feedback.ts";
 import { registerAdminUsers } from "./admin-users.ts";
 import {
   createSession, deleteSession, helpLocale, prefsOf, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
@@ -532,10 +533,12 @@ export function createApp(deps: AppDeps) {
   });
 
   registerSocial(app, deps);
+  registerFeedback(app, deps);
   registerAdmin(app, deps);
   registerAdminLanguageRequests(app, deps);
   registerAdminUsers(app, deps);
   registerAdminUserReports(app, deps);
+  registerAdminFeedback(app, deps);
   registerConversation(app, deps);
   registerQuiz(app, deps);
   registerActivity(app, deps);

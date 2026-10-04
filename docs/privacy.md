@@ -6,7 +6,7 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 
 - **OpenAI:** its [DPA](https://openai.com/policies/data-processing-addendum/) is incorporated into the Services Agreement every API account accepts, so it's in effect with nothing to sign. It includes the Standard Contractual Clauses, and OpenAI is DPF-certified. The version in effect is saved in [legal/](legal/2026-09-openai-data-processing-addendum.pdf); save the new one there when it changes.
 - **RackNerd:** no DPA (see Accepted gaps).
-- **Google:** sign-in (Google acts as its own controller) and the feedback form (Google Forms).
+- **Google:** sign-in (Google acts as its own controller).
 
 ## Before this deploy
 
@@ -21,6 +21,7 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 ## Ongoing
 
 - **Language requests hold no direct identifiers** (`language_requests`, migration 038; `language_request_senders`, migration 040): the "Other..." entries in the language pickers open a popup that posts two codes from a fixed list, and the server keeps a count per day and pair. For a signed-in sender it also keeps a SHA-256 of `users.public_id` per pair, only to skip repeats; the hash outlives the account. Never add free text, a user id or an IP to it.
+- **Feedback is tied to the account** (`feedback`, `feedback_tags`, migration 042) and holds free text, so treat it as personal data: only `/admin/feedback` shows it, the email appears there only when `may_contact` is set, and the rows cascade-delete with the user. A mood-only row is saved the moment a face is tapped on the dashboard card, before any submit.
 - **Healthchecks.io gets no personal data** (`server/healthcheck.ts` sends fixed text plus an error class name), so it needs no DPA. Keep it that way: never put an error message, path, id or request data in a ping body.
 
 - **When data handling changes, update the policy in the same change**: a new table or column holding personal data, a new third party, a new retention period, or anything shown to other learners. Bump its "Last updated" date. A new third party also needs its DPA signed before it receives data.

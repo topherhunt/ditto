@@ -8,7 +8,7 @@ import { notificationText, shortDate } from "../social.ts";
 const POLL_MS = 60_000;
 
 /** The bell in the navbar: unread count, and a dropdown of recent notifications that marks them read when opened. */
-export function Notifications() {
+export function Notifications(props: { large?: boolean }) {
   const location = useLocation();
   // The bell is decorative, so a poll that can't reach the server (laptop just woke up) keeps the last data instead of erroring the whole layout.
   const [data, { refetch, mutate }] = createResource<NotificationsOut | undefined>(async (_, { value }) => {
@@ -45,7 +45,7 @@ export function Notifications() {
 
   return (
     <div class="notify-wrap dropdown" ref={root}>
-      <button type="button" class="qa-notifications btn btn-sm btn-outline-info position-relative" aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
+      <button type="button" class="qa-notifications btn btn-outline-info position-relative" classList={{ "btn-sm": !props.large }} aria-expanded={open()} aria-label={t("notify.title")} onClick={toggle}>
         <i class="bi bi-bell" aria-hidden="true" />
         <Show when={data() && data()!.unread > 0}>
           <span class="qa-notifications-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">{data()!.unread}</span>

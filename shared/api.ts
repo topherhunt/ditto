@@ -347,10 +347,42 @@ export type AdminExploreOut = {
   learner: { publicId: string; username: string | null } | null;
 };
 
+/** Feedback tags, by what they say: something in the way, or something the learner wants. The page labels them via `feedback.tag.<code>`. */
+export const FEEDBACK_TAGS = {
+  struggle: ["unsure_next", "too_many_options", "too_structured", "too_hard", "too_easy", "audio_problems", "bugs", "not_enough_content", "habit"],
+  wish: ["reminders", "more_languages", "more_talk", "friends", "progress_stats", "explanations", "more_quizzes"],
+} as const;
+export const FEEDBACK_TAG_LIST = [...FEEDBACK_TAGS.struggle, ...FEEDBACK_TAGS.wish] as const;
+export type FeedbackTag = (typeof FEEDBACK_TAG_LIST)[number];
+export const FEEDBACK_MESSAGE_MAX = 2000;
+export const FEEDBACK_PER_DAY = 20;
+/** `mood` is 1 (awful) to 5 (great). A submission must say something: a mood, a tag or a message. */
+const feedbackFields = {
+  mood: z.number().int().min(1).max(5).nullable(),
+  tags: z.array(z.enum(FEEDBACK_TAG_LIST)).max(FEEDBACK_TAG_LIST.length),
+  message: z.string().trim().max(FEEDBACK_MESSAGE_MAX),
+  mayContact: z.boolean(),
+};
+const feedbackHasContent = (f: { mood: number | null; tags: unknown[]; message: string }) => f.mood !== null || f.tags.length > 0 || f.message !== "";
+const FEEDBACK_EMPTY = { message: "Feedback needs a mood, a tag or a message" };
+/** `page` is the route the learner started from, e.g. `/it`. */
+export const FeedbackSchema = z.strictObject({ ...feedbackFields, page: z.string().regex(/^\/[A-Za-z0-9/_-]{0,100}$/) }).refine(feedbackHasContent, FEEDBACK_EMPTY);
+export const FeedbackUpdateSchema = z.strictObject(feedbackFields).refine(feedbackHasContent, FEEDBACK_EMPTY);
+export type FeedbackBody = z.infer<typeof FeedbackSchema>;
+/** A learner's own feedback, as saved. */
+export type FeedbackOut = { id: number } & Pick<FeedbackBody, "mood" | "tags" | "message" | "mayContact">;
+export const FeedbackHandledSchema = z.strictObject({ handled: z.boolean(), note: z.string().trim().max(1000) });
+/** For the operator. `email` is set only when the learner ticked "you can email me". */
+export type AdminFeedback = FeedbackOut & {
+  user: Person; email: string | null; page: string; locale: string; createdAt: string; handledAt: string | null; adminNote: string | null;
+};
+/** `moods[i]` counts mood i + 1; `tags` lists every tag with a count, most common first. */
+export type AdminFeedbackOut = { moods: number[]; tags: { tag: FeedbackTag; count: number }[]; items: AdminFeedback[] };
+
 /** What each tile on /admin counts. `spendMonthUsd`: AI spend over the last ADMIN_RECENT_DAYS. */
 export type AdminSummary = {
   users: number; usersSeenWeek: number; learnersToday: number; spendMonthUsd: number;
-  reportsNew: number; reportsTriaged: number; peopleReportsOpen: number; speakReports: number;
+  reportsNew: number; reportsTriaged: number; peopleReportsOpen: number; speakReports: number; feedbackOpen: number;
 };
 
 /** ISO 639-1 codes a visitor can name when asking for a language, plus `other` for any not listed. Names come from `Intl.DisplayNames`. */

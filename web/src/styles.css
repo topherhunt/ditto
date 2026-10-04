@@ -99,9 +99,17 @@
   .nav-username { display: none; }
   .nav-inner { --bs-gutter-x: 1rem; font-size: .85rem; gap: .25rem !important; }
   .nav-inner .navbar-brand { font-size: 1rem; margin-right: 0; }
-  .nav-inner .nav-link { padding-left: .35rem; padding-right: .35rem; }
+  .nav-inner .navbar-nav { --bs-navbar-nav-link-padding-x: .35rem; }
   .nav-inner .btn-sm { --bs-btn-padding-x: .4rem; --bs-btn-font-size: .8rem; }
 }
+
+@media (max-width: 374.98px) {
+  .nav-inner .navbar-nav { --bs-navbar-nav-link-padding-x: .15rem; }
+}
+
+/* Visibility utilities for tiny screens (Bootstrap has no breakpoint under 576px). */
+@media (max-width: 374.98px) { .xs-hide { display: none !important; } }
+@media (min-width: 375px) { .xs-only { display: none !important; } }
 
 /* Lesson rows: text above actions on a phone, side by side from 500px. */
 .lesson-row { display: flex; flex-direction: column; gap: .5rem; }
@@ -116,7 +124,7 @@
 .notify-menu { width: 20rem; max-width: 90vw; }
 @media (max-width: 499.98px) {
   .notify-wrap { position: static; }
-  .notify-wrap .notify-menu[data-bs-popper] { left: .5rem; right: .5rem; width: auto; max-width: none; }
+  .notify-wrap .notify-menu[data-bs-popper] { top: auto; left: .5rem; right: .5rem; width: auto; max-width: none; }
 }
 
 /* Message bubbles: a border a step lighter than the bubble's own background (lighter on dark, darker on light). */

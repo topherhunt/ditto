@@ -1,8 +1,9 @@
 import { A, useNavigate } from "@solidjs/router";
 import { createResource, createSignal, For, onCleanup, Show } from "solid-js";
-import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut, type Catalog, type Config, type ConversationsOut, type QuizHomeOut, type SocialSummaryOut } from "../../../shared/api.ts";
+import { LEARNER_LEVELS, QUIZ_GRADUATE_SHARE, SPEAK_LANGUAGES, type ActivityOut, type Catalog, type Config, type ConversationsOut, type FeedbackOut, type QuizHomeOut, type SocialSummaryOut } from "../../../shared/api.ts";
 import type { Language } from "../../../shared/content.ts";
 import { api } from "../api.ts";
+import { MoodFaces } from "../components/MoodFaces.tsx";
 import { RequestLanguagePopup } from "../components/RequestLanguage.tsx";
 import { LevelPicker } from "../components/LevelPicker.tsx";
 import { ProgressChart } from "../components/ProgressChart.tsx";
@@ -12,7 +13,8 @@ import { lessonDone, levelDone, levels, nextLesson } from "../curriculum.ts";
 import { languageName, t } from "../i18n/index.ts";
 import { canPromptInstall, isMobile, isStandalone, promptInstall } from "../install.ts";
 import { LANGUAGE_FLAGS, learnable, rememberLanguage, saveLevel } from "../learning.ts";
-import { FEEDBACK_URL } from "../links.ts";
+import { Notifications } from "../components/Notifications.tsx";
+import { feedbackThanks, setFeedbackThanks } from "../feedback.ts";
 import { journey, progressSeries, type Rung } from "../progress.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
@@ -28,6 +30,7 @@ type Tip = { qa: string; text: string; go?: Go };
 /** A course's home: what to do next, how the learner has been doing, and the ways to practice. */
 export function Dashboard() {
   const lang = useLang();
+  const navigate = useNavigate();
   const [config] = createResource(() => api.get<Config>("/api/config"));
   const talkOn = () => config()!.speak && (SPEAK_LANGUAGES as readonly string[]).includes(lang());
   const quizOn = () => config()!.quiz.includes(lang());
@@ -40,6 +43,20 @@ export function Dashboard() {
   const level = () => me()!.prefs[lang()].level;
   const [levelError, setLevelError] = createSignal<string | null>(null);
   const [rerating, setRerating] = createSignal(false);
+  const [rating, setRating] = createSignal(false);
+  const [ratingError, setRatingError] = createSignal<string | null>(null);
+  /** Saves the mood on the spot, so it counts even if the learner never fills in the rest of the feedback page. */
+  const rate = async (mood: number) => {
+    setRating(true);
+    setRatingError(null);
+    try {
+      const saved = await api.post<FeedbackOut>("/api/feedback", { mood, tags: [], message: "", mayContact: false, page: `/${lang()}` });
+      navigate(`/feedback?id=${saved.id}`);
+    } catch (e) {
+      setRatingError(t("feedback.failed", { error: (e as Error).message }));
+      setRating(false);
+    }
+  };
 
   /** Items per local day: the server counts per UTC hour so the day boundary is the learner's own. */
   const byDay = () => {
@@ -114,6 +131,7 @@ export function Dashboard() {
     const quizRung = quizOn() ? quizLadder().find((r) => r.level === target.level) : undefined;
     return {
       start: days[0],
+      dots: days.map((d) => { const c = byDay().get(dayKey(d)); return !!c && c.type + c.talk + c.quiz > 0; }),
       pcts: progressSeries({
         dayEnds: days.map((d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1).getTime()), typeDoneAt, typeTotal: main.length,
         quizPct: quizRung?.pct ?? null, quizAnswers: days.map((d) => byDay().get(dayKey(d))?.quiz ?? 0),
@@ -121,25 +139,28 @@ export function Dashboard() {
     };
   };
 
+  onCleanup(() => setFeedbackThanks(false));
   return (
     <Show when={ready()}>
       <div class="qa-dashboard d-flex flex-column gap-4">
+        <Show when={feedbackThanks()}><div class="qa-feedback-thanks alert alert-success mb-0" role="status">{t("feedback.thanks")}</div></Show>
         <Show when={!me()!.installHintDismissed && isMobile() && !isStandalone()}><InstallHint /></Show>
 
-        <div class="d-flex flex-wrap align-items-center gap-2">
+        <div class="position-relative d-flex flex-wrap-reverse align-items-center gap-2">
           <LanguageSwitcher lang={lang()} />
-          <div class="d-flex gap-2">
+          <div class="d-flex gap-2 ms-auto">
             <A href="/friends" class="qa-dash-friends btn btn-outline-primary position-relative">
               <i class="bi bi-people-fill me-1" aria-hidden="true" />{t("nav.friends")}
-              <Show when={social()}>{(s) => <span class="qa-dash-friends-count position-absolute top-100 start-100 translate-middle badge rounded-pill text-bg-secondary">{s().friends}</span>}</Show>
+              <Show when={social()}>{(s) => <span class="qa-dash-friends-count position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary" style={{ "margin-left": "-6px" }}>{s().friends}</span>}</Show>
             </A>
             <A href="/leaderboard" class="qa-dash-leaderboard btn btn-outline-primary position-relative">
               <i class="bi bi-trophy me-1" aria-hidden="true" />{t("nav.leaderboard")}
               <Show when={social()?.weekRank}>
-                {(rank) => <span class={`qa-dash-rank qa-dash-rank-${rank()} position-absolute top-100 start-100 translate-middle badge rounded-pill ${rank() <= 3 ? `rank-${rank()}` : "text-bg-secondary"}`}>{rank()}</span>}
+                {(rank) => <span class={`qa-dash-rank qa-dash-rank-${rank()} position-absolute top-0 start-100 translate-middle badge rounded-pill ${rank() <= 3 ? `rank-${rank()}` : "text-bg-secondary"}`} style={{ "margin-left": "-6px" }}>{rank()}</span>}
               </Show>
             </A>
-            <A href="/settings" class="qa-dash-settings btn btn-outline-secondary" aria-label={t("nav.settings")}><i class="bi bi-gear" aria-hidden="true" /></A>
+            <div class="xs-only"><Notifications large /></div>
+            <A href="/settings" class="qa-dash-settings xs-hide btn btn-outline-secondary" aria-label={t("nav.settings")}><i class="bi bi-gear" aria-hidden="true" /></A>
           </div>
         </div>
 
@@ -191,7 +212,7 @@ export function Dashboard() {
               <Show when={rungs()[targetIndex()]}>
                 {(target) => {
                   const c = () => chart(target());
-                  return <ProgressChart pcts={c().pcts} start={c().start} label={t("dash.chart.label", { level: target().level })} />;
+                  return <ProgressChart pcts={c().pcts} dots={c().dots} goal={target().level} start={c().start} label={t("dash.chart.label", { level: target().level })} />;
                 }}
               </Show>
               <div class="qa-dash-stars position-absolute top-0 d-flex flex-wrap align-items-baseline gap-2 bg-body rounded px-2" style={{ left: "2.5rem" }}>
@@ -233,7 +254,9 @@ export function Dashboard() {
               <div class="card-body d-flex flex-column gap-2">
                 <h2 class="h6 mb-0">{t("dash.feedback.title")}</h2>
                 <p class="small mb-0">{t("dash.feedback.body")}</p>
-                <div class="mt-auto pt-2"><a href={FEEDBACK_URL} target="_blank" rel="noopener" class="qa-dash-feedback-go btn btn-outline-primary btn-sm"><i class="bi bi-chat-heart me-1" aria-hidden="true" />{t("dash.feedback.go")}</a></div>
+                <MoodFaces value={null} disabled={rating()} onPick={rate} />
+                <Show when={ratingError()}>{(m) => <div class="qa-dash-feedback-error text-danger small">{m()}</div>}</Show>
+                <div class="mt-auto pt-2"><A href={`/feedback?from=${encodeURIComponent(`/${lang()}`)}`} class="qa-dash-feedback-go btn btn-outline-primary btn-sm"><i class="bi bi-chat-heart me-1" aria-hidden="true" />{t("dash.feedback.go")}</A></div>
               </div>
             </div>
           </div>
@@ -356,7 +379,7 @@ function Ladder(props: { rungs: Rung[] }) {
     <Show when={props.rungs.length}>
       <div class="qa-dash-ladder">
         <div class="d-flex gap-1">
-          <For each={props.rungs}>
+          <For each={props.rungs.slice(0, top() + 2)}>
             {(r, i) => {
               const fill = () => (r.achieved ? 100 : i() === top() + 1 ? r.pct : 0);
               return (
