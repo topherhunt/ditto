@@ -181,7 +181,7 @@ export const AUDIO_MIMES = ["audio/webm", "audio/mp4"] as const;
 export const NewConversationSchema = z.strictObject({
   language: z.enum(SPEAK_LANGUAGES),
   level: z.enum(LEARNER_LEVELS),
-  scenario: z.union([z.strictObject({ starter: z.enum(STARTERS) }), z.strictObject({ topic: z.string().trim().min(1).max(300) }), z.strictObject({ surprise: z.literal(true) })]),
+  scenario: z.union([z.strictObject({ starter: z.enum(STARTERS) }), z.strictObject({ chat: z.literal(true) }), z.strictObject({ surprise: z.literal(true) })]),
   hardMode: z.boolean(),
 });
 export const PutConversationSchema = z.strictObject({ hardMode: z.boolean() });

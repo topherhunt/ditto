@@ -3,7 +3,6 @@ import { createResource, createSignal, For, Show } from "solid-js";
 import { CONVERSATION_LESSON_REPLIES, LEARNER_LEVELS, SPEAK_LANGUAGES, STARTERS, type Config, type LearnerLevel, type Starter, type ConversationOut, type ConversationsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { ActivityHeader } from "../components/ActivityHeader.tsx";
-import { Popup } from "../components/Popup.tsx";
 import { t } from "../i18n/index.ts";
 import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
@@ -31,15 +30,13 @@ export function Speak() {
   /** The learner's self-rated level, which the dashboard asks for; A1 until they answer. */
   const level = () => prefs().level ?? "A1";
   const starters = pickStarters();
-  const [customOpen, setCustomOpen] = createSignal(false);
   const [settingsOpen, setSettingsOpen] = createSignal(false);
   const [hardMode, setHardMode] = createSignal(false);
-  const [topic, setTopic] = createSignal("");
   const [starting, setStarting] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
   const supported = () => (SPEAK_LANGUAGES as readonly string[]).includes(lang());
 
-  const start = async (scenario: { starter: Starter } | { topic: string } | { surprise: true }) => {
+  const start = async (scenario: { starter: Starter } | { chat: true } | { surprise: true }) => {
     setStarting(true);
     setError(null);
     unlockPlayer();
@@ -101,6 +98,11 @@ export function Speak() {
               </div>
             </Show>
           </div>
+          <div class="text-center">
+            <button type="button" class="qa-speak-chat btn btn-success btn-lg" disabled={starting()} onClick={() => start({ chat: true })}>
+              <i class="bi bi-chat-dots me-2" aria-hidden="true" />{t("speak.newChat")}
+            </button>
+          </div>
           <div>
             <h2 class="h6">{t("speak.starters")}</h2>
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 justify-content-center g-2">
@@ -114,20 +116,6 @@ export function Speak() {
               </div>
             </div>
           </div>
-          <div class="text-center mt-n2">
-            <button type="button" class="qa-speak-custom btn btn-link p-0" onClick={() => setCustomOpen(true)}>
-              <i class="bi bi-pencil me-1" aria-hidden="true" />{t("speak.custom")}
-            </button>
-          </div>
-          <Popup open={customOpen()} onClose={() => setCustomOpen(false)} title={t("speak.custom")} class="qa-speak-custom-popup"
-            footer={<button type="submit" form="speak-custom-form" class="qa-speak-topic-start btn btn-primary" disabled={starting() || !topic().trim()}>{t("speak.start")}</button>}>
-            {/* Closes before starting: the starting and error messages sit behind the modal. */}
-            <form id="speak-custom-form" onSubmit={(e) => { e.preventDefault(); setCustomOpen(false); void start({ topic: topic() }); }}>
-              <label class="form-label fw-medium" for="speak-custom-topic">{t("speak.topic")}</label>
-              <input id="speak-custom-topic" class="qa-speak-topic form-control" maxLength={300} placeholder={t("speak.topicPlaceholder")} value={topic()} onInput={(e) => setTopic(e.currentTarget.value)} />
-              <div class="form-text">{t("speak.customHint")}</div>
-            </form>
-          </Popup>
           <Show when={starting()}><div class="qa-speak-starting text-body-secondary">{t("speak.starting")}</div></Show>
           <Show when={error()}>{(m) => <div class="qa-speak-error alert alert-danger mb-0">{m()}</div>}</Show>
         </section>
@@ -145,7 +133,7 @@ export function Speak() {
                       <li class="qa-speak-history list-group-item d-flex flex-wrap align-items-center gap-2">
                         <A href={`/${lang()}/talk/${c.id}`} class="me-auto">{c.title}</A>
                         <span class="qa-speak-replies small" classList={{ "text-body-secondary": c.replies < CONVERSATION_LESSON_REPLIES, "text-success": c.replies >= CONVERSATION_LESSON_REPLIES }}>
-                          <i class="bi bi-chat-dots me-1" aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
+                          <i class={`bi ${c.replies >= CONVERSATION_LESSON_REPLIES ? "bi-chat-heart" : "bi-chat-dots"} me-1`} aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
                         </span>
                         <For each={c.levels.slice(-3)}>{(l) => <span class="badge text-bg-secondary">{l}</span>}</For>
                         <span class="small text-body-secondary">{new Date(c.updatedAt).toLocaleDateString()}</span>

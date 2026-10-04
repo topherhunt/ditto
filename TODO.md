@@ -15,11 +15,9 @@
   - Settings link
   - Feedback
   - leaderboard & friends
-  - [x] Language switcher: "Request another" link at bottom - pops open the request language modal
-  - Settings -> "falta tu idioma" links - put them INTO the dropdown / buttons and eliminate the links. Too confusing right now.
 - Dashboard -> Your Practice: need to get rid of the emphasis on "what you haven't done" and instead emphasize your progress towards the currently-targeted level, as a line chart growing up per day.
   - Also show the # of stars you've earned total and today, as an animated pop-in. Maybe put them on the chart somehow?
-- Inspect the "N% del camino hacia A1" - how's that calculated?
+  - Inspect the "N% del camino hacia A1" - how's that calculated?
 - Dashboard, bottom 3 buttons, should link to the activity homepage, not jump straight into an activity.
 - It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are. 
   - remind about races too

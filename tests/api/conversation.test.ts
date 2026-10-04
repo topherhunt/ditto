@@ -39,6 +39,15 @@ const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
 });
 
 describe("conversation mode", () => {
+  it("starts an open chat with no premise and no longer accepts a free-text topic", async () => {
+    const t = await speak();
+    const body = { language: "it", level: "A1", hardMode: false };
+    const chat = await t.req("POST", "/api/conversations", { ...body, scenario: { chat: true } });
+    expect(chat.status).toBe(200);
+    expect(chat.json.turns.length).toBeGreaterThan(0);
+    expect((await t.req("POST", "/api/conversations", { ...body, scenario: { topic: "trains" } })).status).toBe(400);
+  });
+
   it("is off without its deps: config says so and paid calls get 503", async () => {
     const t = setup();
     await t.login();

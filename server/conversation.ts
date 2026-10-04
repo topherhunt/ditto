@@ -48,6 +48,7 @@ const STARTER_PROMPTS: Record<Starter, string> = {
   apartment: "At an apartment viewing: you are the landlord showing the learner a flat they might rent.",
   birthday: "Two friends chatting: you and the learner plan a birthday party together.",
 };
+const CHAT = "Two friends chatting: open with a warm, generic greeting, ask how the learner's day or week is going and what is on their mind, and follow wherever they take it.";
 const SURPRISE = "Surprise the learner: pick an everyday situation yourself and set it up in your first line.";
 
 const EXT: Record<string, string> = { "audio/webm": "webm", "audio/mp4": "m4a" };
@@ -220,7 +221,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const body = NewConversationSchema.parse(await c.req.json());
     speak();
     const user = c.get("user");
-    const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "topic" in body.scenario ? body.scenario.topic : SURPRISE;
+    const scenario = "starter" in body.scenario ? STARTER_PROMPTS[body.scenario.starter] : "chat" in body.scenario ? CHAT : SURPRISE;
     const now = deps.now().toISOString();
     const id = Number(db.prepare(
       `INSERT INTO conversations (user_id, language, locale, help_locale, ui_locale, level, scenario, title, hard_mode, voice, created_at, updated_at)
