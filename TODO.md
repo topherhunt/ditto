@@ -4,6 +4,14 @@
 
 ### Now
 
+- [ ] ‼️ Set up email notifications so Ditto can email me alerts when someone requests a new language or sends feedback.
+- [ ] Troubleshoot Type outcomes bug: table of comparison w someone else says Both that I got seven perfect with zero corrections and also says that I got eighty-eight percent accuracy. I'm wondering if it could be because the accuracy comparison table is basing off of my earlier practice run instead of basing off of my current mastery run?
+- [ ] Currently the leaderboard button on the dashboard has a badge. If I remember correctly, that badge represents your rank relative to your friends, but it doesn't make any sense because it's not explained anywhere. So I think it'd be better to just show your rank globally this week, as of the page load, same as how it's computed on the leaderboard itself. 
+- [ ] On the Type "Done!" panel, if you have > 0 corrected, show that text span in red. Same with # revealed. If > 0 with hints, show that in orange. # perfect should be green if > 0.
+- [ ] In the Type activity, if it's playing, change the Play button to a red Stop button w the stop icon. Switch back once playback ends.
+- [ ] Type activity: when you've completed a whole Topic, it collapses  (as currently) but after the title, it should give some more indication of its status (without wrapping text): complete (in green text), N / N stars.
+- [ ] The admin explore engaged time metrics breaks down activities, different activity lines in a way that is not well labeled. For example, it says lesson and review when those need to be clearly labeled as parts of the "Type" activity.
+- [ ] Type activity - when you click on a word to reveal the meaning tooltip, It should work exactly as it currently does, except the div that displays the translation and meaning should be in a black rounded tooltip style, so it looks like it's a tooltip popping down. Currently it just looks like another line of text in the main box.
 - [ ] It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are.
   - remind about races too
 - [ ] In the talking activity, there should also be a notebook of your mistakes, which tracks sentences that you had trouble with so that you can review them and clear them out of the notebook.
