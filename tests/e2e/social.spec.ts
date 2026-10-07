@@ -72,6 +72,10 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await expect(page.locator(".qa-level")).toContainText("Module 1 of");
   await expect(page.locator(".qa-graph")).toBeVisible();
   await expect(page.locator(".qa-recent")).toHaveCount(2);
+  // A notification linking to the current page isn't highlighted as the active route.
+  await page.locator(".qa-notifications").click();
+  await expect(page.locator(".qa-notification").filter({ hasText: "accepted your friend request" })).not.toHaveClass(/\bactive\b/);
+  await page.locator(".qa-notifications").click();
 
   // Ana's second lesson is now playable for Bo from the lesson list, and the done screen compares them.
   await page.goto("/it/type");

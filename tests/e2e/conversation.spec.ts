@@ -1,6 +1,6 @@
 import { expect, test } from "./fixtures.ts";
 import type { ConversationOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
-import { signIn, signOut } from "./helpers.ts";
+import { recordPlays, signIn, signOut, type Played } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
 test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"] } });
@@ -13,13 +13,7 @@ async function record(page: import("@playwright/test").Page) {
 }
 
 test("a learner starts a café conversation, fails a reply, retries the coach's sentence and gets an answer", async ({ page }) => {
-  // Logs the source of every audio play() call.
-  await page.addInitScript(() => {
-    const w = window as unknown as { played: string[] };
-    w.played = [];
-    const play = HTMLMediaElement.prototype.play;
-    HTMLMediaElement.prototype.play = function () { w.played.push(this.src); return play.call(this); };
-  });
+  await recordPlays(page);
   await signIn(page, "speaker@example.com");
   await page.locator(".qa-nav-speak").click();
   await expect(page).toHaveURL(/\/it\/talk$/);
@@ -27,13 +21,13 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
 
   await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
   // The opening line plays by itself.
-  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/\/audio\/[^/]+\.wav$/);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/\/audio\/[^/]+\.wav$/);
   const opening = page.locator(".qa-turn-partner").first();
   await expect(opening.locator(".qa-chunk")).toHaveText(["Buongiorno!", "Cosa prende?"]);
   await opening.locator(".qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("Good morning!");
   // Tapping a chunk speaks it.
-  expect(decodeURIComponent(await page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1)!))).toMatch(/\/say\?text=Buongiorno!$/);
+  await expect.poll(async () => decodeURIComponent((await page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)) ?? "")).toMatch(/\/say\?text=Buongiorno!$/);
   await opening.locator(".qa-chunk").nth(1).click();
   await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
   await page.locator(".qa-conversation-title").click();
@@ -54,14 +48,14 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
   // A failed reply sounds a warning and is introduced in the interface language.
   await expect(page.locator(".qa-retry-good-try")).toHaveText("Good try! Here are some corrections:");
-  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/marimba-warning-[\w-]+\.mp3$/));
+  expect(await page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src))).toContainEqual(expect.stringMatching(/\/marimba-warning-[\w-]+\.mp3$/));
   await expect(page.locator(".qa-checking")).toHaveCount(0);
   await expect(page.locator(".qa-retry-play-target")).toBeVisible();
   await expect(page.locator(".qa-retry-heard")).toContainText("Vorrei un caffè");
   await expect(page.locator(".qa-retry-fix")).toContainText("per favore");
   // The learner's own recording replays from the browser; the server never stored it.
   await page.locator(".qa-retry-play-own").click();
-  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/^blob:/);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/^blob:/);
   await expect(page.locator(".qa-move-on")).toHaveCount(0);
 
   await page.locator(".qa-retry-report-open").click();
@@ -71,10 +65,10 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
 
   // Space records and stops, even with a play button focused from a tap.
   // Only the conversation's own audio counts: starting a recording sounds a cue by design.
-  const plays = () => page.evaluate(() => (window as unknown as { played: string[] }).played.filter((src) => src.includes("/audio/")).length);
+  const plays = () => page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src).filter((src) => src.includes("/audio/")).length);
   await page.locator(".qa-retry-play-target").click();
   // The tap plays a click sound, then the line's audio; wait for the audio so only a replay caused by Space itself would add one.
-  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/\/audio\/[^/]+\.wav$/);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/\/audio\/[^/]+\.wav$/);
   const before = await plays();
   await page.keyboard.press(" ");
   await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
@@ -83,7 +77,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await page.waitForTimeout(300);
   await page.keyboard.press(" ");
   await expect(page.locator(".qa-turn-learner .qa-chunk")).toHaveText(["Vorrei", "un", "caffè,", "per", "favore."]);
-  expect(await page.evaluate(() => (window as unknown as { played: string[] }).played)).toContainEqual(expect.stringMatching(/\/correct-[\w-]+\.mp3$/));
+  expect(await page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src))).toContainEqual(expect.stringMatching(/\/correct-[\w-]+\.mp3$/));
   await page.locator(".qa-turn-learner .qa-chunk").first().click();
   await expect(page.locator(".qa-gloss")).toHaveText("(Vorrei)");
   await expect(page.locator(".qa-turn-learner .qa-turn-level")).toHaveText("A2");
@@ -95,7 +89,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   // A passed reply stays replayable from this browser after a reload, and sign-out forgets it.
   await page.reload();
   await page.locator(".qa-turn-learner .qa-turn-play-own").click();
-  await expect.poll(() => page.evaluate(() => (window as unknown as { played: string[] }).played.at(-1))).toMatch(/^blob:/);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/^blob:/);
   const conversationUrl = page.url();
   await signOut(page);
   await signIn(page, "speaker@example.com");
@@ -211,4 +205,22 @@ test("an admin sees reported judgments and spend", async ({ page }) => {
   await expect(report).toContainText("Vorrei un caffè");
   // Opening line and its gloss, transcription and coach, at the fake's $0.001 each.
   await expect(page.locator(".qa-admin-spend-user").filter({ hasText: "admin" })).toContainText("$0.004");
+});
+
+test("a replayed line plays from memory without fetching it again", async ({ page }) => {
+  await recordPlays(page);
+  const fetches: string[] = [];
+  page.on("request", (r) => { if (r.url().includes("/audio/")) fetches.push(r.url()); });
+  await signIn(page, "replayer@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter").first().click();
+  const button = page.locator(".qa-turn-play").first();
+  // The opening line autoplays: fetched once, then played.
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/\/audio\//);
+  await expect(button).toHaveText("▶");
+  expect(fetches).toHaveLength(1);
+
+  await button.click();
+  await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1))).toMatchObject({ src: fetches[0], fromMemory: true });
+  expect(fetches).toHaveLength(1);
 });

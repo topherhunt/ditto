@@ -4,6 +4,7 @@ import { pickVoice } from "../../../shared/content.ts";
 import { grade } from "../../../shared/grader.ts";
 import { words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
+import { cachedSrc } from "../audioCache.ts";
 import { ReviewButton } from "../components/ReviewButton.tsx";
 import { ScrollUpButton } from "../components/ScrollButtons.tsx";
 import { TypeCrumb } from "../components/TypeCrumb.tsx";
@@ -38,7 +39,7 @@ function Entry(props: { entry: MistakeEntry; onRemove: () => void }) {
   return (
     <li class="qa-mistake list-group-item d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
-        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(props.entry.unit.audio[pickVoice(props.entry.unit.audio)]!).play()}>▶</button>
+        <button type="button" class="qa-mistake-play btn btn-sm btn-outline-primary" onClick={() => new Audio(cachedSrc(props.entry.unit.audio[pickVoice(props.entry.unit.audio)]!)).play()}>▶</button>
         <span class="qa-mistake-text fw-semibold me-auto">{props.entry.unit.text}</span>
         <span class="small text-body-secondary text-nowrap">{t("notebook.missed", { n: props.entry.wrongCount })}</span>
         <button type="button" class="qa-mistake-remove btn btn-sm btn-outline-secondary" onClick={props.onRemove}>{t("notebook.remove")}</button>

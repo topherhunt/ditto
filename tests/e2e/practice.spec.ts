@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "./fixtures.ts";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
-import { openPracticeSettings, setLearning, signIn } from "./helpers.ts";
+import { openPracticeSettings, recordPlays, setLearning, signIn, type Played } from "./helpers.ts";
 
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
@@ -87,6 +87,32 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await page.locator(".qa-nav-type").click();
   await expect(page.locator(".qa-lesson-progress").first()).toContainText("4 / 10");
   await expect(page.locator(".qa-review-count")).toHaveText("1");
+});
+
+test("an item's sentence and its words replay from memory without fetching them again", async ({ page }) => {
+  await recordPlays(page);
+  const fetches: string[] = [];
+  page.on("request", (r) => { if (r.url().includes("/audio/")) fetches.push(r.url()); });
+  const last = () => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)!);
+  await signIn(page, "replayer@example.com");
+  await page.goto("/it/type");
+  await page.locator(".qa-lesson-start").first().click();
+  // The first play streams the sentence while it loads into memory.
+  await expect.poll(async () => { await page.locator(".qa-play").click(); return (await last()).fromMemory; }).toBe(true);
+  const sentence = (await last()).src;
+  expect(sentence).toMatch(/\/audio\//);
+  await slot(page, 0).fill("caffè");
+  await slot(page, 0).press("Enter");
+  // The one-word item's word clip is its sentence's, so the tap plays the copy already in memory.
+  await page.locator(".qa-answer-word").first().click();
+  expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
+
+  const before = fetches.length;
+  await page.locator(".qa-play").click();
+  expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
+  await page.locator(".qa-answer-word").first().click();
+  expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
+  expect(fetches.length).toBe(before);
 });
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {

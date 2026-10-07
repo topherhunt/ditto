@@ -1,36 +1,26 @@
 import { expect, test, type Page } from "./fixtures.ts";
-import { signIn } from "./helpers.ts";
-
-/** Records each UI sound instead of playing it, as "name volume". */
-async function recordSounds(page: Page) {
-  await page.addInitScript(() => {
-    const sounds: string[] = [];
-    (window as unknown as { sounds: string[] }).sounds = sounds;
-    HTMLMediaElement.prototype.play = function () {
-      const name = this.src.match(/\/(click|correct|wrong|victory)-[\w-]+\.mp3$/)?.[1];
-      if (name) sounds.push(`${name} ${this.volume} ${this.playbackRate}`);
-      return Promise.resolve();
-    };
-  });
-}
+import { recordPlays, signIn, soundsReady, type Played } from "./helpers.ts";
 
 const VOLUMES: Record<string, number> = { click: 0.5, correct: 0.5, wrong: 0.5, victory: 0.25 };
 
-/** The UI sounds played since the last call, by name, each checked against its volume and a rate within 0.1 of 1; item audio is ignored. */
+/** The UI sounds played since the last call, by name, each checked to play from memory at its volume and a rate within 0.1 of 1; item audio is ignored. */
 async function played(page: Page): Promise<string[]> {
-  const sounds = await page.evaluate(() => (window as unknown as { sounds: string[] }).sounds.splice(0));
-  return sounds.map((s) => {
-    const [name, volume, rate] = s.split(" ");
-    expect(Number(volume), name).toBe(VOLUMES[name]);
-    expect(Math.abs(Number(rate) - 1), name).toBeLessThanOrEqual(0.1);
-    return name;
+  const plays = await page.evaluate(() => (window as unknown as { played: Played[] }).played.splice(0));
+  return plays.flatMap(({ src, volume, rate, fromMemory }) => {
+    const name = src.match(/\/(click|correct|wrong|victory)-[\w-]+\.mp3$/)?.[1];
+    if (!name) return [];
+    expect(fromMemory, name).toBe(true);
+    expect(volume, name).toBe(VOLUMES[name]);
+    expect(Math.abs(rate - 1), name).toBeLessThanOrEqual(0.1);
+    return [name];
   });
 }
 
 test("buttons click at half volume, a pass sounds correct once, and wrong answers or a reveal sound wrong", async ({ page }) => {
-  await recordSounds(page);
+  await recordPlays(page);
   await signIn(page, "sounds1@example.com");
   await page.goto("/it/type");
+  await soundsReady(page);
   await played(page);
 
   await page.locator(".qa-lesson-start").first().click();
@@ -71,9 +61,10 @@ test("buttons click at half volume, a pass sounds correct once, and wrong answer
 });
 
 test("finishing a lesson plays the victory sound at a quarter volume", async ({ page }) => {
-  await recordSounds(page);
+  await recordPlays(page);
   await signIn(page, "sounds2@example.com");
   await page.goto("/it/type");
+  await soundsReady(page);
   await page.locator(".qa-lesson-start").first().click();
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
@@ -88,9 +79,10 @@ test("finishing a lesson plays the victory sound at a quarter volume", async ({ 
 });
 
 test("a quiz option sounds correct or wrong at half volume, in study and in a level test", async ({ page }) => {
-  await recordSounds(page);
+  await recordPlays(page);
   await signIn(page, "sounds5@example.com");
   await page.goto("/it/quiz/it-a1-grammar-1");
+  await soundsReady(page);
   await page.locator(".qa-quiz-mode-spaced").click();
   await played(page);
 
@@ -102,6 +94,7 @@ test("a quiz option sounds correct or wrong at half volume, in study and in a le
   expect(await played(page)).toEqual(["click", "correct"]);
 
   await page.goto("/it/quiz/test/A1");
+  await soundsReady(page);
   await played(page);
   await page.locator(".qa-quiz-option-correct").click();
   expect(await played(page)).toEqual(["click", "correct"]);
@@ -112,8 +105,9 @@ test("a quiz option sounds correct or wrong at half volume, in study and in a le
 });
 
 test("the navbar and the settings page are silent", async ({ page }) => {
-  await recordSounds(page);
+  await recordPlays(page);
   await signIn(page, "sounds3@example.com");
+  await soundsReady(page);
   await played(page);
 
   await page.locator(".qa-notifications").click();

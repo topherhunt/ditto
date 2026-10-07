@@ -89,3 +89,43 @@ export async function expectPageOpens(page: Page, url: string, marker?: string) 
   }
   expect(problems, `${url} had failing requests or console errors`).toEqual([]);
 }
+
+/** One audio play: the URL its audio was fetched from (or its own src, such as a recording's blob URL), volume, rate, and whether it played from memory (a blob URL or a decoded buffer). */
+export type Played = { src: string; volume: number; rate: number; fromMemory: boolean };
+
+/**
+ * Logs every audio play to `window.played`, from audio elements and Web Audio alike. Clips play from blob URLs and decoded
+ * buffers, so each is traced back to the URL whose response it was made from.
+ */
+export async function recordPlays(page: Page) {
+  await page.addInitScript(() => {
+    const w = window as unknown as { played: Played[]; decoded: number };
+    w.played = [];
+    w.decoded = 0;
+    const origin = new WeakMap<object, string>();
+    const blobUrls = new Map<string, string>();
+    const { blob, arrayBuffer } = Response.prototype;
+    Response.prototype.blob = async function () { const b = await blob.call(this); origin.set(b, this.url); return b; };
+    Response.prototype.arrayBuffer = async function () { const b = await arrayBuffer.call(this); origin.set(b, this.url); return b; };
+    const createObjectURL = URL.createObjectURL;
+    URL.createObjectURL = (o) => { const u = createObjectURL(o); if (origin.has(o)) blobUrls.set(u, origin.get(o)!); return u; };
+    const decode = BaseAudioContext.prototype.decodeAudioData;
+    BaseAudioContext.prototype.decodeAudioData = async function (b: ArrayBuffer) { const d = await decode.call(this, b); origin.set(d, origin.get(b)!); w.decoded++; return d; };
+    const play = HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play = function () {
+      w.played.push({ src: blobUrls.get(this.src) ?? this.src, volume: this.volume, rate: this.playbackRate, fromMemory: this.src.startsWith("blob:") });
+      return play.call(this);
+    };
+    const volumes = new WeakMap<AudioNode, number>();
+    const connect = AudioNode.prototype.connect as (this: AudioNode, d: AudioNode) => AudioNode;
+    AudioNode.prototype.connect = function (this: AudioNode, d: AudioNode) { if (d instanceof GainNode) volumes.set(this, d.gain.value); return connect.call(this, d); } as typeof AudioNode.prototype.connect;
+    const start = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      w.played.push({ src: origin.get(this.buffer!)!, volume: volumes.get(this)!, rate: this.playbackRate.value, fromMemory: true });
+      return start.apply(this, args);
+    };
+  });
+}
+
+/** Waits for the page's six UI sounds to decode: one played sooner is skipped. */
+export const soundsReady = (page: Page) => page.waitForFunction(() => (window as unknown as { decoded: number }).decoded >= 6);

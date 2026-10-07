@@ -4,6 +4,7 @@ import { pickVoice, type ServedUnit, type ServedWord } from "../../../shared/con
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
 import { tokenize, words } from "../../../shared/tokenize.ts";
 import { api } from "../api.ts";
+import { cachedSrc, loadedSrc } from "../audioCache.ts";
 import { celebrate } from "../celebrate.ts";
 import { categoryName, t } from "../i18n/index.ts";
 import { hasFeedback, hintLadder, hintMask, mergeCategories, outcomeOf, placeholder, slotsAfter, type Outcome, type SessionMode, type SlotState } from "../practice.ts";
@@ -86,9 +87,13 @@ export function Exercise(props: {
 
   /** One voice per item, so replays and word taps sound like the sentence. */
   const voice = pickVoice(unit.audio);
-  const audio = new Audio(unit.audio[voice]!);
+  const url = unit.audio[voice]!;
+  const audio = new Audio(cachedSrc(url));
     const play = (rate = props.prefs.rate) => {
     audio.pause();
+    // Replays switch to the in-memory copy once it has loaded.
+    const blob = loadedSrc(url);
+    if (blob && audio.src !== blob) audio.src = blob;
     audio.currentTime = 0;
     audio.playbackRate = rate;
     audio.play().then(() => setAutoplayBlocked(false), () => setAutoplayBlocked(true));
@@ -113,7 +118,7 @@ export function Exercise(props: {
   function tapWord(wordIndex: number) {
     const w = unit.words[wordIndex];
     setSelectedWord(w);
-    new Audio(w.audio[voice]).play().catch(() => setAutoplayBlocked(true));
+    new Audio(cachedSrc(w.audio[voice])).play().catch(() => setAutoplayBlocked(true));
   }
 
   function focusFirstOpen() {

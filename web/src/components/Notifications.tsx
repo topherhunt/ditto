@@ -57,7 +57,7 @@ export function Notifications(props: { large?: boolean }) {
         <For each={data()?.items} fallback={<li class="dropdown-item-text text-body-secondary small">{t("notify.empty")}</li>}>
           {(n) => (
             <li>
-              <A href={n.kind === "friend_accepted" ? routes.person({ id: n.actor.id }) : routes.friends()} class="dropdown-item text-wrap small"
+              <A href={n.kind === "friend_accepted" ? routes.person({ id: n.actor.id }) : routes.friends()} class="dropdown-item text-wrap small" activeClass=""
                 classList={{ "fw-semibold": !n.read, "qa-notification": !props.large }} onClick={() => setOpen(false)}>
                 {notificationText(n)}
                 <div class="text-body-secondary">{shortDate(n.createdAt)}</div>
