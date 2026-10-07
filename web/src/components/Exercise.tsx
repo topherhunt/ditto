@@ -247,6 +247,16 @@ export function Exercise(props: {
     }
   }
 
+  /** Phone keyboards insert a space without a " " keydown, so onSlotKey misses it; strip it here and move on. */
+  function onSlotInput(input: HTMLInputElement, i: number) {
+    if (i < target.length - 1 && /\s/.test(input.value)) {
+      // Write the DOM too: the signal may already hold the stripped value and then won't re-render.
+      input.value = input.value.replace(/\s/g, "");
+      inputs.slice(i + 1).find((el) => !el.readOnly)?.focus();
+    }
+    setSlots((s) => s.map((v, k) => (k === i ? input.value : v)));
+  }
+
   function onSlotKey(e: KeyboardEvent, i: number) {
     const input = e.currentTarget as HTMLInputElement;
     if (e.key === "Enter") {
@@ -362,7 +372,7 @@ export function Exercise(props: {
                         readOnly={locked(i)}
                         autocomplete="off" autocapitalize="off" spellcheck={false}
                         onFocus={() => (focused = i)}
-                        onInput={(e) => setSlots((s) => s.map((v, k) => (k === i ? e.currentTarget.value : v)))}
+                        onInput={(e) => onSlotInput(e.currentTarget, i)}
                         onKeyDown={(e) => onSlotKey(e, i)}
                       />
                       <Show when={feedback()[i].word && hasFeedback(feedback()[i].word!) && feedback()[i].word}>

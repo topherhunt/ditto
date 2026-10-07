@@ -56,6 +56,10 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await expect(page.locator(".qa-hint-words span")).toHaveText(["un", "caffè"]);
   await expect(slot(page, 0)).toHaveValue("");
   await expect(page.locator(".qa-hint")).toHaveCount(0);
+  // A phone keyboard inserts the space without a " " keydown; it still moves to the next slot.
+  await slot(page, 0).fill("un ");
+  await expect(slot(page, 0)).toHaveValue("un");
+  await expect(slot(page, 1)).toBeFocused();
   await slot(page, 0).fill("un");
   await slot(page, 1).fill("caffè");
   await slot(page, 1).press("Enter");
