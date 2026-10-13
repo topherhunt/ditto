@@ -115,6 +115,29 @@ function ScrollButtons(props: { end: () => HTMLElement }) {
 }
 
 type RecState = "idle" | "starting" | "recording" | "checking";
+type HowState = "idle" | "starting" | "recording" | "translating";
+type Mime = "audio/webm" | "audio/mp4";
+
+/** Starts recording with the start cue. Stopping the returned recorder sounds the stop cue, releases the mic and hands `onDone` the recording, also as base64. */
+async function openMic(onDone: (recording: Blob, audio: string, mime: Mime) => void): Promise<MediaRecorder> {
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  // Chrome and Firefox record WebM, Safari only MP4.
+  const mime: Mime = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "audio/mp4";
+  const chunks: Blob[] = [];
+  const recorder = new MediaRecorder(stream, { mimeType: mime });
+  recorder.ondataavailable = (e) => chunks.push(e.data);
+  recorder.onstop = () => {
+    playRecordStop();
+    stream.getTracks().forEach((track) => track.stop());
+    const recording = new Blob(chunks, { type: mime });
+    const reader = new FileReader();
+    reader.onload = () => onDone(recording, (reader.result as string).split(",")[1], mime);
+    reader.readAsDataURL(recording);
+  };
+  recorder.start();
+  playRecordStart();
+  return recorder;
+}
 
 export function Conversation() {
   const lang = useLang();
@@ -137,11 +160,11 @@ export function Conversation() {
   const [ownUrl, setOwnUrl] = createSignal("");
   let end: HTMLDivElement | undefined;
   const [how, setHow] = createSignal<HowOut | null>(null);
-  const [howText, setHowText] = createSignal("");
-  const [howOpen, setHowOpen] = createSignal(false);
+  const [howState, setHowState] = createSignal<HowState>("idle");
   const [busy, setBusy] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
   let recorder: MediaRecorder | null = null;
+  let howRecorder: MediaRecorder | null = null;
 
   const c = () => conv()!;
   const last = () => c().turns[c().turns.length - 1];
@@ -171,8 +194,6 @@ export function Conversation() {
     update(patch, turns);
     setAttempt(null);
     setHow(null);
-    setHowText("");
-    setHowOpen(false);
     setRevealed(new Set<string>());
     const partner = turns.find((x) => x.role === "partner");
     if (partner) autoplay(partner.audioUrl!);
@@ -191,7 +212,7 @@ export function Conversation() {
     }
   };
 
-  const send = (recording: Blob, audio: string, mime: "audio/webm" | "audio/mp4") => run(async () => {
+  const send = (recording: Blob, audio: string, mime: Mime) => run(async () => {
     setRecState("checking");
     setStep("sending");
     try {
@@ -218,22 +239,7 @@ export function Conversation() {
     setRecState("starting");
     setError(null);
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      // Chrome and Firefox record WebM, Safari only MP4.
-      const mime = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "audio/mp4";
-      const chunks: Blob[] = [];
-      recorder = new MediaRecorder(stream, { mimeType: mime });
-      recorder.ondataavailable = (e) => chunks.push(e.data);
-      recorder.onstop = () => {
-        playRecordStop();
-        stream.getTracks().forEach((track) => track.stop());
-        const recording = new Blob(chunks, { type: mime });
-        const reader = new FileReader();
-        reader.onload = () => void send(recording, (reader.result as string).split(",")[1], mime);
-        reader.readAsDataURL(recording);
-      };
-      recorder.start();
-      playRecordStart();
+      recorder = await openMic((recording, audio, mime) => void send(recording, audio, mime));
       setRecState("recording");
     } catch (e) {
       setRecState("idle");
@@ -242,7 +248,7 @@ export function Conversation() {
   };
 
   const toggleRecord = () => (recState() === "recording" ? recorder!.stop() : void record());
-  const canRecord = () => conv() !== undefined && last().role === "partner" && !busy() && (recState() === "idle" || recState() === "recording");
+  const canRecord = () => conv() !== undefined && last().role === "partner" && !busy() && howState() === "idle" && (recState() === "idle" || recState() === "recording");
   // Space works the record button except while typing. A focused button or checkbox is blurred first, or space would
   // also click it on keyup (replaying a line after its ▶ was tapped).
   const onKey = (e: KeyboardEvent) => {
@@ -255,10 +261,28 @@ export function Conversation() {
   document.addEventListener("keydown", onKey);
   onCleanup(() => document.removeEventListener("keydown", onKey));
 
-  const askHow = () => run(async () => {
-    const res = await api.post<HowOut>(`/api/conversations/${c().id}/how`, { text: howText() });
-    setHow(res);
-    update({ spend: res.spend });
+  /** The question is spoken, in the learner's own language: tapping the link starts the mic, and Stop sends it. */
+  const askHow = async () => {
+    setHow(null);
+    setHowState("starting");
+    setError(null);
+    try {
+      howRecorder = await openMic((_recording, audio, mime) => void translate(audio, mime));
+      setHowState("recording");
+    } catch (e) {
+      setHowState("idle");
+      setError(t("speak.micError", { error: (e as Error).message }));
+    }
+  };
+  const translate = (audio: string, mime: Mime) => run(async () => {
+    setHowState("translating");
+    try {
+      const res = await api.post<HowOut>(`/api/conversations/${c().id}/how`, { audio, mime });
+      setHow(res);
+      update({ spend: res.spend });
+    } finally {
+      setHowState("idle");
+    }
   });
   const moveOn = () => run(async () => {
     const res = await api.post<MoveOnResult>(`/api/conversations/${c().id}/move-on`, { target: attempt()!.target, taps: revealed().size });
@@ -322,25 +346,38 @@ export function Conversation() {
                   {(suggestions) => (
                     <For each={suggestions()}>
                       {(s, j) => (
-                        <li class="qa-suggestion d-flex align-items-start gap-2 mb-1">
-                          <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
-                          <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
+                        // The flex row sits inside the item: flex on the <li> itself drops its bullet.
+                        <li class="qa-suggestion mb-1">
+                          <div class="d-flex align-items-start gap-2">
+                            <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
+                            <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
+                          </div>
                         </li>
                       )}
                     </For>
                   )}
                 </Show>
                 <li>
-                  <button type="button" class="qa-how-open btn btn-link p-0 align-baseline" onClick={() => setHowOpen(!howOpen())}>{t("speak.how")}</button>
-                  <Show when={howOpen()}>
-                    <form class="d-flex gap-2 mt-1" onSubmit={(e) => { e.preventDefault(); void askHow(); }}>
-                      <input ref={(el) => queueMicrotask(() => el.focus())} class="qa-how-text form-control form-control-sm" placeholder={t("speak.howPlaceholder")} value={howText()} onInput={(e) => setHowText(e.currentTarget.value)} />
-                      <button type="submit" class="qa-how-go btn btn-sm btn-outline-primary" disabled={busy() || !howText().trim()}>{t("speak.howGo")}</button>
-                    </form>
+                  <button type="button" data-silent class="qa-how-open btn btn-link p-0 align-baseline" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>{t("speak.how")}</button>
+                  <Show when={howState() === "recording"}>
+                    <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 mt-2 mb-0" role="status">
+                      <i class="bi bi-mic-fill fs-3 pulse" aria-hidden="true" />
+                      <span class="me-auto">{t("speak.howListening")}</span>
+                      <button type="button" data-silent class="qa-how-stop btn btn-danger" onClick={() => howRecorder!.stop()}>
+                        <i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}
+                      </button>
+                    </div>
+                  </Show>
+                  <Show when={howState() === "translating"}>
+                    <div class="qa-how-translating d-flex align-items-center gap-2 mt-2 text-body-secondary" role="status">
+                      <span class="spinner-border spinner-border-sm" aria-hidden="true" />
+                      <span>{t("speak.howTranslating")}</span>
+                    </div>
                   </Show>
                   <Show when={how()}>
                     {(h) => (
                       <div class="qa-how-result mt-2">
+                        <div class="qa-how-heard small text-body-secondary">{t("speak.youSaid")} <i>{h().heard}</i></div>
                         <span class="small text-body-secondary me-1">{t("speak.howResult")}</span>
                         <span class="fs-5 fw-semibold">{h().sentence}</span>
                         <div class="small text-body-secondary">{h().chunks.map((x) => `${x.text} = ${x.gloss}`).join(" · ")}</div>

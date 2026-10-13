@@ -39,8 +39,8 @@ export type CoachIn = Setting & {
 export type Paid<T> = { result: T; usage: Usage };
 
 export interface ConversationAI {
-  /** `name`'s extension tells the API the format. Billed by audio length, which the response reports. */
-  transcribe(audio: Buffer, name: string, language: Language): Promise<Paid<string>>;
+  /** `name`'s extension tells the API the format; `language` is an ISO 639-1 code. Billed by audio length, which the response reports. */
+  transcribe(audio: Buffer, name: string, language: string): Promise<Paid<string>>;
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
   howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
@@ -116,7 +116,7 @@ level: the CEFR level of meant as a reply in this conversation (vocabulary, gram
 feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.
 fromSuggestion: true if the learner's reply is substantially one of the suggested replies shown to them: the same words and meaning, even reordered, slightly changed, or with words added or dropped. False for a reply of their own, even on the same topic, and when no suggestions were shown.`;
 
-const howInstructions = (l: Language) => `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they wrote in {locale} (or mixed languages). Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
+const howInstructions = (l: Language) => `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they said aloud in {locale} (or mixed languages), given as a speech-to-text transcript. Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
 ${CHUNKING(l)}`;
 
 const glossInstructions = (l: Language) => `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive numbered lines of a role-play conversation. Return exactly one entry per numbered line, in the same order, even when a line has several sentences, splitting each line, exactly as written, into chunks.

@@ -14,7 +14,7 @@ All paid calls run server-side, so they can be metered and capped.
 
 Lines and suggestions come with translations into the support language, in chunks: word by word, grouping only where that would mislead (*ci vediamo* = "see you", *Le porto* = "I'll bring you"). The call that writes the partner's line chunks its suggestions; a second, smaller call (`gloss`), run while the line is spoken, chunks the partner's line and the learner's line it answers, so past replies are glossed too. A failed gloss (an error, or the wrong number of lines back) is retried once and logged as `Gloss failed`; if both tries fail, the turn is kept and shown as plain text without tooltips. Chunks that don't join back into their line are stored anyway and logged as `Gloss mismatch`. Tapping a chunk shows its translation and speaks it in the partner's voice (`GET /api/conversations/:id/say`, rendered on demand, ~0.7-0.9 s, and cached only by the browser; it counts toward the daily spend cap). Chunks sit unpadded so the line reads as a sentence, and on hover a chunk gets a translucent tint (visible on any bubble) and a pointer cursor. Space works the record button (not while typing). A playing line's play button turns into an orange stop button.
 
-"How do I say...?": the learner types what they mean in their support language, gets the target-language sentence, and says it (through the coach as usual).
+"How do I say...?": tapping it opens the mic at once (start cue, pulsing mic, Stop button); the learner says what they mean in their own language, `gpt-transcribe` steered to that language writes it down, and a text call gives the target-language sentence, which the learner then says (through the coach as usual). There is no typing; the recording is sent for transcription and never stored, like a reply.
 
 ## Coach
 
@@ -49,5 +49,4 @@ Conversation mode is on when `OPENAI_API_KEY` is set; the server logs a warning 
 ## Not built
 
 - Nothing reconciles `api_usage` against OpenAI's reported costs.
-- Speaking the "How do I say...?" question instead of typing it.
 - Reloading mid-retry loses the retry screen: failed attempts are stored but not replayed into the page.

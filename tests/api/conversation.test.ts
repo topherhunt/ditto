@@ -115,12 +115,35 @@ describe("conversation mode", () => {
     t.ai.coach = passFirstTry("Vorrei una spremuta.");
     expect((await t.reply(conv.id)).json.turns[0].source).toBe("own");
 
-    const how = (await t.req("POST", `/api/conversations/${conv.id}/how`, { text: "an iced tea" })).json;
+    const how = (await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).json;
     expect(how).toMatchObject({ sentence: "Vorrei un tè freddo.", chunks: [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }] });
     t.ai.coach = passFirstTry("Vorrei un tè freddo.");
     const res = (await t.reply(conv.id, { usedHow: true })).json;
     expect(res.turns[0].source).toBe("how");
     expect(res.reliance).toEqual({ leaned: 2, of: 3 });
+  });
+
+  it("transcribes a spoken \"How do I say...?\" in the learner's own language and translates what was heard", async () => {
+    const t = await speak();
+    const conv = await t.start();
+    const heard: [string, string, string][] = [];
+    t.ai.transcribe = async (a, name, language) => {
+      heard.push([a.toString("base64"), name, language]);
+      return { result: "an iced tea", usage: { model: "fake", inputTokens: 0, outputTokens: 0, audioSeconds: 1, costUsd: FAKE_COST } };
+    };
+    let asked = "";
+    const howDoISay = t.ai.howDoISay;
+    t.ai.howDoISay = (setting, history, text) => { asked = text; return howDoISay(setting, history, text); };
+    const res = (await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/mp4" })).json;
+    expect(heard).toEqual([[audio, "how.m4a", "en"]]);
+    expect(asked).toBe("an iced tea");
+    expect(res).toMatchObject({ heard: "an iced tea", sentence: "Vorrei un tè freddo." });
+
+    t.ai.transcribe = async () => ({ result: " ", usage: { model: "fake", inputTokens: 0, outputTokens: 0, audioSeconds: 1, costUsd: FAKE_COST } });
+    asked = "";
+    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).status).toBe(422);
+    expect(asked).toBe("");
+    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { text: "tea" })).status).toBe(400);
   });
 
   it("offers moving on only after 5 failed tries at the target, reusing the target's audio, then logs it as a weak phrase", async () => {
@@ -148,7 +171,7 @@ describe("conversation mode", () => {
     await t.reply(conv.id);
     const blocked = await t.reply(conv.id);
     expect(blocked.status).toBe(429);
-    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { text: "tea" })).status).toBe(429);
+    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).status).toBe(429);
     expect((await t.req("POST", "/api/conversations", { language: "it", level: "A1", scenario: { surprise: true }, hardMode: false })).status).toBe(429);
     t.clock.now = new Date("2026-09-02T00:00:01Z");
     expect((await t.reply(conv.id)).status).toBe(200);

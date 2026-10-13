@@ -85,6 +85,9 @@
 /* A slow size pulse. Animates `scale`, not `transform`, so it composes with .tilt on the same element. */
 .tilt.breathe { animation: tilt 1.2s ease-in-out infinite, breathe 3s ease-in-out infinite; }
 @keyframes breathe { 0%, 100% { scale: 1; } 50% { scale: 1.15; } }
+/* A quick size pulse, for something live such as an open mic. */
+.pulse { display: inline-block; animation: breathe 1s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
 
 /* A small emoji thrown from the center to (--dx, --dy) over --dur, fading out. The outer span carries x and the inner y, with different easings, so the path curves; the inner's extra drop at the end is gravity. */
 .spark { position: absolute; left: 50%; top: 50%; font-size: 1.5rem; line-height: 1; pointer-events: none; translate: -50% -50%; animation: spark-x var(--dur) ease-out forwards; }

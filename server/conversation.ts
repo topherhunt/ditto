@@ -324,13 +324,17 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   });
 
   app.post("/api/conversations/:id/how", async (c) => {
-    const { text } = HowSchema.parse(await c.req.json());
+    const body = HowSchema.parse(await c.req.json());
     const { ai } = speak();
     const userId = c.get("user").id;
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
-    const { result, usage } = await ai.howDoISay(setting(conv), history(conv.id), text);
+    // Asked in the learner's own language; like a reply, the recording is sent to transcription and never stored.
+    const heard = await ai.transcribe(Buffer.from(body.audio, "base64"), `how.${EXT[body.mime]}`, conv.locale.split("-")[0]);
+    paid(userId, conv.id, "transcribe", heard.usage);
+    if (!heard.result.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
+    const { result, usage } = await ai.howDoISay(setting(conv), history(conv.id), heard.result);
     paid(userId, conv.id, "how", usage);
-    return c.json<HowOut>({ sentence: joinChunks(result), chunks: result, spend: spend(userId, conv.id) });
+    return c.json<HowOut>({ heard: heard.result, sentence: joinChunks(result), chunks: result, spend: spend(userId, conv.id) });
   });
 
   app.post("/api/conversations/:id/attempts/:attemptId/report", async (c) => {

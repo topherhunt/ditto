@@ -17,7 +17,16 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await signIn(page, "speaker@example.com");
   await page.locator(".qa-nav-speak").click();
   await expect(page).toHaveURL(/\/it\/talk$/);
+  // Hold the new conversation so the starting state can be seen: an alert with a spinner.
+  let open!: () => void;
+  const opened = new Promise<void>((r) => (open = r));
+  await page.route("**/api/conversations", async (route) => {
+    await opened;
+    await route.continue();
+  }, { times: 1 });
   await page.locator(".qa-speak-starter").first().click();
+  await expect(page.locator(".qa-speak-starting.alert-info .spinner-border")).toBeVisible();
+  open();
 
   await expect(page.locator(".qa-conversation-title")).toHaveText("Al bar");
   // The opening line plays by itself.
@@ -33,6 +42,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await page.locator(".qa-conversation-title").click();
   await expect(page.locator(".qa-gloss")).toHaveCount(0);
   await expect(page.locator(".qa-suggestion")).toHaveCount(3);
+  expect(await page.locator(".qa-suggestion").evaluateAll((els) => els.map((el) => getComputedStyle(el).display))).toEqual(["list-item", "list-item", "list-item"]);
 
   // Hold the first reply's response so the checking state can be seen: a spinner and step instead of the record button.
   let release!: () => void;
@@ -103,7 +113,8 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
 });
 
-test("hard mode chosen on the Talk page hides the suggested replies but keeps How do I say", async ({ page }) => {
+test("hard mode chosen on the Talk page hides the suggested replies but keeps How do I say, which listens for the question at once", async ({ page }) => {
+  await recordPlays(page);
   await signIn(page, "speaker@example.com");
   await page.locator(".qa-nav-speak").click();
   await page.locator(".qa-speak-settings-toggle").click();
@@ -113,7 +124,17 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-turn-partner .qa-turn-level")).toHaveText("B1");
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);
   await page.locator(".qa-how-open").click();
-  await expect(page.locator(".qa-how-text")).toBeFocused();
+  await expect(page.locator(".qa-how-listening")).toBeVisible();
+  await expect(page.locator(".qa-how-listening .pulse")).toBeVisible();
+  expect(await page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src))).toContainEqual(expect.stringMatching(/\/marimba-note-[\w-]+\.mp3$/));
+  await expect(page.locator(".qa-record")).toBeDisabled();
+  await page.waitForTimeout(300);
+  await page.locator(".qa-how-stop").click();
+  await expect(page.locator(".qa-how-heard")).toContainText("Vorrei un caffè");
+  await expect(page.locator(".qa-how-result")).toContainText("Vorrei un tè freddo.");
+  await expect(page.locator(".qa-how-listening")).toHaveCount(0);
+  await expect(page.locator(".qa-record")).toBeEnabled();
+  await expect(page.locator("input.qa-how-text")).toHaveCount(0);
 });
 
 test("a conversation taller than the screen offers floating scroll-to-bottom and scroll-to-top buttons", async ({ page }) => {

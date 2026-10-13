@@ -118,7 +118,12 @@ export function Speak() {
               </div>
             </div>
           </div>
-          <Show when={starting()}><div class="qa-speak-starting text-body-secondary">{t("speak.starting")}</div></Show>
+          <Show when={starting()}>
+            <div class="qa-speak-starting alert alert-info d-flex justify-content-center align-items-center gap-2 fs-5 mb-0" role="status">
+              <span class="spinner-border" aria-hidden="true" />
+              <span>{t("speak.starting")}</span>
+            </div>
+          </Show>
           <Show when={error()}>{(m) => <div class="qa-speak-error alert alert-danger mb-0">{m()}</div>}</Show>
         </section>
       </Show>

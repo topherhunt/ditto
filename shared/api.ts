@@ -190,7 +190,8 @@ export const SpeakAttemptSchema = z.strictObject({
   audio: z.string().min(1), mime: z.enum(AUDIO_MIMES), target: z.string().min(1).max(500).nullable(), usedHow: z.boolean(), taps: z.int().min(0),
 });
 export const MoveOnSchema = z.strictObject({ target: z.string().min(1).max(500), taps: z.int().min(0) });
-export const HowSchema = z.strictObject({ text: z.string().trim().min(1).max(500) });
+/** The question, spoken in the learner's own language. */
+export const HowSchema = z.strictObject({ audio: z.string().min(1), mime: z.enum(AUDIO_MIMES) });
 export const SpeakReportSchema = z.strictObject({ note: z.string().trim().max(1000) });
 
 export type Chunk = { text: string; gloss: string };
@@ -252,7 +253,8 @@ export type SpeakAttemptResult = { attempt: SpeakAttemptOut; turns: TurnOut[]; r
 export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend };
 /** `turns`: the learner's last turn, now with chunks, and the partner's answer. */
 export type PartnerRetryResult = { turns: TurnOut[]; spend: Spend };
-export type HowOut = { sentence: string; chunks: Chunk[]; spend: Spend };
+/** `heard`: the transcript of the spoken question. */
+export type HowOut = { heard: string; sentence: string; chunks: Chunk[]; spend: Spend };
 export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };
 export type AdminSpeakReport = SpeakAttemptOut & {
   conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string;
