@@ -22,7 +22,7 @@ The conversation trains fluency and vocabulary, not pronunciation (a separate pr
 
 The attempts route streams NDJSON progress (listening, judging, answering) so the page shows which step is running.
 
-`server/speech.ts` fetches Eleven v4 Turbo lines (the partner and quiz mode) from OpenRouter as PCM, with the language in an inline tag and zero data retention required, and writes them as WAV. A render that stalls for 20 s is retried once, so a line fails after 40 s at most; an HTTP error fails at once.
+`server/speech.ts` fetches Eleven v4 Turbo lines (the partner and quiz mode) from OpenRouter as PCM, with a language tag on 1-2 word lines (`speechInput`) and zero data retention required, and writes them as WAV. A render that stalls for 20 s is retried once, so a line fails after 40 s at most; an HTTP error fails at once.
 
 - The retry screen shows the sentence to say with a button to hear it in the partner's voice, the grammar fixes, and the transcript with a button to replay the recording.
 - A recording is sent to transcription as bytes and never written to the server, for anyone, admins included. The page keeps it in IndexedDB for 30 days so the learner can replay it, and sign-out clears it (`web/src/recordings.ts`).

@@ -15,7 +15,7 @@ import {
 import { LANGUAGES, type Language } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
-import { VOICES, voiceId } from "./content.ts";
+import { RENDER_VERSIONS, VOICES, voiceId } from "./content.ts";
 import { transaction, type DB } from "./db.ts";
 import { log } from "./log.ts";
 import { QUIZ_QUEUE_SIZE } from "./leaderboard.ts";
@@ -301,7 +301,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     const voices = VOICES[deck.language];
     const voice = voices[createHash("sha1").update(text.normalize("NFC")).digest().readUInt32BE(0) % voices.length];
     const dir = join(audioDir, "quiz");
-    const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
+    const path = join(dir, `${createHash("sha1").update(`${RENDER_VERSIONS[deck.language]}|${voiceId(voice)}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
     if (!existsSync(path)) {
       underCapOr429(db, userId, deps.dailySpendCap, deps.now());
       mkdirSync(dir, { recursive: true });

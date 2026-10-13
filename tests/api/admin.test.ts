@@ -31,7 +31,7 @@ describe("report triage", () => {
     const [r] = await list(t, "new");
     expect(r).toMatchObject({
       status: "new", reporter: { email: "learner@example.com" }, kind: "audio", note: "mumbled", unitId: UNIT, unitRev: 1,
-      text: unit.text, voice: "openai:cedar", audioUrl: unit.audio[1], decision: null,
+      text: unit.text, voice: "m", audioUrl: unit.audio[1], decision: null,
       current: { rev: unit.rev, text: unit.text, translation: unit.translation, audioUrl: unit.audio[1] },
     });
   });

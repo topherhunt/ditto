@@ -10,9 +10,21 @@ export interface Speech {
   say(text: string, language: Language, voice: Voice, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
-const TTS_MODEL = "elevenlabs/eleven-v4-turbo";
+export const TTS_MODEL = "elevenlabs/eleven-v4-turbo";
 const PCM_TYPE = "audio/pcm;rate=24000;channels=1";
 const RATE = 24000;
+
+const TAGGED = new Set<Language>(["it", "es", "fr", "nl"]);
+
+/**
+ * What Eleven v4 Turbo is sent for `text`. It infers the language from the text, but reads a lone word or two in
+ * plain ASCII as English ("nome" as "gnome"), so those get an inline language tag in Latin-script languages.
+ * Greek script is unambiguous, and English needs no tag. Anything else it misreads gets an audio-fixes.json `say`.
+ */
+export function speechInput(text: string, language: Language): string {
+  const short = text.trim().split(/\s+/).length <= 2;
+  return TAGGED.has(language) && short && /^[\x00-\x7f]*$/.test(text) ? `[in ${LANGUAGE_NAMES[language]}] ${text}` : text;
+}
 
 /** A 44-byte WAV header for 16-bit mono PCM. */
 export function wavHeader(dataBytes: number, rate: number): Buffer {
@@ -24,8 +36,7 @@ export function wavHeader(dataBytes: number, rate: number): Buffer {
 }
 
 /**
- * Eleven v4 Turbo on OpenRouter takes no speed or instructions, so the language goes in an inline audio tag; without it a
- * lone word is read as English ("nome" as "gnome"). `zdr` makes OpenRouter refuse any route that retains the text.
+ * Eleven v4 Turbo on OpenRouter; it takes no speed or language. `zdr` makes OpenRouter refuse any route that retains the text.
  * A healthy render takes under 1 s, so `timeoutMs` (whole call, body included) means it stalled; one retry covers a stuck request.
  */
 export function elevenLabsSpeech(apiKey: string, opts: { baseURL?: string; timeoutMs?: number } = {}): Speech {
@@ -55,8 +66,7 @@ export function elevenLabsSpeech(apiKey: string, opts: { baseURL?: string; timeo
   return {
     say: async (text, language, voice, out) => {
       if (voice.engine !== "elevenlabs") throw new Error(`Speech has no engine ${voice.engine}`);
-      const name = LANGUAGE_NAMES[language];
-      const input = `[speaking ${name}, in ${name} accent] ${text}`;
+      const input = speechInput(text, language);
       const pcm = await render(input, voice);
       if (pcm.length % 2) throw new Error(`OpenRouter TTS returned ${pcm.length} bytes, not whole 16-bit samples`);
       writeFileSync(out, Buffer.concat([wavHeader(pcm.length, RATE), pcm]));

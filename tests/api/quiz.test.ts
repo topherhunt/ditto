@@ -148,7 +148,7 @@ describe("quiz mode", () => {
     const res = await t.req("GET", url("question"));
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toBe("audio/wav");
-    expect(said).toEqual([["openai:marin", "'Io … italiano.' Qual è la forma corretta?"]]);
+    expect(said).toEqual([["f", "'Io … italiano.' Qual è la forma corretta?"]]);
     await t.req("GET", url("wrong1"));
     expect(said[1][1]).toBe(q.wrong[1]);
 

@@ -279,7 +279,7 @@ describe("conversation mode", () => {
     expect(t.voices[0]).toBe(stored(conv.id));
     const started = new Set([stored(conv.id)]);
     for (let i = 0; i < 30; i++) started.add(stored((await t.start()).id));
-    expect([...started].sort()).toEqual(["openai:cedar", "openai:marin"]);
+    expect([...started].sort()).toEqual(["f", "m"]);
   });
 
   it("speaks a tapped chunk in the partner's voice without storing it, only to the conversation's owner", async () => {
@@ -366,7 +366,7 @@ describe("conversation mode", () => {
     const res = await t.req("POST", "/api/conversations", { language: "fr", level: "A2", scenario: { starter: "cafe" }, hardMode: false });
     expect(res.status).toBe(200);
     expect(t.deps.db.prepare("SELECT language FROM conversations WHERE id = ?").get(res.json.id)).toEqual({ language: "fr" });
-    expect(["openai:marin", "openai:cedar"]).toContain(t.voices[0]);
+    expect(["f", "m"]).toContain(t.voices[0]);
     expect((await t.req("GET", "/api/conversations?lang=fr")).json.conversations).toHaveLength(1);
   });
 

@@ -224,7 +224,7 @@ describe("problem reports", () => {
     expect(res.status).toBe(200);
     const row = t.deps.db.prepare("SELECT unit_id, unit_rev, language, text, voice, audio_file, kind, note, resolved_at FROM reports").get();
     expect(row).toEqual({
-      unit_id: unit.id, unit_rev: unit.rev, language: "it", text: unit.text, voice: "openai:cedar",
+      unit_id: unit.id, unit_rev: unit.rev, language: "it", text: unit.text, voice: "m",
       audio_file: unit.audio[1].replace("/audio/", ""), kind: "audio", note: "sounds like sri-le", resolved_at: null,
     });
   });

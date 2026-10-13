@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { SPEAK_LANGUAGES } from "../../shared/api.ts";
 import { CHUNKING, examples } from "../../server/conversation-ai.ts";
 import { VOICES } from "../../server/content.ts";
-import { elevenLabsSpeech } from "../../server/speech.ts";
+import { elevenLabsSpeech, speechInput } from "../../server/speech.ts";
 
 /** A stand-in for OpenRouter's /audio/speech: `respond` gets each request's JSON body and its 1-based number. */
 async function fakeOpenRouter(respond: (body: Record<string, unknown>, n: number, res: ServerResponse) => void) {
@@ -36,7 +36,7 @@ describe("ElevenLabs speech", () => {
     const file = out();
     const { seconds, usage } = await elevenLabsSpeech("key", { baseURL: api.baseURL }).say("Ciao", "it", VOICES.it[1], file);
 
-    const input = "[speaking Italian, in Italian accent] Ciao";
+    const input = "[in Italian] Ciao";
     expect(api.bodies).toEqual([{ model: "elevenlabs/eleven-v4-turbo", input, voice: "george", response_format: "pcm", provider: { zdr: true } }]);
     expect(seconds).toBe(1);
     expect(usage).toEqual({ model: "elevenlabs/eleven-v4-turbo", inputTokens: 0, outputTokens: 0, audioSeconds: 1, costUsd: (input.length * 40) / 1e6 });
@@ -54,7 +54,7 @@ describe("ElevenLabs speech", () => {
   it("fails after a second stall, before any response", async () => {
     const api = await fakeOpenRouter(() => {});
     await expect(elevenLabsSpeech("key", { baseURL: api.baseURL, timeoutMs: 200 }).say("Ciao", "it", VOICES.it[0], out()))
-      .rejects.toThrow("OpenRouter TTS timed out twice after 0.2 s (42 chars)");
+      .rejects.toThrow("OpenRouter TTS timed out twice after 0.2 s (17 chars)");
     expect(api.bodies.length).toBe(2);
   });
 
@@ -70,12 +70,24 @@ describe("ElevenLabs speech", () => {
   });
 });
 
-describe("Talk languages", () => {
-  const render = readFileSync(join(import.meta.dirname, "../../scripts/tts-render.py"), "utf8");
+describe("speechInput", () => {
+  it("tags one or two plain-ASCII words in it, es, fr and nl, where the model would guess English", () => {
+    expect(speechInput("come", "it")).toBe("[in Italian] come");
+    expect(speechInput("Buenas noches", "es")).toBe("[in Latin American Spanish] Buenas noches");
+    expect(speechInput("de rekening", "nl")).toBe("[in Dutch] de rekening");
+  });
 
-  it.each(SPEAK_LANGUAGES)("%s has a female and a male voice, a name in the TTS render script and its own prompt examples", (language) => {
+  it("leaves longer text, accented words, Greek and English untagged", () => {
+    expect(speechInput("Come stai oggi?", "it")).toBe("Come stai oggi?");
+    expect(speechInput("café", "fr")).toBe("café");
+    expect(speechInput("ναι", "el")).toBe("ναι");
+    expect(speechInput("come", "en")).toBe("come");
+  });
+});
+
+describe("Talk languages", () => {
+  it.each(SPEAK_LANGUAGES)("%s has a female and a male voice and its own prompt examples", (language) => {
     expect(VOICES[language].map((v) => v.gender).sort()).toEqual(["F", "M"]);
-    expect(render).toContain(`"${language}": "`);
     expect(examples(language).suggestion.length).toBeGreaterThan(0);
   });
 

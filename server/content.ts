@@ -11,14 +11,15 @@ import { loadQuizzes, type QuizDeck } from "./quiz-content.ts";
 
 /**
  * For `abair`, `model` is an ABAIR voice name; for `elevenlabs`, an Eleven v4 Turbo voice on OpenRouter; see scripts/tts-render.py.
- * `id` names the voice in audio file hashes, audio-fixes.json and stored rows (conversations, reports), so it never changes:
- * the ElevenLabs voices keep the ids of the gpt-4o-mini-tts voices they replaced, and files rendered by those stay valid.
+ * `id` names the voice slot in audio file hashes, audio-fixes.json and stored rows (conversations, reports), so it never changes
+ * and names no engine: swapping a slot's engine or model bumps the language's RENDER_VERSIONS entry instead.
+ * data/audio-inventory.tsv records which engine and model rendered each file.
  */
 export type Voice = { id: string; engine: "abair" | "elevenlabs"; model: string; gender: "F" | "M" };
 
 const ELEVENLABS: Voice[] = [
-  { id: "openai:marin", engine: "elevenlabs", model: "sarah", gender: "F" },
-  { id: "openai:cedar", engine: "elevenlabs", model: "george", gender: "M" },
+  { id: "f", engine: "elevenlabs", model: "sarah", gender: "F" },
+  { id: "m", engine: "elevenlabs", model: "george", gender: "M" },
 ];
 
 /**
@@ -33,8 +34,11 @@ export const VOICES: Record<Language, Voice[]> = {
   ],
 };
 
-/** Bump to re-render every file after changing how audio is produced (padding, loudness). */
-const RENDER_VERSION = 2;
+/**
+ * Bump a language's entry to re-render its files after changing how they are produced (engine, model, padding, loudness).
+ * Audio is served as immutable, so a re-render must get new file names.
+ */
+export const RENDER_VERSIONS: Record<Language, number> = { en: 3, el: 3, es: 3, fr: 3, it: 3, nl: 3, ga: 2 };
 
 export const voiceId = (v: Voice) => v.id;
 
@@ -54,7 +58,7 @@ export type AudioJob = { language: Language; voice: Voice; text: string; fix?: A
 
 /** Content-addressed: identical text in one language and voice shares a file. A fix changes the hash. */
 export function audioFile(language: Language, voice: Voice, text: string, fix?: AudioFix): string {
-  const key = `${RENDER_VERSION}|${language}|${voiceId(voice)}|${text.normalize("NFC")}${fix ? `|${JSON.stringify(fix)}` : ""}`;
+  const key = `${RENDER_VERSIONS[language]}|${language}|${voiceId(voice)}|${text.normalize("NFC")}${fix ? `|${JSON.stringify(fix)}` : ""}`;
   return `${language}/${createHash("sha1").update(key).digest("hex").slice(0, 20)}.m4a`;
 }
 

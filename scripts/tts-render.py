@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: voice JSON {engine, model} (elevenlabs: model is the voice), language. stdin: JSON lines {"text", "cut"?, "out"}; `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: voice JSON {engine, model, voice}. stdin: JSON lines {"text", "cut"?, "out"}; `text` is sent to the engine verbatim (scripts/audio-jobs.ts adds any language tag), and `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -9,7 +9,6 @@ from pathlib import Path
 import numpy as np
 
 voice = json.loads(sys.argv[1])
-language = sys.argv[2]
 
 TARGET_RMS = 0.08  # about -22 dBFS over the voiced part, so voices and engines play at the same loudness
 PEAK = 0.95
@@ -28,7 +27,7 @@ if voice["engine"] == "abair":
     import urllib.request
 
     def synth(text: str) -> tuple[np.ndarray, int]:
-        query = urllib.parse.urlencode({"input": text, "voice": voice["model"], "normalise": "true"})
+        query = urllib.parse.urlencode({"input": text, "voice": voice["voice"], "normalise": "true"})
         req = urllib.request.Request(f"https://synthesis.abair.ie/api/synthesise?{query}", headers={"Accept": "application/json", "User-Agent": "Ditto/1.0 (dictation trainer; +https://github.com/topherhunt/ditto)"})
         try:
             with urllib.request.urlopen(req, timeout=30) as res:
@@ -42,9 +41,8 @@ if voice["engine"] == "abair":
                 sys.exit(f"expected 16-bit mono from ABAIR, got {w.getnchannels()} channels, {w.getsampwidth()} bytes")
             return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
 elif voice["engine"] == "elevenlabs":
-    # Eleven v4 Turbo on OpenRouter, the same request as server/speech.ts. It takes no speed or instructions, so the
-    # language goes in an inline audio tag; without it a lone word is read as English ("nome" as "gnome"). Parallel
-    # workers can hit the rate limit and a request can stall or return silence, so all three retry.
+    # Eleven v4 Turbo on OpenRouter, the same request as server/speech.ts. Parallel workers can hit the rate limit and a
+    # request can stall or return silence, so all three retry.
     import os
     import time
     import urllib.error
@@ -53,11 +51,10 @@ elif voice["engine"] == "elevenlabs":
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise SystemExit("OPENROUTER_API_KEY is not set (put it in .env)")
-    name = {"it": "Italian", "en": "American English", "es": "Latin American Spanish", "nl": "Dutch", "fr": "French", "el": "Greek"}[language]
     PCM_TYPE = "audio/pcm;rate=24000;channels=1"
 
     def synth(text: str) -> tuple[np.ndarray, int]:
-        body = {"model": "elevenlabs/eleven-v4-turbo", "input": f"[speaking {name}, in {name} accent] {text}", "voice": voice["model"],
+        body = {"model": voice["model"], "input": text, "voice": voice["voice"],
                 "response_format": "pcm", "provider": {"zdr": True}}
         req = urllib.request.Request("https://openrouter.ai/api/v1/audio/speech", data=json.dumps(body).encode(),
                                      headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})

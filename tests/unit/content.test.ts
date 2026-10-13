@@ -67,9 +67,9 @@ describe("content loading", () => {
 
   it("renders an audio fix into a new file for that voice and text only, including word audio", () => {
     const fix = { say: "Lo." };
-    const c = loadWithFixes({ it: { "openai:marin": { lo: fix } } }, base);
+    const c = loadWithFixes({ it: { "f": { lo: fix } } }, base);
     const u = c.locales.en.units.get("it-test-1-u01")!;
-    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.id === "openai:marin" ? fix : undefined)}`));
+    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.id === "f" ? fix : undefined)}`));
     expect(u.words[0].audio[0]).not.toBe(`/audio/${audioFile("it", VOICES.it[0], "lo")}`);
     expect(u.audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "Lo prendo.")}`));
     expect(c.audioJobs.find((j) => `/audio/${j.file}` === u.words[0].audio[0])).toMatchObject({ text: "lo", fix });
@@ -90,11 +90,11 @@ describe("content loading", () => {
 
   it("rejects audio fixes for an unknown voice, an unknown field, and text nothing renders", () => {
     expect(() => loadWithFixes({ it: { "openai:nobody": { lo: { say: "Lo." } } } }, base)).toThrow(/unknown it voice openai:nobody/);
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { openrouter: {} } } } }, base)).toThrow(/openrouter/);
-    expect(loadWithFixes({ it: { "openai:marin": { lo: { say: "Lo.", cut: 0.1 } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ say: "Lo.", cut: 0.1 });
-    expect(() => loadWithFixes({ it: { "openai:marin": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|openai:marin\|gone/);
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: {} } } }, base)).toThrow(/empty fix/);
-    expect(() => loadWithFixes({ it: { "openai:marin": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
+    expect(() => loadWithFixes({ it: { "f": { lo: { openrouter: {} } } } }, base)).toThrow(/openrouter/);
+    expect(loadWithFixes({ it: { "f": { lo: { say: "Lo.", cut: 0.1 } } } }, base).audioJobs.find((j) => j.text === "lo" && j.fix)?.fix).toEqual({ say: "Lo.", cut: 0.1 });
+    expect(() => loadWithFixes({ it: { "f": { gone: { take: 2 } } } }, base)).toThrow(/fixes for text no content renders: it\|f\|gone/);
+    expect(() => loadWithFixes({ it: { "f": { lo: {} } } }, base)).toThrow(/empty fix/);
+    expect(() => loadWithFixes({ it: { "f": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
   });
 
   it("rejects a word without a lexicon entry, an unused entry, and a lesson not ending in a sentence", () => {

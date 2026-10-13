@@ -1,16 +1,26 @@
 // Rendering and phoneme scoring shared by the audio scripts (build-audio, check-audio, audio-candidates).
 import { spawn } from "node:child_process";
-import { appendFileSync, existsSync, readFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createInterface } from "node:readline";
-import { voiceId, type AudioJob } from "../server/content.ts";
+import { voiceId, type AudioJob, type Voice } from "../server/content.ts";
+import { speechInput, TTS_MODEL } from "../server/speech.ts";
 
 export const root = join(import.meta.dirname, "..");
 export const python = join(root, ".venv/bin/python");
 if (!existsSync(python)) throw new Error(`TTS venv not found at ${python}; see docs/plan.md (Audio)`);
 
+/** Append-only record of which engine, model and voice rendered each file, and what it was sent. Local only: never deployed or pruned. */
+const inventoryFile = join(root, "data/audio-inventory.tsv");
+const engineModel = (v: Voice) => (v.engine === "elevenlabs" ? TTS_MODEL : "abair");
+
+/** What the engine is sent: a fix's `say` verbatim, else the text, tagged for ElevenLabs where speechInput says so. */
+const input = (j: AudioJob) => j.fix?.say ?? (j.voice.engine === "elevenlabs" ? speechInput(j.text, j.language) : j.text);
+
 /** Renders jobs into audioDir, one Python process per voice in parallel; ABAIR one group at a time. */
 export async function renderJobs(jobs: AudioJob[], audioDir: string) {
+  if (!existsSync(inventoryFile)) writeFileSync(inventoryFile, "file\tengine\tmodel\tvoice\tinput\trendered_at\n");
+  const byOut = new Map(jobs.map((j) => [join(audioDir, j.file), j]));
   const byVoice = new Map<string, AudioJob[]>();
   for (const j of jobs) {
     const key = `${j.language}|${voiceId(j.voice)}`;
@@ -19,15 +29,19 @@ export async function renderJobs(jobs: AudioJob[], audioDir: string) {
   let done = 0;
   const render = (group: AudioJob[]) =>
     new Promise<void>((resolve, reject) => {
-      const proc = spawn(python, [join(root, "scripts/tts-render.py"), JSON.stringify({ engine: group[0].voice.engine, model: group[0].voice.model }), group[0].language], {
+      const { engine, model } = group[0].voice;
+      const proc = spawn(python, [join(root, "scripts/tts-render.py"), JSON.stringify({ engine, model: engineModel(group[0].voice), voice: model })], {
         stdio: ["pipe", "pipe", "inherit"],
       });
-      createInterface({ input: proc.stdout }).on("line", () => {
+      createInterface({ input: proc.stdout }).on("line", (out) => {
+        const j = byOut.get(out);
+        if (!j) throw new Error(`renderer reported a file it wasn't given: ${out}`);
+        appendFileSync(inventoryFile, [j.file, engine, engineModel(j.voice), model, input(j).replace(/[\t\n]/g, " "), new Date().toISOString()].join("\t") + "\n");
         if (++done % 100 === 0 || done === jobs.length) console.log(`${done} / ${jobs.length}`);
       });
       proc.on("error", reject);
       proc.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${voiceId(group[0].voice)} renderer exited with ${code}`))));
-      proc.stdin.end(group.map((j) => JSON.stringify({ text: j.fix?.say ?? j.text, cut: j.fix?.cut, out: join(audioDir, j.file) })).join("\n") + "\n");
+      proc.stdin.end(group.map((j) => JSON.stringify({ text: input(j), cut: j.fix?.cut, out: join(audioDir, j.file) })).join("\n") + "\n");
     });
   // OpenRouter allows several requests at once, so each ElevenLabs voice splits across workers.
   const groups = [...byVoice.values()].flatMap((g) =>
