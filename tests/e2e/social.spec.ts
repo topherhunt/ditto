@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "./fixtures.ts";
-import { signIn, signOut } from "./helpers.ts";
+import { signIn, signOut, typeFullHint } from "./helpers.ts";
 
 
 async function openFriends(page: Page) {
@@ -8,11 +8,11 @@ async function openFriends(page: Page) {
   await expect(page).toHaveURL(/\/friends$/);
 }
 
-/** Reveals every remaining item of the open lesson, then waits for the done screen. */
+/** Finishes every remaining item of the open lesson, then waits for the done screen. */
 async function finishLesson(page: Page) {
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
-    await page.locator(".qa-reveal").click();
+    await typeFullHint(page);
     await page.locator(".qa-meaning-option").first().click();
     await page.locator(".qa-next").click();
   }
@@ -28,7 +28,7 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await page.goto("/it/type/lesson/it-a1-bar-1");
   await finishLesson(page);
   await page.goto("/it/type/lesson/it-a1-bar-2");
-  await page.locator(".qa-reveal").click();
+  await typeFullHint(page);
   await page.locator(".qa-meaning-option").first().click();
   await expect(page.locator(".qa-next")).toBeVisible();
   await signOut(page);

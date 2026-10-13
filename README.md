@@ -8,7 +8,7 @@ Ditto is a dictation trainer for language learners. You listen to a word, phrase
 
 - 🎧 Scaffolded lessons: words build into chunks, and chunks build into full sentences.
 - 🗣️ Several native-sounding voices per language, picked at random per item, with a slow-playback button.
-- ✍️ Letter-level diffs that are lenient on accents, with per-word hints and a "show answer" escape hatch.
+- ✍️ Letter-level diffs that are lenient on accents, with per-word hints that step up to the full answer.
 - 🧠 A meaning check after each item, then tappable words that play word audio and show a gloss.
 - 📓 A mistakes notebook, practiced through Review. An entry leaves after two clean attempts in a row.
 - 🔁 Spaced review, scheduled with FSRS.

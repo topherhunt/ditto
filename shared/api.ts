@@ -256,7 +256,11 @@ export type PartnerRetryResult = { turns: TurnOut[]; spend: Spend };
 /** Every turn of the conversation, once glossing in progress has finished; `spend` includes it. */
 export type GlossesOut = { turns: TurnOut[]; spend: Spend };
 /** `heard`: the transcript of the spoken question. */
-export type HowOut = { heard: string; sentence: string; chunks: Chunk[]; spend: Spend };
+export type HowSentence = { heard: string; sentence: string };
+/** `chunks`: null if glossing failed. */
+export type HowOut = HowSentence & { chunks: Chunk[] | null; spend: Spend };
+/** The how route streams these as NDJSON: the sentence once written, then it with its chunks, or an error. */
+export type HowEvent = { sentence: HowSentence } | { result: HowOut } | { error: string; status: number };
 export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };
 export type AdminSpeakReport = SpeakAttemptOut & {
   conversationId: number; language: Language; reporter: { email: string; username: string | null }; note: string; reportedAt: string; partnerLine: string;

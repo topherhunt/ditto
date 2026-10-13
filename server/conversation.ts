@@ -9,7 +9,7 @@ import { z } from "zod";
 import {
   HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SPEAK_LANGUAGES, SpeakAttemptSchema, SpeakReportSchema,
   type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
-  type GlossesOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
+  type GlossesOut, type HowEvent, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
 import type { Language, Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
@@ -361,9 +361,16 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const heard = await ai.transcribe(Buffer.from(body.audio, "base64"), `how.${EXT[body.mime]}`, conv.locale.split("-")[0]);
     paid(userId, conv.id, "transcribe", heard.usage);
     if (!heard.result.trim()) throw new HTTPException(422, { message: "No speech was heard; try again" });
-    const { result, usage } = await ai.howDoISay(setting(conv), history(conv.id), heard.result);
+    const { result: sentence, usage } = await ai.howDoISay(setting(conv), history(conv.id), heard.result);
     paid(userId, conv.id, "how", usage);
-    return c.json<HowOut>({ heard: heard.result, sentence: joinChunks(result), chunks: result, spend: spend(userId, conv.id) });
+    // Errors before here are plain HTTP errors; glossLines never throws, so the stream needs no error line.
+    c.header("Content-Type", "application/x-ndjson");
+    return stream(c, async (s) => {
+      const send = (e: HowEvent) => s.write(JSON.stringify(e) + "\n");
+      await send({ sentence: { heard: heard.result, sentence } });
+      const glossed = await glossLines(conv, userId, [sentence]);
+      await send({ result: { heard: heard.result, sentence, chunks: glossed?.[0] ?? null, spend: spend(userId, conv.id) } });
+    });
   });
 
   app.post("/api/conversations/:id/attempts/:attemptId/report", async (c) => {

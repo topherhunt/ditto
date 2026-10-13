@@ -1,7 +1,7 @@
 import { A, useLocation, useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import {
-  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type GlossesOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
+  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type GlossesOut, type HowOut, type HowSentence, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
   type TurnOut,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
@@ -159,7 +159,8 @@ export function Conversation() {
   /** The failed attempt's recording, from this browser. */
   const [ownUrl, setOwnUrl] = createSignal("");
   let end: HTMLDivElement | undefined;
-  const [how, setHow] = createSignal<HowOut | null>(null);
+  /** The "How do I say...?" answer; its chunks arrive after the sentence. */
+  const [how, setHow] = createSignal<(HowSentence & { chunks: Chunk[] | null }) | null>(null);
   const [howState, setHowState] = createSignal<HowState>("idle");
   const [busy, setBusy] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
@@ -286,16 +287,23 @@ export function Conversation() {
       setError(t("speak.micError", { error: (e as Error).message }));
     }
   };
-  const translate = (audio: string, mime: Mime) => run(async () => {
+  // Not run(): busy would keep the record button off until the chunks arrive, after the sentence the learner is to say.
+  const translate = async (audio: string, mime: Mime) => {
     setHowState("translating");
     try {
-      const res = await api.post<HowOut>(`/api/conversations/${c().id}/how`, { audio, mime });
-      setHow(res);
+      const res = await api.postStream<HowOut, { sentence: HowSentence }>(`/api/conversations/${c().id}/how`, { audio, mime }, (e) => {
+        setHow({ ...e.sentence, chunks: null });
+        setHowState("idle");
+      });
       update({ spend: res.spend });
+      // Unless the learner has moved on (a passed reply clears it) while the chunks were on their way.
+      if (how()?.sentence === res.sentence) setHow(res);
+    } catch (e) {
+      setError((e as Error).message);
     } finally {
       setHowState("idle");
     }
-  });
+  };
   const moveOn = () => run(async () => {
     const res = await api.post<MoveOnResult>(`/api/conversations/${c().id}/move-on`, { target: attempt()!.target, taps: revealed().size });
     advance(res.turns, { reliance: res.reliance, spend: res.spend });
@@ -350,61 +358,69 @@ export function Conversation() {
             </Show>
 
             <Show when={!attempt()}>
-            <div>
-              <Show when={!c().hardMode}><div class="small fw-semibold mb-1">{t("speak.suggestions")}</div></Show>
-              {/* The suggestions, then "How do I say...?" as the last option; hard mode leaves only that. */}
-              <ul class="mb-0">
-                <Show when={!c().hardMode && last().suggestions}>
-                  {(suggestions) => (
-                    <For each={suggestions()}>
-                      {(s, j) => (
-                        // The flex row sits inside the item: flex on the <li> itself drops its bullet.
-                        <li class="qa-suggestion mb-1">
-                          <div class="d-flex align-items-start gap-2">
-                            <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
-                            <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
-                          </div>
-                        </li>
-                      )}
-                    </For>
-                  )}
-                </Show>
-                <li>
-                  {/* While listening, Stop takes the button's place, so one spot starts and stops. */}
-                  <Show when={howState() === "recording"} fallback={
-                    <button type="button" data-silent class="qa-how-open btn btn-primary" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>
-                      <i class="bi bi-mic-fill me-1" aria-hidden="true" />{t("speak.how")}
-                    </button>
-                  }>
-                    <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 p-2 mb-0" role="status">
-                      <button type="button" data-silent class="qa-how-stop btn btn-danger" onClick={() => howRecorder!.stop()}>
-                        <i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}
-                      </button>
-                      <i class="bi bi-mic-fill fs-3 pulse" aria-hidden="true" />
-                      <span>{t("speak.howListening")}</span>
-                    </div>
-                  </Show>
-                  <Show when={howState() === "translating"}>
-                    <div class="qa-how-translating d-flex align-items-center gap-2 mt-2 text-body-secondary" role="status">
-                      <span class="spinner-border spinner-border-sm" aria-hidden="true" />
-                      <span>{t("speak.howTranslating")}</span>
-                    </div>
-                  </Show>
-                  <Show when={how()}>
-                    {(h) => (
-                      <div class="qa-how-result mt-2">
-                        <div class="qa-how-heard small text-body-secondary">{t("speak.youSaid")} <i>{h().heard}</i></div>
-                        <div class="small text-body-secondary">{t("speak.howResult")}</div>
+            <div class="d-flex flex-column gap-2">
+              {/* Hard mode leaves only "How do I say...?". */}
+              <Show when={!c().hardMode && last().suggestions}>
+                {(suggestions) => (
+                  <div>
+                    <div class="small fw-semibold mb-1">{t("speak.suggestions")}</div>
+                    <ul class="mb-0">
+                      <For each={suggestions()}>
+                        {(s, j) => (
+                          // The flex row sits inside the item: flex on the <li> itself drops its bullet.
+                          <li class="qa-suggestion mb-1">
+                            <div class="d-flex align-items-start gap-2">
+                              <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
+                              <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
+                            </div>
+                          </li>
+                        )}
+                      </For>
+                    </ul>
+                  </div>
+                )}
+              </Show>
+              {/* While listening, Stop takes the button's place, so one spot starts and stops. */}
+              <Show when={howState() === "recording"} fallback={
+                <button type="button" data-silent class="qa-how-open btn btn-primary align-self-start" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>
+                  <i class="bi bi-mic-fill me-1" aria-hidden="true" />{t("speak.how")}
+                </button>
+              }>
+                <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 p-2 mb-0" role="status">
+                  <button type="button" data-silent class="qa-how-stop btn btn-danger" onClick={() => howRecorder!.stop()}>
+                    <i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}
+                  </button>
+                  <i class="bi bi-mic-fill fs-3 pulse" aria-hidden="true" />
+                  <span>{t("speak.howListening")}</span>
+                </div>
+              </Show>
+              <Show when={howState() === "translating"}>
+                <div class="qa-how-translating d-flex align-items-center gap-2 text-body-secondary" role="status">
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true" />
+                  <span>{t("speak.howTranslating")}</span>
+                </div>
+              </Show>
+              <Show when={how()}>
+                {(h) => (
+                  <div class="qa-how-result card">
+                    <div class="card-body d-flex flex-column gap-2">
+                      <div>
+                        <div class="small text-uppercase fw-semibold text-body-secondary">{t("speak.howHeard")}</div>
+                        <div class="qa-how-heard text-body-secondary">{h().heard}</div>
+                      </div>
+                      <div>
+                        <div class="small text-uppercase fw-semibold text-body-secondary">{t("speak.howResult")}</div>
                         <div class="d-flex align-items-start gap-2">
-                          <span class="qa-how-sentence fs-5 fw-semibold">{h().sentence}</span>
+                          <Show when={h().chunks} fallback={<span class="qa-how-sentence">{h().sentence}</span>}>
+                            {(chunks) => <ChunkLine class="qa-how-sentence" chunks={chunks()} id="how" active={activeChunk()} preparing={preparing()} onTap={tap} />}
+                          </Show>
                           <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(h().sentence)}`} class="qa-how-play btn-link p-0" />
                         </div>
-                        <div class="small text-body-secondary">{h().chunks.map((x) => `${x.text} = ${x.gloss}`).join(" · ")}</div>
                       </div>
-                    )}
-                  </Show>
-                </li>
-              </ul>
+                    </div>
+                  </div>
+                )}
+              </Show>
             </div>
             </Show>
           </div>

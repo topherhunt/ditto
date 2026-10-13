@@ -19,10 +19,11 @@ export function fakeSpeech(): Speech {
   };
 }
 
-/** The partner's lines as sentence chunks; any other line is glossed word by word as "(word)". */
+/** The partner's lines and the "How do I say...?" sentence in chunks; any other line is glossed word by word as "(word)". */
 const GLOSSES: Record<string, Chunk[]> = {
   "Buongiorno! Cosa prende?": [{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }],
   "Certo! Altro?": [{ text: "Certo!", gloss: "Sure!" }, { text: "Altro?", gloss: "Anything else?" }],
+  "Vorrei un tè freddo.": [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }],
 };
 
 export function fakeAI(): ConversationAI {
@@ -53,7 +54,7 @@ export function fakeAI(): ConversationAI {
         usage: usage(),
       };
     },
-    howDoISay: async () => ({ result: [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }], usage: usage() }),
+    howDoISay: async () => ({ result: "Vorrei un tè freddo.", usage: usage() }),
     gloss: async (_setting, lines) => ({
       result: lines.map((l) => GLOSSES[l] ?? l.split(" ").map((w) => ({ text: w, gloss: `(${w})` }))),
       usage: usage(),

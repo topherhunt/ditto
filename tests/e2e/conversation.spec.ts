@@ -123,6 +123,8 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-conversation-title")).toBeVisible();
   await expect(page.locator(".qa-turn-partner .qa-turn-level")).toHaveText("B1");
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);
+  // A button of its own, not a bulleted option.
+  await expect(page.locator("li .qa-how-open")).toHaveCount(0);
   await page.locator(".qa-how-open").click();
   await expect(page.locator(".qa-how-listening")).toBeVisible();
   // Stop takes the button's place.
@@ -134,6 +136,11 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await page.locator(".qa-how-stop").click();
   await expect(page.locator(".qa-how-heard")).toContainText("Vorrei un caffè");
   await expect(page.locator(".qa-how-sentence")).toHaveText("Vorrei un tè freddo.");
+  // Its words are tappable once glossed, like the partner's lines.
+  const howChunks = page.locator(".qa-how-result .qa-chunk");
+  await expect(howChunks).toHaveText(["Vorrei un tè", "freddo."]);
+  await howChunks.first().click();
+  await expect(page.locator(".qa-how-result .qa-gloss")).toHaveText("I'd like a tea");
   await page.locator(".qa-how-play").click();
   await expect.poll(async () => decodeURIComponent((await page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)) ?? "")).toMatch(/\/say\?text=Vorrei un tè freddo\.$/);
   await expect(page.locator(".qa-how-listening")).toHaveCount(0);

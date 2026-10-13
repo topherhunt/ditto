@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "./fixtures.ts";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
-import { openPracticeSettings, recordPlays, setLearning, signIn, type Played } from "./helpers.ts";
+import { openPracticeSettings, recordPlays, setLearning, signIn, typeFullHint, type Played } from "./helpers.ts";
 
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
@@ -11,7 +11,7 @@ async function pickMeaning(page: Page, meaning: string) {
   await page.locator(".qa-meaning-option").filter({ hasText: exact }).click();
 }
 
-test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebook", async ({ page }) => {
+test("learn a lesson: accent leniency, letter corrections, hints up to the full answer, no Show answer, notebook", async ({ page }) => {
   await signIn(page, "learner1@example.com");
   await expect(page).toHaveURL(/\/it$/);
   await page.locator(".qa-dash-coach-go").click();
@@ -64,24 +64,29 @@ test("learn a lesson: accent leniency, letter corrections, hints, reveal, notebo
   await slot(page, 1).fill("caffè");
   await slot(page, 1).press("Enter");
   await pickMeaning(page, "a coffee");
-  await expect(page.locator(".qa-outcome")).toContainText("hints");
+  // The last hint step showed the whole answer.
+  await expect(page.locator(".qa-outcome")).toContainText("Revealed");
   await page.locator(".qa-next").click();
 
-  // "per favore": reveal.
-  await page.locator(".qa-reveal").click();
+  // "per favore": a lesson has no Show answer button; one hint short of the full answer is "with hints".
+  await expect(page.locator(".qa-reveal")).toHaveCount(0);
+  await page.locator(".qa-hint").click();
+  await slot(page, 0).fill("per");
+  await slot(page, 1).fill("favore");
+  await slot(page, 1).press("Enter");
   await expect(page.locator(".qa-answer")).toContainText("per favore");
   await pickMeaning(page, "please");
-  await expect(page.locator(".qa-outcome")).toContainText("Revealed");
+  await expect(page.locator(".qa-outcome")).toContainText("hints");
 
   await page.locator(".qa-nav-type").click();
   await page.locator(".qa-review-link").click();
   await page.locator(".qa-review-notebook").click();
   await expect(page).toHaveURL(/\/it\/type\/notebook$/);
   await expect(page.locator(".qa-type-crumb")).toContainText("Listen and type");
-  await expect(page.locator(".qa-mistake-text")).toHaveText(["per favore", "vorrei"]);
+  await expect(page.locator(".qa-mistake-text")).toHaveText(["un caffè", "vorrei"]);
   await expect(page.locator(".qa-mistake").filter({ hasText: "vorrei" }).locator(".qa-letter-insert")).toHaveText("r");
 
-  await page.locator(".qa-mistake").filter({ hasText: "per favore" }).locator(".qa-mistake-remove").click();
+  await page.locator(".qa-mistake").filter({ hasText: "un caffè" }).locator(".qa-mistake-remove").click();
   await expect(page.locator(".qa-mistake-text")).toHaveText(["vorrei"]);
 
   await page.locator(".qa-nav-type").click();
@@ -304,7 +309,7 @@ test("finishing a lesson celebrates, and Enter goes back to the lessons", async 
   await page.locator(".qa-lesson-start").first().click();
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
-    await page.locator(".qa-reveal").click();
+    await typeFullHint(page);
     await page.locator(".qa-meaning-option").first().click();
     await page.locator(".qa-next").click();
   }

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "./fixtures.ts";
-import { recordPlays, signIn, soundsReady, type Played } from "./helpers.ts";
+import { recordPlays, signIn, soundsReady, typeFullHint, type Played } from "./helpers.ts";
 
 const VOLUMES: Record<string, number> = { click: 0.5, correct: 0.5, wrong: 0.5, victory: 0.25 };
 
@@ -16,7 +16,7 @@ async function played(page: Page): Promise<string[]> {
   });
 }
 
-test("buttons click at half volume, a pass sounds correct once, and wrong answers or a reveal sound wrong", async ({ page }) => {
+test("buttons click at half volume, a pass sounds correct once, and wrong answers sound wrong", async ({ page }) => {
   await recordPlays(page);
   await signIn(page, "sounds1@example.com");
   await page.goto("/it/type");
@@ -51,13 +51,11 @@ test("buttons click at half volume, a pass sounds correct once, and wrong answer
   expect(await played(page)).toEqual(["click", "wrong"]);
   await page.locator(".qa-next").click();
 
-  // "un caffè": a hint only clicks; revealing sounds wrong.
+  // "un caffè": a hint only clicks.
   await page.locator(".qa-slot").first().focus();
   await played(page);
   await page.locator(".qa-hint").click();
   expect(await played(page)).toEqual(["click"]);
-  await page.locator(".qa-reveal").click();
-  expect(await played(page)).toEqual(["click", "wrong"]);
 });
 
 test("finishing a lesson plays the victory sound at a quarter volume", async ({ page }) => {
@@ -68,7 +66,7 @@ test("finishing a lesson plays the victory sound at a quarter volume", async ({ 
   await page.locator(".qa-lesson-start").first().click();
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
-    await page.locator(".qa-reveal").click();
+    await typeFullHint(page);
     await page.locator(".qa-meaning-option").first().click();
     await expect(page.locator(".qa-next")).toBeVisible();
     await played(page);

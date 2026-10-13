@@ -1,5 +1,5 @@
 import { expect, test } from "./fixtures.ts";
-import { setLearning, signIn } from "./helpers.ts";
+import { setLearning, signIn, typeFullHint } from "./helpers.ts";
 
 test("a new learner's dashboard coaches the first lesson, and practicing shows on the streak, chart and stars", async ({ page }) => {
   await signIn(page, "dash1@example.com");
@@ -21,7 +21,7 @@ test("a new learner's dashboard coaches the first lesson, and practicing shows o
 
   await page.locator(".qa-dash-coach-go").click();
   await expect(page).toHaveURL(/\/it\/type\/lesson\/it-a1-bar-1$/);
-  await page.locator(".qa-reveal").click();
+  await typeFullHint(page);
   await page.locator(".qa-meaning-option").first().click();
   await expect(page.locator(".qa-next")).toBeVisible();
 
@@ -61,7 +61,7 @@ test("finishing a lesson adds its stars to the dashboard's total and today's cou
   await page.goto("/it/type/lesson/it-a1-bar-1");
   await expect(page.locator(".qa-exercise")).toBeVisible();
   while (await page.locator(".qa-exercise").count()) {
-    await page.locator(".qa-reveal").click();
+    await typeFullHint(page);
     await page.locator(".qa-meaning-option").first().click();
     await page.locator(".qa-next").click();
   }

@@ -35,6 +35,7 @@ function shuffle<T>(items: T[]): T[] {
 /**
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
  * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
+ * In a lesson there is no Show answer button; the last hint step shows every letter and counts as revealed.
  * In a level test there are no hints, the first wrong answer ends the item, and nothing is recorded.
  * In a Master run there are no hints either, but answers are recorded (as learn attempts flagged `master`).
  * With `study`, the item is first shown and played with its translation, and the input appears when the learner is ready.
@@ -190,7 +191,7 @@ export function Exercise(props: {
     setDone(true);
     dictation = {
       unitId: unit.id, rev: unit.rev, path: props.prefs.path, hintsLevel: props.prefs.hints, studied: study, master,
-      outcome: outcomeOf({ revealed: revealed(), wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() }),
+      outcome: outcome(),
       wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed(), replays, accentSlips, submissions, categories,
       durationMs: Date.now() - started,
     };
@@ -217,6 +218,9 @@ export function Exercise(props: {
     const missed = meaningCorrect === false;
     props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, save);
   }
+
+  const outcome = () => outcomeOf({ revealed: revealed() || hintsUsed() === ladder.length, wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() });
+  const outcomeLabels = { clean: "exercise.perfect", hinted: "exercise.hinted", corrected: "exercise.corrected", revealed: "exercise.revealed" } as const;
 
   /** Next is available once nothing is left to answer. */
   const settled = () => done() && (!meaningOptions || meaningPick() !== null);
@@ -421,7 +425,7 @@ export function Exercise(props: {
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
             <Show when={!test && !master && hintsUsed() < ladder.length}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t(hintsUsed() === 0 ? "exercise.hint" : "exercise.moreHint")}</button></Show>
-            <button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button>
+            <Show when={test || master}><button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button></Show>
           </div>
           <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary"><KeyHint text={t("exercise.keys")} /></div>}>
             <div class="qa-retry small text-danger">{t("exercise.retry")}</div>
@@ -486,7 +490,7 @@ export function Exercise(props: {
           <Show when={settled()}>
             <div class="d-flex align-items-center gap-2">
               <span class="qa-outcome text-body-secondary small">
-                {t(revealed() ? "exercise.revealed" : wrongSubmissions() > 0 ? "exercise.corrected" : hintsUsed() > 0 ? "exercise.hinted" : "exercise.perfect")}
+                {t(outcomeLabels[outcome()])}
                 {accentWords.size > 0 ? ` -- ${t("exercise.watchAccents")}` : ""}
                 {meaningPick() !== null && meaningPick() !== unit.translation ? ` -- ${t("exercise.checkMeaning")}` : ""}
               </span>

@@ -21,7 +21,7 @@ const CoachSchema = z.strictObject({
   fixes: z.array(z.strictObject({ wrong: z.string(), right: z.string(), why: z.string() })),
   feedback: z.string(),
 });
-const HowSchema = z.strictObject({ chunks: z.array(ChunkSchema).min(1) });
+const HowSchema = z.strictObject({ sentence: z.string().min(1) });
 const GlossSchema = z.strictObject({ lines: z.array(z.strictObject({ chunks: z.array(ChunkSchema).min(1) })) });
 
 export type Line = { role: "partner" | "learner"; text: string };
@@ -43,7 +43,8 @@ export interface ConversationAI {
   transcribe(audio: Buffer, name: string, language: string): Promise<Paid<string>>;
   partner(setting: Setting, history: Line[]): Promise<Paid<PartnerOut>>;
   coach(input: CoachIn): Promise<Paid<CoachVerdict>>;
-  howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<Chunk[]>>;
+  /** Just the sentence, unchunked: chunks would multiply its output tokens and the wait (gloss does them after). */
+  howDoISay(setting: Setting, history: Line[], text: string): Promise<Paid<string>>;
   /** Each of `lines`, consecutive lines of the conversation, in chunks; the model can return a different number of lines. */
   gloss(setting: Setting, lines: string[]): Promise<Paid<Chunk[][]>>;
 }
@@ -116,8 +117,7 @@ level: the CEFR level of meant as a reply in this conversation (vocabulary, gram
 feedback: one short sentence telling the learner what to fix first (don't restate what was fine), or brief praise if it passed.
 fromSuggestion: true if the learner's reply is substantially one of the suggested replies shown to them: the same words and meaning, even reordered, slightly changed, or with words added or dropped. False for a reply of their own, even on the same topic, and when no suggestions were shown.`;
 
-const howInstructions = (l: Language) => `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they said aloud in {locale} (or mixed languages), given as a speech-to-text transcript. Give the natural {language} sentence for it, at their level, fitting the conversation, split into chunks.
-${CHUNKING(l)}`;
+const HOW_INSTRUCTIONS = `A {language} learner (CEFR {level}) in a spoken role-play wants to say something they said aloud in {locale} (or mixed languages), given as a speech-to-text transcript. Give the natural {language} sentence for it, at their level, fitting the conversation.`;
 
 const glossInstructions = (l: Language) => `You gloss {language} for a learner (CEFR {level}) who reads {locale}. You get consecutive numbered lines of a role-play conversation. Return exactly one entry per numbered line, in the same order, even when a line has several sentences, splitting each line, exactly as written, into chunks.
 ${CHUNKING(l)}`;
@@ -175,8 +175,8 @@ export function openAIConversation(apiKey: string, model: string, effort: "none"
     },
     async howDoISay(setting, history, text) {
       const input = `${history.length ? `Conversation so far:\n${transcript(history)}\n\n` : ""}The learner wants to say: ${text}`;
-      const { result, usage } = await parse(HowSchema, "how", fill(howInstructions(setting.language), setting), input);
-      return { result: result.chunks, usage };
+      const { result, usage } = await parse(HowSchema, "how", fill(HOW_INSTRUCTIONS, setting), input);
+      return { result: result.sentence, usage };
     },
     async gloss(setting, lines) {
       const { result, usage } = await parse(GlossSchema, "gloss", fill(glossInstructions(setting.language), setting),

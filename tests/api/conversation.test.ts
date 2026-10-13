@@ -28,9 +28,16 @@ async function speak(overrides: Partial<AppDeps> = {}) {
     const end = events.at(-1);
     return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
   };
+  // Streams the sentence, then it with its chunks; `events` are the lines before the last.
+  const how = async (id: number, body: Record<string, unknown> = { audio, mime: "audio/webm" }) => {
+    const res = await t.req("POST", `/api/conversations/${id}/how`, body);
+    if (res.status !== 200) return { ...res, events: [] };
+    const events = (res.json as string).trim().split("\n").map((l) => JSON.parse(l));
+    return { status: 200, json: events.at(-1).result, events: events.slice(0, -1) };
+  };
   /** Every turn once glossing in progress is done. */
   const glosses = async (id: number) => (await t.req("GET", `/api/conversations/${id}/glosses`)).json;
-  return { ...t, ai: conversation.ai, voices, start, reply, glosses };
+  return { ...t, ai: conversation.ai, voices, start, reply, how, glosses };
 }
 
 const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
@@ -120,8 +127,9 @@ describe("conversation mode", () => {
     t.ai.coach = passFirstTry("Vorrei una spremuta.");
     expect((await t.reply(conv.id)).json.turns[0].source).toBe("own");
 
-    const how = (await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).json;
-    expect(how).toMatchObject({ sentence: "Vorrei un tè freddo.", chunks: [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }] });
+    const how = await t.how(conv.id);
+    expect(how.events).toEqual([{ sentence: { heard: "Vorrei un caffè", sentence: "Vorrei un tè freddo." } }]);
+    expect(how.json).toMatchObject({ sentence: "Vorrei un tè freddo.", chunks: [{ text: "Vorrei un tè", gloss: "I'd like a tea" }, { text: "freddo.", gloss: "iced." }] });
     t.ai.coach = passFirstTry("Vorrei un tè freddo.");
     const res = (await t.reply(conv.id, { usedHow: true })).json;
     expect(res.turns[0].source).toBe("how");
@@ -139,16 +147,39 @@ describe("conversation mode", () => {
     let asked = "";
     const howDoISay = t.ai.howDoISay;
     t.ai.howDoISay = (setting, history, text) => { asked = text; return howDoISay(setting, history, text); };
-    const res = (await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/mp4" })).json;
+    const res = (await t.how(conv.id, { audio, mime: "audio/mp4" })).json;
     expect(heard).toEqual([[audio, "how.m4a", "en"]]);
     expect(asked).toBe("an iced tea");
     expect(res).toMatchObject({ heard: "an iced tea", sentence: "Vorrei un tè freddo." });
 
     t.ai.transcribe = async () => ({ result: " ", usage: { model: "fake", inputTokens: 0, outputTokens: 0, audioSeconds: 1, costUsd: FAKE_COST } });
     asked = "";
-    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).status).toBe(422);
+    expect((await t.how(conv.id)).status).toBe(422);
     expect(asked).toBe("");
-    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { text: "tea" })).status).toBe(400);
+    expect((await t.how(conv.id, { text: "tea" })).status).toBe(400);
+  });
+
+  it("streams the \"How do I say...?\" sentence before its gloss, and sends it without chunks if glossing fails", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const t = await speak();
+      const conv = await t.start();
+      const before = (await t.glosses(conv.id)).spend.conversation;
+      const glossed: string[][] = [];
+      const gloss = t.ai.gloss;
+      t.ai.gloss = (s, lines) => { glossed.push(lines); return gloss(s, lines); };
+      const ok = await t.how(conv.id);
+      expect(glossed).toEqual([["Vorrei un tè freddo."]]);
+      // Transcription, the sentence and its gloss.
+      expect(ok.json.spend.conversation - before).toBeCloseTo(3 * FAKE_COST, 6);
+
+      t.ai.gloss = async () => { throw new Error("model down"); };
+      const failed = await t.how(conv.id);
+      expect(failed.events).toEqual([{ sentence: { heard: "Vorrei un caffè", sentence: "Vorrei un tè freddo." } }]);
+      expect(failed.json).toMatchObject({ sentence: "Vorrei un tè freddo.", chunks: null });
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it("offers moving on only after 5 failed tries at the target, reusing the target's audio, then logs it as a weak phrase", async () => {
@@ -176,7 +207,7 @@ describe("conversation mode", () => {
     await t.reply(conv.id);
     const blocked = await t.reply(conv.id);
     expect(blocked.status).toBe(429);
-    expect((await t.req("POST", `/api/conversations/${conv.id}/how`, { audio, mime: "audio/webm" })).status).toBe(429);
+    expect((await t.how(conv.id)).status).toBe(429);
     expect((await t.req("POST", "/api/conversations", { language: "it", level: "A1", scenario: { surprise: true }, hardMode: false })).status).toBe(429);
     t.clock.now = new Date("2026-09-02T00:00:01Z");
     expect((await t.reply(conv.id)).status).toBe(200);
