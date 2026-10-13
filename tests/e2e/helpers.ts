@@ -34,6 +34,7 @@ export async function setLearning(page: Page, languages: string[]) {
 
 /** Finishes a lesson item the only way a stuck learner can: hints up to the full answer, then types it in. */
 export async function typeFullHint(page: Page) {
+  await expect(page.locator(".qa-hint")).toBeVisible();
   while (await page.locator(".qa-hint").count()) await page.locator(".qa-hint").click();
   const answer = await page.locator(".qa-hint-words span").allTextContents();
   const slots = page.locator(".qa-slot");

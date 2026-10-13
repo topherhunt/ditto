@@ -124,7 +124,6 @@ export const nl: Dictionary = {
   "exercise.moreHint": "Meer hint",
   "exercise.hintBox": "Hint",
   "exercise.hintWords": "{count} woorden",
-  "exercise.reveal": "Antwoord tonen",
   "exercise.keys": "Typ precies wat je hoort. `Enter` controleert, `Spatie` gaat naar het volgende woord, `Esc` speelt opnieuw af.",
   "exercise.retry": "Nog niet helemaal. Verbeter de gemarkeerde delen en klik opnieuw op Controleren.",
   "exercise.saveFailed": "Voortgang kon niet worden opgeslagen: {error}",

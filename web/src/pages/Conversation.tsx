@@ -1,5 +1,5 @@
 import { A, useLocation, useParams } from "@solidjs/router";
-import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
+import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show, untrack, type JSX } from "solid-js";
 import {
   MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type GlossesOut, type HowOut, type HowSentence, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
   type TurnOut,
@@ -15,29 +15,81 @@ import { keepRecording, recordingUrl } from "../recordings.ts";
 import { Loading } from "../components/Loading.tsx";
 import { routes } from "../routes.ts";
 
-/** Tappable chunks; the tapped one is spoken and shows its gloss in a tooltip below it. Bootstrap's tooltip classes, positioned without its JS. */
-function ChunkLine(props: { chunks: Chunk[]; id: string; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void; class?: string; classList?: Record<string, boolean> }) {
+/** A tooltip below the tapped span: Bootstrap's tooltip classes, positioned without its JS. */
+function Tip(props: { class: string; children: JSX.Element }) {
+  return (
+    <span class={`${props.class} tooltip bs-tooltip-bottom show position-absolute top-100 start-50 translate-middle-x`} role="tooltip">
+      <span class="tooltip-arrow" style={{ left: "calc(50% - var(--bs-tooltip-arrow-width) / 2)" }} />
+      <span class="tooltip-inner d-block text-nowrap">{props.children}</span>
+    </span>
+  );
+}
+
+/**
+ * A line in tappable chunks: the tapped one is spoken and shows its gloss. While its chunks are on their way (`pending`),
+ * a tapped word shows a loading tooltip, and their arrival replays the tap on the chunk holding that word. Without chunks
+ * and not pending (glossing failed), it is plain text.
+ */
+function ChunkLine(props: {
+  text: string; chunks: Chunk[] | null; pending: boolean; id: string; active: string | null; preparing: boolean;
+  onTap: (key: string, text: string) => void; onWait: (key: string | null) => void; class?: string; classList?: Record<string, boolean>;
+}) {
   const key = (i: number) => `${props.id}-${i}`;
+  const wordKey = (i: number) => `${props.id}-w${i}`;
+  createEffect(() => {
+    const prefix = `${props.id}-w`;
+    if (!props.active?.startsWith(prefix)) return;
+    const word = Number(props.active.slice(prefix.length));
+    const chunks = props.chunks;
+    const pending = props.pending;
+    untrack(() => {
+      if (!chunks) {
+        if (!pending) props.onWait(null);
+        return;
+      }
+      // The chunks join with spaces into the line, so the word's chunk is the one whose words take the count past it.
+      let words = 0;
+      const i = chunks.findIndex((c) => (words += c.text.split(" ").length) > word);
+      if (i === -1) props.onWait(null);
+      else props.onTap(key(i), chunks[i].text);
+    });
+  });
   return (
     <div class={props.class} classList={props.classList}>
-      <For each={props.chunks}>
-        {(c, i) => (
-          <>
-            <span class="qa-chunk chunk position-relative" classList={{ active: props.active === key(i()) }} onClick={() => props.onTap(key(i()), c.text)}>
-              {c.text}
-              <Show when={props.active === key(i())}>
-                <span class="qa-gloss tooltip bs-tooltip-bottom show position-absolute top-100 start-50 translate-middle-x" role="tooltip">
-                  <span class="tooltip-arrow" style={{ left: "calc(50% - var(--bs-tooltip-arrow-width) / 2)" }} />
-                  <span class="tooltip-inner d-block text-nowrap">
-                    <Show when={props.preparing}><span class="qa-gloss-spinner spinner-border spinner-border-sm me-2" role="status" aria-label={t("speak.preparingAudio")} /></Show>
-                    {c.gloss}
-                  </span>
-                </span>
-              </Show>
-            </span>{" "}
-          </>
+      <Show when={props.chunks} fallback={
+        <Show when={props.pending} fallback={props.text}>
+          <For each={props.text.split(" ")}>
+            {(w, i) => (
+              <>
+                <span class="qa-chunk-waiting chunk position-relative" classList={{ active: props.active === wordKey(i()) }} onClick={() => props.onWait(wordKey(i()))}>
+                  {w}
+                  <Show when={props.active === wordKey(i())}>
+                    <Tip class="qa-gloss-waiting"><span class="spinner-border spinner-border-sm me-2" aria-hidden="true" />{t("app.loading")}</Tip>
+                  </Show>
+                </span>{" "}
+              </>
+            )}
+          </For>
+        </Show>
+      }>
+        {(chunks) => (
+          <For each={chunks()}>
+            {(c, i) => (
+              <>
+                <span class="qa-chunk chunk position-relative" classList={{ active: props.active === key(i()) }} onClick={() => props.onTap(key(i()), c.text)}>
+                  {c.text}
+                  <Show when={props.active === key(i())}>
+                    <Tip class="qa-gloss">
+                      <Show when={props.preparing}><span class="qa-gloss-spinner spinner-border spinner-border-sm me-2" role="status" aria-label={t("speak.preparingAudio")} /></Show>
+                      {c.gloss}
+                    </Tip>
+                  </Show>
+                </span>{" "}
+              </>
+            )}
+          </For>
         )}
-      </For>
+      </Show>
     </div>
   );
 }
@@ -54,7 +106,7 @@ function LevelBadge(props: { level: string | null; side: "start" | "end" }) {
 }
 
 /** `latest` is the conversation's last turn, set larger so the line to answer stands out. */
-function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void }) {
+function Turn(props: { turn: TurnOut; latest: boolean; pending: boolean; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void; onWait: (key: string | null) => void }) {
   const turn = () => props.turn;
   /** The learner's replies replay from this browser; the server never stores them. */
   const [kept] = createResource(() => turn().role === "learner" && turn().id, recordingUrl);
@@ -62,9 +114,7 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
     <Show when={turn().role === "partner"} fallback={
       <div class="qa-turn qa-turn-learner align-self-end text-end" style={{ "max-width": "85%" }}>
         <div class="d-inline-flex align-items-center gap-2 p-2 rounded border bubble-learner bg-primary-subtle position-relative">
-          <Show when={turn().chunks} fallback={<span class="qa-turn-text">{turn().text}</span>}>
-            {(chunks) => <ChunkLine class="qa-turn-text" chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
-          </Show>
+          <ChunkLine class="qa-turn-text" text={turn().text} chunks={turn().chunks} pending={props.pending} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} onWait={props.onWait} />
           <LevelBadge level={turn().level} side="end" />
           <Show when={kept()}>{(u) => <PlayButton url={u()} class="qa-turn-play-own btn-link p-0" />}</Show>
         </div>
@@ -76,9 +126,7 @@ function Turn(props: { turn: TurnOut; latest: boolean; active: string | null; pr
     }>
       <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded border bubble-partner bg-body-secondary position-relative" style={{ "max-width": "85%" }}>
         <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" />
-        <Show when={turn().chunks} fallback={<span class="qa-turn-text" classList={{ "fs-5": props.latest }}>{turn().text}</span>}>
-          {(chunks) => <ChunkLine class="qa-turn-text" classList={{ "fs-5": props.latest }} chunks={chunks()} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} />}
-        </Show>
+        <ChunkLine class="qa-turn-text" classList={{ "fs-5": props.latest }} text={turn().text} chunks={turn().chunks} pending={props.pending} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} onWait={props.onWait} />
         <LevelBadge level={turn().level} side="start" />
       </div>
     </Show>
@@ -161,6 +209,8 @@ export function Conversation() {
   let end: HTMLDivElement | undefined;
   /** The "How do I say...?" answer; its chunks arrive after the sentence. */
   const [how, setHow] = createSignal<(HowSentence & { chunks: Chunk[] | null }) | null>(null);
+  /** From the How sentence's arrival until its chunks do (or glossing fails). */
+  const [howGlossing, setHowGlossing] = createSignal(false);
   const [howState, setHowState] = createSignal<HowState>("idle");
   const [busy, setBusy] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
@@ -182,6 +232,8 @@ export function Conversation() {
     autoplay(url);
     setRevealed((s) => new Set(s).add(key));
   };
+  /** A word tapped before its line's chunks arrived: its loading tooltip toggles like a chunk's, without speaking. */
+  const wait = (key: string | null) => setActiveChunk((k) => (key === null || k === key ? null : key));
   const closeTooltip = (e: MouseEvent) => {
     if (!(e.target as Element).closest(".chunk")) setActiveChunk(null);
   };
@@ -193,14 +245,17 @@ export function Conversation() {
   // Turns arrive before their glosses, which the server finishes after the partner's line is spoken. Each turn is
   // asked about once: one whose gloss failed stays plain text.
   const askedGlosses = new Set<number>();
+  /** Glosses requests in flight; while any is, a turn without chunks may still get them. */
+  const [glossing, setGlossing] = createSignal(0);
   createEffect(() => {
     const waiting = conv()?.turns.filter((x) => x.chunks === null && !askedGlosses.has(x.id)) ?? [];
     if (!waiting.length) return;
     waiting.forEach((x) => askedGlosses.add(x.id));
+    setGlossing((n) => n + 1);
     api.get<GlossesOut>(`/api/conversations/${c().id}/glosses`).then((res) => {
       const glossed = new Map(res.turns.map((x) => [x.id, x]));
       mutate({ ...c(), spend: res.spend, turns: c().turns.map((x) => glossed.get(x.id) ?? x) });
-    }, (e) => setError((e as Error).message));
+    }, (e) => setError((e as Error).message)).finally(() => setGlossing((n) => n - 1));
   });
   /** A new turn clears the reply in progress and speaks the partner's answer. */
   const advance = (turns: TurnOut[], patch: Partial<ConversationOut>) => {
@@ -293,6 +348,7 @@ export function Conversation() {
     try {
       const res = await api.postStream<HowOut, { sentence: HowSentence }>(`/api/conversations/${c().id}/how`, { audio, mime }, (e) => {
         setHow({ ...e.sentence, chunks: null });
+        setHowGlossing(true);
         setHowState("idle");
       });
       update({ spend: res.spend });
@@ -301,6 +357,7 @@ export function Conversation() {
     } catch (e) {
       setError((e as Error).message);
     } finally {
+      setHowGlossing(false);
       setHowState("idle");
     }
   };
@@ -323,7 +380,7 @@ export function Conversation() {
         <div class="small text-body-secondary">{t("speak.tapHint")}</div>
 
         <div class="d-flex flex-column gap-3">
-          <For each={c().turns}>{(turn, i) => <Turn turn={turn} latest={i() === c().turns.length - 1} active={activeChunk()} preparing={preparing()} onTap={tap} />}</For>
+          <For each={c().turns}>{(turn, i) => <Turn turn={turn} latest={i() === c().turns.length - 1} pending={glossing() > 0} active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />}</For>
         </div>
 
         <Show when={last().role === "learner"}>
@@ -370,7 +427,7 @@ export function Conversation() {
                           // The flex row sits inside the item: flex on the <li> itself drops its bullet.
                           <li class="qa-suggestion mb-1">
                             <div class="d-flex align-items-start gap-2">
-                              <ChunkLine chunks={s} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} />
+                              <ChunkLine text={s.map((x) => x.text).join(" ")} chunks={s} pending={false} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />
                               <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
                             </div>
                           </li>
@@ -411,9 +468,7 @@ export function Conversation() {
                       <div>
                         <div class="small text-uppercase fw-semibold text-body-secondary">{t("speak.howResult")}</div>
                         <div class="d-flex align-items-start gap-2">
-                          <Show when={h().chunks} fallback={<span class="qa-how-sentence">{h().sentence}</span>}>
-                            {(chunks) => <ChunkLine class="qa-how-sentence" chunks={chunks()} id="how" active={activeChunk()} preparing={preparing()} onTap={tap} />}
-                          </Show>
+                          <ChunkLine class="qa-how-sentence" text={h().sentence} chunks={h().chunks} pending={howGlossing()} id="how" active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />
                           <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(h().sentence)}`} class="qa-how-play btn-link p-0" />
                         </div>
                       </div>

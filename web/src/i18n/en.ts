@@ -124,7 +124,6 @@ export const en = {
   "exercise.moreHint": "More hint",
   "exercise.hintBox": "Hint",
   "exercise.hintWords": "{count} words",
-  "exercise.reveal": "Show answer",
   "exercise.keys": "Type exactly what you hear. `Enter` checks, `Space` moves to the next word, `Esc` replays.",
   "exercise.retry": "Not quite. Fix the marked parts and press Check again.",
   "exercise.saveFailed": "Could not save progress: {error}",

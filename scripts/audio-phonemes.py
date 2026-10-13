@@ -18,15 +18,16 @@ from phonemizer.backend.espeak.wrapper import EspeakWrapper
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
 MODEL = "facebook/wav2vec2-xlsr-53-espeak-cv-ft"
-ESPEAK = {"it": "it", "en": "en-us", "nl": "nl", "fr": "fr-fr", "ga": "ga"}
+ESPEAK = {"it": "it", "en": "en-us", "nl": "nl", "fr": "fr-fr", "ga": "ga", "es": "es-419", "el": "el"}
 
 audio_dir = sys.argv[1]
 # Point phonemizer at the bundled espeak-ng before the recognizer loads; its tokenizer fails with "espeak not installed" otherwise.
 EspeakWrapper.set_library(espeakng_loader.get_library_path())
 EspeakWrapper.set_data_path(espeakng_loader.get_data_path())
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+# CPU, not MPS: MPS caches a buffer per input length, and with every clip a different length it grew past 17 GB.
+# CPU peaks near 2.2 GB and is about as fast (~100 clips a minute).
 processor = Wav2Vec2Processor.from_pretrained(MODEL)
-model = Wav2Vec2ForCTC.from_pretrained(MODEL).to(device).eval()
+model = Wav2Vec2ForCTC.from_pretrained(MODEL).eval()
 
 
 def load(job):
@@ -39,7 +40,7 @@ jobs = [json.loads(line) for line in sys.stdin]
 with ThreadPoolExecutor(4) as pool:
     # Chunked so decoding runs only a little ahead of the model, not the whole list into memory.
     for job, audio in (r for i in range(0, len(jobs), 64) for r in pool.map(load, jobs[i:i + 64])):
-        values = processor(audio, sampling_rate=16000, return_tensors="pt").input_values.to(device)
+        values = processor(audio, sampling_rate=16000, return_tensors="pt").input_values
         with torch.no_grad():
             heard = processor.batch_decode(model(values).logits.argmax(-1).cpu())[0]
         want = phonemizer.phonemize(job["text"].strip(), ESPEAK[job["lang"]], preserve_punctuation=True, with_stress=True).strip()

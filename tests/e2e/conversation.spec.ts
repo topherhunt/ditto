@@ -1,5 +1,5 @@
 import { expect, test } from "./fixtures.ts";
-import type { ConversationOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
+import type { ConversationOut, GlossesOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
 import { recordPlays, signIn, signOut, type Played } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
@@ -146,6 +146,77 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-how-listening")).toHaveCount(0);
   await expect(page.locator(".qa-record")).toBeEnabled();
   await expect(page.locator("input.qa-how-text")).toHaveCount(0);
+});
+
+/** Turns arrive without chunks, as when the gloss outlasts the speech (the fake glosses at once), and the glosses route answers on release(); with `fail`, without chunks still. */
+async function glossLater(page: import("@playwright/test").Page, fail = false) {
+  const strip = (turns: TurnOut[]) => turns.map((x) => ({ ...x, chunks: null }));
+  await page.route(/\/api\/conversations(\/\d+)?$/, async (route) => {
+    const conv = await (await route.fetch()).json() as ConversationOut;
+    await route.fulfill({ json: { ...conv, turns: strip(conv.turns) } });
+  });
+  let release!: () => void;
+  const held = new Promise<void>((r) => (release = r));
+  await page.route("**/glosses", async (route) => {
+    await held;
+    if (!fail) return route.continue();
+    const res = await (await route.fetch()).json() as GlossesOut;
+    await route.fulfill({ json: { ...res, turns: strip(res.turns) } });
+  });
+  return release;
+}
+
+test("a word tapped before its line is glossed shows a loading tooltip, then the gloss of its chunk once it arrives", async ({ page }) => {
+  await recordPlays(page);
+  await signIn(page, "early-tapper@example.com");
+  await page.goto("/it/talk");
+  const release = await glossLater(page);
+  await page.locator(".qa-speak-starter").first().click();
+
+  const opening = page.locator(".qa-turn-partner").first();
+  await expect(opening.locator(".qa-chunk-waiting")).toHaveText(["Buongiorno!", "Cosa", "prende?"]);
+  await opening.locator(".qa-chunk-waiting").nth(1).click();
+  await expect(page.locator(".qa-gloss-waiting")).toHaveText("Loading…");
+  await expect(page.locator(".qa-gloss-waiting .spinner-border")).toBeVisible();
+  release();
+  // The tap replays on the chunk holding the word: its gloss shows and it is spoken.
+  await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
+  await expect(page.locator(".qa-gloss-waiting")).toHaveCount(0);
+  await expect.poll(async () => decodeURIComponent((await page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)) ?? "")).toMatch(/\/say\?text=Cosa prende\?$/);
+});
+
+test("a tapped chunk's gloss shows a spinner until its audio starts playing", async ({ page }) => {
+  await signIn(page, "slow-say@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter").first().click();
+  let release!: () => void;
+  const held = new Promise<void>((r) => (release = r));
+  await page.route("**/say?*", async (route) => {
+    await held;
+    await route.continue();
+  });
+  await page.locator(".qa-turn-partner .qa-chunk").first().click();
+  await expect(page.locator(".qa-gloss")).toHaveText("Good morning!");
+  // Long enough for the silent clip that unlocks the player to have played.
+  await page.waitForTimeout(500);
+  await expect(page.locator(".qa-gloss-spinner")).toBeVisible();
+  release();
+  await expect(page.locator(".qa-gloss-spinner")).toHaveCount(0);
+});
+
+test("a word tapped before a gloss that fails loses its loading tooltip and the line turns plain", async ({ page }) => {
+  await signIn(page, "failed-gloss@example.com");
+  await page.goto("/it/talk");
+  const release = await glossLater(page, true);
+  await page.locator(".qa-speak-starter").first().click();
+
+  const opening = page.locator(".qa-turn-partner").first();
+  await opening.locator(".qa-chunk-waiting").first().click();
+  await expect(page.locator(".qa-gloss-waiting")).toBeVisible();
+  release();
+  await expect(page.locator(".qa-gloss-waiting")).toHaveCount(0);
+  await expect(opening.locator(".qa-chunk-waiting")).toHaveCount(0);
+  await expect(opening.locator(".qa-turn-text")).toHaveText("Buongiorno! Cosa prende?");
 });
 
 test("a conversation taller than the screen offers floating scroll-to-bottom and scroll-to-top buttons", async ({ page }) => {

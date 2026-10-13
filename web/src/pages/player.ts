@@ -11,8 +11,9 @@ export const [playing, setPlaying] = createSignal<string | null>(null);
 export const [loading, setLoading] = createSignal(false);
 const SILENCE = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=";
 // A pause queued by switching to another clip fires once the new one is already playing, so `paused` tells them apart; the
-// unlocking silence never ends what's playing, since its clip is still loading.
+// unlocking silence never ends or starts what's playing, since its clip is still loading.
 for (const e of ["pause", "ended"]) player.addEventListener(e, () => { if (player.paused && player.src !== SILENCE) { setPlaying(null); setLoading(false); } });
+player.addEventListener("playing", () => { if (player.src !== SILENCE) setLoading(false); });
 // A failed clip refreshes the spend with a free call, to tell a refused paid render.
 function failed() {
   setPlaying(null);
@@ -20,13 +21,15 @@ function failed() {
   void api.get("/api/me").then(() => { if (capReached()) hitCap(); });
 }
 player.addEventListener("error", failed);
-player.addEventListener("playing", () => setLoading(false));
 
+// A clip's play() rejects when another clip (or the unlocking silence) replaces it, and must not reset the newer clip's state.
 function start(src: string) {
   player.src = src;
   return player.play().catch((e: unknown) => {
-    setPlaying(null);
-    setLoading(false);
+    if (player.src === src) {
+      setPlaying(null);
+      setLoading(false);
+    }
     throw e;
   });
 }
@@ -40,7 +43,7 @@ export const play = (url: string) => {
   // The fetch outlasts the click, so the click unlocks the element for the play that follows it.
   unlockPlayer();
   return load(url).then((src) => (playing() === url ? start(src) : undefined), (e: unknown) => {
-    failed();
+    if (playing() === url) failed();
     throw e;
   });
 };

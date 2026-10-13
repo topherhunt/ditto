@@ -124,7 +124,6 @@ export const es419: Dictionary = {
   "exercise.moreHint": "Más pistas",
   "exercise.hintBox": "Pista",
   "exercise.hintWords": "{count} palabras",
-  "exercise.reveal": "Ver respuesta",
   "exercise.keys": "Escribe exactamente lo que oyes. `Enter` comprueba, `Espacio` pasa a la palabra siguiente, `Esc` repite.",
   "exercise.retry": "Casi. Corrige las partes marcadas y vuelve a pulsar Comprobar.",
   "exercise.saveFailed": "No se pudo guardar el progreso: {error}",

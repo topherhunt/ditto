@@ -68,7 +68,7 @@ test("learn a lesson: accent leniency, letter corrections, hints up to the full 
   await expect(page.locator(".qa-outcome")).toContainText("Revealed");
   await page.locator(".qa-next").click();
 
-  // "per favore": a lesson has no Show answer button; one hint short of the full answer is "with hints".
+  // "per favore": there is no Show answer button; one hint short of the full answer is "with hints".
   await expect(page.locator(".qa-reveal")).toHaveCount(0);
   await page.locator(".qa-hint").click();
   await slot(page, 0).fill("per");

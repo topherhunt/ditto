@@ -28,9 +28,7 @@ test("next lesson button, then a level test: fail on the first miss, retry, pass
     await page.locator(".qa-testout-go").click();
   });
   await expect(page).toHaveURL(/\/it\/type\/test\/A1$/);
-  // No hints, so Show answer is the way out for a learner who has no idea.
   await expect(page.locator(".qa-hint")).toHaveCount(0);
-  await expect(page.locator(".qa-reveal")).toBeVisible();
   // One wrong check ends the item, and the test with it.
   await page.locator(".qa-free-input").fill("sbagliato");
   await page.locator(".qa-free-input").press("Enter");

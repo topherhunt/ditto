@@ -35,7 +35,7 @@ function shuffle<T>(items: T[]): T[] {
 /**
  * One dictation item, plus a "Report a problem" link under it. Mount it keyed by unit, in a flex column;
  * it records the attempt when finished, passing onFinished the pending save, and calls onNext after.
- * In a lesson there is no Show answer button; the last hint step shows every letter and counts as revealed.
+ * There is no Show answer: a wrong check shows the letters to fix, and the last hint step shows every letter (counted as revealed).
  * In a level test there are no hints, the first wrong answer ends the item, and nothing is recorded.
  * In a Master run there are no hints either, but answers are recorded (as learn attempts flagged `master`).
  * With `study`, the item is first shown and played with its translation, and the input appears when the learner is ready.
@@ -61,7 +61,6 @@ export function Exercise(props: {
   const [hintsUsed, setHintsUsed] = createSignal(0);
   const ladder = hintLadder(props.prefs.hints);
   const [done, setDone] = createSignal(false);
-  const [revealed, setRevealed] = createSignal(false);
   const [autoplayBlocked, setAutoplayBlocked] = createSignal(false);
   const [saveError, setSaveError] = createSignal<string | null>(null);
   const [selectedWord, setSelectedWord] = createSignal<ServedWord | null>(null);
@@ -179,13 +178,6 @@ export function Exercise(props: {
     queueMicrotask(focusFirstOpen);
   }
 
-  function reveal() {
-    playResult(false);
-    celebrate(false, card);
-    setRevealed(true);
-    finish(accentWords.size);
-  }
-
   /** The dictation is over; the attempt is recorded once the meaning check (if any) is answered too. */
   function finish(accentSlips: number) {
     setDone(true);
@@ -219,7 +211,7 @@ export function Exercise(props: {
     props.onFinished(missed && ["clean", "hinted"].includes(d.outcome) ? "corrected" : d.outcome, save);
   }
 
-  const outcome = () => outcomeOf({ revealed: revealed() || hintsUsed() === ladder.length, wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() });
+  const outcome = () => outcomeOf({ revealed: hintsUsed() === ladder.length, wrongSubmissions: wrongSubmissions(), hintsUsed: hintsUsed() });
   const outcomeLabels = { clean: "exercise.perfect", hinted: "exercise.hinted", corrected: "exercise.corrected", revealed: "exercise.revealed" } as const;
 
   /** Next is available once nothing is left to answer. */
@@ -425,7 +417,6 @@ export function Exercise(props: {
           <div class="d-flex flex-wrap gap-2">
             <button type="button" class="qa-check btn btn-success" onClick={submit}>{t("exercise.check")}</button>
             <Show when={!test && !master && hintsUsed() < ladder.length}><button type="button" class="qa-hint btn btn-outline-secondary" onClick={hint}>{t(hintsUsed() === 0 ? "exercise.hint" : "exercise.moreHint")}</button></Show>
-            <Show when={test || master}><button type="button" class="qa-reveal btn btn-outline-danger ms-auto" onClick={reveal}>{t("exercise.reveal")}</button></Show>
           </div>
           <Show when={wrongSubmissions() > 0} fallback={<div class="small text-body-secondary"><KeyHint text={t("exercise.keys")} /></div>}>
             <div class="qa-retry small text-danger">{t("exercise.retry")}</div>
@@ -434,7 +425,7 @@ export function Exercise(props: {
 
         <Show when={done()}>
           <Show when={saveError()}>{(err) => <div class="alert alert-danger mb-0">{t("exercise.saveFailed", { error: err() })}</div>}</Show>
-          <Show when={settled() && submissions.length > 0 && (wrongSubmissions() > 0 || revealed())}>
+          <Show when={settled() && wrongSubmissions() > 0}>
             <div class="qa-explain">
               <Show when={explanation()} fallback={
                 <button type="button" class="qa-why btn btn-sm btn-outline-info" disabled={explainState() === "loading"} onClick={explain}>

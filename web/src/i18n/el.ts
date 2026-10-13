@@ -124,7 +124,6 @@ export const el: Dictionary = {
   "exercise.moreHint": "Περισσότερη υπόδειξη",
   "exercise.hintBox": "Υπόδειξη",
   "exercise.hintWords": "{count} λέξεις",
-  "exercise.reveal": "Δείξε την απάντηση",
   "exercise.keys": "Γράψε ακριβώς αυτό που ακούς. Το `Enter` ελέγχει, το `Space` πάει στην επόμενη λέξη, το `Esc` ξαναπαίζει τον ήχο.",
   "exercise.retry": "Όχι ακριβώς. Διόρθωσε τα σημειωμένα σημεία και πάτα ξανά Έλεγχος.",
   "exercise.saveFailed": "Δεν αποθηκεύτηκε η πρόοδος: {error}",

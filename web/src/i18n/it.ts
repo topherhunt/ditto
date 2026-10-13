@@ -124,7 +124,6 @@ export const it: Dictionary = {
   "exercise.moreHint": "Più aiuto",
   "exercise.hintBox": "Aiuto",
   "exercise.hintWords": "{count} parole",
-  "exercise.reveal": "Mostra la risposta",
   "exercise.keys": "Scrivi esattamente ciò che senti. `Invio` controlla, `Spazio` passa alla parola successiva, `Esc` riascolta.",
   "exercise.retry": "Non proprio. Correggi le parti segnate e premi di nuovo Controlla.",
   "exercise.saveFailed": "Impossibile salvare i progressi: {error}",
