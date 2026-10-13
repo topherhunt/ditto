@@ -15,6 +15,10 @@ PEAK = 0.95
 PAD_SECONDS = 0.15
 SILENCE = 0.01
 
+
+class Silent(Exception):
+    """One text the engine won't voice: skipped, so it stays missing and build-audio lists it, rather than ending the run."""
+
 if voice["engine"] == "abair":
     # ABAIR (Trinity College Dublin) serves this free endpoint for its web reader. Be a polite guest:
     # one request at a time (build-audio.ts runs abair voices sequentially) with a pause after each, and an honest
@@ -75,7 +79,7 @@ elif voice["engine"] == "elevenlabs":
                 sys.exit(f"OpenRouter unreachable for {text!r}: {e}")
             if samples.size and np.max(np.abs(samples)) > SILENCE:
                 return samples, 24000
-        sys.exit(f"OpenRouter rendered silence 5 times for {text!r}")
+        raise Silent(f"OpenRouter rendered silence 5 times for {text!r}")
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 
@@ -99,7 +103,11 @@ with tempfile.TemporaryDirectory() as tmp:
     wav_path = Path(tmp) / "out.wav"
     for line in sys.stdin:
         job = json.loads(line)
-        samples, rate = synth(job["text"])
+        try:
+            samples, rate = synth(job["text"])
+        except Silent as e:
+            print(f"SKIPPED: {e}", file=sys.stderr, flush=True)
+            continue
         pcm = (finish(np.asarray(samples, dtype=np.float32), rate, job.get("cut") or 0) * 32767).astype(np.int16)
         with wave.open(str(wav_path), "wb") as wav:
             wav.setnchannels(1)

@@ -358,14 +358,18 @@ export function Conversation() {
                   )}
                 </Show>
                 <li>
-                  <button type="button" data-silent class="qa-how-open btn btn-link p-0 align-baseline" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>{t("speak.how")}</button>
-                  <Show when={howState() === "recording"}>
-                    <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 mt-2 mb-0" role="status">
-                      <i class="bi bi-mic-fill fs-3 pulse" aria-hidden="true" />
-                      <span class="me-auto">{t("speak.howListening")}</span>
+                  {/* While listening, Stop takes the button's place, so one spot starts and stops. */}
+                  <Show when={howState() === "recording"} fallback={
+                    <button type="button" data-silent class="qa-how-open btn btn-primary" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>
+                      <i class="bi bi-mic-fill me-1" aria-hidden="true" />{t("speak.how")}
+                    </button>
+                  }>
+                    <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 p-2 mb-0" role="status">
                       <button type="button" data-silent class="qa-how-stop btn btn-danger" onClick={() => howRecorder!.stop()}>
                         <i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}
                       </button>
+                      <i class="bi bi-mic-fill fs-3 pulse" aria-hidden="true" />
+                      <span>{t("speak.howListening")}</span>
                     </div>
                   </Show>
                   <Show when={howState() === "translating"}>
@@ -378,8 +382,11 @@ export function Conversation() {
                     {(h) => (
                       <div class="qa-how-result mt-2">
                         <div class="qa-how-heard small text-body-secondary">{t("speak.youSaid")} <i>{h().heard}</i></div>
-                        <span class="small text-body-secondary me-1">{t("speak.howResult")}</span>
-                        <span class="fs-5 fw-semibold">{h().sentence}</span>
+                        <div class="small text-body-secondary">{t("speak.howResult")}</div>
+                        <div class="d-flex align-items-start gap-2">
+                          <span class="qa-how-sentence fs-5 fw-semibold">{h().sentence}</span>
+                          <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(h().sentence)}`} class="qa-how-play btn-link p-0" />
+                        </div>
                         <div class="small text-body-secondary">{h().chunks.map((x) => `${x.text} = ${x.gloss}`).join(" · ")}</div>
                       </div>
                     )}

@@ -1,5 +1,5 @@
 import { writeFileSync } from "node:fs";
-import { LANGUAGE_NAMES, type Language } from "../shared/content.ts";
+import type { Language } from "../shared/content.ts";
 import type { Voice } from "./content.ts";
 import { log } from "./log.ts";
 import { charUsage, type Usage } from "./usage.ts";
@@ -14,7 +14,8 @@ export const TTS_MODEL = "elevenlabs/eleven-v4-turbo";
 const PCM_TYPE = "audio/pcm;rate=24000;channels=1";
 const RATE = 24000;
 
-const TAGGED = new Set<Language>(["it", "es", "fr", "nl"]);
+/** Plain names: Latin American Spanish comes from the course's vocabulary and grammar, not a longer, costlier tag. */
+const TAGS: Partial<Record<Language, string>> = { it: "Italian", es: "Spanish", fr: "French", nl: "Dutch" };
 
 /**
  * What Eleven v4 Turbo is sent for `text`. It infers the language from the text, but reads a lone word or two in
@@ -23,7 +24,8 @@ const TAGGED = new Set<Language>(["it", "es", "fr", "nl"]);
  */
 export function speechInput(text: string, language: Language): string {
   const short = text.trim().split(/\s+/).length <= 2;
-  return TAGGED.has(language) && short && /^[\x00-\x7f]*$/.test(text) ? `[in ${LANGUAGE_NAMES[language]}] ${text}` : text;
+  const tag = TAGS[language];
+  return tag && short && /^[\x00-\x7f]*$/.test(text) ? `[in ${tag}] ${text}` : text;
 }
 
 /** A 44-byte WAV header for 16-bit mono PCM. */

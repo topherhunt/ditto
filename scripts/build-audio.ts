@@ -25,3 +25,8 @@ if (process.argv.includes("--prune")) {
 const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file)));
 console.log(`${missing.length} of ${audioJobs.length} audio files to render`);
 await renderJobs(missing, audioDir);
+const skipped = missing.filter((j) => !existsSync(join(audioDir, j.file)));
+if (skipped.length) {
+  for (const j of skipped) console.error(`Not rendered: ${j.language} ${j.voice.id} ${JSON.stringify(j.fix?.say ?? j.text)}`);
+  throw new Error(`${skipped.length} files not rendered; add a say in content/audio-fixes.json and run again`);
+}

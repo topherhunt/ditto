@@ -73,7 +73,7 @@ describe("ElevenLabs speech", () => {
 describe("speechInput", () => {
   it("tags one or two plain-ASCII words in it, es, fr and nl, where the model would guess English", () => {
     expect(speechInput("come", "it")).toBe("[in Italian] come");
-    expect(speechInput("Buenas noches", "es")).toBe("[in Latin American Spanish] Buenas noches");
+    expect(speechInput("Buenas noches", "es")).toBe("[in Spanish] Buenas noches");
     expect(speechInput("de rekening", "nl")).toBe("[in Dutch] de rekening");
   });
 

@@ -125,13 +125,17 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-suggestion")).toHaveCount(0);
   await page.locator(".qa-how-open").click();
   await expect(page.locator(".qa-how-listening")).toBeVisible();
+  // Stop takes the button's place.
+  await expect(page.locator(".qa-how-open")).toHaveCount(0);
   await expect(page.locator(".qa-how-listening .pulse")).toBeVisible();
   expect(await page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src))).toContainEqual(expect.stringMatching(/\/marimba-note-[\w-]+\.mp3$/));
   await expect(page.locator(".qa-record")).toBeDisabled();
   await page.waitForTimeout(300);
   await page.locator(".qa-how-stop").click();
   await expect(page.locator(".qa-how-heard")).toContainText("Vorrei un caffè");
-  await expect(page.locator(".qa-how-result")).toContainText("Vorrei un tè freddo.");
+  await expect(page.locator(".qa-how-sentence")).toHaveText("Vorrei un tè freddo.");
+  await page.locator(".qa-how-play").click();
+  await expect.poll(async () => decodeURIComponent((await page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)) ?? "")).toMatch(/\/say\?text=Vorrei un tè freddo\.$/);
   await expect(page.locator(".qa-how-listening")).toHaveCount(0);
   await expect(page.locator(".qa-record")).toBeEnabled();
   await expect(page.locator("input.qa-how-text")).toHaveCount(0);
