@@ -200,7 +200,7 @@ export type TurnOut = {
   id: number;
   role: "partner" | "learner";
   text: string;
-  /** A learner turn's arrive with the partner's answer to it. */
+  /** Null until glossed, after the turn arrives (GlossesOut), or for good if glossing failed. */
   chunks: Chunk[] | null;
   /** Partner turns only. */
   suggestions: Chunk[][] | null;
@@ -251,8 +251,10 @@ export type ConversationsOut = { conversations: ConversationSummary[]; weakPhras
 /** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
 export type SpeakAttemptResult = { attempt: SpeakAttemptOut; turns: TurnOut[]; reliance: Reliance; spend: Spend };
 export type MoveOnResult = { turns: TurnOut[]; reliance: Reliance; spend: Spend };
-/** `turns`: the learner's last turn, now with chunks, and the partner's answer. */
+/** `turns`: the learner's last turn and the partner's answer. */
 export type PartnerRetryResult = { turns: TurnOut[]; spend: Spend };
+/** Every turn of the conversation, once glossing in progress has finished; `spend` includes it. */
+export type GlossesOut = { turns: TurnOut[]; spend: Spend };
 /** `heard`: the transcript of the spoken question. */
 export type HowOut = { heard: string; sentence: string; chunks: Chunk[]; spend: Spend };
 export type AdminSpendOut = { days: string[]; users: { email: string; username: string | null; total: number; byDay: Record<string, number> }[] };

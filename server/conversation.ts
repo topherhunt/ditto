@@ -9,7 +9,7 @@ import { z } from "zod";
 import {
   HowSchema, MOVE_ON_AFTER, MoveOnSchema, NewConversationSchema, PutConversationSchema, SPEAK_LANGUAGES, SpeakAttemptSchema, SpeakReportSchema,
   type AdminSpeakReport, type AdminSpendOut, type CheckStep, type Chunk, type CoachVerdict, type ConversationOut, type ConversationsOut, type ConversationSummary,
-  type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
+  type GlossesOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type Reliance, type SpeakAttemptEvent, type SpeakAttemptOut, type SpeakAttemptResult, type Spend, type Starter, type TurnOut, type TurnSource,
 } from "../shared/api.ts";
 import type { Language, Locale } from "../shared/content.ts";
 import { isAdmin } from "./admin.ts";
@@ -137,9 +137,13 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     return null;
   };
 
+  /** Glosses still being written, by conversation; GET .../glosses waits for them. In memory, so a restart leaves those turns unglossed. */
+  const glossing = new Map<number, Promise<unknown>>();
+
   /**
-   * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. A second call, run while
-   * the line is spoken, glosses it and the learner's line it answers, so it returns that turn too, then its own.
+   * The partner's next line, spoken, stored as a turn; the opening line also names the conversation. It returns the
+   * learner's line it answers too. Both come back without chunks: a second call glosses them in the background, since
+   * it takes longer than the speech (GET .../glosses).
    */
   const partnerTurn = async (conv: ConversationRow, userId: number): Promise<TurnOut[]> => {
     const { ai, audioDir } = speak();
@@ -149,17 +153,34 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const text = result.line;
     const file = newAudioFile(conv.id);
     const lines = learner ? [learner.text, text] : [text];
-    const [glossed] = await Promise.all([glossLines(conv, userId, lines), say(conv, userId, text, join(audioDir, file))]);
-    const [learnerChunks, chunks] = glossed === null ? [null, null] : learner ? glossed : [null, glossed[0]];
+    const glossed = glossLines(conv, userId, lines);
+    try {
+      await say(conv, userId, text, join(audioDir, file));
+    } catch (e) {
+      // No turn is stored, so its gloss has nothing to land on; awaited so its spend is recorded before the error returns.
+      await glossed;
+      throw e;
+    }
     const now = deps.now().toISOString();
-    transaction(db, () => {
+    const partnerId = transaction(db, () => {
       if (conv.title === "") db.prepare("UPDATE conversations SET title = ? WHERE id = ?").run(result.title, conv.id);
       db.prepare("UPDATE conversations SET updated_at = ? WHERE id = ?").run(now, conv.id);
-      if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(learnerChunks), learner.id);
-      db.prepare(
-        "INSERT INTO conversation_turns (conversation_id, role, text, chunks, suggestions, audio_file, level, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?, ?)",
-      ).run(conv.id, text, JSON.stringify(chunks), JSON.stringify(result.suggestions), file, result.level, now);
+      return Number(db.prepare(
+        "INSERT INTO conversation_turns (conversation_id, role, text, suggestions, audio_file, level, created_at) VALUES (?, 'partner', ?, ?, ?, ?, ?)",
+      ).run(conv.id, text, JSON.stringify(result.suggestions), file, result.level, now).lastInsertRowid);
     });
+    const stored = glossed.then((g) => {
+      if (g === null) return;
+      if (learner) db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(g[0]), learner.id);
+      db.prepare("UPDATE conversation_turns SET chunks = ? WHERE id = ?").run(JSON.stringify(g.at(-1)), partnerId);
+    }).catch((e) => {
+      log.error(e);
+      void reportError(e);
+    });
+    const pending = Promise.all([glossing.get(conv.id), stored]).finally(() => {
+      if (glossing.get(conv.id) === pending) glossing.delete(conv.id);
+    });
+    glossing.set(conv.id, pending);
     return turnRows(conv.id).slice(learner ? -2 : -1).map((t) => toTurn(conv.id, t));
   };
 
@@ -321,6 +342,14 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
     if (turnRows(conv.id).at(-1)?.role !== "learner") throw new HTTPException(409, { message: "It's the learner's turn" });
     return c.json<PartnerRetryResult>({ turns: await partnerTurn(conv, userId), spend: spend(userId, conv.id) });
+  });
+
+  // The turns once glossing in progress is done: chunks for those it glossed, still null for any whose gloss failed.
+  app.get("/api/conversations/:id/glosses", async (c) => {
+    const userId = c.get("user").id;
+    const conv = conversationOr404(Id.parse(c.req.param("id")), userId);
+    await glossing.get(conv.id);
+    return c.json<GlossesOut>({ turns: turnRows(conv.id).map((t) => toTurn(conv.id, t)), spend: spend(userId, conv.id) });
   });
 
   app.post("/api/conversations/:id/how", async (c) => {

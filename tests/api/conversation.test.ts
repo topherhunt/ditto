@@ -28,7 +28,9 @@ async function speak(overrides: Partial<AppDeps> = {}) {
     const end = events.at(-1);
     return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
   };
-  return { ...t, ai: conversation.ai, voices, start, reply };
+  /** Every turn once glossing in progress is done. */
+  const glosses = async (id: number) => (await t.req("GET", `/api/conversations/${id}/glosses`)).json;
+  return { ...t, ai: conversation.ai, voices, start, reply, glosses };
 }
 
 const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
@@ -61,13 +63,15 @@ describe("conversation mode", () => {
     expect(conv.title).toBe("Al bar");
     expect(conv.turns).toHaveLength(1);
     const [opening] = conv.turns;
-    expect(opening).toMatchObject({ role: "partner", text: "Buongiorno! Cosa prende?", chunks: [{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }] });
+    expect(opening).toMatchObject({ role: "partner", text: "Buongiorno! Cosa prende?" });
     expect(opening.suggestions).toHaveLength(3);
     const clip = await t.req("GET", opening.audioUrl);
     expect(clip.status).toBe(200);
     expect(clip.headers.get("content-type")).toBe("audio/wav");
+    const glossed = await t.glosses(conv.id);
+    expect(glossed.turns[0].chunks).toEqual([{ text: "Buongiorno!", gloss: "Good morning!" }, { text: "Cosa prende?", gloss: "What will you have?" }]);
     // The partner's line and its gloss.
-    expect(conv.spend).toEqual({ today: 2 * FAKE_COST, cap: 5, conversation: 2 * FAKE_COST });
+    expect(glossed.spend).toEqual({ today: 2 * FAKE_COST, cap: 5, conversation: 2 * FAKE_COST });
 
     const list = (await t.req("GET", "/api/conversations?lang=it")).json;
     expect(list.conversations.map((c: { id: number; title: string }) => [c.id, c.title])).toEqual([[conv.id, "Al bar"]]);
@@ -93,11 +97,12 @@ describe("conversation mode", () => {
     expect(retry.attempt.passed).toBe(true);
     expect(retry.turns.map((x: { role: string; text: string }) => [x.role, x.text])).toEqual([["learner", "Vorrei un caffè, per favore."], ["partner", "Certo! Altro?"]]);
     expect(retry.turns[0]).toMatchObject({ source: "suggestion", level: "A2" });
-    // The partner's call glosses the learner line it answers.
-    expect(retry.turns[0].chunks.map((x: { text: string }) => x.text)).toEqual(["Vorrei", "un", "caffè,", "per", "favore."]);
     expect(retry.reliance).toEqual({ leaned: 1, of: 1 });
+    const glossed = await t.glosses(conv.id);
+    // The partner's answer is glossed with the learner line it answers.
+    expect(glossed.turns[1].chunks.map((x: { text: string }) => x.text)).toEqual(["Vorrei", "un", "caffè,", "per", "favore."]);
     // Opening, two transcriptions and coach calls, and the partner's answer, each partner line with its gloss.
-    expect(retry.spend.conversation).toBeCloseTo(8 * FAKE_COST, 6);
+    expect(glossed.spend.conversation).toBeCloseTo(8 * FAKE_COST, 6);
 
     const again = (await t.req("GET", `/api/conversations/${conv.id}`)).json;
     expect(again.turns.map((x: { role: string }) => x.role)).toEqual(["partner", "learner", "partner"]);
@@ -198,8 +203,8 @@ describe("conversation mode", () => {
     expect((await t.reply(conv.id)).status).toBe(409);
     t.ai.partner = partner;
     const res = (await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).json;
-    expect(res.turns.map((x: { role: string; chunks: unknown[] }) => [x.role, x.chunks.length])).toEqual([["learner", 3], ["partner", 2]]);
-    expect(res.turns[1].text).toBe("Certo! Altro?");
+    expect(res.turns.map((x: { role: string; text: string }) => [x.role, x.text])).toEqual([["learner", "Vorrei un caffè."], ["partner", "Certo! Altro?"]]);
+    expect((await t.glosses(conv.id)).turns.slice(1).map((x: { chunks: unknown[] }) => x.chunks.length)).toEqual([3, 2]);
     expect((await t.req("POST", `/api/conversations/${conv.id}/partner`, {})).status).toBe(409);
   });
 
@@ -210,9 +215,25 @@ describe("conversation mode", () => {
     const glossed: string[][] = [];
     t.ai.coach = passFirstTry("Vorrei un caffè.");
     t.ai.gloss = (s, lines) => { glossed.push(lines); return gloss(s, lines); };
-    const res = await t.reply(conv.id);
+    await t.reply(conv.id);
     expect(glossed).toEqual([["Vorrei un caffè.", "Certo! Altro?"]]);
-    expect(res.json.turns.map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
+    expect((await t.glosses(conv.id)).turns.slice(1).map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
+  });
+
+  it("returns the partner's spoken line before its gloss is done, and the glosses route waits for the gloss", async () => {
+    const t = await speak();
+    const conv = await t.start();
+    const gloss = t.ai.gloss;
+    let release = () => {};
+    const held = new Promise<void>((r) => { release = r; });
+    t.ai.gloss = async (s, lines) => { await held; return gloss(s, lines); };
+    t.ai.coach = passFirstTry("Vorrei un caffè.");
+    const res = await t.reply(conv.id);
+    expect(res.json.turns).toMatchObject([{ role: "learner", chunks: null }, { role: "partner", text: "Certo! Altro?", chunks: null }]);
+    expect((await t.req("GET", res.json.turns[1].audioUrl)).status).toBe(200);
+    const waiting = t.glosses(conv.id);
+    release();
+    expect((await waiting).turns.slice(1).map((x: { chunks: { text: string }[] }) => x.chunks.map((c) => c.text))).toEqual([["Vorrei", "un", "caffè."], ["Certo!", "Altro?"]]);
   });
 
   it("retries a gloss that fails or returns the wrong number of lines, metering each try", async () => {
@@ -226,11 +247,11 @@ describe("conversation mode", () => {
         const g = await gloss(s, lines);
         return calls === 1 ? { ...g, result: [...g.result, ...g.result] } : g;
       };
-      const conv = await t.start();
+      const glossed = await t.glosses((await t.start()).id);
       expect(calls).toBe(2);
-      expect(conv.turns[0].chunks.map((c: { text: string }) => c.text)).toEqual(["Buongiorno!", "Cosa prende?"]);
+      expect(glossed.turns[0].chunks.map((c: { text: string }) => c.text)).toEqual(["Buongiorno!", "Cosa prende?"]);
       // The partner's line and two glosses.
-      expect(conv.spend.conversation).toBeCloseTo(3 * FAKE_COST, 6);
+      expect(glossed.spend.conversation).toBeCloseTo(3 * FAKE_COST, 6);
       expect(warn).toHaveBeenCalledWith(expect.stringMatching(/^Gloss failed in conversation \d+, try 1 of 2: 1 lines came back as /));
     } finally {
       warn.mockRestore();
@@ -246,7 +267,7 @@ describe("conversation mode", () => {
       t.ai.gloss = async () => { throw new Error("model down"); };
       const res = await t.reply(conv.id);
       expect(res.status).toBe(200);
-      expect(res.json.turns).toMatchObject([{ role: "learner", chunks: null }, { role: "partner", text: "Certo! Altro?", chunks: null }]);
+      expect((await t.glosses(conv.id)).turns.slice(1)).toMatchObject([{ role: "learner", chunks: null }, { role: "partner", text: "Certo! Altro?", chunks: null }]);
       expect((await t.req("GET", res.json.turns[1].audioUrl)).status).toBe(200);
       expect(warn.mock.calls.map((c) => c[0])).toEqual([1, 2].map((n) => `Gloss failed in conversation ${conv.id}, try ${n} of 2: model down`));
     } finally {
@@ -263,7 +284,7 @@ describe("conversation mode", () => {
       t.ai.gloss = async (_s, lines) => ({ result: lines.map(() => [{ text: "Buongiorno!", gloss: "Good morning!" }]), usage: { model: "fake", inputTokens: 1, outputTokens: 1, audioSeconds: 0, costUsd: FAKE_COST } });
       const conv = await t.start();
       expect(warn).toHaveBeenCalledWith(`Gloss mismatch in conversation ${conv.id}: "Buongiorno! Cosa prende?" was chunked as "Buongiorno!"`);
-      expect(conv.turns[0].chunks).toEqual([{ text: "Buongiorno!", gloss: "Good morning!" }]);
+      expect((await t.glosses(conv.id)).turns[0].chunks).toEqual([{ text: "Buongiorno!", gloss: "Good morning!" }]);
     } finally {
       warn.mockRestore();
     }

@@ -1,7 +1,7 @@
 import { A, useLocation, useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import {
-  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
+  MOVE_ON_AFTER, type CheckStep, type Chunk, type ConversationOut, type GlossesOut, type HowOut, type MoveOnResult, type PartnerRetryResult, type SpeakAttemptOut, type SpeakAttemptResult,
   type TurnOut,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
@@ -186,9 +186,21 @@ export function Conversation() {
   };
   document.addEventListener("click", closeTooltip);
   onCleanup(() => document.removeEventListener("click", closeTooltip));
-  /** `turns` are new, or replace the turn with their id (a learner turn gets its chunks with the partner's answer). */
+  /** `turns` are new, or replace the turn with their id (the learner turn a partner line answers comes back with it). */
   const update = (patch: Partial<ConversationOut>, turns: TurnOut[] = []) =>
     mutate({ ...c(), ...patch, turns: [...c().turns.filter((x) => !turns.some((n) => n.id === x.id)), ...turns] });
+  // Turns arrive before their glosses, which the server finishes after the partner's line is spoken. Each turn is
+  // asked about once: one whose gloss failed stays plain text.
+  const askedGlosses = new Set<number>();
+  createEffect(() => {
+    const waiting = conv()?.turns.filter((x) => x.chunks === null && !askedGlosses.has(x.id)) ?? [];
+    if (!waiting.length) return;
+    waiting.forEach((x) => askedGlosses.add(x.id));
+    api.get<GlossesOut>(`/api/conversations/${c().id}/glosses`).then((res) => {
+      const glossed = new Map(res.turns.map((x) => [x.id, x]));
+      mutate({ ...c(), spend: res.spend, turns: c().turns.map((x) => glossed.get(x.id) ?? x) });
+    }, (e) => setError((e as Error).message));
+  });
   /** A new turn clears the reply in progress and speaks the partner's answer. */
   const advance = (turns: TurnOut[], patch: Partial<ConversationOut>) => {
     update(patch, turns);
