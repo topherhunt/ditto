@@ -136,9 +136,9 @@ describe("quiz mode", () => {
 
   it("voices only a question's own fields, caching each render on disk across learners", async () => {
     const speech = fakeSpeech();
-    const said: [string, string, number][] = [];
+    const said: [string, string][] = [];
     const say = speech.say;
-    speech.say = (text, language, voice, pace, out) => { said.push([voiceId(voice), text, pace]); return say(text, language, voice, pace, out); };
+    speech.say = (text, language, voice, out) => { said.push([voiceId(voice), text]); return say(text, language, voice, out); };
     const audioDir = mkdtempSync(join(tmpdir(), "lp-quiz-say-"));
     const t = setup({ conversation: { ai: fakeAI(), speech, audioDir } });
     await t.login();
@@ -148,7 +148,7 @@ describe("quiz mode", () => {
     const res = await t.req("GET", url("question"));
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toBe("audio/wav");
-    expect(said).toEqual([["openai:marin", "'Io … italiano.' Qual è la forma corretta?", 1.3]]);
+    expect(said).toEqual([["openai:marin", "'Io … italiano.' Qual è la forma corretta?"]]);
     await t.req("GET", url("wrong1"));
     expect(said[1][1]).toBe(q.wrong[1]);
 

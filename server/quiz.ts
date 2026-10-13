@@ -24,8 +24,6 @@ import { scheduleGrade } from "./srs.ts";
 import { recordUsage, underCapOr429 } from "./usage.ts";
 
 const GRADE: Record<QuizRating, Grade> = { again: Rating.Again, hard: Rating.Hard, good: Rating.Good, easy: Rating.Easy };
-/** Lower levels hear the voice slower, as in conversation mode. */
-const PACE: Record<QuizLevel, number> = { "A1": 1.3, "A1+": 1.3, "A2": 1.2, "A2+": 1.2, "B1": 1.1, "B1+": 1.1, "B2": 1, "B2+": 1 };
 
 type DeckRow = { id: string; language: Language; level: QuizLevel; kind: QuizKind; num: number };
 type QuestionRow = { id: string; title: string; question: string; correct: string; wrong: string; explanation: string };
@@ -288,7 +286,7 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
   // Only a question's own text can be voiced, so this is no free TTS proxy. Renders are shared across learners on disk, since
   // they cost money; the learner who misses the cache pays, under the daily cap.
   app.get("/api/quiz/decks/:id/say", async (c) => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (OPENAI_API_KEY)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Speech is not configured (OPENAI_API_KEY, OPENROUTER_API_KEY)" });
     const { speech, audioDir } = deps.conversation;
     const userId = c.get("user").id;
     const deck = deckOr404(c.req.param("id"), userId);
@@ -302,15 +300,14 @@ export function registerQuiz(app: Hono<{ Variables: { user: User } }>, deps: App
     // Random-looking but fixed per text, so a question is rendered (and paid for) once, not once per voice.
     const voices = VOICES[deck.language];
     const voice = voices[createHash("sha1").update(text.normalize("NFC")).digest().readUInt32BE(0) % voices.length];
-    const pace = PACE[deck.level];
     const dir = join(audioDir, "quiz");
-    const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${pace}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
+    const path = join(dir, `${createHash("sha1").update(`${voiceId(voice)}|${text.normalize("NFC")}`).digest("hex").slice(0, 20)}.wav`);
     if (!existsSync(path)) {
       underCapOr429(db, userId, deps.dailySpendCap, deps.now());
       mkdirSync(dir, { recursive: true });
       const tmp = `${path}.${randomUUID()}.tmp.wav`;
       try {
-        const { usage } = await speech.say(text, deck.language, voice, pace, tmp);
+        const { usage } = await speech.say(text, deck.language, voice, tmp);
         if (usage) recordUsage(db, userId, null, "quiz-speech", usage, deps.now());
         renameSync(tmp, path);
       } finally {

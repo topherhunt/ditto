@@ -9,52 +9,38 @@ import {
 import { tokenize, words } from "../shared/tokenize.ts";
 import { loadQuizzes, type QuizDeck } from "./quiz-content.ts";
 
-/** For `abair`, `model` is an ABAIR voice name; for `openai`, a gpt-4o-mini-tts voice; see scripts/tts-render.py. */
-export type Voice = { engine: "abair" | "openai"; model: string; gender: "F" | "M" };
+/**
+ * For `abair`, `model` is an ABAIR voice name; for `elevenlabs`, an Eleven v4 Turbo voice on OpenRouter; see scripts/tts-render.py.
+ * `id` names the voice in audio file hashes, audio-fixes.json and stored rows (conversations, reports), so it never changes:
+ * the ElevenLabs voices keep the ids of the gpt-4o-mini-tts voices they replaced, and files rendered by those stay valid.
+ */
+export type Voice = { id: string; engine: "abair" | "elevenlabs"; model: string; gender: "F" | "M" };
+
+const ELEVENLABS: Voice[] = [
+  { id: "openai:marin", engine: "elevenlabs", model: "sarah", gender: "F" },
+  { id: "openai:cedar", engine: "elevenlabs", model: "george", gender: "M" },
+];
 
 /**
  * Order matters: served audio arrays follow it.
  * GA uses ABAIR's Munster voices, to match the Munster forms in the course (Conas atá tú?, Táim).
  */
 export const VOICES: Record<Language, Voice[]> = {
-  en: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
-  el: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
-  es: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
-  fr: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
-  it: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
-  nl: [
-    { engine: "openai", model: "marin", gender: "F" },
-    { engine: "openai", model: "cedar", gender: "M" },
-  ],
+  en: ELEVENLABS, el: ELEVENLABS, es: ELEVENLABS, fr: ELEVENLABS, it: ELEVENLABS, nl: ELEVENLABS,
   ga: [
-    { engine: "abair", model: "ga_MU_nnc_piper", gender: "F" }, // Neasa
-    { engine: "abair", model: "ga_MU_cmg_piper", gender: "M" }, // Colm
+    { id: "abair:ga_MU_nnc_piper", engine: "abair", model: "ga_MU_nnc_piper", gender: "F" }, // Neasa
+    { id: "abair:ga_MU_cmg_piper", engine: "abair", model: "ga_MU_cmg_piper", gender: "M" }, // Colm
   ],
 };
 
 /** Bump to re-render every file after changing how audio is produced (padding, loudness). */
 const RENDER_VERSION = 2;
 
-export const voiceId = (v: Voice) => `${v.engine}:${v.model}`;
+export const voiceId = (v: Voice) => v.id;
 
 /**
  * A fix for one clip that renders badly: what the engine reads instead of the text (`say`),
- * seconds to `cut` off the end, and a `take` to bump for a fresh render (OpenAI output is random per run).
+ * seconds to `cut` off the end, and a `take` to bump for a fresh render (TTS output is random per run).
  */
 export const AudioFixSchema = z.strictObject({
   say: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),

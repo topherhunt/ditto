@@ -145,11 +145,11 @@ The support languages are `en` (American English), `es-419` (Latin American Span
 
 ## The `speaker` field
 
-Set `speaker` to `F` or `M` whenever the form reveals the speaker's gender: `Είμαι κουρασμένος` (M) / `Είμαι κουρασμένη` (F), `Είμαι Έλληνας` (M) / `Είμαι Ελληνίδα` (F), `Είμαι δάσκαλος` (M) / `Είμαι δασκάλα` (F), `Είμαι παντρεμένος/η`, `Είμαι ευχαριστημένος/η`, `Ήμουν μόνος/η`, and the aorist or participle forms that show gender (`Έχω γίνει πιο ήρεμος/η`). The voice pair for `el` is the openai `marin` (F) and `cedar` (M).
+Set `speaker` to `F` or `M` whenever the form reveals the speaker's gender: `Είμαι κουρασμένος` (M) / `Είμαι κουρασμένη` (F), `Είμαι Έλληνας` (M) / `Είμαι Ελληνίδα` (F), `Είμαι δάσκαλος` (M) / `Είμαι δασκάλα` (F), `Είμαι παντρεμένος/η`, `Είμαι ευχαριστημένος/η`, `Ήμουν μόνος/η`, and the aorist or participle forms that show gender (`Έχω γίνει πιο ήρεμος/η`). The voice pair for `el` is ElevenLabs sarah (F) and george (M).
 
 ## TTS note
 
-Audio is gpt-4o-mini-tts reading `text`. Avoid digits, abbreviations and symbols in `text` (numbers are words, money is `ευρώ`). Stress may slip on a few words: `πολύ` (stressed on the last syllable), `ποιος` (one syllable, `ποιος`), `κόρη`, `ώρα`, `μάτι`, `πόσο`, `όχι`, and on the enclitic-shift forms (`το όνομά μου`). Slips are fixed in `content/audio-fixes.json`, not by respelling `text`. Greek stress is always visible in the tonos, so a slip is a voice error, never a spelling ambiguity.
+Audio is Eleven v4 Turbo reading `text`; clips rendered before October 2026 are gpt-4o-mini-tts. Avoid digits, abbreviations and symbols in `text` (numbers are words, money is `ευρώ`). Stress may slip on a few words: `πολύ` (stressed on the last syllable), `ποιος` (one syllable, `ποιος`), `κόρη`, `ώρα`, `μάτι`, `πόσο`, `όχι`, and on the enclitic-shift forms (`το όνομά μου`). Slips are fixed in `content/audio-fixes.json`, not by respelling `text`. Greek stress is always visible in the tonos, so a slip is a voice error, never a spelling ambiguity.
 
 ## A1
 
@@ -610,4 +610,4 @@ Not planned yet. Only the 31 main modules are specified here; optional side modu
 - Lemma mapping: `στο/στη/στην/στον/στα/στις/στους` map to `σε`; weak pronouns `τον/την/το/τα/του/της/τους` clash with article readings and use `#pron` sense keys, as do `με` and `σε`.
 - Accent slips: a missing or wrong tonos passes as orange. Monosyllables with a distinguishing accent (`πού/που`, `πώς/πως`, `ή/η`) make the accent the only difference; this is acceptable only because context fixes each.
 - Homophones: the TTS cannot distinguish `ι/η/υ/ει/οι`, so dictation of ambiguous words relies on context; see the Homophones section.
-- Voices: `VOICES.el` (marin, cedar) is in `server/content.ts`. Audio quality for Greek has not been listened to.
+- Voices: `VOICES.el` (sarah, george) is in `server/content.ts`. Audio quality for Greek has not been listened to.

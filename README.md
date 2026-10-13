@@ -49,7 +49,7 @@ cp .env.example .env    # DEV_LOGIN=1 gives you a dev sign-in form locally
 npm start               # in dev: API on :3000, Vite on :5176 (same as npm run dev)
 ```
 
-`OPENAI_API_KEY` is optional; without it the "Why?" explainer and conversation mode are disabled and quiz audio fails. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
+`OPENAI_API_KEY` and `OPENROUTER_API_KEY` are optional: without `OPENAI_API_KEY` the "Why?" explainer is disabled, and conversation mode and quiz audio need both. `GOOGLE_CLIENT_ID` is only needed for real sign-in.
 
 ### Audio
 
@@ -60,7 +60,7 @@ python3 -m venv .venv
 .venv/bin/pip install numpy
 ```
 
-English, Spanish, Italian and Dutch audio renders on OpenAI (gpt-4o-mini-tts), so it needs `OPENAI_API_KEY` in `.env`.
+Audio in every language but Irish renders on ElevenLabs through OpenRouter, so it needs `OPENROUTER_API_KEY` in `.env`.
 
 ```sh
 npm run content:audio            # renders only missing files into content/audio/

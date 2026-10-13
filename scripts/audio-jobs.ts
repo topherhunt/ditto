@@ -29,9 +29,9 @@ export async function renderJobs(jobs: AudioJob[], audioDir: string) {
       proc.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${voiceId(group[0].voice)} renderer exited with ${code}`))));
       proc.stdin.end(group.map((j) => JSON.stringify({ text: j.fix?.say ?? j.text, cut: j.fix?.cut, out: join(audioDir, j.file) })).join("\n") + "\n");
     });
-  // OpenAI's rate limit allows several requests at once, so each OpenAI voice splits across workers.
+  // OpenRouter allows several requests at once, so each ElevenLabs voice splits across workers.
   const groups = [...byVoice.values()].flatMap((g) =>
-    g[0].voice.engine === "openai" ? Array.from({ length: 4 }, (_, i) => g.filter((_, k) => k % 4 === i)).filter((c) => c.length) : [g]);
+    g[0].voice.engine === "elevenlabs" ? Array.from({ length: 4 }, (_, i) => g.filter((_, k) => k % 4 === i)).filter((c) => c.length) : [g]);
   const remote = groups.filter((g) => g[0].voice.engine === "abair");
   await Promise.all([
     ...groups.filter((g) => !remote.includes(g)).map(render),

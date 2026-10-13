@@ -72,7 +72,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   const { db } = deps;
   if (deps.conversation) mkdirSync(deps.conversation.audioDir, { recursive: true });
   const speak = () => {
-    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY)" });
+    if (!deps.conversation) throw new HTTPException(503, { message: "Conversation mode is not configured (OPENAI_API_KEY, OPENROUTER_API_KEY)" });
     return deps.conversation;
   };
   const Id = z.coerce.number().int();
@@ -82,10 +82,6 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     if (!row) throw new HTTPException(404, { message: `No conversation ${id}` });
     return row;
   };
-  /** A voice's own speed overwhelms beginners, so lower levels hear the partner slower; a lone tapped word is always slow. */
-  const PACE: Record<string, number> = { A1: 1.3, A2: 1.2, B1: 1.1, B2: 1, C1: 1, C2: 1 };
-  const pace = (c: ConversationRow) => PACE[c.level]!;
-  const WORD_PACE = 1.3;
   const setting = (c: ConversationRow): Setting => ({ language: c.language, locale: c.locale, helpLocale: c.help_locale, uiLocale: c.ui_locale, level: c.level, scenario: c.scenario });
   const audioUrl = (conversationId: number, file: string) => `/api/conversations/${conversationId}/audio/${file}`;
 
@@ -113,10 +109,10 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
   });
   const paid = (userId: number, conversationId: number | null, purpose: string, u: Usage) => recordUsage(db, userId, conversationId, purpose, u, deps.now());
   /** Renders `text` in the partner's voice to `path`, recording what it cost. */
-  const say = async (conv: ConversationRow, userId: number, text: string, speed: number, path: string) => {
+  const say = async (conv: ConversationRow, userId: number, text: string, path: string) => {
     const voice = VOICES[conv.language].find((v) => voiceId(v) === conv.voice);
     if (!voice) throw new Error(`Conversation ${conv.id} has unknown voice ${conv.voice}`);
-    const { usage } = await speak().speech.say(text, conv.language, voice, speed, path);
+    const { usage } = await speak().speech.say(text, conv.language, voice, path);
     if (usage) paid(userId, conv.id, "speech", usage);
   };
 
@@ -153,7 +149,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const text = result.line;
     const file = newAudioFile(conv.id);
     const lines = learner ? [learner.text, text] : [text];
-    const [glossed] = await Promise.all([glossLines(conv, userId, lines), say(conv, userId, text, pace(conv), join(audioDir, file))]);
+    const [glossed] = await Promise.all([glossLines(conv, userId, lines), say(conv, userId, text, join(audioDir, file))]);
     const [learnerChunks, chunks] = glossed === null ? [null, null] : learner ? glossed : [null, glossed[0]];
     const now = deps.now().toISOString();
     transaction(db, () => {
@@ -193,7 +189,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       .get(turnId, target) as { f: string } | undefined;
     if (done) return done.f;
     const file = newAudioFile(conv.id);
-    await say(conv, userId, target, pace(conv), join(speak().audioDir, file));
+    await say(conv, userId, target, join(speak().audioDir, file));
     return file;
   };
 
@@ -354,7 +350,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
     const { audioDir } = speak();
     const path = join(audioDir, `say-${randomUUID()}.wav`);
     try {
-      await say(conv, userId, text, WORD_PACE, path);
+      await say(conv, userId, text, path);
       return c.body(readFileSync(path), 200, { "Content-Type": "audio/wav", "Cache-Control": "private, max-age=86400" });
     } finally {
       rmSync(path, { force: true });

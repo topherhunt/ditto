@@ -8,10 +8,10 @@ export function Privacy() {
   return (
     <article class="qa-privacy">
       <h1 class="h4 mb-1">Privacy policy</h1>
-      <p class="text-body-secondary small">Last updated 4 October 2026</p>
+      <p class="text-body-secondary small">Last updated 13 October 2026</p>
 
       <div class="alert alert-secondary">
-        <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, without your name or email. We never store your voice. You can get a copy of your data or have your account deleted by emailing {mail()}.
+        <strong>In short:</strong> Ditto keeps what it needs to run your practice and nothing more. There are no ads, no trackers and no third-party analytics, and your data is never sold. AI features send exercise text and, in conversation mode, your voice to OpenAI, and text to be spoken to ElevenLabs through OpenRouter, without your name or email. We never store your voice. You can get a copy of your data or have your account deleted by emailing {mail()}.
       </div>
 
       <h2 class="h5 mt-4">Who we are</h2>
@@ -50,11 +50,12 @@ export function Privacy() {
       <h2 class="h5 mt-4">Who else processes your data</h2>
       <ul class="d-flex flex-column gap-2">
         <li><strong>RackNerd</strong> (United States) hosts the server, which stores the database and nightly backups.</li>
-        <li><strong>OpenAI</strong> (United States) powers the AI features. For a "Why?" explanation we send the exercise and the answer you typed. In conversation mode we send each voice recording for transcription, the conversation's text for replies and feedback, and text to be spoken. We never send your name, email, username or account ID. Under OpenAI's API terms, this data isn't used to train their models and is kept for up to 30 days, for abuse monitoring.</li>
+        <li><strong>OpenAI</strong> (United States) powers the AI features. For a "Why?" explanation we send the exercise and the answer you typed. In conversation mode we send each voice recording for transcription and the conversation's text for replies and feedback. We never send your name, email, username or account ID. Under OpenAI's API terms, this data isn't used to train their models and is kept for up to 30 days, for abuse monitoring.</li>
+        <li><strong>OpenRouter</strong> (United States) passes text to be spoken to <strong>ElevenLabs</strong>, which turns it into speech: the conversation partner's lines, suggested replies, the sentences you practice saying, and quiz questions. That text can include words you said or typed. We never send your name, email, username or account ID. We ask OpenRouter to route these requests only to providers that keep no copy of them (zero data retention).</li>
         <li><strong>Healthchecks.io</strong> alerts the operator when the server fails or goes silent. The server sends it a fixed status message and, after an error, the error's type (such as "TypeError"), never anything about a learner.</li>
         <li><strong>Google</strong> (United States) signs you in, under <a href="https://policies.google.com/privacy">Google's own privacy policy</a>.</li>
       </ul>
-      <p>If you're in the European Economic Area, the UK or Switzerland, this means your data goes to the United States. OpenAI processes it under a data processing agreement and is certified under the EU-U.S. Data Privacy Framework.</p>
+      <p>If you're in the European Economic Area, the UK or Switzerland, this means your data goes to the United States. OpenAI processes it under a data processing agreement and is certified under the EU-U.S. Data Privacy Framework. OpenRouter processes text to be spoken under a data processing agreement that includes the EU's Standard Contractual Clauses, and passes it to ElevenLabs as its subprocessor.</p>
 
       <h2 class="h5 mt-4">How long we keep it</h2>
       <p>Your account, practice and conversations are kept while your account exists. Per-person usage metrics are kept for 90 days. Nightly backups are kept for 14 days, so data you delete is gone from them within two weeks.</p>

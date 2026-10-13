@@ -12,7 +12,7 @@ const usage = (): Usage => ({ model: "fake", inputTokens: 100, outputTokens: 50,
 export function fakeSpeech(): Speech {
   return {
     // A valid, silent 0.1 s WAV, so fake partner lines play.
-    say: async (_text, _language, _voice, _pace, out) => {
+    say: async (_text, _language, _voice, out) => {
       writeFileSync(out, Buffer.concat([wavHeader(1600, 8000), Buffer.alloc(1600)]));
       return { seconds: 0.1, usage: null };
     },

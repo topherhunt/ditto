@@ -69,7 +69,7 @@ describe("content loading", () => {
     const fix = { say: "Lo." };
     const c = loadWithFixes({ it: { "openai:marin": { lo: fix } } }, base);
     const u = c.locales.en.units.get("it-test-1-u01")!;
-    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.model === "marin" ? fix : undefined)}`));
+    expect(u.words[0].audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "lo", v.id === "openai:marin" ? fix : undefined)}`));
     expect(u.words[0].audio[0]).not.toBe(`/audio/${audioFile("it", VOICES.it[0], "lo")}`);
     expect(u.audio).toEqual(VOICES.it.map((v) => `/audio/${audioFile("it", v, "Lo prendo.")}`));
     expect(c.audioJobs.find((j) => `/audio/${j.file}` === u.words[0].audio[0])).toMatchObject({ text: "lo", fix });

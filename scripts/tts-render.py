@@ -1,4 +1,4 @@
-"""Render m4a files for one voice. argv: voice JSON {engine, model} (openai: model is the voice), language. stdin: JSON lines {"text", "cut"?, "out"}; `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
+"""Render m4a files for one voice. argv: voice JSON {engine, model} (elevenlabs: model is the voice), language. stdin: JSON lines {"text", "cut"?, "out"}; `cut` seconds come off the end after trimming. Each file is trimmed, loudness-matched, padded, then encoded by afconvert (macOS)."""
 import json
 import subprocess
 import sys
@@ -41,42 +41,44 @@ if voice["engine"] == "abair":
             if w.getnchannels() != 1 or w.getsampwidth() != 2:
                 sys.exit(f"expected 16-bit mono from ABAIR, got {w.getnchannels()} channels, {w.getsampwidth()} bytes")
             return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768, w.getframerate()
-elif voice["engine"] == "openai":
-    # gpt-4o-mini-tts. Naming the language stops it guessing one from a bare word; it has no reliable pace control
-    # (docs/plan.md, Audio). It occasionally returns silence or stalls past the timeout, and parallel workers can hit
-    # the rate limit, so all three retry.
+elif voice["engine"] == "elevenlabs":
+    # Eleven v4 Turbo on OpenRouter, the same request as server/speech.ts. It takes no speed or instructions, so the
+    # language goes in an inline audio tag; without it a lone word is read as English ("nome" as "gnome"). Parallel
+    # workers can hit the rate limit and a request can stall or return silence, so all three retry.
     import os
     import time
     import urllib.error
     import urllib.request
 
-    key = os.environ.get("OPENAI_API_KEY")
+    key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
-        raise SystemExit("OPENAI_API_KEY is not set (put it in .env)")
-    name = {"it": "Italian", "en": "American English", "es": "Latin American Spanish", "nl": "Dutch", "fr": "French", "el": "Greek", "ga": "Irish Gaelic"}[language]
+        raise SystemExit("OPENROUTER_API_KEY is not set (put it in .env)")
+    name = {"it": "Italian", "en": "American English", "es": "Latin American Spanish", "nl": "Dutch", "fr": "French", "el": "Greek"}[language]
+    PCM_TYPE = "audio/pcm;rate=24000;channels=1"
 
     def synth(text: str) -> tuple[np.ndarray, int]:
-        kind = "word" if len(text.split()) == 1 else "sentence" if text.rstrip()[-1] in ".!?;" else "phrase"
-        instructions = f"Say this {name} {kind} in {name} with a native {name} accent, at a normal conversational pace, the way a native speaker says it to a friend"
-        body = {"model": "gpt-4o-mini-tts", "input": text, "voice": voice["model"], "response_format": "pcm", "instructions": instructions}
-        req = urllib.request.Request("https://api.openai.com/v1/audio/speech", data=json.dumps(body).encode(),
+        body = {"model": "elevenlabs/eleven-v4-turbo", "input": f"[speaking {name}, in {name} accent] {text}", "voice": voice["model"],
+                "response_format": "pcm", "provider": {"zdr": True}}
+        req = urllib.request.Request("https://openrouter.ai/api/v1/audio/speech", data=json.dumps(body).encode(),
                                      headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
         for attempt in range(5):
             try:
                 with urllib.request.urlopen(req, timeout=60) as res:
-                    samples = np.frombuffer(res.read(), dtype="<i2").astype(np.float32) / 32768  # pcm is 24 kHz 16-bit mono
+                    if res.headers["Content-Type"] != PCM_TYPE:
+                        sys.exit(f"OpenRouter returned {res.headers['Content-Type']}, not {PCM_TYPE}, for {text!r}")
+                    samples = np.frombuffer(res.read(), dtype="<i2").astype(np.float32) / 32768
             except urllib.error.HTTPError as e:
                 if e.code in (429, 500, 502, 503) and attempt < 4:
                     time.sleep(2 ** attempt)
                     continue
-                sys.exit(f"OpenAI {e.code} for {text!r}: {e.read().decode()}")
+                sys.exit(f"OpenRouter {e.code} for {text!r}: {e.read().decode()}")
             except (TimeoutError, urllib.error.URLError) as e:
                 if attempt < 4:
                     continue
-                sys.exit(f"OpenAI unreachable for {text!r}: {e}")
+                sys.exit(f"OpenRouter unreachable for {text!r}: {e}")
             if samples.size and np.max(np.abs(samples)) > SILENCE:
                 return samples, 24000
-        sys.exit(f"OpenAI rendered silence 5 times for {text!r}")
+        sys.exit(f"OpenRouter rendered silence 5 times for {text!r}")
 else:
     raise SystemExit(f"unknown engine {voice['engine']}")
 

@@ -13,7 +13,7 @@ import { openAIExplainer } from "./explain.ts";
 import { reportError, startHealthcheck } from "./healthcheck.ts";
 import { log } from "./log.ts";
 import { rollUpMetrics } from "./metrics.ts";
-import { openAISpeech } from "./speech.ts";
+import { elevenLabsSpeech } from "./speech.ts";
 
 // Milliseconds since the process started, logged once listening: production boots take ~14 s.
 const bootSteps: string[] = [];
@@ -34,19 +34,19 @@ if (production && env.DEV_LOGIN === "1") throw new Error("DEV_LOGIN must not be 
 const audioDir = env.AUDIO_DIR || join(root, "content/audio");
 const webDir = join(root, "dist/web");
 
-// Conversation mode and quiz audio need the OpenAI key (docs/conversation.md). FAKE_CONVERSATION scripts both for E2E.
+// Conversation mode and quiz audio need the OpenAI and OpenRouter keys (docs/conversation.md). FAKE_CONVERSATION scripts both for E2E.
 if (production && env.FAKE_CONVERSATION === "1") throw new Error("FAKE_CONVERSATION must not be enabled in production");
 const speakAudioDir = env.SPEAK_AUDIO_DIR || join(root, "data/speak-audio");
 const conversation = env.FAKE_CONVERSATION === "1"
   ? { ai: fakeAI(), speech: fakeSpeech(), audioDir: speakAudioDir }
-  : env.OPENAI_API_KEY
+  : env.OPENAI_API_KEY && env.OPENROUTER_API_KEY
     ? {
       ai: openAIConversation(env.OPENAI_API_KEY, env.CONVERSATION_MODEL || "gpt-6-luna", z.enum(["none", "low", "medium"]).parse(env.CONVERSATION_EFFORT || "low")),
-      speech: openAISpeech(env.OPENAI_API_KEY),
+      speech: elevenLabsSpeech(env.OPENROUTER_API_KEY),
       audioDir: speakAudioDir,
     }
     : null;
-if (!conversation) log.warn("Conversation mode is off: it needs OPENAI_API_KEY");
+if (!conversation) log.warn("Conversation mode and quiz audio are off: they need OPENAI_API_KEY and OPENROUTER_API_KEY");
 
 const db = openDb(env.DATABASE_PATH || join(root, "data/app.db"));
 bootStep("db");

@@ -1,9 +1,10 @@
 import { HTTPException } from "hono/http-exception";
 import type { DB } from "./db.ts";
 
-/** USD, as of 2026-09: text models per 1M tokens in/out, transcription and gpt-4o-mini-tts (OpenAI's estimate) per audio minute. */
+/** USD, as of 2026-10: text models per 1M tokens in/out, transcription per audio minute, speech per 1M characters (list price). */
 const TOKEN_PRICES: Record<string, { input: number; output: number }> = { "gpt-6-luna": { input: 0.1, output: 0.5 } };
-const MINUTE_PRICES: Record<string, number> = { "gpt-transcribe": 0.0045, "gpt-4o-mini-tts": 0.015 };
+const MINUTE_PRICES: Record<string, number> = { "gpt-transcribe": 0.0045 };
+const CHAR_PRICES: Record<string, number> = { "elevenlabs/eleven-v4-turbo": 40 };
 
 /** One paid call, as the api_usage ledger records it. */
 export type Usage = { model: string; inputTokens: number; outputTokens: number; audioSeconds: number; costUsd: number };
@@ -18,6 +19,13 @@ export function minuteUsage(model: string, audioSeconds: number): Usage {
   const p = MINUTE_PRICES[model];
   if (p === undefined) throw new Error(`No per-minute price for model ${model} (server/usage.ts)`);
   return { model, inputTokens: 0, outputTokens: 0, audioSeconds, costUsd: (audioSeconds / 60) * p };
+}
+
+/** Speech priced by the characters sent; `audioSeconds` is what it rendered. */
+export function charUsage(model: string, chars: number, audioSeconds: number): Usage {
+  const p = CHAR_PRICES[model];
+  if (p === undefined) throw new Error(`No per-character price for model ${model} (server/usage.ts)`);
+  return { model, inputTokens: 0, outputTokens: 0, audioSeconds, costUsd: (chars * p) / 1e6 };
 }
 
 export function recordUsage(db: DB, userId: number, conversationId: number | null, purpose: string, u: Usage, now: Date) {

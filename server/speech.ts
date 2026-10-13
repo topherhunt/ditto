@@ -1,18 +1,18 @@
 import { writeFileSync } from "node:fs";
 import { LANGUAGE_NAMES, type Language } from "../shared/content.ts";
-import { openAIClient } from "./conversation-ai.ts";
 import type { Voice } from "./content.ts";
 import { log } from "./log.ts";
-import { minuteUsage, type Usage } from "./usage.ts";
+import { charUsage, type Usage } from "./usage.ts";
 
 /** Speech for conversation mode and quiz audio. */
 export interface Speech {
-  /** Renders `text` to a 16-bit WAV at `out`. `pace` asks for a slower voice: 1 is as is, 1.3 is 30% slower. `usage` is null for a free voice. */
-  say(text: string, language: Language, voice: Voice, pace: number, out: string): Promise<{ seconds: number; usage: Usage | null }>;
+  /** Renders `text` to a 16-bit WAV at `out`. `usage` is null for a free voice. */
+  say(text: string, language: Language, voice: Voice, out: string): Promise<{ seconds: number; usage: Usage | null }>;
 }
 
-const OPENAI_TTS_MODEL = "gpt-4o-mini-tts";
-const RATE = 24000; // OpenAI's pcm is 24 kHz 16-bit mono
+const TTS_MODEL = "elevenlabs/eleven-v4-turbo";
+const PCM_TYPE = "audio/pcm;rate=24000;channels=1";
+const RATE = 24000;
 
 /** A 44-byte WAV header for 16-bit mono PCM. */
 export function wavHeader(dataBytes: number, rate: number): Buffer {
@@ -24,45 +24,44 @@ export function wavHeader(dataBytes: number, rate: number): Buffer {
 }
 
 /**
- * gpt-4o-mini-tts ignores `speed`, so the pace goes in the instructions, and naming the language keeps a short text from
- * being read with the wrong accent. A healthy render takes ~2 s, so `timeoutMs` (whole call, body included: the SDK's own
- * timeout stops at the headers, and the audio streams after them) means OpenAI stalled; one retry covers a stuck request.
+ * Eleven v4 Turbo on OpenRouter takes no speed or instructions, so the language goes in an inline audio tag; without it a
+ * lone word is read as English ("nome" as "gnome"). `zdr` makes OpenRouter refuse any route that retains the text.
+ * A healthy render takes under 1 s, so `timeoutMs` (whole call, body included) means it stalled; one retry covers a stuck request.
  */
-export function openAISpeech(apiKey: string, opts: { baseURL?: string; timeoutMs?: number } = {}): Speech {
-  const client = openAIClient(apiKey, opts.baseURL);
+export function elevenLabsSpeech(apiKey: string, opts: { baseURL?: string; timeoutMs?: number } = {}): Speech {
+  const url = `${opts.baseURL ?? "https://openrouter.ai/api/v1"}/audio/speech`;
   const timeoutMs = opts.timeoutMs ?? 20_000;
   // Priced before the first call, so a missing price fails at startup.
-  minuteUsage(OPENAI_TTS_MODEL, 0);
+  charUsage(TTS_MODEL, 0, 0);
 
-  const render = async (text: string, language: Language, voice: Voice, pace: number): Promise<Buffer> => {
-    const name = LANGUAGE_NAMES[language];
-    const speed = pace >= 1.2 ? "slowly and very clearly, for a beginner" : pace > 1 ? "a little slowly and clearly, for a learner" : "at a natural pace";
-    const body = {
-      model: OPENAI_TTS_MODEL, input: text, voice: voice.model, response_format: "pcm" as const,
-      instructions: `Read this ${name} text aloud in ${name} with a native ${name} accent, ${speed}.`,
-    };
+  const render = async (input: string, voice: Voice): Promise<Buffer> => {
+    const body = JSON.stringify({ model: TTS_MODEL, input, voice: voice.model, response_format: "pcm", provider: { zdr: true } });
     for (let attempt = 1; ; attempt++) {
       const signal = AbortSignal.timeout(timeoutMs);
       try {
-        const res = await client.audio.speech.create(body, { signal, maxRetries: 0 });
+        const res = await fetch(url, { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body, signal });
+        if (!res.ok) throw new Error(`OpenRouter TTS ${res.status}: ${await res.text()}`);
+        if (res.headers.get("content-type") !== PCM_TYPE) throw new Error(`OpenRouter TTS returned ${res.headers.get("content-type")}, not ${PCM_TYPE}`);
         return Buffer.from(await res.arrayBuffer());
       } catch (e) {
         if (!signal.aborted) throw e;
-        if (attempt === 2) throw new Error(`OpenAI TTS timed out twice after ${timeoutMs / 1000} s (${text.length} chars)`);
+        if (attempt === 2) throw new Error(`OpenRouter TTS timed out twice after ${timeoutMs / 1000} s (${input.length} chars)`);
         // The length, not the text: partner lines can echo the learner.
-        log.warn(`OpenAI TTS timed out after ${timeoutMs / 1000} s, retrying (${text.length} chars)`);
+        log.warn(`OpenRouter TTS timed out after ${timeoutMs / 1000} s, retrying (${input.length} chars)`);
       }
     }
   };
 
   return {
-    say: async (text, language, voice, pace, out) => {
-      if (voice.engine !== "openai") throw new Error(`Speech has no engine ${voice.engine}`);
-      const pcm = await render(text, language, voice, pace);
-      if (pcm.length % 2) throw new Error(`OpenAI TTS returned ${pcm.length} bytes, not whole 16-bit samples`);
+    say: async (text, language, voice, out) => {
+      if (voice.engine !== "elevenlabs") throw new Error(`Speech has no engine ${voice.engine}`);
+      const name = LANGUAGE_NAMES[language];
+      const input = `[speaking ${name}, in ${name} accent] ${text}`;
+      const pcm = await render(input, voice);
+      if (pcm.length % 2) throw new Error(`OpenRouter TTS returned ${pcm.length} bytes, not whole 16-bit samples`);
       writeFileSync(out, Buffer.concat([wavHeader(pcm.length, RATE), pcm]));
       const seconds = pcm.length / 2 / RATE;
-      return { seconds, usage: minuteUsage(OPENAI_TTS_MODEL, seconds) };
+      return { seconds, usage: charUsage(TTS_MODEL, input.length, seconds) };
     },
   };
 }

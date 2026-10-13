@@ -14,10 +14,8 @@ async function speak(overrides: Partial<AppDeps> = {}) {
   const speech = fakeSpeech();
   /** voiceId of each line spoken. */
   const voices: string[] = [];
-  /** Each line's text and pace. */
-  const paces: [string, number][] = [];
   const say = speech.say;
-  speech.say = (text, language, voice, pace, out) => { voices.push(voiceId(voice)); paces.push([text, pace]); return say(text, language, voice, pace, out); };
+  speech.say = (text, language, voice, out) => { voices.push(voiceId(voice)); return say(text, language, voice, out); };
   const conversation = { ai: fakeAI(), speech, audioDir: mkdtempSync(join(tmpdir(), "lp-speak-")) };
   const t = setup({ conversation, ...overrides });
   await t.login();
@@ -30,7 +28,7 @@ async function speak(overrides: Partial<AppDeps> = {}) {
     const end = events.at(-1);
     return { status: end.status ?? 200, json: end.result ?? end, steps: events.slice(0, -1).map((e) => e.step) };
   };
-  return { ...t, ai: conversation.ai, voices, paces, start, reply };
+  return { ...t, ai: conversation.ai, voices, start, reply };
 }
 
 const passFirstTry = (meant: string, fromSuggestion = false) => async () => ({
@@ -289,15 +287,6 @@ describe("conversation mode", () => {
     expect((await tap()).status).toBe(429);
     const purposes = t.deps.db.prepare("SELECT purpose FROM api_usage WHERE model = 'fake-voice'").all().map((r) => r.purpose);
     expect(purposes).toEqual(["speech", "speech"]);
-  });
-
-  it("slows the partner for lower levels and every tapped chunk", async () => {
-    const t = await speak();
-    const a1 = await t.start("A1");
-    await t.reply(a1.id); // fails, so the target is spoken
-    await t.req("GET", `/api/conversations/${a1.id}/say?text=Buongiorno!`);
-    await t.start("B2");
-    expect(t.paces).toEqual([["Buongiorno! Cosa prende?", 1.3], ["Vorrei un caffè, per favore.", 1.3], ["Buongiorno!", 1.3], ["Buongiorno! Cosa prende?", 1]]);
   });
 
   it("glosses in the learner's own language, and coaches in the course's language only with help immersion", async () => {
