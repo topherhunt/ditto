@@ -8,7 +8,8 @@ test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-
 async function record(page: import("@playwright/test").Page) {
   await page.locator(".qa-record").click();
   await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
-  await page.waitForTimeout(300);
+  // Past MIN_RECORDING_MS, or the recording is dropped as too short.
+  await page.waitForTimeout(600);
   await page.locator(".qa-record").click();
 }
 
@@ -54,6 +55,9 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   await record(page);
   await expect(page.locator(".qa-checking-sending")).toBeVisible();
   await expect(page.locator(".qa-record")).toHaveCount(0);
+  // Centered, where the button was.
+  const middle = (b: { x: number; width: number } | null) => Math.round(b!.x + b!.width / 2);
+  expect(middle(await page.locator(".qa-checking").boundingBox())).toBe(middle(await page.locator(".qa-reply").boundingBox()));
   release();
   await expect(page.locator(".qa-retry-target")).toHaveText("Vorrei un caffè, per favore.");
   // A failed reply sounds a warning and is introduced in the interface language.
@@ -80,6 +84,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
   // The tap plays a click sound, then the line's audio; wait for the audio so only a replay caused by Space itself would add one.
   await expect.poll(() => page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)).toMatch(/\/audio\/[^/]+\.wav$/);
   const before = await plays();
+  await expect(page.locator(".qa-record")).toHaveClass(/btn-success/);
   await page.keyboard.press(" ");
   await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
   await page.waitForTimeout(500);
@@ -132,7 +137,7 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-how-listening .pulse")).toBeVisible();
   expect(await page.evaluate(() => (window as unknown as { played: Played[] }).played.map((p) => p.src))).toContainEqual(expect.stringMatching(/\/marimba-note-[\w-]+\.mp3$/));
   await expect(page.locator(".qa-record")).toBeDisabled();
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(600);
   await page.locator(".qa-how-stop").click();
   await expect(page.locator(".qa-how-heard")).toContainText("Vorrei un caffè");
   await expect(page.locator(".qa-how-sentence")).toHaveText("Vorrei un tè freddo.");
@@ -183,6 +188,41 @@ test("a word tapped before its line is glossed shows a loading tooltip, then the
   await expect(page.locator(".qa-gloss")).toHaveText("What will you have?");
   await expect(page.locator(".qa-gloss-waiting")).toHaveCount(0);
   await expect.poll(async () => decodeURIComponent((await page.evaluate(() => (window as unknown as { played: Played[] }).played.at(-1)?.src)) ?? "")).toMatch(/\/say\?text=Cosa prende\?$/);
+});
+
+test("a reply with no speech heard shows its error right above the record button", async ({ page }) => {
+  await signIn(page, "silent@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter").first().click();
+  await page.route("**/attempts", (route) => route.fulfill({ status: 422, json: { error: "No speech was heard; try again" } }), { times: 1 });
+  await record(page);
+  const error = page.locator(".qa-reply-error:has(+ .qa-record)");
+  await expect(error).toHaveText("No speech was heard; try again");
+  await expect(page.locator(".qa-conversation-error")).toHaveCount(0);
+  // The next try clears it.
+  await page.locator(".qa-record").click();
+  await expect(error).toHaveCount(0);
+});
+
+test("a recording stopped right away is not sent and shows a note instead of an error", async ({ page }) => {
+  await signIn(page, "double-tap@example.com");
+  await page.goto("/it/talk");
+  await page.locator(".qa-speak-starter").first().click();
+  let sent = 0;
+  await page.route("**/attempts", (route) => (sent++, route.continue()));
+  await expect(page.locator(".qa-record")).toBeEnabled();
+  await page.keyboard.press(" ");
+  await expect(page.locator(".qa-record")).toHaveClass(/btn-danger/);
+  await page.keyboard.press(" ");
+  await expect(page.locator(".qa-reply-short")).toBeVisible();
+  await expect(page.locator(".qa-record")).toHaveClass(/btn-success/);
+  await expect(page.locator(".qa-reply-error")).toHaveCount(0);
+  await expect(page.locator(".qa-conversation-error")).toHaveCount(0);
+  expect(sent).toBe(0);
+  // A proper recording clears the note and is sent.
+  await record(page);
+  await expect(page.locator(".qa-reply-short")).toHaveCount(0);
+  await expect.poll(() => sent).toBe(1);
 });
 
 test("a tapped chunk's gloss shows a spinner until its audio starts playing", async ({ page }) => {

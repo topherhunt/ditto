@@ -490,6 +490,7 @@ export const it: Dictionary = {
   "speak.step.judging": "Controllo la grammatica…",
   "speak.step.answering": "Ben detto! In attesa della risposta…",
   "speak.micError": "Impossibile usare il microfono: {error}",
+  "speak.tooShort": "Troppo breve per sentirti. Tocca di nuovo, di' la tua frase, poi tocca Stop.",
   "speak.sayThis": "Di' questo",
   "speak.goodTry": "Bel tentativo! Ecco alcune correzioni:",
   "speak.youSaid": "Capito come:",

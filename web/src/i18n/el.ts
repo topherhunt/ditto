@@ -489,6 +489,7 @@ export const el: Dictionary = {
   "speak.step.judging": "Έλεγχος της γραμματικής σου…",
   "speak.step.answering": "Μπράβο! Περιμένω την απάντηση…",
   "speak.micError": "Δεν ήταν δυνατή η χρήση του μικροφώνου: {error}",
+  "speak.tooShort": "Πολύ σύντομο για να ακουστεί. Πάτησε ξανά, πες τη φράση σου και μετά πάτησε Διακοπή.",
   "speak.sayThis": "Πες αυτό",
   "speak.goodTry": "Καλή προσπάθεια! Να μερικές διορθώσεις:",
   "speak.youSaid": "Ακούστηκε ως:",

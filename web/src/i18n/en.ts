@@ -489,6 +489,7 @@ export const en = {
   "speak.step.judging": "Checking your grammar…",
   "speak.step.answering": "Well said! Waiting for the answer…",
   "speak.micError": "Couldn't use the microphone: {error}",
+  "speak.tooShort": "Too short to hear. Tap again, say your line, then tap Stop.",
   "speak.sayThis": "Say this",
   "speak.goodTry": "Good try! Here are some corrections:",
   "speak.youSaid": "Heard as:",

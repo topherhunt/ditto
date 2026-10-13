@@ -489,6 +489,7 @@ export const nl: Dictionary = {
   "speak.step.judging": "Grammatica controleren…",
   "speak.step.answering": "Goed gezegd! Wachten op het antwoord…",
   "speak.micError": "Kon de microfoon niet gebruiken: {error}",
+  "speak.tooShort": "Te kort om iets te horen. Tik opnieuw, zeg je zin en tik dan op Stop.",
   "speak.sayThis": "Zeg dit",
   "speak.goodTry": "Goed geprobeerd! Hier zijn wat verbeteringen:",
   "speak.youSaid": "Verstaan als:",

@@ -166,8 +166,14 @@ type RecState = "idle" | "starting" | "recording" | "checking";
 type HowState = "idle" | "starting" | "recording" | "translating";
 type Mime = "audio/webm" | "audio/mp4";
 
-/** Starts recording with the start cue. Stopping the returned recorder sounds the stop cue, releases the mic and hands `onDone` the recording, also as base64. */
-async function openMic(onDone: (recording: Blob, audio: string, mime: Mime) => void): Promise<MediaRecorder> {
+/** Shorter than any spoken reply: a start quickly undone, like a double-tap. Transcription rejects such a clip as corrupt. */
+const MIN_RECORDING_MS = 500;
+
+/**
+ * Starts recording with the start cue. Stopping the returned recorder sounds the stop cue, releases the mic and hands
+ * `onDone` the recording, also as base64, or calls `onTooShort` instead if it lasted under MIN_RECORDING_MS.
+ */
+async function openMic(onDone: (recording: Blob, audio: string, mime: Mime) => void, onTooShort: () => void): Promise<MediaRecorder> {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   // Chrome and Firefox record WebM, Safari only MP4.
   const mime: Mime = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "audio/mp4";
@@ -177,12 +183,14 @@ async function openMic(onDone: (recording: Blob, audio: string, mime: Mime) => v
   recorder.onstop = () => {
     playRecordStop();
     stream.getTracks().forEach((track) => track.stop());
+    if (performance.now() - started < MIN_RECORDING_MS) return onTooShort();
     const recording = new Blob(chunks, { type: mime });
     const reader = new FileReader();
     reader.onload = () => onDone(recording, (reader.result as string).split(",")[1], mime);
     reader.readAsDataURL(recording);
   };
   recorder.start();
+  const started = performance.now();
   playRecordStart();
   return recorder;
 }
@@ -214,6 +222,10 @@ export function Conversation() {
   const [howState, setHowState] = createSignal<HowState>("idle");
   const [busy, setBusy] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
+  /** A reply's error, shown above the record button rather than at the foot of the page. */
+  const [replyError, setReplyError] = createSignal<string | null>(null);
+  /** Which recording was stopped too soon to send, until the next one starts. */
+  const [tooShort, setTooShort] = createSignal<"reply" | "how" | null>(null);
   let recorder: MediaRecorder | null = null;
   let howRecorder: MediaRecorder | null = null;
 
@@ -266,13 +278,14 @@ export function Conversation() {
     const partner = turns.find((x) => x.role === "partner");
     if (partner) autoplay(partner.audioUrl!);
   };
-  const run = async (fn: () => Promise<void>) => {
+  const run = async (fn: () => Promise<void>, report = setError) => {
     setBusy(true);
     setError(null);
+    setReplyError(null);
     try {
       await fn();
     } catch (e) {
-      setError((e as Error).message);
+      report((e as Error).message);
       // A reply can pass and then have the partner's answer fail; reload to show where things stand.
       refetch();
     } finally {
@@ -301,17 +314,22 @@ export function Conversation() {
     } finally {
       setRecState("idle");
     }
-  });
+  }, setReplyError);
 
   const record = async () => {
     setRecState("starting");
     setError(null);
+    setReplyError(null);
+    setTooShort(null);
     try {
-      recorder = await openMic((recording, audio, mime) => void send(recording, audio, mime));
+      recorder = await openMic((recording, audio, mime) => void send(recording, audio, mime), () => {
+        setRecState("idle");
+        setTooShort("reply");
+      });
       setRecState("recording");
     } catch (e) {
       setRecState("idle");
-      setError(t("speak.micError", { error: (e as Error).message }));
+      setReplyError(t("speak.micError", { error: (e as Error).message }));
     }
   };
 
@@ -334,8 +352,13 @@ export function Conversation() {
     setHow(null);
     setHowState("starting");
     setError(null);
+    setReplyError(null);
+    setTooShort(null);
     try {
-      howRecorder = await openMic((_recording, audio, mime) => void translate(audio, mime));
+      howRecorder = await openMic((_recording, audio, mime) => void translate(audio, mime), () => {
+        setHowState("idle");
+        setTooShort("how");
+      });
       setHowState("recording");
     } catch (e) {
       setHowState("idle");
@@ -401,14 +424,16 @@ export function Conversation() {
               {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
             </Show>
 
+            <Show when={replyError()}>{(m) => <div class="qa-reply-error alert alert-danger mb-0">{m()}</div>}</Show>
+            <Show when={tooShort() === "reply"}><div class="qa-reply-short small text-body-secondary text-center">{t("speak.tooShort")}</div></Show>
             <Show when={recState() === "checking"} fallback={
-              <button type="button" data-silent class="qa-record btn btn-lg align-self-center" classList={{ "btn-danger": recState() === "recording", "btn-outline-danger": recState() !== "recording" }}
+              <button type="button" data-silent class="qa-record btn btn-lg align-self-center" classList={{ "btn-danger": recState() === "recording", "btn-success": recState() !== "recording" }}
                 disabled={!canRecord()} onClick={toggleRecord}>
                 <i class={`bi ${recState() === "recording" ? "bi-stop-fill" : "bi-mic-fill"} me-1`} aria-hidden="true" />
                 {recState() === "recording" ? t("speak.stop") : attempt() ? t("speak.recordAgain") : t("speak.record")}
               </button>
             }>
-              <div class="qa-checking d-flex align-items-center gap-2 text-body-secondary" role="status">
+              <div class="qa-checking d-flex align-items-center align-self-center gap-2 text-body-secondary" role="status">
                 <span class="spinner-border spinner-border-sm" aria-hidden="true" />
                 <span class={`qa-checking-${step()}`}>{t(`speak.step.${step()}`)}</span>
               </div>
@@ -439,11 +464,11 @@ export function Conversation() {
               </Show>
               {/* While listening, Stop takes the button's place, so one spot starts and stops. */}
               <Show when={howState() === "recording"} fallback={
-                <button type="button" data-silent class="qa-how-open btn btn-primary align-self-start" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>
+                <button type="button" data-silent class="qa-how-open btn btn-outline-info align-self-start ms-4" disabled={howState() !== "idle" || recState() !== "idle" || busy()} onClick={() => void askHow()}>
                   <i class="bi bi-mic-fill me-1" aria-hidden="true" />{t("speak.how")}
                 </button>
               }>
-                <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 p-2 mb-0" role="status">
+                <div class="qa-how-listening alert alert-danger d-flex align-items-center gap-3 p-2 mb-0 ms-4" role="status">
                   <button type="button" data-silent class="qa-how-stop btn btn-danger" onClick={() => howRecorder!.stop()}>
                     <i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}
                   </button>
@@ -451,6 +476,7 @@ export function Conversation() {
                   <span>{t("speak.howListening")}</span>
                 </div>
               </Show>
+              <Show when={tooShort() === "how"}><div class="qa-how-short small text-body-secondary ms-4">{t("speak.tooShort")}</div></Show>
               <Show when={howState() === "translating"}>
                 <div class="qa-how-translating d-flex align-items-center gap-2 text-body-secondary" role="status">
                   <span class="spinner-border spinner-border-sm" aria-hidden="true" />

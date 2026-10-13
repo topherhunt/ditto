@@ -489,6 +489,7 @@ export const es419: Dictionary = {
   "speak.step.judging": "Revisando tu gramática…",
   "speak.step.answering": "¡Bien dicho! Esperando la respuesta…",
   "speak.micError": "No se pudo usar el micrófono: {error}",
+  "speak.tooShort": "Muy corto para oírte. Toca de nuevo, di tu frase y luego toca Detener.",
   "speak.sayThis": "Di esto",
   "speak.goodTry": "¡Buen intento! Aquí tienes algunas correcciones:",
   "speak.youSaid": "Se entendió:",
