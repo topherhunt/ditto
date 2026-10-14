@@ -40,6 +40,10 @@ else
 fi
 REMOTE
 
+echo "==> Backup (migrations run on boot)"
+# A oneshot unit, so start returns once the snapshot is written; a failed backup stops the deploy before the restart.
+remote_sudo systemctl start "${SERVICE_NAME}-backup.service"
+
 echo "==> Restart"
 remote_sudo systemctl restart "${SERVICE_NAME}.service"
 health_ok=0

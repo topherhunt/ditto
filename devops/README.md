@@ -9,7 +9,7 @@ Unlike the games, Ditto keeps state and secrets, and needs Node 26:
 | `/srv/ditto/app` | `server/`, `shared/`, `content/` (incl. audio), `dist/web`, `scripts/backup-db.ts`, `scripts/reports.ts` | Replaced (rsync `--delete`, allow-list in `deploy.sh`) |
 | `/srv/ditto/app/node_modules` | Production deps, installed on the host | Reinstalled only when `package-lock.json` changed |
 | `/srv/ditto/data/app.db` | SQLite (WAL). Migrations run on boot. | Never |
-| `/srv/ditto/backups` | Nightly `VACUUM INTO` snapshots, newest 14 kept (`ditto-backup.timer`) | Never |
+| `/srv/ditto/backups` | `VACUUM INTO` snapshots, nightly (`ditto-backup.timer`) and before each deploy's restart; newest 14 kept | Never |
 | `/etc/ditto.env` | Secrets from `devops/production.env`, mode 640 root:ditto | Only by `push-env.sh` |
 | `/opt/node26` | Ditto's own Node 26. The host's `/usr/bin/node` (22) serves the other tenants and is left alone. | Only by `provision.sh` |
 | `/srv/ditto/data/speak-audio` | Conversation partner audio | Never |
@@ -27,7 +27,7 @@ The shared host setup (`host-setup.sh`: Caddy, system Node, `/srv/registry`) is 
 
 ## Release
 
-`bash devops/deploy.sh` ships the local working tree, committed or not. It stops before shipping unless typecheck, `npm test`, the audio-complete check (`node scripts/validate-content.ts --require-audio`) and `npm run build` all pass. It then rsyncs, runs `npm ci --omit=dev` only when `package-lock.json` changed, restarts, and polls `https://ditto.topherhunt.com/health`. Sessions live in SQLite, so a restart logs no one out.
+`bash devops/deploy.sh` ships the local working tree, committed or not. It stops before shipping unless typecheck, `npm test`, the audio-complete check (`node scripts/validate-content.ts --require-audio`) and `npm run build` all pass. It then rsyncs, runs `npm ci --omit=dev` only when `package-lock.json` changed, backs up the database (a failed backup stops it there), restarts, and polls `https://ditto.topherhunt.com/health`. Sessions live in SQLite, so a restart logs no one out.
 
 ## Operate
 
