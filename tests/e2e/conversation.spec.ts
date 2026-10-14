@@ -1,5 +1,6 @@
 import { expect, test } from "./fixtures.ts";
 import type { ConversationOut, GlossesOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
+import { en } from "../../web/src/i18n/en.ts";
 import { recordPlays, signIn, signOut, type Played } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
@@ -151,6 +152,39 @@ test("hard mode chosen on the Talk page hides the suggested replies but keeps Ho
   await expect(page.locator(".qa-how-listening")).toHaveCount(0);
   await expect(page.locator(".qa-record")).toBeEnabled();
   await expect(page.locator("input.qa-how-text")).toHaveCount(0);
+});
+
+test("slow speech, set on the Talk page or in a conversation, plays the partner at 3/4 speed and shows in the settings summary", async ({ page }) => {
+  await recordPlays(page);
+  await signIn(page, "speaker@example.com");
+  await page.locator(".qa-nav-speak").click();
+  const summary = page.locator(".qa-speak-settings-summary");
+  await expect(summary).toContainText(en["speak.showHints"]);
+  await expect(summary).toContainText(en["speak.normalSpeed"]);
+  await page.locator(".qa-speak-settings-toggle").click();
+  await page.locator(".qa-speak-hard").check();
+  await page.locator(".qa-speak-slow").check();
+  await page.locator(".qa-speak-settings-toggle").click();
+  await expect(summary).toContainText(en["speak.hardMode"]);
+  await expect(summary).toContainText(en["speak.slowerSpeech"]);
+
+  await page.locator(".qa-speak-starter").first().click();
+  await expect(page.locator(".qa-conversation-title")).toBeVisible();
+  // The last spoken clip; UI sounds such as a button's click are skipped.
+  const last = () => page.evaluate(() => (window as unknown as { played: Played[] }).played.findLast((p) => p.src.includes("/audio/")));
+  await expect.poll(last).toMatchObject({ rate: 0.75 });
+  await expect(page.locator(".qa-speak-slow")).toBeChecked();
+  // Unchecked here, it is off on the Talk page too, and the partner speaks at full speed.
+  const refetched = page.waitForResponse("**/api/me");
+  await page.locator(".qa-speak-slow").uncheck();
+  await refetched;
+  // Once the opening line ends; while it plays, its button stops it.
+  await expect(page.locator(".qa-turn-play").first()).toHaveText("▶");
+  const plays = await page.evaluate(() => (window as unknown as { played: Played[] }).played.length);
+  await page.locator(".qa-turn-play").first().click();
+  await expect.poll(() => page.evaluate((n) => (window as unknown as { played: Played[] }).played.slice(n).find((p) => p.src.includes("/audio/")), plays)).toMatchObject({ rate: 1 });
+  await page.goto("/it/talk");
+  await expect(summary).toContainText(en["speak.normalSpeed"]);
 });
 
 /** Turns arrive without chunks, as when the gloss outlasts the speech (the fake glosses at once), and the glosses route answers on release(); with `fail`, without chunks still. */

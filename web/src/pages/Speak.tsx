@@ -8,6 +8,7 @@ import { me, refetchMe } from "../session.ts";
 import { useLang } from "./lang.ts";
 import { unlockPlayer } from "./player.ts";
 import { Loading } from "../components/Loading.tsx";
+import { SlowSpeechToggle } from "../components/SlowSpeech.tsx";
 import { routes } from "../routes.ts";
 
 /** Language-neutral, so it lives here rather than in each locale file. */
@@ -75,7 +76,7 @@ export function Speak() {
               <span class="flex-shrink-0">{t("home.practiceSettings")}</span>
               <Show when={!settingsOpen()}>
                 <span class="qa-speak-settings-summary small text-body-secondary text-truncate">
-                  {level()}<Show when={hardMode()}><span aria-hidden="true"> · </span>{t("speak.hardMode")}</Show>
+                  {[level(), t(hardMode() ? "speak.hardMode" : "speak.showHints"), t(prefs().slowTalk ? "speak.slowerSpeech" : "speak.normalSpeed")].join(" · ")}
                 </span>
               </Show>
             </button>
@@ -97,6 +98,7 @@ export function Speak() {
                   </label>
                   <div class="form-text">{t("speak.hardModeHint")}</div>
                 </div>
+                <SlowSpeechToggle lang={lang()} onError={setError} hint />
               </div>
             </Show>
           </div>

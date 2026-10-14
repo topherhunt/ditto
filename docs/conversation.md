@@ -4,7 +4,7 @@ Called "Talk" in the interface. A speaking track separate from dictation: a spok
 
 ## Turn loop
 
-1. The partner speaks a line (TTS in the voice picked at random from the language's two (`VOICES`, `server/content.ts`; sarah F, george M) when the conversation starts and kept in `conversations.voice`, on Eleven v4 Turbo, $40 per 1M characters and recorded as "speech" spend); it plays by itself and its transcript shows. Every level hears the same pace: v4 Turbo has no speed control (docs/plan.md, Audio).
+1. The partner speaks a line (TTS in the voice picked at random from the language's two (`VOICES`, `server/content.ts`; sarah F, george M) when the conversation starts and kept in `conversations.voice`, on Eleven v4 Turbo, $40 per 1M characters and recorded as "speech" spend); it plays by itself and its transcript shows. Every level gets the same pace from TTS, since v4 Turbo has no speed control (docs/plan.md, Audio). Instead, the browser slows it: "Slow speech" (`prefs.slowTalk`, per course, on the Talk page's settings and beside the tap hint in a conversation) plays every line, suggestion and tapped chunk at `SLOW_TALK_RATE` (0.75, pitch kept). The learner's own recordings stay at 1×.
 2. Suggested replies: three plausible replies, each steering the conversation a different way, each a polite full sentence of about 6 to 12 words even at A1. The learner may say one or say anything else. Hidden in hard mode, a per-conversation switch.
 3. The learner records a reply (push-to-talk).
 4. The coach judges it (below). A pass plays the success sound. A failure plays a marimba warning and pauses the conversation on the retry screen, introduced by "Good try! Here are some corrections:".

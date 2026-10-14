@@ -9,10 +9,6 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 - **RackNerd:** no DPA (see Accepted gaps).
 - **Google:** sign-in (Google acts as its own controller).
 
-## Before this deploy
-
-- **Add the URLs to the Google OAuth consent screen:** `https://ditto.topherhunt.com/privacy` and `/terms`.
-
 ## Soon
 
 - **Self-serve account deletion.** Until it exists, deletion is manual: `DELETE FROM users WHERE id = ?` (cascades remove everything else). It leaves the conversation's partner audio files in `SPEAK_AUDIO_DIR`, which hold no personal data.

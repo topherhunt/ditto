@@ -13,6 +13,7 @@ import { ScrollUpButton, scrollFabClass, scrollFabStyle, scrollToY } from "../co
 import { autoplay, loading, playing } from "./player.ts";
 import { keepRecording, recordingUrl } from "../recordings.ts";
 import { Loading } from "../components/Loading.tsx";
+import { SlowSpeechToggle, talkRate } from "../components/SlowSpeech.tsx";
 import { routes } from "../routes.ts";
 
 /** A tooltip below the tapped span: Bootstrap's tooltip classes, positioned without its JS. */
@@ -105,8 +106,8 @@ function LevelBadge(props: { level: string | null; side: "start" | "end" }) {
   );
 }
 
-/** `latest` is the conversation's last turn, set larger so the line to answer stands out. */
-function Turn(props: { turn: TurnOut; latest: boolean; pending: boolean; active: string | null; preparing: boolean; onTap: (key: string, text: string) => void; onWait: (key: string | null) => void }) {
+/** `latest` is the conversation's last turn, set larger so the line to answer stands out. `rate` plays the partner's line. */
+function Turn(props: { turn: TurnOut; latest: boolean; pending: boolean; active: string | null; preparing: boolean; rate: number; onTap: (key: string, text: string) => void; onWait: (key: string | null) => void }) {
   const turn = () => props.turn;
   /** The learner's replies replay from this browser; the server never stores them. */
   const [kept] = createResource(() => turn().role === "learner" && turn().id, recordingUrl);
@@ -125,7 +126,7 @@ function Turn(props: { turn: TurnOut; latest: boolean; pending: boolean; active:
       </div>
     }>
       <div class="qa-turn qa-turn-partner d-flex align-items-start gap-2 p-2 rounded border bubble-partner bg-body-secondary position-relative" style={{ "max-width": "85%" }}>
-        <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" />
+        <PlayButton url={turn().audioUrl!} class="qa-turn-play" color="btn-outline-primary" rate={props.rate} />
         <ChunkLine class="qa-turn-text" classList={{ "fs-5": props.latest }} text={turn().text} chunks={turn().chunks} pending={props.pending} id={`t${turn().id}`} active={props.active} preparing={props.preparing} onTap={props.onTap} onWait={props.onWait} />
         <LevelBadge level={turn().level} side="start" />
       </div>
@@ -201,10 +202,12 @@ export function Conversation() {
   const [conv, { mutate, refetch }] = createResource(() => params.id, (id) => api.get<ConversationOut>(`/api/conversations/${id}`));
   /** Set by the Speak page when it has just started this conversation, whose opening line then plays once. */
   let opening = (useLocation().state as { opened?: boolean } | undefined)?.opened === true;
+  /** Every voice but the learner's own plays at the learner's Slow speech setting. */
+  const rate = () => talkRate(lang());
   createEffect(() => {
     if (!opening || !conv()) return;
     opening = false;
-    autoplay(conv()!.turns[0].audioUrl!);
+    autoplay(conv()!.turns[0].audioUrl!, rate());
   });
   /** Chunks tapped since the learner's last turn; their count is sent as `taps`. */
   const [revealed, setRevealed] = createSignal(new Set<string>());
@@ -241,7 +244,7 @@ export function Conversation() {
     setActiveChunk(key);
     const url = `/api/conversations/${c().id}/say?text=${encodeURIComponent(text)}`;
     setActiveUrl(url);
-    autoplay(url);
+    autoplay(url, rate());
     setRevealed((s) => new Set(s).add(key));
   };
   /** A word tapped before its line's chunks arrived: its loading tooltip toggles like a chunk's, without speaking. */
@@ -276,7 +279,7 @@ export function Conversation() {
     setHow(null);
     setRevealed(new Set<string>());
     const partner = turns.find((x) => x.role === "partner");
-    if (partner) autoplay(partner.audioUrl!);
+    if (partner) autoplay(partner.audioUrl!, rate());
   };
   const run = async (fn: () => Promise<void>, report = setError) => {
     setBusy(true);
@@ -400,10 +403,13 @@ export function Conversation() {
           <A end href={routes.talk({ lang: lang() })} class="btn btn-sm btn-outline-secondary" aria-label={t("speak.history")}><i class="bi bi-arrow-left" aria-hidden="true" /></A>
           <h1 class="qa-conversation-title h4 mb-0 me-auto">{c().title}</h1>
         </div>
-        <div class="small text-body-secondary">{t("speak.tapHint")}</div>
+        <div class="d-flex flex-wrap align-items-center column-gap-3 small text-body-secondary">
+          <span>{t("speak.tapHint")}</span>
+          <SlowSpeechToggle lang={lang()} onError={setError} />
+        </div>
 
         <div class="d-flex flex-column gap-3">
-          <For each={c().turns}>{(turn, i) => <Turn turn={turn} latest={i() === c().turns.length - 1} pending={glossing() > 0} active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />}</For>
+          <For each={c().turns}>{(turn, i) => <Turn turn={turn} latest={i() === c().turns.length - 1} pending={glossing() > 0} active={activeChunk()} preparing={preparing()} rate={rate()} onTap={tap} onWait={wait} />}</For>
         </div>
 
         <Show when={last().role === "learner"}>
@@ -421,7 +427,7 @@ export function Conversation() {
           <div class="qa-reply d-flex flex-column gap-3 border-top pt-3">
             {/* Keyed, so each attempt gets a fresh report form. */}
             <Show when={attempt()} keyed>
-              {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} />}
+              {(a) => <Retry attempt={a} ownUrl={ownUrl()} conversationId={c().id} onElse={() => setAttempt(null)} onMoveOn={moveOn} busy={busy()} rate={rate()} />}
             </Show>
 
             <Show when={replyError()}>{(m) => <div class="qa-reply-error alert alert-danger mb-0">{m()}</div>}</Show>
@@ -453,7 +459,7 @@ export function Conversation() {
                           <li class="qa-suggestion mb-1">
                             <div class="d-flex align-items-start gap-2">
                               <ChunkLine text={s.map((x) => x.text).join(" ")} chunks={s} pending={false} id={`t${last().id}-s${j()}`} active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />
-                              <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" />
+                              <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(s.map((x) => x.text).join(" "))}`} class="qa-suggestion-play btn-link p-0" rate={rate()} />
                             </div>
                           </li>
                         )}
@@ -495,7 +501,7 @@ export function Conversation() {
                         <div class="small text-uppercase fw-semibold text-body-secondary">{t("speak.howResult")}</div>
                         <div class="d-flex align-items-start gap-2">
                           <ChunkLine class="qa-how-sentence" text={h().sentence} chunks={h().chunks} pending={howGlossing()} id="how" active={activeChunk()} preparing={preparing()} onTap={tap} onWait={wait} />
-                          <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(h().sentence)}`} class="qa-how-play btn-link p-0" />
+                          <PlayButton url={`/api/conversations/${c().id}/say?text=${encodeURIComponent(h().sentence)}`} class="qa-how-play btn-link p-0" rate={rate()} />
                         </div>
                       </div>
                     </div>
@@ -519,8 +525,8 @@ export function Conversation() {
   );
 }
 
-/** A failed reply: the sentence to say, what went wrong, and the ways out. */
-function Retry(props: { attempt: SpeakAttemptOut; ownUrl: string; conversationId: number; onElse: () => void; onMoveOn: () => void; busy: boolean }) {
+/** A failed reply: the sentence to say (played at `rate`), what went wrong, and the ways out. */
+function Retry(props: { attempt: SpeakAttemptOut; ownUrl: string; conversationId: number; onElse: () => void; onMoveOn: () => void; busy: boolean; rate: number }) {
   const a = () => props.attempt;
   const [note, setNote] = createSignal("");
   const [reported, setReported] = createSignal(false);
@@ -552,7 +558,7 @@ function Retry(props: { attempt: SpeakAttemptOut; ownUrl: string; conversationId
         <div class="small text-orange fw-semibold">{t("speak.sayThis")}:</div>
         <div class="d-flex align-items-center gap-2">
           <Show when={a().targetAudioUrl}>
-            {(u) => <PlayButton url={u()} class="qa-retry-play-target" color="btn-outline-primary" />}
+            {(u) => <PlayButton url={u()} class="qa-retry-play-target" color="btn-outline-primary" rate={props.rate} />}
           </Show>
           <span class="qa-retry-target fs-4">{a().target}</span>
         </div>

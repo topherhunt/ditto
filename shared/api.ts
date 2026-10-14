@@ -16,6 +16,8 @@ export const PrefsSchema = z.strictObject({
   path: z.enum(Object.keys(PATHS) as [keyof typeof PATHS]),
   hints: z.enum(HINT_LEVELS),
   rate: z.number().min(0.5).max(1),
+  /** Talk plays the partner's voice at SLOW_TALK_RATE. */
+  slowTalk: z.boolean(),
   /** Self-rated: the conversation level and which levels the coach suggests testing out of. Null until the learner is asked. */
   level: z.enum(LEARNER_LEVELS).nullable(),
   /** Immersion: the interface, and explanations and coaching, in the course's language. Only for a course that is also a locale. */
@@ -27,7 +29,8 @@ export const PrefsSchema = z.strictObject({
   helpSeen: z.array(z.enum(HELP_TOPICS)),
 });
 export type Prefs = z.infer<typeof PrefsSchema>;
-export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", rate: 1, level: null, immerseUi: false, immerseHelp: false, studyFirst: false, helpSeen: [] };
+export const SLOW_TALK_RATE = 0.75;
+export const DEFAULT_PREFS: Prefs = { path: "full", hints: "letters", rate: 1, slowTalk: false, level: null, immerseUi: false, immerseHelp: false, studyFirst: false, helpSeen: [] };
 
 /** Whether a course can be immersed in: the app and the AI write only in a locale. */
 export const immersible = (l: Language) => languageLocale(l) !== null;

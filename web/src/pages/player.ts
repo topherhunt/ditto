@@ -23,8 +23,11 @@ function failed() {
 player.addEventListener("error", failed);
 
 // A clip's play() rejects when another clip (or the unlocking silence) replaces it, and must not reset the newer clip's state.
-function start(src: string) {
+// Loading a src resets playbackRate to defaultPlaybackRate, so both are set.
+function start(src: string, rate: number) {
+  player.defaultPlaybackRate = rate;
   player.src = src;
+  player.playbackRate = rate;
   return player.play().catch((e: unknown) => {
     if (player.src === src) {
       setPlaying(null);
@@ -35,14 +38,14 @@ function start(src: string) {
 }
 
 /** Plays `url` from memory after its first play, which fetches it whole: streaming it alongside would render a paid clip twice. */
-export const play = (url: string) => {
+export const play = (url: string, rate = 1) => {
   setPlaying(url);
   const blob = loadedSrc(url);
   setLoading(!blob);
-  if (blob) return start(blob);
+  if (blob) return start(blob, rate);
   // The fetch outlasts the click, so the click unlocks the element for the play that follows it.
   unlockPlayer();
-  return load(url).then((src) => (playing() === url ? start(src) : undefined), (e: unknown) => {
+  return load(url).then((src) => (playing() === url ? start(src, rate) : undefined), (e: unknown) => {
     if (playing() === url) failed();
     throw e;
   });
@@ -61,4 +64,4 @@ export function unlockPlayer() {
 }
 
 /** Autoplay can still be refused (another browser policy); the line's play button stays. */
-export const autoplay = (url: string) => void play(url).catch(() => {});
+export const autoplay = (url: string, rate = 1) => void play(url, rate).catch(() => {});
