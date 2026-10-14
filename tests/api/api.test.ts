@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { LANGUAGES } from "../../shared/content.ts";
+import { WHATS_NEW_COUNT } from "../../shared/whats-new.ts";
 import { setup } from "./helpers.ts";
 
 describe("health", () => {
@@ -530,6 +531,20 @@ describe("locale", () => {
     await t.login("a@example.com", "nl");
     await t.attempt(body.unitId, { outcome: "revealed", submissions: ["Vorrei un te"] });
     expect((await t.req("GET", "/api/mistakes?lang=it")).json[0].explanation).toBeNull();
+  });
+});
+
+describe("what's new", () => {
+  it("counts items added since the learner last opened the page; a new learner starts with none unseen, an existing one with all", async () => {
+    const t = setup();
+    await t.login();
+    expect((await t.req("GET", "/api/me")).json.whatsNewUnseen).toBe(0);
+    t.deps.db.prepare("UPDATE users SET misc = '{}'").run();
+    expect((await t.req("GET", "/api/me")).json.whatsNewUnseen).toBe(WHATS_NEW_COUNT);
+    t.deps.db.prepare("UPDATE users SET misc = json_set(misc, '$.whatsNewSeen', ?)").run(WHATS_NEW_COUNT - 2);
+    expect((await t.req("GET", "/api/me")).json.whatsNewUnseen).toBe(2);
+    expect((await t.req("POST", "/api/whats-new/seen", {})).status).toBe(200);
+    expect((await t.req("GET", "/api/me")).json.whatsNewUnseen).toBe(0);
   });
 });
 

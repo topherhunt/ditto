@@ -24,6 +24,7 @@ export const nl: Dictionary = {
   "nav.profile": "Mijn profiel",
   "nav.friends": "Vrienden",
   "nav.about": "Over Ditto",
+  "nav.whatsNew": "Wat is er nieuw",
   "nav.signOut": "Uitloggen",
 
   "language.en": "Engels",
@@ -320,6 +321,7 @@ export const nl: Dictionary = {
   "graph.today": "vandaag",
 
   "about.title": "Zo haal je het meeste uit Ditto",
+  "whatsNew.title": "Wat is er nieuw",
   "about.exerciseHeading": "Bij elke oefening",
   "about.tipListen": "🎧 Eerst luisteren, dan typen wat je hoort. Herhaal met Esc zo vaak je wilt: het luisteren is de training.",
   "about.tipSlow": "🐢 Gaat een stukje te snel? Druk op Langzaam, of zet de afspeelsnelheid lager bij Instellingen.",

@@ -24,3 +24,7 @@ Most learners use a phone, so design every learner-facing view for a screen unde
 - Don't stack padding: a card inside a container inside a page gutter squeezes its content. Cancel a card body's padding (`mx-n3`) for lists that should run edge to edge.
 - Buttons and tap targets stay reachable with a thumb, and button rows wrap (`flex-wrap`) instead of overflowing.
 - No tooltips (`title`, Bootstrap tooltips) for anything a learner needs, because hover doesn't exist on touch and a disabled button never shows one. Put the information on screen, or behind a tap that opens a `Popup` (`web/src/components/Popup.tsx`).
+
+## What's new
+
+`shared/whats-new.ts` is the learner-facing changelog behind the account menu's What's new page and its unseen-count badge. Whenever you ship a significant learner-visible feature or change, add it there in the same change, and when you notice the list has fallen behind recent commits, catch it up. Newest date first, one group per date, one short sentence per item in every UI locale. Leave out fixes, polish, operator pages and internals. Never remove an item, since the badge counts items.

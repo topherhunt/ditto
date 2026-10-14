@@ -208,6 +208,7 @@ users(id PK  -- internal only; never sent to the client
       , google_sub UNIQUE, email, prefs JSON, locale, created_at
       , username  -- NULL until picked; UNIQUE COLLATE NOCASE
       , profile_public  -- 1 (default) or 0
+      , misc JSON  -- minor flags that don't earn a column (`Misc`, server/auth.ts), e.g. whatsNewSeen: What's new items seen
       )
 sessions(token_hash PK, user_id FK, created_at, expires_at)
 attempts(id PK, user_id, unit_id, unit_rev, course_id, lesson_id, mode  -- learn|mistakes|review
@@ -253,7 +254,8 @@ Migrations are numbered `.sql` files applied at boot and tracked with `PRAGMA us
 | POST | `/api/auth/google` | `{credential}` from Google Identity Services. The server verifies the ID token (`google-auth-library`) and sets an httpOnly `Secure` `SameSite=Lax` session cookie |
 | POST | `/api/auth/dev` | Enabled only when `DEV_LOGIN=1`. Used by E2E tests |
 | POST | `/api/auth/logout` | |
-| GET | `/api/me` | User, username, prefs, profile visibility, and whether they're an admin |
+| GET | `/api/me` | User, username, prefs, profile visibility, unseen What's new count, and whether they're an admin |
+| POST | `/api/whats-new/seen` | Marks every What's new item seen |
 | PUT | `/api/username` | `{username}`; 409 if taken regardless of capitals |
 | PUT | `/api/profile-visibility` | `{public}` |
 | PUT | `/api/prefs` | |

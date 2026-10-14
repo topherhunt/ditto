@@ -31,6 +31,7 @@ test("the nav bar, account menu and footer links open the pages they name", asyn
     { qa: ".qa-nav-friends", to: routes.friends(), menu: true },
     { qa: ".qa-nav-leaderboard", to: routes.leaderboard(), menu: true },
     { qa: ".qa-nav-settings", to: routes.settings(), menu: true },
+    { qa: ".qa-nav-whats-new", to: routes.whatsNew(), menu: true },
     { qa: ".qa-nav-about", to: routes.about(), menu: true },
     { qa: ".qa-footer-home", to: routes.welcome() },
     { qa: ".qa-footer-about", to: routes.about() },

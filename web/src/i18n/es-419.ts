@@ -24,6 +24,7 @@ export const es419: Dictionary = {
   "nav.profile": "Mi perfil",
   "nav.friends": "Amigos",
   "nav.about": "Acerca de",
+  "nav.whatsNew": "Novedades",
   "nav.signOut": "Cerrar sesión",
 
   "language.en": "Inglés",
@@ -320,6 +321,7 @@ export const es419: Dictionary = {
   "graph.today": "hoy",
 
   "about.title": "Cómo aprovechar Ditto al máximo",
+  "whatsNew.title": "Novedades",
   "about.exerciseHeading": "En cada ejercicio",
   "about.tipListen": "🎧 Primero escucha, luego escribe lo que oyes. Repite con Esc cuantas veces quieras: escuchar es el ejercicio.",
   "about.tipSlow": "🐢 ¿Una parte va muy rápido? Presiona Lento o baja la velocidad en Ajustes.",

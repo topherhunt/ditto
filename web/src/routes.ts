@@ -31,6 +31,7 @@ export const routes = {
   welcome: route("/"),
   about: route("/about"),
   aboutHomeScreen: route("/about/home-screen"),
+  whatsNew: route("/whats-new"),
   privacy: route("/privacy"),
   terms: route("/terms"),
   cap: route("/cap"),

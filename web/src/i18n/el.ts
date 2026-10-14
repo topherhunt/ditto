@@ -24,6 +24,7 @@ export const el: Dictionary = {
   "nav.profile": "Το προφίλ μου",
   "nav.friends": "Φίλοι",
   "nav.about": "Σχετικά",
+  "nav.whatsNew": "Τι νέο υπάρχει",
   "nav.signOut": "Αποσύνδεση",
 
   "language.en": "Αγγλικά",
@@ -320,6 +321,7 @@ export const el: Dictionary = {
   "graph.today": "σήμερα",
 
   "about.title": "Πώς να αξιοποιήσεις στο έπακρο το Ditto",
+  "whatsNew.title": "Τι νέο υπάρχει",
   "about.exerciseHeading": "Σε κάθε άσκηση",
   "about.tipListen": "🎧 Άκουσε πρώτα και μετά γράψε όσα ακούς. Ξαναπαίξε τον ήχο με το Esc όσες φορές θέλεις: η ακρόαση είναι η προπόνηση.",
   "about.tipSlow": "🐢 Κολλάς σε ένα γρήγορο σημείο; Πάτα Αργά ή μείωσε την ταχύτητα αναπαραγωγής στις Ρυθμίσεις.",

@@ -23,6 +23,7 @@ export const en = {
   "nav.profile": "My profile",
   "nav.friends": "Friends",
   "nav.about": "About",
+  "nav.whatsNew": "What's new",
   "nav.signOut": "Sign out",
 
   "language.en": "English",
@@ -320,6 +321,7 @@ export const en = {
   "graph.today": "today",
 
   "about.title": "How to get the most out of Ditto",
+  "whatsNew.title": "What's new",
   "about.exerciseHeading": "In each exercise",
   "about.tipListen": "🎧 Listen first, then type what you hear. Replay with Esc as often as you like: the listening is the workout.",
   "about.tipSlow": "🐢 Stuck on a fast bit? Press Slow, or lower the playback speed in Settings.",

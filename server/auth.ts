@@ -2,18 +2,24 @@ import { createHash, randomBytes } from "node:crypto";
 import { OAuth2Client } from "google-auth-library";
 import { DEFAULT_PREFS, PrefsSchema, type Prefs } from "../shared/api.ts";
 import { LANGUAGES, languageLocale, supportLocale, type Language, type Locale } from "../shared/content.ts";
+import { WHATS_NEW_COUNT } from "../shared/whats-new.ts";
 import type { DB } from "./db.ts";
 
 export type GoogleProfile = { sub: string; email: string };
 export type VerifyGoogle = (credential: string) => Promise<GoogleProfile>;
 /** `locale` is the learner's own language: translations, explanations and coaching come in it, and so does the UI unless immersed. */
-export type User = { id: number; email: string; username: string | null; profilePublic: boolean; installHintDismissed: boolean; prefs: string; locale: Locale };
+export type User = { id: number; email: string; username: string | null; profilePublic: boolean; installHintDismissed: boolean; prefs: string; misc: string; locale: Locale };
 
 export const prefsOf = (user: User): Record<Language, Prefs> => {
   const stored = JSON.parse(user.prefs) as Partial<Record<Language, Prefs>>;
   // Defaults fill fields added since the prefs were saved.
   return Object.fromEntries(LANGUAGES.map((l) => [l, PrefsSchema.parse({ ...DEFAULT_PREFS, ...stored[l] })])) as Record<Language, Prefs>;
 };
+
+/** `users.misc`: minor flags. A missing key means the flag was never set. `whatsNewSeen`: how many What's new items they have seen. */
+export type Misc = { whatsNewSeen?: number };
+
+export const miscOf = (user: User): Misc => JSON.parse(user.misc) as Misc;
 
 /** The language AI writes glosses in for `language`: the learner's own, or the course's support language if that is the one practiced. */
 export const ownLocale = (user: User, language: Language): Locale =>
@@ -46,15 +52,15 @@ export function googleVerifier(clientId: string): VerifyGoogle {
 
 const hashToken = (token: string) => createHash("sha256").update(token).digest("hex");
 
-/** `locale` is the UI language at sign-in; it is stored for a new user only, so a saved choice wins. */
+/** `locale` is the UI language at sign-in; it is stored for a new user only, so a saved choice wins. A new user has seen every What's new item so far. */
 export function upsertUser(db: DB, profile: GoogleProfile, locale: Locale, now: Date): number {
   const row = db
     .prepare(
-      `INSERT INTO users (google_sub, email, locale, created_at) VALUES (?, ?, ?, ?)
+      `INSERT INTO users (google_sub, email, locale, misc, created_at) VALUES (?, ?, ?, ?, ?)
        ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email
        RETURNING id`,
     )
-    .get(profile.sub, profile.email, locale, now.toISOString()) as { id: number };
+    .get(profile.sub, profile.email, locale, JSON.stringify({ whatsNewSeen: WHATS_NEW_COUNT } satisfies Misc), now.toISOString()) as { id: number };
   return row.id;
 }
 
@@ -69,7 +75,7 @@ export function createSession(db: DB, userId: number, now: Date): string {
 export function sessionUser(db: DB, token: string, now: Date): User | null {
   const row = db
     .prepare(
-      `SELECT u.id, u.email, u.username, u.profile_public, u.install_hint_dismissed, u.prefs, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
+      `SELECT u.id, u.email, u.username, u.profile_public, u.install_hint_dismissed, u.prefs, u.misc, u.locale FROM sessions s JOIN users u ON u.id = s.user_id
        WHERE s.token_hash = ? AND s.expires_at > ?`,
     )
     .get(hashToken(token), now.toISOString()) as (Omit<User, "profilePublic" | "installHintDismissed"> & { profile_public: number; install_hint_dismissed: number }) | undefined;

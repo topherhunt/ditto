@@ -9,6 +9,7 @@ import {
 } from "../shared/api.ts";
 import { LANGUAGES, NATIVE_LOCALES, PATHS, STAGES, supportLocale, type Language, type Locale, type ServedLesson, type ServedUnit, type Stage } from "../shared/content.ts";
 import { grade } from "../shared/grader.ts";
+import { WHATS_NEW_COUNT } from "../shared/whats-new.ts";
 import { exactKey } from "../shared/tokenize.ts";
 import { registerActivity } from "./activity.ts";
 import { isAdmin, registerAdmin } from "./admin.ts";
@@ -16,7 +17,7 @@ import { registerAdminUserReports } from "./admin-user-reports.ts";
 import { registerAdminFeedback, registerFeedback } from "./feedback.ts";
 import { registerAdminUsers } from "./admin-users.ts";
 import {
-  createSession, deleteSession, helpLocale, prefsOf, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
+  createSession, deleteSession, helpLocale, miscOf, prefsOf, SESSION_COOKIE, SESSION_DAYS, sessionUser, upsertUser, type User, type VerifyGoogle,
 } from "./auth.ts";
 import { VOICES, voiceId, type Content } from "./content.ts";
 import { registerConversation, type ConversationDeps } from "./conversation.ts";
@@ -194,7 +195,8 @@ export function createApp(deps: AppDeps) {
   app.get("/api/me", (c) => {
     const u = c.get("user");
     return c.json<Me>({
-      email: u.email, username: u.username, profilePublic: u.profilePublic, installHintDismissed: u.installHintDismissed, locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
+      email: u.email, username: u.username, profilePublic: u.profilePublic, installHintDismissed: u.installHintDismissed,
+      whatsNewUnseen: Math.max(0, WHATS_NEW_COUNT - (miscOf(u).whatsNewSeen ?? 0)), locale: u.locale, learning: learningOf(u.id), prefs: prefsOf(u), admin: isAdmin(deps, u),
     });
   });
 
@@ -233,6 +235,11 @@ export function createApp(deps: AppDeps) {
 
   app.post("/api/install-hint/dismiss", (c) => {
     db.prepare("UPDATE users SET install_hint_dismissed = 1 WHERE id = ?").run(c.get("user").id);
+    return c.json({ ok: true });
+  });
+
+  app.post("/api/whats-new/seen", (c) => {
+    db.prepare("UPDATE users SET misc = json_set(misc, '$.whatsNewSeen', ?) WHERE id = ?").run(WHATS_NEW_COUNT, c.get("user").id);
     return c.json({ ok: true });
   });
 

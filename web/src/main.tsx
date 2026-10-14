@@ -31,6 +31,7 @@ import { Reports } from "./pages/Reports.tsx";
 import { Settings } from "./pages/Settings.tsx";
 import { Speak } from "./pages/Speak.tsx";
 import { Welcome } from "./pages/Welcome.tsx";
+import { WhatsNew } from "./pages/WhatsNew.tsx";
 import { SpeakingAdmin } from "./pages/SpeakingAdmin.tsx";
 import { FeedbackAdmin } from "./pages/FeedbackAdmin.tsx";
 import { UserReportsAdmin } from "./pages/UserReportsAdmin.tsx";
@@ -46,6 +47,7 @@ render(
       <Route path={routes.welcome.pattern} component={Welcome} />
       <Route path={routes.about.pattern} component={About} />
       <Route path={routes.aboutHomeScreen.pattern} component={AddToHome} />
+      <Route path={routes.whatsNew.pattern} component={WhatsNew} />
       <Route path={routes.privacy.pattern} component={Privacy} />
       <Route path={routes.terms.pattern} component={Terms} />
       <Route path={routes.cap.pattern} component={CapReached} />

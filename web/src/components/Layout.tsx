@@ -116,9 +116,13 @@ function LayoutBody(props: RouteSectionProps) {
                     {/* Tiny screens get the bell on the dashboard's first row (in place of the settings button) instead. */}
                     <div class="xs-hide"><Notifications /></div>
                     <div class="dropdown" ref={menuRoot}>
-                      <button type="button" class="qa-user btn btn-sm btn-outline-info dropdown-toggle" aria-expanded={menuOpen()}
+                      <button type="button" class="qa-user btn btn-sm btn-outline-info dropdown-toggle position-relative" aria-expanded={menuOpen()}
                         onClick={() => setMenuOpen(!menuOpen())}>
                         <i class="bi bi-person" aria-hidden="true" /><span class="nav-username ms-1">{user().username}</span>
+                        {/* Points into the menu, where What's new has the count. */}
+                        <Show when={user().whatsNewUnseen > 0}>
+                          <span class="qa-user-unseen position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle" />
+                        </Show>
                       </button>
                       {/* data-bs-popper="static" makes Bootstrap's CSS position the menu without its JS. */}
                       <ul class="dropdown-menu dropdown-menu-end" classList={{ show: menuOpen() }} data-bs-popper="static">
@@ -126,6 +130,12 @@ function LayoutBody(props: RouteSectionProps) {
                         <li><A href={routes.friends()} class="qa-nav-friends dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-people-fill me-2" aria-hidden="true" />{t("nav.friends")}</A></li>
                         <li><A href={routes.leaderboard()} class="qa-nav-leaderboard dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-trophy me-2" aria-hidden="true" />{t("nav.leaderboard")}</A></li>
                         <li><A href={routes.settings()} class="qa-nav-settings dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-gear me-2" aria-hidden="true" />{t("nav.settings")}</A></li>
+                        <li>
+                          <A href={routes.whatsNew()} class="qa-nav-whats-new dropdown-item" onClick={() => setMenuOpen(false)}>
+                            <i class="bi bi-stars me-2" aria-hidden="true" />{t("nav.whatsNew")}
+                            <Show when={user().whatsNewUnseen > 0}><span class="qa-whats-new-count badge rounded-pill text-bg-danger ms-2">{user().whatsNewUnseen}</span></Show>
+                          </A>
+                        </li>
                         <li><A href={routes.about()} class="qa-nav-about dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-question-circle me-2" aria-hidden="true" />{t("nav.about")}</A></li>
                         {/* Admin-only, so not translated. */}
                         {user().admin && <li><A href={routes.admin()} class="qa-nav-admin dropdown-item" onClick={() => setMenuOpen(false)}><i class="bi bi-shield-lock me-2" aria-hidden="true" />Admin</A></li>}

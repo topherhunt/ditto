@@ -24,6 +24,7 @@ export const it: Dictionary = {
   "nav.profile": "Il mio profilo",
   "nav.friends": "Amici",
   "nav.about": "Informazioni",
+  "nav.whatsNew": "Novità",
   "nav.signOut": "Esci",
 
   "language.en": "Inglese",
@@ -320,6 +321,7 @@ export const it: Dictionary = {
   "graph.today": "oggi",
 
   "about.title": "Come ottenere il massimo da Ditto",
+  "whatsNew.title": "Novità",
   "about.exerciseHeading": "In ogni esercizio",
   "about.tipListen": "🎧 Prima ascolta, poi scrivi quello che senti. Riascolta con Esc quante volte vuoi: l'ascolto è l'allenamento.",
   "about.tipSlow": "🐢 Un pezzo va troppo veloce? Premi Lento, o abbassa la velocità nelle Impostazioni.",
