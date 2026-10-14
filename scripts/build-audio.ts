@@ -23,6 +23,8 @@ if (process.argv.includes("--prune")) {
 }
 
 const missing = audioJobs.filter((j) => !existsSync(join(audioDir, j.file)));
+const lost = missing.filter((j) => j.fix?.file);
+if (lost.length) throw new Error(`Files named by audio-fixes.json are gone and can't be re-rendered: ${lost.map((j) => j.file).join(", ")}`);
 console.log(`${missing.length} of ${audioJobs.length} audio files to render`);
 await renderJobs(missing, audioDir);
 const skipped = missing.filter((j) => !existsSync(join(audioDir, j.file)));

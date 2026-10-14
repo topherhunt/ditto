@@ -45,19 +45,23 @@ export const voiceId = (v: Voice) => v.id;
 /**
  * A fix for one clip that renders badly: what the engine reads instead of the text (`say`),
  * seconds to `cut` off the end, and a `take` to bump for a fresh render (TTS output is random per run).
+ * Or `file`: serve this already-rendered file (e.g. an earlier engine's take) as is; it can never be re-rendered.
  */
 export const AudioFixSchema = z.strictObject({
   say: z.string().min(1).optional(), take: z.int().min(2).optional(), cut: z.number().positive().max(0.5).optional(),
+  file: z.string().regex(/^[a-z]{2}\/[0-9a-f]{20}\.m4a$/).optional(),
 })
-  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" });
+  .refine((f) => Object.keys(f).length > 0, { message: "empty fix" })
+  .refine((f) => !f.file || Object.keys(f).length === 1, { message: "a file fix takes no other fields" });
 export type AudioFix = z.infer<typeof AudioFixSchema>;
 /** content/audio-fixes.json: language -> voice id -> text (as rendered, so lowercase for word audio) -> fix. */
 const AudioFixesSchema = z.partialRecord(z.enum(LANGUAGES), z.record(z.string(), z.record(z.string(), AudioFixSchema)));
 
 export type AudioJob = { language: Language; voice: Voice; text: string; fix?: AudioFix; file: string };
 
-/** Content-addressed: identical text in one language and voice shares a file. A fix changes the hash. */
+/** Content-addressed: identical text in one language and voice shares a file. A fix changes the hash, or names the file. */
 export function audioFile(language: Language, voice: Voice, text: string, fix?: AudioFix): string {
+  if (fix?.file) return fix.file;
   const key = `${RENDER_VERSIONS[language]}|${language}|${voiceId(voice)}|${text.normalize("NFC")}${fix ? `|${JSON.stringify(fix)}` : ""}`;
   return `${language}/${createHash("sha1").update(key).digest("hex").slice(0, 20)}.m4a`;
 }
@@ -115,7 +119,10 @@ export function loadContent(contentDir: string, audioDir: string, opts: { audio:
     for (const [id, byText] of Object.entries(byVoice)) {
       const voice = VOICES[language as Language].find((v) => voiceId(v) === id);
       if (!voice) fail(fixesPath, `unknown ${language} voice ${id}`);
-      for (const text of Object.keys(byText)) unusedFixes.add(`${language}|${id}|${text}`);
+      for (const [text, fix] of Object.entries(byText)) {
+        if (fix.file && !fix.file.startsWith(`${language}/`)) fail(fixesPath, `${language} ${id} ${text}: file ${fix.file} is not ${language} audio`);
+        unusedFixes.add(`${language}|${id}|${text}`);
+      }
     }
 
   // Words recur across thousands of units; hashing each occurrence dominated boot on the VPS.

@@ -97,6 +97,15 @@ describe("content loading", () => {
     expect(() => loadWithFixes({ it: { "f": { lo: { cut: 2 } } } }, base)).toThrow(/cut/);
   });
 
+  it("serves a file fix's file as is, alone and only for its own language", () => {
+    const file = "it/0123456789abcdef0123.m4a";
+    const c = loadWithFixes({ it: { "f": { lo: { file } } } }, base);
+    expect(c.locales.en.units.get("it-test-1-u01")!.words[0].audio[0]).toBe(`/audio/${file}`);
+    expect(() => loadWithFixes({ it: { "f": { lo: { file, say: "Lo." } } } }, base)).toThrow(/a file fix takes no other fields/);
+    expect(() => loadWithFixes({ it: { "f": { lo: { file: "fr/0123456789abcdef0123.m4a" } } } }, base)).toThrow(/is not it audio/);
+    expect(() => loadWithFixes({ it: { "f": { lo: { file: "../etc/passwd" } } } }, base)).toThrow(/file/);
+  });
+
   it("rejects a word without a lexicon entry, an unused entry, and a lesson not ending in a sentence", () => {
     const noSense = structuredClone(base);
     delete noSense.lessons[0].units[0].senses;

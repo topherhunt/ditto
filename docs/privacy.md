@@ -5,13 +5,12 @@ What Ditto owes its learners under GDPR (and Brazil's LGPD and similar Latin Ame
 ## Processors
 
 - **OpenAI:** its [DPA](https://openai.com/policies/data-processing-addendum/) is incorporated into the Services Agreement every API account accepts, so it's in effect with nothing to sign. It includes the Standard Contractual Clauses, and OpenAI is DPF-certified. The version in effect is saved in [legal/](legal/2026-09-openai-data-processing-addendum.pdf); save the new one there when it changes.
-- **OpenRouter:** receives text to be spoken (`server/speech.ts`, `scripts/tts-render.py`) and passes it to ElevenLabs. Its [DPA](https://openrouter.ai/assets/data-processing-agreement.pdf) is part of the Terms of Service, so it's in effect with nothing to sign; it includes the Standard Contractual Clauses (Module 2) and the UK Addendum. The version in effect is saved in [legal/](legal/2026-08-openrouter-data-processing-agreement.pdf). Every request sets `provider.zdr`, which under DPA 2.4(b) routes only to providers OpenRouter lists as zero-retention (Eleven v4 Turbo is on `GET /api/v1/endpoints/zdr`); 2.4(a) has OpenRouter itself delete inputs and outputs promptly unless prompt logging is on in the account. AI model providers are OpenRouter's subprocessors (DPA 5.1), so Ditto has no direct agreement with ElevenLabs. ElevenLabs isn't on the visible part of OpenRouter's [subprocessor list](https://trust.openrouter.ai/) (DPA Schedule 3).
+- **OpenRouter:** receives text to be spoken (`server/speech.ts`, `scripts/tts-render.py`) and passes it to ElevenLabs. Its [DPA](https://openrouter.ai/assets/data-processing-agreement.pdf) is part of the Terms of Service, so it's in effect with nothing to sign; it includes the Standard Contractual Clauses (Module 2) and the UK Addendum. The version in effect is saved in [legal/](legal/2026-08-openrouter-data-processing-agreement.pdf). Every request sets `provider.zdr`, which under DPA 2.4(b) routes only to providers OpenRouter lists as zero-retention (Eleven v4 Turbo is on `GET /api/v1/endpoints/zdr`); 2.4(a) has OpenRouter itself delete inputs and outputs promptly unless prompt logging is on in the account (it is off; keep it off). AI model providers are OpenRouter's subprocessors (DPA 5.1), so Ditto has no direct agreement with ElevenLabs. ElevenLabs isn't on the visible part of OpenRouter's [subprocessor list](https://trust.openrouter.ai/) (DPA Schedule 3).
 - **RackNerd:** no DPA (see Accepted gaps).
 - **Google:** sign-in (Google acts as its own controller).
 
 ## Before this deploy
 
-- **Check that prompt logging is off** in the OpenRouter account settings (DPA 2.4(a) keeps inputs and outputs if it's on).
 - **Add the URLs to the Google OAuth consent screen:** `https://ditto.topherhunt.com/privacy` and `/terms`.
 
 ## Soon
