@@ -39,6 +39,14 @@
 .qa-popup:focus { outline: none; }
 .qa-popup::backdrop { background: rgb(0 0 0 / .55); }
 
+/* A Talk history row's title and latest message on one line, fading out before the stats; the stats wrap below it when there's no room. */
+.history-preview { flex: 1 1 12rem; min-width: 0; mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); }
+.history-preview-message { opacity: .8; font-size: .9em; }
+
+/* A word's gloss tooltip, black in both themes (Bootstrap's dark mode lightens bg-dark), with an arrow at the --arrow-x WordTip sets under the tapped word. */
+.word-tip { background: #000; }
+.word-tip::before { content: ""; position: absolute; top: -6px; left: var(--arrow-x, 1.5rem); transform: translateX(-50%); border: 6px solid transparent; border-top: 0; border-bottom-color: #000; }
+
 .font-mono { font-family: var(--bs-font-monospace); }
 .text-orange { color: var(--bs-orange); }
 .logo-icon { width: 1.2em; height: 1.2em; vertical-align: -0.2em; }

@@ -1,5 +1,5 @@
 import { createMemo, createResource, createSignal, For, Show } from "solid-js";
-import { ACTIVITY_AREAS, type AdminTodayOut } from "../../../shared/api.ts";
+import { ACTIVITY_AREAS, ACTIVITY_LABELS, type AdminTodayOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries. What is collected and why: docs/metrics.md.
@@ -21,7 +21,7 @@ function buildTree(rows: AdminTodayOut["rows"], split: Split): Node[] {
   const root = make("");
   for (const r of rows) {
     // Learners are keyed by public id: two learners can both lack a username.
-    const activity: [string, string] = [r.activity, r.activity];
+    const activity: [string, string] = [r.activity, ACTIVITY_LABELS[r.activity]];
     const language: [string, string] = [r.language ?? "", r.language ? (languageName.of(r.language) ?? r.language) : "(no language)"];
     const path: [string, string][] = [
       [ACTIVITY_AREAS[r.activity], ACTIVITY_AREAS[r.activity]], ...(split === "activity" ? [activity, language] : [language, activity]),

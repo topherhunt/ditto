@@ -3,7 +3,7 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   BOARD_SIZE, CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FRIEND_REQUESTS_PER_DAY, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
-  CompareQuerySchema, PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
+  CompareQuerySchema, PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendOut, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile, type SocialSummaryOut,
   type Relation, UserReportSchema,
 } from "../shared/api.ts";
@@ -11,7 +11,7 @@ import { PATHS, type Language, type ServedCourse, type ServedLesson } from "../s
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { transaction, type DB } from "./db.ts";
-import { weeklyStats } from "./leaderboard.ts";
+import { earnedLessons, weekStartOf, weeklyStats } from "./leaderboard.ts";
 
 const DAY = 86_400_000;
 const ACTIVITY_WINDOWS: [ActivityWindow, number][] = [["day", 1], ["week", 7], ["month", 30], ["year", 365]];
@@ -151,8 +151,20 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
       .all(me, me) as { r: number; a: number; status: string }[];
     const pick = (keep: (x: (typeof rows)[number]) => boolean) => rows.filter(keep).map((x) => person(x.r === me ? x.a : x.r));
     const blocked = (db.prepare("SELECT blocked_id AS id FROM blocks WHERE blocker_id = ? ORDER BY created_at").all(me) as { id: number }[]).map((b) => b.id);
+    const earned = earnedLessons(db, new Set(courseOf.keys()));
+    const weekStart = weekStartOf(deps.now()).toISOString();
+    const friend = (x: (typeof rows)[number]): FriendOut => {
+      const id = x.r === me ? x.a : x.r;
+      const theirs = earned.filter((e) => e.userId === id);
+      const typeStars = (db.prepare("SELECT lesson_id, stars FROM lesson_stars WHERE user_id = ?").all(id) as { lesson_id: string; stars: number }[])
+        .filter((r) => courseOf.has(r.lesson_id)).reduce((n, r) => n + r.stars, 0);
+      return {
+        person: person(id), language: summarize(id).language,
+        stars: typeStars + theirs.filter((e) => e.kind !== "type").length, lessonsWeek: theirs.filter((e) => e.at >= weekStart).length,
+      };
+    };
     return c.json<FriendsOut>({
-      friends: pick((x) => x.status === "accepted").sort(byName),
+      friends: rows.filter((x) => x.status === "accepted").map(friend).sort((a, b) => byName(a.person, b.person)),
       incoming: pick((x) => x.a === me && x.status === "pending" && !blocked.includes(x.r)),
       outgoing: pick((x) => x.r === me && x.status === "pending"),
       blocked: blocked.map(person),

@@ -4,16 +4,27 @@
 
 ### Now
 
-- [x] Troubleshoot Type outcomes bug: table of comparison w someone else says Both that I got seven perfect with zero corrections and also says that I got eighty-eight percent accuracy. I'm wondering if it could be because the accuracy comparison table is basing off of my earlier practice run instead of basing off of my current mastery run?
-- [x] Currently the leaderboard button on the dashboard has a badge. If I remember correctly, that badge represents your rank relative to your friends, but it doesn't make any sense because it's not explained anywhere. So I think it'd be better to just have that badge number be your rank globally this week, as of the page load, same as how it's computed on the leaderboard itself.
+- [x] On the Type "Done!" panel, if you have > 0 corrected, show that text span in red. Same with # revealed. If > 0 with hints, show that in orange. # perfect should be green if > 0.
+- [x] In the Type activity, if it's playing, change the Play button to a red Stop button w the stop icon. Switch back once playback ends.
+- [x] Type activity: when you've completed a whole Topic, it collapses (as currently) but after the title, it should give some more indication of its status (without wrapping text): complete (in green text), N / N stars.
+- [x] The admin explore engaged time metrics breaks down activities, different activity lines in a way that is not well labeled. For example, it says lesson and review when those need to be clearly labeled as parts of the "Type" activity.
+- [x] Type activity - when you click on a word to reveal the meaning tooltip, It should work exactly as it currently does, except the div that displays the translation and meaning should be in a black rounded tooltip style, so it looks like it's a tooltip popping down. Currently it just looks like another line of text in the main box.
+- [x] Friends list: should show basic stats about each friend. Current target language, # stars, # lessons this week, etc.
+- [x] Talk activity: "History" title should be renamed to "Continue a past conversation" to emphasize that this is actionable. And, similar to Gmail most-recent-message previews on the inbox list, after the title of each  history item should be a dimmed preview of the most recent message, which fades out before the badges & status on the right side appear.
 - [ ] ‼️ Set up email notifications so Ditto can email me alerts when someone requests a new language or sends feedback.
-- [ ] On the Type "Done!" panel, if you have > 0 corrected, show that text span in red. Same with # revealed. If > 0 with hints, show that in orange. # perfect should be green if > 0.
-- [ ] In the Type activity, if it's playing, change the Play button to a red Stop button w the stop icon. Switch back once playback ends.
-- [ ] Type activity: when you've completed a whole Topic, it collapses (as currently) but after the title, it should give some more indication of its status (without wrapping text): complete (in green text), N / N stars.
-- [ ] The admin explore engaged time metrics breaks down activities, different activity lines in a way that is not well labeled. For example, it says lesson and review when those need to be clearly labeled as parts of the "Type" activity.
-- [ ] Type activity - when you click on a word to reveal the meaning tooltip, It should work exactly as it currently does, except the div that displays the translation and meaning should be in a black rounded tooltip style, so it looks like it's a tooltip popping down. Currently it just looks like another line of text in the main box.
+- [ ] Idea: chat mode & type mode w friends? audio?
+- [ ] Talk - sub-activity / variant: Verbal translation of an EN sentence into your native lanugage, and vice versa.
+- [ ] Talk - it should track sentences that you struggled with, and collect them into a review notebook so you can practice them later. Also separately note specific words that you either mispronounced or clicked to tooltip, for vocab drilling.
+  - The general idea is to use your mistake and tooltip lookup data from the talking activity to inform review notebooks and cues of what you need to practice later, either for translation and speech practice or for pronunciation practice.
+- [ ] Idea - talk w Claude: version of Talk which breaks down a hard-to-pronounce a sentence, word by word and then chunk by chunk?
+- [ ] Idea - faster realtime chat version where you get immediate feedback instead of delayed?
+  - or something else that helps me access that feeling of just diving in and talking.
+  - maybe we need to separate pronunciation, strictness mode where you stop and you're forced to say the sentence over and over again until you say it correctly, versus fluid convo mode, where the focus is on the flow of the conversation and the transcripts and grading of each reply happens asynchronously for the sake of not getting the way of the chat rhythm.
+  - we do need the audio reply to stream, rather than not starting until it's completely delivered.
+- [ ] Dashboard progress: Track & emphasize beating your average # mins over the past week & month.
+- [ ] Set up reminder notifications?
 - [ ] It's time to talk through with Claude how to add notifications, like reminders for for practicing every day. And maybe the reminder includes some little nudge about what your goal is or how many stars you need or what your progress is towards the lesson completions. so something that kind of nudges you and includes a little bit of personal content about where you are.
-  - remind about races too
+  - remind the user about races too
 - [ ] In the talking activity, there should also be a notebook of your mistakes, which tracks sentences that you had trouble with so that you can review them and clear them out of the notebook.
 - [ ] Also the talking activity needs to have a representation of earning stars, and we need to ensure that that's roughly balanced per effort unit with the stars that you earn in the typing activity.
 - Plan out: support chat w friends -- only in a language you're learning.
@@ -21,9 +32,7 @@
   - [ ] The Type activity's extra step probably doesn't add anything. Show it in the SAME step, so the user can hear, read, see translation, and then type it in. Only the 1st time you get that item (same as before).
   - [ ] Have Claude brainstorm and think through with me what would make for a friendly or welcome experience so the user doesn't feel that they were just dropped in. Especially on the initial dashboard page.
   - [ ] Have some sort of little one-line feedback widget or button on the dashboard page. Asking you how your experience is going and what's missing. Button opens a pop-up that invites you to share what you're struggling with or what could be better. For example: users may indicate that the initial onboarding experience feels overwhelming, or there's too many options, or they don't know what to do next, or the experience is too structured & they want more flexibility, or they want a specific feature that's missing, etc.
-- Friends list: should show basic stats about each friend. # stars, etc.
 - When you go to a friend's profile and and then click to do an activity they've done or accept a challenge they've done or whatever, and you do it, it should send them a notification indicating that you've done an activity they also did. Clicking it links to a page comparing all activities you've both done (ordered by recency) with time & scores for each. (This notification type should be "idempotent" per friend, so if they do 12 activities since you last checked, you only see 1 notification saying "X did N activitiies you also did" or sth like that -- rather than 12 different notifications.)
-- Talk activity: "Past conversations" title should be renamed to "Continue a past conversation" to emphasize that this is actionable.
 - Quizzer: talk through w Claude how to make the difficulty buttons less painful to use. What if we reduce it to just easy/hard? Or, Is there any way we could remove this entirely, and use time as a proxy, or use repeated correctness as a proxy for easy? Or maybe replace it with a 1/4-col "Hard", 1/2-col "OK", and 1/4-col "Easy"?
 - Currently, it feels like I've done very in-depth thinking about the UI and polish and mechanics of the type activity, but not so much about the incentives and motivation and reward stars and review mechanics for the talk or quiz activities. I should do a deep dive on those as well. Also, not just incentives and stars and rewards, but also noting mistakes and review and kind of collecting things to coach you on and support you on. Ideally, there should be a pool of items to review that's shared between different activities, but at the very least, each activity should have ways of tracking what you need reviewing.
 - The talk activity currently lets you just pick your level. It doesn't give you any guidance on how to pick your level or what you should be considering when you choose one or what are the implications of choosing one. I feel like the coach should recommend one for you and maybe even set a default for you based on your recent activity and what you've done in this talking app in the past and what you've done in other apps in the past.
@@ -35,7 +44,7 @@
   - TIme to study today
   - Make up for lost time! Challenge: Earn 9 stars today
   - Your friend <x> just hit <milestone> stars / level. Congratulate them.
-- Currently playing audio on-demand in the Talk activity has a lag. Could each spoken gloss have its audio lazily cached on the server, hashed, so we can play it immediately the next time? And should this audio pool be merged with the pool used for the Type activity, so words generated for type don't need to be regenerated for Talk? or should the pools be kept separate because it's conceptually cleaner that way and the cost difference is trivial?
+- [ ] 
 
 ### Unorganized
 
@@ -62,6 +71,8 @@
 
 ### Wishlist
 
+- [ ] Currently playing audio on-demand in the Talk activity has a lag. Could each spoken gloss have its audio lazily cached on the server, hashed, so we can play it immediately the next time? And should this audio pool be merged with the pool used for the Type activity, so words generated for type don't need to be regenerated for Talk? or should the pools be kept separate because it's conceptually cleaner that way and the cost difference is trivial?
+  - Claude's recommendation: copy the quiz `/say` cache (`server/quiz.ts`): sha1 of render version, voice and text, rendered on a miss into `audioDir/talk/`, shared across learners. Don't merge pools, but before rendering, serve a matching Type clip if one exists (same voice ids; Type word audio is lowercased), mainly so tapped words get the hand-fixed takes. Leave the "how do I say" sentence uncached (it's derived from the learner's speech), or else update `Privacy.tsx`. Related: the "Cache / store glossed / tooltipped audio" and "Stream on-demand audio" bullets.
 - Put something about friends on the dashboard to nudge people to connect and find friends.
   - Friends section on the dashboard, below "Ways to practice".
 - Record daily progress snapshots (percent toward the target level, per language), so the dashboard chart's history is real. Quiz graduation has no timestamps, so the chart spreads the quiz share over days by answers given.

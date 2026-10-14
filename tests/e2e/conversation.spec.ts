@@ -117,6 +117,7 @@ test("a learner starts a café conversation, fails a reply, retries the coach's 
 
   await page.goto("/it/talk");
   await expect(page.locator(".qa-speak-history")).toContainText("Al bar");
+  await expect(page.locator(".qa-speak-history-preview")).toHaveText("Certo! Altro?");
 });
 
 test("hard mode chosen on the Talk page hides the suggested replies but keeps How do I say, which listens for the question at once", async ({ page }) => {

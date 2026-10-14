@@ -1,5 +1,5 @@
 import { createResource, For, Show } from "solid-js";
-import { METRICS_KEEP_DAYS, type AdminLanguageRequestsOut, type AdminMetricsOut } from "../../../shared/api.ts";
+import { ACTIVITY_LABELS, METRICS_KEEP_DAYS, type AdminLanguageRequestsOut, type AdminMetricsOut } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import { usd } from "../spend.ts";
 import { AdminCrumb } from "../components/AdminCrumb.tsx";
@@ -76,7 +76,7 @@ export function MetricsAdmin() {
                   <For each={m().activities} fallback={<tr><td colspan={5} class="text-body-secondary">No engaged time yet.</td></tr>}>
                     {(a) => (
                       <tr class="qa-metrics-activity">
-                        <td>{a.activity}</td><td>{a.language ?? "--"}</td><td class="text-end">{a.minutes}</td>
+                        <td>{ACTIVITY_LABELS[a.activity]}</td><td>{a.language ?? "--"}</td><td class="text-end">{a.minutes}</td>
                         <td class="text-end">{a.learnerDays}</td><td class="text-end">{(a.minutes / a.learnerDays).toFixed(1)}</td>
                       </tr>
                     )}

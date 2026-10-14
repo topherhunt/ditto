@@ -54,9 +54,9 @@ test("the metrics page shows who was engaged and lets the admin zoom from activi
   await expect(page.locator(".qa-today-row").filter({ hasText: "Italian" }).first()).toBeVisible();
 
   await page.locator(".qa-explore-bar").first().hover();
-  await expect(page.locator(".qa-explore-tip")).toHaveText(/^(notebook|talk): [\d.]+ min, \d{4}-\d\d-\d\d$/);
+  await expect(page.locator(".qa-explore-tip")).toHaveText(/^(Type: notebook|Talk): [\d.]+ min, \d{4}-\d\d-\d\d$/);
   await page.locator(".qa-explore-series").filter({ hasText: "talk" }).click();
-  await expect(page.locator(".qa-explore-filter-activity")).toContainText("talk");
+  await expect(page.locator(".qa-explore-filter-activity")).toContainText("Talk");
   await expect(page.locator(".qa-explore-series").filter({ hasText: "Italian" })).toBeVisible();
   await page.locator(".qa-explore-filter-activity").click();
   await expect(page.locator(".qa-explore-filter-activity")).toHaveCount(0);

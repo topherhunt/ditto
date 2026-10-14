@@ -134,18 +134,23 @@ export function Speak() {
         {(d) => (
           <>
             <section>
-              <h2 class="h5"><i class="bi bi-clock-history me-2" aria-hidden="true" />{t("speak.history")}</h2>
+              <h2 class="h5"><i class="bi bi-clock-history me-2" aria-hidden="true" />{t("speak.continueHeading")}</h2>
               <Show when={d().conversations.length} fallback={<p class="text-body-secondary">{t("speak.noHistory")}</p>}>
                 <ul class="list-group">
                   <For each={d().conversations}>
                     {(c) => (
                       <li class="qa-speak-history list-group-item d-flex flex-wrap align-items-center gap-2">
-                        <A href={routes.talkConversation({ lang: lang(), id: String(c.id) })} class="me-auto">{c.title}</A>
-                        <span class="qa-speak-replies small" classList={{ "text-body-secondary": c.replies < CONVERSATION_LESSON_REPLIES, "text-success": c.replies >= CONVERSATION_LESSON_REPLIES }}>
-                          <i class={`bi ${c.replies >= CONVERSATION_LESSON_REPLIES ? "bi-chat-heart" : "bi-chat-dots"} me-1`} aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
-                        </span>
-                        <For each={c.levels.slice(-3)}>{(l) => <span class="badge text-bg-secondary">{l}</span>}</For>
-                        <span class="small text-body-secondary">{new Date(c.updatedAt).toLocaleDateString()}</span>
+                        <A href={routes.talkConversation({ lang: lang(), id: String(c.id) })} class="history-preview text-nowrap overflow-hidden text-decoration-none">
+                          {c.title}
+                          <Show when={c.lastMessage}>{(m) => <span class="qa-speak-history-preview history-preview-message text-body-secondary ms-2">{m()}</span>}</Show>
+                        </A>
+                        <div class="d-flex align-items-center gap-2 ms-auto">
+                          <span class="qa-speak-replies small text-nowrap" classList={{ "text-body-secondary": c.replies < CONVERSATION_LESSON_REPLIES, "text-success": c.replies >= CONVERSATION_LESSON_REPLIES }}>
+                            <i class={`bi ${c.replies >= CONVERSATION_LESSON_REPLIES ? "bi-chat-heart" : "bi-chat-dots"} me-1`} aria-hidden="true" />{c.replies < CONVERSATION_LESSON_REPLIES ? `${c.replies} / ${CONVERSATION_LESSON_REPLIES}` : c.replies}
+                          </span>
+                          <For each={c.levels.slice(-3)}>{(l) => <span class="badge text-bg-secondary">{l}</span>}</For>
+                          <span class="small text-body-secondary text-nowrap">{new Date(c.updatedAt).toLocaleDateString()}</span>
+                        </div>
                       </li>
                     )}
                   </For>

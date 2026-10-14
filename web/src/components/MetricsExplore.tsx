@@ -1,6 +1,6 @@
 import { useSearchParams } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { EXPLORE_GROUPS, EXPLORE_METRICS, type AdminExploreOut, type ExploreGroup, type ExploreMetric } from "../../../shared/api.ts";
+import { ACTIVITY_LABELS, EXPLORE_GROUPS, EXPLORE_METRICS, type Activity, type AdminExploreOut, type ExploreGroup, type ExploreMetric } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 
 // Admin-only, so English-only: these strings are not in the i18n dictionaries. What is collected and why: docs/metrics.md.
@@ -138,10 +138,11 @@ export function MetricsExplore() {
     s.key === "other" || d.by === "learner" ? s.label
     : d.by === "language" ? (s.key ? (languageName.of(s.key) ?? s.key) : "(no language)")
     : d.by === "area" ? s.key[0].toUpperCase() + s.key.slice(1)
+    : d.by === "activity" ? ACTIVITY_LABELS[s.key as Activity]
     : s.label;
   const filterLabel = (f: "area" | "activity" | "language" | "learner") => {
     const v = params[f]!;
-    return f === "language" ? (languageName.of(v) ?? v) : f === "learner" ? (data()?.learner?.username ?? "(no username)") : v;
+    return f === "language" ? (languageName.of(v) ?? v) : f === "learner" ? (data()?.learner?.username ?? "(no username)") : f === "activity" ? ACTIVITY_LABELS[v as Activity] : v;
   };
   const drill = (key: string) => {
     const g = by();

@@ -249,6 +249,8 @@ export type ConversationSummary = {
   reliance: Reliance;
   /** The learner's replies so far; at CONVERSATION_LESSON_REPLIES the conversation counts as a lesson. */
   replies: number;
+  /** The text of the latest turn, either side's; null before the partner's first line. */
+  lastMessage: string | null;
 };
 export type ConversationsOut = { conversations: ConversationSummary[]; weakPhrases: { text: string; createdAt: string }[] };
 /** `turns`: the learner's new turn and the partner's answer once a reply passes, else empty. */
@@ -309,6 +311,13 @@ export const ACTIVITY_AREAS: Record<Activity, Area> = {
   talk: "talk",
   "quiz-study": "quiz", "quiz-test": "quiz", "quiz-decks": "quiz",
   home: "other", social: "other", settings: "other", other: "other",
+};
+/** How the operator pages name each activity, area first (web/src/metrics.ts maps routes to activities). */
+export const ACTIVITY_LABELS: Record<Activity, string> = {
+  lesson: "Type: lesson", review: "Type: review", mistakes: "Type: mistakes", "level-test": "Type: level test", notebook: "Type: notebook",
+  talk: "Talk",
+  "quiz-study": "Quiz: study", "quiz-test": "Quiz: test", "quiz-decks": "Quiz: home and decks",
+  home: "Dashboard and Type lesson list", social: "Friends, leaderboard and profiles", settings: "Settings", other: "Other pages",
 };
 /** A learner counts as "actively engaged" on /admin/metrics when they have at least this much engaged time on one UTC day. */
 export const ACTIVE_MIN_SECONDS = 120;
@@ -468,8 +477,13 @@ export type Person = { id: string; username: string | null };
 export type Relation = "self" | "none" | "outgoing" | "incoming" | "friends" | "blocked";
 /** A search matches an exact email or an exact username, ignoring case. */
 export type FriendSearchOut = { found: false } | { found: true; person: Person; relation: Relation };
+/**
+ * A friend with what the friends list shows about them: the language their profile shows, their stars across all languages (best per
+ * Type lesson, plus one per Talk or Quiz lesson) and their lessons this week as the leaderboard counts them.
+ */
+export type FriendOut = { person: Person; language: Language | null; stars: number; lessonsWeek: number };
 export type FriendsOut = {
-  friends: Person[];
+  friends: FriendOut[];
   incoming: Person[];
   outgoing: Person[];
   blocked: Person[];

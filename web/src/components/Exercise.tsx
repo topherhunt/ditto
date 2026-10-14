@@ -1,4 +1,4 @@
-import { createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
+import { createEffect, createSignal, For, Index, onCleanup, onMount, Show } from "solid-js";
 import { REPORT_KINDS, type AttemptBody, type ExplanationOut, type Prefs, type ReportBody } from "../../../shared/api.ts";
 import { pickVoice, type ServedUnit, type ServedWord } from "../../../shared/content.ts";
 import { grade, type Answer, type DeterministicCategory, type GradeResult, type PunctMark, type WordResult } from "../../../shared/grader.ts";
@@ -21,6 +21,25 @@ function ExtraWords(props: { words: WordResult[] }) {
 /** A translated string with each `backticked` span shown as a key label. */
 function KeyHint(props: { text: string }) {
   return <>{props.text.split("`").map((part, i) => (i % 2 ? <code class="qa-key">{part}</code> : part))}</>;
+}
+
+/** A tapped word's gloss, as a dark tooltip under the sentence whose arrow points up at the word. Its parent must also hold the word. */
+function WordTip(props: { word: ServedWord; anchor: HTMLElement }) {
+  let tip!: HTMLDivElement;
+  createEffect(() => {
+    const word = props.anchor.getBoundingClientRect();
+    tip.style.marginLeft = "0";
+    const box = tip.parentElement!.getBoundingClientRect();
+    const center = word.left + word.width / 2 - box.left;
+    const left = Math.max(0, Math.min(center - 24, box.width - tip.offsetWidth));
+    tip.style.marginLeft = `${left}px`;
+    tip.style.setProperty("--arrow-x", `${Math.max(12, center - left)}px`);
+  });
+  return (
+    <div ref={tip} class="qa-word-info word-tip small text-white rounded-3 px-3 py-2 align-self-start mw-100 position-relative">
+      <strong>{props.word.text}</strong> <span class="text-white-50">({props.word.lemma}, {props.word.pos})</span> -- {props.word.gloss}
+    </div>
+  );
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -63,7 +82,7 @@ export function Exercise(props: {
   const [done, setDone] = createSignal(false);
   const [autoplayBlocked, setAutoplayBlocked] = createSignal(false);
   const [saveError, setSaveError] = createSignal<string | null>(null);
-  const [selectedWord, setSelectedWord] = createSignal<ServedWord | null>(null);
+  const [selectedWord, setSelectedWord] = createSignal<{ word: ServedWord; el: HTMLElement } | null>(null);
   const [explanation, setExplanation] = createSignal<ExplanationOut | null>(null);
   const [explainState, setExplainState] = createSignal<"idle" | "loading" | string>("idle");
   const submissions: string[] = [];
@@ -124,9 +143,9 @@ export function Exercise(props: {
     queueMicrotask(focusFirstOpen);
   }
 
-  function tapWord(wordIndex: number) {
+  function tapWord(wordIndex: number, el: HTMLElement) {
     const w = unit.words[wordIndex];
-    setSelectedWord(w);
+    setSelectedWord({ word: w, el });
     new Audio(cachedSrc(w.audio[voice])).play().catch(() => setAutoplayBlocked(true));
   }
 
@@ -294,19 +313,13 @@ export function Exercise(props: {
             tok.type === "punct" || target.length < 3 ? (
               <span>{tok.text}</span>
             ) : (
-              <button type="button" class="qa-study-word btn btn-link p-0 fs-4 text-decoration-none align-baseline" onClick={() => tapWord(tok.wordIndex)}>{tok.text}</button>
+              <button type="button" class="qa-study-word btn btn-link p-0 fs-4 text-decoration-none align-baseline" onClick={(e) => tapWord(tok.wordIndex, e.currentTarget)}>{tok.text}</button>
             )
           }
         </For>
       </div>
       <Show when={unit.translation}>{(tr) => <div class="qa-study-translation small text-body-secondary">{tr()}</div>}</Show>
-      <Show when={selectedWord()}>
-        {(w) => (
-          <div class="qa-word-info small">
-            <strong>{w().text}</strong> <span class="text-body-secondary">({w().lemma}, {w().pos})</span> -- {w().gloss}
-          </div>
-        )}
-      </Show>
+      <Show when={selectedWord()}>{(s) => <WordTip word={s().word} anchor={s().el} />}</Show>
       <div class="qa-study-prompt">{t("exercise.studyPrompt")}</div>
       <button type="button" class="qa-study-done btn btn-success align-self-start" ref={(el) => queueMicrotask(() => el.focus())} onClick={startTest}>
         {t("exercise.studyDone")}
@@ -344,7 +357,7 @@ export function Exercise(props: {
                     ) : (
                       <>
                         <button type="button" class="qa-answer-word btn btn-link p-0 fs-4 text-decoration-none align-baseline"
-                          onClick={() => tapWord(tok.wordIndex)}>
+                          onClick={(e) => tapWord(tok.wordIndex, e.currentTarget)}>
                           <For each={Array.from(tok.text)}>
                             {(ch, k) => <span classList={{ "letter-accent qa-letter-accent": !!accentWords.get(tok.wordIndex)?.includes(k()) }}>{ch}</span>}
                           </For>
@@ -355,13 +368,7 @@ export function Exercise(props: {
                   }
                 </For>
               </div>
-              <Show when={selectedWord()}>
-                {(w) => (
-                  <div class="qa-word-info small">
-                    <strong>{w().text}</strong> <span class="text-body-secondary">({w().lemma}, {w().pos})</span> -- {w().gloss}
-                  </div>
-                )}
-              </Show>
+              <Show when={selectedWord()}>{(s) => <WordTip word={s().word} anchor={s().el} />}</Show>
               <Show when={freeResult() && !freeResult()!.passed}>
                 <div class="small">{t("exercise.yourAnswer")} <SentenceDiff result={freeResult()!} /></div>
               </Show>

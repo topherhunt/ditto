@@ -2,11 +2,12 @@ import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Match, Show, Switch } from "solid-js";
 import {
   FRIEND_REQUESTS_PER_DAY, RACE_DAYS, RACE_DEADLINE_DAYS, RACE_MIN_TARGET,
-  type ChallengeBody, type ChallengeOut, type FriendSearchOut, type FriendsOut, type Person, type Relation,
+  type ChallengeBody, type ChallengeOut, type FriendOut, type FriendSearchOut, type FriendsOut, type Person, type Relation,
 } from "../../../shared/api.ts";
 import { api } from "../api.ts";
 import type { Key } from "../i18n/en.ts";
-import { t } from "../i18n/index.ts";
+import { languageName, t } from "../i18n/index.ts";
+import { LANGUAGE_FLAGS } from "../learning.ts";
 import { dayCount, daysLeft, displayName, raceLabel, sendFriendRequest } from "../social.ts";
 import { Popup } from "../components/Popup.tsx";
 import { MakeFriendsButton } from "./FriendBoard.tsx";
@@ -137,7 +138,7 @@ export function Friends() {
             <section class="d-flex flex-column gap-2">
               <h2 class="h5 mb-0">{t("friends.yours")}</h2>
               <For each={f().friends} fallback={<p class="text-body-secondary mb-0">{t("friends.none")}</p>}>
-                {(p) => <FriendRow person={p} racing={(races() ?? []).some((r) => ["pending", "active"].includes(r.status) && [r.challenger.id, r.opponent.id].includes(p.id))} onRaced={refresh} />}
+                {(fr) => <FriendRow friend={fr} racing={(races() ?? []).some((r) => ["pending", "active"].includes(r.status) && [r.challenger.id, r.opponent.id].includes(fr.person.id))} onRaced={refresh} />}
               </For>
               <Show when={f().outgoing.length > 0}>
                 <p class="qa-outgoing small text-body-secondary mb-0">{t("friends.waitingFor", { names: f().outgoing.map(displayName).join(", ") })}</p>
@@ -170,7 +171,8 @@ function PersonLabel(props: { person: Person }) {
   );
 }
 
-function FriendRow(props: { person: Person; racing: boolean; onRaced: () => unknown }) {
+function FriendRow(props: { friend: FriendOut; racing: boolean; onRaced: () => unknown }) {
+  const person = () => props.friend.person;
   const [open, setOpen] = createSignal(false);
   const [kind, setKind] = createSignal<ChallengeBody["kind"]>("most");
   const [days, setDays] = createSignal<(typeof RACE_DAYS)[number]>(7);
@@ -180,8 +182,8 @@ function FriendRow(props: { person: Person; racing: boolean; onRaced: () => unkn
   async function send(e: SubmitEvent) {
     e.preventDefault();
     const body: ChallengeBody = kind() === "most"
-      ? { opponentId: props.person.id, kind: "most", days: days() }
-      : { opponentId: props.person.id, kind: "first_to", target: target() };
+      ? { opponentId: person().id, kind: "most", days: days() }
+      : { opponentId: person().id, kind: "first_to", target: target() };
     try {
       await api.post("/api/challenges", body);
       setOpen(false);
@@ -194,8 +196,15 @@ function FriendRow(props: { person: Person; racing: boolean; onRaced: () => unkn
   return (
     <div class="qa-friend card"><div class="card-body d-flex flex-column gap-2">
       <div class="d-flex align-items-center gap-2">
-        <A href={routes.person({ id: props.person.id })} class="qa-friend-link me-auto text-decoration-none">
-          <div class="fw-semibold">{displayName(props.person)}</div>
+        <A href={routes.person({ id: person().id })} class="qa-friend-link me-auto min-w-0 text-decoration-none">
+          <div class="fw-semibold">{displayName(person())}</div>
+          <div class="qa-friend-stats small text-body-secondary d-flex flex-wrap column-gap-2">
+            <Show when={props.friend.language}>{(l) => <span class="qa-friend-language">{LANGUAGE_FLAGS[l()]} {languageName(l())}</span>}</Show>
+            <span class="qa-friend-stars text-nowrap" aria-label={t("friends.stars", { n: props.friend.stars })}>
+              <i class="bi bi-star-fill text-warning me-1" aria-hidden="true" />{props.friend.stars}
+            </span>
+            <span class="qa-friend-week text-nowrap">{t("friends.lessonsWeek", { n: props.friend.lessonsWeek })}</span>
+          </div>
         </A>
         <Show when={!props.racing}>
           <button type="button" class="qa-race-open btn btn-sm btn-outline-primary" onClick={() => setOpen(!open())}>{t("race.open")}</button>

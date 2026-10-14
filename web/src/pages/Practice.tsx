@@ -39,6 +39,10 @@ async function loadDeck(mode: SessionMode, lang: Language, lessonId: string | un
   return { title: lesson.title, units, start: next < units.length ? next : 0, lessonId: lesson.id, seen: lesson.seen };
 }
 
+const OUTCOMES: Outcome[] = ["clean", "hinted", "corrected", "revealed"];
+/** The Done tally's color for each outcome the run had any of. */
+const TALLY_COLOR: Record<Outcome, string> = { clean: "text-success", hinted: "text-orange", corrected: "text-danger", revealed: "text-danger" };
+
 const minutes = (ms: number) => {
   const s = Math.round(ms / 1000);
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
@@ -167,7 +171,16 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
             </Show>
             <h2 class="h5">{props.deck.units.length === 0 ? t("practice.nothing") : t("practice.done")}</h2>
             <Show when={props.deck.units.length > 0}>
-              <p class="mb-0">{t("practice.tally", tally())}</p>
+              <p class="mb-0">
+                <For each={OUTCOMES}>
+                  {(o, i) => (
+                    <>
+                      {i() > 0 && ", "}
+                      <span class={`qa-tally-${o}`} classList={{ [TALLY_COLOR[o]]: tally()[o] > 0 }}>{t(`practice.tally.${o}`, { n: tally()[o] })}</span>
+                    </>
+                  )}
+                </For>.
+              </p>
             </Show>
             <Show when={props.deck.units.length > 0 && props.deck.lessonId} keyed>
               {(id) => (

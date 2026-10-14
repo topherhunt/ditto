@@ -256,7 +256,7 @@ test("Review with nothing due says so in green and links to the next lesson inst
   await expect(page).toHaveURL(/\/it\/type\/lesson\//);
 });
 
-test("a finished course folds to its title, and opens on click", async ({ page }) => {
+test("a finished course folds to its title, says it's complete with its stars, and opens on click", async ({ page }) => {
   await signIn(page, "folds1@example.com");
   await completeLesson(page, "it-a1-bar-1");
   await completeLesson(page, "it-a1-bar-2");
@@ -266,6 +266,9 @@ test("a finished course folds to its title, and opens on click", async ({ page }
   const bar = page.locator(".qa-course-it-a1-bar");
   await expect(bar).toHaveClass(/qa-course-folded/);
   await expect(bar.locator(".qa-lesson")).toHaveCount(0);
+  await expect(bar.locator(".qa-course-complete")).toHaveText("Complete");
+  await expect(bar.locator(".qa-course-stars")).toHaveText("4 / 6 stars");
+  await expect(page.locator(".qa-course-it-a1-tea .qa-course-complete")).toHaveCount(0);
   await expect(page.locator(".qa-course-it-a1-tea .qa-lesson")).toHaveCount(1);
 
   await bar.locator(".qa-course-toggle").click();
@@ -329,7 +332,7 @@ test("an answer graded wrong can be reported as one that should be accepted", as
   await expect(page.locator(".qa-report-sent")).toBeVisible();
 });
 
-test("finishing a lesson celebrates, and Enter goes back to the lessons", async ({ page }) => {
+test("finishing a lesson celebrates, colors the tally's nonzero misses, and Enter goes back to the lessons", async ({ page }) => {
   await signIn(page, "learner8@example.com");
   await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
@@ -341,6 +344,10 @@ test("finishing a lesson celebrates, and Enter goes back to the lessons", async 
   }
   await expect(page.locator(".qa-session-done .qa-tada")).toBeVisible();
   await expect(page.locator(".qa-session-done .qa-tada-spark")).toHaveCount(10);
+  // Every item took the full hint, so all were revealed and none perfect.
+  await expect(page.locator(".qa-tally-revealed")).toHaveClass(/text-danger/);
+  await expect(page.locator(".qa-tally-clean")).toHaveText("0 perfect");
+  await expect(page.locator(".qa-tally-clean")).not.toHaveClass(/text-success/);
   await expect(page.locator(".qa-back")).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page.locator(".qa-lesson-start").first()).toBeVisible();

@@ -73,18 +73,24 @@ export function Home() {
                         /** Only a finished course folds. */
                         const done = () => course.lessons.every((l) => lessonDone(cat(), l.id));
                         const folded = () => done() && (toggled()[course.id] ?? true);
+                        const starCount = () => course.lessons.reduce((n, l) => n + (cat().stars[l.id]?.stars ?? 0), 0);
                         return (
                           <section class={`qa-course qa-course-${course.id} card`} classList={{ "qa-course-locked opacity-50": !open(), "qa-course-folded": folded() }}>
                             <div class="card-body">
-                              <div class="d-flex align-items-baseline gap-2">
-                                <h3 class="h5 mb-0">
+                              {/* A done course's title truncates so its status stays on one line. */}
+                              <div class="d-flex align-items-baseline gap-2" classList={{ "flex-nowrap text-nowrap": done() }}>
+                                <h3 class="h5 mb-0 min-w-0">
                                   <Show when={done()} fallback={course.title}>
-                                    <button type="button" class="qa-course-toggle btn btn-link p-0 fs-5 fw-medium text-reset text-decoration-none" aria-expanded={!folded()}
+                                    <button type="button" class="qa-course-toggle btn btn-link p-0 fs-5 fw-medium text-reset text-decoration-none text-truncate mw-100 align-baseline" aria-expanded={!folded()}
                                       onClick={() => setToggled((m) => ({ ...m, [course.id]: !folded() }))}>
                                       <span aria-hidden="true" class="small">{folded() ? "▸" : "▾"}</span> {course.title}
                                     </button>
                                   </Show>
                                 </h3>
+                                <Show when={done()}>
+                                  <span class="qa-course-complete small text-success fw-semibold ms-auto">{t("home.courseComplete")}</span>
+                                  <span class="qa-course-stars small text-body-secondary">{t("home.courseStars", { n: starCount(), total: 3 * course.lessons.length })}</span>
+                                </Show>
                                 <Show when={course.track === "optional"}><span class="qa-course-optional badge text-bg-info">{t("home.optional")}</span></Show>
                                 <Show when={!open()}><span class="badge text-bg-secondary">{t("home.locked")}</span></Show>
                               </div>

@@ -223,6 +223,7 @@ export function registerConversation(app: Hono<{ Variables: { user: User } }>, d
       levels: (db.prepare("SELECT level FROM conversation_turns WHERE conversation_id = ? AND role = 'learner' AND level IS NOT NULL ORDER BY id").all(r.id) as { level: string }[])
         .map((t) => t.level),
       reliance: reliance(r.id), replies: replyCount(r.id),
+      lastMessage: (db.prepare("SELECT text FROM conversation_turns WHERE conversation_id = ? ORDER BY id DESC LIMIT 1").get(r.id) as { text: string } | undefined)?.text ?? null,
     }));
     const weakPhrases = db.prepare("SELECT text, created_at AS createdAt FROM weak_phrases WHERE user_id = ? AND language = ? ORDER BY id DESC")
       .all(userId, language) as { text: string; createdAt: string }[];

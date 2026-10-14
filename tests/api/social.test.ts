@@ -66,10 +66,10 @@ describe("friend requests", () => {
     expect(notes.items[0]).toMatchObject({ kind: "friend_request", actor: { id: ana, username: "ana" }, read: false });
     expect((await t.req("GET", "/api/friends")).json.incoming.map((p: { id: string }) => p.id)).toEqual([ana]);
     expect((await t.req("POST", `/api/friends/${ana}/accept`, {})).status).toBe(200);
-    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ id: ana }], incoming: [] });
+    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ person: { id: ana } }], incoming: [] });
 
     await t.login(A);
-    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ id: bo }], outgoing: [] });
+    expect((await t.req("GET", "/api/friends")).json).toMatchObject({ friends: [{ person: { id: bo } }], outgoing: [] });
     expect((await t.req("GET", "/api/notifications")).json.items[0]).toMatchObject({ kind: "friend_accepted", actor: { id: bo } });
   });
 
@@ -345,6 +345,20 @@ describe("leaderboard", () => {
     await quizSession(t, 3);
     await quizSession(t, 2);
     expect(summary((await board(t)).rows)).toEqual([[1, "ana", 3, 4]]);
+  });
+
+  it("gives the friends list each friend's language, stars from every activity and lessons this week, counted as the leaderboard counts them", async () => {
+    const t = setup();
+    await accounts(t, A, B);
+    await befriend(t, A, B);
+    await t.login(A);
+    await completeBar1(t);
+    const typeStars = (t.deps.db.prepare("SELECT stars FROM lesson_stars WHERE user_id = ?").get(userRow(t, A)) as { stars: number }).stars;
+    conversation(t, A, 10, "2026-08-20T10:00:00.000Z");
+    await t.login(B);
+    const { friends } = (await t.req("GET", "/api/friends")).json;
+    expect(friends).toEqual([{ person: { id: idOf(t, A), username: "ana" }, language: "it", stars: typeStars + 1, lessonsWeek: 1 }]);
+    expect(summary((await board(t)).rows)).toContainEqual([1, "ana", 1, 2]);
   });
 
   it("counts a lesson at most once per UTC day, however many runs finish, but again on a later day (Master included)", async () => {

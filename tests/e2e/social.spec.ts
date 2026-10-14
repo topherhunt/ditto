@@ -77,6 +77,12 @@ test("befriend through the bell, see a friend's profile, play their locked lesso
   await expect(page.locator(".qa-notification").filter({ hasText: "accepted your friend request" })).not.toHaveClass(/\bactive\b/);
   await page.locator(".qa-notifications").click();
 
+  // Bo's friends list shows what Ana studies, her stars and her lessons this week.
+  await openFriends(page);
+  await expect(page.locator(".qa-friend .qa-friend-language")).toHaveText("🇮🇹 Italian");
+  await expect(page.locator(".qa-friend .qa-friend-stars")).toHaveText("1");
+  await expect(page.locator(".qa-friend .qa-friend-week")).toHaveText("Lessons this week: 1");
+
   // Ana's second lesson is now playable for Bo from the lesson list, and the done screen compares them.
   await page.goto("/it/type");
   await expect(page.locator(".qa-lesson-friend")).toHaveCount(1);
