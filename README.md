@@ -1,5 +1,7 @@
 # Ditto
 
+![A Ditto dictation lesson: an Italian sentence with Play and Slow buttons, letter boxes for each word, and Check, Hint and Show answer buttons](docs/screenshot.jpg)
+
 **Live at [ditto.topherhunt.com](https://ditto.topherhunt.com/)**
 
 Ditto is a dictation trainer for language learners. You listen to a word, phrase or sentence in the language you're learning, type what you hear, and get letter-level feedback. Then a quick meaning check makes sure you understood it, not just spelled it.
