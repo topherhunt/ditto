@@ -83,6 +83,12 @@ export function createApp(deps: AppDeps) {
   app.onError((err, c) => {
     if (err instanceof HTTPException) return c.json({ error: err.message }, err.status);
     if (err instanceof z.ZodError) return c.json({ error: "Invalid request", issues: err.issues }, 400);
+    // Node's error when the client closes the socket mid-request (a phone locking or losing signal): not a server fault, so no alert.
+    // The message check keeps an outbound connection reset, which shares the code, alerting.
+    if ((err as NodeJS.ErrnoException).code === "ECONNRESET" && err.message === "aborted") {
+      log.warn(`Client disconnected: ${c.req.method} ${c.req.path}`);
+      return c.json({ error: "Client disconnected" }, 400);
+    }
     log.error(`${c.req.method} ${c.req.path}`, err);
     void reportError(err);
     return c.json({ error: "Internal error" }, 500);
