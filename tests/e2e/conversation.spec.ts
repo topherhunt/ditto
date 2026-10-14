@@ -1,7 +1,7 @@
 import { expect, test } from "./fixtures.ts";
 import type { ConversationOut, GlossesOut, PartnerRetryResult, TurnOut } from "../../shared/api.ts";
 import { en } from "../../web/src/i18n/en.ts";
-import { recordPlays, signIn, signOut, type Played } from "./helpers.ts";
+import { recordPlays, routeLongAudio, signIn, signOut, type Played } from "./helpers.ts";
 
 // Chromium's fake microphone plays a tone, so recording works headless; the server's scripted coach fails a first try and passes a retry.
 test.use({ launchOptions: { args: ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"] } });
@@ -309,12 +309,7 @@ test("a conversation taller than the screen offers floating scroll-to-bottom and
 });
 
 test("a playing line's play button turns into a stop button that stops it", async ({ page }) => {
-  // 30 s of silence instead of the fake 0.1 s line, so it is still playing when the test looks.
-  const rate = 8000, data = 30 * rate * 2;
-  const wav = Buffer.alloc(44 + data);
-  wav.write("RIFF", 0); wav.writeUInt32LE(36 + data, 4); wav.write("WAVEfmt ", 8); wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
-  wav.writeUInt32LE(rate, 24); wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write("data", 36); wav.writeUInt32LE(data, 40);
-  await page.route("**/audio/*.wav", (route) => route.fulfill({ contentType: "audio/wav", body: wav }));
+  await routeLongAudio(page, "**/audio/*.wav");
   await signIn(page, "stopper@example.com");
   await page.goto("/it/talk");
   await page.locator(".qa-speak-starter").first().click();

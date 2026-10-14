@@ -1,7 +1,7 @@
 import { A, useParams } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
 import { MASTER_WAIT_MS, type AttemptOut, type CompareRow, type LessonOut, type LevelTestOut, type Prefs, type ReviewOut } from "../../../shared/api.ts";
-import { PATHS, type Language, type ServedUnit } from "../../../shared/content.ts";
+import { PATHS, type Language, type PracticePath, type ServedUnit } from "../../../shared/content.ts";
 import { api } from "../api.ts";
 import { Exercise } from "../components/Exercise.tsx";
 import { Stars } from "../components/Stars.tsx";
@@ -44,11 +44,11 @@ const minutes = (ms: number) => {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 };
 
-/** How the learner's latest run of the lesson compares with friends who played it; hidden without friends. */
-function Comparison(props: { lessonId: string; saves: Promise<unknown>[] }) {
+/** How the learner's latest run of the lesson compares with friends who played the same items the same way; hidden without friends. */
+function Comparison(props: { lessonId: string; path: PracticePath; master: boolean; saves: Promise<unknown>[] }) {
   const [rows] = createResource(async () => {
     await Promise.allSettled(props.saves);
-    return api.get<CompareRow[]>(`/api/lessons/${props.lessonId}/compare`);
+    return api.get<CompareRow[]>(`/api/lessons/${props.lessonId}/compare?path=${props.path}&master=${Number(props.master)}`);
   });
   return (
     <Show when={rows() && rows()!.length > 1}>
@@ -173,7 +173,7 @@ function Session(props: { deck: Deck; mode: SessionMode; lang: Language; level: 
               {(id) => (
                 <>
                   <EarnedStars saves={saves} />
-                  <Comparison lessonId={id} saves={saves} />
+                  <Comparison lessonId={id} path={prefs().path} master={props.mode === "master"} saves={saves} />
                 </>
               )}
             </Show>

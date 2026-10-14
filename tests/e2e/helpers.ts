@@ -103,6 +103,15 @@ export async function expectPageOpens(page: Page, url: string, marker?: string) 
 /** One audio play: the URL its audio was fetched from (or its own src, such as a recording's blob URL), volume, rate, and whether it played from memory (a blob URL or a decoded buffer). */
 export type Played = { src: string; volume: number; rate: number; fromMemory: boolean };
 
+/** Serves 30 s of silence for audio matching `glob`, so a clip is still playing when the test looks. */
+export async function routeLongAudio(page: Page, glob: string) {
+  const rate = 8000, data = 30 * rate * 2;
+  const wav = Buffer.alloc(44 + data);
+  wav.write("RIFF", 0); wav.writeUInt32LE(36 + data, 4); wav.write("WAVEfmt ", 8); wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
+  wav.writeUInt32LE(rate, 24); wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write("data", 36); wav.writeUInt32LE(data, 40);
+  await page.route(glob, (route) => route.fulfill({ contentType: "audio/wav", body: wav }));
+}
+
 /**
  * Logs every audio play to `window.played`, from audio elements and Web Audio alike. Clips play from blob URLs and decoded
  * buffers, so each is traced back to the URL whose response it was made from.

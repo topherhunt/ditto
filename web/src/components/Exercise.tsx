@@ -89,23 +89,32 @@ export function Exercise(props: {
   const voice = pickVoice(unit.audio);
   const url = unit.audio[voice]!;
   const audio = new Audio(cachedSrc(url));
-    const play = (rate = props.prefs.rate) => {
+  /** Which button's speed is playing, so that button turns into a stop button until the sentence ends. */
+  const [playing, setPlaying] = createSignal<"normal" | "slow" | null>(null);
+  // A pause queued by restarting the sentence fires once it is already playing again, so `paused` tells them apart.
+  for (const e of ["pause", "ended"]) audio.addEventListener(e, () => { if (audio.paused) setPlaying(null); });
+  audio.addEventListener("error", () => setPlaying(null));
+  const play = (slow = false) => {
     audio.pause();
     // Replays switch to the in-memory copy once it has loaded.
     const blob = loadedSrc(url);
     if (blob && audio.src !== blob) audio.src = blob;
     audio.currentTime = 0;
-    audio.playbackRate = rate;
-    audio.play().then(() => setAutoplayBlocked(false), () => setAutoplayBlocked(true));
+    audio.playbackRate = slow ? 0.75 : props.prefs.rate;
+    setPlaying(slow ? "slow" : "normal");
+    audio.play().then(() => setAutoplayBlocked(false), () => {
+      if (audio.paused) setPlaying(null);
+      setAutoplayBlocked(true);
+    });
   };
   onMount(() => {
     play();
     focusFirstOpen();
   });
   onCleanup(() => audio.pause());
-  const replay = (rate?: number) => {
+  const replay = (slow = false) => {
     if (!studying()) replays++;
-    play(rate);
+    play(slow);
   };
 
   /** Ends the study screen: the same audio plays again, now with the input to type it into. */
@@ -310,8 +319,14 @@ export function Exercise(props: {
     <div ref={card} class="qa-exercise card shadow-sm">
       <div class="card-body d-flex flex-column gap-3">
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <button type="button" class="qa-play btn btn-primary" onClick={() => replay()} title={t("exercise.replayTitle")}>{t("exercise.play")}</button>
-          <button type="button" class="qa-play-slow btn btn-outline-primary" onClick={() => replay(0.75)}>{t("exercise.slow")}</button>
+          <button type="button" class={`qa-play btn ${playing() === "normal" ? "qa-playing btn-danger" : "btn-primary"}`} title={t("exercise.replayTitle")}
+            onClick={() => (playing() === "normal" ? audio.pause() : replay())}>
+            <Show when={playing() === "normal"} fallback={t("exercise.play")}><i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}</Show>
+          </button>
+          <button type="button" class={`qa-play-slow btn ${playing() === "slow" ? "qa-playing btn-danger" : "btn-outline-primary"}`}
+            onClick={() => (playing() === "slow" ? audio.pause() : replay(true))}>
+            <Show when={playing() === "slow"} fallback={t("exercise.slow")}><i class="bi bi-stop-fill me-1" aria-hidden="true" />{t("speak.stop")}</Show>
+          </button>
           <Show when={autoplayBlocked()}><span class="small text-body-secondary">{t("exercise.pressPlay")}</span></Show>
           <span class="ms-auto badge text-bg-light text-uppercase">{t(`stage.${unit.stage}`)}</span>
         </div>

@@ -45,7 +45,7 @@ test("the dashboard's top row opens friends, the leaderboard and settings, and i
   }
 });
 
-test("the leaderboard button's badge shows your rank among friends in gold, silver, bronze or gray, and the friends button their count", async ({ page }) => {
+test("the leaderboard button's badge shows your weekly rank in gold, silver, bronze or gray, and the friends button their count", async ({ page }) => {
   await signIn(page, "dash9@example.com");
   for (const [rank, color] of [[1, "rank-1"], [2, "rank-2"], [3, "rank-3"], [4, "text-bg-secondary"]] as const) {
     await page.route("**/api/social-summary", (route) => route.fulfill({ json: { friends: 5, weekRank: rank } }));

@@ -417,7 +417,7 @@ describe("leaderboard", () => {
     expect(flags(friendsOnly.rows).sort()).toEqual([["ana", false], ["bob", true]]);
   });
 
-  it("ranks you among your friends who practiced this week, and has no rank without friends or without practice", async () => {
+  it("ranks you among everyone who practiced this week, friends or not, matching the leaderboard, and has no rank without practice", async () => {
     const t = setup();
     await accounts(t, A, B, C);
     await befriend(t, A, B);
@@ -429,13 +429,15 @@ describe("leaderboard", () => {
     await t.login(C);
     await completeBar1(t);
     await completeBar2(t);
-    expect(await summaryOf()).toEqual({ friends: 0, weekRank: null });
+    expect(await summaryOf()).toEqual({ friends: 0, weekRank: 1 });
     await t.login(B);
     await completeBar1(t);
     await completeBar2(t);
     expect(await summaryOf()).toEqual({ friends: 1, weekRank: 1 });
     await t.login(A);
-    expect(await summaryOf()).toEqual({ friends: 1, weekRank: 2 });
+    expect(await summaryOf()).toEqual({ friends: 1, weekRank: 3 });
+    const myRow = (await t.req("GET", "/api/leaderboard")).json.rows.find((r: { isMe: boolean }) => r.isMe);
+    expect(myRow.rank).toBe(3);
     t.clock.now = new Date("2026-09-07T00:00:00Z");
     expect(await summaryOf()).toEqual({ friends: 1, weekRank: null });
   });
@@ -614,12 +616,36 @@ describe("playing a friend's lessons", () => {
     await completeBar1(t);
 
     await t.login(B);
-    const rows = (await t.req("GET", "/api/lessons/it-a1-bar-1/compare")).json;
+    const rows = (await t.req("GET", "/api/lessons/it-a1-bar-1/compare?path=sentences&master=0")).json;
     expect(rows).toEqual([
       { person: expect.objectContaining({ id: bo }), isMe: true, items: 3, dictation: 100, meaning: 100, hints: 0, durationMs: 3000 },
       { person: expect.objectContaining({ id: ana }), isMe: false, items: 2, dictation: 50, meaning: 100, hints: 2, durationMs: 8000 },
     ]);
-    expect((await t.req("GET", "/api/lessons/nope/compare")).status).toBe(404);
+    expect((await t.req("GET", "/api/lessons/nope/compare?path=sentences&master=0")).status).toBe(404);
+    expect((await t.req("GET", "/api/lessons/it-a1-bar-1/compare")).status).toBe(400);
+  });
+
+  it("compares only the items the run covered, and a Master run only with Master runs", async () => {
+    const t = setup();
+    const [ana, bo] = await accounts(t, A, B);
+    await befriend(t, A, B);
+    const units = Array.from({ length: 10 }, (_, i) => `it-a1-bar-1-u${String(i + 1).padStart(2, "0")}`);
+    await t.login(A);
+    for (const u of units) await t.attempt(u, { outcome: u.endsWith("u01") ? "revealed" : "clean" });
+    later(t, MASTER_WAIT_MS);
+    for (const u of ["u06", "u08", "u10"]) expect((await t.attempt(`it-a1-bar-1-${u}`, { path: "sentences", master: true, hintsLevel: "none" })).status).toBe(200);
+    await t.login(B);
+    await t.attempt("it-a1-bar-1-u06", { path: "sentences", outcome: "corrected" });
+    for (const u of ["u08", "u10"]) await t.attempt(`it-a1-bar-1-${u}`, { path: "sentences" });
+
+    const compare = async (query: string) =>
+      ((await t.req("GET", `/api/lessons/it-a1-bar-1/compare?${query}`)).json as { person: { id: string }; items: number; dictation: number }[])
+        .map((r) => [r.person.id, r.items, r.dictation]);
+    expect(await compare("path=sentences&master=0")).toEqual([[bo, 3, 67], [ana, 3, 100]]);
+    expect(await compare("path=full&master=0")).toEqual([[bo, 3, 67], [ana, 10, 90]]);
+    await t.login(A);
+    // The word Ana missed in her first run is no part of her Master run, and Bo has no Master run to compare.
+    expect(await compare("path=sentences&master=1")).toEqual([[ana, 3, 100]]);
   });
 });
 

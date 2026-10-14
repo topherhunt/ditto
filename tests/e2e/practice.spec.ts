@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "./fixtures.ts";
 import type { AttemptBody, LessonOut } from "../../shared/api.ts";
-import { openPracticeSettings, recordPlays, setLearning, signIn, typeFullHint, type Played } from "./helpers.ts";
+import { openPracticeSettings, recordPlays, routeLongAudio, setLearning, signIn, typeFullHint, type Played } from "./helpers.ts";
 
 
 const slot = (page: Page, i: number) => page.locator(".qa-slot").nth(i);
@@ -102,8 +102,9 @@ test("an item's sentence and its words replay from memory without fetching them 
   await signIn(page, "replayer@example.com");
   await page.goto("/it/type");
   await page.locator(".qa-lesson-start").first().click();
-  // The first play streams the sentence while it loads into memory.
-  await expect.poll(async () => { await page.locator(".qa-play").click(); return (await last()).fromMemory; }).toBe(true);
+  // The first play streams the sentence while it loads into memory. A click while it still plays would stop it instead.
+  const replay = () => page.locator(".qa-play:not(.qa-playing)").click();
+  await expect.poll(async () => { await replay(); return (await last()).fromMemory; }).toBe(true);
   const sentence = (await last()).src;
   expect(sentence).toMatch(/\/audio\//);
   await slot(page, 0).fill("caffè");
@@ -113,11 +114,36 @@ test("an item's sentence and its words replay from memory without fetching them 
   expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
 
   const before = fetches.length;
-  await page.locator(".qa-play").click();
+  await replay();
   expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
   await page.locator(".qa-answer-word").first().click();
   expect(await last()).toMatchObject({ src: sentence, fromMemory: true });
   expect(fetches.length).toBe(before);
+});
+
+test("Play and Slow turn into a red stop button while the sentence plays", async ({ page }) => {
+  await routeLongAudio(page, "**/audio/**");
+  await signIn(page, "typestopper@example.com");
+  await page.goto("/it/type");
+  await page.locator(".qa-lesson-start").first().click();
+
+  // The sentence autoplays, so Play starts as a stop button.
+  const play = page.locator(".qa-play"), slow = page.locator(".qa-play-slow");
+  await expect(play).toHaveClass(/qa-playing btn-danger/);
+  await expect(play.locator(".bi-stop-fill")).toBeVisible();
+  await play.click();
+  await expect(play).toHaveClass(/btn-primary/);
+  await expect(play.locator(".bi-stop-fill")).toHaveCount(0);
+
+  await slow.click();
+  await expect(slow).toHaveClass(/qa-playing btn-danger/);
+  await expect(play).not.toHaveClass(/qa-playing/);
+  // Play restarts the sentence at normal speed, so Slow goes back to idle.
+  await play.click();
+  await expect(play).toHaveClass(/qa-playing/);
+  await expect(slow).toHaveClass(/btn-outline-primary/);
+  await play.click();
+  await expect(page.locator(".qa-playing")).toHaveCount(0);
 });
 
 test("free-text mode: lenient commas, a wrong end mark converts to slots, a wrong meaning pick", async ({ page }) => {

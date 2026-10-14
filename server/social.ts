@@ -3,11 +3,11 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 import {
   BOARD_SIZE, CHALLENGE_ACTIONS, ChallengeSchema, FRIEND_ACTIONS, FRIEND_REQUESTS_PER_DAY, FriendRequestSchema, LEADERBOARD_SIZE, LEADERBOARD_WINDOWS,
-  PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
+  CompareQuerySchema, PostBoardSchema, PublicIdSchema, RACE_DEADLINE_DAYS, type ActivityWindow, type BoardOut, type ChallengeOut, type CompareRow, type FriendSearchOut, type FriendsOut, type LanguageProfile,
   type LeaderboardOut, type LeaderboardRow, type LeaderboardWindow, type NotificationKind, type NotificationsOut, type Person, type Profile, type SocialSummaryOut,
   type Relation, UserReportSchema,
 } from "../shared/api.ts";
-import type { Language, ServedCourse, ServedLesson } from "../shared/content.ts";
+import { PATHS, type Language, type ServedCourse, type ServedLesson } from "../shared/content.ts";
 import type { AppDeps } from "./app.ts";
 import type { User } from "./auth.ts";
 import { transaction, type DB } from "./db.ts";
@@ -96,6 +96,14 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
          WHERE user_id = ? AND mode = 'learn' AND lesson_id IN (SELECT value FROM json_each(?))
        ) WHERE rn = 1`,
     ).all(userId, JSON.stringify(lessonIds)) as LatestAttempt[];
+  /** The latest attempt at each of the units within the learner's Master runs, or within their other learn runs. */
+  const latestRunAttempts = (userId: number, unitIds: string[], master: boolean) =>
+    db.prepare(
+      `SELECT outcome, meaning_correct, hints_used, duration_ms FROM (
+         SELECT *, row_number() OVER (PARTITION BY unit_id ORDER BY id DESC) AS rn FROM attempts
+         WHERE user_id = ? AND mode = 'learn' AND master = ? AND unit_id IN (SELECT value FROM json_each(?))
+       ) WHERE rn = 1`,
+    ).all(userId, Number(master), JSON.stringify(unitIds)) as LatestAttempt[];
   const accuracyOf = (rows: LatestAttempt[]) => {
     const asked = rows.filter((r) => r.meaning_correct !== null);
     return {
@@ -175,11 +183,9 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.get("/api/social-summary", (c) => {
     const me = c.get("user").id;
-    const friends = friendIds(db, me);
     const { ranked } = weeklyStats(db, new Set(courseOf.keys()), deps.now());
-    const group = new Set([me, ...friends]);
-    const place = ranked.filter((r) => group.has(r.userId)).findIndex((r) => r.userId === me) + 1;
-    return c.json<SocialSummaryOut>({ friends: friends.length, weekRank: friends.length && place ? place : null });
+    const place = ranked.findIndex((r) => r.userId === me) + 1;
+    return c.json<SocialSummaryOut>({ friends: friendIds(db, me).length, weekRank: place || null });
   });
 
   app.get("/api/friends/search", (c) => {
@@ -353,10 +359,13 @@ export function registerSocial(app: Hono<{ Variables: { user: User } }>, deps: A
 
   app.get("/api/lessons/:lessonId/compare", (c) => {
     const lessonId = c.req.param("lessonId");
-    if (!lessonById.has(lessonId)) throw new HTTPException(404, { message: `Unknown lesson ${lessonId}` });
+    const lesson = lessonById.get(lessonId);
+    if (!lesson) throw new HTTPException(404, { message: `Unknown lesson ${lessonId}` });
+    const { path, master } = CompareQuerySchema.parse(c.req.query());
+    const unitIds = lesson.units.filter((u) => (PATHS[path] as readonly string[]).includes(u.stage)).map((u) => u.id);
     const me = c.get("user").id;
     return c.json<CompareRow[]>([me, ...friendIds(db, me)].flatMap((id) => {
-      const rows = latestAttempts(id, [lessonId]);
+      const rows = latestRunAttempts(id, unitIds, master === "1");
       if (!rows.length) return [];
       const acc = accuracyOf(rows);
       return [{

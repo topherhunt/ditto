@@ -486,8 +486,8 @@ export type LeaderboardRow = {
   rank: number | null; person: Person; language: Language | null; lessonsWeek: number; lessonsAll: number; isMe: boolean; isFriend: boolean;
 };
 /**
- * What the dashboard's Friends and Leaderboard buttons show. `weekRank` is your place this week among you and your friends who
- * practiced, null while you haven't practiced this week or have no friends to rank against.
+ * What the dashboard's Friends and Leaderboard buttons show. `weekRank` is your place this week among everyone, the leaderboard's
+ * `rank`, null while you haven't practiced this week.
  */
 export type SocialSummaryOut = { friends: number; weekRank: number | null };
 /** The week runs from Monday 00:00 UTC. `rows` are your friends who practiced (only them with `?friends=1`), then the top learners with public profiles, best first, and you. */
@@ -544,6 +544,9 @@ export type LanguageProfile = {
   levelsDone: { level: string; at: string }[];
   recent: { lessonId: string; lessonTitle: string; courseTitle: string; completed: boolean; lastAt: string }[];
 };
+
+/** The run to compare: its path's items only, and Master runs only with Master runs. */
+export const CompareQuerySchema = z.strictObject({ path: PrefsSchema.shape.path, master: z.enum(["0", "1"]) });
 
 export type CompareRow = {
   person: Person;
